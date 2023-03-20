@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main>
       <h1 className='text-3xl font-bold underline'>Home Page</h1>
       <FeaturesSection />
       <LogoCloud />

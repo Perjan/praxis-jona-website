@@ -1,5 +1,6 @@
 import './globals.css'
 import NavLink from './NavLink'
+import Header from './Header'
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        </body>
     </html>
   )
 }
