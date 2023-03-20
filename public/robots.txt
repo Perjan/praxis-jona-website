@@ -1,0 +1,10 @@
+//robots.txt
+
+# Block all crawlers for in development
+User-agent: *
+Disallow: /
+
+## Enable in production
+# Allow all crawlers
+# User-agent: *
+# Allow: /
