@@ -1,6 +1,4 @@
-
-
-function Feature({ imageUrl, title, description }): JSX.Element {
+export default function MajorFeatureSection({ imageUrl, title = "", description = "" }): JSX.Element {
     return (
         <div className="bg-red-500">
             <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -37,23 +35,6 @@ function Feature({ imageUrl, title, description }): JSX.Element {
                     </div>
                 </div>
             </div>
-        </div>
-    )
-}
-
-export default function MajorFeatureSection(): JSX.Element {
-    return (
-        <div className="mx-auto">
-            <Feature
-                imageUrl="https://moneycoach.ai/wp-content/webpc-passthru.php?src=https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Ecosystem@2x-1368x681.png&nocache=1"
-                title="Boost your productivity. Start using our app today."
-                description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla."
-            />
-            <Feature
-                imageUrl="https://moneycoach.ai/wp-content/webpc-passthru.php?src=https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Ecosystem@2x-1368x681.png&nocache=1"
-                title="Boost your productivity. Start using our app today."
-                description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing sagittis vel nulla."
-            />
         </div>
     )
 }
