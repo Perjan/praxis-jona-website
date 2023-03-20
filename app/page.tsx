@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import Link from 'next/link'
 import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
+import NewsletterSection from './NewsletterSection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,6 +15,7 @@ export default function Home() {
       <h1 className='text-3xl font-bold underline'>Home Page</h1>
       <FeaturesSection />
       <LogoCloud />
+      <NewsletterSection />
     </main>
   );
 }
