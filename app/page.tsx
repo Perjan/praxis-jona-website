@@ -5,6 +5,7 @@ import Link from 'next/link'
 import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
+import MajorFeatureSection from './MajorFeatureSection'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,9 @@ export default function Home() {
       <h1 className='text-3xl font-bold underline'>Home Page</h1>
       <FeaturesSection />
       <LogoCloud />
+      <MajorFeatureSection />
+      <MajorFeatureSection />
+      <MajorFeatureSection />
       <NewsletterSection />
     </main>
   );
