@@ -1,4 +1,5 @@
 import './globals.css'
+import NavLink from './NavLink'
 
 export const metadata = {
   title: 'Create Next App',
