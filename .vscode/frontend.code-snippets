@@ -1,0 +1,80 @@
+{
+	"Next.js Page": {
+		"scope": "typescriptreact",
+		"prefix": "Page",
+		"body": [
+			"import React from 'react'",
+			"",
+			"export default function $1Page() {",
+			"  return <>",
+			"    $1",
+			"  </>",
+			"}"
+		]
+	},
+	"React Function Component": {
+		"scope": "typescriptreact",
+		"prefix": "Function Component",
+		"body": [
+			"import { FC } from 'react'",
+			"",
+			"export const $1: FC = () => {",
+			"  return <>",
+			"    $1",
+			"  </>",
+			"}"
+		]
+	},
+	"React Function Component with Props Interface": {
+		"scope": "typescriptreact",
+		"prefix": "Function Component with Props Interface",
+		"body": [
+			"import { FC } from 'react'",
+			"",
+			"export interface $1Props {}",
+			"export const $1: FC<$1Props> = () => {",
+			"  return <>",
+			"    $1",
+			"  </>",
+			"}"
+		]
+	},
+	"React Function Component with Props Interface & Children": {
+		"scope": "typescriptreact",
+		"prefix": "Function Component with Props Interface",
+		"body": [
+			"import { FC, PropsWithChildren } from 'react'",
+			"",
+			"export interface $1Props extends PropsWithChildren {}",
+			"export const $1: FC<$1Props> = ({ children }) => {",
+			"  return <>$0{children}</>",
+			"}"
+		]
+	},
+	"React Inline Function Component": {
+		"scope": "typescriptreact",
+		"prefix": "Inline Function Component",
+		"body": [
+			"const $1: FC$0 = () => <>",
+			"  $1",
+			"</>"
+		]
+	},
+	"React Inline Function Component with Props": {
+		"scope": "typescriptreact",
+		"prefix": "Inline Function Component with Props",
+		"body": [
+			"const $1Props = { }",
+			"const $1: FC$0<$1Props> = ({}) => <>",
+			"  $1",
+			"</>"
+		]
+	},
+	"CSS JSX-Attribute": {
+		"scope": "typescriptreact",
+		"prefix": "css jsx attribute",
+		"body": [
+			"className={''}"
+		]
+	}
+}

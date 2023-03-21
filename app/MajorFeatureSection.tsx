@@ -1,7 +1,9 @@
-export default function MajorFeatureSection({ imageUrl, title = "", description = "" }): JSX.Element {
+import Image
+ from "next/image"
+export default function MajorFeatureSection({ imageUrl, title = "", description = "" }) {
     return (
         <div className="bg-red-500">
-            <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+            <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-8 sm:py-8">
                 <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
                     <svg
                         viewBox="0 0 1024 1024"
@@ -25,7 +27,7 @@ export default function MajorFeatureSection({ imageUrl, title = "", description 
                         </p>
                     </div>
                     <div className="relative mt-16 h-80 lg:mt-8">
-                        <img
+                        <Image
                             className="absolute top-0 left-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
                             src={imageUrl}
                             alt="App screenshot"

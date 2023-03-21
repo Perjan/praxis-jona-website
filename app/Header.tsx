@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { Fragment, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
+import Image from 'next/image'
+
 import {
     ArrowPathIcon,
     Bars3Icon,
@@ -13,6 +15,8 @@ import {
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
+import { usePathname } from 'next/navigation'
+import { cn } from './lib/utils'
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -46,6 +50,8 @@ export function DownloadButton() {
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname();
+    console.log({pathname});
 
     return (
         <header className="bg-white">
@@ -53,7 +59,7 @@ export default function Header() {
                 <div className="flex lg:flex-1">
                     <Link href="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">MoneyCoach</span>
-                        <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+                        <Image priority={true} className="h-20 w-auto object-contain" src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" width={390} height={114} alt="" />
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
@@ -113,8 +119,13 @@ export default function Header() {
                             </Popover.Panel>
                         </Transition>
                     </Popover>
-
-                    <Link href="/features" className="text-sm font-semibold leading-6 text-gray-900">Features</Link>
+                    {["a", "b"].map( (item) =>
+                        <Link key={item} href="">{item}</Link>
+                    )}
+                    <Link href="/features" className={
+                        cn(pathname === "/features" ? "text-red-500" : "text-gray-900",
+                        "text-sm font-semibold leading-6")
+                    }>Features</Link>
                     <Link href="https://moneycoach.ai/getting-started-with-moneycoach/" className="text-sm font-semibold leading-6 text-gray-900">Guide</Link>
                     <Link href="https://moneycoach.ai/blog/" className="text-sm font-semibold leading-6 text-gray-900">Blog</Link>
                     <Link href="https://moneycoach.ai/financial-calculators/" className="text-sm font-semibold leading-6 text-gray-900">Calculators</Link>

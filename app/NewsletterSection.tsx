@@ -2,8 +2,6 @@
 
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react';
-import { json } from 'stream/consumers';
-import { cn } from './lib/utils';
 
 function isEmail(email: string): boolean {
   // Email regex pattern
@@ -48,7 +46,7 @@ const [email, setEmail] = useState("");
               <button
                 disabled={!isEmail(email)}
                 type="submit"
-                className="flex-none rounded-md bg-indigo-500 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:bg-indigo-500/10"
+                className="flex-none rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:bg-indigo-500/10"
                 onClick={async () => {
                   // setButtonDisabled(true);
                   const response = await fetch('/api/mailchimp', {
