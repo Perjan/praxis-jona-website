@@ -13,7 +13,15 @@ const nextConfig = {
         protocol: 'http',
         hostname: '**',
       }
-    ],
+    ]
+  },
+  rewrites: async () => {
+    return [
+      {
+        source: "/playground",
+        destination: "/index.html"
+      }
+    ]
   }
 }
 
