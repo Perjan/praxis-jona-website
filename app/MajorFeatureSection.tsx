@@ -1,6 +1,6 @@
 import Image
  from "next/image"
-export default function MajorFeatureSection({ imageUrl, title = "", description = "" }) {
+export default function MajorFeatureSection({ imageUrl = "", title = "", description = "" }) {
     return (
         <div className="bg-red-500">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-8 sm:py-8">

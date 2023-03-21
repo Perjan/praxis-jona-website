@@ -10,6 +10,7 @@ export default function Features() {
         // {
             featuresList.map((item) => (
                 <MajorFeatureSection
+                    key={item.title}
                     imageUrl=""
                 />
             ))

@@ -23,7 +23,7 @@ const [email, setEmail] = useState("");
           <div className="max-w-xl lg:max-w-lg">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
-              Ever wondered what it takes to run an indipendent app business? Then subscribe to our newsletter. I will share with you everything that's happening inside MoneyCoach.
+              Ever wondered what it takes to run an indipendent app business? Then subscribe to our newsletter. I will share with you everything that is happening inside MoneyCoach.
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
