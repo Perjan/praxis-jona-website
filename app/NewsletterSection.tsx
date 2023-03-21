@@ -1,7 +1,24 @@
+"use client"
+
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
+import { useState } from 'react';
+import { json } from 'stream/consumers';
+import { cn } from './lib/utils';
+
+function isEmail(email: string): boolean {
+  // Email regex pattern
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  return emailPattern.test(email);
+}
 
 export default function NewsletterSection() {
+
+const [email, setEmail] = useState("");
+
   return (
+    <>
+    <pre>{JSON.stringify(email)}</pre>
     <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
@@ -18,14 +35,34 @@ export default function NewsletterSection() {
                 id="email-address"
                 name="email"
                 type="email"
-                // autoComplete="email"
+                value={email}
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Enter your email lalal"
+                placeholder="Enter your email"
+                onChange={ (e) => {
+                  const email = e.target.value;
+                  setEmail(email)
+                  // setButtonDisabled();
+                }}
               />
               <button
+                disabled={!isEmail(email)}
                 type="submit"
-                className="flex-none rounded-md bg-indigo-500 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="flex-none rounded-md bg-indigo-500 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:bg-indigo-500/10"
+                onClick={async () => {
+                  // setButtonDisabled(true);
+                  const response = await fetch('/api/mailchimp', {
+                    method: 'POST',
+                    body: JSON.stringify(email),
+                  });
+                
+                  if (response.ok) {
+                    // Success! The user has been subscribed to the list.
+                    setEmail("");
+                  } else {
+                    // There was an error subscribing the user. Handle the error here.
+                  }
+                }}
               >
                 Subscribe
               </button>
@@ -78,5 +115,6 @@ export default function NewsletterSection() {
         </defs>
       </svg>
     </div>
+    </>
   )
 }
