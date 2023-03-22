@@ -6,7 +6,7 @@ const nextConfig = {
   // reactStrictMode: true,
   experimental: {
     appDir: true,
-    mdxRs: true,
+    // mdxRs: true,
   },
   images: {
     remotePatterns: [

@@ -1,7 +1,8 @@
 import Head from "next/head"
 import Link from 'next/link'
+import { notFound } from 'next/navigation';
 import { compareDesc, format, parseISO } from 'date-fns'
-import { Post, allPosts } from 'contentlayer/generated'
+import { allPosts } from 'contentlayer/generated'
 // import { useNavigation } from 'next/navigation'
 
 // export async function generateStaticParams() {
@@ -10,15 +11,28 @@ import { Post, allPosts } from 'contentlayer/generated'
 //   }));
 // }
 
+// interface Params {
+//   slug: string
+// }
+
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
-export default async function PostLayout() {
+export default async function PostLayout({ params }) {
   // const router = useNavigation()
     //same name as name of your file, can be [slug].js; [specialId].js - any name you want
   // const { slug } = router.query;
-  const post: Post = allPosts.find((post) => post.slug === params.slug);
+  console.log({params});
+
+  const post = allPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
-    // notFound();
+    notFound();
   }
 
   // const tweets = await getTweets(post.tweetIds);
