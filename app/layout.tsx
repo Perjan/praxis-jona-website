@@ -1,10 +1,11 @@
 import './globals.css'
 import NavLink from './NavLink'
 import Header from './Header'
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: "MoneyCoach.ai"
-//TODO: add here everything
+  //TODO: add here everything
 
 }
 
@@ -18,7 +19,8 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
-        </body>
+        <Analytics />
+      </body>
     </html>
   )
 }
