@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import FeaturesSection from './FeaturesSection'
@@ -7,7 +7,7 @@ import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
