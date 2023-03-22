@@ -17,6 +17,10 @@ export const Post = defineDocumentType(() => ({
     },
   },
   computedFields: {
+    slug: {
+        type: 'string',
+        resolve: (doc) => doc._raw.flattenedPath,
+      },
     url: {
       type: "string",
       resolve: (post) => `/posts/${post._raw.flattenedPath}`,
@@ -25,6 +29,6 @@ export const Post = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-  contentDirPath: "data", // Source directory where the content is located
+  contentDirPath: "posts", // Source directory where the content is located
   documentTypes: [Post],
 });

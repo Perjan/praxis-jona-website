@@ -24,7 +24,7 @@ const navigationItems = [
     { title: "Guide", href: "https://moneycoach.ai/getting-started-with-moneycoach/" },
     { title: "Company", href: "/company" },
     { title: "Contact", href: "/contact" },
-    { title: "Blog", href: "https://moneycoach.ai/blog/" }
+    { title: "Blog-beta", href: "/posts" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"

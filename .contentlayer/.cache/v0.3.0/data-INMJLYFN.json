@@ -1,0 +1,28 @@
+{
+  "cacheItemsMap": {
+    "impressum.md": {
+      "document": {
+        "title": "Impressum",
+        "date": "2021-12-24T00:00:00.000Z",
+        "body": {
+          "raw": "\n# Impressum\n\n### Angaben gemäß § 5 TMG:\n\nc/o Volkssolidarität e. V. Alte Schönhauser Straße 16, 10119 Berlin\n\n#### Vertreten durch:\n\nPerjan Duro\n\n#### Kontakt:\n\n<table><tbody><tr><td>Telefon:</td><td>+49 30 92147594</td></tr><tr><td>Telefax:</td><td>+49 30 92147594</td></tr><tr><td>E-Mail:</td><td>info@moneycoach-app.com</td></tr><tr><td>Web:</td><td>http://www.moneycoach-app.com</td></tr></tbody></table>\n\n#### Registereintrag:\n\nEintragung im Handelsregister.\n\nRegistergericht: Amtsgericht Berlin Charlottenburg Registernummer: HRB 187249\n\n#### Umsatzsteuer-ID:\n\nUmsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: USt-IdNr: DE307955628\n\n#### Hinweis auf EU-Streitschlichtung\n\nDie Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: [http://ec.europa.eu/consumers/odr](http://ec.europa.eu/consumers/odr) Unsere E-Mail-Adresse finden sie oben im Impressum.\n\nQuelle: _[http://www.e-recht24.de](http://www.e-recht24.de/impressum-generator.html)_\\[/vc\\_column\\_text\\]\\[/vc\\_column\\]\\[vc\\_column width=\"1/3\"\\]\\[ult\\_dualbutton button1\\_text=\"English\" icon\\_link=\"url:http%3A%2F%2Fmoneycoach.ai%2Fimprint%2F\" button2\\_text=\"German\" btn\\_icon\\_link=\"url:http%3A%2F%2Fmoneycoach.ai%2Fimpressum%2F\" divider\\_text=\"or\"\\]\\[/vc\\_column\\]\\[/vc\\_row\\]\n",
+          "html": "<h1>Impressum</h1>\n<h3>Angaben gemäß § 5 TMG:</h3>\n<p>c/o Volkssolidarität e. V. Alte Schönhauser Straße 16, 10119 Berlin</p>\n<h4>Vertreten durch:</h4>\n<p>Perjan Duro</p>\n<h4>Kontakt:</h4>\n<h4>Registereintrag:</h4>\n<p>Eintragung im Handelsregister.</p>\n<p>Registergericht: Amtsgericht Berlin Charlottenburg Registernummer: HRB 187249</p>\n<h4>Umsatzsteuer-ID:</h4>\n<p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz: USt-IdNr: DE307955628</p>\n<h4>Hinweis auf EU-Streitschlichtung</h4>\n<p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href=\"http://ec.europa.eu/consumers/odr\">http://ec.europa.eu/consumers/odr</a> Unsere E-Mail-Adresse finden sie oben im Impressum.</p>\n<p>Quelle: <em><a href=\"http://www.e-recht24.de/impressum-generator.html\">http://www.e-recht24.de</a></em>[/vc_column_text][/vc_column][vc_column width=\"1/3\"][ult_dualbutton button1_text=\"English\" icon_link=\"url:http%3A%2F%2Fmoneycoach.ai%2Fimprint%2F\" button2_text=\"German\" btn_icon_link=\"url:http%3A%2F%2Fmoneycoach.ai%2Fimpressum%2F\" divider_text=\"or\"][/vc_column][/vc_row]</p>"
+        },
+        "_id": "impressum.md",
+        "_raw": {
+          "sourceFilePath": "impressum.md",
+          "sourceFileName": "impressum.md",
+          "sourceFileDir": ".",
+          "contentType": "markdown",
+          "flattenedPath": "impressum"
+        },
+        "type": "Post",
+        "slug": "impressum",
+        "url": "/posts/impressum"
+      },
+      "documentHash": "1679415096670",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    }
+  }
+}

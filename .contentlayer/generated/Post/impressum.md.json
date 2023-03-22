@@ -14,5 +14,6 @@
     "flattenedPath": "impressum"
   },
   "type": "Post",
+  "slug": "impressum",
   "url": "/posts/impressum"
 }

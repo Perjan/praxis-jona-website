@@ -19,6 +19,7 @@ export type Post = {
   date: IsoDateTimeString
   /** Markdown file body */
   body: Markdown
+  slug: string
   url: string
 }  
 
