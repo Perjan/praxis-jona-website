@@ -25,9 +25,9 @@ export async function generateStaticParams() {
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 export default async function PostLayout({ params }) {
   // const router = useNavigation()
-    //same name as name of your file, can be [slug].js; [specialId].js - any name you want
+  //same name as name of your file, can be [slug].js; [specialId].js - any name you want
   // const { slug } = router.query;
-  console.log({params});
+  console.log({ params });
 
   const post = allPosts.find((post) => post.slug === params.slug);
 
@@ -38,22 +38,22 @@ export default async function PostLayout({ params }) {
   // const tweets = await getTweets(post.tweetIds);
 
   return (
-    <article className="prose">
-      <section>
-        <script type="application/ld+json">
-          {/* {JSON.stringify(post.structuredData)} */}
-        </script>
-        <h1 className="font-bold text-3xl font-serif max-w-[650px]">
-          {post.title}
-        </h1>
-        <div className="grid grid-cols-[auto_1fr_auto] items-center mt-4 mb-8 font-mono text-sm max-w-[650px]">
-          <div className="rounded-md px-2 py-1 tracking-tighter">
-            {format(parseISO(post.date), "LLLL d, yyyy")}
-          </div>
-        </div>
-        {/* <Mdx code={post.body.code} tweets={tweets} /> */}
-        <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
-      </section>
-    </article>
+    <div className="py-32 px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+        <article className="prose">
+          <section>
+            <script type="application/ld+json">
+              {/* {JSON.stringify(post.structuredData)} */}
+            </script>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              {post.title}
+            </h1>
+            <p className="text-base font-semibold leading-7 text-indigo-600 mb-6">{format(parseISO(post.date), "LLLL d, yyyy")}</p>
+            {/* <Mdx code={post.body.code} tweets={tweets} /> */}
+            <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+          </section>
+        </article>
+      </div>
+    </div>
   );
 }
