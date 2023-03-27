@@ -23,7 +23,7 @@
         "name": "next"
       }
     ],
-    "strictNullChecks": true
+    // "strictNullChecks": true
   },
   "include": [
     "next-env.d.ts",

@@ -2,8 +2,8 @@ import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `**/*.md`, // Type of file to parse (every mdx in all subfolders)
-//   contentType: 'md',
+  filePathPattern: `**/*.mdx`, // Type of file to parse (every mdx in all subfolders)
+  contentType: 'mdx',
   fields: {
     title: {
       type: "string",
@@ -31,4 +31,8 @@ export const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: "posts", // Source directory where the content is located
   documentTypes: [Post],
+  mdx: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
 });
