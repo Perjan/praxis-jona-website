@@ -15,6 +15,11 @@ export const Post = defineDocumentType(() => ({
       description: "The date of the post",
       required: true,
     },
+    coverImage: {
+      type: "string",
+      description: "The filename of the cover image",
+      required: false,
+    }
   },
   computedFields: {
     slug: {
@@ -24,6 +29,10 @@ export const Post = defineDocumentType(() => ({
     url: {
       type: "string",
       resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+    },
+    coverImageUrl: {
+      type: "string",
+      resolve: (post) => `/images/blog-images/${post.coverImage}`,
     },
   },
 }));

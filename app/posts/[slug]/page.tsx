@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from 'next/link'
+import Image from "next/image";
 import { notFound } from 'next/navigation';
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
@@ -58,6 +59,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <script type="application/ld+json">
               {/* {JSON.stringify(post.structuredData)} */}
             </script>
+            <Image src={post.coverImageUrl} width={1000} height={400} alt={post.title} />
             <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight text-red-400 sm:text-4xl">
               {post.title}
             </h1>
