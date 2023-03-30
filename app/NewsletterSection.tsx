@@ -16,7 +16,6 @@ const [email, setEmail] = useState("");
 
   return (
     <>
-    <pre>{JSON.stringify(email)}</pre>
     <div className="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
@@ -46,7 +45,7 @@ const [email, setEmail] = useState("");
               <button
                 disabled={!isEmail(email)}
                 type="submit"
-                className="flex-none rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 disabled:bg-indigo-500/10"
+                className="flex-none rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-black shadow-sm enabled:hover:bg-indigo-400 disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 onClick={async () => {
                   // setButtonDisabled(true);
                   const response = await fetch('/api/mailchimp', {
