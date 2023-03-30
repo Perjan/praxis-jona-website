@@ -9,6 +9,11 @@ import MajorFeatureSection from './MajorFeatureSection'
 import HeroSection from './HeroSection'
 import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
 import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProductScreenshotOnDark'
+import AppleWatchSection from './AppleWatchSection'
+import FeatureSectionWithProductScreenshotPanel from './FeatureSectionWithProductScreenshotPanel'
+import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
+import FaqSection from './FaqSection'
+import ContactSection from './Contact'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +22,6 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <FeaturesSection />
       <LogoCloud />
       <MajorFeatureSection 
         title='Track all your accounts in one place'
@@ -34,7 +38,20 @@ export default function Home() {
 
       <FeatureSectionWithProductScreenshotOnDark />
 
+      <AppleWatchSection />
+
+      <FeatureSectionWithProductScreenshotPanel />
+
+      <AppleLovesMoneyCoachSection />
+
+      <FeaturesSection />
+
+      <FaqSection />
+  
       <NewsletterSection />
+
+      <ContactSection />
+      
     </main>
   );
 }

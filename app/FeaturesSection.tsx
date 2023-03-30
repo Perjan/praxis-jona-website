@@ -1,28 +1,32 @@
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
+const sectionTitle = "Packed with features"
+const title = "MoneyCoach has a ton of helpful and powerful features."
+const description = ""
+
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Multi-currency Support',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
+      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Smart Budgets & Goals',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
+      'Create smart budgets to stay on budget and smart goals to motivate yourself to save more money!',
     icon: LockClosedIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Deep iOS integration',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Enter transactions via Siri. Check your finances on your Lock/Home Screen via Widgets and Live Activies and so much more.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Extremely personalizable',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the app icon, app tint and more.',
     icon: FingerPrintIcon,
   },
 ]
@@ -32,13 +36,12 @@ export default function FeaturesSection() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">{sectionTitle}</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+            {title}
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+            {description}
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
