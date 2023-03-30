@@ -13,6 +13,7 @@ import AppleWatchSection from './AppleWatchSection'
 import FeatureSectionWithProductScreenshotPanel from './FeatureSectionWithProductScreenshotPanel'
 import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
 import FaqSection from './FaqSection'
+import ContactSection from './Contact'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -48,6 +49,9 @@ export default function Home() {
       <FaqSection />
   
       <NewsletterSection />
+
+      <ContactSection />
+      
     </main>
   );
 }

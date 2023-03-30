@@ -1,5 +1,4 @@
 import './globals.css'
-import NavLink from './NavLink'
 import Header from './Header'
 import { Analytics } from '@vercel/analytics/react';
 import Footer from './Footer';
