@@ -1,4 +1,4 @@
-const faqs = [
+export const faqs = [
     {
       id: 1,
       question: "What is MoneyCoach?",

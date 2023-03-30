@@ -12,6 +12,7 @@ import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProdu
 import AppleWatchSection from './AppleWatchSection'
 import FeatureSectionWithProductScreenshotPanel from './FeatureSectionWithProductScreenshotPanel'
 import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
+import FaqSection from './FaqSection'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -43,6 +44,8 @@ export default function Home() {
       <AppleLovesMoneyCoachSection />
 
       <FeaturesSection />
+
+      <FaqSection />
   
       <NewsletterSection />
     </main>
