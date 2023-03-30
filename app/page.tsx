@@ -8,6 +8,7 @@ import NewsletterSection from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
 import HeroSection from './HeroSection'
 import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
+import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProductScreenshotOnDark'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -24,6 +25,15 @@ export default function Home() {
         imageUrl='/images/allAccounts.png'
       />
       <FeatureWithLargeScreenshotSection />
+
+      <MajorFeatureSection 
+        title='Add your cash expenses in seconds'
+        description= {'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
+        imageUrl='/images/addTransactions2.png'
+      />
+
+      <FeatureSectionWithProductScreenshotOnDark />
+
       <NewsletterSection />
     </main>
   );
