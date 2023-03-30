@@ -1,0 +1,223 @@
+---
+title: "Test Scenarios For The New Sync Architecture"
+date: "2018-07-18"
+---
+
+Thanks for accepting to test the syncing architecture and be a pioneer for the new MoneyCoach. **Remember that this version of the app, MoneyCoach Development is a separate version and does not affect the data on your main app**.
+
+### Before Starting To Retest The Apps
+
+Here's how you prepare the environment again:
+
+1. Delete the app from your main and secondary device
+2. Delete iCloud data for moneyCoach-dev2 in the iCloud Setting on your device - [here is a guide on how to do so.](https://www.wikihow.com/Delete-Apps-from-iCloud) Be careful, the Development version does not have an app icon, it looks like the picture below![](images/IMG_3031.jpg)
+3. You are ready to follow the steps from the beginning!
+
+ 
+
+Here are two scenarios I would like you to test out:
+
+ 
+
+## Scenario 1 - With New Data
+
+### **Phase 1 - Install build 311 from Testflight on your main device**
+
+1. Accept Testflight invite in the email you have received
+2. Install Testflight if you haven't already
+3. Open Testflight
+4. Tap MoneyCoach Dev app (not install!)
+5. Scroll to Information and tap Previous Builds >
+6. Install **3.9 (311)** version
+7. Open MoneyCoach Dev App
+8. Skip Onboarding by tapping "I already did this on another device"
+9. Now add:
+    - 2 accounts
+    - 4 random transactions
+    - 2 budgets
+    - 2 new categories
+    - 2 transfers
+    - 2 repeating transactions
+    - 1 transaction with Payee
+10. Go to Settings > Data, turn Cloud Sync ON and select **Backup to Cloud**
+11. Wait for it to finish!
+12. Close the app and reopen it again
+13. Add another random transaction
+14. If you have a secondary device like an iPad, move to Phase 2. If not, move to Phase 3
+
+ 
+
+### **Phase 2 - Install build 311 from Testflight on your secondary device**
+
+1. Install Testflight if you haven't already
+2. Open Testflight
+3. Tap MoneyCoach Dev app (not install!)
+4. Scroll to Information and tap Previous Builds >
+5. Install **3.9 (311**) version
+6. Open MoneyCoach Dev App
+7. Skip Onboarding by tapping "I already did this on another device"
+8. Go to Settings > Data, turn Cloud Sync ON and select **Restore from Cloud**
+9. Wait for it to finish
+10. Compare the synced data with that of the main device, the data should be synced
+11. If it is not synced, [contact us](mailto: info@moneycoach-app.com?Subject=Phase 2 Problem)
+12. If it synced correctly, move on to Phase 3.
+
+ 
+
+### Phase 3 - Install build 312 from Testflight on your main device
+
+1. Open Testflight
+2. Tap MoneyCoach Dev app (not install!)
+3. Scroll to Information and tap Previous Builds >
+4. Install **3.9 (312)** version
+5. After the app opens, you should see the initial migration taking place.
+6. Wait for it to fully complete!
+7. After this finishes, you should still see all your existing transactions. If you don't see anything but 0, [contact us!](mailto: info@moneycoach-app.com?Subject=Phase 3 Problem 7)
+8. If you see your old data, add a new transaction. You should see the indicator next to the Wi-Fi indicator on the status bar spinning!
+9. Close the app completely.
+10. Open the app, you should see all your transactions plus the newly added one.
+11. If you don't see them, [contact us!](mailto: info@moneycoach-app.com?Subject=Phase 3 Problem 11)
+12. Close the app completely once again
+13. Turn on Airplane mode on your device, no mobile data, no WiFi
+14. Open the app
+15. You should still see all the transactions. If everything is wrong well, [contact us!](mailto: info@moneycoach-app.com?Subject=Phase 3 Problem 15) If everything is ok, turn Airplane mode OFF.
+16. If you have a secondary device, move on to Phase 4. If you only have one device and everything worked like a charm, amazing!
+
+ 
+
+### Phase 4 - Install build 312 from Testflight on your secondary device
+
+1. Open Testflight
+2. Tap MoneyCoach Dev app (not install!)
+3. Scroll to Information and tap Previous Builds >
+4. Install **3.9 (312)** version
+5. After the app opens, you should see that the migration is taking place.
+6. Wait for it to complete
+7. After this finishes, you should still see all your existing transactions. If you don't see them [contact us.](mailto: info@moneycoach-app.com?Subject=Phase 4 Problem 7)
+8. Add a new transaction
+9. Close the app
+10. Open your **main device**
+11. The new transaction should appear here. The speed will depend based on the internet connection, but it should sync fast. If you don't see it, [contact us.](mailto: info@moneycoach-app.com?Subject=Phase 4 Problem 11)
+12. Move on to the final phase!
+
+ 
+
+### Final Phase - GO CRAZY
+
+The sync between your devices should be up and running with no problems at all. Now, just go crazy.
+
+- Add new accounts, new transactions, new budgets, delete stuff on both devices and see what happens.
+- Turn Airplane Mode ON on one device, add stuff there. At the same time add stuff on your secondary device. Turn Airplane OFF and see what happens, see if the devices sync up.
+- Turn Cloud Sync switch OFF, add some stuff then turn if ON once more to see if devices sync.
+- Try to break the app(s), but always remember what you do as it is crucial if something wrong happens so that we can replicate and fix it before release.
+
+ 
+
+### Getting Ready For Retesting
+
+We need you to test this a couple of times. Here's how you prepare the environment again:
+
+1. Delete the app from your main and secondary device
+2. Delete iCloud data for moneyCoach-dev2 in the iCloud Setting on your device - [here is a guide on how to do so.](https://www.wikihow.com/Delete-Apps-from-iCloud) Be careful, the Development version does not have an app icon, it looks like the picture below![](images/IMG_3031.jpg)
+3. You are ready to follow the steps from the beginning or move on to Scenario 2!
+
+ 
+
+## Scenario 2 - With Your Old Data
+
+This scenario is nearly identical to the first one, with one exception that you will use your current MoneyCoach data to try and break the new sync.
+
+### **Phase 1 - Install build 311 from Testflight on your main device**
+
+1. Accept Testflight invite in the email you have received
+2. Install Testflight if you haven't already
+3. Open Testflight
+4. Tap MoneyCoach Dev app (not install!)
+5. Scroll to Information and tap Previous Builds >
+6. Install **3.9 (311)** version
+7. Open MoneyCoach Dev App
+8. Skip Onboarding by tapping "I already did this on another device"
+9. **Copy data from your MoneyCoach app to MoneyCoach Development via Dropbox, [click here to see how you do this!](https://moneycoach-app.com/how-to-do-the-initial-data-import-from-moneycoach-to-moneycoach-dev/)**
+10. Go to Settings > Data, Connect to Dropbox if you haven't already and Restore from Dropbox.
+11. Wait for it to finish!
+12. Turn Cloud Sync ON and select **Backup to Cloud**
+13. Wait for it to finish!
+14. Close the app and reopen it again
+15. Add another random transaction
+16. If you have a secondary device like an iPad, move to Phase 2. If not, move to Phase 3
+
+ 
+
+### **Phase 2 - Install build 311 from Testflight on your secondary device**
+
+1. Install Testflight if you haven't already
+2. Open Testflight
+3. Tap MoneyCoach Dev app (not install!)
+4. Scroll to Information and tap Previous Builds >
+5. Install **3.9 (311**) version
+6. Open MoneyCoach Dev App
+7. Skip Onboarding by tapping "I already did this on another device"
+8. Go to Settings > Data, turn Cloud Sync ON and select **Restore from Cloud**
+9. Wait for it to finish
+10. Compare the synced data with that of the main device, the data should be synced
+11. If it is not synced, [contact us](mailto: info@moneycoach-app.com?Subject=Scenario 2 Phase 2 Problem)
+12. If it synced correctly, move on to Phase 3.
+
+ 
+
+### Phase 3 - Install build 312 from Testflight on your main device
+
+1. Open Testflight
+2. Tap MoneyCoach Dev app (not install!)
+3. Scroll to Information and tap Previous Builds >
+4. Install **3.9 (312)** version
+5. After the app opens, you should see the initial migration taking place.
+6. Wait for it to fully complete!
+7. After this finishes, you should still see all your existing transactions. If you don't see anything but 0, [contact us!](mailto: info@moneycoach-app.com?Subject=Phase 3 Problem 7)
+8. If you see your old data, add a new transaction. You should see the indicator next to the Wi-Fi indicator on the status bar spinning!
+9. Close the app completely.
+10. Open the app, you should see all your transactions plus the newly added one.
+11. If you don't see them, [contact us!](mailto: info@moneycoach-app.com?Subject=Scenario 2 Phase 3 Problem 11)
+12. Close the app completely once again
+13. Turn on Airplane mode on your device, no mobile data, no WiFi
+14. Open the app
+15. You should still see all the transactions. If everything is wrong well, [contact us!](mailto: info@moneycoach-app.com?Subject=Scenario 2 Phase 3 Problem 15) If everything is ok, turn Airplane mode OFF.
+16. If you have a secondary device, move on to Phase 4. If you only have one device and everything worked like a charm, amazing!
+
+ 
+
+### Phase 4 - Install build 312 from Testflight on your secondary device
+
+1. Open Testflight
+2. Tap MoneyCoach Dev app (not install!)
+3. Scroll to Information and tap Previous Builds >
+4. Install **3.9 (312)** version
+5. After the app opens, you should see that the migration is taking place.
+6. Wait for it to complete
+7. After this finishes, you should still see all your existing transactions. If you don't see them [contact us.](mailto: info@moneycoach-app.com?Subject=Scenario 2 Phase 4 Problem 7)
+8. Add a new transaction
+9. Close the app
+10. Open your **main device**
+11. The new transaction should appear here. The speed will depend based on the internet connection, but it should sync fast. If you don't see it, [contact us.](mailto: info@moneycoach-app.com?Subject=Scenario 2 Phase 4 Problem 11)
+12. Move on to the final phase!
+
+ 
+
+### Final Phase - GO CRAZY
+
+The sync between your devices should be up and running with no problems at all. Now, just go crazy.
+
+- Add new accounts, new transactions, new budgets, delete stuff on both devices and see what happens.
+- Turn Airplane Mode ON on one device, add stuff there. At the same time add stuff on your secondary device. Turn Airplane OFF and see what happens, see if the devices sync up.
+- Turn Cloud Sync switch OFF, add some stuff then turn if ON once more to see if devices sync.
+- Try to break the app(s), but always remember what you do as it is crucial if something wrong happens so that we can replicate and fix it before release.
+
+### Getting Ready For Retesting
+
+We need you to test this a couple of times. Here's how you prepare the environment again:
+
+1. Delete the app from your main and secondary device
+2. Delete iCloud data for moneyCoach-dev2 in the iCloud Setting on your device - [here is a guide on how to do so.](https://www.wikihow.com/Delete-Apps-from-iCloud) Be careful, the Development version does not have an app icon, it looks like the picture below![](images/IMG_3031.jpg)
+3. You are ready to follow the steps from the beginning!
+
+**If you need any help with anything, send an email at info@moneycoach-app.com or via the live chat in the website or Facebook or WhatsApp +355695666024**

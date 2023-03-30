@@ -17,10 +17,13 @@ export type Post = {
   title: string
   /** The date of the post */
   date: IsoDateTimeString
+  /** The filename of the cover image */
+  coverImage?: string | undefined
   /** MDX file body */
   body: MDX
   slug: string
   url: string
+  coverImageUrl: string
 }  
 
 /** Nested types */

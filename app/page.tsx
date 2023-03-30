@@ -6,6 +6,9 @@ import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
+import HeroSection from './HeroSection'
+import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
+import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProductScreenshotOnDark'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -13,99 +16,25 @@ import MajorFeatureSection from './MajorFeatureSection'
 export default function Home() {
   return (
     <main>
-      <h1 className='text-3xl font-bold underline'>Home Page</h1>
+      <HeroSection />
       <FeaturesSection />
       <LogoCloud />
-      <MajorFeatureSection />
-      <MajorFeatureSection />
-      <MajorFeatureSection />
+      <MajorFeatureSection 
+        title='Track all your accounts in one place'
+        description= {'MoneyCoach grants you total control over all your accounts, cash included. Manually add and track all your offline bank accounts, savings accounts & credit cards. \n\nLog all incomes and expenses, and check your Net Worth in real time.'}
+        imageUrl='/images/allAccounts.png'
+      />
+      <FeatureWithLargeScreenshotSection />
+
+      <MajorFeatureSection 
+        title='Add your cash expenses in seconds'
+        description= {'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
+        imageUrl='/images/addTransactions2.png'
+      />
+
+      <FeatureSectionWithProductScreenshotOnDark />
+
       <NewsletterSection />
     </main>
   );
 }
-
-// export default function Home() {
-//   return (
-//     <main className={styles.main}>
-//       <div className={styles.description}>
-//         <p>
-//           Welcome to the new MoneyCoach Website&nbsp;
-//           <code className={styles.code}>app/page.tsx</code>
-//         </p>
-//         <div>
-//           <a
-//             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             By{' '}
-//             <Image
-//               src="/vercel.svg"
-//               alt="Vercel Logo"
-//               className={styles.vercelLogo}
-//               width={100}
-//               height={24}
-//               priority
-//             />
-//           </a>
-//         </div>
-//       </div>
-
-//       <div className={styles.center}>
-//         <Image
-//           className={styles.logo}
-//           src="/next.svg"
-//           alt="Next.js Logo"
-//           width={180}
-//           height={37}
-//           priority
-//         />
-//         <div className={styles.thirteen}>
-//           <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-//         </div>
-//       </div>
-
-//       <div className={styles.grid}>
-//         <a
-//           href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-//           className={styles.card}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <h2 className={inter.className}>
-//             Docs <span>-&gt;</span>
-//           </h2>
-//           <p className={inter.className}>
-//             Find in-depth information about Next.js features and API.
-//           </p>
-//         </a>
-
-//         <a
-//           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-//           className={styles.card}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <h2 className={inter.className}>
-//             Templates <span>-&gt;</span>
-//           </h2>
-//           <p className={inter.className}>Explore the Next.js 13 playground.</p>
-//         </a>
-
-//         <a
-//           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-//           className={styles.card}
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           <h2 className={inter.className}>
-//             Deploy <span>-&gt;</span>
-//           </h2>
-//           <p className={inter.className}>
-//             Instantly deploy your Next.js site to a shareable URL with Vercel.
-//           </p>
-//         </a>
-//       </div>
-//     </main>
-//   )
-// }
