@@ -1,4 +1,5 @@
 import Image from "next/image"
+
 export default function MajorFeatureSection({ imageUrl = "", title = "", description = "" }) {
     return (
         <div className="bg-red-500">
