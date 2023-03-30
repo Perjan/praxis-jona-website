@@ -7,6 +7,7 @@ import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
 import HeroSection from './HeroSection'
+import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -14,13 +15,15 @@ import HeroSection from './HeroSection'
 export default function Home() {
   return (
     <main>
-      <h1 className='text-3xl font-bold underline'>Home Page</h1>
       <HeroSection />
       <FeaturesSection />
       <LogoCloud />
-      <MajorFeatureSection />
-      <MajorFeatureSection />
-      <MajorFeatureSection />
+      <MajorFeatureSection 
+        title='Track all your accounts in one place'
+        description= {'MoneyCoach grants you total control over all your accounts, cash included. Manually add and track all your offline bank accounts, savings accounts & credit cards. \n\nLog all incomes and expenses, and check your Net Worth in real time.'}
+        imageUrl='/images/allAccounts.png'
+      />
+      <FeatureWithLargeScreenshotSection />
       <NewsletterSection />
     </main>
   );
