@@ -1,5 +1,27 @@
+"use client"
 
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+
+
+
+// create a form handler that sends the email using our api endpoint for sendgrid
+const formHandler = async (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const data = new FormData(form);
+
+    console.log(data);
+
+    const response = await fetch('/api/sendgrid', {
+        method: 'POST',
+        body: data,
+    });
+
+    const result = await response.json();
+    console.log(result);
+};
+
 
 export default function ContactSection() {
     return (
@@ -58,33 +80,19 @@ export default function ContactSection() {
                             </dl>
                         </div>
                     </div>
-                    <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+                    <form onSubmit={formHandler} className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                                 <div>
                                     <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        First name
+                                        Name
                                     </label>
                                     <div className="mt-2.5">
                                         <input
                                             type="text"
                                             name="first-name"
-                                            id="first-name"
+                                            id="name"
                                             autoComplete="given-name"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Last name
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="text"
-                                            name="last-name"
-                                            id="last-name"
-                                            autoComplete="family-name"
                                             className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
@@ -99,20 +107,6 @@ export default function ContactSection() {
                                             name="email"
                                             id="email"
                                             autoComplete="email"
-                                            className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="sm:col-span-2">
-                                    <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-                                        Phone number
-                                    </label>
-                                    <div className="mt-2.5">
-                                        <input
-                                            type="tel"
-                                            name="phone-number"
-                                            id="phone-number"
-                                            autoComplete="tel"
                                             className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         />
                                     </div>
