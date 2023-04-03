@@ -12,23 +12,32 @@ import { Post, allPosts } from 'contentlayer/generated'
 
 function PostCard(post: Post) {
   return (
-    <div className="mb-8">
-      <h2 className="text-xl">
+    <div className="flex max-w-xl flex-col items-start justify-between mb-10 mt-10">
+      <div className="flex items-center gap-x-4 text-xs">
+        <time dateTime={post.date} className="text-gray-500">
+          {format(parseISO(post.date), 'LLLL d, yyyy')}
+        </time>
+        {
+          post.categories?.map((item) => (
+            <a key={item} className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{item}</a>
+          ))
+        }
+
+        {
+        post.tags?.map((item) => (
+          <a key={item} className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{item}</a>
+        ))
+      }
+      </div>
+      
+      <h2 className="text-xl text-left">
         <Link
           href={post.url}
           className="text-blue-700 hover:text-blue-900"
-          legacyBehavior>
+          >
           {post.title}
         </Link>
       </h2>
-      <time dateTime={post.date} className="block text-xs text-gray-600 mb-2">
-        {format(parseISO(post.date), 'LLLL d, yyyy')}
-      </time>
-      {
-        post.tags?.map((tag) => (
-          <p className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{tag}</p>
-        ))
-      }
     </div>
   )
 }
@@ -41,10 +50,10 @@ export default function Home() {
 
       {
         allPosts
-        .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-        .map((post) => (
-        <PostCard key={post.slug} {...post} />
-      ))}
+          .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+          .map((post) => (
+            <PostCard key={post.slug} {...post} />
+          ))}
     </div>
   )
 }

@@ -44,7 +44,8 @@ function RoundedImage(props) {
     alt={props.alt} 
     width={1000}
     height={400}
-    className="rounded-lg" {...props} />;
+    className="rounded-lg shadow-lg" 
+    {...props} />;
 }
 
 const components = {
@@ -69,7 +70,13 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               {/* {JSON.stringify(post.structuredData)} */}
             </script>
             { (post.coverImage !== undefined) &&
-              <Image src={post.coverImageUrl} width={1000} height={400} alt={post.title} /> 
+              <Image 
+                className="rounded-lg shadow-lg" 
+                src={post.coverImageUrl}
+                width={1000} 
+                height={400} 
+                alt={post.title} 
+              /> 
             }
             
             <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight text-red-400 sm:text-4xl">
