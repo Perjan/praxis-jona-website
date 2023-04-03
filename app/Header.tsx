@@ -6,12 +6,7 @@ import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import Image from 'next/image'
 
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
@@ -27,7 +22,7 @@ const navigationItems = [
     { title: "Blog-beta", href: "/posts" }
 ]
 
-const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -37,7 +32,7 @@ export function DownloadButton() {
     return (
         <a
             href="#"
-            className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-gray-900 hover:text-yellow-50 hover:bg-indigo-600"
+            className="-mx-3 block rounded-xl bg-greenColor py-2.5 px-6 text-base font-semibold leading-7 text-gray-900 hover:text-yellow-50 hover:bg-primary"
         >
             Download App
         </a>
@@ -47,7 +42,7 @@ export function DownloadButton() {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
-    console.log({pathname});
+    console.log({ pathname });
 
     return (
         <header className="bg-white">
@@ -82,17 +77,17 @@ export default function Header() {
                         >
                         </Transition>
                     </Popover>
-                    {navigationItems.map( (item) =>
-                        <Link 
-                            key={item.title} 
+                    {navigationItems.map((item) =>
+                        <Link
+                            key={item.title}
                             href={item.href}
-                                className={
-                                    cn(pathname === item.href ? "text-red-500" : "text-gray-900",
+                            className={
+                                cn(pathname === item.href ? "text-primary" : "text-gray-900",
                                     "text-sm font-semibold leading-6")
-                                }
+                            }
                         >{item.title}
                         </Link>
-                        
+
                     )}
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -104,12 +99,11 @@ export default function Header() {
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="flex items-center justify-between">
                         <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">Your Company</span>
-                            <img
-                                className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                                alt=""
-                            />
+                            <span className="sr-only">MoneyCoach</span>
+                            {/* <Image 
+                            priority={true} 
+                            className="h-8 w-auto"
+                            src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" width={390} height={114} alt="" /> */}
                         </a>
                         <button
                             type="button"
@@ -123,13 +117,18 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                <Link href="/features" className={menuItemClassName}>Features</Link>
-                                <Link href="https://moneycoach.ai/getting-started-with-moneycoach/" className={menuItemClassName}>Guide</Link>
-                                <Link href="https://moneycoach.ai/blog/" className={menuItemClassName}>Blog</Link>
-                                <Link href="https://moneycoach.ai/financial-calculators/" className={menuItemClassName}>Calculators</Link>
-                                <Link href="/company" className={menuItemClassName}>Company</Link>
-                                <Link href="/contact" className={menuItemClassName}>Contact</Link>
+                                {navigationItems.map((item) =>
+                                    <Link
+                                        key={item.title}
+                                        href={item.href}
+                                        className={
+                                            cn(pathname === item.href ? "text-primary" : "text-gray-900",
+                                                menuItemClassName)
+                                        }
+                                    >{item.title}
+                                    </Link>
 
+                                )}
                             </div>
                             <div className="py-6">
                                 <DownloadButton />
