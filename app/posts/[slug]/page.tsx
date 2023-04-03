@@ -39,10 +39,19 @@ const H3 = (props) => {
   return <h3 className="">{props.children}</h3>
 }
 
+function RoundedImage(props) {
+  return <Image 
+    alt={props.alt} 
+    width={1000}
+    height={400}
+    className="rounded-lg" {...props} />;
+}
+
 const components = {
   // a: CustomLink,
   h1: H1,
   // h3: H3
+  img: RoundedImage
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
