@@ -1,0 +1,45 @@
+---
+title: "Getting Started: How To Import CSV Files In MoneyCoach"
+date: "2015-11-02"
+categories: 
+  - "guide"
+coverImage: "csv.png"
+---
+
+In MoneyCoach you can import your data as a CSV file. This file can be exported from your bank or from another app.
+
+Do not worry if your file has a different arrangement or is missing a field or two, just try to import it and see what happens. If importing that file doesn't work, please download the sample below to see how you can reformat the CSV and make it 100% compatible with our importer.
+
+[**MoneyCoach CSV Sample**](https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Data-Export-2023-01-17-11-52.csv)[Download](https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Data-Export-2023-01-17-11-52.csv)
+
+Since MoneyCoach it is deeply integrated with iOS document recognition, it can open any CSV, anywhere (Files, Mail, Dropbox, Drive etc).
+
+If your CSV file includes Transfers, those will be imported as two separate Income and Expense transactions.
+
+### Here's how you do it:
+
+1 - Open MoneyCoach, then go to Settings / Import & Export and tap the "Select File" button.
+
+![](/images/blog-images/IMG_1576-473x1024.png)
+
+2 - We use the Files app for attachments, so we will use the Files app in this tutorial. Upload the CSV file you want to import to the Files app that is linked to your iCloud Drive folder. Find and select the CSV file you want to import andd select it.
+
+![](/images/blog-images/Enlight24-473x1024.jpg)
+
+![](/images/blog-images/IMG_1577-473x1024.png)
+
+3 - Now will have to select the respective fields as you can see in the example screenshot. Now depending on the language, the CSV format, etc. some of the selectable fields may have different names or may not be there. Make sure to map all the required fields accordingly.
+
+![](/images/blog-images/IMG_1578-473x1024.png)
+
+4 - Once you select all the fields, it should look something like this. The file used in the example is a file exported from MoneyCoach. Your file might not have all the optional fields like description, currency, subcategory, person/company. If that is the case, select None or Don't Import for these fields.  
+
+5 - Once you are ready, tap the Import button and wait for the process to complete.
+
+![](/images/blog-images/IMG_7478-473x1024.png)
+
+Congratulations, you just imported your CSV file! It's that easy. If in the future, you will import a new file that has been imported before, MoneyCoach will automatically map all of the fields for you.
+
+Note: If the CSV file you are trying to import doesn't have just a (Transaction) Type column, which can be used to identify income and expense transactions, don't worry as there's a simple fix. There's a good chance that the Amount column might have both types of transactions where the expenses have a - (minus symbol) before. If that is the case, please select the "Calculate based on the amount field (+/-)" option when mapping the Type field.
+
+If the transactions are separated, meaning that you have separate Debit and Credit columns for income and expense transactions, you might need to do a little bit of reformatting. First, you need to add a minus before all the amounts in the Credit column. You can do that easily in Excel, check this [guide](https://www.extendoffice.com/documents/excel/677-excel-change-positive-numbers-to-negative.html). Once you do that, just merge both the Debit and Credit columns into one column called Amount. You can import that file as I explained above.

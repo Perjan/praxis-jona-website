@@ -1,0 +1,65 @@
+---
+title: "MoneyCoach in Arabic - A Journey Of Discovery and Understanding"
+date: "2022-04-28"
+categories: 
+  - "news"
+coverImage: "MoneyCoach-in-Arabic.png"
+---
+
+MoneyCoach is already available in many different languages. Localising an app usually is not as simple as just straight up translating your strings. Localisation is a more comprehensive process and addresses cultural and non-textual components as well as linguistic issues when adapting a product or service for another country or locale.
+
+For example in Italian, the word “transaction” is translated to “transazione” and it kinda works for MoneyCoach. However, the correct localised word and the one we use in the app is “movimento”, because that’s what the Italian people use in their everyday lives when they talk about a money transaction. 
+
+Many of our most dedicated users have helped us in localising the app in their own native languages and we couldn’t be more thankful for that.
+
+All of the languages we have supported so far in MoneyCoach have had one thing in common, they have all been a left-to-right language. Arabic is a right-to-left language and adding support for it in MoneyCoach included a little bit more work than we anticipated.
+
+Before I go any further, I have to give thanks to our dearest users Mohammed, Ali & Fuad for helping us fully localise and test MoneyCoach in Arabic.
+
+https://vimeo.com/704112057
+
+Right-to-left (RTL) language is really strange for someone like me who has only ever known and used left-to-right (LTR) languages. It’s not only the direction of the language that changes. If you use the Arabic language on your iPhone, everything gets flipped and that includes the user interface and how you navigate in the app. 
+
+As an LTR user going RTL, using something I helped creating and building looked strange and felt even stranger. It felt completely unnatural cause I wasn’t accustomed to it. It was at this moment when it hit me and I realised what we have put thousands of Arabic users through. Throughout all their lives, they have used products and services that have been RTL, now MoneyCoach “forced” them to go the unnatural LTR?
+
+![](/images/blog-images/Screenshot-2022-04-28-at-14.27.59-1024x985.png)
+
+## Xcode doing the heavylifting
+
+It’s moments like this one where you understand that what you’ve created is great and an extremely helpful product to the extent that users will keep using it even though it feels completely unnatural for them. We had to support the Arabic language and had to do it right.
+
+Lucky for us, iOS does most of the RTL conversion automatically so most of the things just worked. However, depending on you’ve built your app, it may need some work so that it works as it should both ways. This meant I had to manually test every screen on the all the supported devices and if something looked off, we had to find what caused it and fix it.
+
+Sometimes it was an AutoLayout constraint and sometimes it was something that needed to be changed in the Attribute inspector. A piece of code had to be removed here and another piece had to be refactored there.
+
+Handling string specifiers like “%2$@ %1$@“ in the localised Arabic strings was pretty hard on my brain. It was really hard understanding how to correctly add the specifier inside the localised string. Xcode, in this case, made it a lot harder as editing RTL strings is kinda buggy.
+
+Some places needed me to add some modifiers so images looked good in RTL.
+
+![](/images/blog-images/Artboard-Copy-3.png)
+
+In some other parts I had to use some ternary operators so that the correct icon appeared in the user interface.
+
+![](/images/blog-images/Artboard.png)
+
+Meanwhile, most of the SwiftUI views that have in MoneyCoach worked great out of the box. The `Environment` property wrapper was a godsend in some places where I had to force either direction. Also, some of the newer SF Symbols have localisation already baked in, which was really nice.
+
+![](/images/blog-images/Artboard-Copy.png)
+
+The more we kept working on making sure that the app worked and looked good in Arabic, the more I thought about what I knew about the Muslim religion and culture. They do not drink alcohol, it is forbidden. The same goes for pork. Now you might ask, what has that to do with MoneyCoach, a cash and budget manager app?
+
+![](/images/blog-images/creenshot-2022-04-28-at-09.18.22.png)
+
+Well, the symbol that we use to identify Budgets in MoneyCoach is a piggybank. We use green or red piggybanks in the Daily Limit card to let you know if you have or not any money left to spend for the day. We use piggybanks in a lot of assets all throughout the app. We also use a couple of emojis like the beers or the whiskey glass one. 
+
+We have to address these things because the last thing we want is to do is to inadvertently offend or bother a user as soon as they download and start using the app. That’s why I designed a lot of beautiful alternatives for the assets I just mentioned. Thanks to Xcode’s built-in asset localisation tool, adding these alternatives only for the Arabic language was as easy as checking a box and dragging the correct asset to its place. Now, just between us, some of these new Arabic specific assets might look better than the original ones.
+
+![](/images/blog-images/Screenshot-2022-04-28-at-09.20.47-1024x401.png)
+
+## Designing alternative assets
+
+It was really interesting localising MoneyCoach in Arabic and trying to do it right, so that the app looks good, feels and works great in Arabic and respects their culture and religion.
+
+**The Arabic localisation will become available in the MoneyCoach 7.6 update.**
+
+Let us know if you have any questions about RTL or if you want to share your cool localisation story.
