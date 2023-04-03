@@ -32,10 +32,13 @@ function PostCard(post: Post) {
 export default function Home() {
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
-      <title>Blog Example List</title>
-      <h1 className="mb-8 text-3xl font-bold">Blog Example List</h1>
+      <title>MoneyCoach Blog</title>
+      <h1 className="mb-8 text-3xl font-bold">Blog Articles</h1>
 
-      {allPosts.map((post) => (
+      {
+        allPosts
+        .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+        .map((post) => (
         <PostCard key={post.slug} {...post} />
       ))}
     </div>
