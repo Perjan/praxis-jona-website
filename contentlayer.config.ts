@@ -32,6 +32,7 @@ export const Post = defineDocumentType(() => ({
     },
     coverImageUrl: {
       type: "string",
+      required: false,
       resolve: (post) => `/images/blog-images/${post.coverImage}`,
     },
   },

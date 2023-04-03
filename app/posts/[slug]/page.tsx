@@ -59,7 +59,10 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <script type="application/ld+json">
               {/* {JSON.stringify(post.structuredData)} */}
             </script>
-            <Image src={post.coverImageUrl} width={1000} height={400} alt={post.title} />
+            { (post.coverImage !== undefined) &&
+              <Image src={post.coverImageUrl} width={1000} height={400} alt={post.title} /> 
+            }
+            
             <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight text-red-400 sm:text-4xl">
               {post.title}
             </h1>
