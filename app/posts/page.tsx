@@ -24,7 +24,11 @@ function PostCard(post: Post) {
       <time dateTime={post.date} className="block text-xs text-gray-600 mb-2">
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
-      {/* <div className="text-sm" dangerouslySetInnerHTML={{ __html: post.body.html }} /> */}
+      {
+        post.tags?.map((tag) => (
+          <p className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">{tag}</p>
+        ))
+      }
     </div>
   )
 }

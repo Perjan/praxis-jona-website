@@ -19,7 +19,13 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       description: "The filename of the cover image",
       required: false,
-    }
+    },
+    tags: { type: 'list', required: false, of: { type: 'string' } },
+    // tags: {
+    //   type: "string[]",
+    //   description: "The tags of the post",
+    //   required: false,
+    // }
   },
   computedFields: {
     slug: {
