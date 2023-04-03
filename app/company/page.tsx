@@ -27,7 +27,7 @@ const features = [
 export default function About() {
   return (
     <>
-    <main>
+      <main>
         <div className="relative isolate">
           <svg className="absolute inset-x-0 top-0 -z-10 h-[64rem] w-full stroke-gray-200 [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]" aria-hidden="true">
             <defs>
@@ -67,52 +67,52 @@ export default function About() {
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                   <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                     <div className="relative">
-                      <Image 
-                      src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" 
-                      height={528}
-                      width={80}
-                      alt=""
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
+                      <Image
+                        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        height={528}
+                        width={80}
+                        alt=""
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                     </div>
                   </div>
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                     <div className="relative">
-                      <Image 
-                      src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" 
-                      height={528}
-                      width={80}
-                      alt="" 
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
+                      <Image
+                        src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        height={528}
+                        width={80}
+                        alt=""
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                     </div>
                     <div className="relative">
-                      <Image 
-                      src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80" 
-                      height={528}
-                      width={80}
-                      alt="" 
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
+                      <Image
+                        src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80"
+                        height={528}
+                        width={80}
+                        alt=""
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                     </div>
                   </div>
                   <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                     <div className="relative">
-                      <Image 
-                      src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80" 
-                      height={528}
-                      width={80}
-                      alt="" 
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
+                      <Image
+                        src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                        height={528}
+                        width={80}
+                        alt=""
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                     </div>
                     <div className="relative">
-                      <Image 
-                      src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" 
-                      height={528}
-                      width={80}
-                      alt="" 
-                      className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
+                      <Image
+                        src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                        height={528}
+                        width={80}
+                        alt=""
+                        className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                       <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                     </div>
                   </div>
@@ -121,6 +121,78 @@ export default function About() {
             </div>
           </div>
         </div>
+
+        <div className="bg-white">
+          <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
+            <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
+              <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Get Our Press Kit</h2>
+              <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">If you’d like to write about MoneyCoach, please explore our Press Kit or email us at <a href="mailto:info@moneycoach.ai">info@moneycoach.ai</a></p>
+              <div className="mt-10 flex items-center justify-center gap-x-6">
+                <a href="https://moneycoach.medium.com/moneycoach-press-kit-15be601f4aa1" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Access Press Kit</a>
+              </div>
+              <svg viewBox="0 0 1024 1024" className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]" aria-hidden="true">
+                <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7" />
+                <defs>
+                  <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
+                    <stop stop-color="#7775D6" />
+                    <stop offset="1" stop-color="#E935C1" />
+                  </radialGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* <!-- Ecosystem Section --> */}
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:mx-0">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">MoneyCoach Ecosystem</h2>
+              <p className="mt-6 text-lg leading-8 text-gray-600">Take a look at our “by MoneyCoach” apps. There is something for almost everybody!</p>
+            </div>
+            <ul role="list" className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <li>
+                <a href="https://apps.apple.com/us/app/family-budget-moneyspaces/id1633780211">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    width={300}
+                    height={200}
+                    src="/images/moneyspacesIcon.png"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">MoneySpaces</h3>
+              </li>
+
+              <li>
+                <a href="https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    width={300}
+                    height={200}
+                    src="/images/btcIcon.png"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Bitcoin Crypto Ticker</h3>
+              </li>
+
+              <li>
+                <a href="https://itunes.apple.com/vn/app/riku/id1262876845?mt=8">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    width={300}
+                    height={200}
+                    src="/images/rikuIcon.png"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Riku</h3>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* <!-- /Ecosystem Section --> */}
       </main>
     </>
   )
