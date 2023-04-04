@@ -32,7 +32,7 @@ const CustomLink = (props) => {
 };
 
 const H1 = (props) => {
-  return <h1 className="mt-2 text-3xl font-bold tracking-tight text-red-400 sm:text-4xl">{props.children}</h1>
+  return <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{props.children}</h1>
 }
 
 const H3 = (props) => {
@@ -79,10 +79,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               /> 
             }
             
-            <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight text-red-400 sm:text-4xl">
+            <time dateTime={post.date} className="text-gray-500">
+                  {format(parseISO(post.date), 'LLLL d, yyyy')}
+                </time>
+            <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
               {post.title}
             </h1>
-            <p className="text-base font-semibold leading-7 text-indigo-600 mb-6">{format(parseISO(post.date), "LLLL d, yyyy")}</p>
             <Content components={{...components}} />
           </section>
         </article>
