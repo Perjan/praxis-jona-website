@@ -1,39 +1,57 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const navigation = {
   features: [
-    { name: 'Cash Tracking', href: '/blog/getting-started-how-to-add-a-new-transaction' },
-    { name: 'Budgeting', href: '/blog/getting-started-how-to-create-a-budget' },
-    { name: 'Multicurrency Accounts', href: '/blog/how-to-use-multi-currency' },
-    { name: 'Credit Card Management', href: '/blog/how-to-manage-your-credit-cards' },
-    { name: 'Goals', href: '/blog/getting-started-how-to-create-a-smart-goal' },
-    { name: 'Reports', href: '/blog/understanding-the-real-cost-of-your-subscriptions' },
+    {
+      name: "Cash Tracking",
+      href: "/blog/getting-started-how-to-add-a-new-transaction",
+    },
+    { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
+    { name: "Multicurrency Accounts", href: "/blog/how-to-use-multi-currency" },
+    {
+      name: "Credit Card Management",
+      href: "/blog/how-to-manage-your-credit-cards",
+    },
+    { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
+    {
+      name: "Reports",
+      href: "/blog/understanding-the-real-cost-of-your-subscriptions",
+    },
   ],
   usecases: [
-    { name: 'Debts', href: 'https://moneycoach.ai/how-to-track-debts/' },
-    { name: 'Goals', href: 'https://moneycoach.ai/how-to-buy-a-ps5-using-budgets-smart-goals/' },
-    { name: 'Loans', href: 'https://moneycoach.ai/how-to-manage-property-loans/' },
-    { name: 'Subscriptions', href: 'https://moneycoach.ai/understanding-the-real-cost-of-your-subscriptions/' },
+    { name: "Debts", href: "/blog/how-to-track-debts/" },
+    {
+      name: "Goals",
+      href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
+    },
+    { name: "Loans", href: "/blog/how-to-manage-property-loans/" },
+    {
+      name: "Subscriptions",
+      href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
+    },
   ],
   company: [
-    { name: 'About', href: '/company' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Press Kit', href: 'https://moneycoach.ai/moneycoach-press-kit/' },
-    { name: 'Support', href: 'https://moneycoach.ai/support/' },
-    { name: 'Financial Calculators', href: 'https://moneycoach.ai/financial-calculators/' },
-    { name: 'Feature Request', href: 'https://duuroapps.uservoice.com/forums/258605-ios-feature-requests' },
+    { name: "About", href: "/company" },
+    { name: "Blog", href: "/blog" },
+    { name: "Press Kit", href: "/company/press-kit" },
+    { name: "Support", href: "https://moneycoach.ai/support/" },
+    { name: "Financial Calculators", href: "/financial-calculators" },
+    {
+      name: "Feature Request",
+      href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
+    },
   ],
   legal: [
-    { name: 'Terms', href: 'https://moneycoach.ai/terms-of-use/' },
-    { name: 'Privacy', href: 'https://moneycoach.ai/privacy-policy/' },
-    { name: 'Imprint', href: 'https://moneycoach.ai/imprint/' },
-    { name: 'Disclaimer', href: 'https://moneycoach.ai/disclaimer/' },
-    { name: 'Credits', href: 'https://moneycoach.ai/credits/' },
+    { name: "Terms", href: "https://moneycoach.ai/terms-of-use/" },
+    { name: "Privacy", href: "https://moneycoach.ai/privacy-policy/" },
+    { name: "Imprint", href: "https://moneycoach.ai/imprint/" },
+    { name: "Disclaimer", href: "https://moneycoach.ai/disclaimer/" },
+    { name: "Credits", href: "https://moneycoach.ai/credits/" },
   ],
   social: [
     {
-      name: 'Facebook',
-      href: 'https://www.facebook.com/moneycoachapp/',
+      name: "Facebook",
+      href: "https://www.facebook.com/moneycoachapp/",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -45,8 +63,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Instagram',
-      href: 'https://www.instagram.com/appmoneycoach/',
+      name: "Instagram",
+      href: "https://www.instagram.com/appmoneycoach/",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -58,8 +76,8 @@ const navigation = {
       ),
     },
     {
-      name: 'Twitter',
-      href: 'http://twitter.com/appmoneycoach',
+      name: "Twitter",
+      href: "http://twitter.com/appmoneycoach",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -67,8 +85,8 @@ const navigation = {
       ),
     },
     {
-      name: 'YouTube',
-      href: 'https://www.youtube.com/@moneycoachapp',
+      name: "YouTube",
+      href: "https://www.youtube.com/@moneycoachapp",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -77,11 +95,11 @@ const navigation = {
             clipRule="evenodd"
           />
         </svg>
-      )
+      ),
     },
     {
-      name: 'TikTok',
-      href: 'https://www.tiktok.com/@moneycoachapp',
+      name: "TikTok",
+      href: "https://www.tiktok.com/@moneycoachapp",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -90,10 +108,10 @@ const navigation = {
             clipRule="evenodd"
           />
         </svg>
-      )
-    }
+      ),
+    },
   ],
-}
+};
 
 function FooterColumn({ title, items }) {
   return (
@@ -102,14 +120,18 @@ function FooterColumn({ title, items }) {
       <ul role="list" className="mt-6 space-y-4">
         {items.map((item) => (
           <li key={item.name}>
-            <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+            <Link
+              href={item.href}
+              className="text-sm leading-6 text-gray-600 hover:text-gray-900"
+              rel="noopener noreferrer"
+            >
               {item.name}
             </Link>
           </li>
         ))}
       </ul>
     </>
-  )
+  );
 }
 
 export default function Footer() {
@@ -143,17 +165,24 @@ export default function Footer() {
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
-              <Link key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-500">
+              <Link
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-gray-500"
+              >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </Link>
             ))}
           </div>
           <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
-            &copy; 2023 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.
+            &copy; 2023 MoneyCoach UG. All rights reserved. Made with ❤️ in
+            Berlin.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
