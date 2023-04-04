@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const navigation = {
   features: [
     { name: 'Cash Tracking', href: '/blog/getting-started-how-to-add-a-new-transaction' },
@@ -100,9 +102,9 @@ function FooterColumn({ title, items }) {
       <ul role="list" className="mt-6 space-y-4">
         {items.map((item) => (
           <li key={item.name}>
-            <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+            <Link href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
@@ -141,10 +143,10 @@ export default function Footer() {
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
-              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-500">
+              <Link key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-500">
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
+              </Link>
             ))}
           </div>
           <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
