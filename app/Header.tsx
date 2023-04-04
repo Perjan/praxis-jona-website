@@ -16,7 +16,7 @@ import { cn } from './lib/utils'
 const navigationItems = [
     { title: "Playground", href: "/playground" },
     { title: "Features", href: "/features" },
-    { title: "Guide", href: "https://moneycoach.ai/getting-started-with-moneycoach/" },
+    { title: "Guides", href: "/guides" },
     { title: "Company", href: "/company" },
     { title: "Contact", href: "/contact" },
     { title: "Blog", href: "/blog" }
