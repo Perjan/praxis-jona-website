@@ -1,5 +1,5 @@
 const title = "Apple ❤️ MoneyCoach"
-const description = "MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store. Crazy, right?"
+const description = "MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store. \n\nCrazy, right?"
 
 export default function AppleLovesMoneyCoachSection() {
   return (

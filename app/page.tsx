@@ -14,6 +14,7 @@ import FeatureSectionWithProductScreenshotPanel from './FeatureSectionWithProduc
 import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
 import FaqSection from './FaqSection'
 import ContactSection from './Contact'
+import FinancialOverview from './FinancialOverview'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -23,11 +24,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <LogoCloud />
-      <MajorFeatureSection 
-        title='Track all your accounts in one place'
-        description= {'MoneyCoach grants you total control over all your accounts, cash included. Manually add and track all your offline bank accounts, savings accounts & credit cards. \n\nLog all incomes and expenses, and check your Net Worth in real time.'}
-        imageUrl='/images/allAccounts.png'
-      />
+      <FinancialOverview />
       <FeatureWithLargeScreenshotSection />
 
       <MajorFeatureSection 
