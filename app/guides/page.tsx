@@ -9,7 +9,8 @@ const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide')
 const beginnerPosts = guidesPosts.filter(
   (post) => [
     "how-to-use-moneycoach",
-    "how-to-start-fresh-with-moneycoach"
+    "how-to-start-fresh-with-moneycoach",
+    "import-csv-files-in-moneycoach"
   ].includes(post.slug)
 )
 
@@ -52,7 +53,7 @@ function PostCard(post: Post) {
           </Link>
           <div className="max-w-xl">
             <div className="group relative">
-              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 30)}</p>
+              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.summary}</p>
             </div>
           </div>
       </article>
