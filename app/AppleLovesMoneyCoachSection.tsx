@@ -3,7 +3,7 @@ const description = "MoneyCoach has been featured multiple times worldwide on th
 
 export default function AppleLovesMoneyCoachSection() {
   return (
-    <div className="overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <div className="whitespace-pre-line overflow-hidden bg-gray-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">

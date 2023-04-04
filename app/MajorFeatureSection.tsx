@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function MajorFeatureSection({ imageUrl = "", title = "", description = "" }): JSX.Element {
     return (
-        <div className="whitespace-pre-line">
+        <div className="whitespace-pre-line pb-24">
             <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 py-8 sm:py-8">
                 <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
                     <svg
