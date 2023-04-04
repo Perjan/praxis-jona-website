@@ -2,8 +2,8 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 
 const title = "Modern cash and budget tracker"
-const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That’s what MoneyCoach is all about."
-const whatsNewUrl = "https://moneycoach.ai/whats-new-in-moneycoach-8-4/"
+const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about."
+const whatsNewUrl = "https://moneycoach.ai/whats-new-in-moneycoach-8-4-2/"
 
 export default function HeroSection() {
     return (
@@ -31,11 +31,11 @@ export default function HeroSection() {
                     <Image className="h-11" src="/images/mocoHead.png" alt='MoneyCoach app icon' width={44} height={44} />
                     <div className="mt-24 sm:mt-32 lg:mt-16">
                         <a href={whatsNewUrl} className="inline-flex space-x-6">
-                            <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">
+                            <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-redColor ring-1 ring-inset ring-indigo-600/10">
                                 {"What's new"}
                             </span>
-                            <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                                <span>Just shipped v8.4.1</span>
+                            <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-redColor">
+                                <span>Just shipped v8.4.2</span>
                                 <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
                         </a>
@@ -49,7 +49,7 @@ export default function HeroSection() {
                     <div className="mt-10 flex items-center gap-x-6">
                         <a
                             href="#"
-                            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Download Now
                         </a>

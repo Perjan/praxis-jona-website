@@ -21,8 +21,11 @@ import ContactSection from './Contact'
 export default function Home() {
   return (
     <main>
+      
       <HeroSection />
-      <LogoCloud />
+      
+      {/* <LogoCloud /> */}
+      
       <MajorFeatureSection 
         title='Track all your accounts in one place'
         description= {'MoneyCoach grants you total control over all your accounts, cash included. Manually add and track all your offline bank accounts, savings accounts & credit cards. \n\nLog all incomes and expenses, and check your Net Worth in real time.'}
