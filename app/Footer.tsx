@@ -1,11 +1,11 @@
 const navigation = {
   features: [
-    { name: 'Cash Tracking', href: 'https://moneycoach.ai/getting-started-how-to-add-a-new-transaction/' },
-    { name: 'Budgeting', href: 'https://moneycoach.ai/getting-started-how-to-create-a-budget/' },
-    { name: 'Multicurrency Accounts', href: 'https://moneycoach.ai/how-to-use-multi-currency/' },
-    { name: 'Credit Card Management', href: 'https://moneycoach.ai/how-to-track-and-manage-credit-cards/' },
-    { name: 'Goals', href: 'https://moneycoach.ai/getting-started-how-to-create-a-smart-goal/' },
-    { name: 'Reports', href: 'https://moneycoach.ai/understanding-the-real-cost-of-your-subscriptions/' },
+    { name: 'Cash Tracking', href: '/blog/getting-started-how-to-add-a-new-transaction' },
+    { name: 'Budgeting', href: '/blog/getting-started-how-to-create-a-budget' },
+    { name: 'Multicurrency Accounts', href: '/blog/how-to-use-multi-currency' },
+    { name: 'Credit Card Management', href: '/blog/how-to-manage-your-credit-cards' },
+    { name: 'Goals', href: '/blog/getting-started-how-to-create-a-smart-goal' },
+    { name: 'Reports', href: '/blog/understanding-the-real-cost-of-your-subscriptions' },
   ],
   usecases: [
     { name: 'Debts', href: 'https://moneycoach.ai/how-to-track-debts/' },
@@ -14,8 +14,8 @@ const navigation = {
     { name: 'Subscriptions', href: 'https://moneycoach.ai/understanding-the-real-cost-of-your-subscriptions/' },
   ],
   company: [
-    { name: 'About', href: 'https://moneycoach.ai/company/' },
-    { name: 'Blog', href: 'https://moneycoach.ai/blog/' },
+    { name: 'About', href: '/company' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Press Kit', href: 'https://moneycoach.ai/moneycoach-press-kit/' },
     { name: 'Support', href: 'https://moneycoach.ai/support/' },
     { name: 'Financial Calculators', href: 'https://moneycoach.ai/financial-calculators/' },
@@ -78,19 +78,36 @@ const navigation = {
       )
     },
     {
-        name: 'TikTok',
-        href: 'https://www.tiktok.com/@moneycoachapp',
-        icon: (props) => (
-          <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-            <path
-              fillRule="evenodd"
-              d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07z"
-              clipRule="evenodd"
-            />
-          </svg>
-        )
-      }
+      name: 'TikTok',
+      href: 'https://www.tiktok.com/@moneycoachapp',
+      icon: (props) => (
+        <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+          <path
+            fillRule="evenodd"
+            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07z"
+            clipRule="evenodd"
+          />
+        </svg>
+      )
+    }
   ],
+}
+
+function FooterColumn({ title, items }) {
+  return (
+    <>
+      <h3 className="text-sm font-semibold leading-6 text-gray-900">{title}</h3>
+      <ul role="list" className="mt-6 space-y-4">
+        {items.map((item) => (
+          <li key={item.name}>
+            <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 export default function Footer() {
@@ -104,63 +121,27 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Features</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.features.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <FooterColumn title="Features" items={navigation.features} />
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Use Cases</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.usecases.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <FooterColumn title="Use Cases" items={navigation.usecases} />
               </div>
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Company</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <FooterColumn title="Company" items={navigation.company} />
               </div>
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">Legal</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                <FooterColumn title="Legal" items={navigation.legal} />
               </div>
             </div>
           </div>
         </div>
-        
+
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
           <div className="flex space-x-6 md:order-2">
             {navigation.social.map((item) => (
-              <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
+              <a key={item.name} href={item.href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-500">
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
               </a>
