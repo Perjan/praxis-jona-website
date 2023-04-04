@@ -42,7 +42,7 @@ const navigation = {
     },
   ],
   legal: [
-    { name: "Terms", href: "https://moneycoach.ai/terms-of-use/" },
+    { name: "Terms", href: "/terms-of-use" },
     { name: "Privacy", href: "https://moneycoach.ai/privacy-policy/" },
     { name: "Imprint", href: "https://moneycoach.ai/imprint/" },
     { name: "Disclaimer", href: "https://moneycoach.ai/disclaimer/" },
