@@ -14,12 +14,11 @@ import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 const navigationItems = [
-    { title: "Playground", href: "/playground" },
     { title: "Features", href: "/features" },
     { title: "Guides", href: "/guides" },
+    { title: "Blog", href: "/blog" },
     { title: "Company", href: "/company" },
-    { title: "Contact", href: "/contact" },
-    { title: "Blog", href: "/blog" }
+    { title: "Contact", href: "/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
