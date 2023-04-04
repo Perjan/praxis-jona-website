@@ -13,7 +13,7 @@ export async function POST(request: Request) {
 
     const msg = {
         to: 'info@moneycoach.ai',
-        from: requestJson.email,
+        from: 'info@moneycoach.ai',
         subject: 'New message from ' + requestJson.name,
         text: requestJson.message,
         html: requestJson.message,
