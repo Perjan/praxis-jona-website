@@ -166,8 +166,7 @@ export default function PressKit() {
                             <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/melamorsicata.png" alt="" />
                             <div className="max-w-xl flex-auto">
                                 <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">Melamorsicata</h3>
-                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">MoneyCoach, un'app per
-                                    gestire le finanze personali</h2>
+                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">{"MoneyCoach, un'app per gestire le finanze personali"}</h2>
                                 <div className="mt-10 flex items-center gap-x-6">
                                     <a target="_blank" rel='noopener noreferrer nofollow' href="https://www.melamorsicata.it/2017/02/07/moneycoach-unapp-gestire-le-finanze-personali/"
                                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
