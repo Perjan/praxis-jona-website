@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { compareDesc, format, parseISO } from 'date-fns'
+import Image from 'next/image'
 import { Post, allPosts } from 'contentlayer/generated'
 
 
@@ -40,35 +40,23 @@ function getWordStr(str, wordCount) {
 
 function PostCard(post: Post) {
   return (
-    <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
-      <div className="flex items-center gap-x-4 text-xs">
-        <time dateTime={post.date} className="text-gray-500">
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
-
-        {
-          post.categories?.map((item) => (
-            <a
-              key={item}
-              href={item}
-              className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-            >
-              {item}
-            </a>
-          ))
-        }
-
-      </div>
-      <div className="group relative">
-        <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-          <a href={post.url}>
-            <span className="absolute inset-0" />
-            {post.title}
-          </a>
-        </h3>
-        <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 40)}</p>
-      </div>
-    </article>
+    <>
+      <article key={post.slug} className="flex flex-col items-start justify-between">
+        <h2 className='sr-only'>{post.title}</h2>
+        <Link href={post.url}>
+          <div className="relative w-full duration-300 ease-in-out hover:scale-105">
+            <Image src={post.coverImageUrl} width={306} height={204} alt={post.title}
+              className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9] p-2" />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
+          </div>
+          </Link>
+          <div className="max-w-xl">
+            <div className="group relative">
+              <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 30)}</p>
+            </div>
+          </div>
+      </article>
+    </>
   )
 }
 
