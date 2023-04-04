@@ -22,6 +22,7 @@ import FinancialOverview from './FinancialOverview'
 export default function Home() {
   return (
     <main>
+      
       <HeroSection />
       <LogoCloud />
       <FinancialOverview />

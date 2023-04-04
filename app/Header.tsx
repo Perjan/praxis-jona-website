@@ -32,7 +32,7 @@ export function DownloadButton() {
     return (
         <a
             href="#"
-            className="-mx-3 block rounded-xl bg-greenColor py-2.5 px-6 text-base font-semibold leading-7 text-gray-900 hover:text-yellow-50 hover:bg-primary"
+            className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
         >
             Download App
         </a>
