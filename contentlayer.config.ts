@@ -20,6 +20,11 @@ export const Post = defineDocumentType(() => ({
       description: "The filename of the cover image",
       required: false,
     },
+    summary: {
+      type: "string",
+      description: "The summary of the post",
+      required: false,
+    },
     tags: { type: 'list', required: false, of: { type: 'string' } },
     categories: { type: 'list', required: false, of: { type: 'string' } }
   },
@@ -30,7 +35,7 @@ export const Post = defineDocumentType(() => ({
       },
     url: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
     },
     coverImageUrl: {
       type: "string",

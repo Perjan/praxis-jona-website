@@ -14,12 +14,11 @@ import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 const navigationItems = [
-    { title: "Playground", href: "/playground" },
     { title: "Features", href: "/features" },
-    { title: "Guide", href: "https://moneycoach.ai/getting-started-with-moneycoach/" },
+    { title: "Guides", href: "/guides" },
+    { title: "Blog", href: "/blog" },
     { title: "Company", href: "/company" },
-    { title: "Contact", href: "/contact" },
-    { title: "Blog-beta", href: "/posts" }
+    { title: "Contact", href: "/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
