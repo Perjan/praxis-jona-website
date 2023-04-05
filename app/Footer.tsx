@@ -34,7 +34,7 @@ const navigation = {
     { name: "About", href: "/company" },
     { name: "Blog", href: "/blog" },
     { name: "Press Kit", href: "/company/press-kit" },
-    { name: "Support", href: "https://moneycoach.ai/support/" },
+    { name: "Support", href: "mailto:tickets@duuroapps.uservoice.com?subject=MoneyCoach%20Web%20Support%20Ticket" },
     { name: "Financial Calculators", href: "/financial-calculators" },
     {
       name: "Feature Request",
@@ -42,11 +42,11 @@ const navigation = {
     },
   ],
   legal: [
-    { name: "Terms", href: "/terms-of-use" },
-    { name: "Privacy", href: "https://moneycoach.ai/privacy-policy/" },
-    { name: "Imprint", href: "https://moneycoach.ai/imprint/" },
-    { name: "Disclaimer", href: "https://moneycoach.ai/disclaimer/" },
-    { name: "Credits", href: "https://moneycoach.ai/credits/" },
+    { name: "Terms", href: "/legal/terms-of-use" },
+    { name: "Privacy", href: "/legal/privacy-policy/" },
+    { name: "Imprint", href: "/legal/imprint/" },
+    { name: "Disclaimer", href: "/legal/disclaimer/" },
+    { name: "Credits", href: "/legal/credits/" },
   ],
   social: [
     {
