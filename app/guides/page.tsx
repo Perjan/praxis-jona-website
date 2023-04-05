@@ -18,7 +18,20 @@ const beginnerPostsSlugs = [
   "how-to-add-description-tags-payee-to-transactions-transfers"
 ]
 
-const intermediatePostsSlugs = []
+const intermediatePostsSlugs = [
+  "how-to-activate-cloud-sync",
+  "icloud-sync-troubleshooting",
+  "how-to-show-hide-accounts",
+  "how-to-track-and-manage-credit-cards",
+  "how-to-use-quick-entry",
+  "how-to-add-locations-in-moneycoach",
+  "how-to-track-debts",
+  "how-to-add-a-repeating-transaction-transfer",
+  "how-to-manage-repeating-transactions",
+  "how-to-reset-the-icloud-sync",
+  "how-to-customize-your-payday-in-moneycoach-app",
+  "how-to-scan-invoices-receipts",
+]
 
 const advancedPostsSlugs = []
 
