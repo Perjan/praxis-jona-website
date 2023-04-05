@@ -7,10 +7,15 @@ import { Post, allPosts } from 'contentlayer/generated'
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
 
 const beginnerPostsSlugs = [
-  "how-to-use-moneycoach",
-  "how-to-start-fresh-with-moneycoach",
   "import-csv-files-in-moneycoach",
-  "getting-started-how-to-set-up-an-account"
+  "getting-started-how-to-set-up-an-account",
+  "getting-started-how-to-add-a-new-transaction",
+  "getting-started-how-to-manage-categories-subcategories",
+  "getting-started-how-to-create-a-budget",
+  "getting-started-how-to-create-a-smart-goal",
+  "how-to-add-a-new-transfer",
+  "how-to-import-apple-card-statements",
+  "how-to-add-description-tags-payee-to-transactions-transfers"
 ]
 
 const intermediatePostsSlugs = []
