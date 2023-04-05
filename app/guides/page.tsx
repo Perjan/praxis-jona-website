@@ -55,7 +55,7 @@ function getWordStr(str, wordCount) {
 function PostCard(post: Post) {
   return (
     <>
-      <article key={post._id} className="flex flex-col items-start justify-between">
+      <article key={post._id} className="flex flex-col items-start justify-normal content-start">
         <h2 className='sr-only'>{post.title}</h2>
         <Link href={post.url}>
           <div className="relative w-full duration-300 ease-in-out hover:scale-105">
@@ -79,7 +79,7 @@ function PostSection({ posts, title }) {
   return (
     <div className='mx-auto mt-10 max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none '>
       <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl pb-8">{title}</h2>
-      <div className="grid grid-cols-1 gap-x-8 gap-y-16pt-10 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:grid-cols-3">
         {
           posts
             .map((post) => (
