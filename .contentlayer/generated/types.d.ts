@@ -27,6 +27,7 @@ export type Post = {
   body: MDX
   slug: string
   url: string
+  legalUrl: string
   coverImageUrl: string
 }  
 
