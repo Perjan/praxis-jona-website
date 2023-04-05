@@ -10,7 +10,8 @@ const beginnerPosts = guidesPosts.filter(
   (post) => [
     "how-to-use-moneycoach",
     "how-to-start-fresh-with-moneycoach",
-    "import-csv-files-in-moneycoach"
+    "import-csv-files-in-moneycoach",
+    "getting-started-how-to-set-up-an-account"
   ].includes(post.slug)
 )
 
