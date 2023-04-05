@@ -24,7 +24,7 @@ export default function Home() {
     <main>
       
       <HeroSection />
-      <LogoCloud />
+      {/* <LogoCloud /> */}
       <FinancialOverview />
       <FeatureWithLargeScreenshotSection />
 
