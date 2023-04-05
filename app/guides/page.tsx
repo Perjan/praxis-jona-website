@@ -21,11 +21,49 @@ const beginnerPostsSlugs = [
   "how-to-add-description-tags-payee-to-transactions-transfers"
 ]
 
-const intermediatePostsSlugs = []
+const intermediatePostsSlugs = [
+  "how-to-activate-cloud-sync",
+  "icloud-sync-troubleshooting",
+  "how-to-show-hide-accounts",
+  "how-to-track-and-manage-credit-cards",
+  "how-to-customize-your-payday-in-moneycoach-app",
+  "how-to-show-hide-accounts",
+  "how-to-use-multi-currency",
+  "how-to-use-quick-entry",
+  "how-to-add-locations-in-moneycoach",
+  "how-to-track-debts",
+  "how-to-add-a-repeating-transaction-transfer",
+  "how-to-manage-repeating-transactions",
+  "how-to-reset-the-icloud-sync",
+  "how-to-customize-your-payday-in-moneycoach-app",
+  "how-to-scan-invoices-receipts",
+]
 
-const advancedPostsSlugs = []
+const advancedPostsSlugs = [
+  "how-to-merge-categories-subcategories",
+  "how-to-start-fresh-with-moneycoach",
+  "how-to-deactivate-live-activities",
+  "how-the-new-backup-restore-works",
+  "how-to-change-the-language",
+  "how-to-customise-your-overview",
+  "apple-watch-sync-troubleshoot",
+  "how-to-setup-dynamic-shortcuts",
+  "how-to-navigate-via-keyboard",
+  "how-to-customize-your-daily-limit",
+  "how-to-handle-refunds-cashback-repayments",
+  "how-to-use-quick-notes",
+  "understanding-the-real-cost-of-your-subscriptions",
+]
 
-const questionsAndAnswersPostsSlugs = []
+const questionsAndAnswersPostsSlugs = [
+  "how-to-cancel-a-subscription",
+  "how-to-share-your-moneycoach-premium-subscription-on-your-mac-too",
+  "can-you-sync-moneycoach-android-and-mac-apps",
+  "how-to-manually-backup-your-moneycoach-data",
+  "how-does-the-daily-limit-works",
+  "how-to-delete-your-data-from-moneycoach",
+  "requesting-a-refund"
+]
 
 function sortedPostsBySlug(posts, slugs) {
   return posts
