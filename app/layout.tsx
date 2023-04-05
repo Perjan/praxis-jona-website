@@ -11,8 +11,6 @@ export const metadata: Metadata = {
     template: "%s | MoneyCoach - Budgeting App" 
   },
   description: "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending.",
-  image: "https://moneycoach.ai/images/moneycoach-all-devices.png",
-  siteName: "MoneyCoach",
   twitter: {
     // handle: "@appmoneycoach"
     site: "@appmoneycoach",
