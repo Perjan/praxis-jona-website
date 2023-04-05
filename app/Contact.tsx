@@ -1,5 +1,8 @@
 'use client';
 import Link from 'next/link';
+import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import { isEmail } from './NewsletterSection';
 
 import {
   BuildingOffice2Icon,
@@ -28,12 +31,24 @@ const formHandler = async (event) => {
     body: JSON.stringify(formDataObj),
   });
 
-  if (!response.ok) throw new Error(response.statusText);
+  if (response.ok) {
+    if (response.status === 200) {
+    //setEmail("");
+    toast.success("Message sent successfully!");
+    }
+  } else {
+    toast.error("There was an error. Please try again later.");
+  }
 
-  return;
+  return response;
 };
 
 export default function ContactSection() {
+  
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
+
   return (
     <>
       <div id='contact' className='relative isolate bg-white'>
@@ -121,7 +136,16 @@ export default function ContactSection() {
             </div>
           </div>
           <form
-            onSubmit={formHandler}
+            onSubmit={async () => {
+              const response = await formHandler(event);
+              if (response.ok) {
+                setEmail("")
+                setName("")
+                setMessage("")
+              }
+            }
+
+            }
             className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'
           >
             <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
@@ -138,8 +162,14 @@ export default function ContactSection() {
                       type='text'
                       name='first-name'
                       id='name'
+                      value={name}
+                      required
                       autoComplete='given-name'
                       className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      onChange={ (e) => {
+                        const name = e.target.value;
+                        setName(name)
+                      }}
                     />
                   </div>
                 </div>
@@ -155,8 +185,15 @@ export default function ContactSection() {
                       type='email'
                       name='email'
                       id='email'
+                      value={email}
+                      required
                       autoComplete='email'
                       className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      onChange={ (e) => {
+                        const email = e.target.value;
+                        setEmail(email)
+                        // setButtonDisabled();
+                      }}
                     />
                   </div>
                 </div>
@@ -171,17 +208,23 @@ export default function ContactSection() {
                     <textarea
                       name='message'
                       id='message'
+                      value={message}
                       rows={4}
+                      required
                       className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      defaultValue={''}
+                      onChange={ (e) => {
+                        const message = e.target.value;
+                        setMessage(message)
+                      }}
                     />
                   </div>
                 </div>
               </div>
               <div className='mt-8 flex justify-end'>
                 <button
+                  disabled={!isEmail(email) || !name || !message}
                   type='submit'
-                  className='rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  className='disabled:opacity-70 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm enabled:hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                 >
                   Send message
                 </button>

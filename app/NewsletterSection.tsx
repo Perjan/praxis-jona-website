@@ -2,8 +2,9 @@
 
 import { CalendarDaysIcon, HandRaisedIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
-function isEmail(email: string): boolean {
+export function isEmail(email: string): boolean {
   // Email regex pattern
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -54,10 +55,14 @@ const [email, setEmail] = useState("");
                   });
                 
                   if (response.ok) {
-                    // Success! The user has been subscribed to the list.
+                    if (response.status === 200) {
+                      // Success! The user has been subscribed to the list.
                     setEmail("");
+                    toast.success("You have been subscribed to the newsletter.");
+                    }
                   } else {
                     // There was an error subscribing the user. Handle the error here.
+                    toast.error("There was an error subscribing the user. Please try again later.");
                   }
                 }}
               >

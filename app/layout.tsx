@@ -3,6 +3,7 @@ import Header from './Header'
 import { Analytics } from '@vercel/analytics/react';
 import Footer from './Footer';
 import { Metadata } from 'next';
+import { ReactToastWrapper } from './ToasterWrapper';
 
 export const metadata: Metadata = {
   title: { 
@@ -27,10 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ReactToastWrapper>
         <Header />
         {children}
         <Footer />
         <Analytics />
+        </ReactToastWrapper>
       </body>
     </html>
   )

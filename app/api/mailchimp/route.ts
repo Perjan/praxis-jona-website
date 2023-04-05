@@ -25,6 +25,10 @@ export async function POST(request: Request) {
     const responseData = await response.json();
     console.log({responseData});
 
+    if (response.status !== 200 || responseData.status !== 200) {
+        return NextResponse.json({responseData}, {status: responseData.status});
+    }
+
     return NextResponse.json({responseData});
   }
 
