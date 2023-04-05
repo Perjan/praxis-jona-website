@@ -21,6 +21,11 @@ const navigationItems = [
     { title: "Contact", href: "/contact" }
 ]
 
+const navigationItemsMobile = [
+    { title: "Home", href: "/" }
+]
+navigationItemsMobile.push(...navigationItems)
+
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
 function classNames(...classes: string[]) {
@@ -96,14 +101,7 @@ export default function Header() {
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-10" />
                 <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div className="flex items-center justify-between">
-                        <a href="#" className="-m-1.5 p-1.5">
-                            <span className="sr-only">MoneyCoach</span>
-                            {/* <Image 
-                            priority={true} 
-                            className="h-8 w-auto"
-                            src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" width={390} height={114} alt="" /> */}
-                        </a>
+                    <div className="items-end content-end">
                         <button
                             type="button"
                             className="-m-2.5 rounded-md p-2.5 text-gray-700"
@@ -116,7 +114,7 @@ export default function Header() {
                     <div className="mt-6 flow-root">
                         <div className="-my-6 divide-y divide-gray-500/10">
                             <div className="space-y-2 py-6">
-                                {navigationItems.map((item) =>
+                                {navigationItemsMobile.map((item) =>
                                     <Link
                                         key={item.title}
                                         href={item.href}
@@ -124,6 +122,7 @@ export default function Header() {
                                             cn(pathname === item.href ? "text-primary" : "text-gray-900",
                                                 menuItemClassName)
                                         }
+                                        onClick={() => setMobileMenuOpen(false)}
                                     >{item.title}
                                     </Link>
 
