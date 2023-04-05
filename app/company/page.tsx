@@ -82,7 +82,7 @@ export default function About() {
                   <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                     <div className="relative">
                       <Image
-                        src="/images/moneycoach-ceo-photo.png"
+                        src="/images/monecoach-ceo-in-wwdc.png"
                         height={1528}
                         width={200}
                         alt=""
