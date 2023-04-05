@@ -29,15 +29,15 @@ export default function HeroSection() {
                 </defs>
                 <rect width="100%" height="100%" strokeWidth={0} fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
             </svg>
-            <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+            <div className="mx-auto max-w-7xl px-6 pb-24 pt-0 py-0 sm:pb-32 lg:flex lg:px-8 lg:py-2 lg:pt-0">
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
                     {/* <Image className="h-11" src="/images/mocoHead.png" alt='MoneyCoach app icon' width={44} height={44} /> */}
-                    <div className="mt-24 sm:mt-32 lg:mt-24">
+                    <div className="mt-0 sm:mt-4 lg:mt-24 h-0 collapse sm:visible">
                         <a href={whatsNewUrl} className="inline-flex space-x-6">
-                            <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-redColor ring-1 ring-inset ring-indigo-600/10">
+                            <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
                                 {"What's new"}
                             </span>
-                            <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-redColor">
+                            <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-greenColor">
                                 <span>Just shipped v8.4.2</span>
                                 <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
