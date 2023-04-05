@@ -6,35 +6,29 @@ import { Post, allPosts } from 'contentlayer/generated'
 
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
 
-const beginnerPosts = guidesPosts.filter(
-  (post) => [
-    "how-to-use-moneycoach",
-    "how-to-start-fresh-with-moneycoach",
-    "import-csv-files-in-moneycoach",
-    "getting-started-how-to-set-up-an-account"
-  ].includes(post.slug)
-)
+const beginnerPostsSlugs = [
+  "how-to-use-moneycoach",
+  "how-to-start-fresh-with-moneycoach",
+  "import-csv-files-in-moneycoach",
+  "getting-started-how-to-set-up-an-account"
+]
 
-const intermediatePosts = guidesPosts.filter(
-  (post) => [
-    "how-to-use-moneycoach",
-    "how-to-start-fresh-with-moneycoach"
-  ].includes(post.slug)
-)
+const intermediatePostsSlugs = []
 
-const advancedPosts = guidesPosts.filter(
-  (post) => [
-    "how-to-use-moneycoach",
-    "how-to-start-fresh-with-moneycoach"
-  ].includes(post.slug)
-)
+const advancedPostsSlugs = []
 
-const questionsAndAnswersPosts = guidesPosts.filter(
-  (post) => [
-    "how-to-use-moneycoach",
-    "how-to-start-fresh-with-moneycoach"
-  ].includes(post.slug)
-)
+const questionsAndAnswersPostsSlugs = []
+
+function sortedPostsBySlug(posts, slugs) {
+  return posts
+    .filter((post) => slugs.includes(post.slug))
+    .sort((a, b) => slugs.indexOf(a.slug) - slugs.indexOf(b.slug));
+}
+
+const beginnerPosts = sortedPostsBySlug(guidesPosts, beginnerPostsSlugs)
+const intermediatePosts = sortedPostsBySlug(guidesPosts, intermediatePostsSlugs)
+const advancedPosts = sortedPostsBySlug(guidesPosts, advancedPostsSlugs)
+const questionsAndAnswersPosts = sortedPostsBySlug(guidesPosts, questionsAndAnswersPostsSlugs)
 
 function getWordStr(str, wordCount) {
   return str.split(/\s+/).slice(0, wordCount).join(" ");
@@ -43,7 +37,7 @@ function getWordStr(str, wordCount) {
 function PostCard(post: Post) {
   return (
     <>
-      <article key={post.slug} className="flex flex-col items-start justify-between">
+      <article key={post._id} className="flex flex-col items-start justify-between">
         <h2 className='sr-only'>{post.title}</h2>
         <Link href={post.url}>
           <div className="relative w-full duration-300 ease-in-out hover:scale-105">
@@ -88,10 +82,10 @@ export default function Home() {
             {"A collection of guides and tutorials on how to use MoneyCoach.\nGet started today and learn how to use MoneyCoach to manage your finances."}
           </p>
         </div>
-        <PostSection posts={beginnerPosts} title="Beginner" />
-        <PostSection posts={intermediatePosts} title="Intermediate" />
-        <PostSection posts={advancedPosts} title="Advanced" />
-        <PostSection posts={questionsAndAnswersPosts} title="Questions and Answers" />
+        <PostSection key={1} posts={beginnerPosts} title="Beginner" />
+        <PostSection key={2} posts={intermediatePosts} title="Intermediate" />
+        <PostSection key={3} posts={advancedPosts} title="Advanced" />
+        <PostSection key={4} posts={questionsAndAnswersPosts} title="Questions and Answers" />
       </div>
     </div>
   )
