@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
+import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 // import { useNavigation } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -49,10 +50,11 @@ function RoundedImage(props) {
 }
 
 const components = {
-  // a: CustomLink,
+  a: CustomLink,
   h1: H1,
   // h3: H3
-  img: RoundedImage
+  img: RoundedImage,
+  YouTube: YoutubeEmbeddedVideo
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
@@ -63,8 +65,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
   return (
     <div className="py-32 px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base leading-7">
-        <article className="prose prose-neutral prose-quoteless">
+        <div className="mx-auto max-w-4xl text-base leading-7">
+        <article className="prose prose-neutral">
           <section>
             <script type="application/ld+json">
               {/* {JSON.stringify(post.structuredData)} */}
