@@ -3,13 +3,6 @@ import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
 
-// export async function getStaticProps() {
-//   const posts = allPosts.sort((a, b) => {
-//     return compareDesc(new Date(a.date), new Date(b.date))
-//   })
-//   return { props: { posts } }
-// }
-
 function PostCard(post: Post) {
   return (
     <div className="flex max-w-xl flex-col items-start justify-between mb-10 mt-10">
@@ -41,27 +34,6 @@ function PostCard(post: Post) {
     </div>
   )
 }
-
-// export default function Home() {
-//   return (
-//     <div className="mx-auto max-w-2xl py-16 text-left">
-//       <title>MoneyCoach Blog</title>
-//       <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">MoneyCoach Blog</h1>
-//       <p className="mt-2 text-lg leading-8 text-gray-600">
-//         Learn how to manage your money, get your finances in order and become financially secure.
-//       </p>
-
-//       <div className="mt-10 space-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16">
-//         {
-//           allPosts
-//             .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-//             .map((post) => (
-//               <PostCard key={post.slug} {...post} />
-//             ))}
-//       </div>
-//     </div>
-//   )
-// }
 
 function getWordStr(str, wordCount) {
   return str.split(/\s+/).slice(0, wordCount).join(" ");
