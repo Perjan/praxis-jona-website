@@ -1,7 +1,11 @@
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Features',
+}
 
 // features list with title, description, and image from the Features() component
-
 const features = [
   {
     title: "Multi Currency",
@@ -165,7 +169,7 @@ export default function Features() {
                   <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">MoneyCoach is feature-packed
                     </h1>
-                    <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach sticks to what is essential for finance. The advanced features are out of the way until you actually need them.</p><a className="hover:text-gray-900" href="mailto:info@moneycoach.ai">info@moneycoach.ai</a>
+                    <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach sticks to what is essential for finance. The advanced features are out of the way until you actually need them.</p>
                   </div>
                   <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                     <div

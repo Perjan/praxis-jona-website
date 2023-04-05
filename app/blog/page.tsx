@@ -2,6 +2,11 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Blog',
+}
 
 function PostCard(post: Post) {
   return (

@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 import {
   BuildingOffice2Icon,
@@ -22,8 +23,6 @@ const formHandler = async (event) => {
     {}
   );
 
-  //   console.log(formDataObj);
-
   const response = await fetch('/api/sendgrid', {
     method: 'POST',
     body: JSON.stringify(formDataObj),
@@ -32,15 +31,12 @@ const formHandler = async (event) => {
   if (!response.ok) throw new Error(response.statusText);
 
   return;
-
-  const result = await response.json();
-  console.log({ result });
 };
 
 export default function ContactSection() {
   return (
     <>
-      <div className='relative isolate bg-white'>
+      <div id='contact' className='relative isolate bg-white'>
         <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
           <div className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
             <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg'>

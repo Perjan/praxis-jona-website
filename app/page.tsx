@@ -1,7 +1,5 @@
 import Image from 'next/image'
-// import { Inter } from 'next/font/google'
-import styles from './page.module.css'
-import Link from 'next/link'
+import { Metadata } from 'next'
 import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
@@ -16,7 +14,9 @@ import FaqSection from './FaqSection'
 import ContactSection from './Contact'
 import FinancialOverview from './FinancialOverview'
 
-// const inter = Inter({ subsets: ['latin'] })
+export const metadata: Metadata = {
+  title: 'MoneyCoach Modern cash and budget tracker'
+}
 
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {

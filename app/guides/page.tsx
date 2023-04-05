@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Post, allPosts } from 'contentlayer/generated'
+import { Metadata } from 'next'
 
+export const metadata: Metadata = {
+  title: 'Guides',
+}
 
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
 

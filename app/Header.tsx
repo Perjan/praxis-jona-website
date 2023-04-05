@@ -17,8 +17,8 @@ const navigationItems = [
     { title: "Features", href: "/features" },
     { title: "Guides", href: "/guides" },
     { title: "Blog", href: "/blog" },
-    { title: "Company", href: "/company" },
-    { title: "Contact", href: "/contact" }
+    { title: "Company", href: "/company" }
+    // { title: "Contact", href: "/#contact" }
 ]
 
 const navigationItemsMobile = [
@@ -85,6 +85,7 @@ export default function Header() {
                         <Link
                             key={item.title}
                             href={item.href}
+                            scroll={true}
                             className={
                                 cn(pathname === item.href ? "text-primary" : "text-gray-900",
                                     "text-sm font-semibold leading-6")
