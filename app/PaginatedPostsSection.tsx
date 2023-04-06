@@ -50,7 +50,7 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
         <>
         <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
             {categories.map((category) => (
-                <div className='mb-4'>
+                <div key={category} className='mb-4'>
                     {makeSelectionPill(name(category), activePill === category, () => setActivePill(category))}
                 </div>
             ))
