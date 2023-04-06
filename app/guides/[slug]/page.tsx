@@ -6,6 +6,9 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
+import { Metadata } from "next";
+
+const baseUrl = 'https://www.moneycoach.ai';
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -49,6 +52,49 @@ const components = {
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo
 };
+
+
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  
+  if (!post) {
+    return;
+  }
+
+  const {
+    title,
+    date: publishedTime,
+    summary: description,
+    coverImageUrl: image,
+    slug,
+  } = post;
+  const ogImage = image ??  baseUrl + '/images/og-image.png';
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      publishedTime,
+      url: baseUrl + post.guideUrl,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [ogImage],
+    },
+  };
+}
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
