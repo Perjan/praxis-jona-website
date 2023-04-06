@@ -3,10 +3,9 @@ import Link from 'next/link'
 import Image from "next/image";
 import { notFound } from 'next/navigation';
 import { getMDXComponent } from 'next-contentlayer/hooks'
-import { compareDesc, format, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
-// import { useNavigation } from 'next/navigation'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -75,7 +74,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               <Image 
                 className="rounded-lg shadow-lg" 
                 src={post.coverImageUrl}
-                width={1000} 
+                width={1000}
                 height={400} 
                 alt={post.title} 
               /> 

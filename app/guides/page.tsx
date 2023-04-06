@@ -105,7 +105,7 @@ function PostCard(post: Post) {
 // Returns a section with a list of posts and a section title
 function PostSection({ posts, title }) {
   return (
-    <div className='mx-auto mt-10 max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none'>
+    <div className='mx-auto mt-10 max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none bg-red-400'>
       <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl pb-8">{title}</h2>
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:grid-cols-3">
         {
@@ -120,7 +120,7 @@ function PostSection({ posts, title }) {
 
 export default function Home() {
   return (
-    <div className="bg-white mt-10">
+    <div className="bg-white mt-2 sm:mt-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Guides</h1>
