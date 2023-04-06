@@ -11,6 +11,7 @@ const description = "Track all your cash spending, manage your personal budgets 
 const whatsNewUrl = "https://moneycoach.ai/whats-new-in-moneycoach-8-4-2/"
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
+const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
 
 export default function HeroSection() {
     return (
@@ -63,7 +64,7 @@ export default function HeroSection() {
                         </Link>
 
                         <Link
-                            href={videoUrl}
+                            href={previewUrl}
                             target='_blank'
                             className="rounded-md inline-flex bg-slate-300 px-3.5 py-2.5 text-sm font-semibold text-primary shadow-sm hover:text-white hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/90"
                         >
