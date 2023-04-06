@@ -6,12 +6,11 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
-// import { useNavigation } from 'next/navigation'
 
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
+  return allPosts
+  .filter((post) => post.categories?.includes('legal'))
+  .map((post) => ({ slug: post.slug }));
 }
 
 const CustomLink = (props) => {

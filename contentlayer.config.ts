@@ -37,10 +37,6 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       resolve: (post) => `/blog/${post._raw.flattenedPath}`,
     },
-    legalUrl: {
-      type: "string",
-      resolve: (post) => `/legal/${post._raw.flattenedPath}`,
-    },
     guideUrl: {
       type: "string",
       resolve: (post) => `/guides/${post._raw.flattenedPath}`,

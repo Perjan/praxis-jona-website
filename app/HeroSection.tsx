@@ -2,11 +2,15 @@ import {
     ChevronRightIcon,
     PlayCircleIcon
 } from '@heroicons/react/20/solid'
+
 import Image from 'next/image'
+import Link from 'next/link'
 
 const title = "Modern cash and budget tracker"
 const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about."
 const whatsNewUrl = "https://moneycoach.ai/whats-new-in-moneycoach-8-4-2/"
+const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
+const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 
 export default function HeroSection() {
     return (
@@ -50,20 +54,22 @@ export default function HeroSection() {
                         {description}
                     </p>
                     <div className="mt-10 flex items-center gap-x-6">
-                        <a
-                            href="#"
+                        <Link
+                            href={downloadUrl}
+                            target='_blank'
                             className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                             Download Now
-                        </a>
+                        </Link>
 
-                        <a
-                            href="#"
+                        <Link
+                            href={videoUrl}
+                            target='_blank'
                             className="rounded-md inline-flex bg-slate-300 px-3.5 py-2.5 text-sm font-semibold text-primary shadow-sm hover:text-white hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/90"
                         >
                             <PlayCircleIcon className="h-5 w-5 mr-2" aria-hidden="true" />
                             <span>Watch Video</span>
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">

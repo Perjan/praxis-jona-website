@@ -6,7 +6,6 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
-// import { useNavigation } from 'next/navigation'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({

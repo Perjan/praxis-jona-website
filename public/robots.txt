@@ -1,8 +1,9 @@
-# Block all crawlers for in development
+# *
 User-agent: *
-Disallow: /
+Allow: /
 
-## Enable in production
-# Allow all crawlers
-# User-agent: *
-# Allow: /
+# Host
+Host: https://moneycoach.ai
+
+# Sitemaps
+Sitemap: https://moneycoach.ai/sitemap.xml

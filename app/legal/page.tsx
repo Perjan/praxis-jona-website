@@ -1,16 +1,7 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import Image from 'next/image'
 import { Post, allPosts } from 'contentlayer/generated'
 
-
-const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
-
-function getWordStr(str, wordCount) {
-  return str.split(/\s+/).slice(0, wordCount).join(" ");
-}
-
 function PostCard(post: Post) {
+
   return (
     <>
       <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
@@ -18,7 +9,7 @@ function PostCard(post: Post) {
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a href={post.legalUrl}>
+                  <a href={`/legal/${post._raw.flattenedPath}`}>
                     <span className="absolute inset-0" />
                     {post.title}
                   </a>
@@ -46,6 +37,9 @@ function PostSection({ posts, title }) {
 }
 
 export default function Home() {
+  
+  const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
