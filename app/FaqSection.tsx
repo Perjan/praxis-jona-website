@@ -54,8 +54,8 @@ export default function FaqSection() {
               href="/faqs"
               className="content-end rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              View all Frequently asked questions
-              <span aria-hidden="true">&rarr;</span>
+              View all FAQs
+              <span aria-hidden="true" className="pl-2">&rarr;</span>
             </Link>
           </div>
         </div>
