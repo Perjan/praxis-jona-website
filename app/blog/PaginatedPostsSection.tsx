@@ -1,26 +1,42 @@
 "use client"
-import { ArrowLongLeftIcon, ArrowLongRightIcon } from '@heroicons/react/20/solid'
 import { useState } from 'react'
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 
 const pageItems = 9
 
+// enum with all the categories
+const categories = ['All', 'Guide', 'Business Tips', 'News', 'Design', 'Financial Tips']
+
 export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     
     const [pageIndex, setpageIndex] = useState(0)
+    const [activePill, setActivePill] = useState('All')
+
+    const filteredPosts = (activePill === "All" ? posts : posts
+        .filter((post) => post.categories?.includes(activePill.toLowerCase())))
+
 
     return (
         <>
+        <div className="mx-auto flex gap-x-4 gap-8 flex-wrap pt-4  max-w-2xl lg:mx-0 lg:max-w-none">
+                {makePill('All', () => setActivePill('All'))}
+                {makePill('Guide', () => setActivePill('Guide'))}
+                {makePill('Business Tips', () => setActivePill('business-tips'))}
+                {makePill('News', () => setActivePill('news'))}
+                {makePill('Design', () => setActivePill('design'))}
+                {makePill('Financial Tips', () => setActivePill('financial-tips'))}
+        </div>
         <div className="mx-auto mt-10 pb-14 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-b border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-
+        
         {
-            posts
+            filteredPosts
             .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
             .slice(0, (pageIndex + 1) * pageItems)
             .map((post) => (
                 postCard(post)
             ))
+        
         }
         </div>
 
@@ -44,13 +60,7 @@ function postCard(post: Post) {
             </time>
 
             {post.categories?.map((item) => (
-                <a
-                    key={item}
-                    href={item}
-                    className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-                >
-                    {item}
-                </a>
+                makePill(item)
             ))}
 
         </div>
@@ -64,5 +74,16 @@ function postCard(post: Post) {
             <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 40)}</p>
         </div>
     </article>
+}
+
+function makePill(item: string, onClick): JSX.Element {
+    return <a
+        key={item}
+        href="#"
+        className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+        onClick={onClick}
+    >
+        {item}
+    </a>
 }
 

@@ -28,18 +28,21 @@ navigationItemsMobile.push(...navigationItems)
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
+const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
+
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
 export function DownloadButton() {
     return (
-        <a
-            href="#"
+        <Link
+            href={downloadUrl}
+            target='_blank'
             className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
         >
             Download App
-        </a>
+        </Link>
     )
 }
 
@@ -51,10 +54,20 @@ export default function Header() {
     return (
         <header className="bg-white">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1">
-                    <Link href="/" className="-m-1.5 p-1.5">
+                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
+                    <Link 
+                        href="/" 
+                        className="-m-1.5 p-1.5"
+                    >
                         <span className="sr-only">MoneyCoach</span>
-                        <Image priority={true} className="h-14 w-auto object-contain" src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" width={390} height={114} alt="" />
+                        <Image 
+                            priority={true} 
+                            className="h-14 w-auto object-contain" 
+                            src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" 
+                            width={390} 
+                            height={114} 
+                            alt="MoneyCoach Logo" 
+                        />
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
