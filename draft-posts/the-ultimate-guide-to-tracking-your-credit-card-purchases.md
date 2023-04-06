@@ -1,0 +1,22 @@
+---
+title: "The Ultimate Guide to Tracking Your Credit Card Purchases"
+date: "2023-04-03"
+categories: 
+  - "financial-tips"
+---
+
+Credit cards offer a convenient way to pay for purchases, but keeping track of your spending can be challenging. Here are some tips on how to track your credit card purchases:
+
+1. **Use a budgeting app**: Many budgeting apps, such as MoneyCoach, allow you to manually add your credit card accounts and track your spending. You can also set up alerts for when you approach or exceed your card limit and when your payment is due.
+
+3. **Keep your receipts**: If you prefer to track your spending manually, make sure to keep your receipts for all credit card purchases. This will make it easier to reconcile your credit card statements and identify any discrepancies.
+
+5. **Check your statements regularly**: Make it a habit to check your credit card statements regularly, either online or in paper form. This will help you catch any errors or fraudulent charges as soon as possible.
+
+7. **Categorize your spending**: To get a better understanding of your spending habits, categorize your credit card purchases into different categories, such as groceries, dining, or entertainment. This will help you identify areas where you may be overspending and adjust your budget accordingly.
+
+9. **Set spending limits**: Many credit card companies allow you to set spending limits or alerts for specific purchases, such as large transactions or out-of-state purchases. This can help you stay within your budget and prevent fraudulent charges.
+
+MoneyCoach now supports manual credit card tracking. Set up your credit cards and activate the payment due reminders so you never have to pay those nasty credit card interests. Find more about it [here](https://moneycoach.ai/how-to-track-and-manage-credit-cards/).
+
+By tracking your credit card purchases, you can stay on top of your finances and avoid overspending or accumulating debt.
