@@ -76,16 +76,11 @@ const intermediatePosts = sortedPostsBySlug(guidesPosts, intermediatePostsSlugs)
 const advancedPosts = sortedPostsBySlug(guidesPosts, advancedPostsSlugs)
 const questionsAndAnswersPosts = sortedPostsBySlug(guidesPosts, questionsAndAnswersPostsSlugs)
 
-function getWordStr(str, wordCount) {
-  return str.split(/\s+/).slice(0, wordCount).join(" ");
-}
-
 function PostCard(post: Post) {
   return (
-    <>
       <article key={post._id} className="flex flex-col items-start justify-normal content-start">
         <h2 className='sr-only'>{post.title}</h2>
-        <Link href={post.url}>
+        <Link href={post.guideUrl}>
           <div className="relative w-full duration-300 ease-in-out hover:scale-105">
             <Image src={post.coverImageUrl} width={306} height={204} alt={post.title}
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9] p-2" />
@@ -98,21 +93,20 @@ function PostCard(post: Post) {
             </div>
           </div>
       </article>
-    </>
   )
 }
 
 // Returns a section with a list of posts and a section title
-function PostSection({ posts, title }) {
+function PostSection({posts, title}) {
   return (
-    <div className='mx-auto mt-10 max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none bg-red-400'>
-      <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl pb-8">{title}</h2>
+    <div className='mx-auto mt-10 max-w-2xl border-t border-gray-200 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none'>
+      <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl pb-0">{title}</h2>
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:grid-cols-3">
         {
-          posts
-            .map((post) => (
+          posts.map((post) => (
               PostCard(post)
-            ))}
+            ))
+        }
       </div>
     </div>
   )
@@ -128,10 +122,10 @@ export default function Home() {
             {"A collection of guides and tutorials on how to use MoneyCoach.\nGet started today and learn how to use MoneyCoach to manage your finances."}
           </p>
         </div>
-        <PostSection key={1} posts={beginnerPosts} title="Beginner" />
-        <PostSection key={2} posts={intermediatePosts} title="Intermediate" />
-        <PostSection key={3} posts={advancedPosts} title="Advanced" />
-        <PostSection key={4} posts={questionsAndAnswersPosts} title="Questions and Answers" />
+        <PostSection posts={beginnerPosts} title="Beginner" />
+        <PostSection posts={intermediatePosts} title="Intermediate" />
+        <PostSection posts={advancedPosts} title="Advanced" />
+        <PostSection posts={questionsAndAnswersPosts} title="Questions and Answers" />
       </div>
     </div>
   )

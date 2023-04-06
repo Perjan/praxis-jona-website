@@ -3,15 +3,9 @@ import Link from 'next/link'
 import Image from "next/image";
 import { notFound } from 'next/navigation';
 import { getMDXComponent } from 'next-contentlayer/hooks'
-import { format, parseISO } from 'date-fns'
+import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
-
-export async function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -63,34 +57,63 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const Content = getMDXComponent(post.body.code)
 
   return (
-    <div className="py-32 px-6 lg:px-8">
-      <div className="mx-auto max-w-3xl text-base leading-7">
-        <article className="prose prose-neutral prose-quoteless">
-          <section>
-            <script type="application/ld+json">
-              {/* {JSON.stringify(post.structuredData)} */}
-            </script>
-            { (post.coverImage !== undefined) &&
+    <div className="bg-white mt-2 sm:mt-10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
+          <time dateTime={post.date} className="text-gray-500">
+              {format(parseISO(post.date), 'LLLL d, yyyy')}
+            </time>
+        </div>
+        <article className="prose prose-neutral mx-auto max-w-2xl lg:mx-0">
+        {/* <article className=""> */}
+           <section>
+             <script type="application/ld+json">
+               {/* {JSON.stringify(post.structuredData)} */}
+             </script>
+             { (post.coverImage !== undefined) &&
               <Image 
                 className="rounded-lg shadow-lg" 
                 src={post.coverImageUrl}
-                width={1000}
+                width={1000} 
                 height={400} 
                 alt={post.title} 
               /> 
             }
-            
-            <time dateTime={post.date} className="text-gray-500">
-                  {format(parseISO(post.date), 'LLLL d, yyyy')}
-                </time>
-            <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
-              {post.title}
-            </h1>
             <Content components={{...components}} />
           </section>
         </article>
       </div>
     </div>
+    // <div className="mt-2 sm:mt-10 bg-red-500">
+    //   <div className="max-w-7xl px-20">
+    //   {/* <article className="prose prose-neutral bg-blue-500"> */}
+    //     <article className=" bg-blue-500">
+    //       <section>
+    //         <script type="application/ld+json">
+    //           {/* {JSON.stringify(post.structuredData)} */}
+    //         </script>
+    //         { (post.coverImage !== undefined) &&
+    //           <Image 
+    //             className="rounded-lg shadow-lg" 
+    //             src={post.coverImageUrl}
+    //             width={1000} 
+    //             height={400} 
+    //             alt={post.title} 
+    //           /> 
+    //         }
+            
+    //         <time dateTime={post.date} className="text-gray-500">
+    //               {format(parseISO(post.date), 'LLLL d, yyyy')}
+    //             </time>
+    //         <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
+    //           {post.title}
+    //         </h1>
+    //         <Content components={{...components}} />
+    //       </section>
+    //     </article>
+    //   </div>
+    // </div>
   )
 }
 

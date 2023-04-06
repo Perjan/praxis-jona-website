@@ -50,7 +50,7 @@ function RoundedImage(props) {
 }
 
 const components = {
-  a: CustomLink,
+  // a: CustomLink,
   h1: H1,
   // h3: H3
   img: RoundedImage,
