@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
-import PaginatedPostsSection from './PaginatedPostsSection'
+import PaginatedPostsSection from '../PaginatedPostsSection'
 
 export const metadata: Metadata = {
   title: 'Blog',
