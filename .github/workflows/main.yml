@@ -1,0 +1,2 @@
+- name: Translate your doc with Deepl Free API
+  uses: jerCarre/deepl_action@1.0.1
