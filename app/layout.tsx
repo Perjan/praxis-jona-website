@@ -6,8 +6,9 @@ import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://${process.env.VERCEL_URL}"),
   title: {
-    default: "MoneyCoach - Budgeting App",
+    default: "MoneyCoach App",
     template: "%s | MoneyCoach - Budgeting App"
   },
   description: "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending.",
@@ -18,11 +19,11 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'MoneyCoach - Budgeting App',
-    url: 'https://moneycoach.ai',
+    url: '/',
     images: [
       {
-        url: 'https://moneycoach.ai/images/og-image.png',
-        width: 800,
+        url: '/images/og-image.png',
+        width: 1200,
         height: 600,
       }
     ],
