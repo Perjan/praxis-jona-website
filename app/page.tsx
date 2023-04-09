@@ -14,10 +14,6 @@ import FaqSection from './FaqSection'
 import ContactSection from './Contact'
 import FinancialOverview from './FinancialOverview'
 
-export const metadata: Metadata = {
-  title: 'MoneyCoach Modern cash and budget tracker'
-}
-
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
