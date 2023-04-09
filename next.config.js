@@ -20,12 +20,20 @@ const nextConfig = {
     ]
   },
   rewrites: async () => {
-    return [
-      {
-        source: "/playground",
-        destination: "/index.html"
-      }
-    ]
+    return {
+      beforeFiles: [
+        {
+          source: "/playground",
+          destination: "/index.html"
+        }
+      ],
+      fallback: [
+        {
+          source: "/:slug*",
+          destination: "/blog/:slug*"
+        }
+      ]
+    }
   }
 }
 
