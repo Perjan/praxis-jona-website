@@ -5,6 +5,7 @@ const nextConfig = {
   // reactStrictMode: true,
   experimental: {
     appDir: true,
+    scrollRestoration: true
     // mdxRs: true,
   },
   images: {
