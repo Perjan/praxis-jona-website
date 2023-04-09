@@ -82,6 +82,7 @@ export default function HeroSection() {
                                 alt='MoneyCoach app screenshot'
                                 width={2432}
                                 height={1442}
+                                priority={true}
                             />
 
                         </div>
