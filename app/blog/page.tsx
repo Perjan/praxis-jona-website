@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Blog',
 }
 
-export function PostCard(post: Post) {
+function PostCard(post: Post) {
   return (
     <div className="flex max-w-xl flex-col items-start justify-between mb-10 mt-10">
       <div className="flex items-center gap-x-4 text-xs">

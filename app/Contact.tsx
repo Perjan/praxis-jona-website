@@ -149,8 +149,11 @@ export default function ContactSection() {
             className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'
           >
             <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
+            <h2 className='text-3xl font-bold tracking-tight text-gray-900'>
+                Contact Us
+              </h2>
               <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-                <div>
+                <div className='mt-8'>
                   <label
                     htmlFor='first-name'
                     className='block text-sm font-semibold leading-6 text-gray-900'
