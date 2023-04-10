@@ -6,9 +6,10 @@ import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.moneycoach.ai"),
   title: {
-    default: "MoneyCoach - Budgeting App",
-    template: "%s | MoneyCoach - Budgeting App"
+    default: "MoneyCoach | Modern cash tracker and budgeting app",
+    template: "%s | MoneyCoach Budgeting App"
   },
   description: "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending.",
   twitter: {
@@ -17,12 +18,12 @@ export const metadata: Metadata = {
     // cardType: "summary_large_image"
   },
   openGraph: {
-    title: 'MoneyCoach - Budgeting App',
-    url: 'https://moneycoach.ai',
+    title: 'MoneyCoach | Modern cash tracker and budgeting app',
+    url: '/',
     images: [
       {
-        url: 'https://moneycoach.ai/images/og-image.png',
-        width: 800,
+        url: '/images/og-image.png',
+        width: 1200,
         height: 600,
       }
     ],
@@ -41,7 +42,6 @@ export const metadata: Metadata = {
     },
   },
   appLinks: {
-
     ios: {
       app_name: 'MoneyCoach',
       app_store_id: '989642198',

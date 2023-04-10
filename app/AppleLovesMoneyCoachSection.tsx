@@ -1,3 +1,6 @@
+import Image from "next/image"
+import Link from "next/link"
+
 const title = "Apple ❤️ MoneyCoach"
 const description = "MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store. \n\nCrazy, right?"
 
@@ -12,41 +15,50 @@ export default function AppleLovesMoneyCoachSection() {
              {description}
             </p>
             <div className="mt-10 flex">
-              <a
+              <Link
                 href="https://apps.apple.com/is/story/id1591098240"
+                target="_blank"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 App Store Developer Spotlight<span aria-hidden="true">&rarr;</span>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
             <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-              <img
+              <Image
                 src="/images/developerSpotlight.png"
                 alt=""
+                width={1152}
+                height={768}
                 className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
               />
             </div>
             <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
               <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
-                <img
+                <Image
                   src="/images/moneyCoachFeaturedAppStore.png"
                   alt=""
+                  width={1152}
+                  height={768}
                   className=" w-[16rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>
               <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-                <img
+                <Image
                   src="/images/appOfTheDay.png"
                   alt=""
+                  width={1152}
+                  height={768}
                   className=" w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>
               <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-                <img
+                <Image
                   src="/images/moneyCoachWWDC20.png"
                   alt=""
+                  width={1152}
+                  height={768}
                   className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>

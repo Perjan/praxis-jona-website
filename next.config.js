@@ -5,6 +5,7 @@ const nextConfig = {
   // reactStrictMode: true,
   experimental: {
     appDir: true,
+    scrollRestoration: true
     // mdxRs: true,
   },
   images: {
@@ -20,12 +21,28 @@ const nextConfig = {
     ]
   },
   rewrites: async () => {
-    return [
-      {
-        source: "/playground",
-        destination: "/index.html"
-      }
-    ]
+    return {
+      beforeFiles: [
+        {
+          source: "/playground",
+          destination: "/index.html"
+        },
+        {
+          source: "/feed",
+          destination: "/blog"
+        },
+        {
+          source: "/getting-started-with-moneycoach",
+          destination: "/guides"
+        }
+      ],
+      fallback: [
+        {
+          source: "/:slug*",
+          destination: "/blog/:slug*"
+        }
+      ]
+    }
   }
 }
 

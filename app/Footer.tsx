@@ -124,6 +124,7 @@ function FooterColumn({ title, items }) {
               href={item.href}
               className="text-sm leading-6 text-gray-600 hover:text-gray-900"
               rel="noopener noreferrer"
+              scroll={false}
             >
               {item.name}
             </Link>
@@ -170,6 +171,7 @@ export default function Footer() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
+                scroll={false}
                 className="text-gray-400 hover:text-gray-500"
               >
                 <span className="sr-only">{item.name}</span>
