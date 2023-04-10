@@ -26,6 +26,14 @@ const nextConfig = {
         {
           source: "/playground",
           destination: "/index.html"
+        },
+        {
+          source: "/feed",
+          destination: "/blog"
+        },
+        {
+          source: "/getting-started-with-moneycoach",
+          destination: "/guides"
         }
       ],
       fallback: [
