@@ -2,9 +2,24 @@ import { allPosts } from 'contentlayer/generated'
 import PaginatedPostsSection from '../PaginatedPostsSection'
 import { Metadata } from 'next'
 
+const title = 'Blog'
+const description = "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals."
+
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals.",
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/blog'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 export default async function Page() {
