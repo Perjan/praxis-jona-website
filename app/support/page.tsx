@@ -1,9 +1,32 @@
 import ContactSection from "app/Contact";
 import { Metadata } from "next";
 
+const title = 'Support'
+const description = 'We\'re here to help you get the most out of our budgeting and personal finance app. Whether you\'re having trouble setting up your account or you need some assistance with managing your budget, our team is here to lend a hand.',
+
 export const metadata: Metadata = {
-    title: 'Support',
-    description: 'We\'re here to help you get the most out of our budgeting and personal finance app. Whether you\'re having trouble setting up your account or you need some assistance with managing your budget, our team is here to lend a hand.',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/support',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 export default function Page() {

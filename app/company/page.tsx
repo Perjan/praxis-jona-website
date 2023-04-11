@@ -1,15 +1,39 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
 
+
+  const title = 'Company'
+  const description = "Read about the team behind MoneyCoach, the app that helps you manage your money and achieve your financial goals."
+
 export const metadata: Metadata = {
-  title: 'Company',
-  description: "Read about the team behind MoneyCoach, the app that helps you manage your money and achieve your financial goals."
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/company',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 
 /// https://beta.nextjs.org/docs/installation
-export default function About() {
+export default function Page() {
   return (
     <>
       <main>

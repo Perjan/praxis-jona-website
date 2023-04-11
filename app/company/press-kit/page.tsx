@@ -5,9 +5,32 @@ import Image from 'next/image';
 const imageWidth = 408;
 const imageHeight = 513;
 
+const title = 'Press Kit | MoneyCoach'
+const description = "Access MoneyCoach's press kit to learn more about the app and the media coverage it has received."
+
 export const metadata: Metadata = {
-    title: 'Press Kit | MoneyCoach',
-    description: "Access MoneyCoach's press kit to learn more about the app and the media coverage it has received.",
+    title: title,
+    description: description,
+    openGraph: {
+        title: title,
+        description: description,
+        type: 'website',
+        url: '/company/press-kit',
+        images: [
+            {
+                url: '/images/og-image.png',
+                width: 1200,
+                height: 600,
+                alt: 'MoneyCoach app screenshot'
+            }
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: title,
+        description: description,
+        images: ['/images/og-image.png']
+    }
 }
 
 export default function PressKit() {
@@ -30,7 +53,7 @@ export default function PressKit() {
                                 </div>
                             </div>
                         </div>
-                        <Image className="mx-auto object-center lg:max-h-96 lg:max-w-sm" 
+                        <Image className="mx-auto object-center lg:max-h-96 lg:max-w-sm"
                             width={483}
                             height={853}
                             src="/images/moco-press-love.png" alt="" />

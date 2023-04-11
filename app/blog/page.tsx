@@ -12,7 +12,15 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     type: 'website',
-    url: '/blog'
+    url: '/blog',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
   },
   twitter: {
     card: 'summary_large_image',

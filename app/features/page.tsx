@@ -1,8 +1,32 @@
 import Image from "next/image";
 import { Metadata } from "next";
 
+const title = 'Features'
+const description = "View some of the features MoneyCoach has to offer. Explore the app and see how it can help you manage your money, budget, and track your spending."
+
 export const metadata: Metadata = {
-  title: 'Features',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/features',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 // features list with title, description, and image from the Features() component

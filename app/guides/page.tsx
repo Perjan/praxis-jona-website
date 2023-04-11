@@ -3,9 +3,33 @@ import Image from 'next/image'
 import { Post, allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 
+
+const title = 'Guides'
+const description = 'Guides to help you get the most out of MoneyCoach. Learn how to use MoneyCoach, how to set up your accounts, how to manage your transactions, how to create budgets and goals, how to use the app on your Apple Watch, and more.'
+
 export const metadata: Metadata = {
-  title: 'Guides',
-  description: 'Guides to help you get the most out of MoneyCoach. Learn how to use MoneyCoach, how to set up your accounts, how to manage your transactions, how to create budgets and goals, how to use the app on your Apple Watch, and more.'
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/guides',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
