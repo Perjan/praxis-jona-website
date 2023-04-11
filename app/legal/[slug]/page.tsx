@@ -1,11 +1,12 @@
 import Head from "next/head"
 import Link from 'next/link'
 import Image from "next/image";
-import { notFound } from 'next/navigation';
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
+import { Metadata } from "next";
+import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 
 export async function generateStaticParams() {
   return allPosts
@@ -13,23 +14,12 @@ export async function generateStaticParams() {
   .map((post) => ({ slug: post.slug }));
 }
 
-const CustomLink = (props) => {
-  const href = props.href;
+export async function generateMetadata({
+  params,
+}): Promise<Metadata | undefined> {
+  return generateMetadataForPost(params.slug);
+}
 
-  if (href.startsWith('/')) {
-    return (
-      <Link className="bg-red-400" href={href} {...props}>
-        {props.children}
-      </Link>
-    );
-  }
-
-  if (href.startsWith('#')) {
-    return <a className="bg-red-400" {...props} />;
-  }
-
-  return <a className="bg-red-400" target="_blank" rel="noopener noreferrer" {...props} />;
-};
 
 const H1 = (props) => {
   return <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">{props.children}</h1>

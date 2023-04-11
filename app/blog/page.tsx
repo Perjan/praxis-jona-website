@@ -5,8 +5,11 @@ import { Post, allPosts } from 'contentlayer/generated'
 import { Metadata } from 'next'
 import PaginatedPostsSection from '../PaginatedPostsSection'
 
+
+
 export const metadata: Metadata = {
   title: 'Blog',
+  description: "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals."
 }
 
 function PostCard(post: Post) {
