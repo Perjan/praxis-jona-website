@@ -2,7 +2,7 @@ import ContactSection from "app/Contact";
 import { Metadata } from "next";
 
 const title = 'Support'
-const description = 'We\'re here to help you get the most out of our budgeting and personal finance app. Whether you\'re having trouble setting up your account or you need some assistance with managing your budget, our team is here to lend a hand.',
+const description = 'We are here to help you get the most out of our budgeting and personal finance app. Whether you are having trouble setting up your account or you need some assistance with managing your budget, our team is here to lend a hand.'
 
 export const metadata: Metadata = {
   title: title,
