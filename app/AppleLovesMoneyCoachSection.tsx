@@ -27,7 +27,7 @@ export default function AppleLovesMoneyCoachSection() {
           <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
             <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
               <Image
-                src="/images/developerSpotlight.png"
+                src="/images/developerSpotlight.jpeg"
                 alt=""
                 width={1152}
                 height={768}
