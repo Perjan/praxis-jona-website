@@ -47,9 +47,7 @@ export const metadata: Metadata = {
   },
   itunes: {
     appId: '989642198',
-    appArgument: 'moneycoach2://',
-    //{ app: { id: "123456789", affiliateData: "123456789", appArguments: "123456789" } }
-
+    appArgument: 'moneycoach2://'
   },
   appLinks: {
     ios: {
