@@ -8,11 +8,11 @@ const pageItems = 9
 // enum with all the categories
 
 enum Category {
-    all, guide, businessTips, news, design, financialTips
+    all, guide, diaries, businessTips, news, design, financialTips
 }
 
 const categories: Category[] = [
-    Category.all, Category.guide, Category.news, Category.businessTips, Category.design, Category.financialTips
+    Category.all, Category.guide, Category.news, Category.diaries, Category.businessTips, Category.design, Category.financialTips
 ]
 
 function name(category: Category) {
@@ -21,6 +21,7 @@ function name(category: Category) {
         case Category.guide: return "Guides"
         case Category.businessTips: return "Business Tips"
         case Category.news: return "News"
+        case Category.diaries: return "Diaries"
         case Category.design: return "Design"
         case Category.financialTips: return "Financial Tips"
     }
@@ -32,6 +33,7 @@ function raw(category: Category) {
         case Category.guide: return "guide"
         case Category.businessTips: return "business-tips"
         case Category.news: return "news"
+        case Category.diaries: return "diaries"
         case Category.design: return "design"
         case Category.financialTips: return "financial-tips"
     }
