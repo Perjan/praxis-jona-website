@@ -34,7 +34,7 @@ const navigation = {
     { name: "About", href: "/company" },
     { name: "Blog", href: "/blog" },
     { name: "Press Kit", href: "/company/press-kit" },
-    { name: "Support", href: "mailto:tickets@duuroapps.uservoice.com?subject=MoneyCoach%20Web%20Support%20Ticket" },
+    { name: "Support", href: "/support" },
     { name: "Financial Calculators", href: "/financial-calculators" },
     {
       name: "Feature Request",

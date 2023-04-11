@@ -11,7 +11,6 @@ import AppleWatchSection from './AppleWatchSection'
 import FeatureSectionWithProductScreenshotPanel from './FeatureSectionWithProductScreenshotPanel'
 import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
 import FaqSection from './FaqSection'
-import ContactSection from './Contact'
 import FinancialOverview from './FinancialOverview'
 
 /// https://beta.nextjs.org/docs/installation
@@ -43,8 +42,6 @@ export default function Home() {
       <FaqSection />
   
       <NewsletterSection />
-
-      <ContactSection />
       
     </main>
   );

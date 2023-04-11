@@ -1,5 +1,10 @@
 import ContactSection from "app/Contact";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: 'Support',
+    description: 'We\'re here to help you get the most out of our budgeting and personal finance app. Whether you\'re having trouble setting up your account or you need some assistance with managing your budget, our team is here to lend a hand.',
+}
 
 export default function Page() {
 

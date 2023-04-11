@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Company',
+  description: "Read about the team behind MoneyCoach, the app that helps you manage your money and achieve your financial goals."
 }
 
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'

@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const title = "Modern cash and budget tracker"
 const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about."
-const whatsNewUrl = "https://moneycoach.ai/whats-new-in-moneycoach-8-4-2/"
+const whatsNewUrl = "/whats-new-in-moneycoach-8-4-2"
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
@@ -38,7 +38,7 @@ export default function HeroSection() {
                 <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
                     {/* <Image className="h-11" src="/images/mocoHead.png" alt='MoneyCoach app icon' width={44} height={44} /> */}
                     <div className="mt-0 sm:mt-4 lg:mt-24 h-0 collapse sm:visible">
-                        <a href={whatsNewUrl} className="inline-flex space-x-6">
+                        <Link href={whatsNewUrl} className="inline-flex space-x-6">
                             <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
                                 {"What's new"}
                             </span>
@@ -46,7 +46,7 @@ export default function HeroSection() {
                                 <span>Just shipped v8.4.2</span>
                                 <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                             </span>
-                        </a>
+                        </Link>
                     </div>
                     <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                         {title}

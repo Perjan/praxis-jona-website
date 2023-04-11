@@ -1,12 +1,12 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
-import { Metadata } from 'next'
 import PaginatedPostsSection from '../PaginatedPostsSection'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Blog',
+  description: "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals."
 }
 
 function PostCard(post: Post) {
@@ -41,7 +41,7 @@ function PostCard(post: Post) {
   )
 }
 
-export default function Home() {
+export default function Page() {
 
   return (
     <>
@@ -51,7 +51,7 @@ export default function Home() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Learn how to grow your business with our expert advice.
+            Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals.
           </p>
         </div>
         <PaginatedPostsSection posts={allPosts} />

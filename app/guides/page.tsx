@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Guides',
+  description: 'Guides to help you get the most out of MoneyCoach. Learn how to use MoneyCoach, how to set up your accounts, how to manage your transactions, how to create budgets and goals, how to use the app on your Apple Watch, and more.'
 }
 
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))

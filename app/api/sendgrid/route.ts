@@ -22,7 +22,7 @@ requestKeys.forEach((key) => {
     console.log('sendgrid route');
     console.log({ requestJson });
     const msg: MailDataRequired = {
-        to: "info@moneycoach.ai",
+        to: ["info@moneycoach.ai", "tickets@duuroapps.uservoice.com"],
         from: 'info@moneycoach.ai',
         replyTo: requestJson.email,
         subject: '[Website Contact] New message',
