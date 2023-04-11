@@ -1,8 +1,14 @@
 
+import { Metadata } from 'next';
 import Image from 'next/image';
 
 const imageWidth = 408;
 const imageHeight = 513;
+
+export const metadata: Metadata = {
+    title: 'Press Kit | MoneyCoach',
+    description: "Access MoneyCoach's press kit to learn more about the app and the media coverage it has received.",
+}
 
 export default function PressKit() {
     return (

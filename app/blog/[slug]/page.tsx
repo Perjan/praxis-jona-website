@@ -1,7 +1,5 @@
-import Head from "next/head"
 import Link from 'next/link'
-import Image from "next/image";
-import { notFound } from 'next/navigation';
+import Image from "next/image"
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
