@@ -5,30 +5,39 @@ import Footer from './Footer';
 import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 
+const title = "MoneyCoach - Modern cash tracker and budgeting app"
+const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.moneycoach.ai"),
   title: {
-    default: "MoneyCoach - Modern cash tracker and budgeting app",
+    default: title,
     template: "%s - MoneyCoach Budgeting App"
   },
-  description: "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending.",
+  description: description,
   // verification: {
   //   google: "google",
   // },
   twitter: {
+    title: title,
+    description: description,
     site: "MoneyCoach",
     creator: "@appmoneycoach",
-    card: "summary_large_image"
+    card: "summary_large_image",
+    images: ['/images/og-image.png']
   },
   openGraph: {
-    title: '%s',
+    title: title,
     siteName: 'MoneyCoach',
+    description: description,
+    type: 'website',
     url: '/',
     images: [
       {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
+        alt: 'MoneyCoach app screenshot'
       }
     ],
   },

@@ -54,6 +54,10 @@ const nextConfig = {
       ],
       fallback: [
         {
+          source: "/guide",
+          destination: "/guides"
+        },
+        {
           source: "/:slug*",
           destination: "/blog/:slug*"
         }
