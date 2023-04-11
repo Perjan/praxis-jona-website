@@ -12,13 +12,17 @@ export const metadata: Metadata = {
     template: "%s | MoneyCoach Budgeting App"
   },
   description: "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending.",
+  // verification: {
+  //   google: "google",
+  // },
   twitter: {
     // handle: "@appmoneycoach"
     site: "@appmoneycoach",
     // cardType: "summary_large_image"
   },
   openGraph: {
-    title: 'MoneyCoach | Modern cash tracker and budgeting app',
+    title: '%s',
+    siteName: 'MoneyCoach',
     url: '/',
     images: [
       {
@@ -40,6 +44,12 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  itunes: {
+    appId: '989642198',
+    appArgument: 'moneycoach2://',
+    //{ app: { id: "123456789", affiliateData: "123456789", appArguments: "123456789" } }
+
   },
   appLinks: {
     ios: {
