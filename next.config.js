@@ -20,20 +20,36 @@ const nextConfig = {
       }
     ]
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/wp-login.php',
+        destination: '/404',
+        permanent: true
+      },
+      {
+        source: "/feed",
+        destination: "/blog",
+        permanent: true
+      },
+      {
+        source: "/getting-started-with-moneycoach",
+        destination: "/guides",
+        permanent: true
+      },
+      {
+        source: "/moneycoach-app-features",
+        destination: "/features",
+        permanent: true
+      }
+    ]
+  },
   rewrites: async () => {
     return {
       beforeFiles: [
         {
           source: "/playground",
           destination: "/index.html"
-        },
-        {
-          source: "/feed",
-          destination: "/blog"
-        },
-        {
-          source: "/getting-started-with-moneycoach",
-          destination: "/guides"
         }
       ],
       fallback: [
