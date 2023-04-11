@@ -25,9 +25,10 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     openGraph: {
       title,
       description,
+      siteName: 'MoneyCoach',
       type: 'article',
       publishedTime,
-      url: baseUrl + post.guideUrl,
+      url: baseUrl + post.url,
       images: [
         {
           url: ogImage,
