@@ -1,0 +1,42 @@
+---
+title: "Credit Card Miles 101: How They Work and How to Maximize Them"
+date: "2023-04-14"
+categories: 
+  - "financial-tips"
+tags: 
+  - "get-out-of-debt"
+  - "moneycoach"
+  - "moneycoach-app"
+  - "personal-finance"
+coverImage: "credit-card-miles.jpg"
+summary: "Credit card miles can be a valuable reward for those who use credit cards responsibly and understand how to maximize their earning potential."
+---
+
+Credit card miles are a popular reward for many credit card users, but not everyone understands how they work or how to earn them. In this article, we'll discuss the basics of credit card miles, including how they work, the types of rewards available, and how to earn them.
+
+## How Credit Card Miles Work
+
+Credit card miles are rewards that can be earned through credit card spending. These rewards can be redeemed for a variety of travel-related expenses, including flights, hotels, car rentals, and more.
+
+Different credit card issuers offer different types of miles, but in general, there are two main types: airline miles and bank points. Airline miles are earned through a specific airline's loyalty program, while bank points are earned through a credit card issuer's own rewards program.
+
+The number of miles earned per dollar spent varies by issuer and card, but most credit cards offer one or two miles per dollar spent. Some cards also offer bonus miles for certain spending categories, such as travel or dining.
+
+Once you've earned enough miles, you can redeem them for travel-related expenses. The redemption value of miles varies by issuer and card, but in general, one mile is worth around one cent. Some issuers also offer transfer partners, which allow you to transfer your miles to a specific airline or hotel loyalty program.
+
+## How to Earn Credit Card Miles
+
+To earn credit card miles, you'll need to use a credit card that offers miles rewards. Here are some tips for earning miles:
+
+### 1\. Choose the right card
+Look for a credit card that offers miles rewards and fits your spending habits. Some cards offer bonus miles for specific categories, such as travel or dining.
+### 2\. Use your card for everyday purchases
+Use your credit card for everyday purchases, such as groceries, gas, and bills, to earn miles on your spending.
+### 3\. Take advantage of bonus offers
+Many credit cards offer sign-up bonuses for new cardholders or spending bonuses for hitting certain spending thresholds.
+### 4\. Use your card for travel expenses
+Use your credit card for travel expenses, such as flights and hotels, to earn bonus miles and double miles rewards.
+### 5\. Shop through the issuer's portal
+Some credit card issuers offer a shopping portal where you can earn bonus miles for shopping at certain retailers.
+
+**MoneyCoach** now supports manual credit card tracking. Set up your credit cards and activate the payment due reminders so you never have to pay those nasty credit card interests. Find more about it [here](https://moneycoach.ai/how-to-track-and-manage-credit-cards/).
