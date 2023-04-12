@@ -198,7 +198,7 @@ export default function Features() {
               <div
                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero1.png" alt=""
+                  <Image width={176} height={264} src="/images/features/hero1.jpg" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
@@ -206,13 +206,13 @@ export default function Features() {
               </div>
               <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero2.png" alt=""
+                  <Image width={176} height={264} src="/images/features/hero2.jpg" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
                 </div>
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero3.png" alt=""
+                  <Image width={176} height={264} src="/images/features/hero3.jpg" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
@@ -220,13 +220,13 @@ export default function Features() {
               </div>
               <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero4.png" alt=""
+                  <Image width={176} height={264} src="/images/features/hero5.jpg" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
                 </div>
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero5.png" alt=""
+                  <Image width={176} height={264} src="/images/features/hero4.jpg" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
