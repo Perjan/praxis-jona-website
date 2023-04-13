@@ -67,7 +67,8 @@ const components = {
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
 
-  
+  const isDiary = post.categories?.includes("diaries") ?? false
+
 
   const Content = getMDXComponent(post.body.code)
 
@@ -86,7 +87,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
              <script type="application/ld+json">
                {/* {JSON.stringify(post.structuredData)} */}
              </script>
-             { (post.coverImage !== undefined) &&
+             { isDiary &&
               <Image 
                 className="rounded-lg shadow-lg" 
                 src={post.coverImageUrl}
@@ -95,7 +96,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                 alt={post.title} 
               /> 
             }
-            {(post.categories.includes("diaries")) &&
+            {isDiary &&
               <blockquote>
               <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? Go to <Link href={"/blog"}>Blog</Link> and select <strong>Diaries</strong>.</p>
             </blockquote>
@@ -104,7 +105,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </section>
         </article>
       </div>
-      {(post.categories.includes("diaries")) &&
+      { isDiary &&
         <div className='mt-20'>
           <NewsletterSection title="Subscribe to MoneyCoach Diaries" />
         </div>
