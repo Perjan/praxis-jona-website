@@ -39,6 +39,18 @@ function raw(category: Category) {
     }
 }
 
+function categoryFromString(category: string) {
+    switch (category) {
+        case "all": return Category.all
+        case "guide": return Category.guide
+        case "business-tips": return Category.businessTips
+        case "news": return Category.news
+        case "diaries": return Category.diaries
+        case "design": return Category.design
+        case "financial-tips": return Category.financialTips
+    }
+}
+
 export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     
     const [pageIndex, setpageIndex] = useState(0)
@@ -79,10 +91,6 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     )
 }
 
-function getWordStr(str, wordCount) {
-    return str.split(/\s+/).slice(0, wordCount).join(" ");
-  }
-
 function postCard(post: Post) {
     return <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
         <div className="flex items-center gap-x-4 text-xs">
@@ -102,7 +110,7 @@ function postCard(post: Post) {
                     {post.title}
                 </a>
             </h3>
-            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 40)}</p>
+            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.summaryOrExcerpt}</p>
         </div>
     </article>
 }
@@ -115,7 +123,7 @@ function makePill(item: string, onClick): JSX.Element {
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         onClick={onClick}
     >
-        {item}
+        {name(categoryFromString(item))}
     </a>
 }
 

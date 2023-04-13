@@ -46,6 +46,11 @@ export const Post = defineDocumentType(() => ({
       required: false,
       resolve: (post) => `/images/blog-images/${post.coverImage}`,
     },
+    summaryOrExcerpt: {
+      type: "string",
+      required: true,
+      resolve: (post) => post.summary || getWordStr(post.body.raw, 40)
+    }
   },
 }));
 
@@ -57,3 +62,8 @@ export default makeSource({
     rehypePlugins: [],
   },
 });
+
+
+export function getWordStr(str, wordCount) {
+  return str.split(/\s+/).slice(0, wordCount).join(" ");
+}
