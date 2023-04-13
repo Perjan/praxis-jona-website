@@ -39,6 +39,18 @@ function raw(category: Category) {
     }
 }
 
+function categoryFromString(category: string) {
+    switch (category) {
+        case "all": return Category.all
+        case "guide": return Category.guide
+        case "business-tips": return Category.businessTips
+        case "news": return Category.news
+        case "diaries": return Category.diaries
+        case "design": return Category.design
+        case "financial-tips": return Category.financialTips
+    }
+}
+
 export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     
     const [pageIndex, setpageIndex] = useState(0)
@@ -111,7 +123,7 @@ function makePill(item: string, onClick): JSX.Element {
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         onClick={onClick}
     >
-        {item}
+        {name(categoryFromString(item))}
     </a>
 }
 
