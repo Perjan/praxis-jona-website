@@ -87,7 +87,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
              <script type="application/ld+json">
                {/* {JSON.stringify(post.structuredData)} */}
              </script>
-             { isDiary &&
+             { (post.coverImage !== undefined) &&
               <Image 
                 className="rounded-lg shadow-lg" 
                 src={post.coverImageUrl}
@@ -96,11 +96,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                 alt={post.title} 
               /> 
             }
-            {isDiary &&
+            { isDiary &&
               <blockquote>
-              <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? Go to <Link href={"/blog"}>Blog</Link> and select <strong>Diaries</strong>.</p>
-            </blockquote>
-                }  
+                <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? Go to <Link href={"/blog"}>Blog</Link> and select <strong>Diaries</strong>.</p>
+              </blockquote>
+            }  
             <Content components={{...components}} />
           </section>
         </article>
