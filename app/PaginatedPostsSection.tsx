@@ -79,10 +79,6 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     )
 }
 
-function getWordStr(str, wordCount) {
-    return str.split(/\s+/).slice(0, wordCount).join(" ");
-  }
-
 function postCard(post: Post) {
     return <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
         <div className="flex items-center gap-x-4 text-xs">
@@ -102,7 +98,7 @@ function postCard(post: Post) {
                     {post.title}
                 </a>
             </h3>
-            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{getWordStr(post.body.raw, 40)}</p>
+            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.summaryOrExcerpt}</p>
         </div>
     </article>
 }
