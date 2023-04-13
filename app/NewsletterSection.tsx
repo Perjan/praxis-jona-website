@@ -11,7 +11,7 @@ export function isEmail(email: string): boolean {
   return emailPattern.test(email);
 }
 
-export default function NewsletterSection() {
+export default function NewsletterSection({title = "Subscribe to our newsletter."}) {
 
 const [email, setEmail] = useState("");
 
@@ -21,7 +21,7 @@ const [email, setEmail] = useState("");
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">Subscribe to our newsletter.</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
               Ever wondered what it takes to run an indipendent app business? Then subscribe to our newsletter. I will share with you everything that is happening inside MoneyCoach.
             </p>

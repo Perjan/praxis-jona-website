@@ -6,6 +6,7 @@ import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
+import NewsletterSection from 'app/NewsletterSection'
 
 export async function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -103,6 +104,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </section>
         </article>
       </div>
+      {(post.categories.includes("diaries")) &&
+        <div className='mt-20'>
+          <NewsletterSection title="Subscribe to MoneyCoach Diaries" />
+        </div>
+      }
     </div>
   )
 }
