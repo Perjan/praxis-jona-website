@@ -14,7 +14,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
   const {
     title, 
     date: publishedTime, 
-    summary: description, 
+    summaryOrExcerpt: description, 
     coverImageUrl: image
   } = post;
   const ogImage = image ?? baseUrl + '/images/og-image.png';
