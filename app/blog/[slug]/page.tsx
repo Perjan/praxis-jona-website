@@ -66,6 +66,8 @@ const components = {
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
 
+  
+
   const Content = getMDXComponent(post.body.code)
 
   return (
@@ -92,6 +94,11 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                 alt={post.title} 
               /> 
             }
+            {(post.categories.includes("diaries")) &&
+              <blockquote>
+              <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? Go to <Link href={"/blog"}>Blog</Link> and select <strong>Diaries</strong>.</p>
+            </blockquote>
+                }  
             <Content components={{...components}} />
           </section>
         </article>
