@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link'
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useEffect } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import Image from 'next/image'
 
@@ -51,8 +51,16 @@ export default function Header() {
     const pathname = usePathname();
     console.log({ pathname });
 
+    const scrollPosition = useScrollPosition();
+
     return (
-        <header className="bg-white">
+        <header 
+            // className="bg-white sticky top-0"
+            className={classNames(
+                scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
+                'sticky top-0 z-20 bg-white transition-shadow',
+              )}
+        >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
                     <Link 
@@ -113,8 +121,8 @@ export default function Header() {
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                <div className="fixed inset-0 z-10" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div className="fixed inset-0 z-40" />
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="items-end content-end">
                         <button
                             type="button"
@@ -152,3 +160,22 @@ export default function Header() {
         </header>
     )
 }
+
+
+export const useScrollPosition = () => {
+    const [scrollPosition, setScrollPosition] = useState(0)
+  
+    useEffect(() => {
+      const updatePosition = () => {
+        setScrollPosition(window.pageYOffset)
+      }
+  
+      window.addEventListener('scroll', updatePosition)
+  
+      updatePosition()
+  
+      return () => window.removeEventListener('scroll', updatePosition)
+    }, [])
+  
+    return scrollPosition
+  }
