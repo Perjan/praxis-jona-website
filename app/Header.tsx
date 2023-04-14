@@ -49,7 +49,7 @@ export function DownloadButton() {
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
-    console.log({ pathname });
+    // console.log({ pathname });
 
     const scrollPosition = useScrollPosition();
 
