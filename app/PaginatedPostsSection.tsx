@@ -60,7 +60,6 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     const filteredPosts = (activePill === Category.all ? posts : posts
         .filter((post) => post.categories?.includes(raw(activePill))))
 
-
     return (
         <>
         <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -117,27 +116,25 @@ function postCard(post: Post) {
 }
 
 function makePill(item: string, onClick): JSX.Element {
-    return <a
+    return <button
         key={item}
-        href="#"
         // className="relative rounded-full bg-red-500 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         onClick={onClick}
     >
         {name(categoryFromString(item))}
-    </a>
+    </button>
 }
 
 function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Element {
     const defaultClasses =  "relative rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200"
     const selectedClasses =  "relative rounded-full bg-primary px-3 py-1.5 font-medium text-white hover:bg-primaryDarker"
 
-    return <a
+    return <button
         key={item}
-        href="#"
         className={isSelected ? selectedClasses : defaultClasses}
         onClick={onClick}
     >
         {item}
-    </a>
+    </button>
 }
