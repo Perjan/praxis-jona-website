@@ -11,7 +11,9 @@ import NewsletterSection from 'app/NewsletterSection'
 const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
 
 export async function generateStaticParams() {
-  return filteredBlogPosts.map((post) => ({
+  return filteredBlogPosts
+  .filter((post) => !post.categories?.includes("guide") ?? false)
+  .map((post) => ({
     slug: post.slug,
   }));
 }
