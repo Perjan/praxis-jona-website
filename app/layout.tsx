@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     template: "%s - MoneyCoach Budgeting App"
   },
   description: description,
-  alternates: {
-    canonical: '/'
-  },
+  // alternates: {
+  //   canonical: '/'
+  // },
   twitter: {
     title: title,
     description: description,
