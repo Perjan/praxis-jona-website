@@ -23,8 +23,33 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
-        source: '/wp-login.php',
-        destination: '/404',
+        source: '/wp-login',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/author-sitemap.xml',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/images',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/files',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/uploads',
+        destination: '/',
+        permanent: true
+      },
+      {
+        source: '/wp-admin',
+        destination: '/',
         permanent: true
       },
       {
@@ -51,8 +76,12 @@ const nextConfig = {
         source: "/:path*/getting-started-how-to-manage-my-credit-card",
         destination: "/guides/how-to-track-and-manage-credit-cards",
         permanent: true
+      },
+      {
+        source: "/:path*/import-csv-files-to-moneycoach",
+        destination: "/guides/import-csv-files-in-moneycoach",
+        permanent: true
       }
-      
     ]
   },
   rewrites: async () => {
