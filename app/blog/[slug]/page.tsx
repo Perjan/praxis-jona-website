@@ -8,8 +8,10 @@ import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 import NewsletterSection from 'app/NewsletterSection'
 
+const filteredBlogPosts = allPosts.filter((post) => post.categories?.includes("legal") == false ?? false) ?? [];
+
 export async function generateStaticParams() {
-  return allPosts.map((post) => ({
+  return filteredBlogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -65,10 +67,9 @@ const components = {
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
 
   const isDiary = post.categories?.includes("diaries") ?? false
-
 
   const Content = getMDXComponent(post.body.code)
 
