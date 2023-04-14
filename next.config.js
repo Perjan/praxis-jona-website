@@ -46,7 +46,13 @@ const nextConfig = {
         source: "/moneycoach-app-features",
         destination: "/features",
         permanent: true
+      },
+      {
+        source: "/:path*/getting-started-how-to-manage-my-credit-card",
+        destination: "/guides/how-to-track-and-manage-credit-cards",
+        permanent: true
       }
+      
     ]
   },
   rewrites: async () => {
