@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
+import Link from 'next/link'
 
 const pageItems = 9
 
@@ -105,10 +106,10 @@ function postCard(post: Post) {
         </div>
         <div className="group relative">
             <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                <a href={post.url}>
+                <Link href={post.url}>
                     <span className="absolute inset-0" />
                     {post.title}
-                </a>
+                </Link>
             </h3>
             <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.summaryOrExcerpt}</p>
         </div>
