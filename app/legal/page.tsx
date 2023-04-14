@@ -1,4 +1,7 @@
 import { Post, allPosts } from 'contentlayer/generated'
+import Link from 'next/link'
+
+const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
 
 function PostCard(post: Post) {
 
@@ -9,10 +12,10 @@ function PostCard(post: Post) {
               </div>
               <div className="group relative">
                 <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a href={`/legal/${post._raw.flattenedPath}`}>
+                  <Link href={`/legal/${post._raw.flattenedPath}`}>
                     <span className="absolute inset-0" />
                     {post.title}
-                  </a>
+                  </Link>
                 </h3>
 
               </div>
@@ -37,8 +40,6 @@ function PostSection({ posts, title }) {
 }
 
 export default function Home() {
-  
-  const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
 
   return (
     <div className="bg-white py-24 sm:py-32">

@@ -1,5 +1,3 @@
-import Head from "next/head"
-import Link from 'next/link'
 import Image from "next/image";
 import { getMDXComponent } from 'next-contentlayer/hooks'
 import { compareDesc, format, parseISO } from 'date-fns'
@@ -8,10 +6,11 @@ import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 
+
+const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
+
 export async function generateStaticParams() {
-  return allPosts
-  .filter((post) => post.categories?.includes('legal'))
-  .map((post) => ({ slug: post.slug }));
+  return legalPosts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -48,7 +47,7 @@ const components = {
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  const post = legalPosts.find((post) => post._raw.flattenedPath === params.slug)
 
   const Content = getMDXComponent(post.body.code)
 
