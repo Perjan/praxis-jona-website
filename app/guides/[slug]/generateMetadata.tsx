@@ -1,7 +1,7 @@
-import { allPosts } from 'contentlayer/generated';
+import { Post, allPosts } from 'contentlayer/generated';
 import { Metadata } from "next";
 
-const baseUrl = 'https://www.moneycoach.ai';
+const baseUrl = 'https://moneycoach.ai';
 
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
@@ -22,6 +22,9 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
   return {
     title,
     description,
+    alternates: {
+      canonical: canonicalUrl(post),
+    },
     openGraph: {
       title,
       description,
@@ -42,4 +45,14 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       images: [ogImage],
     },
   };
+}
+
+
+function canonicalUrl(post: Post) {
+  if (post.categories?.includes("legal")) {
+    return baseUrl + "/legal/" + post.slug;
+  } else if (post.categories?.includes("guide")) {
+    return baseUrl + "/guides/" + post.slug;
+  }
+  return baseUrl + post.url;
 }

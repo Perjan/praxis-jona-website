@@ -30,6 +30,8 @@ export const metadata: Metadata = {
   }
 }
 
+const filteredBlogPosts = allPosts.filter((post) => post.categories?.includes("legal") == false ?? false) ?? [];
+
 export default async function Page() {
   return (
     <div className="bg-white mt-2 sm:mt-10">
@@ -40,7 +42,7 @@ export default async function Page() {
             Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals.
           </p>
         </div>
-        <PaginatedPostsSection posts={allPosts} />
+        <PaginatedPostsSection posts={filteredBlogPosts} />
       </div>
     </div>
   )
