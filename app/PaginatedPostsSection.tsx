@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
@@ -52,20 +52,40 @@ function categoryFromString(category: string) {
     }
 }
 
+
 export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     
-    const [pageIndex, setpageIndex] = useState(0)
-    const [activePill, setActivePill] = useState(Category.all)
+    function handleSave(activePill: Category) {
+        if (typeof window !== "undefined" && window.localStorage) {
+            setActivePill(activePill)
+          localStorage.setItem("activePill", raw(activePill));
+          console.log(raw(activePill))
+          console.log("saved");
+        }
+      }
+    
+const [pageIndex, setpageIndex] = useState(0)
+const [activePill, setActivePill] = useState<Category | null>(null)
 
     const filteredPosts = (activePill === Category.all ? posts : posts
         .filter((post) => post.categories?.includes(raw(activePill))))
+
+        useEffect(() => {
+            if (typeof window !== "undefined" && window.localStorage) {
+              let activePill = localStorage.getItem("activePill");
+              console.log(activePill)
+              setActivePill(categoryFromString(activePill ?? "all"));
+            }
+          }, []);
 
     return (
         <>
         <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
             {categories.map((category) => (
                 <div key={category} className='mb-4'>
-                    {makeSelectionPill(name(category), activePill === category, () => setActivePill(category))}
+                    {makeSelectionPill(name(category), activePill === category, () => {
+                        handleSave(category)
+                    })}
                 </div>
             ))
             }   
@@ -99,7 +119,7 @@ function postCard(post: Post) {
             </time>
 
             {post.categories?.map((item) => (
-                makePill(item, {})
+                makePill(item, () => {})
             ))}
 
         </div>
@@ -120,7 +140,7 @@ function makePill(item: string, onClick): JSX.Element {
         key={item}
         // className="relative rounded-full bg-red-500 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
-        onClick={onClick}
+        onClick={() => onClick()}
     >
         {name(categoryFromString(item))}
     </button>
@@ -133,7 +153,7 @@ function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Elem
     return <button
         key={item}
         className={isSelected ? selectedClasses : defaultClasses}
-        onClick={onClick}
+        onClick={() => onClick()}
     >
         {item}
     </button>
