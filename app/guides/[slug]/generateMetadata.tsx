@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated';
 import { Metadata } from "next";
 
-const baseUrl = 'https://www.moneycoach.ai';
+const baseUrl = 'https://moneycoach.ai';
 
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
