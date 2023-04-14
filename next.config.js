@@ -33,6 +33,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: "/moneycoach-me",
+        destination: "/blog/introducing-moneycoach-me-program",
+        permanent: true
+      },
+      {
         source: "/getting-started-with-moneycoach",
         destination: "/guides",
         permanent: true
