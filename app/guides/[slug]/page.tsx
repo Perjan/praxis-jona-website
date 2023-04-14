@@ -52,6 +52,14 @@ const components = {
   YouTube: YoutubeEmbeddedVideo
 };
 
+const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
+
+export async function generateStaticParams() {
+  return guidesPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
