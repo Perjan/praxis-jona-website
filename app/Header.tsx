@@ -71,7 +71,7 @@ export default function Header() {
                         <Image 
                             priority={true} 
                             className="h-14 w-auto object-contain" 
-                            src="https://moneycoach.ai/wp-content/uploads/2023/01/MoneyCoach-Logo-Web-114.png" 
+                            src="/images/moneycoach-web-logo.png" 
                             width={390} 
                             height={114} 
                             alt="MoneyCoach Logo" 
