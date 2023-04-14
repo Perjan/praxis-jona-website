@@ -31,7 +31,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       siteName: 'MoneyCoach',
       type: 'article',
       publishedTime,
-      url: baseUrl + post.url,
+      url: canonicalUrl(post),
       images: [
         {
           url: ogImage,
@@ -50,7 +50,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
 
 function canonicalUrl(post: Post) {
   if (post.categories?.includes("legal")) {
-    return baseUrl + "/legal/" + post.slug;
+    return baseUrl + "/" + post.slug;
   } else if (post.categories?.includes("guide")) {
     return baseUrl + "/guides/" + post.slug;
   }
