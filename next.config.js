@@ -55,6 +55,30 @@ const nextConfig = {
         {
           source: "/playground",
           destination: "/index.html"
+        },
+        {
+          source: "/privacy-policy",
+          destination: "/legal/privacy-policy"
+        },
+        {
+          source: "/terms-of-use",
+          destination: "/legal/terms-of-use"
+        },
+        {
+          source: "/credits",
+          destination: "/legal/credits"
+        },
+        {
+          source: "/disclaimer",
+          destination: "/legal/disclaimer"
+        },
+        {
+          source: "/imprint",
+          destination: "/legal/imprint",
+        },
+        {
+          source: "/moneyspaces-privacy-policy",
+          destination: "/legal/moneyspaces-privacy-policy"
         }
       ],
       fallback: [
