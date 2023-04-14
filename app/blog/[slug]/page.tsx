@@ -8,7 +8,7 @@ import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 import NewsletterSection from 'app/NewsletterSection'
 
-const filteredBlogPosts = allPosts.filter((post) => post.categories?.includes("legal") == false ?? false) ?? [];
+const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
 
 export async function generateStaticParams() {
   return filteredBlogPosts.map((post) => ({

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   }
 }
 
-const filteredBlogPosts = allPosts.filter((post) => post.categories?.includes("legal") == false ?? false) ?? [];
+const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
 
 export default async function Page() {
   return (
