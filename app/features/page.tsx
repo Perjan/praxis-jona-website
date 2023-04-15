@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Metadata } from "next";
+import Hero1 from "/public/images/features/hero1.jpg";
 
 const title = 'Features'
 const description = "View some of the features MoneyCoach has to offer. Explore the app and see how it can help you manage your money, budget, and track your spending."
@@ -198,7 +199,7 @@ export default function Features() {
               <div
                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero1.jpg" alt=""
+                  <Image width={176} height={264} src={Hero1} alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
