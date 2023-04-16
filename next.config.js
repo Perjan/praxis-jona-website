@@ -71,6 +71,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: "/faq",
+        destination: "/faqs",
+        permanent: true
+      },
+      {
         source: "/moneycoach-me",
         destination: "/blog/introducing-moneycoach-me-program",
         permanent: true
