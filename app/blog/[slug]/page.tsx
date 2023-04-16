@@ -9,7 +9,10 @@ import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 import NewsletterSection from 'app/NewsletterSection'
 import { ChevronRightIcon } from '@heroicons/react/24/outline'
 
-const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
+const filteredBlogPosts = allPosts
+  .filter((post) => !post.categories?.includes("legal") ?? false) 
+  .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? []
+
 
 export async function generateStaticParams() {
   return filteredBlogPosts
@@ -72,8 +75,12 @@ const components = {
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
 
-  // find the post after this one
-  const nextPost = filteredBlogPosts.filter((p) => compareDesc(parseISO(p.date), parseISO(post.date)) === 1)[0]
+// find the index of the post in the array
+  const postIndex = filteredBlogPosts.findIndex((post) => post._raw.flattenedPath === params.slug)
+// check if the array contains an element for the previous post
+  const previousPost = filteredBlogPosts[postIndex + 1]
+
+
 
   const isDiary = post.categories?.includes("diaries") ?? false
 
@@ -112,17 +119,20 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </section>
         </article>
 
+{previousPost && 
         <div className='border-t'>
-          <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 inline-flex items-center justify-end space-x-6'>
-            <p className='float-right'>Next Post</p>
-            <Link href={nextPost.url} className="inline-flex space-x-6">
-              <span className="rounded-full inline-flex items-center space-x-2 bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
-                {nextPost.title}
-                <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-              </span>
-            </Link>
-          </div>
+        <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 inline-flex items-center justify-end space-x-6'>
+          <p className='float-right'>Next Post</p>
+          <Link href={previousPost.url} rel='follow' className="inline-flex space-x-6">
+            <span className="rounded-full inline-flex items-center space-x-2 bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
+              {previousPost.title}
+              <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+            </span>
+          </Link>
         </div>
+      </div>
+
+}
       </div>
 
       {isDiary &&

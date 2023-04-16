@@ -8,6 +8,7 @@ import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { generateMetadataForPost } from "./generateMetadata";
 import { Metadata } from "next";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -52,7 +53,9 @@ const components = {
   YouTube: YoutubeEmbeddedVideo
 };
 
-const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
+const guidesPosts = allPosts
+  .filter((post) => post.categories?.includes('guide'))
+  .sort((a, b) => compareDesc(new Date(b.date), new Date(a.date))) ?? []
 
 export async function generateStaticParams() {
   return guidesPosts.map((post) => ({
@@ -69,6 +72,11 @@ export async function generateMetadata({
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+
+  // find the index of the post in the array
+  const postIndex = guidesPosts.findIndex((post) => post._raw.flattenedPath === params.slug)
+// check if the array contains an element for the previous post
+  const previousPost = guidesPosts[postIndex + 1]
 
   const Content = getMDXComponent(post.body.code)
 
@@ -99,6 +107,21 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             <Content components={{...components}} />
           </section>
         </article>
+        
+        {previousPost &&
+          <div className='border-t'>
+            <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 inline-flex items-center justify-end space-x-6'>
+              <p className='float-right'>Next Post</p>
+              <Link href={previousPost.guideUrl} rel='follow' className="inline-flex space-x-6">
+                <span className="rounded-full inline-flex items-center space-x-2 bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
+                  {previousPost.title}
+                  <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                </span>
+              </Link>
+            </div>
+          </div>
+        }
+
       </div>
     </div>
     // <div className="mt-2 sm:mt-10 bg-red-500">
