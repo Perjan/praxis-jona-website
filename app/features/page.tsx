@@ -1,6 +1,11 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import Hero1 from "/public/images/features/hero1.jpg";
+import Hero2 from "/public/images/features/hero2.jpg";
+import Hero3 from "/public/images/features/hero3.jpg";
+import Hero4 from "/public/images/features/hero4.jpg";
+import Hero5 from "/public/images/features/hero5.jpg";
+
 
 const title = 'Features'
 const description = "View some of the features MoneyCoach has to offer. Explore the app and see how it can help you manage your money, budget, and track your spending."
@@ -199,7 +204,7 @@ export default function Features() {
               <div
                 className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div className="relative">
-                  <Image width={176} height={264} src={Hero1} alt=""
+                  <Image src={Hero1} placeholder="blur" alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
@@ -207,13 +212,13 @@ export default function Features() {
               </div>
               <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero2.jpg" alt=""
+                  <Image src={Hero2} alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
                 </div>
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero3.jpg" alt=""
+                  <Image src={Hero3} alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
@@ -221,13 +226,13 @@ export default function Features() {
               </div>
               <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero5.jpg" alt=""
+                  <Image src={Hero5} alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
                 </div>
                 <div className="relative">
-                  <Image width={176} height={264} src="/images/features/hero4.jpg" alt=""
+                  <Image src={Hero4} alt=""
                     className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg" />
                   <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10">
                   </div>
