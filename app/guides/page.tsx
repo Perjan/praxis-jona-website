@@ -101,13 +101,13 @@ const intermediatePosts = sortedPostsBySlug(guidesPosts, intermediatePostsSlugs)
 const advancedPosts = sortedPostsBySlug(guidesPosts, advancedPostsSlugs)
 const questionsAndAnswersPosts = sortedPostsBySlug(guidesPosts, questionsAndAnswersPostsSlugs)
 
-function PostCard(post: Post) {
+function PostCard(post: Post, priority: boolean) {
   return (
       <article key={post._id} className="flex flex-col items-start justify-normal content-start">
         <h2 className='sr-only'>{post.title}</h2>
         <Link href={post.guideUrl}>
           <div className="relative w-full duration-300 ease-in-out hover:scale-105">
-            <Image src={post.coverImageUrl} width={306} height={204} alt={post.title}
+            <Image src={post.coverImageUrl} width={306} height={204} alt={post.title} priority={priority}
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9] p-2" />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
           </div>
@@ -128,8 +128,9 @@ function PostSection({posts, title}) {
       <h2 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl pb-0">{title}</h2>
       <div className="grid grid-cols-1 gap-x-8 gap-y-16 pt-10 lg:grid-cols-3">
         {
-          posts.map((post) => (
-              PostCard(post)
+
+          posts.map((post, index) => (
+              PostCard(post, index < 9)
             ))
         }
       </div>
