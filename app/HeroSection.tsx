@@ -7,12 +7,18 @@ import {
 import Image from 'next/image'
 import Link from 'next/link'
 
+import AppOfTheDay from "/public/images/app-of-the-day.png"
+import AccoladesCombo from "/public/images/accolades-combo.png"
+import HeroImage from "/public/images/moneycoach-all-devices.png"
+
 const title = "Modern cash and budget tracker"
 const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about."
 const whatsNewUrl = "/whats-new-in-moneycoach-8-4-2"
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
+
+
 
 export default function HeroSection() {
     return (
@@ -78,20 +84,17 @@ export default function HeroSection() {
                         <div>
                             <Image
                                 className="rounded-md"
-                                src="/images/app-of-the-day.png"
-                                alt='MoneyCoach app screenshot'
-                                width={2432}
-                                height={1442}
+                                src={AppOfTheDay}
+                                alt='MoneyCoach App Of The Day'
                                 priority={true}
+                                placeholder='blur'
                             />
                         </div>
                         <div>
                             <Image
                                 className="rounded-md"
-                                src="/images/accolades-combo.png"
-                                alt='MoneyCoach app screenshot'
-                                width={2432}
-                                height={1442}
+                                src={AccoladesCombo}
+                                alt='MoneyCoach Accolades screenshot'
                                 priority={true}
                             />
                         </div>
@@ -102,11 +105,10 @@ export default function HeroSection() {
                         <div className="-m-2 rounded-xl p-2 lg:-m-4 lg:rounded-2xl lg:p-4">
                             <Image
                                 className="w-[76rem] rounded-md"
-                                src="/images/moneycoach-all-devices.png"
+                                src={HeroImage}
                                 alt='MoneyCoach app screenshot'
-                                width={2432}
-                                height={1442}
                                 priority={true}
+                                // placeholder='blur'
                             />
                         </div>
                     </div>

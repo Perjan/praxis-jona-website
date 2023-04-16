@@ -8,6 +8,7 @@ import Image from 'next/image'
 const sectionTitle = "Complete Overview"
 const title = "Track all your accounts in one place"
 const description = "MoneyCoach grants you total control over all your accounts, cash included."
+import HeroImage from "/public/images/moneyCoachAccounts.png"
 
 const features = [
   {
@@ -48,11 +49,10 @@ export default function FinancialOverview() {
             </div>
           </div>
           <Image
-            src="/images/moneyCoachAccounts.png"
-            alt="Product screenshot"
+            src={HeroImage}
+            alt="MoneyCoach Product screenshot"
             className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] md:-ml-4 lg:-ml-0"
-            width={2432}
-            height={1442}
+            priority
           />
         </div>
       </div>
