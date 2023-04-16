@@ -33,7 +33,7 @@ const nextConfig = {
         ],
         permanent: false,
         // https://stackoverflow.com/questions/68103612/how-to-drop-the-query-parameters-after-a-redirect-with-nextjs
-        destination: "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=:qu&mt=8"
+        destination: "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=:qu&mt=8&qu="
       },
       {
         source: '/wp-login',
