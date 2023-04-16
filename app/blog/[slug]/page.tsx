@@ -106,6 +106,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                 width={1000}
                 height={400}
                 alt={post.title}
+                priority={true}
               />
             }
             {isDiary &&
@@ -144,6 +145,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <NewsletterSection title="Subscribe to MoneyCoach Diaries" />
         </div>
       }
+
     </div>
   )
 }
