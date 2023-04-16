@@ -7,15 +7,16 @@ import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 import NewsletterSection from 'app/NewsletterSection'
+import { ChevronRightIcon } from '@heroicons/react/24/outline'
 
 const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
 
 export async function generateStaticParams() {
   return filteredBlogPosts
-  .filter((post) => !post.categories?.includes("guide") ?? false)
-  .map((post) => ({
-    slug: post.slug,
-  }));
+    .filter((post) => !post.categories?.includes("guide") ?? false)
+    .map((post) => ({
+      slug: post.slug,
+    }));
 }
 
 export async function generateMetadata({
@@ -51,11 +52,11 @@ const H3 = (props) => {
 }
 
 function RoundedImage(props) {
-  return <Image 
-    alt={props.alt} 
+  return <Image
+    alt={props.alt}
     width={1000}
     height={400}
-    className="rounded-lg shadow-lg" 
+    className="rounded-lg shadow-lg"
     {...props} />;
 }
 
@@ -71,6 +72,9 @@ const components = {
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
 
+  // find the post after this one
+  const nextPost = filteredBlogPosts.filter((p) => compareDesc(parseISO(p.date), parseISO(post.date)) === 1)[0]
+
   const isDiary = post.categories?.includes("diaries") ?? false
 
   const Content = getMDXComponent(post.body.code)
@@ -81,34 +85,47 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{post.title}</h1>
           <time dateTime={post.date} className="text-gray-500">
-              {format(parseISO(post.date), 'LLLL d, yyyy')}
-            </time>
+            {format(parseISO(post.date), 'LLLL d, yyyy')}
+          </time>
         </div>
         <article className="prose prose-neutral mx-auto max-w-2xl lg:mx-0">
-        {/* <article className=""> */}
-           <section>
-             <script type="application/ld+json">
-               {/* {JSON.stringify(post.structuredData)} */}
-             </script>
-             { (post.coverImage !== undefined) &&
-              <Image 
-                className="rounded-lg shadow-lg" 
+          {/* <article className=""> */}
+          <section>
+            <script type="application/ld+json">
+              {/* {JSON.stringify(post.structuredData)} */}
+            </script>
+            {(post.coverImage !== undefined) &&
+              <Image
+                className="rounded-lg shadow-lg"
                 src={post.coverImageUrl}
-                width={1000} 
-                height={400} 
-                alt={post.title} 
-              /> 
+                width={1000}
+                height={400}
+                alt={post.title}
+              />
             }
-            { isDiary &&
+            {isDiary &&
               <blockquote>
                 <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? Go to <Link href={"/blog"}>Blog</Link> and select <strong>Diaries</strong>.</p>
               </blockquote>
-            }  
-            <Content components={{...components}} />
+            }
+            <Content components={{ ...components }} />
           </section>
         </article>
+
+        <div className='border-t'>
+          <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 inline-flex items-center justify-end space-x-6'>
+            <p className='float-right'>Next Post</p>
+            <Link href={nextPost.url} className="inline-flex space-x-6">
+              <span className="rounded-full inline-flex items-center space-x-2 bg-primary/10 px-3 py-1 text-sm font-semibold leading-6 text-primaryDarker ring-1 ring-inset ring-indigo-600/10">
+                {nextPost.title}
+                <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              </span>
+            </Link>
+          </div>
+        </div>
       </div>
-      { isDiary &&
+
+      {isDiary &&
         <div className='mt-20'>
           <NewsletterSection title="Subscribe to MoneyCoach Diaries" />
         </div>
