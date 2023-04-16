@@ -23,6 +23,19 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
+        source: '/',
+        has: [
+          {
+            type: "query",
+            key: "qu",
+            // value: "(?<paramName>.*)"
+          }
+        ],
+        permanent: false,
+        // https://stackoverflow.com/questions/68103612/how-to-drop-the-query-parameters-after-a-redirect-with-nextjs
+        destination: "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=:qu&mt=8"
+      },
+      {
         source: '/wp-login',
         destination: '/',
         permanent: true
