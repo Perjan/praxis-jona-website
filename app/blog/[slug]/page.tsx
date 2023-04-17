@@ -11,6 +11,7 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon 
 } from '@heroicons/react/24/outline'
+import { notFound } from 'next/navigation'
 
 const filteredBlogPosts = allPosts
   .filter((post) => !post.categories?.includes("legal") ?? false)
@@ -77,6 +78,10 @@ const components = {
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
+
+  if (post == null) {
+    return notFound()
+  }
 
   // find the index of the post in the array
   const postIndex = filteredBlogPosts.findIndex((post) => post._raw.flattenedPath === params.slug)
