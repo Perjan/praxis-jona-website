@@ -5,7 +5,6 @@ const baseUrl = 'https://moneycoach.ai';
 
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
-  console.log('postSlug', postSlug);
 
   if (!post) {
     return;

@@ -21,6 +21,9 @@ export const metadata: Metadata = {
       }
     ],
   },
+  alternates: {
+    canonical: '/support'
+  },
   twitter: {
     card: 'summary_large_image',
     title: title,
