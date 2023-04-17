@@ -37,12 +37,22 @@ const nextConfig = {
       },
       {
         source: '/wp-login',
-        destination: '/',
+        destination: '/404',
+        permanent: true
+      },
+      {
+        source: '/wp-login.php',
+        destination: '/404',
         permanent: true
       },
       {
         source: '/author-sitemap.xml',
-        destination: '/',
+        destination: '/404',
+        permanent: true
+      },
+      {
+        source: '/xmlrpc.php',
+        destination: '/404',
         permanent: true
       },
       {
@@ -52,17 +62,22 @@ const nextConfig = {
       },
       {
         source: '/files',
-        destination: '/',
+        destination: '/404',
         permanent: true
       },
       {
         source: '/uploads',
-        destination: '/',
+        destination: '/404',
         permanent: true
       },
       {
         source: '/wp-admin',
-        destination: '/',
+        destination: '/404',
+        permanent: true
+      },
+      {
+        source: '/wp-admin.php',
+        destination: '/404',
         permanent: true
       },
       {

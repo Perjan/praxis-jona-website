@@ -11,7 +11,7 @@ import AppOfTheDay from "/public/images/app-of-the-day.png"
 import AccoladesCombo from "/public/images/accolades-combo.png"
 import HeroImage from "/public/images/moneycoach-all-devices.png"
 
-const title = "Modern cash and budget tracker"
+const title = "Modern Cash And Budget Tracker"
 const description = "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about."
 const whatsNewUrl = "/whats-new-in-moneycoach-8-4-2"
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
