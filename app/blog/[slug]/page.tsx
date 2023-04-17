@@ -7,7 +7,10 @@ import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 import NewsletterSection from 'app/NewsletterSection'
-import { ChevronRightIcon } from '@heroicons/react/24/outline'
+import { 
+  ChevronLeftIcon,
+  ChevronRightIcon 
+} from '@heroicons/react/24/outline'
 
 const filteredBlogPosts = allPosts
   .filter((post) => !post.categories?.includes("legal") ?? false)
@@ -120,20 +123,20 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
         {previousPost &&
           <div className='border-t'>
-            <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 inline-flex items-center justify-end space-x-6'>
+            <div className='pt-10 mt-10 mx-auto max-w-2xl lg:mx-0 space-x-6'>
             <div className="mb-10 text-slate-700 font-semibold flex items-center">
-              {/* <Link href={previousPost.url} rel='follow' className="inline-flex space-x-6">
-                <span className="group flex items-center hover:text-slate-900">
-                  {previousPost.title}
-                  <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                </span>
-              </Link> */}
-              <Link href={previousPost.url} rel='follow' className="inline-flex space-x-10">
-                <span className="group ml-auto flex items-center hover:text-slate-900">
-                  {previousPost.title}
-                  <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+            <ChevronLeftIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              <Link href="/blog" rel='follow' className="group inline-flex items-center space-x-6">
+                <span className=" hover:text-slate-900">
+                  Back to Blog
                 </span>
               </Link>
+              <span className="group ml-auto inline-flex items-center hover:text-slate-900">
+              <Link href={previousPost.url} rel='follow' className="space-x-10">
+                  {previousPost.title}
+              </Link>
+              <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+              </span>
             </div>
             </div>
           </div>

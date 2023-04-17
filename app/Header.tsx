@@ -13,6 +13,8 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
+import Logo from "/public/images/moneycoach-web-logo.png"
+
 const navigationItems = [
     { title: "Features", href: "/features" },
     { title: "Guides", href: "/guides" },
@@ -71,10 +73,8 @@ export default function Header() {
                         <Image 
                             priority={true} 
                             className="h-14 w-auto object-contain" 
-                            src="/images/moneycoach-web-logo.png" 
-                            width={390} 
-                            height={114} 
-                            alt="MoneyCoach Logo" 
+                            src={Logo}
+                            alt="MoneyCoach Logo"
                         />
                     </Link>
                 </div>
