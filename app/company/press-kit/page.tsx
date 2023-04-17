@@ -25,6 +25,9 @@ export const metadata: Metadata = {
             }
         ],
     },
+    alternates: {
+        canonical: '/press-kit'
+      },
     twitter: {
         card: 'summary_large_image',
         title: title,

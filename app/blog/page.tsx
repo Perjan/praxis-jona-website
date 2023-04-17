@@ -22,6 +22,9 @@ export const metadata: Metadata = {
       }
     ],
   },
+  alternates: {
+    canonical: '/blog'
+  },
   twitter: {
     card: 'summary_large_image',
     title: title,
