@@ -73,6 +73,10 @@ export async function generateMetadata({
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
 
+  if (post == null) {
+    return notFound()
+  }
+
   // find the index of the post in the array
   const postIndex = guidesPosts.findIndex((post) => post._raw.flattenedPath === params.slug)
 // check if the array contains an element for the previous post
