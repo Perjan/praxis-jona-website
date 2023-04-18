@@ -130,6 +130,14 @@ const nextConfig = {
           destination: "/index.html"
         },
         {
+          source: "/finanzguru-alternative",
+          destination: "/compare/finanzguru-alternative"
+        },
+        {
+          source: "/buddy-alternative",
+          destination: "/compare/buddy-alternative"
+        },
+        {
           source: "/privacy-policy",
           destination: "/legal/privacy-policy"
         },
