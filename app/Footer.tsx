@@ -48,6 +48,10 @@ const navigation = {
     { name: "Disclaimer", href: "/legal/disclaimer/" },
     { name: "Credits", href: "/legal/credits/" },
   ],
+  compare: [
+    { name: "Buddy", href: "/buddy-alternative" },
+    { name: "Finanzguru", href: "/finanzguru-alternative" },
+  ],
   social: [
     {
       name: "Facebook",
@@ -152,12 +156,15 @@ export default function Footer() {
                 <FooterColumn title="Use Cases" items={navigation.usecases} />
               </div>
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div className="md:grid md:grid-cols-3 md:gap-8">
               <div>
                 <FooterColumn title="Company" items={navigation.company} />
               </div>
               <div className="mt-10 md:mt-0">
                 <FooterColumn title="Legal" items={navigation.legal} />
+              </div>
+              <div className="mt-10 md:mt-0">
+                <FooterColumn title="Compare" items={navigation.compare} />
               </div>
             </div>
           </div>
