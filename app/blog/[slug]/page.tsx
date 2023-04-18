@@ -111,8 +111,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
               <Image
                 className="rounded-lg shadow-lg"
                 src={post.coverImageUrl}
-                width={1000}
-                height={400}
+                width={1368}
+                height={760}
                 alt={post.title}
                 priority={true}
               />
