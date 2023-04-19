@@ -165,9 +165,9 @@ export default async function Page() {
                                         <div
                                             className="flex w-1/4 px-4"
                                             aria-hidden="true"
-                                            style={{ marginLeft: `${(tiers.findIndex((tier) => tier.mostPopular) + 1) * 25}%` }}
+                                            style={{ marginLeft: `75%` }}
                                         >
-                                            <div className="w-full rounded-t-xl border-x border-t border-white/10 bg-white/5" />
+                                            <div className="w-full rounded-xl border-x border-t border-white/10 bg-white/5" />
                                         </div>
                                     </div>
                                 ) : null}
