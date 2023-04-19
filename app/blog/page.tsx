@@ -30,8 +30,6 @@ export const metadata: Metadata = {
   }
 }
 
-// const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
-
 // tommorow date
 const tomorrow = new Date()
 tomorrow.setDate(tomorrow.getDate() + 1)
