@@ -259,7 +259,7 @@ export default function Features() {
                   src={feature.image}
                   width={306}
                   height={204}
-                  alt=""
+                  alt={feature.description}
                 />
                 <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
                   {feature.title}
