@@ -47,6 +47,7 @@ const sections = [
             { name: 'Online Banking', tiers: { Finanzguru: true, MoneyCoach: false } },
             { name: 'Manage Insurance', tiers: { Finanzguru: true, MoneyCoach: false } },
             { name: 'Budgets', tiers: { Finanzguru: true, MoneyCoach: true } },
+            { name: 'No Login Required', tiers: { Finanzguru: false, MoneyCoach: true } },
             { name: 'Quick Entry', tiers: { Finanzguru: false, MoneyCoach: true } },
             { name: 'Siri Shortcuts', tiers: { Finanzguru: false, MoneyCoach: true } },
             { name: 'Live Activities', tiers: { Finanzguru: false, MoneyCoach: true } },
@@ -54,6 +55,7 @@ const sections = [
             { name: 'Multi-Currency Support', tiers: { Finanzguru: false, MoneyCoach: true } },
             { name: 'Desktop-class iPad App', tiers: { Finanzguru: false, MoneyCoach: true } },
             { name: 'Native Mac App', tiers: { Finanzguru: false, MoneyCoach: true } },
+            { name: 'Apple Watch App', tiers: { Finanzguru: false, MoneyCoach: true } },
         ],
     }
 ]
@@ -175,8 +177,7 @@ export default async function Page() {
                                 <table className="w-full table-fixed border-separate border-spacing-x-8 text-left">
                                     <caption className="sr-only">Pricing plan comparison</caption>
                                     <colgroup>
-                                        <col className="w-1/4" />
-                                        <col className="w-1/4" />
+                                        <col className="w-1/2" />
                                         <col className="w-1/4" />
                                         <col className="w-1/4" />
                                     </colgroup>
@@ -196,7 +197,7 @@ export default async function Page() {
                                                 <tr>
                                                     <th
                                                         scope="colgroup"
-                                                        colSpan={4}
+                                                        colSpan={3}
                                                         className={classNames(
                                                             sectionIdx === 0 ? 'pt-8' : 'pt-16',
                                                             'pb-4 text-sm font-semibold leading-6 text-white'

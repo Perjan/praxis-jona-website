@@ -172,10 +172,9 @@ export default async function Page() {
                                     </div>
                                 ) : null}
                                 <table className="w-full table-fixed border-separate border-spacing-x-8 text-left">
-                                    <caption className="sr-only">Pricing plan comparison</caption>
+                                    <caption className="sr-only">MoneyCoach vs Buddy Feature Comparison</caption>
                                     <colgroup>
-                                        <col className="w-1/4" />
-                                        <col className="w-1/4" />
+                                        <col className="w-1/2" />
                                         <col className="w-1/4" />
                                         <col className="w-1/4" />
                                     </colgroup>
@@ -195,7 +194,7 @@ export default async function Page() {
                                                 <tr>
                                                     <th
                                                         scope="colgroup"
-                                                        colSpan={4}
+                                                        colSpan={3}
                                                         className={classNames(
                                                             sectionIdx === 0 ? 'pt-8' : 'pt-16',
                                                             'pb-4 text-sm font-semibold leading-6 text-white'
