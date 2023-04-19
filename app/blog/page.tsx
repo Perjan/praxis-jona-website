@@ -22,9 +22,6 @@ export const metadata: Metadata = {
       }
     ],
   },
-  alternates: {
-    canonical: '/blog'
-  },
   twitter: {
     card: 'summary_large_image',
     title: title,
@@ -33,7 +30,8 @@ export const metadata: Metadata = {
   }
 }
 
-const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
+// const filteredBlogPosts = allPosts.filter((post) => !post.categories?.includes("legal") ?? false) ?? [];
+const filteredBlogPosts = allPosts
 
 export default async function Page() {
   return (

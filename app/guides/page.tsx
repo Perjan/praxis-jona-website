@@ -110,7 +110,12 @@ function PostCard(post: Post, priority: boolean) {
         <h2 className='sr-only'>{post.title}</h2>
         <Link href={post.guideUrl}>
           <div className="relative w-full duration-300 ease-in-out hover:scale-105">
-            <Image src={post.coverImageUrl} width={306} height={204} alt={post.title} priority={priority}
+            <Image 
+              src={post.coverImageUrl} 
+              width={306} 
+              height={204} 
+              alt={post.title} 
+              priority={priority}
               className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9] p-2" />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>
           </div>
@@ -133,7 +138,7 @@ function PostSection({posts, title}) {
         {
 
           posts.map((post, index) => (
-              PostCard(post, index < 9)
+              PostCard(post, index < 3)
             ))
         }
       </div>
