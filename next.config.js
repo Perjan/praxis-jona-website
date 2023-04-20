@@ -176,5 +176,4 @@ const nextConfig = {
   }
 }
 
-// export default withContentlayer(nextConfig);
 module.exports = withContentlayer(nextConfig);
