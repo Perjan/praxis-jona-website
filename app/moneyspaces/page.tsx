@@ -366,7 +366,7 @@ export default function Features() {
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         Learn how to use MoneySpaces.
                         <br />
-                        Check out all of our tutorials.
+                        Check out tutorials now.
                     </h2>
                     <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
                         <a
@@ -383,7 +383,7 @@ export default function Features() {
                 <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
                     <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
                         <h1 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Download MoneySpaces</h1>
-                        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">MoneySpaces is an iOS-exclusive app available on iPhone, iPad, and Mac.</p>
+                        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">MoneySpaces is an Apple-exclusive app available on iPhone, iPad, and Mac.</p>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a href="https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8" target="_blank" rel="noopener noreferrer" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Download Now</a>
                         </div>
