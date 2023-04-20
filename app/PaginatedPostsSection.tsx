@@ -4,6 +4,9 @@ import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
+import { useSearchParams } from 'next/navigation';
+
+
 const pageItems = 9
 
 // enum with all the categories
@@ -70,8 +73,12 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     const [pageIndex, setpageIndex] = useState(0)
     const [activePill, setActivePill] = useState<Category | null>(Category.all)
 
+    const searchParams = useSearchParams()
+    const selectedCategoryType = searchParams.get('category')
+
     const filteredPosts = ((activePill === Category.all || activePill === undefined) ? posts : posts
         .filter((post) => post.categories?.includes(raw(activePill))))
+
 
     useEffect(() => {
         if (typeof window !== "undefined" && window.localStorage) {
@@ -79,6 +86,11 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
             console.log(activePill)
             setActivePill(categoryFromString(activePill ?? "all"));
         }
+
+        if (selectedCategoryType !== undefined && categoryFromString(selectedCategoryType) !== undefined) {
+            handleSave(categoryFromString(selectedCategoryType));
+        }
+
     }, []);
 
     return (
