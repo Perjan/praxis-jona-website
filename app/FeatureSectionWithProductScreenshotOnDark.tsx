@@ -11,14 +11,14 @@ const description = "MoneyCoach makes achieving your dreams easier. Quickly chec
 
 const features = [
   {
-    name: 'Custom goals.',
+    name: 'Custom Goals.',
     description:
       'Set up a custom goal and start your journey towards achieving it. Set up a goal for that new console, phone, laptop, vacation, car, house, whatever and motivate yourself to save money and achieve your dreams.',
     icon: AdjustmentsVerticalIcon,
   },
   {
-    name: 'Tailored goals.',
-    description: 'Or you can go through the Personalized Goals flow. MoneyCoach will ask you what your short & long-term goals are plus if you have or not any ongoing debts and will take care of the rest.',
+    name: 'Digital Money Coaching.',
+    description: 'Or you can go through the Personalized Goals flow. Your digital money coach will ask you what your short & long-term goals are plus if you have or not any ongoing debts and will take care of the rest.',
     icon: UserIcon,
   }
 ]
