@@ -3,7 +3,7 @@ export const faqs = [
       id: 1,
       question: "What is MoneyCoach?",
       answer:
-        "MoneyCoach is a modern cash and budget tracker. Designed to give you a grip on your personal finances. It helps you save more and spend smarter. And rewards you for reaching your goals.",
+        "MoneyCoach is a modern cash and budget tracker. Designed to give you a grip on your personal finances. It helps you save more and spend smarter. And rewards you for reaching your goals. The app is also known as Money Coach or Money Coach App. But we prefer MoneyCoach. FUN FACT: There are some users who called us Money Couch as well 💰🛋️",
     },
     {
         id: 2,
