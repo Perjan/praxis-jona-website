@@ -14,13 +14,13 @@ import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 import Logo from "/public/images/moneycoach-web-logo.png"
+import LogoMoneySpaces from "/public/images/moneycoach-web-logo.png"
 
 const navigationItems = [
     { title: "Features", href: "/features" },
     { title: "Guides", href: "/guides" },
     { title: "Blog", href: "/blog" },
     { title: "Company", href: "/company" }
-    // { title: "Contact", href: "/#contact" }
 ]
 
 const navigationItemsMobile = [
@@ -31,15 +31,16 @@ navigationItemsMobile.push(...navigationItems)
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
+const downloadUrlMoneySpaces = "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8"
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export function DownloadButton() {
+export function DownloadButton({url}) {
     return (
         <Link
-            href={downloadUrl}
+            href={url}
             target='_blank'
             className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
         >
@@ -54,6 +55,44 @@ export default function Header() {
     // console.log({ pathname });
 
     const scrollPosition = useScrollPosition();
+
+    const isMoneySpaces = pathname === "/moneyspaces"
+
+    if (isMoneySpaces) {
+        return (
+            <header 
+            // className="bg-white sticky top-0"
+            className={classNames(
+                scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
+                'sticky top-0 z-20 bg-white transition-shadow',
+              )}
+        >
+            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
+                    <Link 
+                        href="/" 
+                        className="-m-1.5 p-1.5"
+                    >
+                        <span className="sr-only">MoneySpaces</span>
+                        <Image 
+                            priority={true} 
+                            className="h-14 w-auto object-contain" 
+                            src={LogoMoneySpaces}
+                            alt="MoneySpaces Logo"
+                        />
+                    </Link>
+                </div>
+                <div className="flex lg:hidden">
+                    <DownloadButton url={downloadUrlMoneySpaces} />
+                </div>
+
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <DownloadButton url={downloadUrlMoneySpaces} />
+                </div>
+            </nav>
+        </header>
+        )
+    }
 
     return (
         <header 
@@ -117,7 +156,7 @@ export default function Header() {
                     )}
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButton />
+                    <DownloadButton url={downloadUrl} />
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -151,7 +190,7 @@ export default function Header() {
                                 )}
                             </div>
                             <div className="py-6">
-                                <DownloadButton />
+                                <DownloadButton url={downloadUrl} />
                             </div>
                         </div>
                     </div>
