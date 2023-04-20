@@ -49,10 +49,21 @@ export function DownloadButton({url}) {
     )
 }
 
+export function DownloadButtonMoneySpaces({url}) {
+    return (
+        <Link
+            href={url}
+            target='_blank'
+            className="-mx-3 block rounded-xl bg-indigo-600 py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-indigo-500"
+        >
+            Download App
+        </Link>
+    )
+}
+
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
-    // console.log({ pathname });
 
     const scrollPosition = useScrollPosition();
 
@@ -83,11 +94,11 @@ export default function Header() {
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
-                    <DownloadButton url={downloadUrlMoneySpaces} />
+                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} />
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButton url={downloadUrlMoneySpaces} />
+                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} />
                 </div>
             </nav>
         </header>
