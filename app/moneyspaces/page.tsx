@@ -2,8 +2,6 @@ import Image from "next/image";
 import { Metadata } from "next";
 import { ArrowsRightLeftIcon, ChatBubbleLeftRightIcon, MapPinIcon, ShieldCheckIcon, UserIcon, UsersIcon, BanknotesIcon, CurrencyDollarIcon, HeartIcon } from '@heroicons/react/20/solid'
 
-
-import Feature1Image from "/public/images/moneyCoachAccounts.png"
 import MoneySpacesHeroImage from "/public/images/moneyspaces-hero-image.png"
 import MoneySpacesAllDevices from "/public/images/moneyspaces-all-devices.png"
 import MoneySpacesAllowance from "/public/images/moneyspaces-allowance.png"
@@ -43,14 +41,14 @@ export const metadata: Metadata = {
     itunes: {
         appId: '1633780211',
         appArgument: 'moneyspaces://'
-      },
-      appLinks: {
+    },
+    appLinks: {
         ios: {
-          app_name: 'MoneySpaces',
-          app_store_id: '1633780211',
-          url: "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8",
+            app_name: 'MoneySpaces',
+            app_store_id: '1633780211',
+            url: "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8",
         }
-      }
+    }
 }
 
 const feature1 = [
@@ -348,10 +346,10 @@ export default function Features() {
                     <div className="mx-auto max-w-2xl lg:text-center">
                         {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Fully Packed</h2> */}
                         <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                        Simple. Secure. Customizable.
+                            Simple. Secure. Customizable.
                         </p>
                         <p className="mt-6 text-lg leading-8 text-gray-600">
-                        Think of MoneySpaces as your own personal Notes app, but specifically designed for your finances. 
+                            Think of MoneySpaces as your own personal Notes app, but specifically designed for your finances.
                         </p>
                     </div>
                     <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
