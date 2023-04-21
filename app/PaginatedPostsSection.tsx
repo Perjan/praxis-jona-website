@@ -4,16 +4,19 @@ import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 
+import { useSearchParams } from 'next/navigation';
+
+
 const pageItems = 9
 
 // enum with all the categories
 
 enum Category {
-    all, guide, diaries, businessTips, news, design, financialTips
+    all, guide, diaries, businessTips, news, design, financialTips, moneyspaces
 }
 
 const categories: Category[] = [
-    Category.all, Category.guide, Category.news, Category.diaries, Category.businessTips, Category.design, Category.financialTips
+    Category.all, Category.guide, Category.news, Category.diaries, Category.businessTips, Category.design, Category.financialTips, Category.moneyspaces
 ]
 
 function name(category: Category) {
@@ -25,6 +28,7 @@ function name(category: Category) {
         case Category.diaries: return "Diaries"
         case Category.design: return "Design"
         case Category.financialTips: return "Financial Tips"
+        case Category.moneyspaces: return "MoneySpaces"
     }
 }
 
@@ -37,6 +41,7 @@ function raw(category: Category) {
         case Category.diaries: return "diaries"
         case Category.design: return "design"
         case Category.financialTips: return "financial-tips"
+        case Category.moneyspaces: return "moneyspaces-tutorials"
     }
 }
 
@@ -49,6 +54,7 @@ function categoryFromString(category: string) {
         case "diaries": return Category.diaries
         case "design": return Category.design
         case "financial-tips": return Category.financialTips
+        case "moneyspaces-tutorials": return Category.moneyspaces
     }
 }
 
@@ -67,8 +73,12 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
     const [pageIndex, setpageIndex] = useState(0)
     const [activePill, setActivePill] = useState<Category | null>(Category.all)
 
+    const searchParams = useSearchParams()
+    const selectedCategoryType = searchParams.get('category')
+
     const filteredPosts = ((activePill === Category.all || activePill === undefined) ? posts : posts
         .filter((post) => post.categories?.includes(raw(activePill))))
+
 
     useEffect(() => {
         if (typeof window !== "undefined" && window.localStorage) {
@@ -76,6 +86,11 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
             console.log(activePill)
             setActivePill(categoryFromString(activePill ?? "all"));
         }
+
+        if (selectedCategoryType !== undefined && categoryFromString(selectedCategoryType) !== undefined) {
+            handleSave(categoryFromString(selectedCategoryType));
+        }
+
     }, []);
 
     return (
