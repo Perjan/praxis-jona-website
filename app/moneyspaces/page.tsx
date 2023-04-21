@@ -39,7 +39,18 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         images: ['/images/moneyspaces-hero-image.png']
-    }
+    },
+    itunes: {
+        appId: '1633780211',
+        appArgument: 'moneyspaces://'
+      },
+      appLinks: {
+        ios: {
+          app_name: 'MoneySpaces',
+          app_store_id: '1633780211',
+          url: "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8",
+        }
+      }
 }
 
 const feature1 = [
