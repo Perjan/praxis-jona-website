@@ -9,8 +9,8 @@ import MoneySpacesFriends from "/public/images/moneyspaces-friends-screenshot.pn
 import MoneySpacesRoomates from "/public/images/moneyspaces-roommates.png"
 
 
-const title = 'MoneySpaces'
-const description = "MoneySpaces is, possibly, the ultimate budgeting app for families, couples, roommates, and more!"
+const title = 'MoneySpaces - Collaborative Budgeting App'
+const description = "Modern budgeting app for families, couples, roommates, and more! Share your budget with your friends and family and track your spending together."
 
 export const metadata: Metadata = {
     title: title,
