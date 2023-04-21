@@ -114,11 +114,6 @@ const nextConfig = {
         source: "/:path*/import-csv-files-to-moneycoach",
         destination: "/guides/import-csv-files-in-moneycoach",
         permanent: true
-      },
-      {
-        source: "/moneyspaces",
-        destination: "/blog/introducing-moneyspaces",
-        permanent: false
       }
     ]
   },
