@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 import Logo from "/public/images/moneycoach-web-logo.png"
-import LogoMoneySpaces from "/public/images/moneycoach-web-logo.png"
+import LogoMoneySpaces from "/public/images/moneyspaces-logo.png"
 
 const navigationItems = [
     { title: "Features", href: "/features" },
