@@ -1,48 +1,38 @@
-const posts = [
-    {
-        id: 1,
-        title: 'Auto Loan Calculator',
-        href: '/financial-calculators/auto-loan-calculator',
-        imageUrl:
-            'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+import { Metadata } from 'next'
+import Link from "next/link"
+import { calculators } from "Calculators"
+
+
+const title = 'Financial Calculators'
+const description = 'Financial calculators are a great way to help you make informed decisions about your money. They can help you plan for the future, make the most of your money and make better financial decisions.'
+
+export const metadata: Metadata = {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: 'website',
+      url: '/financial-calculators',
+      images: [
+        {
+          url: '/images/og-image.png',
+          width: 1200,
+          height: 600,
+          alt: 'MoneyCoach app screenshot'
+        }
+      ],
     },
-    {
-        id: 2,
-        title: 'Credit Card Payoff Calculator',
-        href: '/financial-calculators/credit-card-payoff-calculator',
-        imageUrl:
-            'https://images.pexels.com/photos/3944405/pexels-photo-3944405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alternates: {
+      canonical: '/financial-calculators'
     },
-    {
-        id: 3,
-        title: 'Mortgage Calculator',
-        href: '/financial-calculators/mortgage-calculator',
-        imageUrl:
-            'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1973&q=80',
-    },
-    {
-        id: 4,
-        title: 'Debt Payoff Calculator',
-        href: '/financial-calculators/debt-payoff-calculator',
-        imageUrl:
-            'https://images.unsplash.com/photo-1634128222187-18eababc763d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    },
-    {
-        id: 5,
-        title: 'Savings Calculator',
-        href: '/financial-calculators/savings-calculator',
-        imageUrl:
-            'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80',
-    },
-    {
-        id: 6,
-        title: 'Retirement Plan Calculator',
-        href: '/financial-calculators/retirement-calculator',
-        imageUrl:
-            'https://images.unsplash.com/photo-1616964913831-5d22886c3392?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    },
-    // More posts...
-]
+    twitter: {
+      card: 'summary_large_image',
+      title: title,
+      description: description,
+      images: ['/images/og-image.png']
+    }
+  }
 
 export default function Page() {
     return (
@@ -55,20 +45,22 @@ export default function Page() {
                     </p>
                 </div>
                 <div className="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-                    {posts.map((post) => (
+                    {calculators.map((calculator) => (
                         <article
-                            key={post.id}
+                            key={calculator.id}
                             className="relative duration-300 ease-in-out hover:scale-105 isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
                         >
-                            <img src={post.imageUrl} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+                            <img src={calculator.imageUrl} alt="" className="absolute inset-0 -z-10 h-full w-full object-cover" />
                             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/5" />
                             <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
                             <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                                <a href={post.href}>
-                                    <span className="absolute inset-0" />
-                                    {post.title}
-                                </a>
+                                <Link
+                                    href={calculator.href}
+                                    target="_blank" >
+                                        <span className="absolute inset-0" />
+                                    {calculator.title}
+                                </Link>
                             </h3>
                         </article>
                     ))}
