@@ -2,6 +2,8 @@ import { allPosts } from 'contentlayer/generated'
 import PaginatedPostsSection from '../PaginatedPostsSection'
 import { Metadata } from 'next'
 
+export const dynamic = "force-static"
+
 const title = 'Blog'
 const description = "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals."
 

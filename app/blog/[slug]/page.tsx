@@ -13,6 +13,8 @@ import {
 } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
 
+export const dynamic = "force-static"
+
 const filteredBlogPosts = allPosts
   .filter((post) => !post.categories?.includes("legal") ?? false)
   .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? []
