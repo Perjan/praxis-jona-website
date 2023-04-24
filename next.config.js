@@ -133,6 +133,10 @@ const nextConfig = {
           destination: "/compare/buddy-alternative"
         },
         {
+          source: "/monefy-alternative",
+          destination: "/compare/monefy-alternative"
+        },
+        {
           source: "/privacy-policy",
           destination: "/legal/privacy-policy"
         },

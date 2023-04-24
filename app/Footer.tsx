@@ -51,6 +51,7 @@ const navigation = {
   compare: [
     { name: "Buddy", href: "/buddy-alternative" },
     { name: "Finanzguru", href: "/finanzguru-alternative" },
+    { name: "Monefy", href: "/monefy-alternative" },
   ],
   social: [
     {
