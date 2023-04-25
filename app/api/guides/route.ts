@@ -12,7 +12,6 @@ function getGuides() {
         return {
             title: guide.title,
             summary: guide.summary,
-            excerpt: guide.excerpt,
             url: `https://moneycoach.ai/guides/${guide.slug}`,
         };
     });
