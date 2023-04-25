@@ -80,7 +80,10 @@ const advancedPostsSlugs = [
   "how-to-customize-your-daily-limit",
   "how-to-handle-refunds-cashback-repayments",
   "how-to-use-quick-notes",
+  "how-to-integrate-shortcuts-app-with-moneycoach-on-macos",
   "understanding-the-real-cost-of-your-subscriptions",
+  "how-to-buy-a-ps5-using-budgets-smart-goals",
+  "how-to-manage-property-loans",
 ]
 
 const questionsAndAnswersPostsSlugs = [
