@@ -106,7 +106,7 @@ export default async function Page() {
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-3xl text-center">
                                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">What is the Best Alternative to Finanzguru?</h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">Finanzguru is a finance planner to organize and take control over your money. While Finanzguru allows you to connect your bank accounts directly, it lacks the option to manually set up goals and the ability to customise the app to your needs. </p>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">Finanzguru is a finance planner to organize and take control over your money. While Finanzguru allows you to connect your bank accounts directly, it lacks the option to manually set up goals and import existing transactions via CSV. </p>
                                 <p className="mt-6 text-lg leading-8 text-gray-300">MoneyCoach is designed specifically to address that as it allows users to customise the app to fit their needs. You can also set up Smart Goals to help motivate you to save more money and achieve your dreams.</p>
                             </div>
                             <Image
@@ -175,7 +175,7 @@ export default async function Page() {
                                     </div>
                                 ) : null}
                                 <table className="w-full table-fixed border-separate border-spacing-x-8 text-left">
-                                    <caption className="sr-only">Pricing plan comparison</caption>
+                                    <caption className="sr-only">Compare MoneyCoach vs Finanzguru</caption>
                                     <colgroup>
                                         <col className="w-1/2" />
                                         <col className="w-1/4" />
@@ -262,7 +262,7 @@ export default async function Page() {
                                 <div className="lg:max-w-lg">
                                     <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Powerful Cash
                                         Tracking</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-600">Finanzguru apart from allowing you to connect to your bank accounts directly, also features manual entry. With MoneyCoach we have taken manual tracking to the next level. </p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-600">Finanzguru apart from allowing you to connect to your bank accounts directly, also features manual entry. With MoneyCoach we have taken manual tracking to the next level.</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">You can enter a transaction in less than 2 seconds. It supports Shortcuts; you can import any bank statements via CSV, and the app will automatically categorize your expenses. Or you can use Siri to do all of the heavy liftings.</p>
                                 </div>
                             </div>
@@ -306,7 +306,7 @@ export default async function Page() {
                                     <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Powerful Suite of
                                         Reports</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                        While Finanzguru features some insights, you cannot have a total breakdown of your financial life. MoneyCoach currently includes over 11 powerful intuitive reports, with more coming in the future, that will help you understand where your money goes and where you can save more.</p>
+                                        MoneyCoach currently includes over 11 powerful intuitive reports, with more coming in the future, that will help you understand where your money goes and where you can save more.</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
                                         You can deep dive and see what category you are spending the most, understand the real cost of your subscriptions, see a future projection of your finances based on your spending habits and so much more.</p>
                                 </div>
@@ -324,9 +324,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Multi-Currency Net
-                                        Worth</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">One amazing feature that MoneyCoach offers, that is missing completely in Buddy, is that you can manually add your accounts and choose a different currency for each one independent of what your main currency throughout the app is.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Multi-Currency Net Worth</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">One amazing feature that MoneyCoach offers, that is missing in Finanzguru, is that you can manually add your accounts and choose a different currency for each one independent of what your main currency throughout the app is.</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-300">So if you have the app in EUR and most of the accounts are in EUR, but you also want to add an account in USD, for example, you can just do that. MoneyCoach will convert that USD amount to EUR using the latest exchange rates. This way you will see your Net Worth in one unified currency.</p>
                                 </div>
                             </div>

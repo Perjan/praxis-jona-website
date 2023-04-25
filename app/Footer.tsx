@@ -48,6 +48,13 @@ const navigation = {
     { name: "Disclaimer", href: "/legal/disclaimer/" },
     { name: "Credits", href: "/legal/credits/" },
   ],
+  ourApps: [
+    { name: "MoneyCoach", href: "/" },
+    { name: "MoneySpaces", href: "/moneyspaces" },
+    { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
+    { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
+    { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
+  ],
   compare: [
     { name: "Buddy", href: "/buddy-alternative" },
     { name: "Finanzguru", href: "/finanzguru-alternative" },
@@ -149,12 +156,15 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
+            <div className="md:grid md:grid-cols-3 md:gap-8">
               <div>
                 <FooterColumn title="Features" items={navigation.features} />
               </div>
               <div className="mt-10 md:mt-0">
                 <FooterColumn title="Use Cases" items={navigation.usecases} />
+              </div>
+              <div className="mt-10 md:mt-0">
+                <FooterColumn title="Our Apps" items={navigation.ourApps} />
               </div>
             </div>
             <div className="md:grid md:grid-cols-3 md:gap-8">
