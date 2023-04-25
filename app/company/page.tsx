@@ -162,11 +162,11 @@ export default function Page() {
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">MoneyCoach Ecosystem</h2>
               <p className="mt-6 text-lg leading-8 text-gray-600">Take a look at our “by MoneyCoach” apps. There is something for almost everybody!</p>
             </div>
-            <ul role="list" className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <ul role="list" className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
               <li>
                 <a href="https://apps.apple.com/us/app/family-budget-moneyspaces/id1633780211">
                   <Image
-                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
                     width={300}
                     height={200}
                     src="/images/moneyspacesIcon.png"
@@ -179,7 +179,7 @@ export default function Page() {
               <li>
                 <a href="https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8">
                   <Image
-                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
                     width={300}
                     height={200}
                     src="/images/btcIcon.png"
@@ -190,9 +190,22 @@ export default function Page() {
               </li>
 
               <li>
+                <a href="https://apps.apple.com/us/app/iban-calculator-by-moneycoach/id1017293567">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
+                    width={300}
+                    height={200}
+                    src="/images/iban-calculator-Icon.jpg"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">IBAN Calculator</h3>
+              </li>
+
+              <li>
                 <a href="https://itunes.apple.com/vn/app/riku/id1262876845?mt=8">
                   <Image
-                    className="aspect-[3/2] w-full rounded-2xl object-cover"
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
                     width={300}
                     height={200}
                     src="/images/rikuIcon.png"
