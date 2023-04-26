@@ -96,8 +96,8 @@ export default async function Page() {
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-3xl text-center">
                                 <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">What is the Best Alternative to Monefy?</h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">Monefy is a simple budgeting app to organize and take control over your money. While Monefy allows you add new records extremely fast, it lacks the option to manually set up goals, import data via CSV, the ability to customise the app to your needs and much more. </p>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">MoneyCoach, on the other hand, is designed to be the one stop shop when it comes to managing your accounts, budgets goals and so much more.</p>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">Monefy is a simple budgeting app to organize and take control over your money. While Monefy allows you add new records fast, it lacks the option to manually set up goals, import data via CSV, the ability to customise the app to your needs and much more.</p>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">MoneyCoach is designed to be the one stop shop when it comes to managing your accounts, budgets, goals and so much more.</p>
                             </div>
                             <Image
                                 src={MonefyImage}
@@ -165,7 +165,7 @@ export default async function Page() {
                                     </div>
                                 ) : null}
                                 <table className="w-full table-fixed border-separate border-spacing-x-8 text-left">
-                                    <caption className="sr-only">Pricing plan comparison</caption>
+                                    <caption className="sr-only">Monefy vs MoneyCoach Feature Comparison</caption>
                                     <colgroup>
                                         <col className="w-1/2" />
                                         <col className="w-1/4" />
