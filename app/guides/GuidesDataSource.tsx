@@ -31,6 +31,7 @@ const intermediatePostsSlugs = [
   "how-to-reset-the-icloud-sync",
   "how-to-customize-your-payday-in-moneycoach-app",
   "how-to-scan-invoices-receipts",
+  "how-to-setup-a-mortgage-account-in-moneycoach"
 ]
 
 const advancedPostsSlugs = [
