@@ -4,7 +4,7 @@ import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
 import NewsletterSection from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
-import HeroSection from './HeroSection'
+import HeroSection, { HeroConfig } from './HeroSection'
 import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
 import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProductScreenshotOnDark'
 import AppleWatchSection from './AppleWatchSection'
@@ -13,12 +13,16 @@ import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
 import FaqSection from './FaqSection'
 import FinancialOverview from './FinancialOverview'
 
+const heroConfig: HeroConfig = {
+  downloadNowTitle: 'Download App',
+}
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
     <main>
       
-      <HeroSection />
+      <HeroSection config={heroConfig} />
       {/* <LogoCloud /> */}
       <FinancialOverview />
       <FeatureWithLargeScreenshotSection />
