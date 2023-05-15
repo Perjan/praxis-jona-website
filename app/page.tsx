@@ -13,12 +13,14 @@ import AppleLovesMoneyCoachSection from './AppleLovesMoneyCoachSection'
 import FaqSection from './FaqSection'
 import FinancialOverview from './FinancialOverview'
 
-import { 
-  PlusCircleIcon, 
+import {
+  PlusCircleIcon,
   BanknotesIcon,
   UserIcon,
   CalendarDaysIcon,
   AdjustmentsVerticalIcon,
+  ComputerDesktopIcon,
+  CpuChipIcon
 } from '@heroicons/react/20/solid'
 
 const heroConfig: HeroConfig = {
@@ -90,36 +92,59 @@ const watchSectionFeatures = [
   },
 ]
 
+const macSectionFeatures = [
+  {
+    name: 'Mac first.',
+    description:
+      'MoneyCoach on Mac was designed as a true Mac app. Supporting all of the great Mac features like sidebars, keyboard shortcuts, touch bar shortcuts etc. MoneyCoach is extremely powerful on a Mac.',
+    icon: ComputerDesktopIcon,
+  },
+  {
+    name: 'Apple ecosystem.',
+    description: 'This is for the Apple enthusiasts. Now you can use MoneyCoach on your Apple Watch, iPhone, iPad, HomePod and Mac seamlessly via Data Sync.',
+    icon: CpuChipIcon,
+  }
+]
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
     <main>
-      
+
       <HeroSection config={heroConfig} />
 
       <FinancialOverview features={features} />
       <FeatureWithLargeScreenshotSection features={budgetSectionFeatures} />
 
-      <MajorFeatureSection 
+      <MajorFeatureSection
         title='Add your cash expenses in seconds'
-        description= {'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
+        description={'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
         imageUrl='/images/addTransactions2.png'
       />
 
       <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
 
-      <AppleWatchSection features={watchSectionFeatures} />
-
-      <FeatureSectionWithProductScreenshotPanel />
+      <AppleWatchSection
+        title='MoneyCoach on Apple Watch'
+        description='A money management app that puts your finances on your wrist. Check your budgets, accounts, net worth and more on the go.'
+        features={watchSectionFeatures}
+      />
+      
+      <FeatureSectionWithProductScreenshotPanel
+        title="MoneyCoach for macOS"
+        subtitle='A delightful experience on your Mac'
+        description='Available on all Macs running macOS 12 Monterey or later.'
+        features={macSectionFeatures}
+      />
 
       <AppleLovesMoneyCoachSection />
 
       <FeaturesSection />
 
       <FaqSection />
-  
+
       <NewsletterSection />
-      
+
     </main>
   );
 }

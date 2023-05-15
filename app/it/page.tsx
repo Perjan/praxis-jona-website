@@ -16,7 +16,9 @@ import {
   BanknotesIcon,
   UserIcon,
   CalendarDaysIcon,
-  AdjustmentsVerticalIcon
+  AdjustmentsVerticalIcon,
+  ComputerDesktopIcon,
+  CpuChipIcon
 } from '@heroicons/react/20/solid'
 
 const heroConfig: HeroConfig = {
@@ -89,6 +91,21 @@ const watchSectionFeatures = [
 ]
 
 
+const macSectionFeatures = [
+  {
+    name: 'Mac first.',
+    description:
+      'MoneyCoach on Mac was designed as a true Mac app. Supporting all of the great Mac features like sidebars, keyboard shortcuts, touch bar shortcuts etc. MoneyCoach is extremely powerful on a Mac.',
+    icon: ComputerDesktopIcon,
+  },
+  {
+    name: 'Apple ecosystem.',
+    description: 'This is for the Apple enthusiasts. Now you can use MoneyCoach on your Apple Watch, iPhone, iPad, HomePod and Mac seamlessly via Data Sync.',
+    icon: CpuChipIcon,
+  }
+]
+
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
@@ -109,12 +126,18 @@ export default function Home() {
       <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
 
       <AppleWatchSection 
-        title='MoneyCoach on Apple Watch'
-        description='A money management app that puts your finances on your wrist. Check your budgets, accounts, net worth and more on the go.'
+        title='MoneyCoach & Apple Watch'
+        description='MoneyCoach e disponibile anche su Apple Watch. Con l’app per Apple Watch puoi tenere sotto controllo il tuo budget, le tue spese e il tuo patrimonio netto in un attimo.'
         features={watchSectionFeatures} 
-      />
+        />
 
-      <FeatureSectionWithProductScreenshotPanel />
+
+      <FeatureSectionWithProductScreenshotPanel
+        title="MoneyCoach for macOS"
+        subtitle='A delightful experience on your Mac'
+        description='Available on all Macs running macOS 12 Monterey or later.'
+        features={macSectionFeatures}
+      />
 
       <AppleLovesMoneyCoachSection />
 
