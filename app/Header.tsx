@@ -9,24 +9,25 @@ import {
     Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 import Logo from "/public/images/moneycoach-web-logo.png"
 import LogoMoneySpaces from "/public/images/moneyspaces-logo.png"
 
-const navigationItems = [
+const navigationItemsEnglish = [
     { title: "Features", href: "/features" },
     { title: "Guides", href: "/guides" },
     { title: "Blog", href: "/blog" },
     { title: "Company", href: "/company" }
 ]
 
-const navigationItemsMobile = [
-    { title: "Home", href: "/" }
+const navigationItemsItalian = [
+    { title: "Funzioni", href: "/it/funzioni" },
+    { title: "Guide", href: "/guides" },
+    { title: "Blog", href: "/blog" },
+    { title: "Chi Siamo", href: "/it/chi-siamo" }
 ]
-navigationItemsMobile.push(...navigationItems)
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
@@ -37,14 +38,21 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-export function DownloadButton({url}) {
+function downloadAppTitle(locale: string) {
+    if (locale === "it") {
+        return "Scarica l'app"
+    } else {
+        return "Download App"
+    }
+}
+
+export function DownloadButton({url, locale}) {
     return (
         <Link
             href={url}
             target='_blank'
             className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
-        >
-            Download App
+        >{downloadAppTitle(locale)}
         </Link>
     )
 }
@@ -61,13 +69,20 @@ export function DownloadButtonMoneySpaces({url}) {
     )
 }
 
-export default function Header() {
+export default function Header({locale}) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
 
     const scrollPosition = useScrollPosition();
 
     const isMoneySpaces = pathname === "/moneyspaces"
+
+    const navigationItems = locale === "it" ? navigationItemsItalian : navigationItemsEnglish
+
+    const navigationItemsMobile = [
+        { title: "Home", href: locale === "en" ? "/" : "/" + locale }
+    ]
+    navigationItemsMobile.push(...navigationItems)
 
     if (isMoneySpaces) {
         return (
@@ -116,7 +131,7 @@ export default function Header() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
                     <Link 
-                        href="/" 
+                        href={locale === "en" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
                         <span className="sr-only">MoneyCoach</span>
@@ -167,7 +182,7 @@ export default function Header() {
                     )}
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButton url={downloadUrl} />
+                    <DownloadButton url={downloadUrl} locale={locale} />
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -201,7 +216,7 @@ export default function Header() {
                                 )}
                             </div>
                             <div className="py-6">
-                                <DownloadButton url={downloadUrl} />
+                                <DownloadButton url={downloadUrl} locale={locale} />
                             </div>
                         </div>
                     </div>

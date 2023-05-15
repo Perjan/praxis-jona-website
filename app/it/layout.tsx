@@ -1,18 +1,17 @@
-import './globals.css'
-import Header from './Header'
+import Header from 'app/Header'
 import { Analytics } from '@vercel/analytics/react';
-import Footer from './Footer';
+import Footer from 'app/Footer';
 import { Metadata } from 'next';
-import { ReactToastWrapper } from './ToasterWrapper';
+import { ReactToastWrapper } from 'app/ToasterWrapper';
 
-const title = "MoneyCoach - Modern Cash Tracker And Budgeting App"
-const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
+const title = "MoneyCoach - Gestore Soldi e Budget"
+const description = "MoneyCoach e' un moderno gestore di soldi e budget per iPhone, iPad, Apple Watch e Mac"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneycoach.ai"),
   title: {
     default: title,
-    template: "%s - MoneyCoach Budgeting App"
+    template: "%s - MoneyCoach Gestore Soldi e Budget"
   },
   description: description,
   alternates: {
@@ -73,10 +72,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="it">
       <body>
         <ReactToastWrapper>
-          <Header locale="en" />
+          <Header locale="it" />
           {children}
           <Footer />
           <Analytics />
