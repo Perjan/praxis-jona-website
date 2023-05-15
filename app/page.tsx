@@ -138,7 +138,12 @@ export default function Home() {
 
       <HeroSection config={defaultHeroConfig} />
 
-      <FinancialOverview features={features} />
+      <FinancialOverview
+        subtitle="Complete Overview"
+        title="Track all your accounts in one place"
+        description="MoneyCoach grants you total control over all your accounts, cash included."
+        features={features}
+      />
 
       <FeatureWithLargeScreenshotSection
         subtitle="Smart Budgets"
@@ -153,7 +158,12 @@ export default function Home() {
         imageUrl='/images/addTransactions2.png'
       />
 
-      <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
+      <FeatureSectionWithProductScreenshotOnDark
+        subtitle="Smart Goals"
+        title="Save up & achieve your dreams with smart goals"
+        description="MoneyCoach makes achieving your dreams easier. Quickly check how much money you need to save each day in order to achieve your goals within your deadline."
+        features={goalsSectionFeatures} 
+      />
 
       <AppleWatchSection
         title='MoneyCoach on Apple Watch'
