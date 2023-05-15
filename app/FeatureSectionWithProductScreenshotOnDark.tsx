@@ -9,21 +9,7 @@ const sectionTitle = "Smart Goals"
 const title = "Save up & achieve your dreams with smart goals"
 const description = "MoneyCoach makes achieving your dreams easier. Quickly check how much money you need to save each day in order to achieve your goals within your deadline."
 
-const features = [
-  {
-    name: 'Custom Goals.',
-    description:
-      'Set up a custom goal and start your journey towards achieving it. Set up a goal for that new console, phone, laptop, vacation, car, house, whatever and motivate yourself to save money and achieve your dreams.',
-    icon: AdjustmentsVerticalIcon,
-  },
-  {
-    name: 'Digital Money Coaching.',
-    description: 'Or you can go through the Personalized Goals flow. Your digital money coach will ask you what your short & long-term goals are plus if you have or not any ongoing debts and will take care of the rest.',
-    icon: UserIcon,
-  }
-]
-
-export default function FeatureSectionWithProductScreenshotOnDark() {
+export default function FeatureSectionWithProductScreenshotOnDark(params: { features: any[] }) {
   return (
     <div className="overflow-hidden bg-gray-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -36,7 +22,7 @@ export default function FeatureSectionWithProductScreenshotOnDark() {
                 {description}
               </p>
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-300 lg:max-w-none">
-                {features.map((feature) => (
+                {params.features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
                     <dt className="inline font-semibold text-white">
                       <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-500" aria-hidden="true" />

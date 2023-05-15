@@ -1,34 +1,10 @@
-import {
-  BanknotesIcon,
-  UserIcon,
-  CalendarDaysIcon,
-} from '@heroicons/react/20/solid'
-
 import Image from 'next/image'
 
 const sectionTitle = "Smart Budgets"
 const title = "Save more money with personalized smart budgets"
 const description = "Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
 
-const features = [
-  {
-    name: 'Personalized budgets.',
-    description: 'Budgets made tailored for you. Tell MoneyCoach what you spend on average each month and it will set you up with personalized budgets that will save you a lot of money each month',
-    icon: UserIcon,
-  },
-  {
-    name: 'Budgets for every day.',
-    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an “envelope” budget tracking one or more specific categories, stick to this budget and save more money.',
-    icon: CalendarDaysIcon,
-  },
-  {
-    name: 'Budgets for every occasion.',
-    description: ' Vacation? Business trip? Holiday? Christmas is coming? Just create a budget, select what categories your would like to track, stick to this budget and save more money each time',
-    icon: BanknotesIcon,
-  }
-]
-
-export default function FeatureWithLargeScreenshotSection() {
+export default function FeatureWithLargeScreenshotSection(params: { features: any[] }) {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -56,7 +32,7 @@ export default function FeatureWithLargeScreenshotSection() {
       </div>
       <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
         <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
-          {features.map((feature) => (
+          {params.features.map((feature) => (
             <div key={feature.name} className="relative pl-9">
               <dt className="inline font-semibold text-gray-900">
                 <feature.icon className="absolute left-1 top-1 h-5 w-5 text-indigo-600" aria-hidden="true" />

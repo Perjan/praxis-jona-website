@@ -20,6 +20,7 @@ const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
 
 export type HeroConfig = {
     downloadNowTitle: string
+    watchVideo: string
 }
 
 export default function HeroSection(params: { config: HeroConfig }) {
@@ -79,7 +80,7 @@ export default function HeroSection(params: { config: HeroConfig }) {
                             className="rounded-md inline-flex bg-slate-300 px-3.5 py-2.5 text-sm font-semibold text-primary shadow-sm hover:text-white hover:bg-primary/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/90"
                         >
                             <PlayCircleIcon className="h-5 w-5 mr-2" aria-hidden="true" />
-                            <span>Watch Video</span>
+                            <span>{params.config.watchVideo}</span>
                         </Link>
                     </div>
                     <div className="grid gap-x-4 pr-6 grid-cols-2 mt-12 mb-10 w-[36rem]">
