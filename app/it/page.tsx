@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import FeaturesSection from 'app/FeaturesSection'
-import NewsletterSection from 'app/NewsletterSection'
+import NewsletterSection, { defaultNewsletterSectionProps, italianNewsletterSectionProps } from 'app/NewsletterSection'
 import MajorFeatureSection from 'app/MajorFeatureSection'
 import HeroSection, { HeroConfig } from 'app/HeroSection'
 import FeatureWithLargeScreenshotSection from 'app/FeatureWithLargeScreenshotSection'
@@ -11,14 +11,18 @@ import AppleLovesMoneyCoachSection from 'app/AppleLovesMoneyCoachSection'
 import FaqSection from 'app/FaqSection'
 import FinancialOverview from 'app/FinancialOverview'
 
-import { 
-  PlusCircleIcon, 
+import {
+  PlusCircleIcon,
   BanknotesIcon,
   UserIcon,
   CalendarDaysIcon,
   AdjustmentsVerticalIcon,
   ComputerDesktopIcon,
-  CpuChipIcon
+  CpuChipIcon,
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  ArrowPathIcon,
+  FingerPrintIcon,
 } from '@heroicons/react/20/solid'
 
 const heroConfig: HeroConfig = {
@@ -106,30 +110,57 @@ const macSectionFeatures = [
 ]
 
 
+const featuresSectionItems = [
+  {
+    name: 'Multi-currency Support',
+    description:
+      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'Smart Budgets & Goals',
+    description:
+      'Create smart budgets to stay on budget and smart goals to motivate yourself to save more money!',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Deep iOS integration',
+    description:
+      'Enter transactions via Siri. Check your finances on your Lock/Home Screen via Widgets and Live Activies and so much more.',
+    icon: ArrowPathIcon,
+  },
+  {
+    name: 'Extremely personalizable',
+    description:
+      'You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the app icon, app tint and more.',
+    icon: FingerPrintIcon,
+  },
+]
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
     <main>
       <h1>Ciao Stronzo</h1>
-      <HeroSection config={heroConfig} />
+      <HeroSection config={heroConfig} />
       {/* <LogoCloud /> */}
       <FinancialOverview features={features} />
-      
+
       <FeatureWithLargeScreenshotSection features={budgetSectionFeatures} />
 
-      <MajorFeatureSection 
+      <MajorFeatureSection
         title='Add your cash expenses in seconds'
-        description= {'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
+        description={'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
         imageUrl='/images/addTransactions2.png'
       />
 
       <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
 
-      <AppleWatchSection 
+      <AppleWatchSection
         title='MoneyCoach & Apple Watch'
         description='MoneyCoach e disponibile anche su Apple Watch. Con l’app per Apple Watch puoi tenere sotto controllo il tuo budget, le tue spese e il tuo patrimonio netto in un attimo.'
-        features={watchSectionFeatures} 
-        />
+        features={watchSectionFeatures}
+      />
 
 
       <FeatureSectionWithProductScreenshotPanel
@@ -139,14 +170,25 @@ export default function Home() {
         features={macSectionFeatures}
       />
 
-      <AppleLovesMoneyCoachSection />
+      <AppleLovesMoneyCoachSection
+        description={"MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store.\n\nCrazy, right?"}
+      />
 
-      <FeaturesSection />
+      <FeaturesSection
+        features={featuresSectionItems}
+        buttonTitle='View all features'
+        href='/it/funzioni'
+      />
 
-      <FaqSection />
-  
-      <NewsletterSection />
-      
+      <FaqSection
+        locale='it'
+        title='Domande frequenti'
+        buttonTitle='View all FAQs'
+        href='/it/domande-frequenti'
+      />
+
+      <NewsletterSection props={italianNewsletterSectionProps} />
+
     </main>
   );
 }

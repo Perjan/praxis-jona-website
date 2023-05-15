@@ -11,7 +11,22 @@ export function isEmail(email: string): boolean {
   return emailPattern.test(email);
 }
 
-export default function NewsletterSection({title = "Subscribe to our newsletter."}) {
+type NewsletterSectionProps = {
+  title: string;
+  description: string;
+};
+
+export const defaultNewsletterSectionProps: NewsletterSectionProps = {
+  title: "Subscribe to our newsletter",
+  description: "Ever wondered what it takes to run an independent app business? Then subscribe to our newsletter. I will share with you everything that is happening inside MoneyCoach.",
+};
+
+export const italianNewsletterSectionProps: NewsletterSectionProps = {
+  title: "Iscriviti alla nostra newsletter",
+  description: "Ti sei mai chiesto cosa serve per gestire un'attività indipendente? Allora iscriviti alla nostra newsletter. Condividerò con te tutto ciò che sta accadendo all'interno di MoneyCoach.",
+};
+
+export default function NewsletterSection( params: { props: NewsletterSectionProps } ) {
 
 const [email, setEmail] = useState("");
 
@@ -21,9 +36,9 @@ const [email, setEmail] = useState("");
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-y-16 gap-x-8 lg:max-w-none lg:grid-cols-2">
           <div className="max-w-xl lg:max-w-lg">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{params.props.title}</h2>
             <p className="mt-4 text-lg leading-8 text-gray-300">
-              Ever wondered what it takes to run an independent app business? Then subscribe to our newsletter. I will share with you everything that is happening inside MoneyCoach.
+              {params.props.description}
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
@@ -40,7 +55,6 @@ const [email, setEmail] = useState("");
                 onChange={ (e) => {
                   const email = e.target.value;
                   setEmail(email)
-                  // setButtonDisabled();
                 }}
               />
               <button

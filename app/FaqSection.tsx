@@ -2,19 +2,22 @@
 
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import { faqs } from "FAQs";
+import { faqs, faqs_it } from "FAQs";
 import Link from "next/link";
 
-export default function FaqSection() {
+export default function FaqSection(params: {locale: string, title: string, buttonTitle: string, href: string}) {
+  
+  let localizedFaqs = params.locale === "it" ? faqs_it : faqs
+
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:max-w-7xl">
           <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">
-            Frequently asked questions
+            {params.title}
           </h2>
           <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
-            {faqs.slice(0, 3).map((faq) => (
+            {localizedFaqs.slice(0, 3).map((faq) => (
               <Disclosure as="div" key={faq.question} className="pt-6">
                 {({ open }) => (
                   <>
@@ -51,10 +54,10 @@ export default function FaqSection() {
 
           <div className="mt-16 space-y-6 divide-y content-end">
             <Link
-              href="/faqs"
+              href={params.href}
               className="content-end rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
-              View all FAQs
+              {params.buttonTitle}
               <span aria-hidden="true" className="pl-2">&rarr;</span>
             </Link>
           </div>

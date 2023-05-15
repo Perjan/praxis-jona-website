@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 import FeaturesSection from './FeaturesSection'
 import LogoCloud from './LogoCloud'
-import NewsletterSection from './NewsletterSection'
+import NewsletterSection, { defaultNewsletterSectionProps } from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
 import HeroSection, { HeroConfig } from './HeroSection'
 import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
@@ -20,7 +20,11 @@ import {
   CalendarDaysIcon,
   AdjustmentsVerticalIcon,
   ComputerDesktopIcon,
-  CpuChipIcon
+  CpuChipIcon,
+  CloudArrowUpIcon,
+  LockClosedIcon,
+  ArrowPathIcon,
+  FingerPrintIcon,
 } from '@heroicons/react/20/solid'
 
 const heroConfig: HeroConfig = {
@@ -106,6 +110,34 @@ const macSectionFeatures = [
   }
 ]
 
+
+const featuresSectionItems = [
+  {
+    name: 'Multi-currency Support',
+    description:
+      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
+    icon: CloudArrowUpIcon,
+  },
+  {
+    name: 'Smart Budgets & Goals',
+    description:
+      'Create smart budgets to stay on budget and smart goals to motivate yourself to save more money!',
+    icon: LockClosedIcon,
+  },
+  {
+    name: 'Deep iOS integration',
+    description:
+      'Enter transactions via Siri. Check your finances on your Lock/Home Screen via Widgets and Live Activies and so much more.',
+    icon: ArrowPathIcon,
+  },
+  {
+    name: 'Extremely personalizable',
+    description:
+      'You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the app icon, app tint and more.',
+    icon: FingerPrintIcon,
+  },
+]
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
@@ -129,7 +161,7 @@ export default function Home() {
         description='A money management app that puts your finances on your wrist. Check your budgets, accounts, net worth and more on the go.'
         features={watchSectionFeatures}
       />
-      
+
       <FeatureSectionWithProductScreenshotPanel
         title="MoneyCoach for macOS"
         subtitle='A delightful experience on your Mac'
@@ -137,13 +169,25 @@ export default function Home() {
         features={macSectionFeatures}
       />
 
-      <AppleLovesMoneyCoachSection />
+      <AppleLovesMoneyCoachSection
+        description={"MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store.\n\nCrazy, right?"}
+      />
 
-      <FeaturesSection />
 
-      <FaqSection />
+<FeaturesSection 
+        features={featuresSectionItems} 
+        buttonTitle='View all features'
+        href='/features'
+      />
 
-      <NewsletterSection />
+      <FaqSection 
+        locale='en' 
+        title='Frequently asked questions' 
+        buttonTitle='View all FAQs'
+        href='/faqs'
+      />
+
+      <NewsletterSection props={defaultNewsletterSectionProps} />
 
     </main>
   );

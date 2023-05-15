@@ -2,9 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 
 const title = "Apple ❤️ MoneyCoach"
-const description = "MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store. \n\nCrazy, right?"
 
-export default function AppleLovesMoneyCoachSection() {
+export default function AppleLovesMoneyCoachSection(params: { description: string }) {
   return (
     <div className="whitespace-pre-line overflow-hidden bg-gray-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
@@ -12,7 +11,7 @@ export default function AppleLovesMoneyCoachSection() {
           <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{title}</h2>
             <p className="mt-6 text-xl leading-8 text-slate-200">
-             {description}
+             {params.description}
             </p>
             <div className="mt-10 flex">
               <Link

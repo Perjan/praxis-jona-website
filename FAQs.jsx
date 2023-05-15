@@ -68,3 +68,7 @@ export const faqs = [
 
     // More questions...
   ]
+
+
+  export const faqs_it = [
+  ]
