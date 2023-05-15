@@ -66,21 +66,23 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({
+export default function ItalianLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="it">
-      <body>
-        <ReactToastWrapper>
-          <Header locale="it" />
+    // <html lang="it">
+      // {/* <body> */}
+        // {/* <ReactToastWrapper> */}
+        <>
+          {/* <Header locale="it" /> */}
           {children}
-          <Footer />
-          <Analytics />
-        </ReactToastWrapper>
-      </body>
-    </html>
+          {/* <Footer /> */}
+        </>
+          // {/* <Analytics /> */}
+        // {/* </ReactToastWrapper> */}
+      // </body>
+    // </html>
   )
 }

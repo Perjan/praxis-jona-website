@@ -57,25 +57,32 @@ export function DownloadButton({url, locale}) {
     )
 }
 
-export function DownloadButtonMoneySpaces({url}) {
+export function DownloadButtonMoneySpaces({url, locale}) {
     return (
         <Link
             href={url}
             target='_blank'
             className="-mx-3 block rounded-xl bg-indigo-600 py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-indigo-500"
-        >
-            Download App
+        >{downloadAppTitle(locale)}
         </Link>
     )
 }
 
-export default function Header({locale}) {
+export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
 
     const scrollPosition = useScrollPosition();
 
     const isMoneySpaces = pathname === "/moneyspaces"
+
+    var locale = "en"
+    
+    if (pathname.startsWith("/it")) {
+        locale = "it"
+    }
+
+    console.log("is italian: ", pathname.startsWith("/it"))
 
     const navigationItems = locale === "it" ? navigationItemsItalian : navigationItemsEnglish
 
@@ -109,11 +116,11 @@ export default function Header({locale}) {
                     </Link>
                 </div>
                 <div className="flex lg:hidden">
-                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} />
+                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
                 </div>
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} />
+                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
                 </div>
             </nav>
         </header>

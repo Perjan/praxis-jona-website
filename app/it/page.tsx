@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import { Metadata } from 'next'
 import FeaturesSection from 'app/FeaturesSection'
-import LogoCloud from 'app/LogoCloud'
 import NewsletterSection from 'app/NewsletterSection'
 import MajorFeatureSection from 'app/MajorFeatureSection'
 import HeroSection from 'app/HeroSection'
