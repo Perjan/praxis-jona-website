@@ -1,10 +1,8 @@
-import Image from 'next/image'
 import { Metadata } from 'next'
 import FeaturesSection from './FeaturesSection'
-import LogoCloud from './LogoCloud'
 import NewsletterSection, { defaultNewsletterSectionProps } from './NewsletterSection'
 import MajorFeatureSection from './MajorFeatureSection'
-import HeroSection, { HeroConfig } from './HeroSection'
+import HeroSection, { HeroConfig, defaultHeroConfig, italianHeroConfig } from './HeroSection'
 import FeatureWithLargeScreenshotSection from './FeatureWithLargeScreenshotSection'
 import FeatureSectionWithProductScreenshotOnDark from './FeatureSectionWithProductScreenshotOnDark'
 import AppleWatchSection from './AppleWatchSection'
@@ -26,11 +24,6 @@ import {
   ArrowPathIcon,
   FingerPrintIcon,
 } from '@heroicons/react/20/solid'
-
-const heroConfig: HeroConfig = {
-  downloadNowTitle: 'Download App',
-  watchVideo: "Watch Video",
-}
 
 const features = [
   {
@@ -143,7 +136,7 @@ export default function Home() {
   return (
     <main>
 
-      <HeroSection config={heroConfig} />
+      <HeroSection config={defaultHeroConfig} />
 
       <FinancialOverview features={features} />
 

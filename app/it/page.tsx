@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import FeaturesSection from 'app/FeaturesSection'
 import NewsletterSection, { defaultNewsletterSectionProps, italianNewsletterSectionProps } from 'app/NewsletterSection'
 import MajorFeatureSection from 'app/MajorFeatureSection'
-import HeroSection, { HeroConfig } from 'app/HeroSection'
+import HeroSection, { HeroConfig, italianHeroConfig } from 'app/HeroSection'
 import FeatureWithLargeScreenshotSection from 'app/FeatureWithLargeScreenshotSection'
 import FeatureSectionWithProductScreenshotOnDark from 'app/FeatureSectionWithProductScreenshotOnDark'
 import AppleWatchSection from 'app/AppleWatchSection'
@@ -24,11 +24,6 @@ import {
   ArrowPathIcon,
   FingerPrintIcon,
 } from '@heroicons/react/20/solid'
-
-const heroConfig: HeroConfig = {
-  downloadNowTitle: 'Scarica App',
-  watchVideo: "Guarda il video",
-}
 
 const features = [
   {
@@ -142,8 +137,8 @@ export default function Home() {
   return (
     <main>
       <h1>Ciao Stronzo</h1>
-      
-      <HeroSection config={heroConfig} />
+
+      <HeroSection config={italianHeroConfig} />
 
       <FinancialOverview features={features} />
 

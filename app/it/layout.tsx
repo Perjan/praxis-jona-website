@@ -72,17 +72,8 @@ export default function ItalianLayout({
   children: React.ReactNode
 }) {
   return (
-    // <html lang="it">
-      // {/* <body> */}
-        // {/* <ReactToastWrapper> */}
-        <>
-          {/* <Header locale="it" /> */}
-          {children}
-          {/* <Footer /> */}
-        </>
-          // {/* <Analytics /> */}
-        // {/* </ReactToastWrapper> */}
-      // </body>
-    // </html>
+    <>
+      {children}
+    </>
   )
 }
