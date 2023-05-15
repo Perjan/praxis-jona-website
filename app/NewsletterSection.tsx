@@ -12,18 +12,43 @@ export function isEmail(email: string): boolean {
 }
 
 type NewsletterSectionProps = {
-  title: string;
-  description: string;
+  title: string
+  description: string
+  subscribeButtonText: string
+  emailAddressPlaceholder: string
+  successMessage: string
+  errorMessage: string
+  weeklyArticles: string,
+  weeklyArticlesDescription: string,
+  noSpam: string,
+  noSpamDescription: string,
 };
 
 export const defaultNewsletterSectionProps: NewsletterSectionProps = {
   title: "Subscribe to our newsletter",
   description: "Ever wondered what it takes to run an independent app business? Then subscribe to our newsletter. I will share with you everything that is happening inside MoneyCoach.",
+  subscribeButtonText: "Subscribe",
+  emailAddressPlaceholder: "Enter your email",
+  successMessage: "You have been subscribed to the newsletter.",
+  errorMessage: "There was an error subscribing the user. Please try again later.",
+  weeklyArticles: "Weekly articles",
+  weeklyArticlesDescription: "Every week I write an article about the app business, the indie life, and more.",
+  noSpam: "No spam",
+  noSpamDescription: "I promise to never spam you. I will only send you emails that are relevant to you.",
+
 };
 
 export const italianNewsletterSectionProps: NewsletterSectionProps = {
   title: "Iscriviti alla nostra newsletter",
   description: "Ti sei mai chiesto cosa serve per gestire un'attività indipendente? Allora iscriviti alla nostra newsletter. Condividerò con te tutto ciò che sta accadendo all'interno di MoneyCoach.",
+  subscribeButtonText: "Iscriviti",
+  emailAddressPlaceholder: "Inserisci la tua email",
+  successMessage: "Ti sei iscritto alla newsletter.",
+  errorMessage: "Si è verificato un errore durante l'iscrizione dell'utente. Riprova più tardi.",
+  weeklyArticles: "Articoli settimanali",
+  weeklyArticlesDescription: "Ogni settimana scrivo un articolo sull'attività dell'app, sulla vita indie e altro ancora.",
+  noSpam: "Nessuna spam",
+  noSpamDescription: "Prometto di non mandarti mai spam. Ti invierò solo e-mail che ti riguardano.",
 };
 
 export default function NewsletterSection( params: { props: NewsletterSectionProps } ) {
@@ -42,7 +67,7 @@ const [email, setEmail] = useState("");
             </p>
             <div className="mt-6 flex max-w-md gap-x-4">
               <label htmlFor="email-address" className="sr-only">
-                Email address
+                {params.props.emailAddressPlaceholder}
               </label>
               <input
                 id="email-address"
@@ -51,7 +76,7 @@ const [email, setEmail] = useState("");
                 value={email}
                 required
                 className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-greenColor sm:text-sm sm:leading-6"
-                placeholder="Enter your email"
+                placeholder={params.props.emailAddressPlaceholder}
                 onChange={ (e) => {
                   const email = e.target.value;
                   setEmail(email)
@@ -72,15 +97,15 @@ const [email, setEmail] = useState("");
                     if (response.status === 200) {
                       // Success! The user has been subscribed to the list.
                     setEmail("");
-                    toast.success("You have been subscribed to the newsletter.");
+                    toast.success(params.props.successMessage);
                     }
                   } else {
                     // There was an error subscribing the user. Handle the error here.
-                    toast.error("There was an error subscribing the user. Please try again later.");
+                    toast.error(params.props.errorMessage);
                   }
                 }}
               >
-                Subscribe
+                {params.props.subscribeButtonText}
               </button>
             </div>
           </div>
@@ -89,19 +114,15 @@ const [email, setEmail] = useState("");
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <CalendarDaysIcon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
-              <dt className="mt-4 font-semibold text-white">Weekly articles</dt>
-              <dd className="mt-2 leading-7 text-gray-400">
-                Every week or so we will share what is happening inside our company.
-              </dd>
+              <dt className="mt-4 font-semibold text-white">{params.props.weeklyArticles}</dt>
+              <dd className="mt-2 leading-7 text-gray-400">{params.props.weeklyArticlesDescription}</dd>
             </div>
             <div className="flex flex-col items-start">
               <div className="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
                 <HandRaisedIcon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
-              <dt className="mt-4 font-semibold text-white">No spam</dt>
-              <dd className="mt-2 leading-7 text-gray-400">
-                We hate Spam as much as you do.
-              </dd>
+              <dt className="mt-4 font-semibold text-white">{params.props.noSpam}</dt>
+              <dd className="mt-2 leading-7 text-gray-400">{params.props.noSpamDescription}</dd>
             </div>
           </dl>
         </div>
