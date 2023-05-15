@@ -57,7 +57,6 @@ const budgetSectionFeatures = [
   }
 ]
 
-
 const goalsSectionFeatures = [
   {
     name: 'Custom Goals.',
@@ -70,6 +69,25 @@ const goalsSectionFeatures = [
     description: 'Or you can go through the Personalized Goals flow. Your digital money coach will ask you what your short & long-term goals are plus if you have or not any ongoing debts and will take care of the rest.',
     icon: UserIcon,
   }
+]
+
+
+const watchSectionFeatures = [
+  {
+    title: "Glanceable Insights",
+    description: "Check how much money you have left to spend, how much you spent today and how much you spent this month.",
+    image: "/images/watch2.png",
+  },
+  {
+    title: "Glanceable Budgets",
+    description: "Check how much money you have left to spend on specific budgets",
+    image: "/images/watch1.png",
+  },
+  {
+    title: "Glanceable Net Worth",
+    description: "Check insights and get a read on all your accounts and net worth",
+    image: "/images/watch3.png",
+  },
 ]
 
 /// https://beta.nextjs.org/docs/installation
@@ -90,7 +108,7 @@ export default function Home() {
 
       <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
 
-      <AppleWatchSection />
+      <AppleWatchSection features={watchSectionFeatures} />
 
       <FeatureSectionWithProductScreenshotPanel />
 

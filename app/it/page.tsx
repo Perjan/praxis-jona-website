@@ -70,6 +70,24 @@ const goalsSectionFeatures = [
   }
 ]
 
+const watchSectionFeatures = [
+  {
+    title: "Glanceable Insights",
+    description: "Check how much money you have left to spend, how much you spent today and how much you spent this month.",
+    image: "/images/watch2.png",
+  },
+  {
+    title: "Glanceable Budgets",
+    description: "Check how much money you have left to spend on specific budgets",
+    image: "/images/watch1.png",
+  },
+  {
+    title: "Glanceable Net Worth",
+    description: "Check insights and get a read on all your accounts and net worth",
+    image: "/images/watch3.png",
+  },
+]
+
 
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
@@ -90,7 +108,11 @@ export default function Home() {
 
       <FeatureSectionWithProductScreenshotOnDark features={goalsSectionFeatures} />
 
-      <AppleWatchSection />
+      <AppleWatchSection 
+        title='MoneyCoach on Apple Watch'
+        description='A money management app that puts your finances on your wrist. Check your budgets, accounts, net worth and more on the go.'
+        features={watchSectionFeatures} 
+      />
 
       <FeatureSectionWithProductScreenshotPanel />
 
