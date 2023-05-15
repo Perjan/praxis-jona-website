@@ -35,8 +35,10 @@ export const defaultNewsletterSectionProps: NewsletterSectionProps = {
   weeklyArticlesDescription: "Every week I write an article about the app business, the indie life, and more.",
   noSpam: "No spam",
   noSpamDescription: "I promise to never spam you. I will only send you emails that are relevant to you.",
+}
 
-};
+export const defaultNewsletterDiariesSectionProps = defaultNewsletterSectionProps
+defaultNewsletterDiariesSectionProps.title = "Subscribe to MoneyCoach Diaries"
 
 export const italianNewsletterSectionProps: NewsletterSectionProps = {
   title: "Iscriviti alla nostra newsletter",
@@ -49,7 +51,7 @@ export const italianNewsletterSectionProps: NewsletterSectionProps = {
   weeklyArticlesDescription: "Ogni settimana scrivo un articolo sull'attività dell'app, sulla vita indie e altro ancora.",
   noSpam: "Nessuna spam",
   noSpamDescription: "Prometto di non mandarti mai spam. Ti invierò solo e-mail che ti riguardano.",
-};
+}
 
 export default function NewsletterSection( params: { props: NewsletterSectionProps } ) {
 

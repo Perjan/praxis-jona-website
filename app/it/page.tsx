@@ -142,11 +142,17 @@ export default function Home() {
   return (
     <main>
       <h1>Ciao Stronzo</h1>
+      
       <HeroSection config={heroConfig} />
-      {/* <LogoCloud /> */}
+
       <FinancialOverview features={features} />
 
-      <FeatureWithLargeScreenshotSection features={budgetSectionFeatures} />
+      <FeatureWithLargeScreenshotSection
+        subtitle="Smart Budgets"
+        title="Save more money with personalized smart budgets"
+        description="Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
+        features={budgetSectionFeatures}
+      />
 
       <MajorFeatureSection
         title='Add your cash expenses in seconds'

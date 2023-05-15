@@ -1,18 +1,14 @@
 import Image from 'next/image'
 
-const sectionTitle = "Smart Budgets"
-const title = "Save more money with personalized smart budgets"
-const description = "Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
-
-export default function FeatureWithLargeScreenshotSection(params: { features: any[] }) {
+export default function FeatureWithLargeScreenshotSection(params: { title: string, subtitle: string, description: string, features: any[] }) {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">{sectionTitle}</h2>
-          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</p>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">{params.subtitle}</h2>
+          <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{params.title}</p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            {description}
+            {params.description}
           </p>
         </div>
       </div>

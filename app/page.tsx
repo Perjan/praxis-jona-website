@@ -146,7 +146,13 @@ export default function Home() {
       <HeroSection config={heroConfig} />
 
       <FinancialOverview features={features} />
-      <FeatureWithLargeScreenshotSection features={budgetSectionFeatures} />
+
+      <FeatureWithLargeScreenshotSection
+        subtitle="Smart Budgets"
+        title="Save more money with personalized smart budgets"
+        description="Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
+        features={budgetSectionFeatures}
+      />
 
       <MajorFeatureSection
         title='Add your cash expenses in seconds'
@@ -174,15 +180,15 @@ export default function Home() {
       />
 
 
-<FeaturesSection 
-        features={featuresSectionItems} 
+      <FeaturesSection
+        features={featuresSectionItems}
         buttonTitle='View all features'
         href='/features'
       />
 
-      <FaqSection 
-        locale='en' 
-        title='Frequently asked questions' 
+      <FaqSection
+        locale='en'
+        title='Frequently asked questions'
         buttonTitle='View all FAQs'
         href='/faqs'
       />

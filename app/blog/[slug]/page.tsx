@@ -6,7 +6,7 @@ import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
-import NewsletterSection from 'app/NewsletterSection'
+import NewsletterSection, { defaultNewsletterDiariesSectionProps } from 'app/NewsletterSection'
 import { 
   ChevronLeftIcon,
   ChevronRightIcon 
@@ -152,7 +152,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
       {isDiary &&
         <div className='mt-20'>
-          <NewsletterSection title="Subscribe to MoneyCoach Diaries" />
+          <NewsletterSection props={defaultNewsletterDiariesSectionProps} />
         </div>
       }
 
