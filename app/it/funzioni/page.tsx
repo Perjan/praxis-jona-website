@@ -7,8 +7,8 @@ import Hero4 from "/public/images/features/hero4.jpg";
 import Hero5 from "/public/images/features/hero5.jpg";
 
 
-const title = 'Features'
-const description = "View some of the features MoneyCoach has to offer. Explore the app and see how it can help you manage your money, budget, and track your spending."
+const title = 'Funzioni'
+const description = "Visualizza le funzioni che MoneyCoach ha da offrire. Esplora l'applicazione e scopri come può aiutarti a gestire il vostro denaro, a fare un bilancio e a tenere traccia delle vostre spese."
 
 export const metadata: Metadata = {
   title: title,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     type: 'website',
-    url: '/features',
+    url: '/it/funzioni',
     images: [
       {
         url: '/images/og-image.png',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/features'
+    canonical: '/it/funzioni'
   },
   twitter: {
     card: 'summary_large_image',
@@ -41,154 +41,143 @@ export const metadata: Metadata = {
 // features list with title, description, and image from the Features() component
 const features = [
   {
-    title: "Multi Currency",
+    title: "Multi-Valuta",
     description:
-      "MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.",
+      "MoneyCoach è perfetto per chi ha conti in più valute. Scopri quanto è il tuo patrimonio netto, convertito in tempo reale.",
     image: "/images/features/multicurrencyFeature.png",
   },
   {
-    title: "Personalizable Budgets",
+    title: "Budget Personalizzabili",
     description:
-      "Are you on vacation? Business trip? Holidays coming soon? Create a budget, stay on budget and save more money!",
+      "Sei in vacanza? Viaggio d'affari? Vacanze imminenti? Crea un budget, rispetta il budget e risparmia di più!",
     image: "/images/features/budgetsFeature.png",
   },
   {
-    title: "Manage Credit Cards",
+    title: "Gestisci le Carte di Credito",
     description:
-      "Rrack and manage your credit card accounts. Set up payment reminders so you never have to pay card interests and more.",
+      "Traccia e gestisci le tue carte di credito. Imposta promemoria di pagamento per non dover mai pagare gli interessi della carta e altro ancora.",
     image: "/images/features/creditCardFeature.png",
   },
   {
-    title: "Customizable Smart Goals",
+    title: "Obiettivi Personalizzabili",
     description:
-      "Create a custom goal and start your journey towards achieving it. Buy that dream console, laptop, car or even house. MoneyCoach is here to help.",
+      "Crea un obiettivo personalizzato e inizia il tuo percorso per raggiungerlo. Acquista la console dei tuoi sogni, il laptop, l'auto o persino la casa. MoneyCoach è qui per aiutarti.",
     image: "/images/features/goalsFeature.png",
   },
   {
-    title: "Siri Shortcuts",
+    title: "Scorciatoie Siri",
     description:
-      "Create shortcuts to quickly add your routine transactions or ask Siri about your Net Worth.",
+      "Crea scorciatoie per aggiungere rapidamente i tuoi movimenti di routine o per chiedere a Siri il tuo patrimonio netto.",
     image: "/images/features/siriFeature.png",
   },
   {
     title: "Widgets & Live Activities",
     description:
-      "Quickly glance at your remaining budget to limit yourself from overspending or motivate yourself to save more money and achieve your dreams faster.",
+      "Dai un'occhiata al tuo budget residuo per evitare di spendere troppo o per motivarti a risparmiare di più e a realizzare i tuoi sogni più velocemente.",
     image: "/images/features/widgetsFeature.png",
   },
   {
-    title: "Attachments",
+    title: "Allegati",
     description:
-      "Attach additional information like: Images, PDFs, notes, keywords, you name it, to a transaction you have entered in MoneyCoach.",
+      "Allega informazioni aggiuntive come: Immagini, PDF, note, parole chiave, ecc. a un movimento inserito in MoneyCoach.",
     image: "/images/features/attachmentsFeature.png",
   },
   {
-    title: "Import Apple Card CSV",
+    title: "Importa Apple Card CSV",
     description:
-      "One-tap is all you need to import your Apple Card statements as a CSV file. MoneyCoach will then automatically import and categorize your Apple Card transactions.",
+      "È sufficiente un solo tocco per importare gli estratti conto della Apple Card in un file CSV. MoneyCoach importerà e categorizzerà automaticamente i movimenti della Apple Card.",
     image: "/images/features/appleCardFeature.png",
   },
   {
-    title: "Bulk Edit Transactions",
+    title: "Modifica in Blocco dei Movimenti",
     description:
-      "Select multiple transactions to quickly bulk edit them. You can quickly delete them or change the date, change the account and even change their category in one fell swoop.",
+      "Seleziona movimenti per modificarli rapidamente in blocco. È possibile cancellarli rapidamente o modificarne la data, il conto e persino la categoria in un colpo solo.",
     image: "/images/features/bulkFeature.png",
   },
   {
-    title: "MoneyCoach Academy",
+    title: "Academia MoneyCoach",
     description:
-      "A series of curated financial lessons that will teach you from the basics of managing your money with budgets to how you can prepare for an eventual emergency in the future.",
+      "Una serie di lezioni finanziarie curate che vi insegneranno dalle basi della gestione del denaro con il budget a come prepararvi per un'eventuale emergenza futura.",
     image: "/images/features/academyFeature.png",
   },
   {
-    title: "Clean Overview",
+    title: "Navigazione Semplicee",
     description:
-      "We tried to keep the same feeling as the iPadOS version, with some extra macOS features built on top which makes the app feel more at place in large displays.",
-    image: "/images/features/overviewFeature.png",
-  },
-  {
-    title: "Easy Navigation",
-    description:
-      "The new Main Menu allows you to reach everywhere and do almost everything in the app. We also replaced the tab bar with a sidebar for a better and faster navigation flow.",
+      "Il nuovo menu principale consente di raggiungere qualsiasi punto dell'applicazione e di fare praticamente tutto. La barra delle carte è stata sostituita da una barra laterale per una navigazione migliore e più rapida.",
     image: "/images/features/navigationFeature.png",
   },
   {
-    title: "Context Menus",
+    title: "Menu Contestuali",
     description:
-      "Right-click on the many different elements and you will get context-specific actions you can quickly execute on the spot. Hide cards, edit or delete transactions, budgets and more.",
+      "Cliccando con il tasto destro del mouse su molti elementi diversi, si ottengono azioni specifiche per il contesto che possono essere eseguite rapidamente sul posto. Nascondi le carte, modifica o cancella movimenti, budget e molto altro ancora.",
     image: "/images/features/menuFeature.png",
   },
   {
-    title: "Highly Personalizable",
+    title: "Altamente Personalizzabile",
     description:
-      "You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the theme, app icon and more.",
+      "MoneyCoach può essere personalizzato a piacimento. Mostra o nascondi le carte sommario, ordinale come preferisci, cambia il tema, l'icona dell'app e altro ancora.",
     image: "/images/features/personalizeFeature.png",
   },
   {
-    title: "Sidebars",
-    description: "In most of the screens we’ve added sidebars which completely transform and improve drastically how you navigate in the many different tabs.",
+    title: "Barre Laterali",
+    description: "La maggior parte delle schermate è stata arricchita da barre laterali che trasformano completamente e migliorano drasticamente la navigazione nelle diverse schede.",
     image: "/images/features/sidebarFeature.png",
   },
 
   {
     image: '/images/features/darkModeFeature.png',
-    title: 'Dark Mode',
-    description: 'We love Dark Mode so we completely redesigned MoneyCoach to fully support a true Dark Mode. It looks stunning!'
+    title: 'Modalita Oscura',
+    description: 'MoneyCoach supporta una vera modalità oscura e ha un aspetto straordinario.'
   },
   {
     image: '/images/features/keyboardFeature.png',
-    title: 'Keyboard Shortcuts',
-    description: 'Quickly add new expenses, incomes, transfers and so much more with keyboard shortcuts. Of course, you can always set up your own.'
-  },
-  {
-    image: '/images/features/touchbarFeature.png',
-    title: 'Touch Bar Support',
-    description: 'MoneyCoach has full support for the Touch Bar on MacBooks that offer that. Quickly navigate in the app or add new transactions with just one tap.'
+    title: 'Scorciatoie da Tastiera',
+    description: 'Aggiungi rapidamente nuove spese, entrate, trasferimenti e molto altro con le scorciatoie da tastiera.'
   },
   {
     image: '/images/features/syncFeature.png',
-    title: 'Sync Everywhere',
-    description: 'MoneyCoach is available on every Apple device. Sync your data between your iPhone, iPad, Apple Watch, HomePod and finally your Mac.'
+    title: 'Sincronizzazione Universale',
+    description: 'MoneyCoach è disponibile su tutti i dispositivi Apple. Sincronizza i tuoi dati tra iPhone, iPad, Apple Watch, HomePod e infine Mac.'
   },
   {
     image: '/images/features/csvFeature.png',
-    title: 'Import & Export CSV',
-    description: 'In MoneyCoach you can import your data from any previous app or a bank statement via CSV.'
+    title: 'Importazione ed Esportazione CSV',
+    description: 'In MoneyCoach è possibile importare i dati da qualsiasi app precedente o da un estratto conto bancario tramite CSV.'
   },
   {
     image: '/images/features/notificationsFeature.png',
-    title: 'Smart Notifications',
-    description: 'Receive Bill Reminders & Money Insights notifications so you are always on top of your financials'
+    title: 'Notifiche Intelligenti',
+    description: 'Ricevi promemoria delle fatture e altre notifiche per essere sempre al corrente dei tuoi dati finanziari.'
   },
   {
     image: '/images/features/securityFeature.png',
-    title: 'Private & Secure',
-    description: 'MoneyCoach requires no login so your data is always secure. Access the app via TouchID or FaceID.'
+    title: 'Privato e Sicuro',
+    description: "MoneyCoach non richiede il login, quindi i tuoi dati sono sempre al sicuro. Accedi all'app tramite TouchID o FaceID."
   },
   {
     image: '/images/features/backupFeature.png',
-    title: 'Backup & Restore',
-    description: 'Manually backup or restore your data wherever and whenever you want. Perfect when you get that new fresh Apple device.'
+    title: 'Backup e Ripristino',
+    description: 'Esegui manualmente il backup o il ripristino dei tuoi dati dove e quando vuoi. Perfetto quando acquisti un nuovo dispositivo Apple.'
   },
   {
     image: '/images/features/reportFeature.png',
-    title: 'Detailed Reports',
-    description: 'Understand where your money goes with the help of the detailed reports. Filter which accounts you want to see or hide those you don’t want.'
+    title: 'Rapporti Dettagliati',
+    description: "Capisci dove vanno a finire i tuoi soldi con l'aiuto dei report dettagliati. Filtra i conti che vuoi vedere o nascondi quelli che non vuoi."
   },
   {
     image: '/images/features/watchFeature.png',
     title: 'Apple Watch App',
-    description: 'With MoneyCoach on your Apple Watch, you can quickly and easily add new transactions, check your balances and see what’s coming up next.'
+    description: 'Con MoneyCoach sul tuo Apple Watch, puoi aggiungere nuovi movimenti in modo facile e veloce, controllare i saldi e vedere quali sono i prossimi impegni.'
   },
   {
     image: '/images/features/calendarFeature.png',
-    title: 'Helpful Calendar',
-    description: 'The calendar is a great way to see what’s coming up next. You can quickly add new transactions, check your balances and see what’s coming up next.'
+    title: 'Calendario Utile',
+    description: 'Il calendario è un ottimo modo per vedere i prossimi movimenti. Puoi aggiungere rapidamente nuovi movimenti, controllare i saldi e vedere quali sono le prossime scadenze.'
   },
   {
     image: '/images/features/payeesFeature.png',
-    title: 'Persons & Companies',
-    description: 'Keep track of all your payees and companies you do business with. This feature is perfect to track how much money you spent, loaned or owe a specific payee or company.'
+    title: 'Persone e Aziende',
+    description: 'Tieni traccia di tutti i tuoi beneficiari e delle aziende con cui fai affari. Questa funzione è perfetta per tenere traccia di quanto hai speso, prestato o dovuto a un determinato beneficiario o azienda.'
   }
 ];
 
@@ -201,7 +190,7 @@ export default function Features() {
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Scopri tutte le funzioni <br/>di MoneyCoach</h1>
-              <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach sticks to what is essential for finance. The advanced features are out of the way until you actually need them.</p>
+              <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach si limita all'essenziale per la finanza. Le funzioni avanzate non sono presenti fino a quando non ne hai effettivamente bisogno.</p>
             </div>
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
               <div
