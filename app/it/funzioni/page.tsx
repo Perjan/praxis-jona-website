@@ -58,7 +58,7 @@ const features = [
     image: "/images/features/budgetsFeature.png",
   },
   {
-    title: "Gestisci le Carte di Credito",
+    title: "Carte di Credito",
     description:
       "Traccia e gestisci le tue carte di credito. Imposta promemoria di pagamento per non dover mai pagare gli interessi della carta e altro ancora.",
     image: "/images/features/creditCardFeature.png",
@@ -195,7 +195,7 @@ export default function Features() {
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Scopri tutte le funzioni <br/>di MoneyCoach</h1>
-              <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach si limita all'essenziale per la finanza. Le funzioni avanzate non sono presenti fino a quando non ne hai effettivamente bisogno.</p>
+              <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">Visualizza le funzioni che MoneyCoach ha da offrire. Esplora l'applicazione e scopri come può aiutarti a gestire il tuo denaro, creare un budget, e a tenere traccia delle tue spese.</p>
             </div>
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
               <div
