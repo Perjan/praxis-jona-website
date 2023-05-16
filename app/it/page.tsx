@@ -27,13 +27,13 @@ import {
 
 const features = [
   {
-    name: 'Bank, Cash, Credit Cards.',
-    description: 'Manually add and track all your offline bank accounts, savings accounts & credit cards.',
+    name: 'Banca, Contanti, Carte di Credito.',
+    description: 'Aggiungi manualmente e tieni traccia di tutti i tuoi conti bancari offline, conti di risparmio e carte di credito.',
     icon: BanknotesIcon,
   },
   {
-    name: 'Track Your Spendings.',
-    description: 'Log all incomes and expenses, and check your Net Worth in real time.',
+    name: 'Traccia le spese.',
+    description: 'Registra tutte le entrate e le uscite e controlla il tuo patrimonio netto in tempo reale.',
     icon: PlusCircleIcon,
   }
 ]
@@ -41,50 +41,50 @@ const features = [
 
 const budgetSectionFeatures = [
   {
-    name: 'Personalized budgets.',
-    description: 'Budgets made tailored for you. Tell MoneyCoach what you spend on average each month and it will set you up with personalized budgets that will save you a lot of money each month',
+    name: 'Budget personalizzati.',
+    description: "Di' a MoneyCoach quanto spendi in media ogni mese e lui ti preparerà dei budget personalizzati che ti faranno risparmiare molto denaro ogni mese.",
     icon: UserIcon,
   },
   {
-    name: 'Budgets for every day.',
-    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an “envelope” budget tracking one or more specific categories, stick to this budget and save more money.',
+    name: 'Budget per ogni giorno.',
+    description: 'Cibo, bevande, intrattenimento, tecnologia, videogiochi, qualsiasi cosa. Create un budget "a busta" che tenga conto di una o più categorie specifiche, attenetevi a questo budget e risparmiate di più.',
     icon: CalendarDaysIcon,
   },
   {
-    name: 'Budgets for every occasion.',
-    description: ' Vacation? Business trip? Holiday? Christmas is coming? Just create a budget, select what categories your would like to track, stick to this budget and save more money each time',
+    name: 'Budget per ogni occasione.',
+    description: 'Vacanze? Viaggio di lavoro? Vacanze? Il Natale è alle porte? Basta creare un budget, selezionare le categorie che si desidera monitorare, attenersi a questo budget e risparmiare ogni volta di più.',
     icon: BanknotesIcon,
   }
 ]
 
 const goalsSectionFeatures = [
   {
-    name: 'Custom Goals.',
+    name: 'Obiettivi personalizzati.',
     description:
-      'Set up a custom goal and start your journey towards achieving it. Set up a goal for that new console, phone, laptop, vacation, car, house, whatever and motivate yourself to save money and achieve your dreams.',
+      "Impostate un obiettivo personalizzato e iniziate il vostro percorso per raggiungerlo. Impostate un obiettivo per una nuova console, un telefono, un computer portatile, una vacanza, un'auto, una casa o qualsiasi altra cosa e motivatevi a risparmiare e a realizzare i vostri sogni.",
     icon: AdjustmentsVerticalIcon,
   },
   {
-    name: 'Digital Money Coaching.',
-    description: 'Or you can go through the Personalized Goals flow. Your digital money coach will ask you what your short & long-term goals are plus if you have or not any ongoing debts and will take care of the rest.',
+    name: 'Coaching digitale sul denaro.',
+    description: 'Seguite il flusso degli obiettivi personalizzati. Il vostro money coach digitale vi chiederà quali sono i vostri obiettivi a breve e lungo termine e se avete o meno debiti in corso e si occuperà del resto.',
     icon: UserIcon,
   }
 ]
 
 const watchSectionFeatures = [
   {
-    title: "Glanceable Insights",
-    description: "Check how much money you have left to spend, how much you spent today and how much you spent this month.",
+    title: "Approfondimenti a Colpo d'Occhio",
+    description: "Controllate quanto denaro vi rimane da spendere, quanto avete speso oggi e quanto avete speso questo mese.",
     image: "/images/watch2.png",
   },
   {
-    title: "Glanceable Budgets",
-    description: "Check how much money you have left to spend on specific budgets",
+    title: "Budgets a Colpo d'Occhio",
+    description: "Controllate quanto denaro vi rimane da spendere per budget specifici.",
     image: "/images/watch1.png",
   },
   {
-    title: "Glanceable Net Worth",
-    description: "Check insights and get a read on all your accounts and net worth",
+    title: "Patrimonio a Colpo d'Occhio",
+    description: "Controllate gli approfondimenti e tutti i vostri conti e il vostro patrimonio netto.",
     image: "/images/watch3.png",
   },
 ]
@@ -92,14 +92,14 @@ const watchSectionFeatures = [
 
 const macSectionFeatures = [
   {
-    name: 'Mac first.',
+    name: 'Esperienza nativa Mac.',
     description:
-      'MoneyCoach on Mac was designed as a true Mac app. Supporting all of the great Mac features like sidebars, keyboard shortcuts, touch bar shortcuts etc. MoneyCoach is extremely powerful on a Mac.',
+      'MoneyCoach su Mac è stato progettato come una vera e propria applicazione per Mac. Supporta tutte le grandi caratteristiche del Mac, come le barre laterali, le scorciatoie da tastiera, le scorciatoie da touch bar, ecc. MoneyCoach è estremamente potente su Mac.',
     icon: ComputerDesktopIcon,
   },
   {
-    name: 'Apple ecosystem.',
-    description: 'This is for the Apple enthusiasts. Now you can use MoneyCoach on your Apple Watch, iPhone, iPad, HomePod and Mac seamlessly via Data Sync.',
+    name: 'Ecosistema Apple.',
+    description: 'Questo è per gli appassionati di Apple. Ora è possibile utilizzare MoneyCoach su Apple Watch, iPhone, iPad, HomePod e Mac grazie alla sincronizzazione dei dati via iCloud.',
     icon: CpuChipIcon,
   }
 ]
@@ -107,27 +107,27 @@ const macSectionFeatures = [
 
 const featuresSectionItems = [
   {
-    name: 'Multi-currency Support',
+    name: 'Supporto multi-valuta',
     description:
-      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
+      'MoneyCoach è perfetto per chi ha conti in più valute. Scoprite quanto è il vostro patrimonio netto, convertito in tempo reale.',
     icon: CloudArrowUpIcon,
   },
   {
-    name: 'Smart Budgets & Goals',
+    name: 'Budget & Obiettivi intelligenti',
     description:
-      'Create smart budgets to stay on budget and smart goals to motivate yourself to save more money!',
+      'Create budget intelligenti e obiettivi intelligenti per motivarvi a risparmiare di più!',
     icon: LockClosedIcon,
   },
   {
-    name: 'Deep iOS integration',
+    name: 'Profonda integrazione con iOS',
     description:
-      'Enter transactions via Siri. Check your finances on your Lock/Home Screen via Widgets and Live Activies and so much more.',
+      'Inserite movimenti tramite Siri. Controllate le vostre finanze sulla schermata di blocco/casa tramite widget e Live Activities e molto altro ancora.',
     icon: ArrowPathIcon,
   },
   {
-    name: 'Extremely personalizable',
+    name: 'Estremamente personalizzabile',
     description:
-      'You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the app icon, app tint and more.',
+      "Potete personalizzare MoneyCoach a vostro piacimento. Mostrate o nascondete le carte di sommario, ordinatele come preferite, cambiate l'icona dell'app, la tonalità dell'app e molto altro ancora.",
     icon: FingerPrintIcon,
   },
 ]
@@ -140,29 +140,29 @@ export default function Home() {
       <HeroSection config={italianHeroConfig} />
 
       <FinancialOverview
-        subtitle="Complete Overview"
-        title="Track all your accounts in one place"
-        description="MoneyCoach grants you total control over all your accounts, cash included."
+        subtitle="Panoramica Completa"
+        title="Tenete traccia di tutti i vostri conti in un unico posto"
+        description="MoneyCoach vi garantisce il controllo totale di tutti i vostri conti, compresi i contanti."
         features={features}
       />
 
       <FeatureWithLargeScreenshotSection
-        subtitle="Smart Budgets"
-        title="Save more money with personalized smart budgets"
-        description="Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
+        subtitle="Budget Intelligenti"
+        title="Risparmiate di più con bilanci intelligenti personalizzati"
+        description="Impostate bilanci 'a busta' che funzionino per voi. Limitate le vostre spese in modo da risparmiare fino a 2.000 euro all'anno."
         features={budgetSectionFeatures}
       />
 
       <MajorFeatureSection
-        title='Add your cash expenses in seconds'
-        description={'MoneyCoach is all about speed, personalization, and efficiency. You can add transactions in 3 seconds via the normal way. In 2 seconds via Quick Entry or in an instant via the Shortcuts.\n\nOr you can have Siri do all the heavy work with just one-tap.'}
+        title='Aggiungete le vostre spese in contanti in pochi secondi'
+        description={"MoneyCoach è caratterizzato da velocità, personalizzazione ed efficienza. Aggiungi movimenti in 3 secondi con il metodo normale. In 2 secondi con l'inserimento rapido o in un istante con le Scorciatoie, oppure potete far fare a Siri tutto il lavoro pesante con un solo tocco."}
         imageUrl='/images/addTransactions2.png'
       />
 
       <FeatureSectionWithProductScreenshotOnDark
-        subtitle="Smart Goals"
-        title="Save up & achieve your dreams with smart goals"
-        description="MoneyCoach makes achieving your dreams easier. Quickly check how much money you need to save each day in order to achieve your goals within your deadline."
+        subtitle="Obiettivi Intelligenti"
+        title="Risparmiate e realizzate i vostri sogni con gli obiettivi intelligenti"
+        description="MoneyCoach facilita la realizzazione dei vostri sogni. Controllate rapidamente quanto denaro dovete risparmiare ogni giorno per raggiungere i vostri obiettivi entro la scadenza."
         features={goalsSectionFeatures} 
       />
 
@@ -174,26 +174,28 @@ export default function Home() {
 
 
       <FeatureSectionWithProductScreenshotPanel
-        title="MoneyCoach for macOS"
-        subtitle='A delightful experience on your Mac'
-        description='Available on all Macs running macOS 12 Monterey or later.'
+        title="MoneyCoach per macOS"
+        subtitle="Un'esperienza straordinaria sul vostro Mac"
+        description='Disponibile su tutti i Mac con sistema operativo macOS 12 Monterey o successivo.'
         features={macSectionFeatures}
       />
 
       <AppleLovesMoneyCoachSection
-        description={"MoneyCoach has been featured multiple times worldwide on the App Stores for a number of years now. We have also been featured on Apple's website a couple of times. We made an appearance during both WWDC20 and WWDC21 keynotes. We also got a dedicated Developer Story on the App Store.\n\nCrazy, right?"}
+        description={"MoneyCoach è continuamente presentato in primo piano negli App Store di tutto il mondo da diversi anni. Siamo apparsi sul sito web di Apple un paio di volte. Siamo apparsi durante i keynote WWDC20 e della WWDC21. Abbiamo anche ottenuto una Developer Story dedicata sull'App Store.\n\nPazzesco, vero?"}
       />
 
       <FeaturesSection
         features={featuresSectionItems}
-        buttonTitle='View all features'
+        title= 'MoneyCoach ha un sacco di funzioni utili e potenti.'
+        sectionTitle='Ricco di funzioni'
+        buttonTitle='Visualizza tutte le funzioni'
         href='/it/funzioni'
       />
 
       <FaqSection
         locale='it'
         title='Domande frequenti'
-        buttonTitle='View all FAQs'
+        buttonTitle='Visualizza tutte le FAQ'
         href='/it/domande-frequenti'
       />
 

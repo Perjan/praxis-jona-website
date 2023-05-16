@@ -1,17 +1,14 @@
 import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
 
-const sectionTitle = "Packed with features"
-const title = "MoneyCoach has a ton of helpful and powerful features."
-
-export default function FeaturesSection(params: { features: any[], buttonTitle: string, href: string }) {
+export default function FeaturesSection(params: { features: any[], title: string, sectionTitle: string, buttonTitle: string, href: string }) {
   return (
     <>
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-primary">{sectionTitle}</h2>
+            <h2 className="text-base font-semibold leading-7 text-primary">{params.sectionTitle}</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              {title}
+              {params.title}
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               {""}

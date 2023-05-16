@@ -185,6 +185,8 @@ export default function Home() {
 
       <FeaturesSection
         features={featuresSectionItems}
+        title='MoneyCoach has a ton of helpful and powerful features.'
+        sectionTitle='Packed with features'
         buttonTitle='View all features'
         href='/features'
       />
