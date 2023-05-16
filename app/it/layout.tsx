@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 const title = "MoneyCoach - Gestore Soldi e Budget"
-const description = "MoneyCoach e' un moderno gestore di soldi e budget per iPhone, iPad, Apple Watch e Mac"
+const description = "MoneyCoach e' un gestore di soldi e budget moderno per iPhone, iPad, Apple Watch e Mac"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneycoach.ai"),

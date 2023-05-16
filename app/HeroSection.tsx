@@ -43,8 +43,8 @@ export const defaultHeroConfig: HeroConfig = {
 }
 
 export const italianHeroConfig: HeroConfig = {
-    title: "Gestore Soldi e Budget Manager",
-    description: "Tieni traccia di tutte le tue spese in contanti, gestisci i tuoi budget personali e riduci lo stress finanziario. Di questo si tratta MoneyCoach.",
+    title: "Gestore Soldi & Budget Manager",
+    description: "Tieni traccia di tutte le tue spese in contanti, gestisci i tuoi budget personali e riduci lo stress finanziario. Questo e MoneyCoach.",
     downloadNowTitle: "Scarica Ora",
     watchVideo: "Guarda il Video",
     justShippedTitle: "Appena rilasciato v8.4.4",

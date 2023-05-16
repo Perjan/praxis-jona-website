@@ -71,4 +71,70 @@ export const faqs = [
 
 
   export const faqs_it = [
+    {
+      id: 1,
+      question: "Che cos'è MoneyCoach?",
+      answer:
+        "MoneyCoach ti aiuta a tennere traccia dei contanti e dei tuoi budget. È stato progettato per darvi un controllo sulle vostre finanze personali. Vi aiuta a risparmiare di più e a spendere in modo più intelligente. E vi premia se raggiungete i vostri obiettivi. L'applicazione è nota anche come Money Coach o Money Coach App. Ma noi preferiamo MoneyCoach. CURIOSITÀ: Alcuni utenti ci hanno chiamato anche Money Couch 💰🛋️",
+    },
+    {
+        id: 2,
+        question: "MoneyCoach è privato?",
+        answer:
+          "Assolutamente sì. Abbiamo il massimo rispetto per la vostra privacy. Le vostre informazioni sono al sicuro con MoneyCoach. E rimangono sul vostro dispositivo.",
+    },
+    {
+      id: 3,
+      question: "Quali valute sono disponibili?",
+      answer:
+        "Tutte. Dal dollaro americano al lek albanese. (Funzione Premium)",
+    },
+    {
+        id: 4,
+        question: "Quanto è sicuro MoneyCoach?",
+        answer:
+          "Molto sicuro. MoneyCoach è protetto da Passcode, Touch ID o FaceID.",
+    },
+    {
+      id: 5,
+      question: "Quanto costa?",
+      answer:
+        "Offriamo MoneyCoach Premium per i nostri utenti Pro. Se siete utenti normali, potete comunque ottenere gratuitamente tutte le funzioni più utilizzate. Ma se volete sostenere lo sviluppo futuro e il team, potete abbonarvi a MoneyCoach Premium e sbloccare altre potenti funzioni.",
+    },
+    {
+      id: 6,
+      question: "Ci sono pubblicità?",
+      answer:
+        "No, non ci sono.",
+    },
+    {
+      id: 7,
+      question: "Posso salvare le immagini delle ricevute?",
+      answer:
+        "Sì, certo. È possibile scattare una foto, scansionare un documento e persino allegare un file PDF.",
+    },
+    {
+      id: 8,
+      question: "Posso usare Siri?",
+      answer:
+        "Sì! Puoi aggiungere movimenti utilizzando Siri e molte altre cose.",
+    },
+    {
+      id: 9,
+      question: "Posso importare dati da altre app?",
+      answer:
+        "Assolutamente sì! È possibile importare i dati finanziari da qualsiasi altra app o software. Tutto ciò che serve è un file CSV.",
+    },
+    {
+      id: 10,
+      question: "Posso aggiungere beneficiari, aziende o fornitori?",
+      answer:
+        "Sì! Potete aggiungere una persona, una azienda o un fornitore a qualsiasi movimento che aggiungete a MoneyCoach.",
+    },
+    {
+      id: 11,
+      question: "Posso aggiungere un luogo ai miei movimenti?",
+      answer:
+        "Assolutamente sì! È possibile allegare un luogo a qualsiasi movimento aggiunto nell'app.",
+    },
   ]
