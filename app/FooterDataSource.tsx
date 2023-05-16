@@ -123,7 +123,7 @@ export const footerNavigationItalian = {
             { name: "Riguardo a Noi", href: "/it/chi-siamo" },
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Support", href: "/support" },
+            { name: "Support", href: "/it/supporto" },
             { name: "Financial Calculators", href: "/financial-calculators" },
             {
                 name: "Feature Request",
