@@ -133,9 +133,13 @@ function postCard(post: Post) {
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
 
+            {emojiFlag(post.language)}
+
             {post.categories?.map((item) => (
                 makePill(item, () => { })
             ))}
+
+            {makePill(post.language ?? "en", () => { }) }
 
         </div>
         <div className="group relative">
@@ -153,7 +157,6 @@ function postCard(post: Post) {
 function makePill(item: string, onClick): JSX.Element {
     return <button
         key={item}
-        // className="relative rounded-full bg-red-500 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         onClick={() => onClick()}
     >
@@ -172,4 +175,15 @@ function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Elem
     >
         {item}
     </button>
+}
+
+function emojiFlag(language: string | undefined) {
+    switch (language) {
+        case "it":
+            return "🇮🇹"
+        case "de":
+            return "🇩🇪"
+        default:
+            return ""
+    }
 }
