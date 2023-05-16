@@ -3,18 +3,20 @@ import {
     PlayCircleIcon,
 } from '@heroicons/react/20/solid'
 
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 import AppOfTheDay from "/public/images/app-of-the-day.png"
 import AccoladesCombo from "/public/images/accolades-combo.png"
 import HeroImage from "/public/images/moneycoach-all-devices.png"
 
+import AppOfTheDayIt from "/public/images/app-of-the-day.png"
+import AccoladesComboIt from "/public/images/accolades-combo.png"
+import HeroImageIt from "/public/images/moneycoach-all-devices.png"
+
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
-
-"Just shipped v8.4.4"
 
 export type HeroConfig = {
     title: string
@@ -23,6 +25,9 @@ export type HeroConfig = {
     watchVideo: string
     justShippedTitle: string
     justShippedArticleUrl: string
+    appOfTheDay: StaticImageData
+    accoladesCombo: StaticImageData
+    heroImage: StaticImageData
 }
 
 export const defaultHeroConfig: HeroConfig = {
@@ -32,6 +37,9 @@ export const defaultHeroConfig: HeroConfig = {
     watchVideo: "Watch Video",
     justShippedTitle: "Just shipped v8.4.4",
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-4-4",
+    appOfTheDay: AppOfTheDay,
+    accoladesCombo: AccoladesCombo,
+    heroImage: HeroImage
 }
 
 export const italianHeroConfig: HeroConfig = {
@@ -41,9 +49,13 @@ export const italianHeroConfig: HeroConfig = {
     watchVideo: "Guarda il Video",
     justShippedTitle: "Appena rilasciato v8.4.4",
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-4-4",
+    appOfTheDay: AppOfTheDayIt,
+    accoladesCombo: AccoladesComboIt,
+    heroImage: HeroImageIt
 }
 
 export default function HeroSection(params: { config: HeroConfig }) {
+
     return (
         <div className="relative isolate overflow-hidden bg-white">
             <svg
@@ -107,7 +119,7 @@ export default function HeroSection(params: { config: HeroConfig }) {
                         <div>
                             <Image
                                 className="rounded-md"
-                                src={AppOfTheDay}
+                                src={params.config.appOfTheDay}
                                 alt='MoneyCoach App Of The Day'
                                 priority={true}
                                 placeholder='blur'
@@ -116,7 +128,7 @@ export default function HeroSection(params: { config: HeroConfig }) {
                         <div>
                             <Image
                                 className="rounded-md"
-                                src={AccoladesCombo}
+                                src={params.config.accoladesCombo}
                                 alt='MoneyCoach Accolades screenshot'
                                 priority={true}
                             />
@@ -128,7 +140,7 @@ export default function HeroSection(params: { config: HeroConfig }) {
                         <div className="-m-2 rounded-xl p-2 lg:-m-4 lg:rounded-2xl lg:p-4">
                             <Image
                                 className="w-[76rem] rounded-md"
-                                src={HeroImage}
+                                src={params.config.heroImage}
                                 alt='MoneyCoach app screenshot'
                                 priority={true}
                                 // placeholder='blur'
