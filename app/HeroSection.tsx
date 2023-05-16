@@ -10,8 +10,8 @@ import AppOfTheDay from "/public/images/app-of-the-day.png"
 import AccoladesCombo from "/public/images/accolades-combo.png"
 import HeroImage from "/public/images/moneycoach-all-devices.png"
 
-import AppOfTheDayIt from "/public/images/app-of-the-day.png"
-import AccoladesComboIt from "/public/images/accolades-combo.png"
+import AppOfTheDayIt from "/public/images/app-of-the-day-it.png"
+import AccoladesComboIt from "/public/images/accolades-combo-it.png"
 import HeroImageIt from "/public/images/moneycoach-all-devices.png"
 
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"

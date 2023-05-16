@@ -174,11 +174,11 @@ const features = [
     title: 'Apple Watch App',
     description: 'Con MoneyCoach sul tuo Apple Watch, puoi aggiungere nuovi movimenti in modo facile e veloce, controllare i saldi e vedere quali sono i prossimi impegni.'
   },
-  {
-    image: '/images/features/calendarFeature.png',
-    title: 'Calendario Utile',
-    description: 'Il calendario è un ottimo modo per vedere i prossimi movimenti. Puoi aggiungere rapidamente nuovi movimenti, controllare i saldi e vedere quali sono le prossime scadenze.'
-  },
+  // {
+  //   image: '/images/features/calendarFeature.png',
+  //   title: 'Calendario Utile',
+  //   description: 'Il calendario è un ottimo modo per vedere i prossimi movimenti. Puoi aggiungere rapidamente nuovi movimenti, controllare i saldi e vedere quali sono le prossime scadenze.'
+  // },
   {
     image: '/images/features/payeesFeature.png',
     title: 'Persone e Aziende',

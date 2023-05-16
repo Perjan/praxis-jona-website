@@ -46,7 +46,7 @@ const budgetSectionFeatures = [
   },
   {
     name: 'Budget per ogni giorno.',
-    description: 'Cibo, bevande, intrattenimento, tecnologia, videogiochi, qualsiasi cosa. Create un budget "a busta" che tenga conto di una o più categorie specifiche, attenetevi a questo budget e risparmiate di più.',
+    description: 'Cibo, bevande, intrattenimento, tecnologia, videogiochi, qualsiasi cosa. Crea un budget "a busta" che tenga conto di una o più categorie specifiche, segui questo budget e risparmia di più.',
     icon: CalendarDaysIcon,
   },
   {
@@ -60,12 +60,12 @@ const goalsSectionFeatures = [
   {
     name: 'Obiettivi personalizzati.',
     description:
-      "Impostate un obiettivo personalizzato e iniziate il vostro percorso per raggiungerlo. Impostate un obiettivo per una nuova console, un telefono, un computer portatile, una vacanza, un'auto, una casa o qualsiasi altra cosa e motivatevi a risparmiare e a realizzare i vostri sogni.",
+      "Crea un obiettivo personalizzato e inizia il tuo percorso per raggiungerlo. Crea un obiettivo per una nuova console, un telefono, un computer portatile, una vacanza, un'auto, una casa o qualsiasi altra cosa e motivatevi a risparmiare e a realizzare i tuoi sogni.",
     icon: AdjustmentsVerticalIcon,
   },
   {
     name: 'Coaching digitale sul denaro.',
-    description: 'Seguite il flusso degli obiettivi personalizzati. Il vostro money coach digitale vi chiederà quali sono i vostri obiettivi a breve e lungo termine e se avete o meno debiti in corso e si occuperà del resto.',
+    description: 'Segui il flusso degli obiettivi personalizzati. Il tuo money coach digitale ti chiederà quali sono i tuoi obiettivi a breve e lungo termine e se hai o no debiti in corso e lui si occuperà del resto.',
     icon: UserIcon,
   }
 ]
@@ -73,17 +73,17 @@ const goalsSectionFeatures = [
 const watchSectionFeatures = [
   {
     title: "Approfondimenti a Colpo d'Occhio",
-    description: "Controllate quanto denaro vi rimane da spendere, quanto avete speso oggi e quanto avete speso questo mese.",
+    description: "Controlla quanto denaro ti rimane da spendere, quanto hai speso oggi e quanto hai speso questo mese.",
     image: "/images/watch2.png",
   },
   {
     title: "Budgets a Colpo d'Occhio",
-    description: "Controllate quanto denaro vi rimane da spendere per budget specifici.",
+    description: "Controlla quanto denaro ti rimane da spendere per budget specifici.",
     image: "/images/watch1.png",
   },
   {
     title: "Patrimonio a Colpo d'Occhio",
-    description: "Controllate gli approfondimenti e tutti i vostri conti e il vostro patrimonio netto.",
+    description: "Controlla gli approfondimenti e tutti i tuoi conti e il tuo patrimonio netto.",
     image: "/images/watch3.png",
   },
 ]
@@ -106,25 +106,25 @@ const featuresSectionItems = [
   {
     name: 'Supporto multi-valuta',
     description:
-      'MoneyCoach è perfetto per chi ha conti in più valute. Scoprite quanto è il vostro patrimonio netto, convertito in tempo reale.',
+      'MoneyCoach è perfetto per chi ha conti in più valute. Scopri quanto è il tuo patrimonio netto, convertito in tempo reale.',
     icon: CloudArrowUpIcon,
   },
   {
     name: 'Budget & Obiettivi intelligenti',
     description:
-      'Create budget intelligenti e obiettivi intelligenti per motivarvi a risparmiare di più!',
+      'Crea budget e obiettivi intelligenti per motivarti a risparmiare di più!',
     icon: LockClosedIcon,
   },
   {
     name: 'Profonda integrazione con iOS',
     description:
-      'Inserite movimenti tramite Siri. Controllate le vostre finanze sulla schermata di blocco/casa tramite widget e Live Activities e molto altro ancora.',
+      'Inserisci movimenti tramite Siri. Controlla le tue finanze sulla schermata di blocco/casa tramite widget e Live Activities e molto altro ancora.',
     icon: ArrowPathIcon,
   },
   {
     name: 'Estremamente personalizzabile',
     description:
-      "Potete personalizzare MoneyCoach a vostro piacimento. Mostrate o nascondete le carte di sommario, ordinatele come preferite, cambiate l'icona dell'app, la tonalità dell'app e molto altro ancora.",
+      "Personalizza MoneyCoach a tuo piacimento. Mostra o nascondi le carte di sommario, ordinale come preferite, cambia l'icona dell'app, la tonalità dell'app e molto altro ancora.",
     icon: FingerPrintIcon,
   },
 ]
@@ -138,28 +138,28 @@ export default function Home() {
 
       <FinancialOverview
         subtitle="Panoramica Completa"
-        title="Tenete traccia di tutti i vostri conti in un unico posto"
+        title="Tieni traccia di tutti i tuoi conti in un unico posto"
         description="MoneyCoach vi garantisce il controllo totale di tutti i vostri conti, compresi i contanti."
         features={features}
       />
 
       <FeatureWithLargeScreenshotSection
         subtitle="Budget Intelligenti"
-        title="Risparmiate di più con bilanci intelligenti personalizzati"
-        description="Impostate bilanci 'a busta' che funzionino per voi. Limitate le vostre spese in modo da risparmiare fino a 2.000 euro all'anno."
+        title="Risparmia di più con bilanci intelligenti personalizzati"
+        description="Crea budget 'a busta' che funzionano per te. Limita le tue spese in modo da risparmiare fino a 2.000 euro all'anno."
         features={budgetSectionFeatures}
       />
 
       <MajorFeatureSection
-        title='Aggiungete le vostre spese in contanti in pochi secondi'
+        title='Aggiungi le tue spese in contanti in pochi secondi'
         description={"MoneyCoach è caratterizzato da velocità, personalizzazione ed efficienza. Aggiungi movimenti in 3 secondi con il metodo normale. In 2 secondi con l'inserimento rapido o in un istante con le Scorciatoie, oppure potete far fare a Siri tutto il lavoro pesante con un solo tocco."}
         imageUrl='/images/addTransactions2.png'
       />
 
       <FeatureSectionWithProductScreenshotOnDark
         subtitle="Obiettivi Intelligenti"
-        title="Risparmiate e realizzate i vostri sogni con gli obiettivi intelligenti"
-        description="MoneyCoach facilita la realizzazione dei vostri sogni. Controllate rapidamente quanto denaro dovete risparmiare ogni giorno per raggiungere i vostri obiettivi entro la scadenza."
+        title="Risparmia e realizza i tuoi sogni con gli obiettivi intelligenti"
+        description="MoneyCoach facilita la realizzazione dei tuoi sogni. Controlla rapidamente quanto denaro devi risparmiare ogni giorno per raggiungere i tuoi obiettivi entro la scadenza."
         features={goalsSectionFeatures} 
       />
 
