@@ -124,9 +124,9 @@ export const footerNavigationItalian = {
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
             { name: "Support", href: "/it/supporto" },
-            { name: "Financial Calculators", href: "/financial-calculators" },
+            { name: "Calcolatori Finanziari", href: "/financial-calculators" },
             {
-                name: "Feature Request",
+                name: "Richiedi Una Funzione",
                 href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
             },
         ],
@@ -134,7 +134,7 @@ export const footerNavigationItalian = {
     legal: {
         title: "Legale",
         items: [
-            { name: "Termini", href: "/legal/terms-of-use" },
+            { name: "Termini e Condizioni", href: "/legal/terms-of-use" },
             { name: "Privacy", href: "/legal/privacy-policy/" },
             { name: "Impronta", href: "/legal/imprint/" },
             { name: "Esclusione di Responsabilità", href: "/legal/disclaimer/" },
@@ -142,7 +142,7 @@ export const footerNavigationItalian = {
         ],
     },
     ourApps: {
-        title: "I Nostri App",
+        title: "Le Nostre App",
         items: [
             { name: "MoneyCoach", href: "/" },
             { name: "MoneySpaces", href: "/moneyspaces" },
@@ -152,7 +152,7 @@ export const footerNavigationItalian = {
         ],
     },
     compare: {
-        title: "Confronta",
+        title: "Comparazione",
         items: [
             { name: "Buddy", href: "/buddy-alternative" },
             { name: "Finanzguru", href: "/finanzguru-alternative" },
