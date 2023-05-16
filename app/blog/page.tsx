@@ -45,7 +45,8 @@ const tomorrow = new Date()
 tomorrow.setDate(tomorrow.getDate() + 1)
 
 // Filter all posts earch for posts with a date less than or equal to today's date
-const filteredBlogPosts = allPosts.filter((post) => post.date <= tomorrow.toISOString().split('T')[0])
+const filteredBlogPosts = allPosts
+  .filter((post) => post.date <= tomorrow.toISOString().split('T')[0] && !post.isHidden)
 
 export default async function Page() {
   return (

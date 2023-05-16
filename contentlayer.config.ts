@@ -20,6 +20,11 @@ export const Post = defineDocumentType(() => ({
       description: "The filename of the cover image",
       required: false,
     },
+    isHidden: {
+      type: "boolean",
+      description: "Whether the post should be hidden from the blog index",
+      required: false,
+    },
     language: {
       type: "string",
       description: "The language of the post",
