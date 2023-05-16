@@ -81,49 +81,49 @@ export const footerNavigation = {
 };
 
 export const footerNavigationItalian = {
-    copyright: "2023 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.",
+    copyright: "2023 MoneyCoach UG. Tutti i diritti riservati. Realizzato con ❤️ a Berlino.",
     features: {
         title: "Funzioni",
         items: [
             {
-                name: "Cash Tracking",
+                name: "Traccia i Contanti",
                 href: "/blog/getting-started-how-to-add-a-new-transaction",
             },
             { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
-            { name: "Multicurrency Accounts", href: "/blog/how-to-use-multi-currency" },
+            { name: "Conti Multi-Valuta", href: "/blog/how-to-use-multi-currency" },
             {
-                name: "Credit Card Management",
+                name: "Gestisci Carte di Credito",
                 href: "/blog/how-to-manage-your-credit-cards",
             },
-            { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
+            { name: "Obiettivi", href: "/blog/getting-started-how-to-create-a-smart-goal" },
             {
-                name: "Reports",
+                name: "Rapporti",
                 href: "/blog/understanding-the-real-cost-of-your-subscriptions",
             },
         ]
     },
     usecases: {
-        title: "Use Cases",
+        title: "Casi d'Uso",
         items: [
-            { name: "Debts", href: "/blog/how-to-track-debts/" },
+            { name: "Debiti", href: "/blog/how-to-track-debts/" },
             {
-                name: "Goals",
+                name: "Obiettivi",
                 href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
             },
-            { name: "Loans", href: "/blog/how-to-manage-property-loans/" },
+            { name: "Prestiti", href: "/blog/how-to-manage-property-loans/" },
             {
-                name: "Subscriptions",
+                name: "Abbonamenti",
                 href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
             },
         ]
     },
     company: {
-        title: "Company",
+        title: "Chi Siamo",
         items: [
-            { name: "About", href: "/company" },
+            { name: "Riguardo a Noi", href: "/it/chi-siamo" },
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Support", href: "/support" },
+            { name: "Support", href: "/it/supporto" },
             { name: "Financial Calculators", href: "/financial-calculators" },
             {
                 name: "Feature Request",
@@ -132,17 +132,17 @@ export const footerNavigationItalian = {
         ],
     },
     legal: {
-        title: "Legal",
+        title: "Legale",
         items: [
-            { name: "Terms", href: "/legal/terms-of-use" },
+            { name: "Termini", href: "/legal/terms-of-use" },
             { name: "Privacy", href: "/legal/privacy-policy/" },
-            { name: "Imprint", href: "/legal/imprint/" },
-            { name: "Disclaimer", href: "/legal/disclaimer/" },
+            { name: "Impronta", href: "/legal/imprint/" },
+            { name: "Esclusione di Responsabilità", href: "/legal/disclaimer/" },
             { name: "Credits", href: "/legal/credits/" },
         ],
     },
     ourApps: {
-        title: "Our Apps",
+        title: "I Nostri App",
         items: [
             { name: "MoneyCoach", href: "/" },
             { name: "MoneySpaces", href: "/moneyspaces" },
@@ -152,7 +152,7 @@ export const footerNavigationItalian = {
         ],
     },
     compare: {
-        title: "Compare",
+        title: "Confronta",
         items: [
             { name: "Buddy", href: "/buddy-alternative" },
             { name: "Finanzguru", href: "/finanzguru-alternative" },

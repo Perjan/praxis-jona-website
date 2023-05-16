@@ -24,8 +24,8 @@ const navigationItemsEnglish = [
 
 const navigationItemsItalian = [
     { title: "Funzioni", href: "/it/funzioni" },
-    { title: "Guide", href: "/guides" },
-    { title: "Blog", href: "/blog" },
+    { title: "Guide", href: "/it/guide" },
+    { title: "Blog", href: "/it/blog" },
     { title: "Chi Siamo", href: "/it/chi-siamo" }
 ]
 
