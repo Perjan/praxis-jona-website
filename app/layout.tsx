@@ -16,7 +16,12 @@ export const metadata: Metadata = {
   },
   description: description,
   alternates: {
-    canonical: '/'
+    canonical: '/',
+    languages: {
+      en: "/",
+      it: "/it",
+      de: "/de"
+    }
   },
   twitter: {
     title: title,

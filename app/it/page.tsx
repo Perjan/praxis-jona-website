@@ -38,7 +38,6 @@ const features = [
   }
 ]
 
-
 const budgetSectionFeatures = [
   {
     name: 'Budget personalizzati.',
@@ -89,7 +88,6 @@ const watchSectionFeatures = [
   },
 ]
 
-
 const macSectionFeatures = [
   {
     name: 'Esperienza nativa Mac.',
@@ -103,7 +101,6 @@ const macSectionFeatures = [
     icon: CpuChipIcon,
   }
 ]
-
 
 const featuresSectionItems = [
   {

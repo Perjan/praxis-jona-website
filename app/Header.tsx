@@ -80,21 +80,23 @@ export function localeFromPathname(pathname: string) {
 
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const pathname = usePathname();
+    const pathname = usePathname()
 
-    const scrollPosition = useScrollPosition();
+    const scrollPosition = useScrollPosition()
 
     const isMoneySpaces = pathname === "/moneyspaces"
 
     const locale = localeFromPathname(pathname)
 
-    var navigationItems = navigationItemsEnglish
+    var navigationItems = []
     
     switch (locale) {
         case "it":
             navigationItems = navigationItemsItalian
+            break;
         default:
             navigationItems = navigationItemsEnglish
+            break;
     }
 
     const navigationItemsMobile = [

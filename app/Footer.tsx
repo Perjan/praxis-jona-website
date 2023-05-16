@@ -36,8 +36,10 @@ export default function Footer() {
   switch (locale) {
     case "it":
       navigation = footerNavigationItalian
+      break;
     default:
       navigation = footerNavigation
+      break;
   }
 
   return (
