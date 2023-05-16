@@ -28,7 +28,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/features'
+    canonical: '/features',
+    languages: {
+      en: "/features",
+      it: "/it/funzioni",
+      de: "/de/features"
+    }
   },
   twitter: {
     card: 'summary_large_image',
