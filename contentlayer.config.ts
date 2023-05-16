@@ -20,6 +20,11 @@ export const Post = defineDocumentType(() => ({
       description: "The filename of the cover image",
       required: false,
     },
+    language: {
+      type: "string",
+      description: "The language of the post",
+      required: false,
+    },
     summary: {
       type: "string",
       description: "The summary of the post",
