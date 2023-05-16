@@ -22,7 +22,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/support'
+    canonical: '/support',
+    languages: {
+      en: '/support',
+      it: '/it/supporto',
+      de: '/de/support',
+    }
   },
   twitter: {
     card: 'summary_large_image',

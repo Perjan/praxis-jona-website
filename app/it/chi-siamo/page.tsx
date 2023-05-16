@@ -23,7 +23,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/it/chi-siamo'
+    canonical: '/company',
+    languages: {
+      en: '/company',
+      it: '/it/chi-siamo',
+      de: '/de/ueber-uns',
+    }
   },
   twitter: {
     card: 'summary_large_image',

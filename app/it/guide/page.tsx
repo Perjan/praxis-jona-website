@@ -26,7 +26,12 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/it/guide'
+    canonical: '/guides',
+    languages: {
+      en: '/guides',
+      it: '/it/guide',
+      de: '/de/guides',
+    }
   },
   twitter: {
     card: 'summary_large_image',

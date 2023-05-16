@@ -24,6 +24,14 @@ export const metadata: Metadata = {
       }
     ],
   },
+  alternates: {
+    canonical: '/blog',
+    languages: {
+      en: '/blog',
+      it: '/it/blog',
+      de: '/de/blog',
+    }
+  },
   twitter: {
     card: 'summary_large_image',
     title: title,

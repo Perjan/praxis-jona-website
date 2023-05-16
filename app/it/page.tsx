@@ -146,7 +146,7 @@ export default function Home() {
       <FeatureWithLargeScreenshotSection
         subtitle="Budget Intelligenti"
         title="Risparmia di più con bilanci intelligenti personalizzati"
-        description="Crea budget 'a busta' che funzionano per te. Limita le tue spese in modo da risparmiare fino a 2.000 euro all'anno."
+        description="Crea budgets che funzionano per te. Limita le tue spese in modo da risparmiare fino a 2.000 euro all'anno."
         features={budgetSectionFeatures}
       />
 
