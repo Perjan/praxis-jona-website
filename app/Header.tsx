@@ -68,6 +68,16 @@ export function DownloadButtonMoneySpaces({url, locale}) {
     )
 }
 
+export function localeFromPathname(pathname: string) {
+    if (pathname.startsWith("/it")) {
+        return "it"
+    } else if (pathname.startsWith("/de")) {
+        return "de"
+    } else {
+        return "en"
+    }
+}
+
 export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const pathname = usePathname();
@@ -76,15 +86,16 @@ export default function Header() {
 
     const isMoneySpaces = pathname === "/moneyspaces"
 
-    var locale = "en"
+    const locale = localeFromPathname(pathname)
+
+    var navigationItems = navigationItemsEnglish
     
-    if (pathname.startsWith("/it")) {
-        locale = "it"
+    switch (locale) {
+        case "it":
+            navigationItems = navigationItemsItalian
+        default:
+            navigationItems = navigationItemsEnglish
     }
-
-    console.log("is italian: ", pathname.startsWith("/it"))
-
-    const navigationItems = locale === "it" ? navigationItemsItalian : navigationItemsEnglish
 
     const navigationItemsMobile = [
         { title: "Home", href: locale === "en" ? "/" : "/" + locale }

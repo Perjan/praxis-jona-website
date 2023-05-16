@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { footerNavigation, footerNavigationItalian, socials } from "./FooterDataSource";
 import { usePathname } from "next/navigation";
+import { localeFromPathname } from "./Header";
 
 function FooterColumn({ title, items }) {
   return (
@@ -27,16 +28,17 @@ function FooterColumn({ title, items }) {
 }
 
 export default function Footer() {
-
-  var locale = "en"
-
   const pathname = usePathname();
-    
-  if (pathname.startsWith("/it")) {
-      locale = "it"
-  }
+  const locale = localeFromPathname(pathname)
 
-  const navigation = locale === "it" ? footerNavigationItalian : footerNavigation
+  var navigation = footerNavigation
+
+  switch (locale) {
+    case "it":
+      navigation = footerNavigationItalian
+    default:
+      navigation = footerNavigation
+  }
 
   return (
     <footer className="bg-white" aria-labelledby="footer-heading">
