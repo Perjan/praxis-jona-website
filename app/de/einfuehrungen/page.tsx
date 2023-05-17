@@ -90,7 +90,7 @@ export default function Home() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Einfuehrungen</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600 whitespace-pre-line">
-            {"A collection of guides and tutorials on how to use MoneyCoach.\nGet started today and learn how to use MoneyCoach to manage your finances."}
+            {description}
           </p>
         </div>
         <PostSection posts={beginnerPosts} title="Beginner" />
