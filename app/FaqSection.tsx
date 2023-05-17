@@ -4,23 +4,26 @@ import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { faqs, faqs_de, faqs_it } from "FAQs";
 import Link from "next/link";
+import { localeFromPathname } from "./Header";
+import { usePathname } from "next/navigation";
 
 export default function FaqSection(params: {locale: string, title: string, buttonTitle: string, href: string}) {
-  
-  let localizedFaqs = params.locale === "it" ? faqs_it : faqs
+    
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname)
+  var localizedFaqs = faqs
 
-
-  // switch(localizedFaqs) {
-  //   case "it":
-  //     params.locale = faqs_it
-  //     break;
-  //   case "de":
-  //     params.locale = faqs_de
-  //     break;
-  //   default:
-  //     params.locale = faqs
-  //     break;
-  // }
+  switch(locale) {
+    case "it":
+      localizedFaqs = faqs_it
+      break;
+    case "de":
+      localizedFaqs = faqs_de
+      break;
+    default:
+      localizedFaqs = faqs
+      break;
+  }
 
   return (
     <div className="bg-white">
