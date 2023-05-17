@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       en: '/guides',
       it: '/it/guide',
       de: '/de/guides',
-    }
+      }
   },
   twitter: {
     card: 'summary_large_image',
