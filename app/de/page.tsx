@@ -90,14 +90,14 @@ const watchSectionFeatures = [
 
 const macSectionFeatures = [
   {
-    name: 'Native Mac Erfahrung.',
+    name: 'Natives Mac Erlebnis.',
     description:
-      'MoneyCoach auf dem Mac wurde als echte Mac-App entwickelt. Es unterstützt alle großartigen Mac-Funktionen wie Seitenleisten, Tastenkombinationen usw. MoneyCoach ist auf dem Mac extrem leistungsfähig.',
+      'MoneyCoach auf dem Mac wurde als native Mac-App entwickelt. Es unterstützt alle großartigen Mac-Funktionen wie Seitenleisten, Tastenkombinationen usw. MoneyCoach ist auf dem Mac extrem leistungsfähig.',
     icon: ComputerDesktopIcon,
   },
   {
     name: 'Apple Ökosystem.',
-    description: 'Dies ist für die Apple-Fans. Jetzt kannst du MoneyCoach auf deiner Apple Watch, deinem iPhone, iPad, HomePod und Mac nahtlos über Data Sync nutzen.',
+    description: 'Dies ist für die Apple-Fans. Jetzt kannst du MoneyCoach auf deiner Apple Watch, deinem iPhone, iPad, HomePod und Mac nahtlos über iCloud Sync nutzen.',
     icon: CpuChipIcon,
   }
 ]
@@ -147,12 +147,12 @@ export default function Home() {
       <FeatureWithLargeScreenshotSection
         subtitle="Intelligente Budgets"
         title="Mehr Geld sparen mit personalisierten intelligenten Budgets"
-        description="Erstelle ein Budget, das für dich funktioniert. Schränke deine Ausgaben ein, so dass du jedes Jahr bis zu 2.000 Euro sparen kannst.."
+        description="Erstelle ein Budget, das für dich funktioniert. Schränke deine Ausgaben ein, so dass du jedes Jahr bis zu 2.000 Euro sparen kannst."
         features={budgetSectionFeatures}
       />
 
       <MajorFeatureSection
-        title='Füge deine Barauslagen in Sekundenschnelle hinzu'
+        title='Ausgaben hinzufügen. Blitzschnell.'
         description={'Bei MoneyCoach dreht sich alles um Geschwindigkeit, Personalisierung und Effizienz. Du kannst Transaktionen in 3 Sekunden über den normalen Weg hinzufügen. In 2 Sekunden über die Schnelleingabe oder im Handumdrehen über die Shortcuts.\n\nOder du kannst Siri die ganze schwere Arbeit mit nur einem Tippen erledigen lassen.'}
         imageUrl='/images/addTransactions2.png'
       />

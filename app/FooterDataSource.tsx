@@ -215,7 +215,7 @@ export const footerNavigationGerman = {
     legal: {
         title: "Legal",
         items: [
-            { name: "TerBedingungen & Konditionenms", href: "/legal/terms-of-use" },
+            { name: "AGBs", href: "/legal/terms-of-use" },
             { name: "Datenschutz", href: "/legal/privacy-policy/" },
             { name: "Impressum", href: "/legal/imprint/" },
             { name: "Haftungsausschluss", href: "/legal/disclaimer/" },

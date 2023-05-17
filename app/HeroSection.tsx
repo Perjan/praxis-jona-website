@@ -59,11 +59,11 @@ export const italianHeroConfig: HeroConfig = {
 }
 
 export const germanHeroConfig: HeroConfig = {
-    title: "Moderner Kassen- und Budget-Tracker",
-    description: "Verfolge alle deine Bargeldausgaben, verwalte deine persönlichen Budgets und reduziere deinen finanziellen Stress. Das ist es, worum es bei MoneyCoach geht.",
+    title: "Modernes Haushaltsbuch und Budgeting App",
+    description: "Verfolge alle deine Bargeldausgaben, verwalte deine persönlichen Budgets und reduziere deinen finanziellen Stress. Darum geht es bei MoneyCoach. Privat. Sicher. Kein Login.",
     downloadNowTitle: "Jetzt Herunterladen",
     watchVideo: "Video Anschauen",
-    justShippedTitle: "Gerade ausgeliefert: v8.4.4",
+    justShippedTitle: "Letztes Update: v8.4.4",
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-4-4",
     appOfTheDay: AppOfTheDayDe,
     accoladesCombo: AccoladesComboDe,

@@ -54,7 +54,7 @@ export const italianNewsletterSectionProps: NewsletterSectionProps = {
 }
 
 export const germanNewsletterSectionProps: NewsletterSectionProps = {
-  title: "Abonnieren Sie unseren Newsletter",
+  title: "Newsletter",
   description: "Hast du dich jemals gefragt, was es braucht, um ein unabhängiges App-Unternehmen zu führen? Dann melde dich für unseren Newsletter an. Ich werde dich an allem teilhaben lassen, was bei MoneyCoach passiert.",
   subscribeButtonText: "Abonnieren",
   emailAddressPlaceholder: "Gib deine E-Mail ein",
