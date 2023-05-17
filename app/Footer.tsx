@@ -98,7 +98,7 @@ export default function Footer() {
               </Link>
             ))}
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
+          <div className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
             &copy; {navigation.copyright}
             <div className="mt-8 text-xs space-x-1 leading-5 text-gray-500 md:order-1 md:mt-0">
               <span>{languageLabel}:</span>
@@ -106,7 +106,7 @@ export default function Footer() {
               <Link href="/de">🇩🇪 /</Link>
               <Link href="/it">🇮🇹</Link>
             </div>
-          </p>
+          </div>
         </div>
       </div>
     </footer>
