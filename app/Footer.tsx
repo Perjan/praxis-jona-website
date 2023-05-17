@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { footerNavigation, footerNavigationItalian, socials } from "./FooterDataSource";
+import { footerNavigation, footerNavigationItalian, footerNavigationGerman, socials } from "./FooterDataSource";
 import { usePathname } from "next/navigation";
 import { localeFromPathname } from "./Header";
 
@@ -36,6 +36,9 @@ export default function Footer() {
   switch (locale) {
     case "it":
       navigation = footerNavigationItalian
+      break;
+    case "de":
+      navigation = footerNavigationGerman
       break;
     default:
       navigation = footerNavigation
