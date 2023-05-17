@@ -205,7 +205,7 @@ export default function Features() {
         <div className="mx-auto max-w-7xl px-6 pb-32 pt-6 sm:pt-16 lg:px-8 lg:pt-32">
           <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">MoneyCoach ist vollgepackt mit Funktionen</h1>
+              <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Vollgepackt <br/>mit Funktionen</h1>
               <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">MoneyCoach beschränkt sich auf das, was für die Finanzen wichtig ist. Die erweiterten Funktionen sind aus dem Weg, bis du sie tatsächlich brauchst.</p>
             </div>
             <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">

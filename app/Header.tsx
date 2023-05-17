@@ -31,7 +31,7 @@ const navigationItemsItalian = [
 
 const navigationItemsGerman = [
     { title: "Funktionen", href: "/de/funktionen" },
-    { title: "Einfuehrungen", href: "/de/einfuehrungen" },
+    { title: "Einführungen", href: "/de/einfuehrungen" },
     { title: "Blog", href: "/de/blog" },
     { title: "Über Uns", href: "/de/uber-uns" }
 ]
@@ -50,12 +50,12 @@ function downloadAppTitle(locale: string) {
         return "Scarica l'app"
     } else if (locale === "de") {
         return "App Herunterladen"
-    }   else {
+    } else {
         return "Download App"
     }
 }
 
-export function DownloadButton({url, locale}) {
+export function DownloadButton({ url, locale }) {
     return (
         <Link
             href={url}
@@ -66,7 +66,7 @@ export function DownloadButton({url, locale}) {
     )
 }
 
-export function DownloadButtonMoneySpaces({url, locale}) {
+export function DownloadButtonMoneySpaces({ url, locale }) {
     return (
         <Link
             href={url}
@@ -98,13 +98,17 @@ export default function Header() {
     const locale = localeFromPathname(pathname)
 
     var navigationItems = []
-    
+
+    var languageLabel = "Language"
+
     switch (locale) {
         case "it":
             navigationItems = navigationItemsItalian
+            languageLabel = "Lingua"
             break;
         case "de":
             navigationItems = navigationItemsGerman
+            languageLabel = "Sprache"
             break;
         default:
             navigationItems = navigationItemsEnglish
@@ -118,58 +122,58 @@ export default function Header() {
 
     if (isMoneySpaces) {
         return (
-            <header 
-            // className="bg-white sticky top-0"
-            className={classNames(
-                scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                'sticky top-0 z-20 bg-white transition-shadow',
-              )}
-        >
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
-                    <Link 
-                        href="/" 
-                        className="-m-1.5 p-1.5"
-                    >
-                        <span className="sr-only">MoneySpaces</span>
-                        <Image 
-                            priority={true} 
-                            className="h-14 w-auto object-contain" 
-                            src={LogoMoneySpaces}
-                            alt="MoneySpaces Logo"
-                        />
-                    </Link>
-                </div>
-                <div className="flex lg:hidden">
-                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
-                </div>
+            <header
+                // className="bg-white sticky top-0"
+                className={classNames(
+                    scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
+                    'sticky top-0 z-20 bg-white transition-shadow',
+                )}
+            >
+                <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+                    <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
+                        <Link
+                            href="/"
+                            className="-m-1.5 p-1.5"
+                        >
+                            <span className="sr-only">MoneySpaces</span>
+                            <Image
+                                priority={true}
+                                className="h-14 w-auto object-contain"
+                                src={LogoMoneySpaces}
+                                alt="MoneySpaces Logo"
+                            />
+                        </Link>
+                    </div>
+                    <div className="flex lg:hidden">
+                        <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
+                    </div>
 
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
-                </div>
-            </nav>
-        </header>
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                        <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
+                    </div>
+                </nav>
+            </header>
         )
     }
 
     return (
-        <header 
+        <header
             // className="bg-white sticky top-0"
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
                 'sticky top-0 z-20 bg-white transition-shadow',
-              )}
+            )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
-                    <Link 
+                    <Link
                         href={locale === "en" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
                         <span className="sr-only">MoneyCoach</span>
-                        <Image 
-                            priority={true} 
-                            className="h-14 w-auto object-contain" 
+                        <Image
+                            priority={true}
+                            className="h-14 w-auto object-contain"
                             src={Logo}
                             alt="MoneyCoach Logo"
                         />
@@ -250,6 +254,13 @@ export default function Header() {
                             <div className="py-6">
                                 <DownloadButton url={downloadUrl} locale={locale} />
                             </div>
+
+                            <div className="mt-0 space-x-1 leading-5 text-gray-500 md:order-1 pt-8">
+                                <span>{languageLabel}:</span>
+                                <Link href="/">🇬🇧 /</Link>
+                                <Link href="/de">🇩🇪 /</Link>
+                                <Link href="/it">🇮🇹</Link>
+                            </div>
                         </div>
                     </div>
                 </Dialog.Panel>
@@ -261,18 +272,18 @@ export default function Header() {
 
 export const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState(0)
-  
+
     useEffect(() => {
-      const updatePosition = () => {
-        setScrollPosition(window.pageYOffset)
-      }
-  
-      window.addEventListener('scroll', updatePosition)
-  
-      updatePosition()
-  
-      return () => window.removeEventListener('scroll', updatePosition)
+        const updatePosition = () => {
+            setScrollPosition(window.pageYOffset)
+        }
+
+        window.addEventListener('scroll', updatePosition)
+
+        updatePosition()
+
+        return () => window.removeEventListener('scroll', updatePosition)
     }, [])
-  
+
     return scrollPosition
-  }
+}

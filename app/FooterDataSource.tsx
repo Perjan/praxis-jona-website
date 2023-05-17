@@ -167,7 +167,7 @@ export const footerNavigationGerman = {
         title: "Funktionen",
         items: [
             {
-                name: "Bargeldverfolgung",
+                name: "Haushaltsbuch",
                 href: "/blog/getting-started-how-to-add-a-new-transaction",
             },
             { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },

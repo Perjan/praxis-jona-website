@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 
-const title = "MoneyCoach - Moderne Cash Tracker und Budgetierungs-App"
+const title = "MoneyCoach - Moderne Haushaltsbuch App und Budget Manager"
 const description = "MoneyCoach ist eine persönliche Finanz-App, die dir hilft, dein Geld zu verwalten, zu budgetieren und deine Ausgaben zu verfolgen."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneycoach.ai"),
   title: {
     default: title,
-    template: "%s - MoneyCoach Moderne Cash Tracker und Budgetierungs-App"
+    template: "%s - Moderne Haushaltsbuch App und Budget Manager"
   },
   description: description,
   twitter: {

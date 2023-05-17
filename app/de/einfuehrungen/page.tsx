@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 import { advancedPosts, beginnerPosts, intermediatePosts, questionsAndAnswersPosts } from 'app/guides/GuidesDataSource'
 
 
-const title = 'Einfuehrungen'
+const title = 'Einführungen'
 const description = 'Lerne, wie du MoneyCoach nutzt, wie du deine Konten einrichtest, deine Transaktionen verwaltest, Budgets und Ziele erstellst, die App auf deiner Apple Watch nutzt und vieles mehr.\n\nDiese einfuehrungen sind nur auf Englisch. Bitte verwende die integrierte Übersetzungsfunktion deines Browsers, um die Anleitungen zu übersetzen.'
 
 export const metadata: Metadata = {
@@ -88,7 +88,7 @@ export default function Home() {
     <div className="bg-white mt-2 sm:mt-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Einfuehrungen</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Einführungen</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600 whitespace-pre-line">
             {description}
           </p>

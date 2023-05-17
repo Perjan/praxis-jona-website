@@ -32,13 +32,16 @@ export default function Footer() {
   const locale = localeFromPathname(pathname)
 
   var navigation = footerNavigation
+  var languageLabel = "Language"
 
   switch (locale) {
     case "it":
       navigation = footerNavigationItalian
+      languageLabel = "Lingua"
       break;
     case "de":
       navigation = footerNavigationGerman
+      languageLabel = "Sprache"
       break;
     default:
       navigation = footerNavigation
@@ -79,6 +82,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
+
           <div className="flex space-x-6 md:order-2">
             {socials.map((item) => (
               <Link
@@ -96,6 +100,12 @@ export default function Footer() {
           </div>
           <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
             &copy; {navigation.copyright}
+            <div className="mt-8 text-xs space-x-1 leading-5 text-gray-500 md:order-1 md:mt-0">
+              <span>{languageLabel}:</span>
+              <Link href="/">🇬🇧 /</Link>
+              <Link href="/de">🇩🇪 /</Link>
+              <Link href="/it">🇮🇹</Link>
+            </div>
           </p>
         </div>
       </div>
