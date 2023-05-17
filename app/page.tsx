@@ -51,7 +51,7 @@ const budgetSectionFeatures = [
   },
   {
     name: 'Budgets for every occasion.',
-    description: ' Vacation? Business trip? Holiday? Christmas is coming? Just create a budget, select what categories your would like to track, stick to this budget and save more money each time',
+    description: 'Vacation? Business trip? Holiday? Christmas is coming? Just create a budget, select what categories your would like to track, stick to this budget and save more money each time',
     icon: BanknotesIcon,
   }
 ]

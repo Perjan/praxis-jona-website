@@ -53,6 +53,19 @@ export const italianNewsletterSectionProps: NewsletterSectionProps = {
   noSpamDescription: "Prometto di non mandarti mai spam. Ti invierò solo e-mail che ti riguardano.",
 }
 
+export const germanNewsletterSectionProps: NewsletterSectionProps = {
+  title: "Abonnieren Sie unseren Newsletter",
+  description: "Hast du dich jemals gefragt, was es braucht, um ein unabhängiges App-Unternehmen zu führen? Dann melde dich für unseren Newsletter an. Ich werde dich an allem teilhaben lassen, was bei MoneyCoach passiert.",
+  subscribeButtonText: "Abonnieren",
+  emailAddressPlaceholder: "Gib deine E-Mail ein",
+  successMessage: "Du hast dich für den Newsletter angemeldet.",
+  errorMessage: "Beim Abonnieren des Benutzers ist ein Fehler aufgetreten. Bitte versuche es später noch einmal.",
+  weeklyArticles: "Wöchentliche Artikel",
+  weeklyArticlesDescription: "Jede Woche schreibe ich einen Artikel über das App-Business, das Indie-Leben und mehr.",
+  noSpam: "Kein Spam",
+  noSpamDescription: "Ich verspreche, dich niemals zu spammen. Ich werde dir nur E-Mails schicken, die für dich relevant sind.",
+}
+
 export default function NewsletterSection( params: { props: NewsletterSectionProps } ) {
 
 const [email, setEmail] = useState("");

@@ -2,12 +2,25 @@
 
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import { faqs, faqs_it } from "FAQs";
+import { faqs, faqs_de, faqs_it } from "FAQs";
 import Link from "next/link";
 
 export default function FaqSection(params: {locale: string, title: string, buttonTitle: string, href: string}) {
   
   let localizedFaqs = params.locale === "it" ? faqs_it : faqs
+
+
+  // switch(localizedFaqs) {
+  //   case "it":
+  //     params.locale = faqs_it
+  //     break;
+  //   case "de":
+  //     params.locale = faqs_de
+  //     break;
+  //   default:
+  //     params.locale = faqs
+  //     break;
+  // }
 
   return (
     <div className="bg-white">

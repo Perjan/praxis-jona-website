@@ -29,6 +29,13 @@ const navigationItemsItalian = [
     { title: "Chi Siamo", href: "/it/chi-siamo" }
 ]
 
+const navigationItemsGerman = [
+    { title: "Funktionen", href: "/de/funktionen" },
+    { title: "Einfuehrungen", href: "/de/einfuehrungen" },
+    { title: "Blog", href: "/de/blog" },
+    { title: "Über Uns", href: "/de/uber-uns" }
+]
+
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
@@ -41,7 +48,9 @@ function classNames(...classes: string[]) {
 function downloadAppTitle(locale: string) {
     if (locale === "it") {
         return "Scarica l'app"
-    } else {
+    } else if (locale === "de") {
+        return "App Herunterladen"
+    }   else {
         return "Download App"
     }
 }
@@ -93,6 +102,9 @@ export default function Header() {
     switch (locale) {
         case "it":
             navigationItems = navigationItemsItalian
+            break;
+        case "de":
+            navigationItems = navigationItemsGerman
             break;
         default:
             navigationItems = navigationItemsEnglish

@@ -14,6 +14,10 @@ import AppOfTheDayIt from "/public/images/app-of-the-day-it.png"
 import AccoladesComboIt from "/public/images/accolades-combo-it.png"
 import HeroImageIt from "/public/images/moneycoach-all-devices.png"
 
+import AppOfTheDayDe from "/public/images/app-of-the-day-de.png"
+import AccoladesComboDe from "/public/images/accolades-combo-de.png"
+import HeroImageDe from "/public/images/moneycoach-all-devices.png"
+
 const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
@@ -52,6 +56,18 @@ export const italianHeroConfig: HeroConfig = {
     appOfTheDay: AppOfTheDayIt,
     accoladesCombo: AccoladesComboIt,
     heroImage: HeroImageIt
+}
+
+export const germanHeroConfig: HeroConfig = {
+    title: "Moderner Kassen- und Budget-Tracker",
+    description: "Verfolge alle deine Bargeldausgaben, verwalte deine persönlichen Budgets und reduziere deinen finanziellen Stress. Das ist es, worum es bei MoneyCoach geht.",
+    downloadNowTitle: "Jetzt Herunterladen",
+    watchVideo: "Video Anschauen",
+    justShippedTitle: "Gerade ausgeliefert: v8.4.4",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-8-4-4",
+    appOfTheDay: AppOfTheDayDe,
+    accoladesCombo: AccoladesComboDe,
+    heroImage: HeroImageDe
 }
 
 export default function HeroSection(params: { config: HeroConfig }) {

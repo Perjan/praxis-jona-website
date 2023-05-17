@@ -161,6 +161,87 @@ export const footerNavigationItalian = {
     }
 };
 
+export const footerNavigationGerman = {
+    copyright: "2023 MoneyCoach UG. Alle Rechte vorbehalten. Hergestellt mit ❤️ in Berlin.",
+    features: {
+        title: "Funktionen",
+        items: [
+            {
+                name: "Bargeldverfolgung",
+                href: "/blog/getting-started-how-to-add-a-new-transaction",
+            },
+            { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
+            { name: "Mehrere Währungen", href: "/blog/how-to-use-multi-currency" },
+            {
+                name: "Kreditkartenmanagement",
+                href: "/blog/how-to-manage-your-credit-cards",
+            },
+            { name: "Ziele", href: "/blog/getting-started-how-to-create-a-smart-goal" },
+            {
+                name: "Berichte",
+                href: "/blog/understanding-the-real-cost-of-your-subscriptions",
+            },
+        ]
+    },
+    usecases: {
+        title: "Anwendungsfälle",
+        items: [
+            { name: "Schulden", href: "/blog/how-to-track-debts/" },
+            {
+                name: "Ziele",
+                href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
+            },
+            { name: "Darlehen", href: "/blog/how-to-manage-property-loans/" },
+            {
+                name: "Abonnements",
+                href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
+            },
+        ]
+    },
+    company: {
+        title: "Unternehmen",
+        items: [
+            { name: "Über uns", href: "/de/uber-uns" },
+            { name: "Blog", href: "/de/blog" },
+            { name: "Press Kit", href: "/company/press-kit" },
+            { name: "Support", href: "/dee/support" },
+            { name: "Finanz-Rechner", href: "/financial-calculators" },
+            {
+                name: "Feature Anfrage",
+                href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
+            },
+        ],
+    },
+    legal: {
+        title: "Legal",
+        items: [
+            { name: "TerBedingungen & Konditionenms", href: "/legal/terms-of-use" },
+            { name: "Datenschutz", href: "/legal/privacy-policy/" },
+            { name: "Impressum", href: "/legal/imprint/" },
+            { name: "Haftungsausschluss", href: "/legal/disclaimer/" },
+            { name: "Credits", href: "/legal/credits/" },
+        ],
+    },
+    ourApps: {
+        title: "Unsere Apps",
+        items: [
+            { name: "MoneyCoach", href: "/" },
+            { name: "MoneySpaces", href: "/moneyspaces" },
+            { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
+            { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
+            { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
+        ],
+    },
+    compare: {
+        title: "Vergleiche",
+        items: [
+            { name: "Buddy", href: "/buddy-alternative" },
+            { name: "Finanzguru", href: "/finanzguru-alternative" },
+            { name: "Monefy", href: "/monefy-alternative" },
+        ],
+    }
+};
+
 export const socials = [
     {
         name: "Facebook",

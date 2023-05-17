@@ -7,7 +7,7 @@ export const faqs = [
     },
     {
         id: 2,
-        question: "Is MoneyCoach Private",
+        question: "Is MoneyCoach private?",
         answer:
           "Absolutely. We have the utmost respect for your privacy. Your information is safe and secure with MoneyCoach. And it stays on your device.",
     },
@@ -137,4 +137,75 @@ export const faqs = [
       answer:
         "Assolutamente sì! È possibile allegare un luogo a qualsiasi movimento aggiunto nell'app.",
     },
+  ]
+
+  export const faqs_de = [
+    {
+      id: 1,
+      question: "Was ist MoneyCoach?",
+      answer:
+        "MoneyCoach ist ein moderner Kassen- und Budget-Tracker. Entwickelt, um dir einen Überblick über deine persönlichen Finanzen zu verschaffen. Er hilft dir, mehr zu sparen und intelligenter auszugeben. Und belohnt dich, wenn du deine Ziele erreichst. Die App ist auch als Money Coach oder Money Coach App bekannt. Wir bevorzugen jedoch MoneyCoach. FUN FACT: Es gibt einige Nutzer, die uns auch Money Couch genannt haben 💰🛋️",
+    },
+    {
+        id: 2,
+        question: "Ist MoneyCoach privat?",
+        answer:
+          "Auf jeden Fall. Wir haben den größten Respekt vor deiner Privatsphäre. Deine Daten sind bei MoneyCoach sicher und geschützt. Und sie bleiben auf deinem Gerät.",
+    },
+    {
+      id: 3,
+      question: "Welche Währungen gibt es?",
+      answer:
+        "Alle von ihnen. Vom amerikanischen Dollar bis zum albanischen Lek. (Premium Feature)",
+    },
+    {
+        id: 4,
+        question: "Wie sicher ist MoneyCoach?",
+        answer:
+          "Sehr sicher. MoneyCoach ist mit Passcode, Touch ID oder FaceID gesichert.",
+    },
+    {
+      id: 5,
+      question: "Wie viel kostet es?",
+      answer:
+        "Wir bieten MoneyCoach Premium für unsere Pro-Nutzer an. Wenn du ein normaler Nutzer bist, kannst du die meistgenutzten Funktionen weiterhin kostenlos nutzen. Aber wenn du die zukünftige Entwicklung und das Team unterstützen willst, kannst du MoneyCoach Premium abonnieren und zusätzliche leistungsstarke Funktionen freischalten.",
+    },
+    {
+      id: 6,
+      question: "Gibt es Werbung?",
+      answer:
+        "Nö. Wir hassen Werbung, genau wie du.",
+    },
+    {
+      id: 7,
+      question: "Kann ich Bilder von Belegen speichern?",
+      answer:
+        "Ja, natürlich. Du kannst ein Foto machen, ein Dokument scannen und sogar eine PDF-Datei anhängen.",
+    },
+    {
+      id: 8,
+      question: "Kann ich Siri benutzen?",
+      answer:
+        "Yeah! Das Hinzufügen von Transaktionen mit Siri auf der Apple Watch ist die neueste und bisher tollste Funktion.",
+    },
+    {
+      id: 9,
+      question: "Kann ich Importdaten aus anderen Apps verwenden?",
+      answer:
+        "Aber sicher! Du kannst deine Finanzdaten aus jeder anderen App oder Software importieren, die du hast. Alles, was du brauchst, ist eine CSV-Datei.",
+    },
+    {
+      id: 10,
+      question: "Kann ich Zahlungsempfänger, Unternehmen oder Lieferanten hinzufügen?",
+      answer:
+        "Ja! Du kannst jeder Transaktion, die du in MoneyCoach hinzufügst, eine Zahlungsempfänger, ein Unternehmen oder einen Lieferanten zuordnen.",
+    },
+    {
+      id: 11,
+      question: "Kann ich einen Ort zu meinen Transaktionen hinzufügen?",
+      answer:
+        "Vollkommen! Du kannst jedem Vorgang, den du in der App hinzufügst, einen Standort zuweisen.",
+    },
+
+    // More questions...
   ]
