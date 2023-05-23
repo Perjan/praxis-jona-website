@@ -14,7 +14,7 @@ import SubscriptionInsights from "/public/images/reports/report-subscription-ins
 import ReportsHero from "/public/images/reports/reports-hero.png"
 
 const title = "Rapporti Finanziari"
-const description = "Scopri il potere dei report approfonditi per migliorare la tua gestione finanziaria. I nostri rapporti completi forniscono una ripartizione dettagliata delle spese, del reddito, della progressione del patrimonio netto, delle spese di vita e molto altro ancora. Grazie a visualizzazioni chiare e riepiloghi concisi, puoi ottenere informazioni preziose sulla tua salute finanziaria, monitorare i modelli di spesa e prendere decisioni informate per raggiungere i tuoi obiettivi finanziari."
+const description = "Scopri il potere dei rapporti di MoneyCoach per migliorare la tua gestione finanziaria. I nostri rapporti completi forniscono una ripartizione dettagliata delle spese, del reddito, della progressione del patrimonio netto, delle spese di vita e molto altro ancora. Grazie a visualizzazioni chiare e riepiloghi concisi, puoi ottenere informazioni preziose sulla tua salute finanziaria, monitorare i modelli di spesa e prendere decisioni informate per raggiungere i tuoi obiettivi finanziari."
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -66,8 +66,8 @@ export default async function Page() {
                     <div className="py-24 sm:py-32 lg:pb-16">
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-2xl text-center">
-                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Vetrina Dei Rapporti</h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">Scopri il potere dei report approfonditi per migliorare la tua gestione finanziaria. I nostri report completi forniscono una ripartizione dettagliata delle spese, del reddito, della progressione del patrimonio netto, delle spese di vita e molto altro ancora. Grazie a visualizzazioni chiare e riepiloghi concisi, puoi ottenere informazioni preziose sulla tua salute finanziaria, monitorare i modelli di spesa e prendere decisioni informate per raggiungere i tuoi obiettivi finanziari.</p>
+                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h1>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">{description}</p>
                             </div>
                             <Image
                                 src={ReportsHero}
