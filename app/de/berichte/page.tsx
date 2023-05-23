@@ -13,8 +13,11 @@ import Payees from "/public/images/reports/report-payees.png"
 import SubscriptionInsights from "/public/images/reports/report-subscription-insights.png"
 import ReportsHero from "/public/images/reports/reports-hero.png"
 
-const title = "Rapporti Finanziari"
-const description = "Scopri il potere dei report approfonditi per migliorare la tua gestione finanziaria. I nostri rapporti completi forniscono una ripartizione dettagliata delle spese, del reddito, della progressione del patrimonio netto, delle spese di vita e molto altro ancora. Grazie a visualizzazioni chiare e riepiloghi concisi, puoi ottenere informazioni preziose sulla tua salute finanziaria, monitorare i modelli di spesa e prendere decisioni informate per raggiungere i tuoi obiettivi finanziari."
+import { Fragment } from 'react'
+import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid'
+
+const title = "Finanz Berichte"
+const description = "Entdecke die Macht der aufschlussreichen Berichte, um dein Finanzmanagement zu verbessern. Unsere umfassenden Berichte bieten eine detaillierte Aufschlüsselung von Ausgaben, Einnahmen, der Entwicklung des Nettovermögens, Lebenshaltungskosten und mehr. Mit übersichtlichen Darstellungen und prägnanten Zusammenfassungen erhältst du wertvolle Einblicke in deine finanzielle Gesundheit, verfolgst Ausgabenmuster und triffst fundierte Entscheidungen, um deine finanziellen Ziele zu erreichen."
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         type: 'website',
-        url: '/it/rapporti',
+        url: '/de/berichte',
         images: [
             {
                 url: '/images/og-image.png',
@@ -66,8 +69,8 @@ export default async function Page() {
                     <div className="py-24 sm:py-32 lg:pb-16">
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-2xl text-center">
-                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Vetrina Dei Rapporti</h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">Scopri il potere dei report approfonditi per migliorare la tua gestione finanziaria. I nostri report completi forniscono una ripartizione dettagliata delle spese, del reddito, della progressione del patrimonio netto, delle spese di vita e molto altro ancora. Grazie a visualizzazioni chiare e riepiloghi concisi, puoi ottenere informazioni preziose sulla tua salute finanziaria, monitorare i modelli di spesa e prendere decisioni informate per raggiungere i tuoi obiettivi finanziari.</p>
+                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h1>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">{description}</p>
                             </div>
                             <Image
                                 src={ReportsHero}
@@ -83,8 +86,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Riepilogo Della Categoria</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-600">Questo rapporto completo ti offre una panoramica dettagliata dell'intera storia dell'utilizzo di categorie e sottocategorie. Grazie all'inclusione di un grafico informativo, puoi analizzare facilmente le tendenze e gli schemi, ottenendo preziose informazioni sulle prestazioni della categoria nel tempo.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kategorien-Zusammenfassung</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-600">Dieser umfassende Bericht bietet dir einen detaillierten Überblick über den gesamten Verlauf der Nutzung von Kategorien und Unterkategorien. Anhand eines aussagekräftigen Diagramms kannst du Trends und Muster leicht analysieren und erhältst so wertvolle Einblicke in die Leistung der Kategorie im Laufe der Zeit.</p>
                                 </div>
                             </div>
                             <Image src={CategoryInsights}
@@ -101,8 +104,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Movimenti Per Categoria</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">Questo rapporto dettagliato offre una ripartizione completa delle spese e delle entrate per ogni categoria specifica. Accompagnato da un grafico a torta visivamente accattivante, ti permette di capire rapidamente la distribuzione delle tue spese tra le varie categorie, consentendoti di prendere decisioni finanziarie informate e di individuare le aree di potenziale risparmio.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Transaktionen nach Kategorien</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">Dieser detaillierte Bericht bietet eine umfassende Aufschlüsselung der Ausgaben und Einnahmen für jede einzelne Kategorie. Anhand eines ansprechenden Tortendiagramms kannst du dir schnell einen Überblick über die Verteilung deiner Ausgaben auf die verschiedenen Kategorien verschaffen, um fundierte finanzielle Entscheidungen zu treffen und Einsparpotenziale zu erkennen.</p>
                                 </div>
                             </div>
                             <div className="flex items-start justify-end lg:order-first">
@@ -121,9 +124,9 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Info Per Sottoscrizioni</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Abo-Auswertungen</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    Questo rapporto approfondito fornisce una visione trasparente del costo reale di un pagamento ricorrente visualizzando l'importo pagato per il servizio in diversi periodi di tempo. Puoi facilmente tenere traccia delle tue spese e capire l'impatto cumulativo del pagamento ricorrente. Inoltre, il report include anche il numero di transazioni effettuate, offrendo una panoramica completa della cronologia dei pagamenti associati al servizio.</p>
+                                    Dieser aufschlussreiche Bericht bietet einen transparenten Überblick über die wahren Kosten einer wiederkehrenden Zahlung, indem er den für die Dienstleistung gezahlten Betrag über verschiedene Zeiträume hinweg anzeigt. Du kannst deine Ausgaben leicht nachverfolgen und die kumulativen Auswirkungen der wiederkehrenden Zahlung verstehen. Außerdem enthält der Bericht auch die Anzahl der durchgeführten Transaktionen und bietet so einen umfassenden Überblick über das Zahlungsverhalten im Zusammenhang mit dem Dienst.</p>
                                 </div>
                             </div>
                             <Image src={SubscriptionInsights}
@@ -139,8 +142,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Proiezioni Annuali</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">Il rapporto di proiezione ti offre una preziosa visione del tuo patrimonio netto per l'anno in corso analizzando le tue abitudini di spesa. Analizzando le entrate, le spese e i modelli di risparmio, il report genera una previsione del patrimonio netto, fornendoti una chiara comprensione della tua traiettoria finanziaria e aiutandoti a prendere decisioni informate per raggiungere i tuoi obiettivi finanziari.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Järliche Projektionen</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">Der Projektionsbericht bietet dir einen wertvollen Einblick in dein Nettovermögen für das laufende Jahr, indem er deine Ausgabengewohnheiten analysiert. Durch die Analyse von Einnahmen, Ausgaben und Sparmustern erstellt der Bericht eine Prognose des Nettovermögens, die dir einen klaren Überblick über deine finanzielle Entwicklung gibt und dir hilft, fundierte Entscheidungen zu treffen, um deine finanziellen Ziele zu erreichen.</p>
                                 </div>
                             </div>
                             <div className="flex items-start justify-end lg:order-first">
@@ -158,9 +161,9 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Reddito Vs Spese</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Eeinkommen Vs Ausgaben</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    Questo rapporto completo presenta una chiara panoramica delle entrate e delle uscite su base mensile, consentendoti di monitorare la tua performance finanziaria nel tempo. Grazie alla ripartizione dettagliata delle entrate e delle uscite per categorie, puoi ottenere informazioni preziose sui tuoi modelli di spesa, identificare le aree di maggior spesa e prendere decisioni informate per ottimizzare la tua salute finanziaria.</p>
+                                    Dieser umfassende Bericht gibt dir einen klaren Überblick über Einnahmen und Ausgaben auf monatlicher Basis und ermöglicht es dir, deine finanzielle Leistung im Laufe der Zeit zu verfolgen. Mit einer detaillierten Aufschlüsselung der Einnahmen und Ausgaben nach Kategorien erhältst du wertvolle Einblicke in dein Ausgabenverhalten, erkennst Bereiche mit hohen Ausgaben und kannst fundierte Entscheidungen treffen, um deine finanzielle Gesundheit zu optimieren.</p>
                                 </div>
                             </div>
                             <Image src={IncomeVsExpense}
@@ -176,8 +179,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Sottoscrizioni & Fatture</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">Questo rapporto ti offre una visione completa dei tuoi abbonamenti e delle tue bollette attive, presentandoli separatamente insieme ai costi associati per il mese in corso. In questo modo potrai facilmente monitorare e tenere traccia delle tue spese fisse mensili, consentendoti di gestire al meglio le tue finanze e di prendere decisioni informate riguardo ai tuoi abbonamenti e ai pagamenti ricorrenti.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Abonnement & Fixkosten</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">Dieser Bericht bietet dir einen umfassenden Überblick über deine aktiven Abonnements und Rechnungen und stellt sie zusammen mit den zugehörigen Kosten für den aktuellen Monat separat dar. So kannst du deine festen monatlichen Ausgaben leicht überwachen und nachverfolgen. So kannst du deine Finanzen besser verwalten und fundierte Entscheidungen über deine Abonnements und wiederkehrenden Zahlungen treffen.</p>
                                 </div>
                             </div>
                             <div className="flex items-start justify-end lg:order-first">
@@ -195,9 +198,9 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Persone/Aziende</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Zahlungsempfänger</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    L'accurato rapporto organizza tutti i movimenti in base al beneficiario o all'azienda, fornendoti una chiara panoramica dei tuoi modelli di spesa con diverse entità. Raggruppando i movimenti, puoi identificare facilmente le spese associate a specifici beneficiari o aziende, aiutandoti a comprendere meglio le tue relazioni finanziarie e facilitando la stesura del budget e il monitoraggio delle spese.</p>
+                                    Der aufschlussreiche Bericht gliedert alle Transaktionen nach Zahlungsempfänger oder Unternehmen und gibt dir einen klaren Überblick über dein Ausgabenverhalten bei verschiedenen Unternehmen. Indem du die Transaktionen in Gruppen zusammenfasst, kannst du leicht erkennen, welche Ausgaben mit bestimmten Zahlungsempfängern oder Unternehmen verbunden sind. Das hilft dir, deine finanziellen Beziehungen besser zu verstehen, und erleichtert dir die Budgetplanung und Ausgabenverfolgung.</p>
                                 </div>
                             </div>
                             <Image src={Payees}
@@ -213,8 +216,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Sommario</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">Questo rapporto riassuntivo ti offre una panoramica concisa della tua attività finanziaria per un mese o un periodo specifico, consentendoti di valutare rapidamente la tua performance finanziaria con un colpo d'occhio.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Überblick</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">Dieser zusammenfassende Bericht bietet dir einen prägnanten Überblick über deine finanziellen Aktivitäten für einen bestimmten Monat oder Zeitraum, so dass du deine finanzielle Leistung schnell und auf einen Blick beurteilen kannst.</p>
                                 </div>
                             </div>
                             <div className="flex items-start justify-end lg:order-first">
@@ -232,9 +235,9 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Tags</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Stichworte</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    Il rapporto di approfondimento organizza tutte i movimenti in base ai tag. Raggruppando i movimenti, puoi identificare facilmente le spese associate a tag specifici, aiutandoti a comprendere meglio le tue relazioni finanziarie e facilitando la stesura del budget e il monitoraggio delle spese.</p>
+                                    Der aufschlussreiche Bericht ordnet alle Transaktionen nach Tags. Indem du die Transaktionen in Gruppen zusammenfasst, kannst du leicht erkennen, welche Ausgaben mit bestimmten Tags verbunden sind. Das hilft dir, deine finanziellen Beziehungen besser zu verstehen, und erleichtert die Budgetierung und die Nachverfolgung von Ausgaben.</p>
                                 </div>
                             </div>
                             <Image src={Tags}
@@ -250,8 +253,8 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:ml-auto lg:pl-4 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Costo Mensilee Di Soggiorni</p>
-                                    <p className="mt-6 text-lg leading-8 text-gray-300">Questo rapporto completo fornisce una ripartizione dettagliata delle spese di vita mensili, permettendoti di monitorare dove viene speso il tuo denaro. Classificando le spese relative all'alloggio, alle utenze, ai generi alimentari, ai trasporti e ad altri costi di vita essenziali, puoi ottenere una chiara comprensione dei tuoi modelli di spesa e identificare le aree in cui puoi potenzialmente risparmiare o apportare modifiche al tuo budget.</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Monatlichen Lebenshaltungskosten</p>
+                                    <p className="mt-6 text-lg leading-8 text-gray-300">Der umfassende Bericht bietet eine detaillierte Aufschlüsselung der monatlichen Lebenshaltungskosten, so dass du verfolgen kannst, wofür dein Geld ausgegeben wird. Indem du die Ausgaben für Wohnen, Versorgung, Lebensmittel, Transport und andere lebensnotwendige Kosten in Kategorien einteilst, bekommst du einen klaren Überblick über dein Ausgabenverhalten und erkennst Bereiche, in denen du möglicherweise sparen oder dein Budget anpassen kannst.</p>
                                 </div>
                             </div>
                             <div className="flex items-start justify-end lg:order-first">
@@ -269,9 +272,9 @@ export default async function Page() {
                             className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                             <div className="my-auto content-center lg:pr-8 lg:pt-4">
                                 <div className="lg:max-w-lg">
-                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Patrimonio Netto</p>
+                                    <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Mein Eigenkapital</p>
                                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                                    Il rapporto sulla progressione del patrimonio netto ti offre una visione preziosa della tua crescita e stabilità finanziaria nel tempo. Tracciando i cambiamenti del tuo patrimonio netto, il report fornisce una visione completa dell'evoluzione del tuo patrimonio netto. Questo ti permette di valutare i tuoi progressi finanziari, di fissare obiettivi e di prendere decisioni strategiche per migliorare il tuo benessere finanziario complessivo.</p>
+                                    Der Bericht über die Entwicklung deines Nettovermögens bietet dir einen wertvollen Einblick in dein finanzielles Wachstum und deine Stabilität im Laufe der Zeit. Indem er die Veränderungen deines Nettowertes verfolgt, bietet der Bericht einen umfassenden Überblick über die Entwicklung deines Nettowertes. So kannst du deine finanziellen Fortschritte beurteilen, Ziele setzen und strategische Entscheidungen treffen, um dein finanzielles Wohlergehen zu verbessern.</p>
                                 </div>
                             </div>
                             <Image src={MyNetWorth}

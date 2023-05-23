@@ -13,16 +13,10 @@ import Payees from "/public/images/reports/report-payees.png"
 import SubscriptionInsights from "/public/images/reports/report-subscription-insights.png"
 import ReportsHero from "/public/images/reports/reports-hero.png"
 
-
-
-
-
-
-
 import { Fragment } from 'react'
 import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid'
 
-const title = "Reports Showcase"
+const title = "MoneyCoach Financial Reports"
 const description = "Discover the power of insightful reports to enhance your financial management. Our comprehensive reports provide a detailed breakdown of expenses, income, net worth progression, living expenses, and more. With clear visualizations and concise summaries, gain valuable insights into your financial health, track spending patterns, and make informed decisions to achieve your financial goals."
 
 function classNames(...classes) {
@@ -36,7 +30,7 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         type: 'website',
-        url: '/reports-showcase',
+        url: '/financial-reports',
         images: [
             {
                 url: '/images/og-image.png',
@@ -47,9 +41,9 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: '/reports-showcase',
+        canonical: '/financial-reports',
         languages: {
-            en: '/reports-showcasee',
+            en: '/financial-reports',
             it: '/it/rapporti',
             de: '/de/berichte',
           }
@@ -75,8 +69,8 @@ export default async function Page() {
                     <div className="py-24 sm:py-32 lg:pb-16">
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-2xl text-center">
-                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">Reports Showcase</h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">Discover the power of insightful reports to enhance your financial management. Our comprehensive reports provide a detailed breakdown of expenses, income, net worth progression, living expenses, and more. With clear visualizations and concise summaries, gain valuable insights into your financial health, track spending patterns, and make informed decisions to achieve your financial goals.</p>
+                                <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">{title}</h1>
+                                <p className="mt-6 text-lg leading-8 text-gray-300">{description}</p>
                             </div>
                             <Image
                                 src={ReportsHero}
