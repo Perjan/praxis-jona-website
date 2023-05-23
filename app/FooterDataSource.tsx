@@ -204,7 +204,7 @@ export const footerNavigationGerman = {
             { name: "Über uns", href: "/de/uber-uns" },
             { name: "Blog", href: "/de/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Support", href: "/dee/support" },
+            { name: "Support", href: "/de/support" },
             { name: "Finanz-Rechner", href: "/financial-calculators" },
             {
                 name: "Feature Anfrage",
