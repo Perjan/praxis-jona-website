@@ -17,7 +17,7 @@ export const footerNavigation = {
             { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
             {
                 name: "Reports",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions",
+                href: "/reports",
             },
         ]
     },
@@ -97,7 +97,7 @@ export const footerNavigationItalian = {
             },
             { name: "Obiettivi", href: "/blog/getting-started-how-to-create-a-smart-goal" },
             {
-                name: "Rapporti",
+                name: "Sottoscrizioni",
                 href: "/blog/understanding-the-real-cost-of-your-subscriptions",
             },
         ]
@@ -112,8 +112,8 @@ export const footerNavigationItalian = {
             },
             { name: "Prestiti", href: "/blog/how-to-manage-property-loans/" },
             {
-                name: "Abbonamenti",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
+                name: "Rapporti",
+                href: "/it/rapporti",
             },
         ]
     },
@@ -178,7 +178,7 @@ export const footerNavigationGerman = {
             },
             { name: "Ziele", href: "/blog/getting-started-how-to-create-a-smart-goal" },
             {
-                name: "Berichte",
+                name: "Abbos",
                 href: "/blog/understanding-the-real-cost-of-your-subscriptions",
             },
         ]
@@ -193,8 +193,8 @@ export const footerNavigationGerman = {
             },
             { name: "Darlehen", href: "/blog/how-to-manage-property-loans/" },
             {
-                name: "Abonnements",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
+                name: "Berichte",
+                href: "/de/berichte",
             },
         ]
     },
