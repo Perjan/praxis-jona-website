@@ -113,7 +113,13 @@ const nextConfig = {
         source: "/:path*/import-csv-files-to-moneycoach",
         destination: "/guides/import-csv-files-in-moneycoach",
         permanent: true
+      },
+      {
+        source: "/press-kit",
+        destination: "/company/press-kit",
+        permanent: true
       }
+
     ]
   },
   rewrites: async () => {
