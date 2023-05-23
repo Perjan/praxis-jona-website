@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     languages: {
       en: "/features",
       it: "/it/funzioni",
-      de: "/de/features"
+      de: "/de/funktionen"
     }
   },
   twitter: {
