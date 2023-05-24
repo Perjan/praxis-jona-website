@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     languages: {
       en: '/guides',
       it: '/it/guide',
-      de: '/de/guides',
+      de: '/de/einfuehrungen',
       }
   },
   twitter: {
