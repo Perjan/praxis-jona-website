@@ -203,7 +203,7 @@ export const footerNavigationGerman = {
     company: {
         title: "Unternehmen",
         items: [
-            { name: "Über uns", href: "/de/uber-uns" },
+            { name: "Über uns", href: "/de/ueber-uns" },
             { name: "Blog", href: "/de/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
             { name: "Support", href: "/de/support" },

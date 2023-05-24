@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     type: 'website',
-    url: '/de/uber-uns',
+    url: '/de/ueber-uns',
     images: [
       {
         url: '/images/og-image.png',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     languages: {
         en: "/company",
         it: "/it/chi-siamo",
-        de: "/de/uber-uns"
+        de: "/de/ueber-uns"
       }
   },
   twitter: {

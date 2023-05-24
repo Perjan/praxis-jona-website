@@ -33,7 +33,7 @@ const navigationItemsGerman = [
     { title: "Funktionen", href: "/de/funktionen" },
     { title: "Einführungen", href: "/de/einfuehrungen" },
     { title: "Blog", href: "/de/blog" },
-    { title: "Über Uns", href: "/de/uber-uns" }
+    { title: "Über Uns", href: "/de/ueber-uns" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
