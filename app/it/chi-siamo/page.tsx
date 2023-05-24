@@ -195,6 +195,19 @@ export default function Page() {
               </li>
 
               <li>
+                <a href="https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
+                    width={300}
+                    height={200}
+                    src="/images/decky-icon.jpg"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Web Dashboard Decky</h3>
+              </li>
+
+              <li>
                 <a href="https://apps.apple.com/us/app/iban-calculator-by-moneycoach/id1017293567">
                   <Image
                     className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"

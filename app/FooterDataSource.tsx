@@ -65,6 +65,7 @@ export const footerNavigation = {
         items: [
             { name: "MoneyCoach", href: "/" },
             { name: "MoneySpaces", href: "/moneyspaces" },
+            { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
             { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
             { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
@@ -146,6 +147,7 @@ export const footerNavigationItalian = {
         items: [
             { name: "MoneyCoach", href: "/" },
             { name: "MoneySpaces", href: "/moneyspaces" },
+            { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
             { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
             { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
@@ -227,6 +229,7 @@ export const footerNavigationGerman = {
         items: [
             { name: "MoneyCoach", href: "/" },
             { name: "MoneySpaces", href: "/moneyspaces" },
+            { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
             { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
             { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
