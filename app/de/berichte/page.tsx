@@ -13,8 +13,6 @@ import Payees from "/public/images/reports/report-payees.png"
 import SubscriptionInsights from "/public/images/reports/report-subscription-insights.png"
 import ReportsHero from "/public/images/reports/reports-hero.png"
 
-import { Fragment } from 'react'
-import { CheckIcon, MinusIcon } from '@heroicons/react/20/solid'
 
 const title = "Finanz Berichte"
 const description = "Entdecke die Macht der aufschlussreichen Berichte, um dein Finanzmanagement zu verbessern. Unsere umfassenden Berichte bieten eine detaillierte Aufschlüsselung von Ausgaben, Einnahmen, der Entwicklung des Nettovermögens, Lebenshaltungskosten und mehr. Mit übersichtlichen Darstellungen und prägnanten Zusammenfassungen erhältst du wertvolle Einblicke in deine finanzielle Gesundheit, verfolgst Ausgabenmuster und triffst fundierte Entscheidungen, um deine finanziellen Ziele zu erreichen."
