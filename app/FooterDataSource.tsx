@@ -15,10 +15,7 @@ export const footerNavigation = {
                 href: "/blog/how-to-manage-your-credit-cards",
             },
             { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
-            {
-                name: "Reports",
-                href: "/reports",
-            },
+            { name: "Reports", href: "/financial-reports" },
         ]
     },
     usecases: {
