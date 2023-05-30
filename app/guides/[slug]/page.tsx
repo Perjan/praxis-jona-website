@@ -96,8 +96,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         <article className="prose prose-neutral mx-auto max-w-2xl lg:mx-0">
         {/* <article className=""> */}
            <section>
-             <script type="application/ld+json">
-               {/* {JSON.stringify(post.structuredData)} */}
+           <script type="application/ld+json" dangerouslySetInnerHTML={
+              { __html: JSON.stringify(post.structuredData) }
+            }>
              </script>
              { (post.coverImage !== undefined) &&
               <Image 

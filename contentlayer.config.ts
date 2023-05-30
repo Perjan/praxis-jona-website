@@ -1,6 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
 export const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `**/*.mdx`, // Type of file to parse (every mdx in all subfolders)
@@ -63,7 +62,7 @@ export const Post = defineDocumentType(() => ({
       resolve: (post) => post.summary || getWordStr(post.body.raw, 40)
     },
     structuredData: {
-      type: 'object',
+      type: "json",
       resolve: (doc) => ({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
