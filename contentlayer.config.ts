@@ -70,7 +70,7 @@ export const Post = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.date,
         description: doc.summaryOrExcerpt,
-        image: doc.coverImageUrl,
+        image: `https://moneycoach.ai/images/blog-images/${doc.coverImage}`,
         url: doc.url,
         author: {
           '@type': 'Person',
