@@ -5,7 +5,7 @@ import Footer from './Footer';
 import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 
-const title = "MoneyCoach - Modern Cash Tracker And Budgeting App"
+const title = "MoneyCoach - Modern Money Manager And Budgeting App"
 const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
 
 export const metadata: Metadata = {
