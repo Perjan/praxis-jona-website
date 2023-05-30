@@ -1,5 +1,6 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
+/** @type {import('contentlayer/source-files').ComputedFields} */
 export const Post = defineDocumentType(() => ({
   name: "Post",
   filePathPattern: `**/*.mdx`, // Type of file to parse (every mdx in all subfolders)
@@ -60,6 +61,24 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
       resolve: (post) => post.summary || getWordStr(post.body.raw, 40)
+    },
+    structuredData: {
+      type: 'object',
+      resolve: (doc) => ({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: doc.title,
+        datePublished: doc.date,
+        dateModified: doc.date,
+        description: doc.summaryOrExcerpt,
+        image: doc.coverImageUrl,
+        url: doc.url,
+        author: {
+          '@type': 'Person',
+          name: 'Perjan Duro',
+          url: 'https://twitter.com/perjanduro',      
+        },
+      })
     }
   },
 }));

@@ -107,7 +107,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           {/* <article className=""> */}
           <section>
             <script type="application/ld+json">
-              {/* {JSON.stringify(post.structuredData)} */}
+              {JSON.stringify(post.structuredData)}
             </script>
             {(post.coverImage !== undefined) &&
               <Image

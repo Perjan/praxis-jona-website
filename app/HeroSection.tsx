@@ -35,7 +35,7 @@ export type HeroConfig = {
 }
 
 export const defaultHeroConfig: HeroConfig = {
-    title: "Modern Cash And Budget Tracker",
+    title: "Modern Money Manager &\n\n Budgeting App",
     description: "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about.",
     downloadNowTitle: "Download Now",
     watchVideo: "Watch Video",
