@@ -106,6 +106,9 @@ export default function Footer() {
               <Link href="/de">🇩🇪 /</Link>
               <Link href="/it">🇮🇹</Link>
             </div>
+            <div className="sr-only">
+              <Link href="https://linktr.ee/appmoneycoach">Linktree</Link>
+            </div>
           </div>
         </div>
       </div>
