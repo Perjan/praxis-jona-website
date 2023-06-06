@@ -69,12 +69,19 @@ function RoundedImage(props) {
     {...props} />;
 }
 
+function LinkWithRel(props) {
+  return <Link className="bg-red-400" href={props.href} {...props}>
+    {props.children}
+  </Link>
+}
+
 const components = {
   // a: CustomLink,
   h1: H1,
   // h3: H3
   img: RoundedImage,
-  YouTube: YoutubeEmbeddedVideo
+  YouTube: YoutubeEmbeddedVideo,
+  LinkWithRel: LinkWithRel
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
