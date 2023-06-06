@@ -70,8 +70,9 @@ function RoundedImage(props) {
 }
 
 function LinkWithRel(props) {
+  const imageHref = props.image;
   return <Link className="bg-red-400" href={props.href} {...props}>
-    {props.children}
+    <img src={imageHref} alt={props.alt} />
   </Link>
 }
 
