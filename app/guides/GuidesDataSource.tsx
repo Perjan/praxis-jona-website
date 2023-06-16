@@ -4,6 +4,7 @@ import { Post, allPosts } from 'contentlayer/generated'
 const guidesPosts = allPosts.filter((post) => post.categories?.includes('guide'))
 
 const beginnerPostsSlugs = [
+  "how-to-translate-tutorials-in-your-language",
   "import-csv-files-in-moneycoach",
   "getting-started-how-to-set-up-an-account",
   "getting-started-how-to-add-a-new-transaction",
