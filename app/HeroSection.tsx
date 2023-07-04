@@ -18,7 +18,7 @@ import AppOfTheDayDe from "/public/images/app-of-the-day-de.png"
 import AccoladesComboDe from "/public/images/accolades-combo-de.png"
 import HeroImageDe from "/public/images/moneycoach-all-devices.png"
 
-const downloadUrl = "https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198"
+const downloadUrl = "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
 
