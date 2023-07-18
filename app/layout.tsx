@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     ios: {
       app_name: 'MoneyCoach',
       app_store_id: '989642198',
-      url: 'https://apps.apple.com/us/app/moneycoach-budget-spendings/id989642198',
+      url: 'https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8id989642198',
     }
   }
 }
