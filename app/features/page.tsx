@@ -46,6 +46,18 @@ export const metadata: Metadata = {
 // features list with title, description, and image from the Features() component
 const features = [
   {
+    title: "Family Sync",
+    description:
+      "Share your data with your wife, husband. partner or any other user using different Apple IDs.",
+    image: "/images/features/familySyncFeature.png",
+  },
+  {
+    title: "Manage Credit Cards",
+    description:
+      "Track and manage your credit card accounts. Set up payment reminders so you never have to pay card interests and more.",
+    image: "/images/features/creditCardFeature.png",
+  },
+  {
     title: "Multi Currency",
     description:
       "MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.",
@@ -56,12 +68,6 @@ const features = [
     description:
       "Are you on vacation? Business trip? Holidays coming soon? Create a budget, stay on budget and save more money!",
     image: "/images/features/budgetsFeature.png",
-  },
-  {
-    title: "Manage Credit Cards",
-    description:
-      "Track and manage your credit card accounts. Set up payment reminders so you never have to pay card interests and more.",
-    image: "/images/features/creditCardFeature.png",
   },
   {
     title: "Customizable Smart Goals",

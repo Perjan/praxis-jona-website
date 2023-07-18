@@ -23,6 +23,7 @@ import {
   LockClosedIcon,
   ArrowPathIcon,
   FingerPrintIcon,
+  UserGroupIcon,
 } from '@heroicons/react/20/solid'
 
 const features = [
@@ -106,10 +107,10 @@ const macSectionFeatures = [
 
 const featuresSectionItems = [
   {
-    name: 'Multi-currency Support',
+    name: 'Family Sync',
     description:
-      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
-    icon: CloudArrowUpIcon,
+      'Share your data with your wife, husband. partner or any other user using different Apple IDs.',
+    icon: UserGroupIcon,
   },
   {
     name: 'Smart Budgets & Goals',
@@ -124,11 +125,11 @@ const featuresSectionItems = [
     icon: ArrowPathIcon,
   },
   {
-    name: 'Extremely personalizable',
+    name: 'Multi-currency Support',
     description:
-      'You can customize MoneyCoach to your liking. Show or hide the Overview cards, sort them how you like, change the app icon, app tint and more.',
-    icon: FingerPrintIcon,
-  },
+      'MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.',
+    icon: CloudArrowUpIcon,
+  }
 ]
 
 /// https://beta.nextjs.org/docs/installation

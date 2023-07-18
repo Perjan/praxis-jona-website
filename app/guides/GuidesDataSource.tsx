@@ -18,8 +18,7 @@ const beginnerPostsSlugs = [
 
 const intermediatePostsSlugs = [
   "how-to-activate-cloud-sync",
-  "icloud-sync-troubleshooting",
-  "all-you-need-to-know-about-family-sharing",
+  "how-to-activate-family-sync",
   "how-to-show-hide-accounts",
   "how-to-track-and-manage-credit-cards",
   "how-to-customize-your-payday-in-moneycoach-app",
@@ -57,6 +56,7 @@ const advancedPostsSlugs = [
 
 const questionsAndAnswersPostsSlugs = [
   "how-to-cancel-a-subscription",
+  "icloud-sync-troubleshooting",
   "how-to-share-your-moneycoach-premium-subscription-on-your-mac-too",
   "can-you-sync-moneycoach-android-and-mac-apps",
   "how-to-manually-backup-your-moneycoach-data",

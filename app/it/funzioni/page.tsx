@@ -46,10 +46,16 @@ export const metadata: Metadata = {
 // features list with title, description, and image from the Features() component
 const features = [
   {
-    title: "Multi-Valuta",
+    title: "Condividi Con La Famiglia",
     description:
-      "MoneyCoach è perfetto per chi ha conti in più valute. Scopri quanto è il tuo patrimonio netto, convertito in tempo reale.",
-    image: "/images/features/multicurrencyFeature.png",
+      "Condividi i tuoi dati con tua moglie, tuo marito, il tuo partner o qualsiasi altro utente che utilizza ID Apple diversi.",
+    image: "/images/features/familySyncFeature.png",
+  },
+  {
+    title: "Carte di Credito",
+    description:
+      "Traccia e gestisci le tue carte di credito. Imposta promemoria di pagamento per non dover mai pagare gli interessi della carta e altro ancora.",
+    image: "/images/features/creditCardFeature.png",
   },
   {
     title: "Budget Personalizzabili",
@@ -58,10 +64,10 @@ const features = [
     image: "/images/features/budgetsFeature.png",
   },
   {
-    title: "Carte di Credito",
+    title: "Multi-Valuta",
     description:
-      "Traccia e gestisci le tue carte di credito. Imposta promemoria di pagamento per non dover mai pagare gli interessi della carta e altro ancora.",
-    image: "/images/features/creditCardFeature.png",
+      "MoneyCoach è perfetto per chi ha conti in più valute. Scopri quanto è il tuo patrimonio netto, convertito in tempo reale.",
+    image: "/images/features/multicurrencyFeature.png",
   },
   {
     title: "Obiettivi Personalizzabili",

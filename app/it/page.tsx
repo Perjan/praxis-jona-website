@@ -23,6 +23,7 @@ import {
   LockClosedIcon,
   ArrowPathIcon,
   FingerPrintIcon,
+  UserGroupIcon,
 } from '@heroicons/react/20/solid'
 
 const features = [
@@ -104,6 +105,12 @@ const macSectionFeatures = [
 
 const featuresSectionItems = [
   {
+    name: 'Condividi Con La Famiglia',
+    description:
+      'Condividi i tuoi dati con tua moglie, tuo marito, il tuo partner o qualsiasi altro utente che utilizza ID Apple diversi.',
+    icon: UserGroupIcon,
+  },
+  {
     name: 'Supporto multi-valuta',
     description:
       'MoneyCoach è perfetto per chi ha conti in più valute. Scopri quanto è il tuo patrimonio netto, convertito in tempo reale.',
@@ -120,13 +127,7 @@ const featuresSectionItems = [
     description:
       'Inserisci movimenti tramite Siri. Controlla le tue finanze sulla schermata di blocco/casa tramite widget e Live Activities e molto altro ancora.',
     icon: ArrowPathIcon,
-  },
-  {
-    name: 'Estremamente personalizzabile',
-    description:
-      "Personalizza MoneyCoach a tuo piacimento. Mostra o nascondi le carte di sommario, ordinale come preferite, cambia l'icona dell'app, la tonalità dell'app e molto altro ancora.",
-    icon: FingerPrintIcon,
-  },
+  }
 ]
 
 /// https://beta.nextjs.org/docs/installation
