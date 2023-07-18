@@ -19,6 +19,7 @@ const beginnerPostsSlugs = [
 const intermediatePostsSlugs = [
   "how-to-activate-cloud-sync",
   "icloud-sync-troubleshooting",
+  "all-you-need-to-know-about-family-sharing",
   "how-to-show-hide-accounts",
   "how-to-track-and-manage-credit-cards",
   "how-to-customize-your-payday-in-moneycoach-app",
