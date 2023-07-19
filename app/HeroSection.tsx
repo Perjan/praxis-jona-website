@@ -17,8 +17,8 @@ import HeroImageIt from "/public/images/moneycoach-all-devices.png"
 import AppOfTheDayDe from "/public/images/app-of-the-day-de.png"
 import AccoladesComboDe from "/public/images/accolades-combo-de.png"
 import HeroImageDe from "/public/images/moneycoach-all-devices.png"
+import { Constants } from './Constants'
 
-const downloadUrl = "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8"
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
 const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
 
@@ -115,7 +115,7 @@ export default function HeroSection(params: { config: HeroConfig }) {
                     </p>
                     <div className="mt-10 flex items-center gap-x-6">
                         <Link
-                            href={downloadUrl}
+                            href={Constants.downloadUrl}
                             target='_blank'
                             className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >

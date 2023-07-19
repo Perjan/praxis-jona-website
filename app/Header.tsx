@@ -14,6 +14,7 @@ import { cn } from './lib/utils'
 
 import Logo from "/public/images/moneycoach-web-logo.png"
 import LogoMoneySpaces from "/public/images/moneyspaces-logo.png"
+import { Constants } from './Constants'
 
 const navigationItemsEnglish = [
     { title: "Features", href: "/features" },
@@ -38,7 +39,7 @@ const navigationItemsGerman = [
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
 
-const downloadUrl = "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8"
+const downloadUrl = Constants.downloadUrl
 const downloadUrlMoneySpaces = "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8"
 
 function classNames(...classes: string[]) {

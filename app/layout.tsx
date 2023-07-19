@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Footer from './Footer';
 import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
+import { Constants } from './Constants';
 
 const title = "MoneyCoach - Modern Money Manager And Budgeting App"
 const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     ios: {
       app_name: 'MoneyCoach',
       app_store_id: '989642198',
-      url: 'https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8id989642198',
+      url: Constants.downloadUrl
     }
   }
 }
