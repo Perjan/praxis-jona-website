@@ -24,6 +24,8 @@ import {
   ArrowPathIcon,
   FingerPrintIcon,
   UserGroupIcon,
+  LinkIcon,
+  RectangleGroupIcon,
 } from '@heroicons/react/20/solid'
 
 const features = [
@@ -104,6 +106,19 @@ const macSectionFeatures = [
   }
 ]
 
+const familySyncFeatures = [
+  {
+    name: 'Shared Dataset.',
+    description:
+      'Share your data with your wife, husband or partner and have one unified experience where you can see your shared accounts, budgets, goals etc.',
+    icon: LinkIcon,
+  },
+  {
+    name: 'Personal Overview.',
+    description: 'Although everything is shared, each user can personalize their own Overview by selecting which accounts to show or hide.',
+    icon: RectangleGroupIcon,
+  }
+]
 
 const featuresSectionItems = [
   {
@@ -138,6 +153,14 @@ export default function Home() {
     <main>
 
       <HeroSection config={defaultHeroConfig} />
+
+      <FeatureSectionWithProductScreenshotPanel
+        title="Share your data with your partner"
+        subtitle='Family Sync'
+        description='Available on MoneyCoach 8.6 or later.'
+        image = "/images/familySyncHero.png"
+        features={familySyncFeatures}
+      />
 
       <FinancialOverview
         subtitle="Complete Overview"
@@ -175,6 +198,7 @@ export default function Home() {
       <FeatureSectionWithProductScreenshotPanel
         title="MoneyCoach for macOS"
         subtitle='A delightful experience on your Mac'
+        image = "/images/moneyCoachOnMac.png"
         description='Available on all Macs running macOS 12 Monterey or later.'
         features={macSectionFeatures}
       />

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function FeatureSectionWithProductScreenshotPanel( params: {title: string, subtitle: string, description: string, features: any[]}) {
+export default function FeatureSectionWithProductScreenshotPanel( params: {title: string, subtitle: string, description: string, image: string, features: any[]}) {
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -15,9 +15,9 @@ export default function FeatureSectionWithProductScreenshotPanel( params: {title
       <div className="relative overflow-hidden p-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Image
-            src="/images/moneyCoachOnMac.png"
-            alt="MoneyCoach Mac Screenshot"
-            className="mb-[-12%] rounded-xl"
+            src={params.image}
+            alt="MoneyCoach Screenshot"
+            className="mb-[-6%] rounded-xl"
             width={2432}
             height={1442}
           />
