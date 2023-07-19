@@ -23,6 +23,8 @@ import {
   ArrowPathIcon,
   FingerPrintIcon,
   UserGroupIcon,
+  LinkIcon,
+  RectangleGroupIcon,
 } from '@heroicons/react/20/solid'
 
 const features = [
@@ -131,12 +133,34 @@ const featuresSectionItems = [
   }
 ]
 
+const familySyncFeatures = [
+  {
+    name: 'Geteilte Erfahrung.',
+    description:
+      'Tausche deine Daten mit deiner Frau, deinem Mann oder deinem Partner aus und erhalte so ein einheitliches Erlebnis, bei dem ihr eure gemeinsamen Konten, Budgets, Ziele usw. sehen könnt.',
+    icon: LinkIcon,
+  },
+  {
+    name: 'Persönliche Übersicht.',
+    description: 'Obwohl alles gemeinsam genutzt wird, kann jeder Nutzer/in seine/ihre eigene Übersicht personalisieren, indem er/sie auswählt, welche Konten angezeigt oder ausgeblendet werden sollen.',
+    icon: RectangleGroupIcon,
+  }
+]
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
     <main>
 
       <HeroSection config={germanHeroConfig} />
+
+      <FeatureSectionWithProductScreenshotPanel
+        title="Teile deine Daten mit deinem Partner"
+        subtitle='Familiensynchronisierung'
+        description='Verfügbar in MoneyCoach 8.6 oder höher.'
+        image = "/images/familySyncHero.png"
+        features={familySyncFeatures}
+      />
 
       <FinancialOverview
         subtitle="Vollständige Übersicht"
@@ -175,6 +199,7 @@ export default function Home() {
         title="MoneyCoach für macOS"
         subtitle='Ein wunderbares Erlebnis auf deinem Mac'
         description='Verfügbar auf allen Macs mit macOS 12 Monterey oder höher.'
+        image = "/images/moneyCoachOnMac.png"
         features={macSectionFeatures}
       />
 
