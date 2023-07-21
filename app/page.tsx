@@ -49,7 +49,7 @@ const budgetSectionFeatures = [
   },
   {
     name: 'Budgets for every day.',
-    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an “envelope” budget tracking one or more specific categories, stick to this budget and save more money.',
+    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an “envelope" budget tracking one or more specific categories, stick to this budget and save more money.',
     icon: CalendarDaysIcon,
   },
   {
@@ -108,7 +108,7 @@ const macSectionFeatures = [
 
 const familySyncFeatures = [
   {
-    name: 'Shared Dataset.',
+    name: 'Shared Experience.',
     description:
       'Share your data with your wife, husband or partner and have one unified experience where you can see your shared accounts, budgets, goals etc.',
     icon: LinkIcon,
@@ -172,7 +172,7 @@ export default function Home() {
       <FeatureWithLargeScreenshotSection
         subtitle="Smart Budgets"
         title="Save more money with personalized smart budgets"
-        description="Set up “envelope” budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
+        description="Set up 'envelope' budgets that work for you. Limit your spending so that can save you up to 2.000 Euros every year."
         features={budgetSectionFeatures}
       />
 
