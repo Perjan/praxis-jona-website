@@ -105,7 +105,7 @@ export default function PressKit() {
                             <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/gq.png" alt="" />
                             <div className="max-w-xl flex-auto">
                                 <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">GQ</h3>
-                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">Apps “made in Germany": 5
+                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">Apps "made in Germany": 5
                                     Erfolgsgeschichten aus dem Apple App Store</h2>
                                 <div className="mt-10 flex items-center gap-x-6">
                                     <a target="_blank" rel='noopener noreferrer nofollow' href="https://www.gq-magazin.de/technik/artikel/apps-made-in-germany-5-erfolgsgeschichten-aus-dem-apple-app-store"

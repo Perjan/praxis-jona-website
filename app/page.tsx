@@ -49,7 +49,7 @@ const budgetSectionFeatures = [
   },
   {
     name: 'Budgets for every day.',
-    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an “envelope" budget tracking one or more specific categories, stick to this budget and save more money.',
+    description: 'Food, Drinks, Entertainment, Tech, Video Games, whatever. Create an "envelope" budget tracking one or more specific categories, stick to this budget and save more money.',
     icon: CalendarDaysIcon,
   },
   {
