@@ -12,7 +12,7 @@ import {
   ChevronRightIcon 
 } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
-import { AppDownloadLink } from 'app/AppDownloadLink'
+import { AppDownloadLink, MSAppDownloadLink } from 'app/AppDownloadLink'
 
 export const dynamic = "force-static"
 
@@ -84,7 +84,8 @@ const components = {
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo,
   LinkWithRel: LinkWithRel,
-  AppDownloadLink: AppDownloadLink
+  AppDownloadLink: AppDownloadLink,
+  MSAppDownloadLink: MSAppDownloadLink
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
