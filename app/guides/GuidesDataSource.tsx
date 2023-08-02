@@ -29,7 +29,6 @@ const intermediatePostsSlugs = [
   "how-to-track-debts",
   "how-to-add-a-repeating-transaction-transfer",
   "how-to-manage-repeating-transactions",
-  "how-to-reset-the-icloud-sync",
   "how-to-customize-your-payday-in-moneycoach-app",
   "how-to-scan-invoices-receipts",
   "how-to-setup-a-mortgage-account-in-moneycoach"
