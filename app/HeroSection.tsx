@@ -34,12 +34,14 @@ export type HeroConfig = {
     heroImage: StaticImageData
 }
 
+const latestVersion = "v8.6.1"
+
 export const defaultHeroConfig: HeroConfig = {
     title: "Modern Money Manager &\n\n Budgeting App",
     description: "Track all your cash spending, manage your personal budgets and reduce your financial stress. That's what MoneyCoach is all about.",
     downloadNowTitle: "Download Now",
     watchVideo: "Watch Video",
-    justShippedTitle: "Just shipped v8.6",
+    justShippedTitle: "Just shipped " + latestVersion,
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
     appOfTheDay: AppOfTheDay,
     accoladesCombo: AccoladesCombo,
@@ -51,7 +53,7 @@ export const italianHeroConfig: HeroConfig = {
     description: "Tieni traccia di tutte le tue spese in contanti, gestisci i tuoi budget personali e riduci lo stress finanziario. Questo e molto di piu la trovi su MoneyCoach. Localizatto in Italiano 🇮🇹",
     downloadNowTitle: "Scarica Ora",
     watchVideo: "Guarda il Video",
-    justShippedTitle: "Appena rilasciato v8.6",
+    justShippedTitle: "Appena rilasciato " + latestVersion,
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
     appOfTheDay: AppOfTheDayIt,
     accoladesCombo: AccoladesComboIt,
@@ -63,7 +65,7 @@ export const germanHeroConfig: HeroConfig = {
     description: "Verfolge alle deine Bargeldausgaben, verwalte deine persönlichen Budgets und reduziere deinen finanziellen Stress. Darum geht es bei MoneyCoach. Privat. Sicher. Kein Login.",
     downloadNowTitle: "Jetzt Herunterladen",
     watchVideo: "Video Anschauen",
-    justShippedTitle: "Letztes Update: v8.6",
+    justShippedTitle: "Letztes Update: " + latestVersion,
     justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
     appOfTheDay: AppOfTheDayDe,
     accoladesCombo: AccoladesComboDe,
