@@ -3,6 +3,17 @@ import { Metadata } from "next";
 
 const baseUrl = 'https://moneycoach.ai';
 
+function slugForLanguage(post: Post, language: string) {
+  switch (language) {
+    case 'it':
+      return post.slugIt ?? post.slug;
+    case 'de':
+      return post.slugDe ?? post.slug;
+    default:
+      return post.slugEn ?? post.slug;
+  }
+}
+
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
 
@@ -22,7 +33,12 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     title,
     description,
     alternates: {
-      canonical: canonicalUrl(post),
+      canonical: postUrl(post, 'en'),
+      languages: {
+        en: postUrl(post, 'en'),
+        it: postUrl(post, 'it'),
+        de: postUrl(post, 'de')
+      },
     },
     openGraph: {
       title,
@@ -30,7 +46,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       siteName: 'MoneyCoach',
       type: 'article',
       publishedTime,
-      url: canonicalUrl(post),
+      url: postUrl(post, 'en'),
       images: [
         {
           url: ogImage,
@@ -47,11 +63,11 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
 }
 
 
-function canonicalUrl(post: Post) {
+function postUrl(post: Post, language: string) {
   if (post.categories?.includes("legal")) {
-    return baseUrl + "/" + post.slug;
+    return baseUrl + "/" + slugForLanguage(post, language);
   } else if (post.categories?.includes("guide")) {
-    return baseUrl + "/guides/" + post.slug;
+    return baseUrl + "/guides/" + slugForLanguage(post, language);
   }
-  return baseUrl + post.url;
+  return baseUrl + "/blog/" + slugForLanguage(post, language);
 }

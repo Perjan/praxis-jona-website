@@ -30,6 +30,21 @@ export const Post = defineDocumentType(() => ({
       description: "The language of the post",
       required: false,
     },
+    slugIt: {
+      type: "string",
+      description: "The slug of the italian version of the post",
+      required: false,
+    },
+    slugEn: {
+      type: "string",
+      description: "The url of the english version of the post",
+      required: false,
+    },
+    slugDe: {
+      type: "string",
+      description: "The url of the english version of the post",
+      required: false,
+    },
     summary: {
       type: "string",
       description: "The summary of the post",
@@ -41,11 +56,11 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     slug: {
         type: 'string',
-        resolve: (doc) => doc._raw.flattenedPath,
+        resolve: (post) => post._raw.flattenedPath,
       },
     url: {
       type: "string",
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      resolve: (post) => `/blog/${post.slug}`,
     },
     guideUrl: {
       type: "string",
