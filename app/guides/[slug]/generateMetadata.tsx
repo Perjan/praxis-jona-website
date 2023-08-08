@@ -14,6 +14,32 @@ function slugForLanguage(post: Post, language: string) {
   }
 }
 
+function generateAlternatesIfNeeded(post: Post) {
+  var alternates;
+
+  // check if the post has a slug in the other languages
+  if (post.slugEn != undefined || post.slugIt != undefined || post.slugDe != undefined) {
+    alternates = {
+      canonical: postUrl(post, 'en'),
+      languages: {}
+    }
+  }
+
+  if (post.slugIt) {
+    alternates.languages.it = postUrl(post, 'it');
+  }
+
+  if (post.slugDe) {
+    alternates.languages.de = postUrl(post, 'de');
+  }
+
+  if (post.slugEn) {
+    alternates.languages.en = postUrl(post, 'en');
+  }
+
+  return alternates;
+}
+
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
 
@@ -32,14 +58,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
   return {
     title,
     description,
-    alternates: {
-      canonical: postUrl(post, 'en'),
-      languages: {
-        en: postUrl(post, 'en'),
-        it: postUrl(post, 'it'),
-        de: postUrl(post, 'de')
-      },
-    },
+    alternates: generateAlternatesIfNeeded(post),
     openGraph: {
       title,
       description,
