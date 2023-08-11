@@ -15,14 +15,14 @@ function slugForLanguage(post: Post, language: string) {
 }
 
 function generateAlternatesIfNeeded(post: Post) {
-  var alternates;
+  var alternates = {
+    canonical: postUrl(post, 'en'),
+    languages: {}
+  }
 
   // check if the post has a slug in the other languages
   if (post.slugEn != undefined || post.slugIt != undefined || post.slugDe != undefined) {
-    alternates = {
-      canonical: postUrl(post, 'en'),
-      languages: {}
-    }
+
   }
 
   if (post.slugIt) {
