@@ -26,15 +26,15 @@ function generateAlternatesIfNeeded(post: Post) {
   }
 
   if (post.slugIt) {
-    alternates.languages.it = postUrl(post, 'it');
+    alternates.languages["it"] = postUrl(post, 'it');
   }
 
   if (post.slugDe) {
-    alternates.languages.de = postUrl(post, 'de');
+    alternates.languages["de"] = postUrl(post, 'de');
   }
 
   if (post.slugEn) {
-    alternates.languages.en = postUrl(post, 'en');
+    alternates.languages["en"] = postUrl(post, 'en');
   }
 
   return alternates;
