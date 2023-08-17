@@ -17,6 +17,7 @@ function FooterColumn({ title, items }) {
               className="text-sm leading-6 text-gray-600 hover:text-gray-900"
               rel="noopener noreferrer"
               scroll={false}
+              data-umami-event={`footer-item-tapped-${item.name}`}
             >
               {item.name}
             </Link>
@@ -92,6 +93,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 scroll={false}
                 className="text-gray-400 hover:text-gray-500"
+                data-umami-event={`footer-item-tapped-${item.name}`}
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />

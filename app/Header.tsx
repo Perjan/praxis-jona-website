@@ -62,6 +62,7 @@ export function DownloadButton({ url, locale }) {
             href={url}
             target='_blank'
             className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
+            data-umami-event="mc-app-download-button-in-header"
         >{downloadAppTitle(locale)}
         </Link>
     )
@@ -73,6 +74,7 @@ export function DownloadButtonMoneySpaces({ url, locale }) {
             href={url}
             target='_blank'
             className="-mx-3 block rounded-xl bg-indigo-600 py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-indigo-500"
+            data-umami-event="ms-app-download-button-in-header"
         >{downloadAppTitle(locale)}
         </Link>
     )

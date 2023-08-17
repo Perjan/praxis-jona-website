@@ -101,6 +101,8 @@ const [email, setEmail] = useState("");
                 disabled={!isEmail(email)}
                 type="submit"
                 className="flex-none rounded-md bg-primary py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm enabled:hover:bg-primaryDarker disabled:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                data-umami-event="newsletter-button-tapped"
+                data-umami-event-email={email}
                 onClick={async () => {
                   // setButtonDisabled(true);
                   const response = await fetch('/api/mailchimp', {

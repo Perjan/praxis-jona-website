@@ -133,7 +133,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             }
             {isDiary &&
               <blockquote>
-                <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? See what happened until now by tapping <Link href={"/blog?category=diaries"}><strong>this link</strong></Link>.</p>
+                <p>MoneyCoach Diaries is my ongoing journey to turn my indie app into a more sustainable part of my business. First time reading? See what happened until now by tapping <Link href={"/blog?category=diaries"} data-umami-event="view-all-diaries-from-diary-page"><strong>this link</strong></Link>.</p>
               </blockquote>
             }
             <Content components={{ ...components }} />
