@@ -5,6 +5,7 @@ import Footer from './Footer';
 import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
+import Script from 'next/script';
 
 const title = "MoneyCoach - Modern Money Manager And Budgeting App"
 const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
@@ -80,6 +81,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      {/* <script async src="https://analytics.moneycoach.ai/script.js" data-website-id="f410c533-9a4a-48eb-90f3-c9cea78368a9"></script> */}
+      <Script
+            src="https://analytics.moneycoach.ai/script.js"
+            data-website-id="f410c533-9a4a-48eb-90f3-c9cea78368a9"
+            strategy="lazyOnload"
+          />
       <body>
         <ReactToastWrapper>
           <Header />
