@@ -81,7 +81,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      {/* <script async src="https://analytics.moneycoach.ai/script.js" data-website-id="f410c533-9a4a-48eb-90f3-c9cea78368a9"></script> */}
       <Script
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id="f410c533-9a4a-48eb-90f3-c9cea78368a9"
