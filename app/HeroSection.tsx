@@ -34,7 +34,7 @@ export type HeroConfig = {
     heroImage: StaticImageData
 }
 
-const latestVersion = "v8.6.1"
+const latestVersion = "v8.6.3"
 
 export const defaultHeroConfig: HeroConfig = {
     title: "Modern Money Manager &\n\n Budgeting App",
