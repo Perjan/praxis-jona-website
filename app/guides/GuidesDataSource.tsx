@@ -56,6 +56,7 @@ const advancedPostsSlugs = [
 const questionsAndAnswersPostsSlugs = [
   "how-to-cancel-a-subscription",
   "icloud-sync-troubleshooting",
+  "i-cannot-share-my-subscription-with-my-partner",
   "how-to-share-your-moneycoach-premium-subscription-on-your-mac-too",
   "can-you-sync-moneycoach-android-and-mac-apps",
   "how-to-manually-backup-your-moneycoach-data",
