@@ -73,6 +73,7 @@ export default function PressKit() {
                             MoneyCoach.</p>
                     </div>
                     <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">
+                        
                         <li className="flex flex-col gap-10 pt-12 sm:flex-row">
                             <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/apple.png" alt="" />
                             <div className="max-w-xl flex-auto">
@@ -80,7 +81,33 @@ export default function PressKit() {
                                 <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">Developer Spotlight: Try a
                                     friendlier finance app</h2>
                                 <div className="mt-10 flex items-center gap-x-6">
-                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://moneycoach.medium.com/moneycoach-press-kit-15be601f4aa1"
+                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://apps.apple.com/us/story/id1591098240"
+                                        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
+                                        More</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li className="flex flex-col gap-10 pt-12 sm:flex-row">
+                            <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/9to5mac.png" alt="" />
+                            <div className="max-w-xl flex-auto">
+                                <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">9to5mac</h3>
+                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">MoneyCoach finance app adds XL widgets, Apple Watch updates, more</h2>
+                                <div className="mt-10 flex items-center gap-x-6">
+                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://9to5mac.com/2021/09/21/improve-financial-habits-universal-app-moneycoach-ios-15/"
+                                        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
+                                        More</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li className="flex flex-col gap-10 pt-12 sm:flex-row">
+                            <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/apfelfunk.png" alt="" />
+                            <div className="max-w-xl flex-auto">
+                                <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">apfelfunk</h3>
+                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">Apps Made In Germany: MoneyCoach</h2>
+                                <div className="mt-10 flex items-center gap-x-6">
+                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://apfelfunk.com/apps-made-in-germany-moneycoach/"
                                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
                                         More</a>
                                 </div>
