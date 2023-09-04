@@ -39,6 +39,7 @@ export const footerNavigation = {
             { name: "About", href: "/company" },
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
+            { name: "Affiliate", href: "/affiliate" },
             { name: "Support", href: "/support" },
             { name: "Financial Calculators", href: "/financial-calculators" },
             {
@@ -121,6 +122,7 @@ export const footerNavigationItalian = {
             { name: "Riguardo a Noi", href: "/it/chi-siamo" },
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
+            { name: "Affiliazione", href: "/it/marketing-di-affiliazione" },
             { name: "Support", href: "/it/supporto" },
             { name: "Calcolatori Finanziari", href: "/financial-calculators" },
             {
@@ -203,6 +205,7 @@ export const footerNavigationGerman = {
             { name: "Über uns", href: "/de/ueber-uns" },
             { name: "Blog", href: "/de/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
+            { name: "Partnermarketing", href: "/de/partnermarketing" },
             { name: "Support", href: "/de/support" },
             { name: "Finanz-Rechner", href: "/financial-calculators" },
             {

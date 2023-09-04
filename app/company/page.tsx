@@ -177,6 +177,19 @@ export default function Page() {
               </li>
 
               <li>
+                <a href="https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=website&mt=8">
+                  <Image
+                    className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
+                    width={300}
+                    height={200}
+                    src="/images/screenTimeIcon.jpg"
+                    alt=""
+                  />
+                </a>
+                <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">Screen Time Realtime</h3>
+              </li>
+
+              <li>
                 <a href="https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12">
                   <Image
                     className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
