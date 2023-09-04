@@ -159,7 +159,11 @@ const nextConfig = {
         {
           source: "/moneyspaces-privacy-policy",
           destination: "/legal/moneyspaces-privacy-policy"
-        }
+        },
+        // {
+        //   source: "/press-kit-moneycoach",
+        //   destination: "/legal/press-kit-moneycoach"
+        // }
       ],
       fallback: [
         {

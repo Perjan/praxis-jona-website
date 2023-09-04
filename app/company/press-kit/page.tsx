@@ -49,7 +49,7 @@ export default function PressKit() {
                                     <p className="mt-6 text-lg leading-8 text-gray-600">If you’d like to write about MoneyCoach, please explore
                                         our Press Kit or email us at <a target="_blank" rel='noopener noreferrer nofollow' href="mailto:info@moneycoach.ai">info@moneycoach.ai</a>.</p>
                                     <div className="mt-10 flex items-center gap-x-6">
-                                        <a target="_blank" rel='noopener noreferrer nofollow' href="https://moneycoach.medium.com/moneycoach-press-kit-15be601f4aa1"
+                                        <a href="/press-kit-moneycoach"
                                             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Access
                                             Press Kit</a>
                                     </div>
@@ -80,7 +80,7 @@ export default function PressKit() {
                                 <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">Developer Spotlight: Try a
                                     friendlier finance app</h2>
                                 <div className="mt-10 flex items-center gap-x-6">
-                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://moneycoach.medium.com/moneycoach-press-kit-15be601f4aa1"
+                                    <a href="/press-kit-moneycoach"
                                         className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
                                         More</a>
                                 </div>

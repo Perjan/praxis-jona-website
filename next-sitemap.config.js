@@ -4,6 +4,7 @@ module.exports = {
   generateRobotsTxt: true, // (optional)
   exclude: [
     "/company/press-kit",
+    "/blog/press-kit-moneycoach",
     "/legal/privacy-policy",
     "/de",
     "/it",
@@ -11,6 +12,7 @@ module.exports = {
     "/legal/imprint",
     "/legal/disclaimer",
     "/legal/terms-of-use",
+    "/legal/press-kit",
     "/it/guide",
     "/compare/monefy-alternative",
     "/legal/moneyspaces-privacy-policy",
