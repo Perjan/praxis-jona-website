@@ -43,12 +43,8 @@ export default function FaqsPage() {
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <h2 className="text-2xl font-bold leading-10 tracking-tight text-gray-900">Häufig gestellte Fragen</h2>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-gray-600">
-        Du hast eine andere Frage und kannst die Antwort nicht finden, die du suchst? Wende dich an unser Support-Team, indem du{' '}
-          <a href="#" className="font-semibold text-primary hover:text-primaryDarker">
-          uns eine E-Mail schicken
-          </a>{' '}
-          und wir melden uns bei dir, sobald wir können.
+        <p className="mt-6 text-base leading-7 text-gray-600">
+        Du hast eine andere Frage und kannst die Antwort hier nicht finden? Dann schick uns <a href="mailto:info@moneycoach.ai" className="font-semibold text-primary hover:text-primaryDarker">eine E-Mail</a> und wir melden uns bei dir, sobald wir können.
         </p>
         <div className="mt-20">
           <dl className="space-y-16 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:gap-x-10">
