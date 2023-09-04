@@ -4,6 +4,7 @@ module.exports = {
   generateRobotsTxt: true, // (optional)
   exclude: [
     "/company/press-kit",
+    "/blog/press-kit-moneycoach",
     "/legal/privacy-policy",
     "/de",
     "/it",
