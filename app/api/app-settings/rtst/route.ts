@@ -29,4 +29,5 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.pandora", name: "Pandora", color: "#7726B7"},
     {bundleId: "com.audible.iphone", name: "Audible", color: "#FD8C08"},
     {bundleId: "com.soundcloud.TouchApp", name: "SoundCloud", color: "#000000"},
+    {bundleId: "de.sky.SkyGo", name: "Sky Go", color: "#2D3CF5"},
 ];
