@@ -31,11 +31,13 @@ const intermediatePostsSlugs = [
   "how-to-manage-repeating-transactions",
   "how-to-customize-your-payday-in-moneycoach-app",
   "how-to-scan-invoices-receipts",
-  "how-to-setup-a-mortgage-account-in-moneycoach"
+  "how-to-setup-a-mortgage-account-in-moneycoach",
+  "how-to-export-your-moneycoach-data-as-a-csv-file"
 ]
 
 const advancedPostsSlugs = [
   "how-to-merge-categories-subcategories",
+  "how-to-import-apple-pay-wallet-transactions-to-moneycoach",
   "how-to-start-fresh-with-moneycoach",
   "how-to-deactivate-live-activities",
   "how-the-new-backup-restore-works",
