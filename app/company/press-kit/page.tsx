@@ -101,6 +101,19 @@ export default function PressKit() {
                         </li>
 
                         <li className="flex flex-col gap-10 pt-12 sm:flex-row">
+                            <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/tomsguide.png" alt="" />
+                            <div className="max-w-xl flex-auto">
+                                <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">Tom's Guide</h3>
+                                <h2 className="text-2xl font-semibold leading-8 tracking-tight text-gray-900 pt-4">iPhone 15 Dynamic Island — 15 best apps you should try first</h2>
+                                <div className="mt-10 flex items-center gap-x-6">
+                                    <a target="_blank" rel='noopener noreferrer nofollow' href="https://www.tomsguide.com/news/iphone-15-dynamic-island-15-best-apps-you-should-try-first"
+                                        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Read
+                                        More</a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li className="flex flex-col gap-10 pt-12 sm:flex-row">
                             <Image width={imageWidth} height={imageHeight} className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" src="/images/press/apfelfunk.png" alt="" />
                             <div className="max-w-xl flex-auto">
                                 <h3 className="text-lg font-medium leading-8 tracking-tight text-gray-900">apfelfunk</h3>
