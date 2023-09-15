@@ -31,4 +31,10 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.soundcloud.TouchApp", name: "SoundCloud", color: "#000000"},
     {bundleId: "de.sky.SkyGo", name: "Sky Go", color: "#2D3CF5"},
     {bundleId: "com.easybrain.blockudoku", name: "Blockudoku", color: "#305CBC"},
+    {bundleId: "de.zalando.iphone", name: "Zalando", color: "#FF6804"},
+    {bundleId: "com.bestsecret.BestSecret", name: "BestSecret", color: "#000000"},
+    {bundleId: "zzkko.com.ZZKKO", name: "SHEIN - Shopping Online", color: "#000000"},
+    {bundleId: "com.inditex.zara.iphone", name: "ZARA", color: "#000000"},
+    {bundleId: "com.hm.goe", name: "H&M - we love fashion", color: "#E2030D"},
+    {bundleId: "com.asos.asos", name: "ASOS - Discover Fashion Online", color: "#000000"},
 ];
