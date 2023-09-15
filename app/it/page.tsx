@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import FeaturesSection from 'app/FeaturesSection'
 import NewsletterSection, { defaultNewsletterSectionProps, italianNewsletterSectionProps } from 'app/NewsletterSection'
 import MajorFeatureSection from 'app/MajorFeatureSection'
+import MajorFeatureSectionWithButton from 'app/MajorFeatureSectionWithButton'
 import HeroSection, { HeroConfig, italianHeroConfig } from 'app/HeroSection'
 import FeatureWithLargeScreenshotSection from 'app/FeatureWithLargeScreenshotSection'
 import FeatureSectionWithProductScreenshotOnDark from 'app/FeatureSectionWithProductScreenshotOnDark'
@@ -76,18 +77,18 @@ const goalsSectionFeatures = [
 const watchSectionFeatures = [
   {
     title: "Approfondimenti a Colpo d'Occhio",
-    description: "Controlla quanto denaro ti rimane da spendere, quanto hai speso oggi e quanto hai speso questo mese.",
-    image: "/images/watch2.png",
+    description: "Controlla quanto denaro hai speso oggi e quanto ti rimane da spendere.",
+    image: "/images/watch1-new.png",
   },
   {
     title: "Budgets a Colpo d'Occhio",
     description: "Controlla quanto denaro ti rimane da spendere per budget specifici.",
-    image: "/images/watch1.png",
+    image: "/images/watch2-new.png",
   },
   {
-    title: "Patrimonio a Colpo d'Occhio",
-    description: "Controlla gli approfondimenti e tutti i tuoi conti e il tuo patrimonio netto.",
-    image: "/images/watch3.png",
+    title: "Scorciatoie",
+    description: "Aggiungi movimenti direttamente dalla Apple Watch con un solo tocco.",
+    image: "/images/watch3-new.png",
   },
 ]
 
@@ -157,8 +158,15 @@ export default function Home() {
         title="Condividi i tuoi dati con il tuo partner"
         subtitle='Condividi Con La Famiglia'
         description='Disponibile su MoneyCoach 8.6 o versioni successive.'
-        image = "/images/familySyncHero.png"
+        image = "/images/familySyncHeroNew.png"
         features={familySyncFeatures}
+      />
+
+      <MajorFeatureSectionWithButton
+      title="Importa i movimenti di Apple Pay / Wallet"
+      description={"Importa automaticamente i movimenti da Apple Pay / Wallet tramite una automazione dai Comandi Rapidi. Una volta effettuato un pagamento con una qualsiasi delle tue carte, il movimento verrà automaticamente aggiunto a MoneyCoach.\n\nLa configurazione dell'automazione richiede solo un minuto e deve essere eseguita una sola volta."}
+      url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
+      imageUrl='/images/apple-pay-wallet-import.png'
       />
 
       <FinancialOverview
@@ -199,7 +207,7 @@ export default function Home() {
         title="MoneyCoach per macOS"
         subtitle="Un'esperienza straordinaria sul vostro Mac"
         description='Disponibile su tutti i Mac con sistema operativo macOS 12 Monterey o successivo.'
-        image = "/images/moneyCoachOnMac.png"
+        image = "/images/moneyCoachOnMacNew.png"
         features={macSectionFeatures}
       />
 

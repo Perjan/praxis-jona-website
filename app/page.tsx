@@ -27,6 +27,7 @@ import {
   LinkIcon,
   RectangleGroupIcon,
 } from '@heroicons/react/20/solid'
+import MajorFeatureSectionWithButton from './MajorFeatureSectionWithButton'
 
 const features = [
   {
@@ -77,18 +78,18 @@ const goalsSectionFeatures = [
 const watchSectionFeatures = [
   {
     title: "Glanceable Insights",
-    description: "Check how much money you have left to spend, how much you spent today and how much you spent this month.",
-    image: "/images/watch2.png",
+    description: "Check how much money you have spent and left to spend today.",
+    image: "/images/watch1-new.png",
   },
   {
     title: "Glanceable Budgets",
     description: "Check how much money you have left to spend on specific budgets",
-    image: "/images/watch1.png",
+    image: "/images/watch2-new.png",
   },
   {
-    title: "Glanceable Net Worth",
-    description: "Check insights and get a read on all your accounts and net worth",
-    image: "/images/watch3.png",
+    title: "One Tap Shortcuts",
+    description: "Add transactions directly from the watch with only one tap",
+    image: "/images/watch3-new.png",
   },
 ]
 
@@ -158,8 +159,15 @@ export default function Home() {
         title="Share your data with your partner"
         subtitle='Family Sync'
         description='Available on MoneyCoach 8.6 or later.'
-        image = "/images/familySyncHero.png"
+        image = "/images/familySyncHeroNew.png"
         features={familySyncFeatures}
+      />
+
+      <MajorFeatureSectionWithButton
+      title="Import Apple Pay / Wallet Transactions"
+      description={"Automatically import transactions from Apple Pay / Wallet via a Shortcut Automation. Then once you make a payment with any of your cards, that transaction will be automatically added to MoneyCoach.\n\nSetting up the Shortcut Automation only takes a minute and you only need to do it once."}
+      url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
+      imageUrl='/images/apple-pay-wallet-import.png'
       />
 
       <FinancialOverview
@@ -198,7 +206,7 @@ export default function Home() {
       <FeatureSectionWithProductScreenshotPanel
         title="MoneyCoach for macOS"
         subtitle='A delightful experience on your Mac'
-        image = "/images/moneyCoachOnMac.png"
+        image = "/images/moneyCoachOnMacNew.png"
         description='Available on all Macs running macOS 12 Monterey or later.'
         features={macSectionFeatures}
       />
