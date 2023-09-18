@@ -8,15 +8,15 @@ import Link from 'next/link'
 
 import AppOfTheDay from "/public/images/app-of-the-day.png"
 import AccoladesCombo from "/public/images/accolades-combo.png"
-import HeroImage from "/public/images/moneycoach-all-devices.png"
+import HeroImage from "/public/images/moneycoach-all-devices-new.png"
 
 import AppOfTheDayIt from "/public/images/app-of-the-day-it.png"
 import AccoladesComboIt from "/public/images/accolades-combo-it.png"
-import HeroImageIt from "/public/images/moneycoach-all-devices.png"
+import HeroImageIt from "/public/images/moneycoach-all-devices-new.png"
 
 import AppOfTheDayDe from "/public/images/app-of-the-day-de.png"
 import AccoladesComboDe from "/public/images/accolades-combo-de.png"
-import HeroImageDe from "/public/images/moneycoach-all-devices.png"
+import HeroImageDe from "/public/images/moneycoach-all-devices-new.png"
 import { Constants } from './Constants'
 
 const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
@@ -34,7 +34,7 @@ export type HeroConfig = {
     heroImage: StaticImageData
 }
 
-const latestVersion = "v8.6.3"
+const latestVersion = "v9.0"
 
 export const defaultHeroConfig: HeroConfig = {
     title: "Modern Money Manager &\n\n Budgeting App",
@@ -42,7 +42,7 @@ export const defaultHeroConfig: HeroConfig = {
     downloadNowTitle: "Download Now",
     watchVideo: "Watch Video",
     justShippedTitle: "Just shipped " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
     appOfTheDay: AppOfTheDay,
     accoladesCombo: AccoladesCombo,
     heroImage: HeroImage
@@ -54,7 +54,7 @@ export const italianHeroConfig: HeroConfig = {
     downloadNowTitle: "Scarica Ora",
     watchVideo: "Guarda il Video",
     justShippedTitle: "Appena rilasciato " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
     appOfTheDay: AppOfTheDayIt,
     accoladesCombo: AccoladesComboIt,
     heroImage: HeroImageIt
@@ -66,7 +66,7 @@ export const germanHeroConfig: HeroConfig = {
     downloadNowTitle: "Jetzt Herunterladen",
     watchVideo: "Video Anschauen",
     justShippedTitle: "Letztes Update: " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-8-6",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
     appOfTheDay: AppOfTheDayDe,
     accoladesCombo: AccoladesComboDe,
     heroImage: HeroImageDe

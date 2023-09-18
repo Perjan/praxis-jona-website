@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import MajorFeatureSection from 'app/MajorFeatureSection'
+import MajorFeatureSectionWithButton from 'app/MajorFeatureSectionWithButton'
 import FeaturesSection from 'app/FeaturesSection'
 import NewsletterSection, { defaultNewsletterSectionProps, germanNewsletterSectionProps } from 'app/NewsletterSection'
 import HeroSection, { HeroConfig, germanHeroConfig } from 'app/HeroSection'
@@ -76,18 +77,18 @@ const goalsSectionFeatures = [
 const watchSectionFeatures = [
   {
     title: "Blick auf Einblicke",
-    description: "Prüfe, wie viel Geld du noch ausgeben kannst, wie viel du heute ausgegeben hast und wie viel du diesen Monat ausgegeben hast.",
-    image: "/images/watch2.png",
+    description: "Prüfe, wie viel Geld du heute ausgegeben hast und noch ausgeben kannst.",
+    image: "/images/watch1-new.png",
   },
   {
     title: "Blick auf Budgets",
     description: "Prüfe, wie viel Geld du noch für bestimmte Budgets ausgeben kannst",
-    image: "/images/watch1.png",
+    image: "/images/watch2-new.png",
   },
   {
-    title: "Blick auf Nettowert",
+    title: "Kurzbefehle",
     description: "Prüfe Einblicke und erhalte einen Überblick über alle deine Konten und dein Vermögen",
-    image: "/images/watch3.png",
+    image: "/images/watch3-new.png",
   },
 ]
 
@@ -158,8 +159,15 @@ export default function Home() {
         title="Teile deine Daten mit deinem Partner"
         subtitle='Familiensynchronisierung'
         description='Verfügbar in MoneyCoach 8.6 oder höher.'
-        image = "/images/familySyncHero.png"
+        image = "/images/familySyncHeroNew.png"
         features={familySyncFeatures}
+      />
+
+      <MajorFeatureSectionWithButton
+      title="Apple Pay / Wallet-Transaktionen Importieren"
+      description={"Importiere automatisch Transaktionen aus Apple Pay / Wallet über einen Shortcut Automation. Sobald du dann eine Zahlung mit einer deiner Karten vornimmst, wird diese Transaktion automatisch zu MoneyCoach hinzugefügt.\n\nDas Einrichten der Shortcut-Automatisierung dauert nur eine Minute und du musst es nur einmal machen."}
+      url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
+      imageUrl='/images/apple-pay-wallet-import.png'
       />
 
       <FinancialOverview
@@ -199,7 +207,7 @@ export default function Home() {
         title="MoneyCoach für macOS"
         subtitle='Ein wunderbares Erlebnis auf deinem Mac'
         description='Verfügbar auf allen Macs mit macOS 12 Monterey oder höher.'
-        image = "/images/moneyCoachOnMac.png"
+        image = "/images/moneyCoachOnMacNew.png"
         features={macSectionFeatures}
       />
 

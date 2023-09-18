@@ -58,6 +58,18 @@ const features = [
     image: "/images/features/creditCardFeature.png",
   },
   {
+    title: "Apple Pay Integration",
+    description:
+      "Du kannst jetzt automatisch Transaktionen von Apple Pay / Wallet über eine Shortcut-Automatisierung importieren.",
+    image: "/images/features/apple-pay-import.png",
+  },
+  {
+    title: "Interaktives Widget",
+    description:
+      "Füge Transaktionen zu jeder deiner Kategorien von jedem deiner MoneyCoach-Konten direkt auf dem Homescreen hinzu.",
+    image: "/images/features/interactive-widget.png",
+  },
+  {
     title: "Personalisierbare Budgets",
     description:
       "Bist du im Urlaub? Geschäftsreise? Steht ein Urlaub bevor? Erstelle ein Budget, halte dein Budget ein und spare mehr Geld!",
