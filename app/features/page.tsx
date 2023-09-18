@@ -58,6 +58,18 @@ const features = [
     image: "/images/features/creditCardFeature.png",
   },
   {
+    title: "Apple Pay Integration",
+    description:
+      "Automatically import transactions from Apple Pay / Wallet via a Shortcut Automation.",
+    image: "/images/features/apple-pay-import.png",
+  },
+  {
+    title: "Interactive Widgets",
+    description:
+      "Add transactions to any of your categories from any of your MoneyCoach accounts directly from the Home Screen.",
+    image: "/images/features/interactive-widget.png",
+  },
+  {
     title: "Multi Currency",
     description:
       "MoneyCoach is perfect for those who have accounts in multiple currencies. See much is your Net Worth, converted in real time.",

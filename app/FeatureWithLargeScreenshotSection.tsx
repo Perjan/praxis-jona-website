@@ -15,7 +15,7 @@ export default function FeatureWithLargeScreenshotSection(params: { title: strin
       <div className="relative overflow-hidden p-8">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <Image
-            src="/images/smartBudgets.png"
+            src="/images/smartBudgets-new.png"
             alt="MoneyCoach Budgeting App screenshot"
             className="mb-[-12%] rounded-xl"
             width={2432}

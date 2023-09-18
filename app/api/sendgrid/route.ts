@@ -8,16 +8,14 @@ sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
 export async function POST(request: Request) {
     const requestJson = await request.json()
 
-// generate formatted email body from requestjson
-const requestKeys = Object.keys(requestJson)
-let formattedBody = ''
-let htmlBody = ""
-requestKeys.forEach((key) => {
-    formattedBody = formattedBody + key + ': ' + requestJson[key] + '\n'
-    htmlBody += "<b>" + key + "</b>: " + requestJson[key] + "<br>";
-})
-
-
+    // generate formatted email body from requestjson
+    const requestKeys = Object.keys(requestJson)
+    let formattedBody = ''
+    let htmlBody = ""
+    requestKeys.forEach((key) => {
+        formattedBody = formattedBody + key + ': ' + requestJson[key] + '\n'
+        htmlBody += "<b>" + key + "</b>: " + requestJson[key] + "<br>";
+    })
 
     console.log('sendgrid route');
     console.log({ requestJson });

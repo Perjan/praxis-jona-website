@@ -58,6 +58,18 @@ const features = [
     image: "/images/features/creditCardFeature.png",
   },
   {
+    title: "Integrazione con Apple Pay",
+    description:
+      "Importa automaticamente i movimenti da Apple Pay / Wallet tramite una Scorciatoia Automatica.",
+    image: "/images/features/apple-pay-import.png",
+  },
+  {
+    title: "Widget Interattivi",
+    description:
+      "Aggiungi i movimenti a qualsiasi conto MoneyCoach e a qualsiasi categoria direttamente dalla schermata Home.",
+    image: "/images/features/interactive-widget.png",
+  },
+  {
     title: "Budget Personalizzabili",
     description:
       "Sei in vacanza? Viaggio d'affari? Vacanze imminenti? Crea un budget, rispetta il budget e risparmia di più!",
