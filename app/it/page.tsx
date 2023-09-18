@@ -163,7 +163,7 @@ export default function Home() {
       />
 
       <MajorFeatureSectionWithButton
-      title="Importa i movimenti di Apple Pay / Wallet"
+      title="Importa i movimenti di Apple Pay / Wallet (Beta)"
       description={"Importa automaticamente i movimenti da Apple Pay / Wallet tramite una automazione dai Comandi Rapidi. Una volta effettuato un pagamento con una qualsiasi delle tue carte, il movimento verrà automaticamente aggiunto a MoneyCoach.\n\nLa configurazione dell'automazione richiede solo un minuto e deve essere eseguita una sola volta."}
       url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
       imageUrl='/images/apple-pay-wallet-import.png'

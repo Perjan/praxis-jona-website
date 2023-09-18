@@ -164,7 +164,7 @@ export default function Home() {
       />
 
       <MajorFeatureSectionWithButton
-      title="Import Apple Pay / Wallet Transactions"
+      title="Import Apple Pay / Wallet Transactions (Beta)"
       description={"Automatically import transactions from Apple Pay / Wallet via a Shortcut Automation. Then once you make a payment with any of your cards, that transaction will be automatically added to MoneyCoach.\n\nSetting up the Shortcut Automation only takes a minute and you only need to do it once."}
       url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
       imageUrl='/images/apple-pay-wallet-import.png'
