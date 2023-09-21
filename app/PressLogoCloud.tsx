@@ -11,7 +11,7 @@ export default function PressLogoCloud(params: { title: string }) {
             <a href="https://techcrunch.com/2023/09/18/these-ios-17-apps-bring-interactive-widgets-to-your-iphone-home-screen/">
             <Image
               className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
-              src="/images/press/techcrunchwhite.png"
+              src="/images/press/techcrunchWhite.png"
               alt="Tech Crunch"
               width={158}
               height={48}
