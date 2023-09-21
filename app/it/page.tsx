@@ -11,6 +11,7 @@ import FeatureSectionWithProductScreenshotPanel from 'app/FeatureSectionWithProd
 import AppleLovesMoneyCoachSection from 'app/AppleLovesMoneyCoachSection'
 import FaqSection from 'app/FaqSection'
 import FinancialOverview from 'app/FinancialOverview'
+import PressLogoCloud from 'app/PressLogoCloud'
 
 import {
   PlusCircleIcon,
@@ -153,6 +154,10 @@ export default function Home() {
     <main>
 
       <HeroSection config={italianHeroConfig} />
+
+      <PressLogoCloud
+      title='Alcune delle pubblicità più importanti che abbiamo ottenuto ultimamente'
+      />
 
       <FeatureSectionWithProductScreenshotPanel
         title="Condividi i tuoi dati con il tuo partner"
