@@ -37,7 +37,7 @@ const navigationItemsGerman = [
     { title: "Über Uns", href: "/de/ueber-uns" }
 ]
 
-const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-gray-50"
+const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
 
 const downloadUrl = Constants.downloadUrl
 const downloadUrlMoneySpaces = "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8"
@@ -147,11 +147,11 @@ export default function Header() {
                             />
                         </Link>
                     </div>
-                    <div className="flex lg:hidden">
+                    <div className="flex lg:hidden -m-1.5 p-1.5">
                         <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
                     </div>
 
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                    <div className="hidden lg:flex lg:flex-1 lg:justify-end mt-0 md:mt-14 lg:mt-0">
                         <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
                     </div>
                 </nav>
@@ -164,7 +164,7 @@ export default function Header() {
             // className="bg-white sticky top-0"
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                'sticky top-0 z-20 bg-white transition-shadow',
+                'sticky top-0 z-20 transition-shadow backdrop-blur-md bg-white/30',
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -182,7 +182,12 @@ export default function Header() {
                         />
                     </Link>
                 </div>
+
                 <div className="flex lg:hidden">
+                    <div className='mr-8'>
+                        <DownloadButton url={downloadUrl} locale={locale} />
+                    </div>
+
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -226,7 +231,7 @@ export default function Header() {
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-40" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto backdrop-filter backdrop-blur-sm bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto backdrop-filter backdrop-blur-md bg-white/80 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                     <div className="items-end content-end">
                         <button
                             type="button"
