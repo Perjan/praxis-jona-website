@@ -38,4 +38,6 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.hm.goe", name: "H&M - we love fashion", color: "#E2030D"},
     {bundleId: "com.asos.asos", name: "ASOS - Discover Fashion Online", color: "#000000"},
     {bundleId: "com.air-watch.boxer", name: "Boxer", color: "#32ADE6"},
+    {bundleId: "com.entwicklungsschmiede.miCal", name: "miCal - The missing Calendar", color: "#06587D"},
+    {bundleId: "com.withings.wiScaleNG", name: "Withings Health Mate", color: "#D23B0E"},
 ];
