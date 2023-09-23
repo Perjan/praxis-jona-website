@@ -37,4 +37,5 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.inditex.zara.iphone", name: "ZARA", color: "#000000"},
     {bundleId: "com.hm.goe", name: "H&M - we love fashion", color: "#E2030D"},
     {bundleId: "com.asos.asos", name: "ASOS - Discover Fashion Online", color: "#000000"},
+    {bundleId: "com.air-watch.boxer", name: "Boxer", color: "#32ADE6"},
 ];
