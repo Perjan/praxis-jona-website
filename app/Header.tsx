@@ -48,11 +48,11 @@ function classNames(...classes: string[]) {
 
 function downloadAppTitle(locale: string) {
     if (locale === "it") {
-        return "Scarica l'app"
+        return "Scarica"
     } else if (locale === "de") {
-        return "App Herunterladen"
+        return "Herunterladen"
     } else {
-        return "Download App"
+        return "Download"
     }
 }
 
