@@ -40,4 +40,5 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.air-watch.boxer", name: "Boxer", color: "#32ADE6"},
     {bundleId: "com.entwicklungsschmiede.miCal", name: "miCal - The missing Calendar", color: "#06587D"},
     {bundleId: "com.withings.wiScaleNG", name: "Withings Health Mate", color: "#D23B0E"},
+    {bundleId: "com.microsoft.onenote", name: "Microsoft OneNote", color: "#761AAB"},
 ];
