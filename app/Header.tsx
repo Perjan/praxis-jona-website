@@ -61,7 +61,7 @@ export function DownloadButton({ url, locale }) {
         <Link
             href={url}
             target='_blank'
-            className="-mx-3 block rounded-xl bg-primary py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
+            className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="mc-app-download-button-in-header"
         >{downloadAppTitle(locale)}
         </Link>
@@ -184,7 +184,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex lg:hidden">
-                    <div className='mr-8'>
+                    <div className='mr-2'>
                         <DownloadButton url={downloadUrl} locale={locale} />
                     </div>
 
