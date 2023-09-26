@@ -131,6 +131,16 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
 
 function postCard(post: Post) {
     return <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
+        <div className="relative w-full mb-4">
+            <Link href={post.url} >
+                <img
+                    src={post.coverImageUrl}
+                    alt={post.summaryOrExcerpt}
+                    className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9]"
+                />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+            </Link>
+        </div>
         <div className="flex items-center gap-x-4 text-xs">
             <time dateTime={post.date} className="text-gray-500">
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
@@ -142,7 +152,7 @@ function postCard(post: Post) {
                 makePill(item, () => { })
             ))}
 
-            {makePill(post.language ?? "en", () => { }) }
+            {makePill(post.language ?? "en", () => { })}
 
         </div>
         <div className="group relative">
