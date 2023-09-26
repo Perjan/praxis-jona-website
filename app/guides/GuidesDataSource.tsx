@@ -20,6 +20,7 @@ const intermediatePostsSlugs = [
   "how-to-activate-cloud-sync",
   "how-to-activate-family-sync",
   "how-to-show-hide-accounts",
+  "how-do-interactive-widgets-work-ios-17",
   "how-to-track-and-manage-credit-cards",
   "how-to-customize-your-payday-in-moneycoach-app",
   "how-to-show-hide-accounts",
