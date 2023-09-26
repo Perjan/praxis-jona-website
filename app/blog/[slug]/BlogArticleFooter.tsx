@@ -8,6 +8,8 @@ export function PostCard({ post }: { post: Post }) {
       <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-64 lg:shrink-0">
         <Image
           src={post.coverImageUrl}
+          width={1368}
+          height={760}
           alt=""
           className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
         />
