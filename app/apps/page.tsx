@@ -95,6 +95,14 @@ export default function AppsByMoneyCoach() {
             appInfo='/blog/streamline-international-transactions-with-iban-calculator-by-moneycoach-app'
             appUrl='https://apps.apple.com/app/apple-store/id1017293567?pt=118449936&ct=appsPage&mt=8'
             />
+
+            <AppEntryList
+            appName='Bitcoin Crypto Ticker - BTC'
+            appDescription="A minimalistic crypto ticker that allows you to track in real time the price in multiple currencies."
+            appIcon='/images/btcIcon.png'
+            appInfo='/blog/real-time-crypto-prices-with-bitcoin-crypto-ticker-btc-app'
+            appUrl='https://apps.apple.com/app/apple-store/id1204742867?pt=118449936&ct=appsPage&mt=8'
+            />
         </>
         )
 }

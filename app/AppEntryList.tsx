@@ -25,13 +25,14 @@ export default function AppEntryList(params: { appName: string, appDescription: 
             </div>
           </div>
           <div className="mx-auto w-full px-6 md:px-0 lg:pr-4 lg:pt-4">
+              <a href={params.appUrl}>
               <Image
               src={params.appIcon}
               width={300}
               height={250}
               alt=""
-              className="aspect-[16/9] w-full rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2"
-            />
+              className="aspect-[16/9] w-full rounded-2xl object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 shadow-lg duration-300 ease-in-out hover:scale-105"
+            /></a>
           </div>
         </div>
       </div>
