@@ -30,6 +30,18 @@ const nextConfig = {
         destination: "https://apps.apple.com/app/apple-store/id989642198?pt=118449936&ct=website&mt=8"
       },
       {
+        source: '/',
+        has: [
+          {
+            type: "query",
+            key: "get-rtst",
+            value: "(?<paramName>.*)"
+          }
+        ],
+        permanent: false,
+        destination: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=sticker&mt=8"
+      },
+      {
         source: '/wp-login',
         destination: '/404',
         permanent: true
