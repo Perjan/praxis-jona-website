@@ -182,7 +182,7 @@ export default function Page() {
                     className="aspect-[3/2] w-full rounded-2xl object-cover duration-300 ease-in-out hover:scale-105"
                     width={300}
                     height={200}
-                    src="/images/screenTimeIcon.jpg"
+                    src="/images/screentimeNewIcon.jpg"
                     alt=""
                   />
                 </a>
