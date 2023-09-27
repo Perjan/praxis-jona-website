@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { Metadata } from 'next'
 
 
-  const title = 'Company'
-  const description = "Read about the team behind MoneyCoach, the app that helps you manage your money and achieve your financial goals."
+const title = 'Company'
+const description = "Read about the team behind MoneyCoach, the app that helps you manage your money and achieve your financial goals."
 
 export const metadata: Metadata = {
   title: title,
