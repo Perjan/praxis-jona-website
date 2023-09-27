@@ -1,12 +1,15 @@
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
+import Image from 'next/image'
 
 export function PostCard({ post }: { post: Post }) {
   return (
     <article key={post._id} className="relative isolate flex flex-col gap-8 lg:flex-row">
       <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-64 lg:shrink-0">
-        <img
+        <Image
           src={post.coverImageUrl}
+          width={1368}
+          height={760}
           alt=""
           className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
         />
@@ -41,7 +44,7 @@ export default function BlogArticleFooter({ posts }: { posts: Post[] }) {
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Articles you might like</h2>
           <div className="mt-16 space-y-20 lg:mt-10 lg:space-y-20">
             {posts.map((post) => (
-              <PostCard post={post} />
+              <PostCard post={post} key={post._id} />
             ))}
           </div>
         </div>

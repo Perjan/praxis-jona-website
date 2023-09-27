@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
+import Image from 'next/image'  
 
 import { useSearchParams } from 'next/navigation';
 
@@ -133,7 +134,7 @@ function postCard(post: Post) {
     return <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
         <div className="relative w-full mb-4">
             <Link href={post.url} >
-                <img
+                <Image
                     src={post.coverImageUrl}
                     alt={post.summaryOrExcerpt}
                     className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9]"
