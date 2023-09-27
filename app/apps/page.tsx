@@ -1,5 +1,37 @@
 import AppEntryList from 'app/AppEntryList'
 import Image from 'next/image'
+import { Metadata } from 'next'
+
+const title = 'Apps by MoneyCoach'
+const description = "These are all the apps that we have designed, developed and released on the App Store."
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    type: 'website',
+    url: '/apps',
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'MoneyCoach app screenshot'
+      }
+    ],
+  },
+  alternates: {
+    canonical: '/apps'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
+}
 
 export default function AppsByMoneyCoach() {
     return (
@@ -10,8 +42,8 @@ export default function AppsByMoneyCoach() {
                         <div className="px-6 lg:px-0 lg:pt-4">
                             <div className="mx-auto max-w-2xl">
                                 <div className="max-w-lg">
-                                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Apps by MoneyCoach</h1>
-                                    <p className="mt-6 text-lg leading-8 text-gray-600">These are all the apps that we have designed, developed and released on the App Store.</p>
+                                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">{title}</h1>
+                                    <p className="mt-6 text-lg leading-8 text-gray-600">{description}</p>
                                 </div>
                             </div>
                         </div>
