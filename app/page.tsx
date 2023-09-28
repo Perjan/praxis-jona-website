@@ -29,6 +29,7 @@ import {
   RectangleGroupIcon,
 } from '@heroicons/react/20/solid'
 import MajorFeatureSectionWithButton from './MajorFeatureSectionWithButton'
+import { Constants } from './Constants'
 
 const features = [
   {
@@ -149,30 +150,50 @@ const featuresSectionItems = [
   }
 ]
 
+const jsonLdSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "MoneyCoach - Budget Planner & Personal Finance",
+  "operatingSystem": "iOS, macOS, iPadOS, watchOS",
+  "applicationCategory": "FinanceApplication",
+  "downloadUrl": Constants.downloadUrl,
+  "featureList": Constants.baseUrl + "/features",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "ratingCount": "11000"
+  }
+}
+
 /// https://beta.nextjs.org/docs/installation
 export default function Home() {
   return (
     <main>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={
+        { __html: JSON.stringify(jsonLdSchema) }
+      }>
+      </script>
+
       <HeroSection config={defaultHeroConfig} />
 
       <PressLogoCloud
-      title='Some of the recent media coverage'
+        title='Some of the recent media coverage'
       />
 
       <FeatureSectionWithProductScreenshotPanel
         title="Share your data with your partner"
         subtitle='Family Sync'
         description='Available on MoneyCoach 8.6 or later.'
-        image = "/images/familySyncHeroNew.png"
+        image="/images/familySyncHeroNew.png"
         features={familySyncFeatures}
       />
 
       <MajorFeatureSectionWithButton
-      title="Import Apple Pay / Wallet Transactions (Beta)"
-      description={"Automatically import transactions from Apple Pay / Wallet via a Shortcut Automation. Then once you make a payment with any of your cards, that transaction will be automatically added to MoneyCoach.\n\nSetting up the Shortcut Automation only takes a minute and you only need to do it once."}
-      url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
-      imageUrl='/images/apple-pay-wallet-import.png'
+        title="Import Apple Pay / Wallet Transactions (Beta)"
+        description={"Automatically import transactions from Apple Pay / Wallet via a Shortcut Automation. Then once you make a payment with any of your cards, that transaction will be automatically added to MoneyCoach.\n\nSetting up the Shortcut Automation only takes a minute and you only need to do it once."}
+        url='/guides/how-to-import-apple-pay-wallet-transactions-to-moneycoach'
+        imageUrl='/images/apple-pay-wallet-import.png'
       />
 
       <FinancialOverview
@@ -199,7 +220,7 @@ export default function Home() {
         subtitle="Smart Goals"
         title="Save up & achieve your dreams with smart goals"
         description="MoneyCoach makes achieving your dreams easier. Quickly check how much money you need to save each day in order to achieve your goals within your deadline."
-        features={goalsSectionFeatures} 
+        features={goalsSectionFeatures}
       />
 
       <AppleWatchSection
@@ -211,7 +232,7 @@ export default function Home() {
       <FeatureSectionWithProductScreenshotPanel
         title="MoneyCoach for macOS"
         subtitle='A delightful experience on your Mac'
-        image = "/images/moneyCoachOnMacNew.png"
+        image="/images/moneyCoachOnMacNew.png"
         description='Available on all Macs running macOS 12 Monterey or later.'
         features={macSectionFeatures}
       />

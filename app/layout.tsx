@@ -13,7 +13,7 @@ const title = "MoneyCoach - Modern Money Manager And Budgeting App"
 const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending. Available for iPhone, iPad, Mac and Apple Watch."
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://moneycoach.ai"),
+  metadataBase: new URL(Constants.baseUrl),
   title: {
     default: title,
     template: "%s"
