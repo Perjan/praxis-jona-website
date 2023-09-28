@@ -6,7 +6,6 @@ import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
 import Script from 'next/script';
-import { Auth } from 'firebase-admin/lib/auth/auth';
 import Authors from './blog/authors/AuthorsDataSource';
 
 const title = "MoneyCoach - Modern Money Manager And Budgeting App"
