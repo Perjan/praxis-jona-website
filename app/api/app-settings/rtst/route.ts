@@ -41,4 +41,6 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.entwicklungsschmiede.miCal", name: "miCal - The missing Calendar", color: "#06587D"},
     {bundleId: "com.withings.wiScaleNG", name: "Withings Health Mate", color: "#D23B0E"},
     {bundleId: "com.microsoft.onenote", name: "Microsoft OneNote", color: "#761AAB"},
+    {bundleId: "de.ingdiba.bankingapp", name: "ING Banking to go", color: "#FC6806"},
+    {bundleId: "com.apple.mobilenotes", name: "Notes", color: "#FFDD54"},
 ];
