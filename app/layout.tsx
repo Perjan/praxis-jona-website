@@ -6,9 +6,11 @@ import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
 import Script from 'next/script';
+import { Auth } from 'firebase-admin/lib/auth/auth';
+import Authors from './blog/authors/AuthorsDataSource';
 
 const title = "MoneyCoach - Modern Money Manager And Budgeting App"
-const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending."
+const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending. Available for iPhone, iPad, Mac and Apple Watch."
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://moneycoach.ai"),
@@ -17,6 +19,17 @@ export const metadata: Metadata = {
     template: "%s"
   },
   description: description,
+  authors: [
+    {
+      name: Authors[0].name,
+      url: Authors[0].url
+    },
+    {
+      name: Authors[1].name,
+      url: Authors[1].url
+    },
+  ],
+  keywords: ["budgeting app", "money management app", "pfm app", "cash tracking app", "family budgeting app", "financial management app"],
   alternates: {
     canonical: '/',
     languages: {
