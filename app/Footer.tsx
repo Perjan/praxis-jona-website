@@ -5,12 +5,12 @@ import { footerNavigation, footerNavigationItalian, footerNavigationGerman, soci
 import { usePathname } from "next/navigation";
 import { localeFromPathname } from "./Header";
 
-function FooterColumn({ title, items }) {
+function FooterColumn({ section }) {
   return (
     <>
-      <h3 className="text-sm font-semibold leading-6 text-gray-900">{title}</h3>
+      <Link href={section.href}><h3 className="text-sm font-semibold leading-6 text-gray-900">{section.title}</h3></Link>
       <ul role="list" className="mt-6 space-y-4">
-        {items.map((item) => (
+        {section.items.map((item) => (
           <li key={item.name}>
             <Link
               href={item.href}
@@ -59,24 +59,24 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-3 md:gap-8">
               <div>
-                <FooterColumn title={navigation.features.title} items={navigation.features.items} />
+                <FooterColumn section={navigation.features} />
               </div>
               <div className="mt-10 md:mt-0">
-                <FooterColumn title={navigation.usecases.title} items={navigation.usecases.items} />
+                <FooterColumn section={navigation.usecases} />
               </div>
               <div className="mt-10 md:mt-0">
-                <FooterColumn title={navigation.ourApps.title} items={navigation.ourApps.items} />
+                <FooterColumn section={navigation.ourApps} />
               </div>
             </div>
             <div className="md:grid md:grid-cols-3 md:gap-8">
               <div>
-                <FooterColumn title={navigation.company.title} items={navigation.company.items} />
+                <FooterColumn section={navigation.company} />
               </div>
               <div className="mt-10 md:mt-0">
-                <FooterColumn title={navigation.legal.title} items={navigation.legal.items} />
+                <FooterColumn section={navigation.legal} />
               </div>
               <div className="mt-10 md:mt-0">
-                <FooterColumn title={navigation.compare.title} items={navigation.compare.items} />
+                <FooterColumn section={navigation.compare} />
               </div>
             </div>
           </div>

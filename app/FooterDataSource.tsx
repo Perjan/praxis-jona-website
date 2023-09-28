@@ -5,38 +5,29 @@ export const footerNavigation = {
     copyright: "2023 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.",
     features: {
         title: "Features",
+        href: "/features",
         items: [
-            {
-                name: "Cash Tracking",
-                href: "/blog/getting-started-how-to-add-a-new-transaction",
-            },
+            { name: "Cash Tracking", href: "/blog/getting-started-how-to-add-a-new-transaction" },
             { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
             { name: "Multicurrency Accounts", href: "/blog/how-to-use-multi-currency" },
-            {
-                name: "Credit Card Management",
-                href: "/blog/how-to-manage-your-credit-cards",
-            },
+            { name: "Credit Card Management", href: "/blog/how-to-manage-your-credit-cards" },
             { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
             { name: "Reports", href: "/financial-reports" },
         ]
     },
     usecases: {
         title: "Use Cases",
+        href: "/#",
         items: [
             { name: "Debts", href: "/blog/how-to-track-debts/" },
-            {
-                name: "Goals",
-                href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
-            },
+            { name: "Goals", href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/" },
             { name: "Loans", href: "/blog/how-to-manage-property-loans/" },
-            {
-                name: "Subscriptions",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions/",
-            },
+            { name: "Subscriptions", href: "/blog/understanding-the-real-cost-of-your-subscriptions/" },
         ]
     },
     company: {
         title: "Company",
+        href: "/company",
         items: [
             { name: "About", href: "/company" },
             { name: "Blog", href: "/blog" },
@@ -44,14 +35,12 @@ export const footerNavigation = {
             { name: "Affiliate", href: "/affiliate" },
             { name: "Support", href: "/support" },
             { name: "Financial Calculators", href: "/financial-calculators" },
-            {
-                name: "Feature Request",
-                href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
-            },
+            { name: "Feature Request", href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests" },
         ],
     },
     legal: {
         title: "Legal",
+        href: "/#",
         items: [
             { name: "Terms", href: "/legal/terms-of-use" },
             { name: "Privacy", href: "/legal/privacy-policy/" },
@@ -62,6 +51,7 @@ export const footerNavigation = {
     },
     ourApps: {
         title: "Our Apps",
+        href: "/apps",
         items: [
             { name: "MoneyCoach", href: Constants.downloadUrl },
             { name: "MoneySpaces", href: Constants.msDownloadUrl },
@@ -74,6 +64,7 @@ export const footerNavigation = {
     },
     compare: {
         title: "Compare",
+        href: "/#",
         items: [
             { name: "Buddy", href: "/buddy-alternative" },
             { name: "Finanzguru", href: "/finanzguru-alternative" },
@@ -86,41 +77,29 @@ export const footerNavigationItalian = {
     copyright: "2023 MoneyCoach UG. Tutti i diritti riservati. Realizzato con ❤️ a Berlino.",
     features: {
         title: "Funzioni",
+        href: "/it/funzioni",
         items: [
-            {
-                name: "Traccia i Contanti",
-                href: "/blog/getting-started-how-to-add-a-new-transaction",
-            },
+            { name: "Traccia i Contanti", href: "/blog/getting-started-how-to-add-a-new-transaction" },
             { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
             { name: "Conti Multi-Valuta", href: "/blog/how-to-use-multi-currency" },
-            {
-                name: "Gestisci Carte di Credito",
-                href: "/blog/how-to-manage-your-credit-cards",
-            },
+            { name: "Gestisci Carte di Credito", href: "/blog/how-to-manage-your-credit-cards" },
             { name: "Obiettivi", href: "/blog/getting-started-how-to-create-a-smart-goal" },
-            {
-                name: "Sottoscrizioni",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions",
-            },
+            { name: "Sottoscrizioni", href: "/blog/understanding-the-real-cost-of-your-subscriptions" },
         ]
     },
     usecases: {
         title: "Casi d'Uso",
+        href: "/#",
         items: [
             { name: "Debiti", href: "/blog/how-to-track-debts/" },
-            {
-                name: "Obiettivi",
-                href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
-            },
+            { name: "Obiettivi", href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/" },
             { name: "Prestiti", href: "/blog/how-to-manage-property-loans/" },
-            {
-                name: "Rapporti",
-                href: "/it/rapporti",
-            },
+            { name: "Rapporti", href: "/it/rapporti" },
         ]
     },
     company: {
         title: "Chi Siamo",
+        href: "/it/chi-siamo",
         items: [
             { name: "Riguardo a Noi", href: "/it/chi-siamo" },
             { name: "Blog", href: "/blog" },
@@ -128,14 +107,12 @@ export const footerNavigationItalian = {
             { name: "Affiliazione", href: "/it/marketing-di-affiliazione" },
             { name: "Support", href: "/it/supporto" },
             { name: "Calcolatori Finanziari", href: "/financial-calculators" },
-            {
-                name: "Richiedi Una Funzione",
-                href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
-            },
+            { name: "Richiedi Una Funzione", href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests" },
         ],
     },
     legal: {
         title: "Legale",
+        href: "/#",
         items: [
             { name: "Termini e Condizioni", href: "/legal/terms-of-use" },
             { name: "Privacy", href: "/legal/privacy-policy/" },
@@ -146,6 +123,7 @@ export const footerNavigationItalian = {
     },
     ourApps: {
         title: "Le Nostre App",
+        href: "/apps",
         items: [
             { name: "MoneyCoach", href: Constants.downloadUrl },
             { name: "MoneySpaces", href: Constants.msDownloadUrl },
@@ -158,6 +136,7 @@ export const footerNavigationItalian = {
     },
     compare: {
         title: "Comparazione",
+        href: "/#",
         items: [
             { name: "Buddy", href: "/buddy-alternative" },
             { name: "Finanzguru", href: "/finanzguru-alternative" },
@@ -170,6 +149,7 @@ export const footerNavigationGerman = {
     copyright: "2023 MoneyCoach UG. Alle Rechte vorbehalten. Hergestellt mit ❤️ in Berlin.",
     features: {
         title: "Funktionen",
+        href: "/#",
         items: [
             {
                 name: "Haushaltsbuch",
@@ -190,6 +170,7 @@ export const footerNavigationGerman = {
     },
     usecases: {
         title: "Anwendungsfälle",
+        href: "/#",
         items: [
             { name: "Schulden", href: "/blog/how-to-track-debts/" },
             {
@@ -205,6 +186,7 @@ export const footerNavigationGerman = {
     },
     company: {
         title: "Unternehmen",
+        href: "/#",
         items: [
             { name: "Über uns", href: "/de/ueber-uns" },
             { name: "Blog", href: "/de/blog" },
@@ -220,6 +202,7 @@ export const footerNavigationGerman = {
     },
     legal: {
         title: "Legal",
+        href: "/#",
         items: [
             { name: "AGBs", href: "/legal/terms-of-use" },
             { name: "Datenschutz", href: "/legal/privacy-policy/" },
@@ -230,6 +213,7 @@ export const footerNavigationGerman = {
     },
     ourApps: {
         title: "Unsere Apps",
+        href: "/apps",
         items: [
             { name: "MoneyCoach", href: Constants.downloadUrl },
             { name: "MoneySpaces", href: Constants.msDownloadUrl },
@@ -242,6 +226,7 @@ export const footerNavigationGerman = {
     },
     compare: {
         title: "Vergleiche",
+        href: "/#",
         items: [
             { name: "Buddy", href: "/buddy-alternative" },
             { name: "Finanzguru", href: "/finanzguru-alternative" },
