@@ -43,4 +43,5 @@ const appEntities: AppPickerEntity[] = [
     {bundleId: "com.microsoft.onenote", name: "Microsoft OneNote", color: "#761AAB"},
     {bundleId: "de.ingdiba.bankingapp", name: "ING Banking to go", color: "#FC6806"},
     {bundleId: "com.apple.mobilenotes", name: "Notes", color: "#FFDD54"},
+    {bundleId: "de.fitapp24.jumpersfitness-prod", name: "Jumpers Fitness App", color: "#9ECA34"},
 ];
