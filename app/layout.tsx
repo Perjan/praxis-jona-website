@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://moneycoach.ai"),
   title: {
     default: title,
-    template: "%s - MoneyCoach Budgeting App"
+    template: "%s"
   },
   description: description,
   alternates: {
