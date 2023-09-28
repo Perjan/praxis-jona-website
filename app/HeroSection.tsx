@@ -34,7 +34,7 @@ export type HeroConfig = {
     heroImage: StaticImageData
 }
 
-const latestVersion = "v9.0"
+const latestVersion = "v9.0.4"
 
 export const defaultHeroConfig: HeroConfig = {
     title: "Modern Money Manager &\n\n Budgeting App",
@@ -42,7 +42,7 @@ export const defaultHeroConfig: HeroConfig = {
     downloadNowTitle: "Download Now",
     watchVideo: "Watch Video",
     justShippedTitle: "Just shipped " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9-0-4",
     appOfTheDay: AppOfTheDay,
     accoladesCombo: AccoladesCombo,
     heroImage: HeroImage
@@ -54,7 +54,7 @@ export const italianHeroConfig: HeroConfig = {
     downloadNowTitle: "Scarica Ora",
     watchVideo: "Guarda il Video",
     justShippedTitle: "Appena rilasciato " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9-0-4",
     appOfTheDay: AppOfTheDayIt,
     accoladesCombo: AccoladesComboIt,
     heroImage: HeroImageIt
@@ -66,7 +66,7 @@ export const germanHeroConfig: HeroConfig = {
     downloadNowTitle: "Jetzt Herunterladen",
     watchVideo: "Video Anschauen",
     justShippedTitle: "Letztes Update: " + latestVersion,
-    justShippedArticleUrl: "/whats-new-in-moneycoach-9",
+    justShippedArticleUrl: "/whats-new-in-moneycoach-9-0-4",
     appOfTheDay: AppOfTheDayDe,
     accoladesCombo: AccoladesComboDe,
     heroImage: HeroImageDe
