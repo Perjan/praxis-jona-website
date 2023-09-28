@@ -20,6 +20,11 @@ export const Post = defineDocumentType(() => ({
       description: "The filename of the cover image",
       required: false,
     },
+    author: {
+      type: "string",
+      description: "The id of the author. Should match an Author's id in the Authors.tsx file",
+      required: false,
+    },
     isHidden: {
       type: "boolean",
       description: "Whether the post should be hidden from the blog index",

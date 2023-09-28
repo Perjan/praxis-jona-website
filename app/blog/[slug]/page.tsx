@@ -14,6 +14,8 @@ import {
 import { notFound } from 'next/navigation'
 import { AppDownloadLink, MSAppDownloadLink } from 'app/AppDownloadLink'
 import BlogArticleFooter from './BlogArticleFooter'
+import { Authors } from '../authors/AuthorsDataSource'
+import { json } from 'stream/consumers'
 
 export const dynamic = "force-static"
 
@@ -91,7 +93,10 @@ const components = {
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
+
   const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
+
+  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"))
 
   if (post == null) {
     return notFound()
@@ -117,6 +122,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           <time dateTime={post.date} className="text-gray-500">
             {format(parseISO(post.date), 'LLLL d, yyyy')}
           </time>
+          <span className="text-gray-500"> • written by </span>
+          <Link href="#" className='hover:text-teal-500'>{author.name}</Link>
         </div>
         <article className="prose prose-neutral mx-auto max-w-2xl lg:mx-0">
           {/* <article className=""> */}

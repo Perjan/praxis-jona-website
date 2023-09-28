@@ -1,8 +1,13 @@
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Image from 'next/image'
+import { Authors } from '../authors/AuthorsDataSource'
+import Link from 'next/link';
 
 export function PostCard({ post }: { post: Post }) {
+  
+  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"));
+
   return (
     <article key={post._id} className="relative isolate flex flex-col gap-8 lg:flex-row">
       <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-[16/9] lg:w-64 lg:shrink-0">
@@ -16,13 +21,15 @@ export function PostCard({ post }: { post: Post }) {
         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
       </div>
       <div>
-        <div className="flex items-center gap-x-4 text-xs">
+        <div className="flex items-center gap-x-1 text-xs">
           <time dateTime={post.date} className="text-gray-500">
             {format(parseISO(post.date), 'LLLL d, yyyy')}
           </time>
+          <span className="text-gray-500"> • written by </span>
+          {author && <Link href={author.url} className='hover:text-teal-400'>{author.name}</Link>}
         </div>
         <div className="group relative max-w-xl">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-teal-400">
             <a href={post.url}>
               <span className="absolute inset-0" />
               {post.title}
