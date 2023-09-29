@@ -1,15 +1,19 @@
 import { allPosts } from 'contentlayer/generated'
 import PaginatedPostsSection from '../PaginatedPostsSection'
 import { Metadata } from 'next'
+import { Constants } from 'app/Constants'
 
 export const dynamic = "force-static"
 
-const title = 'Blog'
-const description = "We write content about optimizing your screen time, having a healthy relationship with your smartphone, so that you can dominate your screen time and not be controlled by your apps. The goal is to reduce social media addiction."
+const title = 'Blog - ' + Constants.appName + " - App Usage Monitor for iOS"
+const description = "We write content about optimizing your screen time, limit app usage & having a healthy relationship with your smartphone to reduce social media addiction."
 
 export const metadata: Metadata = {
   title: title,
   description: description,
+  alternates: {
+    canonical: "/blog",
+  },
   openGraph: {
     title: title,
     description: description,
@@ -20,7 +24,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
-        alt: 'MoneyCoach app screenshot'
+        alt: Constants.appName + ' app screenshot'
       }
     ],
   },

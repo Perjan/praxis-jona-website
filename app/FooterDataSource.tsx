@@ -42,8 +42,6 @@ export const footerNavigation = {
             { name: "Terms", href: "/legal/terms-of-use" },
             { name: "Privacy", href: "/legal/privacy-policy/" },
             { name: "Imprint", href: "/legal/imprint/" },
-            { name: "Disclaimer", href: "/legal/disclaimer/" },
-            { name: "Credits", href: "/legal/credits/" },
         ],
     },
     ourApps: {

@@ -122,7 +122,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             {format(parseISO(post.date), 'LLLL d, yyyy')}
           </time>
           <span className="text-gray-500"> • written by </span>
-          <Link href="#" className='hover:text-teal-500'>{author.name}</Link>
+          <Link href={author.url} className='hover:text-teal-500'>{author.name}</Link>
         </div>
         <article className="prose prose-neutral mx-auto max-w-2xl lg:mx-0">
           {/* <article className=""> */}

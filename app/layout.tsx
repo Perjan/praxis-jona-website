@@ -8,8 +8,9 @@ import { Constants } from './Constants';
 import Script from 'next/script';
 import Authors from './blog/authors/AuthorsDataSource';
 
-const title = "MoneyCoach - Modern Money Manager And Budgeting App"
-const description = "MoneyCoach is a personal finance app that helps you manage your money, budget, and track your spending. Available for iPhone, iPad, Mac and Apple Watch."
+
+const title = Constants.appName + " App Usage Tracker For iPhone & iPad"
+const description = Constants.appName + " is an app for users who want to take control of their app usage and develop healthier digital habits."
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   },
   itunes: {
     appId: Constants.appId,
-    // appArgument: 'moneycoach2://'
+    appArgument: 'rtst://'
   },
   appLinks: {
     ios: {

@@ -63,7 +63,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     openGraph: {
       title,
       description,
-      siteName: 'MoneyCoach',
+      siteName: Constants.appName,
       type: 'article',
       publishedTime,
       url: postUrl(post, 'en'),

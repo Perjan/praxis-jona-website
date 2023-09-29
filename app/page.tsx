@@ -1,52 +1,16 @@
 import Image from "next/image";
-import { Metadata } from "next";
 import { ArrowsRightLeftIcon, ChatBubbleLeftRightIcon, MapPinIcon, ShieldCheckIcon, UserIcon, UsersIcon, BanknotesIcon, CurrencyDollarIcon, HeartIcon, PaintBrushIcon, ClockIcon } from '@heroicons/react/20/solid'
 
 import RTSTHeroImage from "/public/images/rtst-hero-image.png"
 import RTSTWellbeing from "/public/images/rtst-wellbeing.png"
 import RTSTPhones from "/public/images/rtst-all-devices.png"
 import RTSTProductivity from "/public/images/rtst-productivity.png"
-
-
-const title = 'Screen Time Realtime Control'
-const description = "Screen Time Realtime Control is an app for users who want to take control of their app usage and develop healthier digital habits."
+import { Metadata } from "next";
+import { Constants } from "./Constants";
 
 export const metadata: Metadata = {
-    title: title,
-    description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: '/screentime-realtime-control',
-        images: [
-            {
-                url: '/images/rtst-hero-image.png',
-                width: 1200,
-                height: 600,
-                alt: 'ScreenTime Realtime Control app screenshot'
-            }
-        ],
-    },
     alternates: {
-        canonical: '/screentime-realtime-control'
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/rtst-hero-image.png']
-    },
-    itunes: {
-        appId: '6452629146',
-        appArgument: 'rtst://'
-    },
-    appLinks: {
-        ios: {
-            app_name: 'Screentime Realtime Control',
-            app_store_id: '6452629146',
-            url: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=MoneyCoach%20Web&mt=8",
-        }
+      canonical: "/",
     }
 }
 
@@ -259,7 +223,7 @@ export default function Features() {
                         </div>
                         <Image
                             src={RTSTWellbeing}
-                            alt="MoneyCoach Product screenshot"
+                            alt= {Constants.appName}
                             className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] md:-ml-4 lg:-ml-0"
                             priority
                         />
