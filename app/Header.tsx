@@ -12,7 +12,7 @@ import {
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
-import Logo from "/public/images/moneycoach-web-logo.png"
+import Logo from "/public/images/screentime-web-logo.png"
 import { Constants } from './Constants'
 
 const navigationItemsEnglish = [
@@ -99,12 +99,12 @@ export default function Header() {
                         href={locale === "en" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
-                        <span className="sr-only">MoneyCoach</span>
+                        <span className="sr-only">Realtime Screen Time App</span>
                         <Image
                             priority={true}
                             className="h-14 w-auto object-contain"
                             src={Logo}
-                            alt="MoneyCoach Logo"
+                            alt="Realtime Screen Time Logo"
                         />
                     </Link>
                 </div>

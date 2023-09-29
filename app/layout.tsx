@@ -28,26 +28,18 @@ export const metadata: Metadata = {
       url: Authors[1].url
     },
   ],
-  keywords: ["budgeting app", "money management app", "pfm app", "cash tracking app", "family budgeting app", "financial management app"],
-  alternates: {
-    canonical: '/',
-    languages: {
-      en: "/",
-      it: "/it",
-      de: "/de"
-    }
-  },
+  keywords: Constants.keywords,
   twitter: {
     title: title,
     description: description,
-    site: "MoneyCoach",
-    creator: "@appmoneycoach",
+    site: Constants.appName,
+    creator: "@perjanduro",
     card: "summary_large_image",
     images: ['/images/og-image.png']
   },
   openGraph: {
     title: title,
-    siteName: 'MoneyCoach',
+    siteName: Constants.appName,
     description: description,
     type: 'website',
     url: '/',
@@ -56,7 +48,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
-        alt: 'MoneyCoach app screenshot'
+        alt: Constants.appName + ' app screenshot'
       }
     ],
   },
@@ -74,13 +66,13 @@ export const metadata: Metadata = {
     },
   },
   itunes: {
-    appId: '989642198',
-    appArgument: 'moneycoach2://'
+    appId: Constants.appId,
+    // appArgument: 'moneycoach2://'
   },
   appLinks: {
     ios: {
-      app_name: 'MoneyCoach',
-      app_store_id: '989642198',
+      app_name: Constants.appName,
+      app_store_id: Constants.appId,
       url: Constants.downloadUrl
     }
   }
@@ -95,7 +87,7 @@ export default function RootLayout({
     <html lang='en'>
       <Script
             src="https://analytics.moneycoach.ai/script.js"
-            data-website-id="f410c533-9a4a-48eb-90f3-c9cea78368a9"
+            data-website-id={Constants.umamiId}
             strategy="lazyOnload"
           />
       <body>

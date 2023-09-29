@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import { Constants } from "app/Constants";
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
@@ -90,7 +91,7 @@ export const Post = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.date,
         description: doc.summaryOrExcerpt,
-        image: `https://moneycoach.ai/images/blog-images/${doc.coverImage}`,
+        image: `${Constants.baseUrl}/images/blog-images/${doc.coverImage}`,
         url: doc.url,
         author: {
           '@type': 'Person',
