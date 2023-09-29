@@ -38,6 +38,7 @@ tomorrow.setDate(tomorrow.getDate() + 1)
 
 // Filter all posts earch for posts with a date less than or equal to today's date
 const filteredBlogPosts = allPosts
+  .filter((post) => !post.categories?.includes("legal") ?? false)
   .filter((post) => post.date <= tomorrow.toISOString().split('T')[0] && !post.isHidden)
 
 export default async function Page() {
@@ -45,9 +46,9 @@ export default async function Page() {
     <div className="bg-white mt-2 sm:mt-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">From the blog</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h1>
           <p className="mt-2 text-lg leading-8 text-gray-600">
-            Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals.
+            {description}
           </p>
         </div>
         <PaginatedPostsSection posts={filteredBlogPosts} />
