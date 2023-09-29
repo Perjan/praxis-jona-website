@@ -1,9 +1,6 @@
-
-import { Constants } from "app/Constants";
-
 (async () => {
-    const sitemapUrl = Constants.baseUrl + '/sitemap.xml';
-    console.log('⬆️ [Submit To Google] Submitting sitemap to Google Search Console...');
+    const sitemapUrl = 'https://appscreentime.com/sitemap.xml';
+    console.log('⬆️  [Submit To Google] Submitting sitemap to Google Search Console...');
     const response = await fetch(
         `https://www.google.com/ping?sitemap=${sitemapUrl}`,
         {
