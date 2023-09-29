@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "contentlayer dev & next dev",
     "build": "next build",
+    "postbuild": "next-sitemap && node ./lib/submit-sitemap.ts",
+    "submit-to-google": "node ./lib/submit-sitemap.ts",    
     "gen-sitemap": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
