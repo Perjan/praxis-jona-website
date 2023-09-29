@@ -93,14 +93,14 @@ const components = {
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-
+  
   const post = filteredBlogPosts.find((post) => post._raw.flattenedPath === params.slug)
-
-  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"))
 
   if (post == null) {
     return notFound()
   }
+
+  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"))
 
   // find the index of the post in the array
   const postIndex = filteredBlogPosts.findIndex((post) => post._raw.flattenedPath === params.slug)
