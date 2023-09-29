@@ -7,22 +7,22 @@ export const footerNavigation = {
         title: "Features",
         href: "/features",
         items: [
-            { name: "Cash Tracking", href: "/blog/getting-started-how-to-add-a-new-transaction" },
-            { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
-            { name: "Multicurrency Accounts", href: "/blog/how-to-use-multi-currency" },
-            { name: "Credit Card Management", href: "/blog/how-to-manage-your-credit-cards" },
-            { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
-            { name: "Reports", href: "/financial-reports" },
+            // { name: "Cash Tracking", href: "/blog/getting-started-how-to-add-a-new-transaction" },
+            // { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
+            // { name: "Multicurrency Accounts", href: "/blog/how-to-use-multi-currency" },
+            // { name: "Credit Card Management", href: "/blog/how-to-manage-your-credit-cards" },
+            // { name: "Goals", href: "/blog/getting-started-how-to-create-a-smart-goal" },
+            // { name: "Reports", href: "/financial-reports" },
         ]
     },
     usecases: {
         title: "Use Cases",
         href: "/#",
         items: [
-            { name: "Debts", href: "/blog/how-to-track-debts/" },
-            { name: "Goals", href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/" },
-            { name: "Loans", href: "/blog/how-to-manage-property-loans/" },
-            { name: "Subscriptions", href: "/blog/understanding-the-real-cost-of-your-subscriptions/" },
+            // { name: "Debts", href: "/blog/how-to-track-debts/" },
+            // { name: "Goals", href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/" },
+            // { name: "Loans", href: "/blog/how-to-manage-property-loans/" },
+            // { name: "Subscriptions", href: "/blog/understanding-the-real-cost-of-your-subscriptions/" },
         ]
     },
     company: {
@@ -32,10 +32,7 @@ export const footerNavigation = {
             { name: "About", href: "/company" },
             { name: "Blog", href: "/blog" },
             { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Affiliate", href: "/affiliate" },
             { name: "Support", href: "/support" },
-            { name: "Financial Calculators", href: "/financial-calculators" },
-            { name: "Feature Request", href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests" },
         ],
     },
     legal: {
@@ -54,7 +51,7 @@ export const footerNavigation = {
         href: "/apps",
         items: [
             { name: "MoneyCoach", href: Constants.downloadUrl },
-            { name: "MoneySpaces", href: Constants.msDownloadUrl },
+            // { name: "MoneySpaces", href: Constants.msDownloadUrl },
             { name: "Realtime Screen Time", href: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=mc-web-footer&mt=8" },
             { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },

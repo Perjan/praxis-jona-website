@@ -131,35 +131,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
       </div>
     </div>
-    // <div className="mt-2 sm:mt-10 bg-red-500">
-    //   <div className="max-w-7xl px-20">
-    //   {/* <article className="prose prose-neutral bg-blue-500"> */}
-    //     <article className=" bg-blue-500">
-    //       <section>
-    //         <script type="application/ld+json">
-    //           {/* {JSON.stringify(post.structuredData)} */}
-    //         </script>
-    //         { (post.coverImage !== undefined) &&
-    //           <Image 
-    //             className="rounded-lg shadow-lg" 
-    //             src={post.coverImageUrl}
-    //             width={1000} 
-    //             height={400} 
-    //             alt={post.title} 
-    //           /> 
-    //         }
-            
-    //         <time dateTime={post.date} className="text-gray-500">
-    //               {format(parseISO(post.date), 'LLLL d, yyyy')}
-    //             </time>
-    //         <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
-    //           {post.title}
-    //         </h1>
-    //         <Content components={{...components}} />
-    //       </section>
-    //     </article>
-    //   </div>
-    // </div>
   )
 }
 

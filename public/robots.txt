@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://moneycoach.ai
+Host: https://appscreentime.com
 
 # Sitemaps
-Sitemap: https://moneycoach.ai/sitemap.xml
+Sitemap: https://appscreentime.com/sitemap.xml

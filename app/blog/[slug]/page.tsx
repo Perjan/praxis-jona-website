@@ -12,7 +12,7 @@ import {
   ChevronRightIcon
 } from '@heroicons/react/24/outline'
 import { notFound } from 'next/navigation'
-import { AppDownloadLink, MSAppDownloadLink } from 'app/AppDownloadLink'
+import { AppDownloadLink } from 'app/AppDownloadLink'
 import BlogArticleFooter from './BlogArticleFooter'
 import { Authors } from '../authors/AuthorsDataSource'
 import { json } from 'stream/consumers'
@@ -87,8 +87,7 @@ const components = {
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo,
   LinkWithRel: LinkWithRel,
-  AppDownloadLink: AppDownloadLink,
-  MSAppDownloadLink: MSAppDownloadLink
+  AppDownloadLink: AppDownloadLink
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
