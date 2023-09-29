@@ -51,204 +51,33 @@ export const footerNavigation = {
         href: "/apps",
         items: [
             { name: "MoneyCoach", href: Constants.downloadUrl },
-            // { name: "MoneySpaces", href: Constants.msDownloadUrl },
+            { name: "MoneySpaces", href: Constants.msDownloadUrl },
             { name: "Realtime Screen Time", href: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=mc-web-footer&mt=8" },
             { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
             { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
             { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" }
         ],
-    },
-    compare: {
-        title: "Compare",
-        href: "/#",
-        items: [
-            { name: "Buddy", href: "/buddy-alternative" },
-            { name: "Finanzguru", href: "/finanzguru-alternative" },
-            { name: "Monefy", href: "/monefy-alternative" },
-        ],
-    }
-};
-
-export const footerNavigationItalian = {
-    copyright: "2023 MoneyCoach UG. Tutti i diritti riservati. Realizzato con ❤️ a Berlino.",
-    features: {
-        title: "Funzioni",
-        href: "/it/funzioni",
-        items: [
-            { name: "Traccia i Contanti", href: "/blog/getting-started-how-to-add-a-new-transaction" },
-            { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
-            { name: "Conti Multi-Valuta", href: "/blog/how-to-use-multi-currency" },
-            { name: "Gestisci Carte di Credito", href: "/blog/how-to-manage-your-credit-cards" },
-            { name: "Obiettivi", href: "/blog/getting-started-how-to-create-a-smart-goal" },
-            { name: "Sottoscrizioni", href: "/blog/understanding-the-real-cost-of-your-subscriptions" },
-        ]
-    },
-    usecases: {
-        title: "Casi d'Uso",
-        href: "/#",
-        items: [
-            { name: "Debiti", href: "/blog/how-to-track-debts/" },
-            { name: "Obiettivi", href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/" },
-            { name: "Prestiti", href: "/blog/how-to-manage-property-loans/" },
-            { name: "Rapporti", href: "/it/rapporti" },
-        ]
-    },
-    company: {
-        title: "Chi Siamo",
-        href: "/it/chi-siamo",
-        items: [
-            { name: "Riguardo a Noi", href: "/it/chi-siamo" },
-            { name: "Blog", href: "/blog" },
-            { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Affiliazione", href: "/it/marketing-di-affiliazione" },
-            { name: "Support", href: "/it/supporto" },
-            { name: "Calcolatori Finanziari", href: "/financial-calculators" },
-            { name: "Richiedi Una Funzione", href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests" },
-        ],
-    },
-    legal: {
-        title: "Legale",
-        href: "/#",
-        items: [
-            { name: "Termini e Condizioni", href: "/legal/terms-of-use" },
-            { name: "Privacy", href: "/legal/privacy-policy/" },
-            { name: "Impronta", href: "/legal/imprint/" },
-            { name: "Esclusione di Responsabilità", href: "/legal/disclaimer/" },
-            { name: "Credits", href: "/legal/credits/" },
-        ],
-    },
-    ourApps: {
-        title: "Le Nostre App",
-        href: "/apps",
-        items: [
-            { name: "MoneyCoach", href: Constants.downloadUrl },
-            { name: "MoneySpaces", href: Constants.msDownloadUrl },
-            { name: "Realtime Screen Time", href: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=mc-web-footer&mt=8" },
-            { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
-            { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
-            { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
-            { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
-        ],
-    },
-    compare: {
-        title: "Comparazione",
-        href: "/#",
-        items: [
-            { name: "Buddy", href: "/buddy-alternative" },
-            { name: "Finanzguru", href: "/finanzguru-alternative" },
-            { name: "Monefy", href: "/monefy-alternative" },
-        ],
-    }
-};
-
-export const footerNavigationGerman = {
-    copyright: "2023 MoneyCoach UG. Alle Rechte vorbehalten. Hergestellt mit ❤️ in Berlin.",
-    features: {
-        title: "Funktionen",
-        href: "/#",
-        items: [
-            {
-                name: "Haushaltsbuch",
-                href: "/blog/getting-started-how-to-add-a-new-transaction",
-            },
-            { name: "Budgeting", href: "/blog/getting-started-how-to-create-a-budget" },
-            { name: "Mehrere Währungen", href: "/blog/how-to-use-multi-currency" },
-            {
-                name: "Kreditkartenmanagement",
-                href: "/blog/how-to-manage-your-credit-cards",
-            },
-            { name: "Ziele", href: "/blog/getting-started-how-to-create-a-smart-goal" },
-            {
-                name: "Abbos",
-                href: "/blog/understanding-the-real-cost-of-your-subscriptions",
-            },
-        ]
-    },
-    usecases: {
-        title: "Anwendungsfälle",
-        href: "/#",
-        items: [
-            { name: "Schulden", href: "/blog/how-to-track-debts/" },
-            {
-                name: "Ziele",
-                href: "/blog/how-to-buy-a-ps5-using-budgets-smart-goals/",
-            },
-            { name: "Darlehen", href: "/blog/how-to-manage-property-loans/" },
-            {
-                name: "Berichte",
-                href: "/de/berichte",
-            },
-        ]
-    },
-    company: {
-        title: "Unternehmen",
-        href: "/#",
-        items: [
-            { name: "Über uns", href: "/de/ueber-uns" },
-            { name: "Blog", href: "/de/blog" },
-            { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Partnermarketing", href: "/de/partnermarketing" },
-            { name: "Support", href: "/de/support" },
-            { name: "Finanz-Rechner", href: "/financial-calculators" },
-            {
-                name: "Feature Anfrage",
-                href: "https://duuroapps.uservoice.com/forums/258605-ios-feature-requests",
-            },
-        ],
-    },
-    legal: {
-        title: "Legal",
-        href: "/#",
-        items: [
-            { name: "AGBs", href: "/legal/terms-of-use" },
-            { name: "Datenschutz", href: "/legal/privacy-policy/" },
-            { name: "Impressum", href: "/legal/imprint/" },
-            { name: "Haftungsausschluss", href: "/legal/disclaimer/" },
-            { name: "Credits", href: "/legal/credits/" },
-        ],
-    },
-    ourApps: {
-        title: "Unsere Apps",
-        href: "/apps",
-        items: [
-            { name: "MoneyCoach", href: Constants.downloadUrl },
-            { name: "MoneySpaces", href: Constants.msDownloadUrl },
-            { name: "Realtime Screen Time", href: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=mc-web-footer&mt=8" },
-            { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
-            { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
-            { name: "IBAN Calculator", href: "https://apps.apple.com/de/app/iban-calculator-by-moneycoach/id1017293567?l=en" },
-            { name: "Riku Currency Converter", href: "https://apps.apple.com/de/app/riku/id1262876845?l=en" },
-        ],
-    },
-    compare: {
-        title: "Vergleiche",
-        href: "/#",
-        items: [
-            { name: "Buddy", href: "/buddy-alternative" },
-            { name: "Finanzguru", href: "/finanzguru-alternative" },
-            { name: "Monefy", href: "/monefy-alternative" },
-        ],
     }
 };
 
 export const socials = [
-    {
-        name: "Facebook",
-        href: "https://www.facebook.com/moneycoachapp/",
-        icon: (props) => (
-            <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-                <path
-                    fillRule="evenodd"
-                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                    clipRule="evenodd"
-                />
-            </svg>
-        ),
-    },
+    // {
+    //     name: "Facebook",
+    //     href: "https://www.facebook.com/moneycoachapp/",
+    //     icon: (props) => (
+    //         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //             <path
+    //                 fillRule="evenodd"
+    //                 d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+    //                 clipRule="evenodd"
+    //             />
+    //         </svg>
+    //     ),
+    // },
     {
         name: "Instagram",
-        href: "https://www.instagram.com/appmoneycoach/",
+        href: "https://www.instagram.com/screentime.app",
         icon: (props) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                 <path
@@ -259,31 +88,31 @@ export const socials = [
             </svg>
         ),
     },
-    {
-        name: "Twitter",
-        href: "http://twitter.com/appmoneycoach",
-        icon: (props) => (
-            <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-            </svg>
-        ),
-    },
-    {
-        name: "YouTube",
-        href: "https://www.youtube.com/@moneycoachapp",
-        icon: (props) => (
-            <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-                <path
-                    fillRule="evenodd"
-                    d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
-                    clipRule="evenodd"
-                />
-            </svg>
-        ),
-    },
+    // {
+    //     name: "Twitter",
+    //     href: "http://twitter.com/appmoneycoach",
+    //     icon: (props) => (
+    //         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //             <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+    //         </svg>
+    //     ),
+    // },
+    // {
+    //     name: "YouTube",
+    //     href: "https://www.youtube.com/@moneycoachapp",
+    //     icon: (props) => (
+    //         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    //             <path
+    //                 fillRule="evenodd"
+    //                 d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.255-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.255 2 12 2 12s0-3.255.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.255 0 7.814.418ZM15.194 12 10 15V9l5.194 3Z"
+    //                 clipRule="evenodd"
+    //             />
+    //         </svg>
+    //     ),
+    // },
     {
         name: "TikTok",
-        href: "https://www.tiktok.com/@moneycoachapp",
+        href: "https://www.tiktok.com/@screentime_app",
         icon: (props) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                 <path
