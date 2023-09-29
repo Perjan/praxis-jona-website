@@ -1,7 +1,8 @@
+import { Constants } from 'app/Constants';
 import { Post, allPosts } from 'contentlayer/generated';
 import { Metadata } from "next";
 
-const baseUrl = 'https://moneycoach.ai';
+const baseUrl = Constants.baseUrl;
 
 function slugForLanguage(post: Post, language: string) {
   switch (language) {

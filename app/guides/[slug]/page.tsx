@@ -9,7 +9,7 @@ import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { generateMetadataForPost } from "./generateMetadata";
 import { Metadata } from "next";
 import { ChevronRightIcon } from "@heroicons/react/24/outline";
-import { AppDownloadLink, MSAppDownloadLink } from "app/AppDownloadLink";
+import { AppDownloadLink } from "app/AppDownloadLink";
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -52,8 +52,7 @@ const components = {
   // h3: H3
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo,
-  AppDownloadLink: AppDownloadLink,
-  MSAppDownloadLink: MSAppDownloadLink
+  AppDownloadLink: AppDownloadLink
 };
 
 const guidesPosts = allPosts
