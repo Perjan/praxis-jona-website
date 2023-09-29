@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const dynamic = "force-static"
 
 const title = 'Blog'
-const description = "Read the latest articles on money management, financial planning, and investing. Learn how to manage your money better and achieve your financial goals."
+const description = "We write content about optimizing your screen time, having a healthy relationship with your smartphone, so that you can dominate your screen time and not be controlled by your apps. The goal is to reduce social media addiction."
 
 export const metadata: Metadata = {
   title: title,
@@ -23,14 +23,6 @@ export const metadata: Metadata = {
         alt: 'MoneyCoach app screenshot'
       }
     ],
-  },
-  alternates: {
-    canonical: '/blog',
-    languages: {
-      en: '/blog',
-      it: '/it/blog',
-      de: '/de/blog',
-    }
   },
   twitter: {
     card: 'summary_large_image',

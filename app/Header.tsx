@@ -13,34 +13,18 @@ import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
 import Logo from "/public/images/moneycoach-web-logo.png"
-import LogoMoneySpaces from "/public/images/moneyspaces-logo.png"
 import { Constants } from './Constants'
 
 const navigationItemsEnglish = [
-    { title: "Features", href: "/features" },
-    { title: "Guides", href: "/guides" },
-    { title: "Blog", href: "/blog" },
-    { title: "Company", href: "/company" }
-]
-
-const navigationItemsItalian = [
-    { title: "Funzioni", href: "/it/funzioni" },
-    { title: "Guide", href: "/it/guide" },
-    { title: "Blog", href: "/it/blog" },
-    { title: "Chi Siamo", href: "/it/chi-siamo" }
-]
-
-const navigationItemsGerman = [
-    { title: "Funktionen", href: "/de/funktionen" },
-    { title: "Einführungen", href: "/de/einfuehrungen" },
-    { title: "Blog", href: "/de/blog" },
-    { title: "Über Uns", href: "/de/ueber-uns" }
+    // { title: "Features", href: "/features" },
+    // { title: "Guides", href: "/guides" },
+    { title: "Our Blog", href: "/blog" },
+    // { title: "Company", href: "/company" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
 
 const downloadUrl = Constants.downloadUrl
-const downloadUrlMoneySpaces = "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=MoneyCoach%20Web&mt=8"
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -68,18 +52,6 @@ export function DownloadButton({ url, locale }) {
     )
 }
 
-export function DownloadButtonMoneySpaces({ url, locale }) {
-    return (
-        <Link
-            href={url}
-            target='_blank'
-            className="-mx-3 block rounded-xl bg-indigo-600 py-2.5 px-6 text-base font-semibold leading-7 text-white hover:bg-indigo-500"
-            data-umami-event="ms-app-download-button-in-header"
-        >{downloadAppTitle(locale)}
-        </Link>
-    )
-}
-
 export function localeFromPathname(pathname: string) {
     if (pathname.startsWith("/it")) {
         return "it"
@@ -96,8 +68,6 @@ export default function Header() {
 
     const scrollPosition = useScrollPosition()
 
-    const isMoneySpaces = pathname === "/moneyspaces"
-
     const locale = localeFromPathname(pathname)
 
     var navigationItems = []
@@ -105,14 +75,6 @@ export default function Header() {
     var languageLabel = "Language"
 
     switch (locale) {
-        case "it":
-            navigationItems = navigationItemsItalian
-            languageLabel = "Lingua"
-            break;
-        case "de":
-            navigationItems = navigationItemsGerman
-            languageLabel = "Sprache"
-            break;
         default:
             navigationItems = navigationItemsEnglish
             break;
@@ -122,42 +84,6 @@ export default function Header() {
         { title: "Home", href: locale === "en" ? "/" : "/" + locale }
     ]
     navigationItemsMobile.push(...navigationItems)
-
-    if (isMoneySpaces) {
-        return (
-            <header
-                // className="bg-white sticky top-0"
-                className={classNames(
-                    scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                    'sticky top-0 z-20 bg-white transition-shadow',
-                )}
-            >
-                <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                    <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
-                        <Link
-                            href="/"
-                            className="-m-1.5 p-1.5"
-                        >
-                            <span className="sr-only">MoneySpaces</span>
-                            <Image
-                                priority={true}
-                                className="h-14 w-auto object-contain"
-                                src={LogoMoneySpaces}
-                                alt="MoneySpaces Logo"
-                            />
-                        </Link>
-                    </div>
-                    <div className="flex lg:hidden -m-1.5 p-1.5">
-                        <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
-                    </div>
-
-                    <div className="hidden lg:flex lg:flex-1 lg:justify-end mt-0 md:mt-14 lg:mt-0">
-                        <DownloadButtonMoneySpaces url={downloadUrlMoneySpaces} locale={locale} />
-                    </div>
-                </nav>
-            </header>
-        )
-    }
 
     return (
         <header
@@ -261,13 +187,6 @@ export default function Header() {
                             </div>
                             <div className="py-6">
                                 <DownloadButton url={downloadUrl} locale={locale} />
-                            </div>
-
-                            <div className="mt-0 space-x-1 leading-5 text-gray-500 md:order-1 pt-8">
-                                <span>{languageLabel}:</span>
-                                <Link href="/">🇬🇧 /</Link>
-                                <Link href="/de">🇩🇪 /</Link>
-                                <Link href="/it">🇮🇹</Link>
                             </div>
                         </div>
                     </div>
