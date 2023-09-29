@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://moneycoach.ai',
+  siteUrl: Constants.siteUrl,
   generateRobotsTxt: true, // (optional)
   exclude: [
     "/company/press-kit",
