@@ -12,7 +12,7 @@ import {
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
-import Logo from "/public/images/screentime-web-logo.png"
+import Logo from "/public/images/rtst-web-logo.png"
 import { Constants } from './Constants'
 
 const navigationItemsEnglish = [
