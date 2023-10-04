@@ -19,7 +19,7 @@ const navigationItemsEnglish = [
     // { title: "Features", href: "/features" },
     // { title: "Guides", href: "/guides" },
     { title: "Our Blog", href: "/blog" },
-    // { title: "Company", href: "/company" }
+    { title: "Contact", href: "/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"

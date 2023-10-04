@@ -98,7 +98,7 @@ export default function ContactSection() {
               </h2>
               <p className='mt-6 text-lg leading-8 text-gray-600'>
                 You can find us pushing code and developing the future of
-                MoneyCoach here:
+                Realtime Screen Time Control here:
               </p>
               <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 whitespace-pre-line'>
                 <div className='flex gap-x-4'>

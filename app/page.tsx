@@ -7,6 +7,8 @@ import RTSTPhones from "/public/images/rtst-all-devices.png"
 import RTSTProductivity from "/public/images/rtst-productivity.png"
 import { Metadata } from "next";
 import { Constants } from "./Constants";
+import WhoIsItForSection from "./WhoIsItForSection"
+import Link from "next/link";
 
 export const metadata: Metadata = {
     alternates: {
@@ -77,6 +79,24 @@ const rtstFeatures = [
     },
 ]
 
+const whoIsItForSectionInfo = [
+    {
+      title: "Social Media Addiction",
+      description: "Be more mindful about how much time you actually spend doomscrolling on TikTok, X, Instagram, Facebook, Snapchat etc.",
+      image: "/images/social-media-di.png",
+    },
+    {
+      title: "Streaming Apps Addiction",
+      description: "Check in real time how much time you have spent watching that show nobody likes, but you are two episodes in and you have to just finish it.",
+      image: "/images/shopping-di.png",
+    },
+    {
+      title: "Gaming Addiction",
+      description: "See how much time you are wasting just waiting for that energy bar to fill so that you can do one simple action in one of those boring games.",
+      image: "/images/games-di.png",
+    },
+  ]
+
 export default function Features() {
     return (
         <>
@@ -129,21 +149,18 @@ export default function Features() {
                             </a> */}
                         </div>
                         <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                            Track App Usage In Realtime
+                            Track Your App Screen Time In Realtime
                         </h1>
-                        <p className="mt-6 text-lg leading-8 text-gray-300">
-                        Take control of your app usage and develop healthier digital habits.
-                        </p>
+                        <h2 className="mt-6 text-lg leading-8 text-gray-300">
+                        See how much time you spend on social media, shopping and streaming apps, addicting games etc. Available on iPhone and iPad. Take control of your app usage and develop healthier digital habits.
+                        </h2>
                         <div className="mt-10 flex items-center gap-x-6">
-                            <a
+                            <Link
                                 href="https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=web&mt=8"
                                 className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                             >
                                 Download Now
-                            </a>
-                            {/* <a href="#" className="text-sm font-semibold leading-6 text-white">
-                                Learn more <span aria-hidden="true">→</span>
-                            </a> */}
+                            </Link>
                         </div>
                     </div>
                     <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
@@ -175,14 +192,14 @@ export default function Features() {
                     <div className="py-24 sm:py-32 lg:pb-40">
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-2xl text-center">
-                                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                                <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                     What's Screen Time Realtime Control
-                                </h1>
-                                <p className="mt-6 text-lg leading-8 text-gray-600">
+                                </h2>
+                                <h3 className="mt-6 text-lg leading-8 text-gray-600">
                                 Screen Time Realtime Control uses Shortcuts Automation to toggle a stopwatch whenever you open one of your configured apps (TikTok, Twitter, Facebook, Instagram...) or any games (Clash of Clans, Marvel Snap, Genshin Impact).
-                                </p>
-                                <p className="mt-6 text-lg leading-8 text-gray-600">Plus, you can check the daily and all-time usage for all tracked apps.
-                                </p>
+                                </h3>
+                                <h3 className="mt-6 text-lg leading-8 text-gray-600">Plus, you can check the daily and all-time usage for all tracked apps.
+                                </h3>
                             </div>
                             <div className="mt-16 flow-root sm:mt-24">
                                 <div className="-m-2 rounded-xl lg:-m-4 lg:rounded-2xl lg:p-4">
@@ -209,16 +226,27 @@ export default function Features() {
                     </div>
                 </div>
             </div>
+             
+            <WhoIsItForSection
+            title='Who Is This For?'
+            description='Realtime Screen Time Control sole purpose is to help you see how much time you waste doomscrolling through social media apps, binging on useless content and tiring your eyes on boring games'
+            features={whoIsItForSectionInfo}
+            />
 
+            <div>
+                <h2 className="sr-only">
+                Benefits
+                </h2>
+            </div>
             <div className="overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                         <div className="my-auto lg:pr-8 lg:pt-12">
                             <div className="lg:max-w-lg">
                                 <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Digital Wellbeing</p>
-                                <p className="mt-6 text-lg leading-8 text-gray-300">
+                                <h3 className="mt-6 text-lg leading-8 text-gray-300">
                                 Developing healthy app usage habits promotes better overall well-being by reducing stress, anxiety, and the feeling of being constantly connected.
-                                </p>
+                                </h3>
                             </div>
                         </div>
                         <Image
@@ -238,7 +266,7 @@ export default function Features() {
                         <div className="my-auto lg:pr-8 lg:pt-4">
                             <div className="lg:max-w-lg">
                                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Enhanced Self-Awareness</p>
-                                <p className="mt-6 text-lg leading-8 text-gray-600">By tracking your app usage, you gain a clearer understanding of how you spend your time on your device, leading to better self-awareness and more intentional behavior.</p>
+                                <h3 className="mt-6 text-lg leading-8 text-gray-600">By tracking your app usage, you gain a clearer understanding of how you spend your time on your device, leading to better self-awareness and more intentional behavior.</h3>
                             </div>
                         </div>
                         <div className="flex items-start justify-end lg:order-first">
@@ -275,12 +303,12 @@ export default function Features() {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="mx-auto max-w-2xl lg:text-center">
                         {/* <h2 className="text-base font-semibold leading-7 text-indigo-600">Fully Packed</h2> */}
-                        <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                        <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                             Simple. Secure. Customizable.
-                        </p>
-                        <p className="mt-6 text-lg leading-8 text-gray-600">
+                        </h2>
+                        <h3 className="mt-6 text-lg leading-8 text-gray-600">
                             Track as many apps as you want and personalize the look of the app.
-                        </p>
+                        </h3>
                     </div>
                     <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
                         <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
@@ -291,7 +319,7 @@ export default function Features() {
                                         {feature.name}
                                     </dt>
                                     <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                                        <p className="flex-auto">{feature.description}</p>
+                                        <h3 className="flex-auto">{feature.description}</h3>
                                     </dd>
                                 </div>
                             ))}
@@ -321,17 +349,17 @@ export default function Features() {
             <div className="bg-white">
                 <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
                     <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-                        <h1 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Download Screen Time Realtime Control</h1>
-                        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Screen Time Realtime Control is an Apple-exclusive app available on iPhone and iPad.</p>
+                        <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Download Screen Time Realtime Control</h2>
+                        <h3 className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Screen Time Realtime Control is an Apple-exclusive app available on iPhone and iPad.</h3>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a href="https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=web&mt=8" target="_blank" rel="noopener noreferrer" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Download Now</a>
                         </div>
                         <svg viewBox="0 0 1024 1024" className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]" aria-hidden="true">
-                            <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fill-opacity="0.7" />
+                            <circle cx="512" cy="512" r="512" fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)" fillOpacity="0.7" />
                             <defs>
                                 <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                                    <stop stop-color="#7775D6" />
-                                    <stop offset="1" stop-color="#E935C1" />
+                                    <stop stopColor="#7775D6" />
+                                    <stop offset="1" stopColor="#E935C1" />
                                 </radialGradient>
                             </defs>
                         </svg>
