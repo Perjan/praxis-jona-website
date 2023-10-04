@@ -2,7 +2,7 @@
 
 import { Disclosure } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import { faqs, faqs_de, faqs_it } from "FAQs";
+import { faqs } from "FAQs";
 import Link from "next/link";
 import { localeFromPathname } from "./Header";
 import { usePathname } from "next/navigation";
@@ -14,12 +14,6 @@ export default function FaqSection(params: {locale: string, title: string, butto
   var localizedFaqs = faqs
 
   switch(locale) {
-    case "it":
-      localizedFaqs = faqs_it
-      break;
-    case "de":
-      localizedFaqs = faqs_de
-      break;
     default:
       localizedFaqs = faqs
       break;
