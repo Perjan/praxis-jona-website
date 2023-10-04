@@ -66,7 +66,6 @@ const nextConfig = {
         destination: "/company/press-kit",
         permanent: true
       }
-
     ]
   },
   rewrites: async () => {
@@ -83,7 +82,7 @@ const nextConfig = {
         {
           source: "/imprint",
           destination: "/legal/imprint",
-        },
+        }
       ],
       fallback: [
         {
