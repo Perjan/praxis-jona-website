@@ -1,4 +1,5 @@
 import { Constants } from 'app/Constants';
+import Authors from 'app/blog/authors/AuthorsDataSource';
 import { Post, allPosts } from 'contentlayer/generated';
 import { Metadata } from "next";
 
@@ -42,7 +43,9 @@ function generateAlternatesIfNeeded(post: Post) {
 }
 
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
+  
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
+  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"));
 
   if (!post) {
     return;
@@ -60,6 +63,12 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     title,
     description,
     alternates: generateAlternatesIfNeeded(post),
+    authors: [
+      {
+        name: author.name,
+        url: author.url
+      }
+    ],
     openGraph: {
       title,
       description,
