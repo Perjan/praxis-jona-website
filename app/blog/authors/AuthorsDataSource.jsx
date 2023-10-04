@@ -11,6 +11,16 @@ export const Authors = [
         image: "/images/team/perjan-duro.jpeg",
     },
     {
+        id: 'jonida-gjolli',
+        name: 'Jonida Gjolli',
+        role: "Medical Doctor & Co-Founder",
+        bio: "Jonida is a passionate medical doctor, with a special interest in nutrition and lifestyle medicine. She is a co-founder of " + Constants.appName + " and she is responsible for the medical-related content and the psychology behind the app. Jonida has been working in the medical industry for a couple of years, she writes content related to nutrition, lifestyle, and health. She loves traveling, cooking and HIIT.",
+        url: '/blog/authors/jonida-gjolli',
+        linkedInUrl: 'https://www.linkedin.com/in/jonida-gjolli-6b16237b/',
+        twitterUrl: '#',
+        image: "/images/team/jonida.jpeg",
+    },
+    {
         id: 'krist-duro',
         name: 'Krist Duro',
         role: "Marketing & Design",
