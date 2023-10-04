@@ -39,9 +39,9 @@ export const footerNavigation = {
         title: "Legal",
         href: "/#",
         items: [
-            { name: "Terms", href: "/legal/terms-of-use" },
-            { name: "Privacy", href: "/legal/privacy-policy/" },
-            { name: "Imprint", href: "/legal/imprint/" },
+            { name: "Terms", href: "/terms-of-use" },
+            { name: "Privacy", href: "/privacy-policy/" },
+            { name: "Imprint", href: "/imprint/" },
         ],
     },
     ourApps: {
