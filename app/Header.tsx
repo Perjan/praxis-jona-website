@@ -19,6 +19,7 @@ const navigationItemsEnglish = [
     // { title: "Features", href: "/features" },
     // { title: "Guides", href: "/guides" },
     { title: "Our Blog", href: "/blog" },
+    { title: "FAQ", href: "/faqs" },
     { title: "Contact", href: "/contact" }
 ]
 
