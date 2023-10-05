@@ -222,7 +222,7 @@ export default function Features() {
              
             <WhoIsItForSection
             title='Who Is This For?'
-            description='Realtime Screen Time Control sole purpose is to help you see how much time you waste doomscrolling through social media apps, binging on useless content and tiring your eyes on boring games'
+            description='Screen Time Realtime Control sole purpose is to help you see how much time you waste doomscrolling through social media apps, binging on useless content and tiring your eyes on boring games'
             features={whoIsItForSectionInfo}
             />
 
