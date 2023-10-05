@@ -20,8 +20,8 @@ export async function POST(request: Request) {
     console.log('sendgrid route');
     console.log({ requestJson });
     const msg: MailDataRequired = {
-        to: ["info@moneycoach.ai", "tickets@duuroapps.uservoice.com"],
-        from: 'info@moneycoach.ai',
+        to: ["info@appscreentime.com", "tickets@duuroapps.uservoice.com"],
+        from: 'info@appscreentime.com',
         replyTo: requestJson.email,
         subject: '[Website Contact] New message',
         text: formattedBody,

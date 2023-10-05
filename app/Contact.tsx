@@ -126,9 +126,9 @@ export default function ContactSection() {
                   <dd>
                     <a
                       className='hover:text-gray-900'
-                      href='mailto:info@moneycoach.ai'
+                      href='mailto:info@appscreentime.com'
                     >
-                      info[at]moneycoach.ai
+                      info[at]appscreentime.com
                     </a>
                   </dd>
                 </div>
