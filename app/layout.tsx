@@ -19,16 +19,10 @@ export const metadata: Metadata = {
     template: "%s"
   },
   description: description,
-  authors: [
-    {
-      name: Authors[0].name,
-      url: Authors[0].url
-    },
-    {
-      name: Authors[1].name,
-      url: Authors[1].url
-    },
-  ],
+  authors: Authors.map((author) => ({
+    name: author.name,
+    url: author.url
+  })),
   keywords: Constants.keywords,
   twitter: {
     title: title,
