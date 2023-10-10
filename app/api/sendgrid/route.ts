@@ -20,10 +20,10 @@ export async function POST(request: Request) {
     console.log('sendgrid route');
     console.log({ requestJson });
     const msg: MailDataRequired = {
-        to: ["info@appscreentime.com", "tickets@duuroapps.uservoice.com"],
-        from: 'info@appscreentime.com',
+        to: ["info@appscreentime.com"],
+        from: 'no-reply@appscreentime.com',
         replyTo: requestJson.email,
-        subject: '[Website Contact] New message',
+        subject: '[Website Contact RTST] New message',
         text: formattedBody,
         html: htmlBody,
     };
