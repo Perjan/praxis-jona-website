@@ -4,13 +4,9 @@ module.exports = {
   generateRobotsTxt: true, // (optional)
   exclude: [
     "/company/press-kit",
-    "/legal/privacy-policy",
     "/legal/credits",
-    "/legal/imprint",
     "/legal/disclaimer",
-    "/legal/terms-of-use",
-    "/legal/press-kit",
-    "/legal",
+    "/legal/press-kit"
   ],
 
   // ...other options

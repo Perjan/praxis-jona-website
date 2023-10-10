@@ -65,7 +65,19 @@ const nextConfig = {
         source: "/press-kit",
         destination: "/company/press-kit",
         permanent: true
-      }
+      },
+      // {
+      //   source: "/privacy-policy",
+      //   destination: "/legal/privacy-policy"
+      // },
+      // {
+      //   source: "/terms-of-use",
+      //   destination: "/legal/terms-of-use"
+      // },
+      // {
+      //   source: "/imprint",
+      //   destination: "/legal/imprint",
+      // }
     ]
   },
   rewrites: async () => {
@@ -82,16 +94,6 @@ const nextConfig = {
         {
           source: "/imprint",
           destination: "/legal/imprint",
-        }
-      ],
-      fallback: [
-        {
-          source: "/guide",
-          destination: "/guides"
-        },
-        {
-          source: "/:slug*",
-          destination: "/blog/:slug*"
         }
       ]
     }
