@@ -6,7 +6,8 @@ module.exports = {
     "/company/press-kit",
     "/legal/credits",
     "/legal/disclaimer",
-    "/legal/press-kit"
+    "/legal/press-kit",
+    "/events",
   ],
 
   // ...other options
