@@ -17,19 +17,31 @@ export async function POST(request: Request) {
         htmlBody += "<b>" + key + "</b>: " + requestJson[key] + "<br>";
     })
 
+    let fromEmail = "info@appscreentime.com"
+
     console.log('sendgrid route');
     console.log({ requestJson });
     const msg: MailDataRequired = {
-        to: ["info@appscreentime.com"],
-        from: 'no-reply@appscreentime.com',
+        to: [fromEmail],
+        from: 'info@moneycoach.ai',
         replyTo: requestJson.email,
         subject: '[Website Contact RTST] New message',
         text: formattedBody,
         html: htmlBody,
     };
+
+    const replyToUser: MailDataRequired = {
+        to: [requestJson.email],
+        from: fromEmail,
+        replyTo: fromEmail,
+        subject: '[Website Contact RTST] We have received your message',
+        text: "Thanks for contacting us. We will get back to you as soon as possible."
+    };
+
     try {
         const response = await sendgrid.send(msg);
-        console.log({ response });
+        const replyToUserEmail = await sendgrid.send(replyToUser);
+        console.log({ response, replyToUserEmail });
         return NextResponse.json({ response });
     } catch (error) {
         console.error(error);
