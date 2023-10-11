@@ -43,17 +43,17 @@ const CustomLink = (props) => {
 
   if (href.startsWith('/')) {
     return (
-      <Link className="bg-red-400" href={href} {...props}>
+      <Link className="text-red-500" href={href} {...props}>
         {props.children}
       </Link>
     );
   }
 
   if (href.startsWith('#')) {
-    return <a className="bg-red-400" {...props} />;
+    return <a className="text-red-500" {...props} />;
   }
 
-  return <a className="bg-red-400" target="_blank" rel="noopener noreferrer" {...props} />;
+  return <a className="text-red-500" target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
 const H1 = (props) => {
@@ -81,7 +81,7 @@ function LinkWithRel(props) {
 }
 
 const components = {
-  // a: CustomLink,
+  a: CustomLink,
   h1: H1,
   // h3: H3
   img: RoundedImage,
