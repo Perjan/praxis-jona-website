@@ -19,19 +19,12 @@ export async function POST(req: NextRequest, res: NextResponse) {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B179 Safari/7534.48.3"
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1",
           },
           body: JSON.stringify(data),
         });
 
-    console.log("response is "+ response);
-
-    const responseData = await response.json();
-    console.log("response data is " + responseData);
-
-    if (response.status !== 200 || responseData.status !== 200) {
-        return NextResponse.json({responseData}, {status: responseData.status});
-    }
-
-    return NextResponse.json({responseData});
+    console.log("response is "+ response.status);
+    
+return NextResponse.json({response}, {status: response.status});
 }
