@@ -64,17 +64,28 @@ const CustomLink = (props) => {
   );
 };
 
-const H1 = (props) => {
-  return (
-    <h1 className='mt-2 text-3xl font-bold tracking-tight sm:text-4xl'>
-      {props.children}
-    </h1>
-  );
-};
+const scrollMarginClass = "scroll-m-32"
 
-const H3 = (props) => {
-  return <h3 className=''>{props.children}</h3>;
-};
+const H1 = ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  <h1 
+    className={'font-heading mt-8 scroll-m-20 text-4xl font-bold ' + scrollMarginClass} 
+    {...props} 
+  />
+);
+
+const H2 = ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  <h2
+    className={"font-heading mt-12 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0 " + scrollMarginClass}
+    {...props}
+  />
+);
+
+const H3 = ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
+  <h3
+    className={'font-heading mt-8 text-xl font-semibold tracking-tight ' + scrollMarginClass}
+    {...props}
+  />
+);
 
 function RoundedImage(props) {
   return (
@@ -100,7 +111,8 @@ function LinkWithRel(props) {
 const components = {
   a: CustomLink,
   h1: H1,
-  // h3: H3
+  h2: H2,
+  h3: H3,
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo,
   LinkWithRel: LinkWithRel,
@@ -139,8 +151,8 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <div className='grid grid-cols-3'>
-        <div className='bg-white mt-2 sm:mt-10 col-span-3 lg:col-span-2'>
+      <main className="px-4 md:px-8 mx-auto max-w-6xl relative py-6 lg:grid lg:grid-cols-[1fr_300px] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20">
+      <div className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-2xl">
           <div className='mx-auto max-w-7xl px-6 lg:px-8'>
             <div className='mx-auto max-w-2xl lg:mx-0'>
               <h1 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
@@ -154,7 +166,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                 {author.name}
               </Link>
             </div>
-            <article className='prose prose-neutral mx-auto max-w-2xl lg:mx-0'>
+            <article className=''>
               {/* <article className=""> */}
               <section>
                 <script
@@ -224,10 +236,14 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
             </div>
           )}
         </div>
-        <div className='col-span-1 px-8'>
-          <DashboardTableOfContents toc={toc} />
+
+        <div className="hidden text-sm lg:block">
+          <div className="sticky top-24 -mt-10 max-h-[calc(var(--vh)-4rem)] overflow-y-auto pt-10">
+            <DashboardTableOfContents toc={toc} />
+          </div>
         </div>
-      </div>
+
+      </main>
     </>
   );
 };
