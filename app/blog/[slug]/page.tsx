@@ -143,8 +143,6 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   // 5 related articles
   const relatedArticles = filteredBlogPosts.slice(postIndex + 1, postIndex + 6);
 
-  const isDiary = post.categories?.includes('diaries') ?? false;
-
   const Content = getMDXComponent(post.body.code);
 
   const toc = await getTableOfContents(post.body.raw);
@@ -153,8 +151,8 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
     <>
       <main className="px-4 md:px-8 mx-auto max-w-6xl relative py-6 lg:grid lg:grid-cols-[1fr_300px] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20">
       <div className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-2xl">
-          <div className='mx-auto max-w-7xl px-6 lg:px-8'>
-            <div className='mx-auto max-w-2xl lg:mx-0'>
+          <div className=''>
+            <div className=''>
               <h1 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
                 {post.title}
               </h1>
@@ -185,22 +183,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                     priority={true}
                   />
                 )}
-                {isDiary && (
-                  <blockquote>
-                    <p>
-                      MoneyCoach Diaries is my ongoing journey to turn my indie
-                      app into a more sustainable part of my business. First
-                      time reading? See what happened until now by tapping{' '}
-                      <Link
-                        href={'/blog?category=diaries'}
-                        data-umami-event='view-all-diaries-from-diary-page'
-                      >
-                        <strong>this link</strong>
-                      </Link>
-                      .
-                    </p>
-                  </blockquote>
-                )}
+                
                 <Content components={{ ...components }} />
               </section>
             </article>
@@ -229,12 +212,6 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
               </div>
             )}
           </div>
-
-          {isDiary && (
-            <div className='mt-20'>
-              <NewsletterSection props={defaultNewsletterDiariesSectionProps} />
-            </div>
-          )}
         </div>
 
         <div className="hidden text-sm lg:block">
