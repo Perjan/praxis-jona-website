@@ -17,7 +17,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
-        alt: 'Screen Time Realtime Control app screenshot'
+        alt: 'Realtime Screen Time app screenshot'
       }
     ],
   },
@@ -47,7 +47,7 @@ export default function Page() {
 
             <h2 className="mt-2 text-lg leading-8 text-gray-600">So, if you have any questions, feedback or suggestions, please don't hesitate to fill out the form below. We'll get back to you as soon as possible, and we promise to do everything we can to help you stop wasting your time.</h2>
 
-            <h2 className="mt-2 text-lg leading-8 text-gray-600">Thank you for choosing Screen Time Realtime Control – we're excited to be a part of your wellbeing journey!</h2>
+            <h2 className="mt-2 text-lg leading-8 text-gray-600">Thank you for choosing Realtime Screen Time – we're excited to be a part of your wellbeing journey!</h2>
           </div>
           <div className="mt-20">
             <ContactSection />

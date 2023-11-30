@@ -1,9 +1,9 @@
 export const faqs = [
     {
       id: 1,
-      question: "What's Screen Time Realtime Control?",
+      question: "What's Realtime Screen Time?",
       answer:
-        "Screen Time Realtime Control is an app that helps you control your app usage and develop healthier digital habits.",
+        "Realtime Screen Time is an app that helps you control your app usage and develop healthier digital habits.",
     },
     {
       id: 2,

@@ -60,21 +60,21 @@ const rtstFeatures = [
     {
         name: 'Actually Benefitial',
         description:
-            "Screen Time Realtime Control is perfect for keeping track of how much you are using your apps and games.",
+            "Realtime Screen Time is perfect for keeping track of how much you are using your apps and games.",
         href: '#',
         icon: ClockIcon,
     },
     {
         name: 'Private & Secure',
         description:
-            "Screen Time Realtime Control does not require any registration or login. Your information is securely stored on your private iCloud.",
+            "Realtime Screen Time does not require any registration or login. Your information is securely stored on your private iCloud.",
         href: '#',
         icon: ShieldCheckIcon,
     },
     {
         name: 'Personalizable',
         description:
-            "Screen Time Realtime Control lets you personalize the look of the Dynamic Island and Live Activity widgets plus custom app icons.",
+            "Realtime Screen Time lets you personalize the look of the Dynamic Island and Live Activity widgets plus custom app icons.",
         href: '#',
         icon: PaintBrushIcon,
     },
@@ -187,10 +187,10 @@ export default function Features() {
                         <div className="mx-auto max-w-7xl px-6 lg:px-8">
                             <div className="mx-auto max-w-2xl text-center">
                                 <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                                    What's Screen Time Realtime Control
+                                    What's Realtime Screen Time
                                 </h2>
                                 <h3 className="mt-6 text-lg leading-8 text-gray-600">
-                                Screen Time Realtime Control uses Shortcuts Automation to toggle a stopwatch whenever you open one of your configured apps (TikTok, Twitter, Facebook, Instagram...) or any games (Clash of Clans, Marvel Snap, Genshin Impact).
+                                Realtime Screen Time uses Shortcuts Automation to toggle a stopwatch whenever you open one of your configured apps (TikTok, Twitter, Facebook, Instagram...) or any games (Clash of Clans, Marvel Snap, Genshin Impact).
                                 </h3>
                                 <h3 className="mt-6 text-lg leading-8 text-gray-600">Plus, you can check the daily and all-time usage for all tracked apps.
                                 </h3>
@@ -223,7 +223,7 @@ export default function Features() {
              
             <WhoIsItForSection
             title='Who Is This For?'
-            description='Screen Time Realtime Control sole purpose is to help you see how much time you waste doomscrolling through social media apps, binging on useless content and tiring your eyes on boring games.'
+            description='Realtime Screen Time sole purpose is to help you see how much time you waste doomscrolling through social media apps, binging on useless content and tiring your eyes on boring games.'
             features={whoIsItForSectionInfo}
             />
 
@@ -365,8 +365,8 @@ export default function Features() {
             <div className="bg-white">
                 <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
                     <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16">
-                        <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Download Screen Time Realtime Control</h2>
-                        <h3 className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Screen Time Realtime Control is an Apple-exclusive app available on iPhone and iPad.</h3>
+                        <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-white sm:text-4xl">Download Realtime Screen Time</h2>
+                        <h3 className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">Realtime Screen Time is an Apple-exclusive app available on iPhone and iPad.</h3>
                         <div className="mt-10 flex items-center justify-center gap-x-6">
                             <a href="https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=web&mt=8" target="_blank" rel="noopener noreferrer" className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Download Now</a>
                         </div>
