@@ -5,6 +5,7 @@ import RTSTHeroImage from "/public/images/rtst-hero-image.png"
 import RTSTWellbeing from "/public/images/rtst-wellbeing.png"
 import RTSTPhones from "/public/images/rtst-all-devices.png"
 import RTSTProductivity from "/public/images/rtst-productivity.png"
+import RTSTLeaderboards from "/public/images/rtst-leaderboards.png"
 import { Metadata } from "next";
 import { Constants } from "./Constants";
 import WhoIsItForSection from "./WhoIsItForSection"
@@ -236,14 +237,15 @@ export default function Features() {
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                         <div className="my-auto lg:pr-8 lg:pt-12">
                             <div className="lg:max-w-lg">
-                                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Digital Wellbeing</p>
+                                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Global Leaderboards</p>
                                 <h3 className="mt-6 text-lg leading-8 text-gray-300">
-                                Developing healthy app usage habits promotes better overall well-being by reducing stress, anxiety, and the feeling of being constantly connected.
+                                With Leaderboards powered by Game Center, users can now compare their times against their friends, family or with the rest of the world.</h3>
+                                <h3 className="mt-6 text-lg leading-8 text-gray-300">Just remember that the one with the least amount of time spent on social media wins the #1 place.
                                 </h3>
                             </div>
                         </div>
                         <Image
-                            src={RTSTWellbeing}
+                            src={RTSTLeaderboards}
                             alt= {Constants.appName}
                             className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] md:-ml-4 lg:-ml-0"
                             priority
@@ -268,6 +270,27 @@ export default function Features() {
                                 className="w-[48rem] max-w-none sm:w-[57rem]"
                             />
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="overflow-hidden bg-gray-900 py-24 sm:py-32">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+                        <div className="my-auto lg:pr-8 lg:pt-12">
+                            <div className="lg:max-w-lg">
+                                <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Digital Wellbeing</p>
+                                <h3 className="mt-6 text-lg leading-8 text-gray-300">
+                                Developing healthy app usage habits promotes better overall well-being by reducing stress, anxiety, and the feeling of being constantly connected.
+                                </h3>
+                            </div>
+                        </div>
+                        <Image
+                            src={RTSTWellbeing}
+                            alt= {Constants.appName}
+                            className="w-[48rem] max-w-none rounded-xl sm:w-[57rem] md:-ml-4 lg:-ml-0"
+                            priority
+                        />
                     </div>
                 </div>
             </div>
