@@ -142,18 +142,18 @@ export default function Features() {
 
                 <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
                 <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
-                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                    Track Your App Screen Time In Realtime
+                    <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl font-serif">
+                    Praxis Jona
                     </h1>
-                    <h2 className="mt-6 text-lg leading-8 text-gray-300">
-                    See how much time you spend on social media, shopping and streaming apps, addicting games etc. Available on iPhone and iPad. Take control of your app usage and develop healthier digital habits.
+                    <h2 className="mt-6 text-lg leading-8 text-gray-300 font-display">
+                    The best thing since sliced bread.
                     </h2>
                     <div className="mt-10 flex items-center gap-x-6">
                     <a
                         href="https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=web&mt=8"
                         className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                         >
-                        Download Now
+                        Termin Buchen
                         </a>
                     </div>
                     </div>

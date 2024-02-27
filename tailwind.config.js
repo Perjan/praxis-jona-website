@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -11,7 +13,15 @@ module.exports = {
     './public/*.html'
   ],
   theme: {
+    fontFamily: {
+      sans: ['Arial', 'sans-serif'],
+      serif: ['ui-serif', 'Georgia'],
+      display: ["Open Sans", "sans-serif"],
+    },
     extend: {
+      // fontFamily: {
+      //   'sans': ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
+      // },
       colors: {
         primary: "#0262c0",
         primaryDarker: "#013F7A",
@@ -25,5 +35,5 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography')
-  ],
+  ]
 }
