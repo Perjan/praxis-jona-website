@@ -27,10 +27,10 @@ import {
           </div>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="text-center drop-shadow-2xl">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl drop-shadow-l">
+              <h1 className="text-4xl font-bold tracking-tight font-serif text-white sm:text-6xl drop-shadow-2xl">
               {params.title}
               </h1>
-              <h2 className="mt-6 text-2xl leading-8 text-white drop-shadow-l">
+              <h2 className="mt-6 text-2xl leading-8 text-white drop-shadow-2xl">
               {params.description}
               </h2>
             </div>
