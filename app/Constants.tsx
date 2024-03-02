@@ -5,5 +5,6 @@ export const Constants = {
     msDownloadUrl: "https://apps.apple.com/app/apple-store/id1633780211?pt=118449936&ct=website-rtst&mt=8",
     appId: "6452629146",
     keywords: ["screen time", "screentime app", "limit app usage app", "app usage monitor", "iOS 17"],
-    umamiId: "aef10b17-64c8-4a47-a4c9-0351928b0a6c"
+    umamiId: "cc9a5b16-c893-492f-af55-e6b79a844358",
+    dataDomain: "appsforapplevision.com"
 }

@@ -83,6 +83,7 @@ export default function RootLayout({
       <Script
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id={Constants.umamiId}
+            data-domain={Constants.dataDomain}
             strategy="lazyOnload"
           />
       <body>
