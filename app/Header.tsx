@@ -12,13 +12,14 @@ import {
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
 
-import Logo from "/public/images/rtst-web-logo.png"
+import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
 
 const navigationItemsEnglish = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
-    { title: "Leistungen", href: "/guides" },
-    { title: "Team", href: "/blog" },
+    { title: "Leistungen", href: "/leistungen" },
+    { title: "Blog", href: "/blog" },
+    { title: "Team", href: "/team" },
     { title: "Termin", href: "/faqs" },
    //{ title: "Contact", href: "/contact" }
 ]
