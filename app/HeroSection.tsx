@@ -13,24 +13,17 @@ import {
   export default function HeroSection(params: {title: string, description: string}) {
     return (
       <div>
-        <div className="relative isolate overflow-hidden pt-14">
-          <img
-            src="/images/clinic-photo.jpg"
-            alt=""
-            className="absolute inset-0 -z-10 h-full w-full object-cover"
-            width={1920}
-            height={1080}
-          />
+        <div className="relative isolate overflow-hidden pt-14 bg-fixed" style={{ backgroundImage: 'url("/images/clinic/clinic-photo.jpg")' }}>
           <div
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
             aria-hidden="true">
           </div>
           <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="text-center drop-shadow-2xl">
-              <h1 className="text-4xl font-bold tracking-tight font-serif text-white sm:text-6xl drop-shadow-2xl">
+              <h1 className="text-4xl font-regular tracking-tight font-serif text-black sm:text-6xl">
               {params.title}
               </h1>
-              <h2 className="mt-6 text-2xl leading-8 text-white drop-shadow-2xl">
+              <h2 className="mt-6 text-2xl leading-8 text-gray-600">
               {params.description}
               </h2>
             </div>

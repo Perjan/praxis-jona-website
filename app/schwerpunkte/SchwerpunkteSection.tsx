@@ -35,7 +35,7 @@ export default function Example() {
         <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Schwerpunkte</h2>
+                    <h2 className="text-3xl font-serif tracking-tight text-gray-900 sm:text-4xl">Schwerpunkte</h2>
                     <p className="mt-6 text-lg leading-8 text-gray-600">
                         We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
                         best results for our clients.
@@ -48,7 +48,7 @@ export default function Example() {
                     {schwerpunktes.map((schwerpunkte) => (
                         <li key={schwerpunkte.name}>
                             <img className="aspect-[3/2] w-full rounded-2xl object-cover" src={schwerpunkte.image} alt="" />
-                            <h3 className="mt-6 text-2xl font-semibold leading-8 tracking-tight text-gray-900">{schwerpunkte.name}</h3>
+                            <h3 className="mt-6 text-2xl font-serif leading-8 tracking-tight text-gray-900">{schwerpunkte.name}</h3>
                             <p className="text-base mt-4 leading-7 text-gray-600">{schwerpunkte.description}</p>
 
                             <p className="text-base leading-7 text-gray-600">

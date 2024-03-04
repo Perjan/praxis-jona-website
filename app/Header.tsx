@@ -33,11 +33,11 @@ function classNames(...classes: string[]) {
 
 function downloadAppTitle(locale: string) {
     if (locale === "it") {
-        return "Scarica"
+        return "Prenota un appuntamento"
     } else if (locale === "de") {
-        return "Herunterladen"
+        return "Termin Buchen"
     } else {
-        return "Download"
+        return "Book an appointment"
     }
 }
 
@@ -46,7 +46,7 @@ export function DownloadButton({ url, locale }) {
         <Link
             href={url}
             target='_blank'
-            className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-semibold leading-7 text-white hover:bg-primaryDarker"
+            className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="mc-app-download-button-in-header"
         >{downloadAppTitle(locale)}
         </Link>
@@ -145,7 +145,7 @@ export default function Header() {
                             scroll={true}
                             className={
                                 cn(pathname === item.href ? "text-primary" : "text-gray-900",
-                                    "text-sm font-semibold leading-6")
+                                    "text-sm font-medium font-serif leading-6")
                             }
                         >{item.title}
                         </Link>
@@ -177,7 +177,7 @@ export default function Header() {
                                         key={item.title}
                                         href={item.href}
                                         className={
-                                            cn(pathname === item.href ? "text-primary" : "text-gray-900",
+                                            cn(pathname === item.href ? "text-primary" : "text-gray-700",
                                                 menuItemClassName)
                                         }
                                         onClick={() => setMobileMenuOpen(false)}
