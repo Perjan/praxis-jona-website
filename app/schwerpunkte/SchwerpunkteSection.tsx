@@ -61,7 +61,7 @@ export default function Example() {
                             </p>
                             {schwerpunkte.descriptionRest.split('\n\n').length > 1 && (
                                 <button onClick={() => setExpanded(!expanded)} className="text-blue-500 mt-4">
-                                    {expanded ? 'Weniger lesen' : 'Mehr lesen'}
+                                    {expanded ? 'Schließen' : 'Weiterlesen'}
                                 </button>
                             )}
                         </li>

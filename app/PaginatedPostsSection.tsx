@@ -13,17 +13,19 @@ const pageItems = 9
 // enum with all the categories
 
 enum Category {
-    all, guide, digitalWellbeing
+    all, health, nutrition, beauty, digitalWellbeing
 }
 
 const categories: Category[] = [
-    Category.all, Category.guide, Category.digitalWellbeing
+    Category.all, Category.health, Category.beauty, Category.nutrition, Category.digitalWellbeing
 ]
 
 function name(category: Category) {
     switch (category) {
         case Category.all: return "All"
-        case Category.guide: return "Guides"
+        case Category.health: return "Health"
+        case Category.beauty: return "Beauty"
+        case Category.nutrition: return "Nutrition"
         case Category.digitalWellbeing: return "Digital Wellbeing"
     }
 }
@@ -31,7 +33,9 @@ function name(category: Category) {
 function raw(category: Category) {
     switch (category) {
         case Category.all: return "all"
-        case Category.guide: return "guide"
+        case Category.health: return "health"
+        case Category.beauty: return "beauty"
+        case Category.nutrition: return "nutrition"
         case Category.digitalWellbeing: return "digital-wellbeing"
     }
 }
@@ -39,7 +43,9 @@ function raw(category: Category) {
 function categoryFromString(category: string) {
     switch (category) {
         case "all": return Category.all
-        case "guide": return Category.guide
+        case "health": return Category.health
+        case "beauty": return Category.beauty
+        case "nutrition": return Category.nutrition
         case "digital-wellbeing": return Category.digitalWellbeing
     }
 }

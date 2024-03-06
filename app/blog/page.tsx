@@ -5,8 +5,8 @@ import { Constants } from 'app/Constants'
 
 export const dynamic = "force-static"
 
-const title = 'Blog - ' + Constants.appName + " - App Usage Monitor for iOS"
-const description = "We write content about optimizing your screen time, limit app usage & having a healthy relationship with your smartphone to reduce social media addiction."
+const title = 'Blog - Praxis Jona'
+const description = "Wir veröffentlichen Artikel über Gesundheit, Schönheit und Ernährung. Alle basieren auf den neuesten medizinischen Forschungsergebnissen."
 
 export const metadata: Metadata = {
   title: title,

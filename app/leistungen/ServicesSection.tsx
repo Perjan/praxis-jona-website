@@ -77,7 +77,7 @@ export default function ServicesSection() {
       {products.map((product) => (
         <li key={product.id} className="inline-flex w-64 flex-col text-center lg:w-auto" id={`product-${product.id}`}>
           <div className="group relative">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200">
+            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-red-50">
               <a href={`#product-${product.id}`}>
                 <img
                   src={product.imageSrc}
@@ -107,7 +107,7 @@ export default function ServicesSection() {
       className="mx-auto grid max-w-2xl grid-cols-1 gap-y-8 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-1"
     >
       {products.map((product, index) => (
-        <li key={product.id} className={`grid grid-cols-1 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-200'} w-full rounded-lg overflow-hidden`} id={`product-${product.id}`}>
+        <li key={product.id} className={`grid grid-cols-1 ${index % 2 === 0 ? 'bg-white' : 'bg-red-50'} w-full rounded-lg overflow-hidden`} id={`product-${product.id}`}>
           <div className="flex flex-col sm:flex-row items-center justify-between">
             <div className="w-full sm:w-1/3">
               <img

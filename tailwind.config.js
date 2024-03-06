@@ -26,6 +26,7 @@ module.exports = {
         primary: "#0262c0",
         primaryDarker: "#013F7A",
         redColor: "#ff4059",
+        pinkColor: "#FBC2C3",
         greenColor: "#04d7a5",
         "bg-base-100": "#9debff"
       }
