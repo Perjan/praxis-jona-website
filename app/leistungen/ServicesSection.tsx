@@ -3,7 +3,7 @@ const products = [
     id: 1,
     name: 'Akutsprechstunde',
     href: '#',
-    imageSrc: '/images/leistungen/openhours.png',
+    imageSrc: '/images/leistungen/acuteEmergency.png',
     description: "In unserer Praxis steht für unsere Patienten eine Akutsprechstunde zur Verfügung. Wir bemühen uns stets, die Wartezeiten so gering wie möglich zu halten, möchten jedoch darauf hinweisen, dass es gelegentlich zu Verzögerungen kommen kann. Für den Fall, dass Sie an einer ansteckenden Krankheit leiden oder Fieber haben, bitten wir Sie, dies bereits bei der Terminvereinbarung anzugeben. So können wir sicherstellen, dass angemessene Vorsichtsmaßnahmen ergriffen werden, um die Gesundheit aller unserer Patienten und des Praxisteams zu schützen."
   },
   {
@@ -119,7 +119,7 @@ export default function ServicesSection() {
             <div className="w-full sm:w-2/3 p-4 sm:p-0">
               <div className="lg:max-w-2xl py-8">
                 <p className="mt-2 text-xl font-serif tracking-tight text-gray-900 sm:text-2xl">{product.name}</p>
-                <h3 className="mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-gray-600" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n\n/g, '<br>') }}></h3>
+                <h3 className="mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-gray-500" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n\n/g, '<br>') }}></h3>
               </div>
             </div>
           </div>
