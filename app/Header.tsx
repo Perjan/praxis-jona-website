@@ -20,7 +20,7 @@ const navigationItemsEnglish = [
     { title: "Leistungen", href: "/leistungen" },
     { title: "Blog", href: "/blog" },
     { title: "Team", href: "/team" },
-    { title: "Termin", href: "/faqs" },
+   // { title: "Termin", href: "/faqs" },
    //{ title: "Contact", href: "/contact" }
 ]
 
@@ -33,14 +33,9 @@ function classNames(...classes: string[]) {
 }
 
 function downloadAppTitle(locale: string) {
-    if (locale === "it") {
-        return "Prenota un appuntamento"
-    } else if (locale === "de") {
-        return "Termin Buchen"
-    } else {
-        return "Book an appointment"
-    }
+   return "Termin Buchen"
 }
+
 
 export function DownloadButton({ url, locale }) {
     return (
@@ -101,12 +96,12 @@ export default function Header() {
                         href={locale === "en" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
-                        <span className="sr-only">Realtime Screen Time App</span>
+                        <span className="sr-only">Praxis Jona</span>
                         <Image
                             priority={true}
                             className="h-14 w-auto object-contain"
                             src={Logo}
-                            alt="Realtime Screen Time Logo"
+                            alt="Praxis Jona Logo"
                         />
                     </Link>
                 </div>
@@ -146,7 +141,7 @@ export default function Header() {
                             scroll={true}
                             className={
                                 cn(pathname === item.href ? "text-primary" : "text-gray-900",
-                                    "text-sm font-medium font-serif leading-6")
+                                    "text-md font-medium font-serif leading-6")
                             }
                         >{item.title}
                         </Link>

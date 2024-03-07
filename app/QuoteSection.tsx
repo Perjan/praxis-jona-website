@@ -19,6 +19,9 @@ export default function QuoteSection(params: {quote: string}) {
               <div className="mt-4 flex items-center justify-center space-x-3 text-base">
                 <div className="font-semibold text-gray-900">Jonida Gjolli</div>
               </div>
+              <div className="flex items-center justify-center space-x-3 text-base">
+                <div className="font-regular text-gray-700">Fachärztin für Innere Medizin</div>
+              </div>
             </figcaption>
           </figure>
         </div>

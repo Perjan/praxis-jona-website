@@ -2,7 +2,7 @@
 import { Constants } from "./Constants";
 
 export const footerNavigation = {
-    copyright: "2023 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.",
+    copyright: "2024 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.",
     features: {
         title: "Features",
         href: "/features",
@@ -26,13 +26,11 @@ export const footerNavigation = {
         ]
     },
     company: {
-        title: "Company",
+        title: "Praxis",
         href: "/company",
         items: [
-            { name: "About", href: "/company" },
+            { name: "Team", href: "/team" },
             { name: "Blog", href: "/blog" },
-            { name: "Press Kit", href: "/company/press-kit" },
-            { name: "Support", href: "/support" },
         ],
     },
     legal: {

@@ -2,12 +2,13 @@ import Link from "next/link"
 
 const navigation = {
   solutions: [
-    { name: 'M: 8:30 - 12:30' },
-    { name: 'D: 8:30 - 14:30' },
-    { name: 'M: 8:30 - 12:30' },
-    { name: 'D: 11:00 - 16:00' },
-    { name: 'F: 8:30 - 12:30' },
-    { name: 'S: 15:00 - 18:00' },
+    { name: 'Montag: 8:30 - 12:30' },
+    { name: 'Dienstag: 8:30 - 14:30' },
+    { name: 'Mittwoch: 8:30 - 12:30' },
+    { name: 'Donnerstag: 11:00 - 16:00' },
+    { name: 'Freitag: 8:30 - 12:30' },
+    { name: 'Samstag: 15:00 - 18:00' },
+    { name: 'Sonntag: Geschlossen' },
   ],
   support: [
     { name: 'Pricing', href: '#' },
@@ -16,23 +17,19 @@ const navigation = {
     { name: 'API Status', href: '#' },
   ],
   company: [
-    { name: 'About', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Jobs', href: '#' },
-    { name: 'Press', href: '#' },
-    { name: 'Partners', href: '#' },
+    { name: 'Team', href: '/team' },
+    { name: 'Blog', href: '/blog' },
   ],
   legal: [
-    { name: 'Claim', href: '#' },
-    { name: 'Privacy', href: '#' },
-    { name: 'Terms', href: '#' },
+    { name: 'Impressum', href: '#' },
+    { name: 'Datenschutz', href: '#' },
   ],
 }
 
 export const socials = [
   {
     name: "Facebook",
-    href: "https://www.facebook.com/DuuroPlays",
+    href: "https://www.facebook.com",
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -58,7 +55,7 @@ export const socials = [
   },
   {
     name: "YouTube",
-    href: "https://www.youtube.com/@ParticularAugmentedReality",
+    href: "https://www.youtube.com/",
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -73,7 +70,7 @@ export const socials = [
 
 export default function Example() {
   return (
-    <footer className="bg-white" aria-labelledby="footer-heading">
+    <footer className="bg-stone-100" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -88,16 +85,16 @@ export default function Example() {
             10119, Berlin
             </p>
             <p className="text-sm mt-2 leading-6 text-gray-600">
-            <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9">Anweisungen bekommen</a>
+            <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" style={{ textDecoration: 'underline' }}>Anweisungen bekommen</a>
             </p>
           </div>
           <div>
             <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Kontakt</h3>
             <p className="text-sm mt-6 leading-6 text-gray-600">
-              Tel: <a href="tel://03040054273">03040054273</a>
+              Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>03040054273</a>
             </p>
             <p className="text-sm mt-2 leading-6 text-gray-600">
-            Email: <a href="mailto:info@praxisjona.de">info@praxisjona.de</a>
+            Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
             </p>
           </div>
           <div>
@@ -116,7 +113,7 @@ export default function Example() {
           </div>
           <div className="md:grid md:grid-cols-2 md:gap-8">
             <div>
-              <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Company</h3>
+              <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Praxis</h3>
               <ul role="list" className="mt-6 space-y-2">
                 {navigation.company.map((item) => (
                   <li key={item.name}>

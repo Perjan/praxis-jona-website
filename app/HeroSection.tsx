@@ -4,12 +4,9 @@
   import Link from 'next/link'
   import { Constants } from './Constants'
   
-  const videoUrl = "https://www.youtube.com/watch?v=phpFfo80LPI&t=22s"
-  const previewUrl = "https://www.youtube.com/shorts/rh5_8mVDx4Q"
-  
   export default function HeroSection(params: {title: string, description: string}) {
     return (
-      <div className="relative isolate overflow-hidden pt-14 bg-fixed bg-cover relative" style={{ backgroundImage: 'url("/images/clinic/clinic-photo.jpg")', position: 'relative' }}>
+      <div className="relative isolate overflow-hidden pt-14 bg-fixed bg-cover relative" style={{ backgroundImage: 'url("/images/clinic/clinic-new.jpeg")', position: 'relative' }}>
       <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
       </div>
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative">
