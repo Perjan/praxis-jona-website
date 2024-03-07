@@ -37,8 +37,7 @@ export default function Example() {
                 <div className="mx-auto max-w-2xl lg:mx-0">
                     <h2 className="text-3xl font-serif tracking-tight text-gray-900 sm:text-4xl">Schwerpunkte</h2>
                     <p className="mt-6 text-lg leading-8 text-gray-600">
-                        We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
-                        best results for our clients.
+                    Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenkrankheiten, Bluthochdruck und Fettstoffwechselstörungen.
                     </p>
                 </div>
                 <ul
