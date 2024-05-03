@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated'
-import PaginatedPostsSection from '../PaginatedPostsSection'
+import PaginatedPostsSection from '../../app/PaginatedPostsSection'
 import { Metadata } from 'next'
 import { Constants } from 'app/Constants'
 

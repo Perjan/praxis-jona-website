@@ -6,11 +6,11 @@ import { Metadata } from 'next';
 import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
 import Script from 'next/script';
-import Authors from './blog/authors/AuthorsDataSource';
+import Authors from '../app-backup/blog/authors/AuthorsDataSource';
 
 
-const title = Constants.appName + " App Usage Tracker For iPhone & iPad"
-const description = Constants.appName + " is an app for users who want to take control of their app usage and develop healthier digital habits."
+const title = Constants.appName
+const description = "Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist du mehr als nur ein weiterer Patient"
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
@@ -19,33 +19,21 @@ export const metadata: Metadata = {
     template: "%s"
   },
   description: description,
-  authors: Authors.map((author) => ({
-    name: author.name,
-    url: author.url
-  })),
   keywords: Constants.keywords,
-  twitter: {
-    title: title,
-    description: description,
-    site: Constants.appName,
-    creator: "@perjanduro",
-    card: "summary_large_image",
-    images: ['/images/og-image.png']
-  },
   openGraph: {
     title: title,
     siteName: Constants.appName,
     description: description,
     type: 'website',
     url: '/',
-    images: [
-      {
-        url: '/images/og-image.png',
-        width: 1200,
-        height: 600,
-        alt: Constants.appName + ' app screenshot'
-      }
-    ],
+    // images: [
+    //   {
+    //     url: '/images/og-image.png',
+    //     width: 1200,
+    //     height: 600,
+    //     alt: Constants.appName + ' app screenshot'
+    //   }
+    // ],
   },
   robots: {
     index: true,
@@ -60,17 +48,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  itunes: {
-    appId: Constants.appId,
-    appArgument: 'rtst://'
-  },
-  appLinks: {
-    ios: {
-      app_name: Constants.appName,
-      app_store_id: Constants.appId,
-      url: Constants.downloadUrl
-    }
-  }
 }
 
 export default function RootLayout({
