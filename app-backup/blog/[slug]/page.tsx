@@ -5,7 +5,7 @@ import { compareDesc, format, parseISO } from 'date-fns';
 import { allPosts } from 'contentlayer/generated';
 import YoutubeEmbeddedVideo from 'app/YoutubeEmbeddedVideo';
 import { Metadata } from 'next';
-import { generateMetadataForPost } from 'app/guides/[slug]/generateMetadata';
+// import { generateMetadataForPost } from 'app/guides/[slug]/generateMetadata';
 import NewsletterSection, {
   defaultNewsletterDiariesSectionProps,
 } from 'app/NewsletterSection';
@@ -33,11 +33,11 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
-  return generateMetadataForPost(params.slug);
-}
+// export async function generateMetadata({
+//   params,
+// }): Promise<Metadata | undefined> {
+//   return generateMetadataForPost(params.slug);
+// }
 
 const CustomLink = (props) => {
   const href = props.href;

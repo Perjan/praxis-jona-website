@@ -26,7 +26,7 @@ const navigationItemsEnglish = [
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
 
-const downloadUrl = Constants.downloadUrl
+// const downloadUrl = Constants.downloadUrl
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
@@ -108,7 +108,7 @@ export default function Header() {
 
                 <div className="flex lg:hidden">
                     <div className='mr-2'>
-                        <DownloadButton url={downloadUrl} locale={locale} />
+                        {/* <DownloadButton url={downloadUrl} locale={locale} /> */}
                     </div>
 
                     <button
@@ -149,7 +149,7 @@ export default function Header() {
                     )}
                 </Popover.Group>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButton url={downloadUrl} locale={locale} />
+                    {/* <DownloadButton url={downloadUrl} locale={locale} /> */}
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -183,7 +183,7 @@ export default function Header() {
                                 )}
                             </div>
                             <div className="py-6">
-                                <DownloadButton url={downloadUrl} locale={locale} />
+                                {/* <DownloadButton url={downloadUrl} locale={locale} /> */}
                             </div>
                         </div>
                     </div>

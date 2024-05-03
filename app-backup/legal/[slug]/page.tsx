@@ -4,7 +4,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
-import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
+// import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 
 
 const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
@@ -13,11 +13,11 @@ export async function generateStaticParams() {
   return legalPosts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
-  return generateMetadataForPost(params.slug);
-}
+// export async function generateMetadata({
+//   params,
+// }): Promise<Metadata | undefined> {
+//   return generateMetadataForPost(params.slug);
+// }
 
 
 const H1 = (props) => {

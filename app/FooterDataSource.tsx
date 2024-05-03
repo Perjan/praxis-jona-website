@@ -46,8 +46,8 @@ export const footerNavigation = {
         title: "Our Apps",
         href: "/apps",
         items: [
-            { name: "MoneyCoach", href: Constants.downloadUrl },
-            { name: "MoneySpaces", href: Constants.msDownloadUrl },
+            // { name: "MoneyCoach", href: Constants.downloadUrl },
+            // { name: "MoneySpaces", href: Constants.msDownloadUrl },
             { name: "Realtime Screen Time", href: "https://apps.apple.com/app/apple-store/id6452629146?pt=118449936&ct=mc-web-footer&mt=8" },
             { name: "Web Dashboard Decky", href: "https://apps.apple.com/de/app/web-dashboard-decky/id6449291563?l=en&mt=12" },
             { name: "Bitcoin Crypto Ticker", href: "https://itunes.apple.com/us/app/bitcoin-tracker-by-moneycoach/id1204742867?mt=8" },
