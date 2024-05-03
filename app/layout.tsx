@@ -87,12 +87,12 @@ export default function RootLayout({
             strategy="lazyOnload"
           />
       <body>
-        <ReactToastWrapper>
-          <Header />
+        {/* <ReactToastWrapper> */}
+          {/* <Header /> */}
           {children}
-          <Footer />
+          {/* <Footer /> */}
           <Analytics />
-        </ReactToastWrapper>
+        {/* </ReactToastWrapper> */}
       </body>
     </html>
   )

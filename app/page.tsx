@@ -109,8 +109,8 @@ export default function Features() {
             title="PRAXIS JONA"
             description="Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist du mehr als nur ein weiterer Patient"
             />
-
-            <QuoteSection
+            <ComingSoon />
+            {/* <QuoteSection
             quote='"Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern."'
             />
 
@@ -118,9 +118,38 @@ export default function Features() {
             title="Besuchen Sie uns in unserer Praxis"
             description1="Herzlich willkommen in unserer allgemeinmedizinisch-internistischen Praxis am Rosenthaler Platz. Wir behandeln auf der Basis moderner Diagnostik sowie dem Wissen und der langjährigen Erfahrung in universitärer Schulmedizin, um für jeden einzelnen Patienten den optimalen Weg zur Erhaltung und Wiederherstellung der Gesundheit zu finden."
             description2="Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenkrankheiten, Bluthochdruck und Fettstoffwechselstörungen."
-            description3="Wir freuen uns, Sie persönlich in unserer Praxis in Berlin Mitte begrüßen zu dürfen und gemeinsam mit Ihnen an Ihrer Gesundheit zu arbeiten. "/>
-
-            
+            description3="Wir freuen uns, Sie persönlich in unserer Praxis in Berlin Mitte begrüßen zu dürfen und gemeinsam mit Ihnen an Ihrer Gesundheit zu arbeiten. "/>             */}
         </>
     );
 }
+
+function ComingSoon() {
+    return (
+      <>
+        {/*
+          This example requires updating your template:
+  
+          ```
+          <html class="h-full">
+          <body class="h-full">
+          ```
+        */}
+        <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+          <div className="text-center">
+            <p className="text-base font-semibold text-indigo-600"></p>
+            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">Bald geht's hier los...</h1>
+            <p className="mt-6 text-base leading-7 text-gray-600">Eine neue Webseite wird gerade entwickelt.</p>
+            <div className="mt-10 flex items-center justify-center gap-x-6">
+              <a
+                href="mailto:info@praxisjona.de"
+                className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+              >
+Email Schreiben 
+              </a>
+            </div>
+          </div>
+        </main>
+      </>
+    )
+  }
+  
