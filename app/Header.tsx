@@ -102,6 +102,7 @@ export default function Header() {
                             className="h-14 w-auto object-contain"
                             src={Logo}
                             alt="Praxis Jona Logo"
+                            aria-hidden="true" 
                         />
                     </Link>
                 </div>
@@ -120,7 +121,7 @@ export default function Header() {
                         <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
-                <Popover.Group className="hidden lg:flex lg:gap-x-12">
+                <Popover.Group className="hidden lg:flex lg:gap-x-24">
                     <Popover className="relative">
 
                         <Transition
@@ -141,7 +142,7 @@ export default function Header() {
                             scroll={true}
                             className={
                                 cn(pathname === item.href ? "text-primary" : "text-gray-900",
-                                    "text-md font-medium font-serif leading-6")
+                                    "text-md tracking-wide font-medium font-serif leading-6")
                             }
                         >{item.title}
                         </Link>

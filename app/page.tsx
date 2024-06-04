@@ -107,7 +107,7 @@ export default function Features() {
         <>
             <HeroSection 
             title="PRAXIS JONA"
-            description="Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist du mehr als nur ein weiterer Patient"
+            description="Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist Du mehr als nur ein weiterer Patient"
             />
 
             <QuoteSection
@@ -117,7 +117,7 @@ export default function Features() {
             <ClinicSection
             title="Besuchen Sie uns in unserer Praxis"
             description1="Herzlich willkommen in unserer allgemeinmedizinisch-internistischen Praxis am Rosenthaler Platz. Wir behandeln auf der Basis moderner Diagnostik sowie dem Wissen und der langjährigen Erfahrung in universitärer Schulmedizin, um für jeden einzelnen Patienten den optimalen Weg zur Erhaltung und Wiederherstellung der Gesundheit zu finden."
-            description2="Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenkrankheiten, Bluthochdruck und Fettstoffwechselstörungen."
+            description2="Besondere Schwerpunkte unserer Praxis sind die Behandlung von Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin."
             description3="Wir freuen uns, Sie persönlich in unserer Praxis in Berlin Mitte begrüßen zu dürfen und gemeinsam mit Ihnen an Ihrer Gesundheit zu arbeiten. "/>
 
             

@@ -2,12 +2,12 @@ import Link from "next/link"
 
 const navigation = {
   solutions: [
-    { name: 'Montag: 8:30 - 12:30' },
+    { name: 'Montag: 8:00 - 12:00 | 15:00 - 18:00' },
     { name: 'Dienstag: 8:30 - 14:30' },
     { name: 'Mittwoch: 8:30 - 12:30' },
-    { name: 'Donnerstag: 11:00 - 16:00' },
+    { name: 'Donnerstag: 12:00 - 17:00' },
     { name: 'Freitag: 8:30 - 12:30' },
-    { name: 'Samstag: 15:00 - 18:00' },
+    { name: 'Samstag: Geschlossen' },
     { name: 'Sonntag: Geschlossen' },
   ],
   support: [
@@ -19,10 +19,7 @@ const navigation = {
   company: [
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
-  ],
-  legal: [
-    { name: 'Impressum', href: '#' },
-    { name: 'Datenschutz', href: '#' },
+    { name: 'Aktuelles', href: '#' },
   ],
 }
 
@@ -75,7 +72,7 @@ export default function Example() {
         Footer
       </h2>
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-4 xl:gap-8">
+        <div className="xl:grid xl:grid-cols-4 xl:gap-16">
           <div>
             <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Standort</h3>
             <p className="text-sm mt-6 leading-6 text-gray-600">
@@ -85,7 +82,7 @@ export default function Example() {
             10119, Berlin
             </p>
             <p className="text-sm mt-2 leading-6 text-gray-600">
-            <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" style={{ textDecoration: 'underline' }}>Anweisungen bekommen</a>
+            <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" style={{ textDecoration: 'underline' }}>Anweisungen bekommen</a>
             </p>
           </div>
           <div>
@@ -111,7 +108,6 @@ export default function Example() {
               </ul>
             </div>
           </div>
-          <div className="md:grid md:grid-cols-2 md:gap-8">
             <div>
               <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Praxis</h3>
               <ul role="list" className="mt-6 space-y-2">
@@ -123,23 +119,18 @@ export default function Example() {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="mt-10 md:mt-0">
-              <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Legal</h3>
-              <ul role="list" className="mt-6 space-y-2">
-                {navigation.legal.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </div>
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
+          <div>
           <p className="text-xs leading-5 text-gray-500">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
+          <a href="" className="text-xs leading-6 text-gray-500 hover:text-gray-600" style={{ textDecoration: 'underline' }}>
+                      Impressum
+                    </a>
+                    <a href="" className="text-xs pl-2 leading-6 text-gray-500 hover:text-gray-600" style={{ textDecoration: 'underline' }}>
+                      Datenschutz
+                    </a>
+          </div>
 
           <div className="flex space-x-6 md:order-2">
             {socials.map((item) => (

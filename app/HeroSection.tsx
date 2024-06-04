@@ -26,7 +26,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(251, 194, 195, 0.3); /* Pink with 30% opacity */
+          background-color: rgba(239, 219, 178, 0.3); /* Beige with 30% opacity */
           z-index: 1;
         }
       `}</style>

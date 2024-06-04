@@ -37,7 +37,7 @@ export const Services: Service[] = [
         },
         {
           id: 5,
-          name: 'Check-up ab 35 Jahren für private Krankenversicherung und Selbstzahler',
+          name: 'Check-up',
           href: '#',
           imageSrc: '/images/leistungen/checkupPremium.png',
           description: "- Anamnese\n\n - körperliche Untersuchung\n\n - Labor (Blutbild, Cholesterin (HDL,LDL-Cholesterin) Triglyceride, Leberwerte, Bauchspeicheldrüsenwerte, Nierenwerte, Harnsäure, Schilddrüsenwerte, Nüchtern-Blutzucker und HbA1C (Früherkennung Diabetes mellitus), Elektrolyte, Urinstatus und eventuell Eisen, Vitamin B12, Vitamin D, Folsäure, Zink\n\n - EKG bzw. Belastungs-EKG zur Früherkennung von Erkrankungen der Herzkranzgefäße\n\n - Abdomensonographie: Ultraschall der Leber und Gallenblase, der Nieren, der Bauchspeicheldrüse, der Milz und der großen Gefäße\n\n - Ggf. bei Risikofaktoren wie Rauchen: Lungenfunktionsuntersuchung\n\n - Auswertung und Beratung"
@@ -55,12 +55,5 @@ export const Services: Service[] = [
           href: '#',
           imageSrc: '/images/leistungen/medpack.png',
           description: "Wir betreuen Sie auch bei Ihren hausärztlichen Problemen. Unsere Praxis bietet ein breites Spektrum an Diagnoseverfahren, wodurch zusätzliche Arztbesuche oft unnötig werden. Einige Leistungen können wir nur als Selbst- oder Privatzahler abrechnen. Hierzu beraten wir Sie gerne.\n\n\n\n Für die Untersuchung von Herz, Kreislauf und Lunge im Rahmen der kardiopulmonalen Diagnostik können folgende Methoden verwendet werden:\n\n - Ruhe-EKG\n\n - Belastungs-EKG (Ergometrie)\n\n - 24 Stunden-Blutdruckmessung\n\n - Lungenfunktionsuntersuchung\n\n - Ultraschall der Venen und Arterien im Bereich der Extremitäten und der hirnversorgenden Gefäße"
-        },
-        {
-          id: 8,
-          name: 'Check-up (alle drei Jahre) bei Frauen und Männern ab dem Alter von 35 Jahren',
-          href: '#',
-          imageSrc: '/images/leistungen/checkup.png',
-          description: "Hinweis: Zusätzlich gibt es jetzt die Möglichkeit, dass Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen können.\n\n\n\n Übernahme von der gesetzlichen Krankenkasse\n\n - Anamnese\n\n - körperliche Untersuchung\n\n - Ruhe-EKG\n\n - Beratung\n\n - Labor (Blutbild, Eisen, Cholesterinwert, Leber- und Nierenwerte, Nüchtern Blutzucker, UrinStix)\n\n - Männer ab 50 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n - Frauen ab 55 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n - Ab 65 Jahren einmalig Ultraschall der Bauchaorta zur Früherkennung der Bauchaortenaneurysma\n\n\n\n Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ)\n\n - Schilddrüsen- , Vitamin B12-, Vitamin D- werte, sowie Hormonspiegel\n\n - Parameter des Immunsystems, Blutgruppe\n\n\n\n Apparative Untersuchung (für Selbstzahler, Berechnung nach der GOÄ)\n\n - Intervall-Check-up Laboruntersuchungen (seit dem 01.04.2019 zahlen die gesetzlichen Krankenkassen die Vorsorgeuntersuchung /Check up 35+ nur noch alle 3 Jahre. Daher empfehle ich einen Laborcheck zur Hälfte der Zeit (nach 1,5 Jahren).\n\n - EKG, Belastungs-EKG\n\n - Lungenfunktionstest\n\n - Körperfettmessung\n\n - Ernährungsberatung\n\n - Ultraschall der Bauchorgane\n\n - Ultraschall der Schilddrüse"
         },
 ]
