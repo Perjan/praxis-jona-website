@@ -76,21 +76,27 @@ export default function Example() {
           <div>
             <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Standort</h3>
             <p className="text-sm mt-6 leading-6 text-gray-600">
-              Torstraße 125,
+              Torstraße 125
             </p>
-            <p className="text-sm mt-2 leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-gray-600">
             10119, Berlin
             </p>
             <p className="text-sm mt-2 leading-6 text-gray-600">
-            <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" style={{ textDecoration: 'underline' }}>Anweisungen bekommen</a>
+              <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Google Maps</a>
+            </p>
+            <p className="text-sm leading-6 text-gray-600">
+            <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Apple Maps</a>
             </p>
           </div>
           <div>
             <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Kontakt</h3>
             <p className="text-sm mt-6 leading-6 text-gray-600">
-              Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>03040054273</a>
+              Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>030 / 40054273</a>
             </p>
-            <p className="text-sm mt-2 leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-gray-600">
+              Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
+            </p>
+              <p className="text-sm mt-2 leading-6 text-gray-600">
             Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
             </p>
           </div>

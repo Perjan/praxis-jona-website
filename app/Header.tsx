@@ -18,10 +18,10 @@ import { Constants } from './Constants'
 const navigationItemsEnglish = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
-    { title: "Blog", href: "/blog" },
+    // { title: "Blog", href: "/blog" },
     { title: "Team", href: "/team" },
    // { title: "Termin", href: "/faqs" },
-   //{ title: "Contact", href: "/contact" }
+    // { title: "Service & Kontakt", href: "/kontakt" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
@@ -32,19 +32,15 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-function downloadAppTitle(locale: string) {
-   return "Termin Buchen"
-}
 
-
-export function DownloadButton({ url, locale }) {
+export function DownloadButton({ url, locale, title }) {
     return (
         <Link
             href={url}
             target='_blank'
             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="mc-app-download-button-in-header"
-        >{downloadAppTitle(locale)}
+        >{title}
         </Link>
     )
 }
@@ -91,25 +87,25 @@ export default function Header() {
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0">
+                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0 cursor-pointer">
                     <Link
                         href={locale === "en" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
-                        <span className="sr-only">Praxis Jona</span>
                         <Image
                             priority={true}
-                            className="h-14 w-auto object-contain"
+                            className="h-14 w-auto object-contain cursor-pointer"
                             src={Logo}
                             alt="Praxis Jona Logo"
                             aria-hidden="true" 
                         />
+                        <span className="sr-only hidden">Praxis Jona</span>
                     </Link>
                 </div>
 
                 <div className="flex lg:hidden">
                     <div className='mr-2'>
-                        <DownloadButton url={downloadUrl} locale={locale} />
+                        <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                     </div>
 
                     <button
@@ -121,7 +117,8 @@ export default function Header() {
                         <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
-                <Popover.Group className="hidden lg:flex lg:gap-x-24">
+                <div className="hidden lg:flex lg:flex-2 lg:justify-end">
+                <Popover.Group className="hidden px-10 lg:flex items-center lg:gap-x-8">
                     <Popover className="relative">
 
                         <Transition
@@ -149,8 +146,7 @@ export default function Header() {
 
                     )}
                 </Popover.Group>
-                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                    <DownloadButton url={downloadUrl} locale={locale} />
+                    <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -184,7 +180,7 @@ export default function Header() {
                                 )}
                             </div>
                             <div className="py-6">
-                                <DownloadButton url={downloadUrl} locale={locale} />
+                                <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                             </div>
                         </div>
                     </div>

@@ -1,15 +1,7 @@
 import Image from "next/image";
 import { ArrowsRightLeftIcon, ChatBubbleLeftRightIcon, MapPinIcon, ShieldCheckIcon, UserIcon, UsersIcon, BanknotesIcon, CurrencyDollarIcon, HeartIcon, PaintBrushIcon, ClockIcon } from '@heroicons/react/20/solid'
 
-import RTSTHeroImage from "/public/images/rtst-hero-image.png"
-import RTSTWellbeing from "/public/images/rtst-wellbeing.png"
-import RTSTPhones from "/public/images/rtst-all-devices.png"
-import RTSTProductivity from "/public/images/rtst-productivity.png"
-import RTSTLeaderboards from "/public/images/rtst-leaderboards.png"
 import { Metadata } from "next";
-import { Constants } from "./Constants";
-import WhoIsItForSection from "./WhoIsItForSection"
-import Link from "next/link";
 
 import HeroSection from './HeroSection'
 import QuoteSection from "./QuoteSection";

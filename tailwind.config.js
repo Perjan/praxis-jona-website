@@ -28,7 +28,8 @@ module.exports = {
         redColor: "#ff4059",
         pinkColor: "#FBC2C3",
         greenColor: "#04d7a5",
-        "bg-base-100": "#9debff"
+        "bg-base-100": "#9debff",
+        bgColor1: "#bfc6d0",
       }
     },
 
