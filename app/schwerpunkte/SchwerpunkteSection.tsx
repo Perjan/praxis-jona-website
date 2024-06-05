@@ -47,7 +47,26 @@ export default function Example() {
                         Besondere Schwerpunkte unserer Praxis sind die Behandlung von Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin.
                     </p>
                 </div>
-                <ul
+
+                <ul role="list" className="divide-y mt-8 divide-gray-100 overflow-visible">
+                    {schwerpunktes.map((schwerpunkte) => (
+                        <li
+                            key={schwerpunkte.name}
+                            className="relative flex flex-col gap-y-4 px-4 py-5 rounded-xl hover:bg-lightBeige sm:px-6 lg:px-8"
+                        >
+                            <div className="flex justify-between">
+                                <p className="text-2xl font-medium font-serif leading-6 text-primary">
+                                    {schwerpunkte.name}
+                                </p>
+                            </div>
+                            <div className="flex flex-col">
+                                <p className="text-md leading-6 text-primaryLighter break-words">{schwerpunkte.description}</p>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+
+                {/* <ul
                     role="list"
                     className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
                 >
@@ -72,7 +91,7 @@ export default function Example() {
                             )}
                         </li>
                     ))}
-                </ul>
+                </ul> */}
             </div>
         </div>
     )
