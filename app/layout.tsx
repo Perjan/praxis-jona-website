@@ -9,8 +9,8 @@ import Script from 'next/script';
 import Authors from './blog/authors/AuthorsDataSource';
 
 
-const title = Constants.appName + " App Usage Tracker For iPhone & iPad"
-const description = Constants.appName + " is an app for users who want to take control of their app usage and develop healthier digital habits."
+const title = "Praxis Jona"
+const description = "Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist Du mehr als nur ein weiterer Patient"
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   twitter: {
     title: title,
     description: description,
-    site: Constants.appName,
+    site: title,
     creator: "@perjanduro",
     card: "summary_large_image",
     images: ['/images/og-image.png']
   },
   openGraph: {
     title: title,
-    siteName: Constants.appName,
+    siteName: title,
     description: description,
     type: 'website',
     url: '/',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
-        alt: Constants.appName + ' app screenshot'
+        alt: 'Praxis Jona'
       }
     ],
   },
@@ -59,17 +59,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  itunes: {
-    appId: Constants.appId,
-    appArgument: 'rtst://'
-  },
-  appLinks: {
-    ios: {
-      app_name: Constants.appName,
-      app_store_id: Constants.appId,
-      url: Constants.downloadUrl
-    }
   }
 }
 

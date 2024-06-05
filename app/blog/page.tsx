@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: '/images/og-image.png',
         width: 1200,
         height: 600,
-        alt: Constants.appName + ' app screenshot'
+        alt: 'Praxis Jona'
       }
     ],
   },

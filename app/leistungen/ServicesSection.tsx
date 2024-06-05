@@ -1,3 +1,4 @@
+"use client"
 const products = [
   {
     id: 1,
@@ -18,7 +19,7 @@ const products = [
     name: 'Diagnostik der Bauchorgane (Abdomensonographie)',
     href: '#3',
     imageSrc: '/images/leistungen/abdomen.png',
-    description: "Die Ultraschalluntersuchung des Bauchraums dient der Diagnose und Überwachung verschiedener Erkrankungen. Mit dieser Methode können die Größe, Struktur und Position von Bauchorganen wie Leber, Gallenblase, Milz, Nieren, Pankreas, Prostata, Lymphknoten, Bauchaorta, Harnblase, Gebärmutter und Darm beurteilt werden. Für eine optimale Untersuchung sollte man nüchtern sein, um Darmgasüberlagerungen zu vermeiden und eine gefüllte Gallenblase zu gewährleisten. "
+    description: "Die Ultraschalluntersuchung des Bauchraums dient der Diagnose und Überwachung verschiedener Erkrankungen. Mit dieser Methode können die Größe, Struktur und Position von Bauchorganen wie Leber, Gallenblase, Milz, Nieren, Pankreas, Prostata, Lymphknoten, Bauchaorta, Harnblase und Darm beurteilt werden. Für eine optimale Untersuchung sollte man nüchtern sein, um Darmgasüberlagerungen zu vermeiden und eine gefüllte Gallenblase zu gewährleisten. "
   },
   {
     id: 4,
@@ -32,7 +33,7 @@ const products = [
     name: 'Check-up',
     href: '#5',
     imageSrc: '/images/leistungen/checkupPremium.png',
-    description: "- Anamnese\n\n - körperliche Untersuchung\n\n - Labor (Blutbild, Cholesterin (HDL,LDL-Cholesterin) Triglyceride, Leberwerte, Bauchspeicheldrüsenwerte, Nierenwerte, Harnsäure, Schilddrüsenwerte, Nüchtern-Blutzucker und HbA1C (Früherkennung Diabetes mellitus), Elektrolyte, Urinstatus und eventuell Eisen, Vitamin B12, Vitamin D, Folsäure, Zink\n\n - EKG bzw. Belastungs-EKG zur Früherkennung von Erkrankungen der Herzkranzgefäße\n\n - Abdomensonographie: Ultraschall der Leber und Gallenblase, der Nieren, der Bauchspeicheldrüse, der Milz und der großen Gefäße\n\n - Ggf. bei Risikofaktoren wie Rauchen: Lungenfunktionsuntersuchung\n\n - Auswertung und Beratung"
+    description: "- Anamnese\n\n - körperliche Untersuchung\n\n - Labor (Blutbild, Cholesterin (HDL,LDL-Cholesterin) Triglyceride, Leberwerte, Bauchspeicheldrüsenwerte, Nierenwerte, Harnsäure, Schilddrüsenwerte, Nüchtern-Blutzucker und HbA1C (Früherkennung Diabetes mellitus), Elektrolyte, Urinstatus und eventuell Eisen, Vitamin B12, Vitamin D, Folsäure, Zink\n\n - EKG bzw. Belastungs-EKG zur Früherkennung von Erkrankungen der Herzkranzgefäße\n\n - Abdomensonographie: Ultraschall der Leber und Gallenblase, der Nieren, der Bauchspeicheldrüse, der Milz und der großen Gefäße\n\n - Auswertung und Beratung"
   },
   {
     id: 6,
@@ -46,7 +47,7 @@ const products = [
     name: 'Hausärztliche Versorgung',
     href: '#7',
     imageSrc: '/images/leistungen/medpack.png',
-    description: "Wir betreuen Sie auch bei Ihren hausärztlichen Problemen. Unsere Praxis bietet ein breites Spektrum an Diagnoseverfahren, wodurch zusätzliche Arztbesuche oft unnötig werden. Einige Leistungen können wir nur als Selbst- oder Privatzahler abrechnen. Hierzu beraten wir Sie gerne.\n\n\n\n Für die Untersuchung von Herz, Kreislauf und Lunge im Rahmen der kardiopulmonalen Diagnostik können folgende Methoden verwendet werden:\n\n - Ruhe-EKG\n\n - Belastungs-EKG (Ergometrie)\n\n - 24 Stunden-Blutdruckmessung\n\n - Lungenfunktionsuntersuchung\n\n - Ultraschall der Venen und Arterien im Bereich der Extremitäten und der hirnversorgenden Gefäße"
+    description: "Wir betreuen Sie auch bei Ihren hausärztlichen Problemen. Unsere Praxis bietet ein breites Spektrum an Diagnoseverfahren, wodurch zusätzliche Arztbesuche oft unnötig werden. Einige Leistungen können wir nur als Selbst- oder Privatzahler abrechnen. Hierzu beraten wir Sie gerne."
   },
   // {
   //   id: 8,
@@ -61,33 +62,46 @@ const products = [
 //import Services from 'app/leistungen/ServicesDataSource'
 
 export default function ServicesSection() {
+  const handleScrollToProduct = (id) => {
+    const element = document.getElementById(`details-${id}`);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
     <div className="bg-white">
       <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
         <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
-          <h2 className="text-4xl font-serif tracking-tight text-gray-900">Leistungen</h2>
+          <h2 className="text-4xl font-serif tracking-tight text-primary">Leistungen</h2>
         </div>
 
-        <div className="relative mt-8 hidden sm:block"> {/* Hide on mobile */}
+        <div className="relative mt-8 hidden sm:block">
           <div className="relative -mb-6 w-full overflow-x-auto pb-6">
             <ul
               role="list"
               className="mx-4 inline-flex space-x-8 gap-y-16 sm:mx-6 lg:mx-0 lg:grid lg:grid-cols-4 lg:gap-x-8 lg:space-x-0"
             >
               {products.map((product) => (
-                <li key={product.id} className="inline-flex w-64 flex-col text-center lg:w-auto" id={`product-${product.id}`}>
+                <li key={product.id} className="inline-flex w-64 flex-col text-center lg:w-auto">
                   <div className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md" style={{ backgroundColor: 'rgba(239, 219, 178, 0.3)' }}>
-                      <a href={`#product-${product.id}`}>
+                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md" style={{ backgroundColor: 'rgba(249, 237, 223, 0.3)' }}>
+                      <a href={`#details-${product.id}`} onClick={(e) => {
+                        e.preventDefault();
+                        handleScrollToProduct(product.id);
+                      }}>
                         <img
                           src={product.imageSrc}
-                          className="h-full w-full object-cover object-center group-hover:opacity-75"
+                          className="w-3/4 h-auto object-cover object-center group-hover:opacity-75 mx-auto"
                         />
                       </a>
                     </div>
                     <div className="mt-6">
-                      <h3 className="mt-1 font-semibold font-serif text-gray-900">
-                        <a href={`#product-${product.id}`}>
+                      <h3 className="mt-1 text-lg font-semibold font-serif text-primary">
+                        <a href={`#details-${product.id}`} onClick={(e) => {
+                          e.preventDefault();
+                          handleScrollToProduct(product.id);
+                        }}>
                           <span className="absolute inset-0" />
                           {product.name}
                         </a>
@@ -107,19 +121,19 @@ export default function ServicesSection() {
               className="mx-auto grid max-w-2xl grid-cols-1 gap-y-8 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-1"
             >
               {products.map((product, index) => (
-                <li key={product.id} className={`grid grid-cols-1 ${index % 2 === 0 ? 'bg-white' : ''} w-full rounded-lg overflow-hidden`} id={`product-${product.id}`} style={{ backgroundColor: index % 2 !== 0 ? 'rgba(239, 219, 178, 0.3)' : '' }}>
+                <li key={product.id} className={`grid grid-cols-1 ${index % 2 === 0 ? 'bg-white' : ''} w-full rounded-lg overflow-hidden`} id={`details-${product.id}`} style={{ backgroundColor: index % 2 !== 0 ? 'rgba(249, 237, 223, 0.3)' : '' }}>
                   <div className="flex flex-col sm:flex-row items-center justify-between">
                     <div className="w-full sm:w-1/3">
                       <img
                         src={product.imageSrc}
                         alt="Product screenshot"
-                        className="w-full h-auto"
+                        className="w-3/4 h-auto mx-auto object-cover"
                       />
                     </div>
                     <div className="w-full sm:w-2/3 p-4 sm:p-0">
                       <div className="lg:max-w-2xl py-8">
-                        <p className="mt-2 text-xl font-serif tracking-tight text-gray-900 sm:text-2xl">{product.name}</p>
-                        <h3 className="mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-gray-500" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n\n/g, '<br>') }}></h3>
+                        <p className="mt-2 text-xl font-medium font-serif tracking-normal text-primary sm:text-2xl">{product.name}</p>
+                        <h3 className="mt-4 sm:mt-6 text-base sm:text-lg leading-8 text-primaryLighter" dangerouslySetInnerHTML={{ __html: product.description.replace(/\n\n/g, '<br>') }}></h3>
                       </div>
                     </div>
                   </div>
@@ -128,7 +142,6 @@ export default function ServicesSection() {
             </ul>
           </div>
         </div>
-
       </div>
     </div >
   )

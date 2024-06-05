@@ -5,7 +5,7 @@ export default function QuoteSection(params: {quote: string}) {
         <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <figure className="mt-2">
-            <blockquote className="text-center text-xl font-medium leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+            <blockquote className="text-center text-xl font-medium leading-8 text-primary sm:text-2xl sm:leading-9">
               <p>
                 {params.quote}
               </p>
@@ -17,10 +17,10 @@ export default function QuoteSection(params: {quote: string}) {
                 alt=""
               />
               <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-                <div className="font-semibold text-gray-900">Jonida Gjolli</div>
+                <div className="font-semibold text-primary">Jonida Gjolli</div>
               </div>
               <div className="flex items-center justify-center space-x-3 text-base">
-                <div className="font-regular text-gray-700">Fachärztin für Innere Medizin</div>
+                <div className="font-regular text-primaryLighter">Fachärztin für Innere Medizin</div>
               </div>
             </figcaption>
           </figure>

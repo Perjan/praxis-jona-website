@@ -11,10 +11,10 @@
       </div>
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 relative">
         <div className="text-center drop-shadow-2xl relative z-10">
-          <h1 className="text-4xl font-regular tracking-tight font-serif text-black sm:text-6xl">
+          <h1 className="text-4xl font-regular tracking-tight font-serif text-primary sm:text-6xl">
             {params.title}
           </h1>
-          <h2 className="mt-6 text-2xl leading-8 text-gray-800">
+          <h2 className="mt-6 text-2xl font-medium leading-8 text-primary">
             {params.description}
           </h2>
         </div>
@@ -26,7 +26,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(239, 219, 178, 0.3); /* Beige with 30% opacity */
+          background-color: rgba(202, 171, 140, 0.5); /* Beige with 50% opacity */
           z-index: 1;
         }
       `}</style>

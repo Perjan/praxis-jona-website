@@ -42,8 +42,8 @@ export default function Example() {
         <div className="bg-white py-24 sm:py-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h2 className="text-3xl font-serif tracking-tight text-gray-900 sm:text-4xl">Schwerpunkte</h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
+                    <h2 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Schwerpunkte</h2>
+                    <p className="mt-6 text-lg leading-8 text-primaryLighter">
                         Besondere Schwerpunkte unserer Praxis sind die Behandlung von Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin.
                     </p>
                 </div>

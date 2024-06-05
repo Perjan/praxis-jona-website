@@ -2,7 +2,7 @@
 import { Constants } from "./Constants";
 
 export const footerNavigation = {
-    copyright: "2024 MoneyCoach UG. All rights reserved. Made with ❤️ in Berlin.",
+    copyright: "2024 Praxis Jona. All rights reserved. Made with ❤️ in Berlin.",
     features: {
         title: "Features",
         href: "/features",

@@ -74,39 +74,39 @@ export default function Example() {
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
         <div className="xl:grid xl:grid-cols-4 xl:gap-16">
           <div>
-            <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Standort</h3>
-            <p className="text-sm mt-6 leading-6 text-gray-600">
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Standort</h3>
+            <p className="text-sm mt-6 leading-6 text-primaryLighter">
               Torstraße 125
             </p>
-            <p className="text-sm leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-primaryLighter">
             10119, Berlin
             </p>
-            <p className="text-sm mt-2 leading-6 text-gray-600">
+            <p className="text-sm mt-2 leading-6 text-primaryLighter">
               <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Google Maps</a>
             </p>
-            <p className="text-sm leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-primaryLighter">
             <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Apple Maps</a>
             </p>
           </div>
           <div>
-            <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Kontakt</h3>
-            <p className="text-sm mt-6 leading-6 text-gray-600">
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Kontakt</h3>
+            <p className="text-sm mt-6 leading-6 text-primaryLighter">
               Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>030 / 40054273</a>
             </p>
-            <p className="text-sm leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-primaryLighter">
               Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
             </p>
-              <p className="text-sm mt-2 leading-6 text-gray-600">
+              <p className="text-sm mt-2 leading-6 text-primaryLighter">
             Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
             </p>
           </div>
           <div>
             <div>
-              <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Öffnungszeiten</h3>
+              <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Öffnungszeiten</h3>
               <ul role="list" className="mt-6 space-y-2">
                 {navigation.solutions.map((item) => (
                   <li key={item.name}>
-                    <p className="text-sm leading-6 text-gray-600">
+                    <p className="text-sm leading-6 text-primaryLighter">
                       {item.name}
                     </p>
                   </li>
@@ -115,11 +115,11 @@ export default function Example() {
             </div>
           </div>
             <div>
-              <h3 className="text-sm font-semibold font-serif leading-6 text-gray-900">Praxis</h3>
+              <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Praxis</h3>
               <ul role="list" className="mt-6 space-y-2">
                 {navigation.company.map((item) => (
                   <li key={item.name}>
-                    <a href={item.href} className="text-sm leading-6 text-gray-600 hover:text-gray-900">
+                    <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary">
                       {item.name}
                     </a>
                   </li>
@@ -129,11 +129,11 @@ export default function Example() {
         </div>
         <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
           <div>
-          <p className="text-xs leading-5 text-gray-500">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
-          <a href="" className="text-xs leading-6 text-gray-500 hover:text-gray-600" style={{ textDecoration: 'underline' }}>
+          <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
+          <a href="" className="text-xs leading-6 text-primaryLighter hover:text-primary" style={{ textDecoration: 'underline' }}>
                       Impressum
                     </a>
-                    <a href="" className="text-xs pl-2 leading-6 text-gray-500 hover:text-gray-600" style={{ textDecoration: 'underline' }}>
+                    <a href="" className="text-xs pl-2 leading-6 text-primaryLighter hover:text-primary" style={{ textDecoration: 'underline' }}>
                       Datenschutz
                     </a>
           </div>
@@ -146,7 +146,7 @@ export default function Example() {
                 target="_blank"
                 rel="noopener noreferrer"
                 scroll={false}
-                className="text-gray-400 hover:text-gray-500"
+                className="text-primaryLighter hover:text-primary"
               >
                 <span className="sr-only">{item.name}</span>
                 <item.icon className="h-6 w-6" aria-hidden="true" />
