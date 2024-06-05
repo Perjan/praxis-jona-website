@@ -6,12 +6,8 @@ import { allPosts } from 'contentlayer/generated';
 import YoutubeEmbeddedVideo from 'app/YoutubeEmbeddedVideo';
 import { Metadata } from 'next';
 import { generateMetadataForPost } from 'app/guides/[slug]/generateMetadata';
-import NewsletterSection, {
-  defaultNewsletterDiariesSectionProps,
-} from 'app/NewsletterSection';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { notFound } from 'next/navigation';
-import { AppDownloadLink } from 'app/AppDownloadLink';
 import BlogArticleFooter from './BlogArticleFooter';
 import { Authors } from '../authors/AuthorsDataSource';
 import { json } from 'stream/consumers';
@@ -115,8 +111,7 @@ const components = {
   h3: H3,
   img: RoundedImage,
   YouTube: YoutubeEmbeddedVideo,
-  LinkWithRel: LinkWithRel,
-  AppDownloadLink: AppDownloadLink,
+  LinkWithRel: LinkWithRel
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
