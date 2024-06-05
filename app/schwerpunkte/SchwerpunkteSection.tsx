@@ -66,7 +66,7 @@ export default function Example() {
                                 ))}
                             </div>
                             {schwerpunkte.descriptionRest.split('\n\n').length > 1 && (
-                                <button onClick={() => toggleExpanded(schwerpunkte.name)} className="text-blue-500 mt-4">
+                                <button onClick={() => toggleExpanded(schwerpunkte.name)} className="text-primary hover:text-primaryDarker font-semibold mt-4 transition duration-300 ease-in-out">
                                     {expanded[schwerpunkte.name] ? 'Schließen' : 'Weiterlesen'}
                                 </button>
                             )}

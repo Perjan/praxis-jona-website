@@ -34,20 +34,26 @@ export default function Example() {
                 <div className="mx-auto my-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div className="lg:flex lg:items-start lg:justify-center lg:pl-4 lg:pt-4">
                         <div className="lg:max-w-lg">
-                            <h2 className="mt-2 text-2xl font-serif tracking-tight text-gray-900 sm:text-3xl">Jonida Gjolli</h2>
-                            <p className="mt-6 text-lg leading-8 text-gray-600">
+                            <h2 className="mt-2 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Jonida Gjolli</h2>
+                            <p className="mt-6 text-lg leading-8 text-primaryLighter">
                                 Jonida ist Fachärztin für Innere Medizin. Ihr Studium absolvierte sie in Tirana, Albanien, und nach ihrem Abschluss entschied sie sich für eine Weiterbildung zur Internistin in Deutschland. Den ersten Teil ihrer Weiterbildung absolvierte sie in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Anschließend arbeitete sie mehrere Jahre in der Medizinischen Klinik mit Schwerpunkt Nephrologie und internistische Intensivmedizin an der Charité Berlin, wo sie auch ihre Promotion durchführt.
                             </p>
-                            <button onClick={() => setExpanded(!expanded)} className="text-blue-500 mt-4 transition duration-300 ease-in-out">
-                                    {expanded ? 'Schließen' : 'Weiterlesen'}
-                                </button>
-                                <span style={{ display: expanded ? 'block' : 'none' }}>
-                                <p className="mt-6 text-lg leading-8 text-gray-600">Zu ihren Schwerpunkten zählen Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.</p>
-                            <h2 className="mt-12 text-xl font-serif tracking-tight text-gray-900 sm:text-2xl">Philosophie</h2>
-                            <p className="mt-6 text-lg leading-8 text-gray-600">
-                                "In meiner täglichen beruflichen Praxis ist es von herausragender Bedeutung für mich, einen umfassenden und ganzheitlichen Ansatz bei der Betrachtung des Menschen einzunehmen. Ich lege großen Wert darauf, nicht nur isolierte Symptome oder Krankheitsbilder zu analysieren, sondern vielmehr das Individuum in seiner Gesamtheit zu verstehen. Dies umfasst physische, psychische und soziale Aspekte, die alle in Verbindung stehen und einen Einfluss auf die Gesundheit und das Wohlbefinden des Einzelnen haben können. Mein Ziel ist es, durch diesen Blick eine effektive und individuell angepasste Betreuung und Unterstützung zu gewährleisten, um die bestmöglichen Ergebnisse für die Gesundheit meiner Patienten zu erzielen."
-                            </p>
-                                    </span>
+                            <button onClick={() => setExpanded(!expanded)} className="text-primary hover:text-primaryDarker font-semibold mt-4 transition duration-300 ease-in-out">
+                {expanded ? 'Schließen' : 'Weiterlesen'}
+            </button>
+            <div style={{
+                maxHeight: expanded ? '600px' : '0', // Adjust '500px' as needed based on content size
+                overflow: 'hidden',
+                transition: 'max-height 0.5s ease-in-out'
+            }}>
+                <p className="mt-6 text-lg leading-8 text-primaryLighter">
+                    Zu ihren Schwerpunkten zählen Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
+                </p>
+                <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophie</h2>
+                <p className="mt-6 text-lg leading-8 text-primaryLighter">
+                    "In meiner täglichen beruflichen Praxis ist es von herausragender Bedeutung für mich, einen umfassenden und ganzheitlichen Ansatz bei der Betrachtung des Menschen einzunehmen. Ich lege großen Wert darauf, nicht nur isolierte Symptome oder Krankheitsbilder zu analysieren, sondern vielmehr das Individuum in seiner Gesamtheit zu verstehen. Dies umfasst physische, psychische und soziale Aspekte, die alle in Verbindung stehen und einen Einfluss auf die Gesundheit und das Wohlbefinden des Einzelnen haben können. Mein Ziel ist es, durch diesen Blick eine effektive und individuell angepasste Betreuung und Unterstützung zu gewährleisten, um die bestmöglichen Ergebnisse für die Gesundheit meiner Patienten zu erzielen."
+                </p>
+            </div>
                             
                         </div>
                     </div>
@@ -70,8 +76,8 @@ export default function Example() {
                     {people.map((person) => (
                         <li key={person.name}>
                             <img className="aspect-[3/2] w-full rounded-2xl object-cover" src={person.imageUrl} alt="" />
-                            <h3 className="mt-6 text-xl font-serif leading-8 tracking-tight text-gray-900">{person.name}</h3>
-                            <p className="text-base leading-7 text-gray-600">{person.role}</p>
+                            <h3 className="mt-6 text-xl font-serif leading-8 tracking-tight text-primary">{person.name}</h3>
+                            <p className="text-base leading-7 text-primaryLighter">{person.role}</p>
                         </li>
                     ))}
                 </ul>
@@ -81,8 +87,8 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
               <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-                <h2 className="text-3xl font-serif tracking-tight text-gray-900 sm:text-4xl">Praxis</h2>
-                <p className="mt-6 text-xl font-medium leading-8 text-gray-600">
+                <h2 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Praxis</h2>
+                <p className="mt-6 text-xl font-medium leading-8 text-primaryLighter">
                 Wir streben danach, dass unsere Patienten ein tiefes Gefühl des Wohlbefindens erleben. Hier, inmitten der sanften Umarmung der Ruhe, fördern wir eine Umgebung, in der Heilung gedeiht und Vitalität wiederhergestellt wird.
                 </p>
               </div>

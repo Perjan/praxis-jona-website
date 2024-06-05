@@ -22,7 +22,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background-color: rgba(202, 171, 140, 0.5); /* Beige with 50% opacity */
+          background-color: rgba(249, 237, 223, 0.5); /* Beige with 50% opacity */
           z-index: 1;
         }
       `}</style>
