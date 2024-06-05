@@ -1,9 +1,5 @@
 "use client"
   
-  import Image, { StaticImageData } from 'next/image'
-  import Link from 'next/link'
-  import { Constants } from './Constants'
-  
   export default function HeroSection(params: {title: string, description: string}) {
     return (
       <div className="relative isolate overflow-hidden pt-14 bg-fixed bg-cover relative" style={{ backgroundImage: 'url("/images/clinic/clinic-new.jpeg")', position: 'relative' }}>
