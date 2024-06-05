@@ -104,7 +104,7 @@ export default function Header() {
 
                 <div className="flex lg:hidden">
                     <div className='mr-2'>
-                        <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
+                        <DownloadButton url={downloadUrl} locale={locale} title={"Kontakt"} />
                     </div>
 
                     <button
