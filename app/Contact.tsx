@@ -2,11 +2,14 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { isEmail } from './NewsletterSection';
 
 import {
   BuildingOffice2Icon,
+  CalendarDaysIcon,
+  ClockIcon,
   EnvelopeIcon,
+  MapIcon,
+  MapPinIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline';
 
@@ -33,8 +36,8 @@ const formHandler = async (event) => {
 
   if (response.ok) {
     if (response.status === 200) {
-    //setEmail("");
-    toast.success("Message sent successfully!");
+      //setEmail("");
+      toast.success("Message sent successfully!");
     }
   } else {
     toast.error("There was an error. Please try again later.");
@@ -43,8 +46,19 @@ const formHandler = async (event) => {
   return response;
 };
 
+export function ReusableButton({ url, title }) {
+  return (
+    <Link
+      href={url}
+      target='_blank'
+      className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
+    >{title}
+    </Link>
+  )
+}
+
 export default function ContactSection() {
-  
+
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -52,188 +66,158 @@ export default function ContactSection() {
   return (
     <>
       <div id='contact' className='relative isolate bg-white'>
-        <div className='mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2'>
-          <div className='relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48'>
-            <div className='mx-auto max-w-xl lg:mx-0 lg:max-w-lg'>
-              <div className='absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-gray-100 ring-1 ring-gray-900/10 lg:w-1/2'>
-                <svg
-                  className='absolute inset-0 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]'
-                  aria-hidden='true'
-                >
-                  <defs>
-                    <pattern
-                      id='83fd4e5a-9d52-42fc-97b6-718e5d7ee527'
-                      width={200}
-                      height={200}
-                      x='100%'
-                      y={-1}
-                      patternUnits='userSpaceOnUse'
-                    >
-                      <path d='M130 200V.5M.5 .5H200' fill='none' />
-                    </pattern>
-                  </defs>
-                  <rect
-                    width='100%'
-                    height='100%'
-                    strokeWidth={0}
-                    fill='white'
-                  />
-                  <svg
-                    x='100%'
-                    y={-1}
-                    className='overflow-visible fill-gray-50'
-                  >
-                    <path d='M-470.5 0h201v201h-201Z' strokeWidth={0} />
-                  </svg>
-                  <rect
-                    width='100%'
-                    height='100%'
-                    strokeWidth={0}
-                    fill='url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)'
-                  />
-                </svg>
+        <div className="bg-white py-24 sm:py-32">
+          <div className="mx-auto max-w-7xl">
+            <div className="mx-auto max-w-2xl space-y-8 lg:mx-0 lg:max-w-none">
+              <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
+
+                <h2 className="text-3xl col-span-1 font-bold tracking-tight text-primary">Kontakt</h2>
+
+                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                    <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
+                  </h3>
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
+                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                      <div className="flex flex-col justify-between h-full">
+                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                          <p>Sie haben die Möglichkeit Ihren Termin online über Doctolib zu buchen. Nutzen Sie dazu einfach den Doctolib-Button.</p>
+                        </address>
+                        <div className='mt-8'>
+                          <ReusableButton url="#" title={"Doctolib"} />
+                        </div>
+                      </div>
+                    </dl>
+                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                      <div className="flex flex-col justify-between h-full">
+                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                          <p>Gerne können Sie Ihren Termin auch per E-Mail anfragen:</p>
+                          <p className='pt-4 font-bold'>info@praxisjona.de</p>
+                          <p className='pt-4'>Schreiben Sie uns Ihren Terminwunsch mit alternativen Terminvorschlägen. Und geben Sie bitte auch Ihre Telefon-nummer für evtl. Rückfragen an.</p>
+                        </address>
+                        <div className='mt-8'>
+                          <ReusableButton url="mailto:info@praxisjona.de" title={"Email"} />
+                        </div>
+                      </div>
+                    </dl>
+                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                      <div className="flex flex-col justify-between h-full">
+                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                          <p>Die Terminvergabe erfolgt während unserer Sprechzeiten telefonisch unter:</p>
+                          <p className='pt-4 font-bold'>030 / 40054273</p>
+                        </address>
+                        <div className='mt-8'>
+                          <ReusableButton url="tel:03040054273" title={"Telefonisch"} />
+                        </div>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
               </div>
-              <h2 className='text-3xl font-bold tracking-tight text-gray-900'>
-                Meet Us
-              </h2>
-              <p className='mt-6 text-lg leading-8 text-gray-600'>
-                You can find us pushing code and developing the future of
-                Realtime Screen Time here:
-              </p>
-              <dl className='mt-10 space-y-4 text-base leading-7 text-gray-600 whitespace-pre-line'>
-                <div className='flex gap-x-4'>
-                  <dt className='flex-none'>
-                    <span className='sr-only'>Address</span>
-                    <BuildingOffice2Icon
-                      className='h-7 w-6 text-gray-400'
-                      aria-hidden='true'
-                    />
-                  </dt>
-                  <dd>
-                    {
-                      'c/o Volkssolidarität e. V.\nAlte Schönhauser Straße 16\n10119 Berlin'
-                    }
-                  </dd>
+
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-8 lg:gap-8">
+                <div className='col-span-2'></div>
+                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                    <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Sprechzeiten
+                  </h3>
+                  <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
+                    <div>
+                      <dd>
+                        <div className="grid grid-cols-1 grid-cols-3 text-primaryLighter">
+                          <div className='col-span-1'>
+                            <p>Montag</p>
+                            <p>Dienstag</p>
+                            <p>Mittwoch</p>
+                            <p>Donnerstag</p>
+                            <p>Freitag</p>
+                            <p>Samstag</p>
+                            <p>Sonntag</p>
+                          </div>
+                          <div className='col-span-2'>
+                            <p>08 - 12 und 15 - 18 Uhr</p>
+                            <p>08:30 - 14:30 Uhr</p>
+                            <p>08:30 - 12:30 Uhr</p>
+                            <p>12 - 17 Uhr</p>
+                            <p>08:30 - 12:30 Uhr</p>
+                            <p>Geschlossen</p>
+                            <p>Geschlossen</p>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
-                <div className='flex gap-x-4'>
-                  <dt className='flex-none'>
-                    <span className='sr-only'>Email</span>
-                    <EnvelopeIcon
-                      className='h-7 w-6 text-gray-400'
-                      aria-hidden='true'
-                    />
-                  </dt>
-                  <dd>
-                    <a
-                      className='hover:text-gray-900'
-                      href='mailto:info@appscreentime.com'
-                    >
-                      info[at]appscreentime.com
-                    </a>
-                  </dd>
+
+                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                    <PhoneIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Kontakt
+                  </h3>
+                  <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
+                    <div>
+                      <dd>
+                        <p className="text-md leading-6 text-primaryLighter">
+                          Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>030 / 40054273</a>
+                        </p>
+                      </dd>
+                      <dd>
+                        <p className="text-md leading-6 text-primaryLighter">
+                          Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
+                        </p>
+                      </dd>
+                      <dd>
+                        <p className="text-md mt-2 leading-6 text-primaryLighter">
+                          Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
+                        </p>
+                      </dd>
+                    </div>
+                  </dl>
                 </div>
-              </dl>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-8 lg:gap-8">
+                <div className='col-span-2'></div>
+                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                    <MapIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Adresse
+                  </h3>
+                  <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                    <div>
+                      <dd>
+                        <p>Praxis Jona</p>
+                        <p>Torstraße 125</p>
+                        <p>10119, Berlin</p>
+                        <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
+                      </dd>
+                      <div className='mt-8 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
+                        <ReusableButton url="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" title={"Google Maps"} />
+                        <ReusableButton url="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" title={"Apple Maps"} />
+                      </div>
+                    </div>
+                  </dl>
+                </div>
+
+                <div className="rounded-2xl bg-lightBeige p-10 col-span-3 flex flex-col">
+                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                    <MapPinIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Anfahrt mit ÖVPN
+                  </h3>
+                  <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">
+                    <div className="flex flex-col justify-between h-full">
+                      <dd>
+                        <p>U-Bahn Linie U8 in Richtung Wittenau.</p>
+                        <p>Station Rosenthaler Platz aus.</p>
+                        <p>5 Minuten zu Fuß in nordöstlicher Richtung auf der Torstraße bis zur Nummer 125.</p>
+                      </dd>
+                      <div className='mt-8'>
+                        <ReusableButton url="https://www.bvg.de/de/verbindungen/verbindungssuche" title={"BVG-Routenplaner"} />
+                      </div>
+                    </div>
+                  </dl>
+                </div>
+              </div>
             </div>
           </div>
-          <form
-            onSubmit={async () => {
-              const response = await formHandler(event);
-              if (response.ok) {
-                setEmail("")
-                setName("")
-                setMessage("")
-              }
-            }
-
-            }
-            className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'
-          >
-            <div className='mx-auto max-w-xl lg:mr-0 lg:max-w-lg'>
-            <h2 className='text-3xl font-bold tracking-tight text-gray-900'>
-                Contact Us
-              </h2>
-              <div className='grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2'>
-                <div className='mt-8'>
-                  <label
-                    htmlFor='first-name'
-                    className='block text-sm font-semibold leading-6 text-gray-900'
-                  >
-                    Name
-                  </label>
-                  <div className='mt-2.5'>
-                    <input
-                      type='text'
-                      name='first-name'
-                      id='name'
-                      value={name}
-                      required
-                      autoComplete='given-name'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      onChange={ (e) => {
-                        const name = e.target.value;
-                        setName(name)
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className='sm:col-span-2'>
-                  <label
-                    htmlFor='email'
-                    className='block text-sm font-semibold leading-6 text-gray-900'
-                  >
-                    Email
-                  </label>
-                  <div className='mt-2.5'>
-                    <input
-                      type='email'
-                      name='email'
-                      id='email'
-                      value={email}
-                      required
-                      autoComplete='email'
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      onChange={ (e) => {
-                        const email = e.target.value;
-                        setEmail(email)
-                        // setButtonDisabled();
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className='sm:col-span-2'>
-                  <label
-                    htmlFor='message'
-                    className='block text-sm font-semibold leading-6 text-gray-900'
-                  >
-                    Message
-                  </label>
-                  <div className='mt-2.5'>
-                    <textarea
-                      name='message'
-                      id='message'
-                      value={message}
-                      rows={4}
-                      required
-                      className='block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      onChange={ (e) => {
-                        const message = e.target.value;
-                        setMessage(message)
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className='mt-8 flex justify-end'>
-                <button
-                  disabled={!isEmail(email) || !name || !message}
-                  type='submit'
-                  className='disabled:opacity-70 rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm enabled:hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                >
-                  Send message
-                </button>
-              </div>
-            </div>
-          </form>
         </div>
       </div>
     </>

@@ -87,7 +87,7 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
 
     return (
         <>
-            <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
+            {/* <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
                 {categories.map((category) => (
                     <div key={category} className='mb-4'>
                         {makeSelectionPill(name(category), activePill === category, () => {
@@ -96,8 +96,8 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
                     </div>
                 ))
                 }
-            </div>
-            <div className="mx-auto mt-10 pb-14 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-b border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            </div> */}
+            <div className="mx-auto mt-10 pb-14 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-b border-gray-200 pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
                 {
                     filteredPosts
@@ -110,9 +110,9 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
                 }
             </div>
 
-            <button className='bg-white hover:bg-gray-100 text-gray-800 font-semibold mt-20 py-2 px-4 border border-gray-400 rounded shadow'
+            <button className='bg-white mb-10 hover:bg-gray-100 text-gray-800 font-semibold mt-10 py-2 px-4 border border-gray-400 rounded shadow'
                 onClick={() => setpageIndex(pageIndex + 1)}
-            >Load More</button>
+            >Mehr laden</button>
 
         </>
     )

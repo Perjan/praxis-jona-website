@@ -20,7 +20,7 @@ const navigationItemsEnglish = [
     { title: "Leistungen", href: "/leistungen" },
     // { title: "Blog", href: "/blog" },
     { title: "Team", href: "/team" },
-   // { title: "Termin", href: "/faqs" },
+   { title: "Aktuelles", href: "/aktuelles" },
     // { title: "Service & Kontakt", href: "/kontakt" }
 ]
 
@@ -37,7 +37,6 @@ export function DownloadButton({ url, locale, title }) {
     return (
         <Link
             href={url}
-            target='_blank'
             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="mc-app-download-button-in-header"
         >{title}
