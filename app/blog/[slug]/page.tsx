@@ -125,7 +125,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   }
 
   const author = Authors.find(
-    (author) => author.id === (post.author ?? 'perjan-duro')
+    (author) => author.id === (post.author ?? 'jonida-gjolli')
   );
 
   // find the index of the post in the array
@@ -145,21 +145,21 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <main className="px-4 md:px-8 mx-auto max-w-6xl relative py-6 lg:grid lg:grid-cols-[1fr_300px] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20">
-      <div className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-2xl">
+      <div className="mx-auto sm:max-w-2xl md:max-w-7xl">
           <div className=''>
             <div className=''>
-              <h1 className='text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl'>
+              <h1 className='text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl'>
                 {post.title}
               </h1>
               <time dateTime={post.date} className='text-gray-500'>
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
               </time>
-              <span className='text-gray-500'> • written by </span>
+              <span className='text-gray-500'> • geschrieben von </span>
               <Link href={author.url} className='hover:text-teal-500'>
                 {author.name}
               </Link>
             </div>
-            <article className=''>
+            <article className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-7xl">
               {/* <article className=""> */}
               <section>
                 <script

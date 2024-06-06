@@ -5,8 +5,8 @@ import { Metadata } from "next";
 import { Constants } from "app/Constants";
 
 
-const title = "About the Author"
-const description = "This is the author page. It showcases the author's expertise, work experience and their personality."
+const title = "Über den Autor"
+const description = "Dies ist die Seite des Autors. Sie zeigt das Fachwissen des Autors, seine Berufserfahrung und seine Persönlichkeit."
 
 
 
@@ -63,9 +63,9 @@ export default function AuthorPage({ params }: { params: { slug: string } }) {
     <div className="bg-white py-24 md:py-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5">
         <div className="max-w-2xl xl:col-span-2">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About {author.name}</h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Über {author.name}</h1>
           <h2 className="mt-6 text-lg leading-8 text-gray-600">
-            Here is a short bio about this author. It showcases their expertise, work experience and their personality.
+          Dies ist die Seite des Autors. Sie zeigt das Fachwissen des Autors, seine Berufserfahrung und seine Persönlichkeit.
           </h2>
         </div>
         <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">

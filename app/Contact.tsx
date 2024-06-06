@@ -71,10 +71,10 @@ export default function ContactSection() {
             <div className="mx-auto max-w-2xl space-y-8 lg:mx-0 lg:max-w-none">
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
 
-                <h2 className="text-3xl col-span-1 font-bold tracking-tight text-primary">Kontakt</h2>
+                <h2 className="text-3xl col-span-1 font-semibold font-serif tracking-tight text-primary">Kontakt</h2>
 
-                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
-                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                <div className="rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
                   </h3>
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
@@ -118,8 +118,8 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-8 lg:gap-8">
                 <div className='col-span-2'></div>
-                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
-                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Sprechzeiten
                   </h3>
                   <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
@@ -150,8 +150,8 @@ export default function ContactSection() {
                   </dl>
                 </div>
 
-                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
-                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <PhoneIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Kontakt
                   </h3>
                   <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
@@ -178,8 +178,8 @@ export default function ContactSection() {
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-8 lg:gap-8">
                 <div className='col-span-2'></div>
-                <div className="rounded-2xl bg-lightBeige p-10 col-span-3">
-                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3">
+                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <MapIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Adresse
                   </h3>
                   <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
@@ -198,8 +198,8 @@ export default function ContactSection() {
                   </dl>
                 </div>
 
-                <div className="rounded-2xl bg-lightBeige p-10 col-span-3 flex flex-col">
-                  <h3 className="text-2xl font-semibold leading-7 text-primary flex items-center">
+                <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3 flex flex-col">
+                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <MapPinIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Anfahrt mit ÖVPN
                   </h3>
                   <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">

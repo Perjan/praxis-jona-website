@@ -13,8 +13,8 @@ export const Authors = [
     {
         id: 'jonida-gjolli',
         name: 'Jonida Gjolli',
-        role: "Medical Doctor & Co-Founder",
-        bio: "Jonida is a passionate medical doctor, with a special interest in nutrition and lifestyle medicine. She is a co-founder of " + Constants.appName + " and she is responsible for the medical-related content and the psychology behind the app. Jonida has been working in the medical industry for a couple of years, she writes content related to nutrition, lifestyle, and health. She loves traveling, cooking and HIIT.",
+        role: "Arzt und Mitbegründer",
+        bio: "Jonida ist Fachärztin für Innere Medizin. Ihr Studium absolvierte sie in Tirana, Albanien, und nach ihrem Abschluss entschied sie sich für eine Weiterbildung zur Internistin in Deutschland. Den ersten Teil ihrer Weiterbildung absolvierte sie in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Anschließend arbeitete sie mehrere Jahre in der Medizinischen Klinik mit Schwerpunkt Nephrologie und internistische Intensivmedizin an der Charité Berlin, wo sie auch ihre Promotion durchführt.",
         url: '/blog/authors/jonida-gjolli',
         linkedInUrl: 'https://www.linkedin.com/in/jonida-gjolli-6b16237b/',
         twitterUrl: '#',

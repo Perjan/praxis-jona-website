@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export function PostCard({ post }: { post: Post }) {
   
-  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"));
+  const author = Authors.find((author) => author.id === (post.author ?? "jonida-gjolli"));
 
   return (
     <article key={post._id} className="relative isolate flex flex-col gap-8 lg:flex-row">

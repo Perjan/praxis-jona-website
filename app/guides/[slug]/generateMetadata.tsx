@@ -45,7 +45,7 @@ function generateAlternatesIfNeeded(post: Post) {
 export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
   
   const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
-  const author = Authors.find((author) => author.id === (post.author ?? "perjan-duro"));
+  const author = Authors.find((author) => author.id === (post.author ?? "jonida-gjolli"));
 
   if (!post) {
     return;

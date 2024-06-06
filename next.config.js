@@ -84,6 +84,10 @@ const nextConfig = {
     return {
       beforeFiles: [
         {
+          source: '/aktuelles',
+          destination: '/blog/aktuelles',
+        },
+        {
           source: "/privacy-policy",
           destination: "/legal/privacy-policy"
         },

@@ -115,7 +115,7 @@ export default function ServicesSection() {
                     <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                       <div className="px-4 sm:px-6">
                         <div className="flex items-start justify-between">
-                          <DialogTitle className="text-lg font-semibold leading-6 text-primary">
+                          <DialogTitle className="text-lg font-semibold leading-6 font-serif text-primary">
                             {selectedProduct?.name}
                           </DialogTitle>
                           <div className="ml-3 flex h-7 items-center">

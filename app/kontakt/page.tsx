@@ -42,7 +42,7 @@ export default function Page() {
       <div className="bg-white mt-2 sm:mt-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
-            <h1 className="text-3xl font-bold tracking-tight text-primary sm:text-4xl">{title}</h1>
+            <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
             <h2 className="mt-2 text-lg leading-8 text-primaryLighter">"Praxis Jona - Gemeinschaftspraxis für Allgemeinmedizin, innere Medizin und Naturheilkunde.</h2>
 
             <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Nutzen Sie unsere Online Services bequem von zuhause aus oder nehmen Sie gerne direkt Kontakt zu uns auf.</h2>
