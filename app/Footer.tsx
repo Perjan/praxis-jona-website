@@ -42,93 +42,90 @@ export const socials = [
 export default function Example() {
   return (
     <footer className="bg-stone-100" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-4 xl:gap-16">
-          <div>
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Standort</h3>
-            <p className="text-sm mt-6 leading-6 text-primaryLighter">
-              Torstraße 125
-            </p>
-            <p className="text-sm leading-6 text-primaryLighter">
-            10119, Berlin
-            </p>
-            <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Google Maps</a>
-            </p>
-            <p className="text-sm leading-6 text-primaryLighter">
-            <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" style={{ textDecoration: 'underline' }}>Öffnen in Apple Maps</a>
-            </p>
-          </div>
-          <div>
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Kontakt</h3>
-            <p className="text-sm mt-6 leading-6 text-primaryLighter">
-              Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>030 / 40054273</a>
-            </p>
-            <p className="text-sm leading-6 text-primaryLighter">
-              Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
-            </p>
-              <p className="text-sm mt-2 leading-6 text-primaryLighter">
-            Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
-            </p>
-          </div>
-          <div>
-            <div>
-              <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Öffnungszeiten</h3>
-              <ul role="list" className="mt-6 space-y-2">
-                {navigation.solutions.map((item) => (
-                  <li key={item.name}>
-                    <p className="text-sm leading-6 text-primaryLighter">
-                      {item.name}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-            <div>
-              <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Praxis</h3>
-              <ul role="list" className="mt-6 space-y-2">
-                {navigation.company.map((item) => (
-                  <li key={item.name}>
-                    <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary">
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-          </div>
-        </div>
-        <div className="mt-8 border-t border-gray-900/10 pt-8 md:flex md:items-center md:justify-between">
-          <div>
-          <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
-          <a href="" className="text-xs leading-6 text-primaryLighter hover:text-primary" style={{ textDecoration: 'underline' }}>
-                      Impressum
-                    </a>
-                    <a href="" className="text-xs pl-2 leading-6 text-primaryLighter hover:text-primary" style={{ textDecoration: 'underline' }}>
-                      Datenschutz
-                    </a>
-          </div>
-
-          <div className="flex space-x-6 md:order-2">
-            {socials.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                scroll={false}
-                className="text-primaryLighter hover:text-primary"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </Link>
-            ))}
-          </div>
-        </div>
+  <h2 id="footer-heading" className="sr-only">
+    Footer
+  </h2>
+  <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-8 pt-12 sm:pt-16 lg:px-8 lg:pt-24">
+    <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+      <div className="text-center sm:text-left">
+        <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Standort</h3>
+        <p className="text-sm mt-2 leading-6 text-primaryLighter">
+          Torstraße 125
+        </p>
+        <p className="text-sm leading-6 text-primaryLighter">
+          10119, Berlin
+        </p>
+        <p className="text-sm mt-2 leading-6 text-primaryLighter">
+          <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" className="underline">Öffnen in Google Maps</a>
+        </p>
+        <p className="text-sm leading-6 text-primaryLighter">
+          <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" className="underline">Öffnen in Apple Maps</a>
+        </p>
       </div>
-    </footer>
+      <div className="text-center sm:text-left">
+        <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Kontakt</h3>
+        <p className="text-sm mt-2 leading-6 text-primaryLighter">
+          Tel: <a href="tel://03040054273" className="underline">030 / 40054273</a>
+        </p>
+        <p className="text-sm leading-6 text-primaryLighter">
+          Fax: <a href="#" className="underline">030 / 40054275</a>
+        </p>
+        <p className="text-sm mt-2 leading-6 text-primaryLighter">
+          Email: <a href="mailto:info@praxisjona.de" className="underline">info@praxisjona.de</a>
+        </p>
+      </div>
+      <div className="text-center sm:text-left">
+        <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Öffnungszeiten</h3>
+        <ul role="list" className="mt-2 space-y-2">
+          {navigation.solutions.map((item) => (
+            <li key={item.name}>
+              <p className="text-sm leading-6 text-primaryLighter">
+                {item.name}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="text-center sm:text-left">
+        <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Praxis</h3>
+        <ul role="list" className="mt-2 space-y-2">
+          {navigation.company.map((item) => (
+            <li key={item.name}>
+              <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary underline">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+    <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
+      <div className="text-center md:text-left">
+        <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
+        <a href="" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
+          Impressum
+        </a>
+        <a href="" className="text-xs pl-2 leading-6 text-primaryLighter hover:text-primary underline">
+          Datenschutz
+        </a>
+      </div>
+      <div className="flex mt-4 md:mt-0 space-x-6">
+        {socials.map((item) => (
+          <Link
+            key={item.name}
+            href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            scroll={false}
+            className="text-primaryLighter hover:text-primary"
+          >
+            <span className="sr-only">{item.name}</span>
+            <item.icon className="h-6 w-6" aria-hidden="true" />
+          </Link>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>
   )
 }
