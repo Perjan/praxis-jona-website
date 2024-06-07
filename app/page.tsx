@@ -16,9 +16,7 @@ export const metadata: Metadata = {
 export default function Features() {
     return (
         <>
-            <HeroSection 
-            title="PRAXIS JONA"
-            description="Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist Du mehr als nur ein weiterer Patient"
+            <HeroSection
             />
 
             <QuoteSection

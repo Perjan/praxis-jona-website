@@ -1,0 +1,10 @@
+/* styles.css */
+.backgroundSection {
+    position: relative;
+    overflow: hidden;
+    padding-top: 14px;
+    background-size: cover;
+    background-position: center 0; /* Ensure initial position is set */
+    background-image: url('/images/clinic/clinic-new.jpeg');
+    transition: background-image 0.5s ease-in-out, background-position 0.1s ease-in-out; /* Smooth transition for background position */
+  }
