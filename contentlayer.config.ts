@@ -95,7 +95,7 @@ export const Post = defineDocumentType(() => ({
         datePublished: doc.date,
         dateModified: doc.date,
         description: doc.summaryOrExcerpt,
-        image: `https://appscreentime.com/images/blog-images/${doc.coverImage}`,
+        image: `https://praxisjona.de/images/blog-images/${doc.coverImage}`,
         url: doc.url,
         author: {
           '@type': 'Person',

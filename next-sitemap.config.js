@@ -1,13 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://appscreentime.com",
+  siteUrl: "https://praxisjona.de",
   generateRobotsTxt: true, // (optional)
   exclude: [
-    "/company/press-kit",
-    "/legal/credits",
-    "/legal/disclaimer",
-    "/legal/press-kit",
-    "/events",
   ],
 
   // ...other options

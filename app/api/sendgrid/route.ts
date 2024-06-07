@@ -17,7 +17,7 @@ export async function POST(request: Request) {
         htmlBody += "<b>" + key + "</b>: " + requestJson[key] + "<br>";
     })
 
-    let fromEmail = "info@appscreentime.com"
+    let fromEmail = "info@praxisjona.de"
 
     console.log('sendgrid route');
     console.log({ requestJson });

@@ -3,6 +3,7 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image';
 
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
@@ -162,9 +163,11 @@ export default function ServicesSection() {
                         e.preventDefault();
                         handleScrollToProduct(product.id);
                       }}>
-                        <img
+                        <Image
                           src={product.imageSrc}
                           alt={product.name}
+                          width={280}
+                          height={210}
                           className="w-3/4 h-auto object-cover object-center group-hover:opacity-75 mx-auto"
                         />
                       </a>

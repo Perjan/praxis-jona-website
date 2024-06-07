@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://appscreentime.com
+Host: https://praxisjona.de
 
 # Sitemaps
-Sitemap: https://appscreentime.com/sitemap.xml
+Sitemap: https://praxisjona.de/sitemap.xml

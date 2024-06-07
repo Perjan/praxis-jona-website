@@ -1,4 +1,5 @@
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image'
 
 export default function ClinicSection(params: { title: string, description1: string, description2: string, description3: string }) {
   return (
@@ -21,14 +22,14 @@ export default function ClinicSection(params: { title: string, description1: str
           </div>
           <div className="flex items-start justify-end lg:order-first">
             <div className='flex-col'>
-              <img
+              <Image
                 src="/images/clinic/clinic-1.jpeg"
                 alt="Product screenshot"
                 className="w-[48rem] mb-16 max-w-none rounded-xl shadow-xl ring-2 ring-gray-400/40 sm:w-[57rem]"
                 width={1432}
                 height={1442}
               />
-              <img
+              <Image
                 src="/images/clinic/clinic-2.jpeg"
                 alt="Your second image description"
                 className="w-[48rem] max-w-none rounded-xl shadow-xl ring-2 ring-gray-400/40 sm:w-[57rem]"

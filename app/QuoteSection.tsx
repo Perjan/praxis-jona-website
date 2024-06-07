@@ -1,3 +1,5 @@
+import Image from "next/image"
+
 export default function QuoteSection(params: {quote: string}) {
     return (
       <section className="relative isolate overflow-hidden bg-white px-6 pb-16 pt-16 sm:pt-24 lg:px-8">
@@ -11,10 +13,12 @@ export default function QuoteSection(params: {quote: string}) {
               </p>
             </blockquote>
             <figcaption className="mt-10">
-              <img
+              <Image
                 className="mx-auto h-10 w-10 rounded-full"
                 src="/images/team/jona-square.png"
                 alt=""
+                width={100}
+                height={100}
               />
               <div className="mt-4 flex items-center justify-center space-x-3 text-base">
                 <div className="font-semibold text-primary">Jonida Gjolli</div>
