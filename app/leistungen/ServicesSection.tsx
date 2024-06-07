@@ -131,7 +131,9 @@ export default function ServicesSection() {
                         </div>
                       </div>
                       <div className="relative mt-6 flex-1 px-4 sm:px-6 text-primaryLighter">
+                      <div className="overflow-y-auto max-h-[500px] lg:max-h-[800px]"> 
                         <p>{selectedProduct?.description}</p>
+                        </div>
                       </div>
                     </div>
                   </DialogPanel>
