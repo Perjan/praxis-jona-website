@@ -19,10 +19,10 @@ export default function ServicesSection() {
     },
     {
       id: 2,
-      name: 'Ernährungsberatung',
+      name: 'Botulinumtoxin',
       href: '#2',
-      imageSrc: '/images/leistungen/nutrition.png',
-      description: "Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten. Die Ursachen für Übergewicht sind vielfältig und umfassen genetische Faktoren, Lebensstilentscheidungen wie unzureichende Bewegung und unausgewogene Ernährung, sowie psychologische Komponenten wie Stress und emotionales Essen.\n\n\n\n Eine erfolgreiche Behandlung von Übergewicht erfordert oft eine umfassende Herangehensweise, die eine gesündere Ernährung, regelmäßige körperliche Aktivität und gegebenenfalls psychologische Unterstützung umfasst. Das Ziel ist nicht nur die Gewichtsreduktion, sondern auch die Förderung eines langfristig gesunden und ausgewogenen Lebensstils. Dafür beraten und betreuen wir Sie gern."
+      imageSrc: '/images/leistungen/botox.png',
+      description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten."
     },
     {
       id: 3,

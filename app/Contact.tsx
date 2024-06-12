@@ -103,7 +103,7 @@ export default function ContactSection() {
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                          <p>Die Terminvergabe erfolgt während unserer Sprechzeiten telefonisch unter:</p>
+                          <p>Für die Terminvereinbarung erreichen Sie uns während unserer Sprechzeiten telefonisch unter:</p>
                           <p className='pt-4 font-bold'>030 / 40054273</p>
                         </address>
                         <div className='mt-8'>
@@ -132,17 +132,13 @@ export default function ContactSection() {
                             <p>Mittwoch</p>
                             <p>Donnerstag</p>
                             <p>Freitag</p>
-                            <p>Samstag</p>
-                            <p>Sonntag</p>
                           </div>
                           <div className='col-span-2'>
-                            <p>08 - 12 und 15 - 18 Uhr</p>
-                            <p>08:30 - 14:30 Uhr</p>
-                            <p>08:30 - 12:30 Uhr</p>
-                            <p>12 - 17 Uhr</p>
-                            <p>08:30 - 12:30 Uhr</p>
-                            <p>Geschlossen</p>
-                            <p>Geschlossen</p>
+                            <p>08:00-12:00 | 15:00-18:00</p>
+                            <p>08:30 - 14:30</p>
+                            <p>08:30 - 14:30</p>
+                            <p>12:00 - 17:00</p>
+                            <p>08:30 - 12:30</p>
                           </div>
                         </div>
                       </dd>
@@ -205,9 +201,10 @@ export default function ContactSection() {
                   <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">
                     <div className="flex flex-col justify-between h-full">
                       <dd>
-                        <p>U-Bahn Linie U8 in Richtung Wittenau.</p>
-                        <p>Station Rosenthaler Platz aus.</p>
-                        <p>5 Minuten zu Fuß in nordöstlicher Richtung auf der Torstraße bis zur Nummer 125.</p>
+                        <p>Tram M2, M5, M8 Haltestelle: U Rosenthaler Platz.</p>
+                        <p>Fußweg: ca. 150 m</p>
+                        <p>U8 Haltestelle: Rosenthaler Platz</p>
+                        <p>Fußweg: ca. 20m</p>
                       </dd>
                       <div className='mt-8'>
                         <ReusableButton url="https://www.bvg.de/de/verbindungen/verbindungssuche" title={"BVG-Routenplaner"} />

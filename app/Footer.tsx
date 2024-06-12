@@ -26,7 +26,7 @@ const navigation = {
 export const socials = [
   {
     name: 'Instagram',
-    href: '#',
+    href: 'https://www.instagram.com/jonidagjolli?igsh=NWt2YTg1eHcycHh1',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
