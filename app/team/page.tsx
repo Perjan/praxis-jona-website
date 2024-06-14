@@ -5,7 +5,7 @@ import Image from 'next/image';
 const people = [
   {
     name: 'Frau Heike Schmeiche',
-    role: 'Arzthelferin,  seit 2011 in der Praxis tätig',
+    role: 'Arzthelferin, seit 2011 in der Praxis tätig',
     imageUrl:
       '/images/team/heike.jpeg',
     xUrl: '#',
