@@ -22,14 +22,14 @@ export default function ServicesSection() {
       name: 'Botulinumtoxin',
       href: '#2',
       imageSrc: '/images/leistungen/botox.png',
-      description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten."
+      description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten. \n\n\n\n** Verwendung und Anwendungen:\n\n**1. Ästhetische Medizin:\n\n - Faltenbehandlung: Botox wird verwendet, um mimische Falten wie Zornesfalten, Stirnfalten und Krähenfüße zu glätten, indem es die Muskelkontraktionen verringert.\n\n - Gesichtsstraffung: Es kann auch in anderen Bereichen des Gesichts eingesetzt werden, um ein jüngeres Aussehen zu erzielen.\n\n\n\n**2. Medizinische Anwendungen:\n\n - Hyperhidrose (übermäßiges Schwitzen): Botox kann in die Haut von Achseln, Händen, Füßen oder anderen Bereichen injiziert werden, um die Schweißproduktion zu reduzieren.\n\n - Migräne: Bei chronischen Migränepatienten kann Botox helfen, die Häufigkeit und Schwere der Kopfschmerzen zu verringern.\n\n - Spastizität und Muskelkrämpfe: Es wird zur Behandlung von Muskelspastizität bei Zuständen wie Zähneknirschen (Bruxismus) verwendet.\n\n\n\n** Nach der Behandlung:\n\n Patienten wird geraten, für 3-4 Tage auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche zu verzichten.\n\n Es ist wichtig, die Injektionsstellen nicht zu massieren oder unnötigem Druck auszusetzen, um eine unerwünschte Ausbreitung des Toxins zu vermeiden."
     },
     {
       id: 3,
       name: 'Diagnostik der Bauchorgane (Abdomensonographie)',
       href: '#3',
       imageSrc: '/images/leistungen/abdomen.png',
-      description: "Die Ultraschalluntersuchung des Bauchraums dient der Diagnose und Überwachung verschiedener Erkrankungen. Mit dieser Methode können die Größe, Struktur und Position von Bauchorganen wie Leber, Gallenblase, Milz, Nieren, Pankreas, Prostata, Lymphknoten, Bauchaorta, Harnblase und Darm beurteilt werden. Für eine optimale Untersuchung sollte man nüchtern sein, um Darmgasüberlagerungen zu vermeiden und eine gefüllte Gallenblase zu gewährleisten. "
+      description: "Die Ultraschalluntersuchung des Bauchraums dient der Diagnose und Überwachung verschiedener Erkrankungen. Mit dieser Methode können die Größe, Struktur und Position von Bauchorganen wie Leber, Gallenblase, Milz, Nieren, Pankreas, Prostata, Lymphknoten, Bauchaorta, Harnblase und Darm beurteilt werden. Für eine optimale Untersuchung sollte man nüchtern sein, um Darmgasüberlagerungen zu vermeiden und eine gefüllte Gallenblase zu gewährleisten."
     },
     {
       id: 4,
@@ -132,8 +132,18 @@ export default function ServicesSection() {
                         </div>
                       </div>
                       <div className="relative mt-6 flex-1 px-4 sm:px-6 text-primaryLighter">
-                      <div className="overflow-y-auto max-h-[500px] lg:max-h-[800px]"> 
-                        <p>{selectedProduct?.description}</p>
+                        <div className="overflow-y-auto max-h-[500px] lg:max-h-[800px]">
+                          {selectedProduct?.description.split(/\n{2}/).map((text, i) => (
+                            <span key={i} className="text-base leading-7 text-primaryLighter">
+                              {text.split(/\n/).map((line, j) => (
+                                <span key={j}>
+                                  {line.startsWith('##') ? <h2>{line.substring(2)}</h2> : line.startsWith('**') ? <strong>{line.substring(2)}</strong> : line}
+                                  <br />
+                                </span>
+                              ))}
+                            </span>
+                          ))}
+
                         </div>
                       </div>
                     </div>
