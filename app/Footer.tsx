@@ -68,7 +68,7 @@ export default function Example() {
           Tel: <a href="tel://03040054273" className="underline">030 / 40054273</a>
         </p>
         <p className="text-sm leading-6 text-primaryLighter">
-          Fax: <a href="#" className="underline">030 / 40054275</a>
+          Fax: <span className="">030 / 40054275</span>
         </p>
         <p className="text-sm mt-2 leading-6 text-primaryLighter">
           Email: <a href="mailto:info@praxisjona.de" className="underline">info@praxisjona.de</a>
@@ -101,7 +101,7 @@ export default function Example() {
     </div>
     <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
       <div className="text-center md:text-left">
-        <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona, Inc. All rights reserved.</p>
+        <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona. Alle Rechte vorbehalten.</p>
         <a href="" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
           Impressum
         </a>
