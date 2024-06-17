@@ -72,17 +72,23 @@ export default function Page() {
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
 
-                        <p className="text-3xl mt-16 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
+                        <p className="text-xl mt-8 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
 
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</p>
+                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                            
+                        <li className="text-lg leading-6 mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter"> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
+                        </ul>
 
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Ultraschalluntersuchung</p>
+                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Ultraschalluntersuchung</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
+                        </ul>
+                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
+                        </ul>
 
                     </SectionWithColor>
                     {/* <SectionWithColor backgroundClassName='bg-tealColor my-16'>
