@@ -48,7 +48,7 @@ export default function Page() {
                         <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden">
+                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In Deutschland leidet etwa jeder dritte Erwachsene unter Bluthochdruck, was einer Zahl von circa 20 bis 30 Millionen Menschen entspricht. Da das Risiko, an Bluthochdruck zu erkranken, mit dem Alter steigt, haben sogar drei von vier der über 70-Jährigen einen Bluthochdruck.</p>
 
@@ -56,36 +56,35 @@ export default function Page() {
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Menschen mit hohem Blutdruck bemerken im Allgemeinen keine Symptome, deshalb ist ein Screening so wichtig.</p>
 
-                    </SectionWithColor>
-                    <SectionWithColor backgroundClassName='bg-tealColor'>
+                        <p className="text-xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnose</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnose entsteht anhand:</p>
 
-                        <p className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnose</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnose entseht anhand Anamnese und klinische Untersuchung.</p>
+                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Anamnese und klinische Untersuchung</p>
 
-                        <p className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Blutdruckmessung</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten 24h-Langzeitblutdruckmessungen an, jedoch die regelmäßige Kontrolle zu Hause liefert meistens bessere Informationen.
-                            Um den Blutdruck korrekt zu messen, sollten Sie einige wichtige Schritte beachten:</p>
-
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Zeitpunkt der Messung</p>
+                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Blutdruckmessung</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten 24h-Langzeitblutdruckmessungen an, jedoch die regelmäßige Kontrolle zu Hause liefert meistens bessere Informationen.<br></br>Um den Blutdruck korrekt zu messen, sollten Sie einige wichtige Schritte beachten:</p>
+                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Zeitpunkt der Messung</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Messen Sie den Blutdruck zweimal täglich - morgens vor dem Start in den Tag und abends bevor Sie zu Bett gehen.</p>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Vorbereitung</p>
+                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Vorbereitung</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Vor der Messung sollten Sie sich entspannen und zur Ruhe kommen. Führen Sie keine anderen Aktivitäten während der Messung durch und warten Sie nach körperlicher Anstrengung mindestens 30 Minuten.</p>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">3 - Position</p>
+                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Position</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Sitzen Sie entspannt auf einem Stuhl, mit beiden Füßen flach auf dem Boden. Legen Sie die Manschette auf Herzhöhe an:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Bei Oberarmgeräten: Manschette auf Herzhöhe am Oberarm anlegen.</li>
                             <li>Bei Handgelenkgeräten: Handgelenk auf Herzhöhe auf der Brust ablegen.</li>
                         </ul>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">4 - Messvorgang</p>
+                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Messvorgang</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Führen Sie zwei Messungen im Abstand von mindestens einer Minute durch und notieren Sie die Werte beider Messungen.</p>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">5 - Dokumentation</p>
+                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Dokumentation</li>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Führen Sie ein Blutdruck-Tagebuch. Dokumentieren Sie die Messwerte sieben Tage lang, jeweils zwei Messungen morgens und zwei abends. Falls Sie hohe Werten feststellen, besprechen Sie den Befund mit Ihrem Arzt oder Ihrer Ärztin.</p>
+                        </ul>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Hier ist die Definition von Hypertonie nach den ESC-Leitlinien 2023:</p>
+                        <p className="mt-4 text-lg leading-8 text-primaryLighter">Hier ist die Definition von Hypertonie nach den ESC-Leitlinien 2023:</p>
 
                         <table className="blood-pressure-table">
                             <thead>
@@ -129,20 +128,21 @@ export default function Page() {
                             </tbody>
                         </table>
 
-                    </SectionWithColor>
+                        <p className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">3 - Laboruntersuchungen</p>
 
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
-                    <p className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Behandlung</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Nichtmedikamentöse Therapie:</p>
+                        <p className="text-xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Behandlung:</p>
+
+                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Nichtmedikamentöse Therapie:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Ernährungsumstellung und Gewichtsreduktion</li>
                             <li>Reduktion des Alkoholkonsums</li>
                             <li>Einstellen des Rauchens</li>
                             <li>Bewegung</li>
-                            <li>Antihypertensive medikamentöse Therapie</li>
                         </ul>
+                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Antihypertensive medikamentöse Therapie</p>
 
                     </SectionWithColor>
+
                 </div>
             </div>
         </>

@@ -1,25 +1,29 @@
 .blood-pressure-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 18px;
-    text-align: left;
-  }
-  
-  .blood-pressure-table th,
-  .blood-pressure-table td {
-    border: 1px solid #0D322B;
-    padding: 8px;
-    background-color: #ffffff;
-  }
-  
-  .blood-pressure-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: #f2f2f2;
-    color: #0D322B;
-  }
-  
-  .blood-pressure-table tbody tr:nth-child(even) {
-   background-color: #ffffff;
-  }
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 32px; /* Add rounded border with 8px border-radius */
+}
+
+.blood-pressure-table th,
+.blood-pressure-table td {
+  border: 1px solid #0d322b4e;
+  padding: 10px;
+  background-color: #FFF3E7;
+}
+
+.blood-pressure-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #FFF3E7;
+  border-radius: 8px; /* Add rounded border with 8px border-radius */
+  color: #0D322B;
+  border-radius: 8px; /* Add rounded border with 8px border-radius */
+}
+
+.blood-pressure-table tbody tr:nth-child(even) {
+  background-color: #FFF3E7;
+  border-radius: 8px; /* Add rounded border with 8px border-radius */
+}

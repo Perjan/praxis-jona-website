@@ -85,7 +85,7 @@ export default function ContactSection() {
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
                   </h3>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
                     {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
@@ -97,7 +97,7 @@ export default function ContactSection() {
                         </div>
                       </div>
                     </dl> */}
-                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                    {/* <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>Gerne können Sie Ihren Termin auch per E-Mail anfragen:</p>
@@ -108,7 +108,7 @@ export default function ContactSection() {
                           <ReusableButton url="mailto:info@praxisjona.de" title={"Email"} />
                         </div>
                       </div>
-                    </dl>
+                    </dl> */}
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
@@ -169,7 +169,7 @@ export default function ContactSection() {
                       </dd>
                       <dd>
                         <p className="text-md leading-6 text-primaryLighter">
-                          Fax: <a href="tel://03040054275" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
+                          Fax: 030 / 40054275
                         </p>
                       </dd>
                       <dd>
@@ -196,7 +196,7 @@ export default function ContactSection() {
                         <p>10119, Berlin</p>
                         <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
                       </dd>
-                      <div className='mt-8 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
+                      <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
                         <ReusableButton url="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" title={"Google Maps"} />
                         <ReusableButton url="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" title={"Apple Maps"} />
                       </div>
