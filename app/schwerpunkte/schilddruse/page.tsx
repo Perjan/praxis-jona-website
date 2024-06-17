@@ -72,7 +72,7 @@ export default function Page() {
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
 
-                        <p className="text-3xl mt-16 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
+                        {/* <p className="text-3xl mt-16 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</p>
@@ -82,10 +82,10 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p> */}
 
                     </SectionWithColor>
-                    {/* <SectionWithColor backgroundClassName='bg-tealColor'>
+                    <SectionWithColor backgroundClassName='bg-neutralColor'>
                         
                         <p className="text-3xl mt-6 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
@@ -98,7 +98,7 @@ export default function Page() {
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
-                    </SectionWithColor> */}
+                    </SectionWithColor>
                 </div>
             </div>
         </>

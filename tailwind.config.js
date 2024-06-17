@@ -30,6 +30,7 @@ module.exports = {
         darkBeige: "#CAAB8C",
         lightBeige: "#F9EDDF",
         tealColor: "#D3E0D6",
+        neutralColor: "#FFF3E7",
         "bg-base-100": "#9debff",
         bgColor1: "#bfc6d0",
       }
