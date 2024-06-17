@@ -85,8 +85,9 @@ export default function ContactSection() {
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
                   </h3>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
-                    {/* <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+                  {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
+                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>Sie haben die Möglichkeit Ihren Termin online über Doctolib zu buchen. Nutzen Sie dazu einfach den Doctolib-Button.</p>
@@ -168,7 +169,7 @@ export default function ContactSection() {
                       </dd>
                       <dd>
                         <p className="text-md leading-6 text-primaryLighter">
-                          Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
+                          Fax: <a href="tel://03040054275" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
                         </p>
                       </dd>
                       <dd>

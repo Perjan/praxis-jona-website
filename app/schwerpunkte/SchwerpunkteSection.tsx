@@ -6,6 +6,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
+import { ChevronRightIcon } from '@heroicons/react/20/solid'; // Import the ChevronRightIcon component
 
 
 export default function Example() {
@@ -59,26 +60,26 @@ export default function Example() {
           </p>
         </div>
 
-        <ul role="list" className=" mt-8 space-y-4 overflow-visible">
-          {schwerpunktes.map((schwerpunkte) => (
-            <li
-              key={schwerpunkte.id}
-              className="relative flex flex-col gap-y-8 px-4 py-5 rounded-xl bg-lightBeige bg-opacity-30 hover:bg-lightBeige sm:px-6 lg:px-8"
-            >
-              <a href={schwerpunkte.url} onClick={(e) => {
-              }}>
-                <div className="flex justify-between">
-                  <p className="text-2xl font-medium font-serif leading-6 text-primary">
-                    {schwerpunkte.name}
-                  </p>
-                </div>
-                <div className="flex flex-col">
-                  <p className="text-md leading-6 text-primaryLighter break-words">{schwerpunkte.description}</p>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <ul role="list" className="mt-8 space-y-4 overflow-visible">
+  {schwerpunktes.map((schwerpunkte) => (
+    <li
+      key={schwerpunkte.id}
+      className="relative flex items-center gap-4 px-4 py-5 rounded-xl bg-lightBeige bg-opacity-30 hover:bg-lightBeige sm:px-6 lg:px-8"
+    >
+      <a href={schwerpunkte.url} onClick={(e) => {}} className="flex justify-between items-center w-full">
+        <div className="flex flex-col w-full">
+          <p className="text-2xl font-medium font-serif leading-6 text-primary">
+            {schwerpunkte.name}
+          </p>
+          <p className="text-md pt-2 leading-6 pr-8 text-primaryLighter break-words">{schwerpunkte.description}</p>
+        </div>
+        <div className="flex items-center">
+          <ChevronRightIcon className="h-6 w-6 text-primary" /> {/* Add the ChevronRightIcon */}
+        </div>
+      </a>
+    </li>
+  ))}
+</ul>
       </div>
     </div>
   )
