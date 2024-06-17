@@ -140,7 +140,7 @@ export default function ContactSection() {
                         <div className="grid grid-cols-1 text-primaryLighter grid-flow-col">
                           <div className='col-span-1'>
                             {openingHours.map((item) => (
-                              <div className="flex">
+                              <div key={item.day} className="flex">
                                 <div className="flex-none w-24">
                                   <p>{item.day}</p>
                                 </div>
