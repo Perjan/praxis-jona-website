@@ -77,7 +77,8 @@ export default function ContactSection() {
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
                   </h3>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
+                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
+                  {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
@@ -87,7 +88,7 @@ export default function ContactSection() {
                           <ReusableButton url="#" title={"Doctolib"} />
                         </div>
                       </div>
-                    </dl>
+                    </dl> */}
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
@@ -107,7 +108,7 @@ export default function ContactSection() {
                           <p className='pt-4 font-bold'>030 / 40054273</p>
                         </address>
                         <div className='mt-8'>
-                          <ReusableButton url="tel:03040054273" title={"Telefonisch"} />
+                          <ReusableButton url="tel://03040054273" title={"Telefonisch"} />
                         </div>
                       </div>
                     </dl>
@@ -125,7 +126,7 @@ export default function ContactSection() {
                   <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
                     <div>
                       <dd>
-                        <div className="grid grid-cols-1 grid-cols-3 text-primaryLighter">
+                        <div className="grid grid-cols-1 gap-8 grid-cols-3 text-primaryLighter">
                           <div className='col-span-1'>
                             <p>Montag</p>
                             <p>Dienstag</p>
@@ -134,7 +135,7 @@ export default function ContactSection() {
                             <p>Freitag</p>
                           </div>
                           <div className='col-span-2'>
-                            <p>08:00-12:00 | 15:00-18:00</p>
+                            <p>8 - 12 | 15 - 18</p>
                             <p>08:30 - 14:30</p>
                             <p>08:30 - 14:30</p>
                             <p>12:00 - 17:00</p>
@@ -159,7 +160,7 @@ export default function ContactSection() {
                       </dd>
                       <dd>
                         <p className="text-md leading-6 text-primaryLighter">
-                          Fax: <a href="#" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
+                          Fax: <a href="tel://03040054275" style={{ textDecoration: 'underline' }}>030 / 40054275</a>
                         </p>
                       </dd>
                       <dd>

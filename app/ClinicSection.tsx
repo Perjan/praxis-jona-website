@@ -20,19 +20,19 @@ export default function ClinicSection(params: { title: string, description1: str
               </p>
             </div>
           </div>
-          <div className="flex items-start justify-end lg:order-first">
-            <div className='flex-col'>
+          <div className="flex items-start justify-center lg:justify-end lg:order-first">
+            <div className='flex flex-col items-center lg:items-start'>
               <Image
                 src="/images/clinic/clinic-1.jpeg"
                 alt="Product screenshot"
-                className="relative w-[48rem] mb-16 max-w-none rounded-xl shadow-xl sm:w-[57rem]"
+                className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
                 width={1432}
                 height={1442}
               />
               <Image
                 src="/images/clinic/clinic-2.jpeg"
                 alt="Your second image description"
-                className="w-[48rem] max-w-none rounded-xl shadow-xl sm:w-[57rem]"
+                className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
                 width={1432}
                 height={1442}
               />
