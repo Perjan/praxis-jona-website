@@ -12,7 +12,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 const openingHours = [
-  { day: 'Montag', hours: '08:00 - 12:00 | 15:00 - 18:00' },
+  { day: 'Montag', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
   { day: 'Dienstag', hours: '08:30 - 14:30' },
   { day: 'Mittwoch', hours: '08:30 - 14:30' },
   { day: 'Donnerstag', hours: '12:00 - 17:00' },
@@ -43,7 +43,7 @@ const formHandler = async (event) => {
   });
 
   if (response.ok) {
-  if (response.status === 200) {
+    if (response.status === 200) {
       //setEmail("");
       toast.success("Message sent successfully!");
     }
@@ -86,7 +86,7 @@ export default function ContactSection() {
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Terminvergabe
                   </h3>
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-2 lg:gap-8">
-                  {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
+                    {/* <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 lg:col-span-3 lg:gap-8">
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
@@ -145,7 +145,7 @@ export default function ContactSection() {
                                   <p>{item.day}</p>
                                 </div>
                                 <div className="flex-initial">
-                                  <p>{item.hours}</p>
+                                  <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />') }} />
                                 </div>
                               </div>
                             ))}
