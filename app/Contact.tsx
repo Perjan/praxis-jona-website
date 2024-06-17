@@ -43,7 +43,7 @@ const formHandler = async (event) => {
   });
 
   if (response.ok) {
-    if (response.status === 200) {
+  if (response.status === 200) {
       //setEmail("");
       toast.success("Message sent successfully!");
     }
