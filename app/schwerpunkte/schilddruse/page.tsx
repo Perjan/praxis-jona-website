@@ -46,13 +46,13 @@ export default function Page() {
                         <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden bg-white max-w-7xl mx-auto">
+                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 ">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüse produziert die beiden Hormone T3 (Triiodthyronin) und T4 (Thyroxin, auch Tetraiodthyronin genannt). T4 wird in größeren Mengen gebildet, ist jedoch von sich aus nur geringfügig aktiv. Im Blut und im Zytosol der meisten Körperzellen wird T4 durch eine Deiodase in das biologisch aktivere T3 umgewandelt. Die physiologische Rolle von Calcitonin ist eher gering, weil der Knochen- und Calciumstoffwechsel hauptsächlich durch das Parathormon der Nebenschilddrüsen und durch Vitamin D reguliert wird.</p>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Eine Fehlfunktion der Schilddrüse kann vielfältige Symptome verursachen und beeinträchtigt das Wohlbefinden erheblich. Die häufigsten Erkrankungen sind Hypothyreose (z.B. Hashimoto), Hyperthyreose (z.B. M. Basedow) und Schilddrüsenknoten.</p>
 
-                        <p className="mt-6 text-lg leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Überfunktion:</p>
+                        <p className="mt-6 text-xl leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Überfunktion:</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Schneller HerzschlagSchneller Herzschlag</li>
@@ -62,7 +62,7 @@ export default function Page() {
                             <li>Nervosität, Schlafstörungen, innere Unruhe</li>
                         </ul>
 
-                        <p className="text-lg mt-6 leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Unterfunktion:</p>
+                        <p className="text-xl mt-6 leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Unterfunktion:</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Niedriger Herzschlag</li>
@@ -72,7 +72,7 @@ export default function Page() {
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
 
-                        {/* <p className="text-3xl mt-16 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
+                        <p className="text-3xl mt-16 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</p>
@@ -82,10 +82,10 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p> */}
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
 
                     </SectionWithColor>
-                    <SectionWithColor backgroundClassName='bg-tealColor my-16'>
+                    {/* <SectionWithColor backgroundClassName='bg-tealColor my-16'>
                         
                         <p className="text-3xl mt-4 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
@@ -98,7 +98,7 @@ export default function Page() {
 
                         <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
-                    </SectionWithColor>
+                    </SectionWithColor> */}
                 </div>
             </div>
         </>
