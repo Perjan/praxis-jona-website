@@ -124,7 +124,7 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:block sm:w-full sm:flex-auto lg:w-auto lg:flex-none">
                   <Image
-                    src="/images/clinic/praxi4.jpeg"
+                    src="/images/clinic/clinic-philosophie.jpeg"
                     alt=""
                     className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                     width={1920}
