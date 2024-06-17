@@ -87,54 +87,46 @@ export default function ServicesSection() {
       <Transition show={open}>
         <Dialog className="relative z-50" onClose={() => setOpen(false)}>
           <Transition.Child
-            enter="ease-in-out duration-500"
+            enter="ease-out duration-300"
             enterFrom="opacity-0"
             enterTo="opacity-100"
-            leave="ease-in-out duration-500"
+            leave="ease-in duration-200"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
-          <div className="fixed inset-0" />
-          <div className="fixed inset-0 overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-8">
 
-                <Transition.Child
-                  className="my-auto"
-                  enter="transform transition ease-in-out duration-500 sm:duration-700"
-                  enterFrom="translate-x-full"
-                  enterTo="translate-x-0"
-                  leave="transform transition ease-in-out duration-500 sm:duration-700"
-                  leaveFrom="translate-x-0"
-                  leaveTo="translate-x-full"
-                >
-
-
-                  <DialogPanel className="pointer-events-auto w-screen max-w-2xl">
-                    <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                      <div className="px-4 sm:px-6">
-                        <div className="flex items-start justify-between">
-                          <DialogTitle className="text-lg font-semibold leading-6 font-serif text-primary">
-                            {selectedProduct?.name}
-                          </DialogTitle>
-                          <div className="ml-3 flex h-7 items-center">
-                            <button
-                              type="button"
-                              className="rounded-md bg-white text-primaryLighter hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                              onClick={() => setOpen(false)}
-                            >
-                              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                              <span className="sr-only">Close panel</span>
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="relative mt-6 flex-1 px-4 sm:px-6 text-primaryLighter">
+          <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <Transition.Child
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+              enterTo="opacity-100 translate-y-0 sm:scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+              leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            >
+              <DialogPanel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <div className="absolute right-0 top-0 hidden pr-4 pt-4 sm:block">
+                  <button
+                    type="button"
+                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                    onClick={() => setOpen(false)}
+                  >
+                    <span className="sr-only">Close</span>
+                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+                <div className="sm:flex sm:items-start">
+                  <div className="mt-3 max-w-3xl text-center sm:mt-0 sm:text-left">
+                    <DialogTitle as="h3" className="text-base font-semibold text-gray-900">
+                    {selectedProduct?.name}
+                    </DialogTitle>
+                    <div className="relative mt-6 flex-1 text-primaryLighter">
                         <div className="overflow-y-auto max-h-[500px] lg:max-h-[800px]">
                           {selectedProduct?.description.split(/\n{2}/).map((text, i) => (
-                            <span key={i} className="text-base leading-7 text-primaryLighter">
+                            <span key={i} className="text-base text-primaryLighter">
                               {text.split(/\n/).map((line, j) => (
                                 <span key={j}>
                                   {line.startsWith('##') ? <h2>{line.substring(2)}</h2> : line.startsWith('**') ? <strong>{line.substring(2)}</strong> : line}
@@ -146,12 +138,12 @@ export default function ServicesSection() {
 
                         </div>
                       </div>
-                    </div>
-                  </DialogPanel>
-                </Transition.Child>
-              </div>
-            </div>
+                  </div>
+                </div>
+              </DialogPanel>
+            </Transition.Child>
           </div>
+        </div>
         </Dialog>
       </Transition>
       <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
