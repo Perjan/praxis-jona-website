@@ -43,7 +43,7 @@ export default function Page() {
             <div className="overflow-hidden bg-white relative isolate">
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
-                        <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
+                        <h1 className="text-xl sm:text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
                         <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Fettstoffwechselstörungen, auch Dyslipidämien genannt, bezeichnen eine Gruppe von Erkrankungen, bei denen es zu einer Abweichung der Blutfettwerte von der Norm kommt. Diese Störungen können das Risiko für Herz-Kreislauf-Erkrankungen wie Herzinfarkt und Schlaganfall erhöhen, da abnormale Fettwerte zur Bildung von Plaques in den Arterien führen können, die das Risiko einer Arterienverkalkung (Atherosklerose) erhöhen.</h2>
                     </div>
                 </SectionWithColor>
@@ -51,19 +51,19 @@ export default function Page() {
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Fettstoffwechselstörungen werden in zwei großen Gruppen geteilt:  </p>
 
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">1 - Primäre Dyslipidämien </p>
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="mt-2 text-lg font-serif leading-8 font-semibold text-primaryLighter">Genetisch bedingt Bspw. familiäre Hypercholesterinämie</li>
+                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Primäre Dyslipidämien </p>
+                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                            <li className="mt-2 text-lg sm:text-lg font-serif leading-8 font-semibold text-primaryLighter">Genetisch bedingt Bspw. familiäre Hypercholesterinämie</li>
                         </ul>
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">2 - Sekundäre Dyslipidämien</p>
-                        <div className="grid grid-cols-2 gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:gap-8">
+                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Sekundäre Dyslipidämien</p>
+                        <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                             <div className="col-span-1">
-                                <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg font-serif font-semibold leading-8 text-primaryLighter">Hypertriglyceridämie</li>
-                                    <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Hypertriglyceridämie</li>
+                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                                         <li>Fehlernährung (Fructose, leicht verdauliche Kohlenhydrate)</li>
                                         <li>Erkrankungen</li>
-                                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                                             <li>Adipositas</li>
                                             <li>Diabetes mellitus Typ 2</li>
                                             <li>Metabolisches Syndrom</li>
@@ -74,15 +74,11 @@ export default function Page() {
                                         <li>Schwangerschaft</li>
                                         <li>Alkohol</li>
                                         <li>Medikamente</li>
-                                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                                            <li>Östrogene</li>
-                                            <li>Kontrazeptiva</li>
-                                            <li>Betablocker</li>
-                                            <li>Thiaziddiuretika</li>
+                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                            <li>Östrogene, Kontrazeptiva</li>
+                                            <li>Amiodaron, Betablocker, Thiaziddiuretika</li>
                                             <li>Glucocorticosteroide</li>
-                                            <li>Tamoxifen</li>
-                                            <li>Cyclosporin</li>
-                                            <li>Amiodaron</li>
+                                            <li>Tamoxifen, Cyclosporin</li>
                                             <li>Proteasehemmer</li>
                                         </ul>
                                     </ul>
@@ -90,12 +86,12 @@ export default function Page() {
                             </div>
 
                             <div className="col-span-1">
-                                <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg font-serif font-semibold leading-8 text-primaryLighter">Erhöhter LDL-Wert kommt durch:</li>
-                                    <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Erhöhter LDL-Wert kommt durch:</li>
+                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                                         <li>Falsche Ernährung (Transfette, gesättigte Fettsäuren)</li>
                                         <li>Erkrankungen</li>
-                                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                                             <li>Hypothyreose</li>
                                             <li>Nephrotisches Syndrom</li>
                                             <li>Cholestase</li>
@@ -103,7 +99,7 @@ export default function Page() {
                                         </ul>
                                         <li>Schwangerschaft</li>
                                         <li>Medikamente</li>
-                                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                                             <li>Gestagene</li>
                                             <li>Androgene</li>
                                             <li>Proteasehemmer</li>
@@ -113,8 +109,8 @@ export default function Page() {
                             </div>
                         </div>
 
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-4 text-lg font-serif font-semibold leading-8 text-primaryLighter">Gemischte Hyperlipidämie</li>
+                        <ul className="px-4 sm:px-8 list-disc text-lg sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                        <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Gemischte Hyperlipidämie</li>
                         </ul>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Da Fettstoffwechselstörungen oft keine direkten Symptome verursachen, ist die regelmäßige medizinische Kontrolle entscheidend, um mögliche Risiken frühzeitig zu erkennen und zu behandeln.</p>
@@ -123,13 +119,13 @@ export default function Page() {
                         <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnose</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben. Unsere Leistungen:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Lipidprofil</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
+                            <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Lipidprofil</li>
+                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
                         </ul>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Weitere Blutuntersuchungen</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
+                            <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Weitere Blutuntersuchungen</li>
+                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
                         </ul>
 
                         <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Die Therapie besteht auf 3 Stufen</p>
