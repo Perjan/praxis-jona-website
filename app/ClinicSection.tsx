@@ -25,14 +25,14 @@ export default function ClinicSection(params: { title: string, description1: str
               <Image
                 src="/images/clinic/clinic-1.jpeg"
                 alt="Product screenshot"
-                className="w-[48rem] mb-16 max-w-none rounded-xl shadow-xl ring-2 ring-gray-400/40 sm:w-[57rem]"
+                className="relative w-[48rem] mb-16 max-w-none rounded-xl shadow-xl sm:w-[57rem]"
                 width={1432}
                 height={1442}
               />
               <Image
                 src="/images/clinic/clinic-2.jpeg"
                 alt="Your second image description"
-                className="w-[48rem] max-w-none rounded-xl shadow-xl ring-2 ring-gray-400/40 sm:w-[57rem]"
+                className="w-[48rem] max-w-none rounded-xl shadow-xl sm:w-[57rem]"
                 width={1432}
                 height={1442}
               />
