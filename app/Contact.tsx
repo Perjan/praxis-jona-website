@@ -12,7 +12,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 const openingHours = [
-  { day: 'Montag', hours: '08:00 - 12:00  |  15:00 - 18:00' },
+  { day: 'Montag', hours: '08:00 - 12:00 | 15:00 - 18:00' },
   { day: 'Dienstag', hours: '08:30 - 14:30' },
   { day: 'Mittwoch', hours: '08:30 - 14:30' },
   { day: 'Donnerstag', hours: '12:00 - 17:00' },
@@ -131,7 +131,7 @@ export default function ContactSection() {
                 <div className='col-span-2'></div>
                 <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3">
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
-                    <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Sprechzeiten
+                    <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" />Sprechzeiten
                   </h3>
 
                   <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
