@@ -84,10 +84,10 @@ const nextConfig = {
   rewrites: async () => {
     return {
       beforeFiles: [
-        {
-          source: '/aktuelles',
-          destination: '/blog/aktuelles',
-        },
+        // {
+        //   source: '/aktuelles',
+        //   destination: '/blog/aktuelles',
+        // },
         {
           source: "/privacy-policy",
           destination: "/legal/privacy-policy"
