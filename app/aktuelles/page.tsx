@@ -35,24 +35,16 @@ export const metadata: Metadata = {
     }
 }
 
-import {
-    CalendarDaysIcon,
-    ClockIcon,
-    MapIcon,
-    MapPinIcon,
-    PhoneIcon,
-} from '@heroicons/react/24/outline';
-
-export function ReusableButton({ url, title }) {
-    return (
-        <Link
-            href={url}
-            target='_blank'
-            className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
-        >{title}
-        </Link>
-    )
-}
+// export function ReusableButton({ url, title }) {
+//     return (
+//         <Link
+//             href={url}
+//             target='_blank'
+//             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
+//         >{title}
+//         </Link>
+//     )
+// }
 
 export default function Page() {
 
