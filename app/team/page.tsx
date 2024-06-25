@@ -60,7 +60,7 @@ export default function Example() {
           </div>
           <div className="lg:flex lg:items-start lg:justify-end lg:order-first">
             <Image
-              src="/images/team/jona.jpg"
+              src="/images/team/jonaClinic.jpeg"
               alt="Product screenshot"
               className="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 lg:w-[48rem] lg:max-w-none lg:ring-0"
               width={2432}
@@ -76,7 +76,7 @@ export default function Example() {
         >
           {people.map((person) => (
             <li key={person.name}>
-              <Image className="aspect-[3/2] w-full rounded-2xl object-cover" src={person.imageUrl} width={1920} height={1080} alt="" />
+              {/* <Image className="aspect-[3/2] w-full rounded-2xl object-cover" src={person.imageUrl} width={1920} height={1080} alt="" /> */}
               <h3 className="mt-6 text-xl font-serif leading-8 tracking-tight text-primary">{person.name}</h3>
               <p className="text-base leading-7 text-primaryLighter">{person.role}</p>
             </li>
@@ -96,7 +96,7 @@ export default function Example() {
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
             <div className="w-full flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                 <Image
-                  src="/images/clinic/praxi1.jpeg"
+                  src="/images/team/jonaEcho.jpeg"
                   alt=""
                   className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                   width={1920}
