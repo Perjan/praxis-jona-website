@@ -1,8 +1,7 @@
 import { Metadata } from "next";
-import Link from 'next/link';
 
 const title = 'Aktuelles'
-const description = "Lesen Sie die neuesten Nachrichten aus der Klinik, wie z.B. was passiert, wann ist die Klinik wegen Urlaub geschlossen usw."
+const description = ""
 
 export const metadata: Metadata = {
     title: title,
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
     alternates: {
         canonical: '/aktuelles',
         languages: {
-            en: '/aktuelles'
+            de: '/aktuelles'
         }
     },
     twitter: {

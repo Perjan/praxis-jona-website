@@ -137,8 +137,8 @@ export default function Header() {
                             href={item.href}
                             scroll={true}
                             className={
-                                cn(pathname === item.href ? "text-primary" : "text-gray-900",
-                                    "text-md tracking-wide font-medium font-serif leading-6")
+                                cn(pathname === item.href ? "text-green-700" : "text-gray-900",
+                                    "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600")
                             }
                         >{item.title}
                         </Link>
@@ -169,7 +169,7 @@ export default function Header() {
                                         key={item.title}
                                         href={item.href}
                                         className={
-                                            cn(pathname === item.href ? "text-primary" : "text-gray-700",
+                                            cn(pathname === item.href ? "text-green-700" : "text-gray-900",
                                                 menuItemClassName)
                                         }
                                         onClick={() => setMobileMenuOpen(false)}

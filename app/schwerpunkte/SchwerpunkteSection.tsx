@@ -1,15 +1,13 @@
 "use client"
 
 import { CloudArrowUpIcon, LockClosedIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
-import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline'
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
 import { ChevronRightIcon } from '@heroicons/react/20/solid'; // Import the ChevronRightIcon component
 
 
-export default function Example() {
+export default function Page() {
 
   const schwerpunktes = [
     {
@@ -49,37 +47,37 @@ export default function Example() {
       icon: ArrowPathIcon,
     },
   ]
-  
+
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-4xl lg:mx-0">
-          <h2 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Schwerpunkte</h2>
+          <h1 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Schwerpunkte</h1>
           <p className="mt-6 text-lg leading-8 text-primaryLighter">
             Besondere Schwerpunkte unserer Praxis sind die Behandlung von Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin.
           </p>
         </div>
 
         <ul role="list" className="mt-8 space-y-4 overflow-visible">
-  {schwerpunktes.map((schwerpunkte) => (
-    <li
-      key={schwerpunkte.id}
-      className="relative flex items-center gap-4 px-4 py-5 rounded-xl bg-lightBeige bg-opacity-30 hover:bg-lightBeige sm:px-6 lg:px-8"
-    >
-      <a href={schwerpunkte.url} onClick={(e) => {}} className="flex justify-between items-center w-full">
-        <div className="flex flex-col w-full">
-          <p className="text-2xl font-medium font-serif leading-6 text-primary">
-            {schwerpunkte.name}
-          </p>
-          <p className="text-md pt-2 leading-6 pr-8 text-primaryLighter break-words">{schwerpunkte.description}</p>
-        </div>
-        <div className="flex items-center">
-          <ChevronRightIcon className="h-6 w-6 text-primary" /> {/* Add the ChevronRightIcon */}
-        </div>
-      </a>
-    </li>
-  ))}
-</ul>
+          {schwerpunktes.map((schwerpunkte) => (
+            <li
+              key={schwerpunkte.id}
+              className="relative flex items-center gap-4 px-4 py-5 rounded-xl bg-lightBeige hover:bg-primary hover:bg-opacity-20 sm:px-6 lg:px-8 transition duration-300"
+            >
+              <a href={schwerpunkte.url} onClick={(e) => { }} className="flex justify-between items-center w-full">
+                <div className="flex flex-col w-full">
+                  <h3 className="text-2xl font-medium font-serif leading-6 text-primary">
+                    {schwerpunkte.name}
+                  </h3>
+                  <p className="text-md pt-2 leading-6 pr-8 text-primaryLighter break-words">{schwerpunkte.description}</p>
+                </div>
+                <div className="flex items-center">
+                  <ChevronRightIcon className="h-6 w-6 text-primary" /> {/* Add the ChevronRightIcon */}
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   )
