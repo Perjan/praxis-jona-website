@@ -44,18 +44,18 @@ export default function Page() {
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
                         <h1 className="text-xl sm:text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Fettstoffwechselstörungen, auch Dyslipidämien genannt, bezeichnen eine Gruppe von Erkrankungen, bei denen es zu einer Abweichung der Blutfettwerte von der Norm kommt. Diese Störungen können das Risiko für Herz-Kreislauf-Erkrankungen wie Herzinfarkt und Schlaganfall erhöhen, da abnormale Fettwerte zur Bildung von Plaques in den Arterien führen können, die das Risiko einer Arterienverkalkung (Atherosklerose) erhöhen.</h2>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Fettstoffwechselstörungen, auch Dyslipidämien genannt, bezeichnen eine Gruppe von Erkrankungen, bei denen es zu einer Abweichung der Blutfettwerte von der Norm kommt. Diese Störungen können das Risiko für Herz-Kreislauf-Erkrankungen wie Herzinfarkt und Schlaganfall erhöhen, da abnormale Fettwerte zur Bildung von Plaques in den Arterien führen können, die das Risiko einer Arterienverkalkung (Atherosklerose) erhöhen.</p>
                     </div>
                 </SectionWithColor>
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Fettstoffwechselstörungen werden in zwei großen Gruppen geteilt:  </p>
 
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Primäre Dyslipidämien </p>
+                        <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Primäre Dyslipidämien</h2>
                         <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
                             <li className="mt-2 text-lg sm:text-lg font-serif leading-8 font-semibold text-primaryLighter">Genetisch bedingt Bspw. familiäre Hypercholesterinämie</li>
                         </ul>
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Sekundäre Dyslipidämien</p>
+                        <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Sekundäre Dyslipidämien</h2>
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                             <div className="col-span-1">
                                 <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
@@ -110,25 +110,22 @@ export default function Page() {
                         </div>
 
                         <ul className="px-4 sm:px-8 list-disc text-lg sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                        <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Gemischte Hyperlipidämie</li>
+                            <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Gemischte Hyperlipidämie</li>
                         </ul>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Da Fettstoffwechselstörungen oft keine direkten Symptome verursachen, ist die regelmäßige medizinische Kontrolle entscheidend, um mögliche Risiken frühzeitig zu erkennen und zu behandeln.</p>
 
 
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnose</p>
+                        <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnose</h2>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben. Unsere Leistungen:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Lipidprofil</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
+                            <li className="text-xl mt-4 font-serif font-semibold">Lipidprofil</li>
+                            <p className="text-lg">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
+                            <li className="text-xl mt-4 font-serif font-semibold">Weitere Blutuntersuchungen</li>
+                            <p className="text-lg">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
                         </ul>
 
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Weitere Blutuntersuchungen</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
-                        </ul>
-
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Die Therapie besteht auf 3 Stufen</p>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Die Therapie besteht auf 3 Stufen</h3>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Lebensstilveränderung: gesunde Ernährung, regelmäßige körperliche Aktivität, Gewichtsmanagement, Alkoholreduktion und Rauchentwöhnung</li>
                             <li>Medikamentöse Therapie</li>
