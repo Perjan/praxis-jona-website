@@ -45,7 +45,7 @@ export default function Page() {
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
                         <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
@@ -56,32 +56,33 @@ export default function Page() {
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Menschen mit hohem Blutdruck bemerken im Allgemeinen keine Symptome, deshalb ist ein Screening so wichtig.</p>
 
-                        <p className="text-xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnose</p>
+                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnose</h2>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnose entsteht anhand:</p>
+                        <ol>
+                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Anamnese und klinische Untersuchung</li>
+                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Blutdruckmessung</li>
+                        </ol>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Anamnese und klinische Untersuchung</p>
-
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Blutdruckmessung</p>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten 24h-Langzeitblutdruckmessungen an, jedoch die regelmäßige Kontrolle zu Hause liefert meistens bessere Informationen.<br></br>Um den Blutdruck korrekt zu messen, sollten Sie einige wichtige Schritte beachten:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Zeitpunkt der Messung</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Messen Sie den Blutdruck zweimal täglich - morgens vor dem Start in den Tag und abends bevor Sie zu Bett gehen.</p>
+                            <li className="mt-2 font-serif font-medium leading-8 text-primaryLighter">Zeitpunkt der Messung</li>
+                            <p className="leading-8 text-primaryLighter">Messen Sie den Blutdruck zweimal täglich - morgens vor dem Start in den Tag und abends bevor Sie zu Bett gehen.</p>
 
-                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Vorbereitung</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Vor der Messung sollten Sie sich entspannen und zur Ruhe kommen. Führen Sie keine anderen Aktivitäten während der Messung durch und warten Sie nach körperlicher Anstrengung mindestens 30 Minuten.</p>
+                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Vorbereitung</li>
+                            <p className="leading-8 text-primaryLighter">Vor der Messung sollten Sie sich entspannen und zur Ruhe kommen. Führen Sie keine anderen Aktivitäten während der Messung durch und warten Sie nach körperlicher Anstrengung mindestens 30 Minuten.</p>
 
-                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Position</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Sitzen Sie entspannt auf einem Stuhl, mit beiden Füßen flach auf dem Boden. Legen Sie die Manschette auf Herzhöhe an:</p>
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Bei Oberarmgeräten: Manschette auf Herzhöhe am Oberarm anlegen.</li>
-                            <li>Bei Handgelenkgeräten: Handgelenk auf Herzhöhe auf der Brust ablegen.</li>
-                        </ul>
+                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Position</li>
+                            <p className="text-lg leading-8 text-primaryLighter">Sitzen Sie entspannt auf einem Stuhl, mit beiden Füßen flach auf dem Boden. Legen Sie die Manschette auf Herzhöhe an:</p>
+                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                <li>Bei Oberarmgeräten: Manschette auf Herzhöhe am Oberarm anlegen.</li>
+                                <li>Bei Handgelenkgeräten: Handgelenk auf Herzhöhe auf der Brust ablegen.</li>
+                            </ul>
 
-                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Messvorgang</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Führen Sie zwei Messungen im Abstand von mindestens einer Minute durch und notieren Sie die Werte beider Messungen.</p>
+                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Messvorgang</li>
+                            <p className="text-lg leading-8 text-primaryLighter">Führen Sie zwei Messungen im Abstand von mindestens einer Minute durch und notieren Sie die Werte beider Messungen.</p>
 
-                        <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Dokumentation</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Führen Sie ein Blutdruck-Tagebuch. Dokumentieren Sie die Messwerte sieben Tage lang, jeweils zwei Messungen morgens und zwei abends. Falls Sie hohe Werten feststellen, besprechen Sie den Befund mit Ihrem Arzt oder Ihrer Ärztin.</p>
+                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Dokumentation</li>
+                            <p className="leading-8 text-primaryLighter">Führen Sie ein Blutdruck-Tagebuch. Dokumentieren Sie die Messwerte sieben Tage lang, jeweils zwei Messungen morgens und zwei abends. Falls Sie hohe Werten feststellen, besprechen Sie den Befund mit Ihrem Arzt oder Ihrer Ärztin.</p>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">Hier ist die Definition von Hypertonie nach den ESC-Leitlinien 2023:</p>
@@ -91,6 +92,7 @@ export default function Page() {
                                 <tr>
                                     <th>Kategorie</th>
                                     <th>Systolisch (mmHg)</th>
+                                    <th></th>
                                     <th>Diastolisch (mmHg)</th>
                                 </tr>
                             </thead>
@@ -98,48 +100,54 @@ export default function Page() {
                                 <tr>
                                     <td>Normal</td>
                                     <td>130</td>
-                                    <td>und/oder 80</td>
+                                    <td>und/oder</td>
+                                    <td>80</td>
                                 </tr>
                                 <tr>
                                     <td>Hoch-normal</td>
                                     <td>130-139</td>
-                                    <td>und/oder 85-89</td>
+                                    <td>und/oder</td>
+                                    <td>85-89</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 1</td>
                                     <td>140–159</td>
-                                    <td>und/oder 90–99</td>
+                                    <td>und/oder</td>
+                                    <td>90–99</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 2</td>
                                     <td>160–179</td>
-                                    <td>und/oder 100–109</td>
+                                    <td>und/oder</td>
+                                    <td>100–109</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 3</td>
                                     <td>≥ 180</td>
-                                    <td>und/oder ≥ 110</td>
+                                    <td>und/oder</td>
+                                    <td>≥ 110</td>
                                 </tr>
                                 <tr>
                                     <td>Isolierte systolische Hypertonie</td>
                                     <td>≥ 140</td>
+                                    <td>und/oder</td>
                                     <td>und &lt; 90</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <p className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">3 - Laboruntersuchungen</p>
+                        <h3 className="text-xl mt-4 font-serif font-medium leading-8 text-primaryLighter">3 - Laboruntersuchungen</h3>
 
-                        <p className="text-xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Behandlung:</p>
+                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Behandlung</h2>
 
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Nichtmedikamentöse Therapie:</p>
+                        <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Nichtmedikamentöse Therapie</h3>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Ernährungsumstellung und Gewichtsreduktion</li>
                             <li>Reduktion des Alkoholkonsums</li>
                             <li>Einstellen des Rauchens</li>
                             <li>Bewegung</li>
                         </ul>
-                        <p className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Antihypertensive medikamentöse Therapie</p>
+                        <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Antihypertensive medikamentöse Therapie</h3>
 
                     </SectionWithColor>
 
