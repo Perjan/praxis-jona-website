@@ -43,7 +43,7 @@ export default function Page() {
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
                         <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 ">
@@ -52,7 +52,7 @@ export default function Page() {
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Eine Fehlfunktion der Schilddrüse kann vielfältige Symptome verursachen und beeinträchtigt das Wohlbefinden erheblich. Die häufigsten Erkrankungen sind Hypothyreose (z.B. Hashimoto), Hyperthyreose (z.B. M. Basedow) und Schilddrüsenknoten.</p>
 
-                        <p className="mt-6 text-xl leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Überfunktion:</p>
+                        <h2 className="mt-6 text-2xl leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Überfunktion</h2>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Schneller HerzschlagSchneller Herzschlag</li>
@@ -62,7 +62,7 @@ export default function Page() {
                             <li>Nervosität, Schlafstörungen, innere Unruhe</li>
                         </ul>
 
-                        <p className="text-xl mt-6 leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Unterfunktion:</p>
+                        <h2 className="text-2xl mt-6 leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Unterfunktion</h2>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Niedriger Herzschlag</li>
@@ -72,22 +72,16 @@ export default function Page() {
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
 
-                        <p className="text-xl mt-8 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
+                        <h2 className="text-2xl mt-8 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</h2>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            
-                        <li className="text-lg leading-6 mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter"> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Ultraschalluntersuchung</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
-                        </ul>
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                        <li className="text-lg mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</li>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
+                            <li className="text-xl leading-6 mt-2 font-serif font-semibold">Blutuntersuchungen</li>
+                            <p> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
+                            <li className="text-xl mt-4 font-serif font-semibold">Ultraschalluntersuchung</li>
+                            <p>Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
+                            <li className="text-xl mt-4 font-serif font-semibold">Schilddrüsenszintigraphie</li>
+                            <p>Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
                         </ul>
 
                     </SectionWithColor>

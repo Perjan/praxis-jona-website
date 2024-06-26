@@ -44,7 +44,7 @@ export default function Page() {
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
                         <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
@@ -53,70 +53,50 @@ export default function Page() {
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine erfolgreiche Behandlung von Übergewicht erfordert oft eine umfassende Herangehensweise, die eine gesündere Ernährung, regelmäßige körperliche Aktivität und gegebenenfalls psychologische Unterstützung umfasst. Das Ziel ist nicht nur die Gewichtsreduktion, sondern auch die Förderung eines langfristig gesunden und ausgewogenen Lebensstils.</p>
 
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Ziele der Ernährungstherapie</p>
+                        <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Ziele der Ernährungstherapie</h2>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Krankheitsprävention und -behandlung</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Ernährungstherapie kann helfen, chronische Krankheiten wie Diabetes, Herz-Kreislauf-Erkrankungen, Bluthochdruck und bestimmte Krebsarten zu verhindern und zu behandeln, Autoimmunerkrankungen in latenter Phase zu halten.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Verbesserung der Darmflora</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Durch Umstellung der Ernährung kann die Darmflora wiederhergestellt werden, was zur Linderung der Darmbeschwerden führen kann.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Gewichtsmanagement</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Durch die Anpassung der Ernährung kann das Gewicht kontrolliert werden, was zur Prävention und Behandlung von Adipositas und Untergewicht beiträgt.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Verbesserung des Allgemeinbefindens</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine ausgewogene Ernährung fördert das allgemeine Wohlbefinden, steigert die Energielevels und verbessert die geistige Gesundheit.</p>
+                            <li className="text-xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Krankheitsprävention und -behandlung</li>
+                            <p>Ernährungstherapie kann helfen, chronische Krankheiten wie Diabetes, Herz-Kreislauf-Erkrankungen, Bluthochdruck und bestimmte Krebsarten zu verhindern und zu behandeln, Autoimmunerkrankungen in latenter Phase zu halten.</p>
+                            <li className="text-xl mt-4 font-serif font-medium">Verbesserung der Darmflora</li>
+                            <p>Durch Umstellung der Ernährung kann die Darmflora wiederhergestellt werden, was zur Linderung der Darmbeschwerden führen kann.</p>
+                            <li className="text-xl mt-4 font-serif font-medium">Gewichtsmanagement</li>
+                            <p>Durch die Anpassung der Ernährung kann das Gewicht kontrolliert werden, was zur Prävention und Behandlung von Adipositas und Untergewicht beiträgt.</p>
+                            <li className="text-xl mt-4 font-serif font-medium">Verbesserung des Allgemeinbefindens</li>
+                            <p>Eine ausgewogene Ernährung fördert das allgemeine Wohlbefinden, steigert die Energielevels und verbessert die geistige Gesundheit.</p>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">Mir ist es wichtig, herauszufinden, wie es für Sie eine Ernährungsumstellung leichter und nachhaltig werden kann.</p>
 
-
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Wie kann eine Ernährungsumstellung leichter und nachhaltig gestaltet werden?</p>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Wie kann eine Ernährungsumstellung leichter und nachhaltig gestaltet werden?</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Individuelle Beratung</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine persönliche Beratung hilft dabei, individuelle Bedürfnisse und Vorlieben zu berücksichtigen und realistische Ziele zu setzen.</p>
+                            <li className="text-lg mt-4 font-serif font-medium ">Individuelle Beratung</li>
+                            <p>Eine persönliche Beratung hilft dabei, individuelle Bedürfnisse und Vorlieben zu berücksichtigen und realistische Ziele zu setzen.</p>
+                            <li className="text-lg mt-4 font-serif font-medium ">Schrittweise Änderungen</li>
+                            <p>Kleine, schrittweise Veränderungen in der Ernährung sind oft nachhaltiger und leichter umzusetzen als radikale Umstellungen.</p>
+                            <li className="text-lg mt-4 font-serif font-medium ">Bildung und Wissen</li>
+                            <p>Wissen über gesunde Ernährung und das Verständnis der Auswirkungen bestimmter Lebensmittel auf den Körper können die Motivation erhöhen und helfen, informierte Entscheidungen zu treffen.</p>
+                            <li className="text-lg mt-4 font-serif font-medium ">Langfristige Planung</li>
+                            <p>Die Entwicklung eines langfristigen Ernährungsplans, der flexible und realistische Ziele beinhaltet, trägt zur Nachhaltigkeit der Ernährungsumstellung bei.</p>
                         </ul>
+                        
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Meine Schwerpunkte</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-2 font-serif font-medium leading-8 text-primaryLighter">Schrittweise Änderungen</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Kleine, schrittweise Veränderungen in der Ernährung sind oft nachhaltiger und leichter umzusetzen als radikale Umstellungen.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Bildung und Wissen</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Wissen über gesunde Ernährung und das Verständnis der Auswirkungen bestimmter Lebensmittel auf den Körper können die Motivation erhöhen und helfen, informierte Entscheidungen zu treffen.</p>
-                        </ul>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Langfristige Planung</li>
-                            <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Entwicklung eines langfristigen Ernährungsplans, der flexible und realistische Ziele beinhaltet, trägt zur Nachhaltigkeit der Ernährungsumstellung bei.</p>
-                        </ul>
-
-
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Meine Schwerpunkte sind:</p>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Stoffwechselstörungen und Körpergewicht</li>
-                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                            <li className="text-lg mt-4 font-serif font-medium">Stoffwechselstörungen und Körpergewicht</li>
+                            <ul className="px-8 list-disc text-lg ">
                                 <li>Gewichtszunahme durch Autoimmunerkrankungen wie Hashimoto</li>
                                 <li>Fettstoffwechselstörungen</li>
                                 <li>Diabetes Mellitus</li>
                             </ul>
 
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Herz-Kreislauf-Erkrankungen</li>
-                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                            <li className="text-lg mt-4 font-serif font-medium ">Herz-Kreislauf-Erkrankungen</li>
+                            <ul className="px-8 list-disc text-lg ">
                                 <li>Hypertonie</li>
                             </ul>
 
-                            <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Magen-Darm-Trakt</li>
-                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                            <li className="text-lg mt-4 font-serif font-medium ">Magen-Darm-Trakt</li>
+                            <ul className="px-8 list-disc text-lg ">
                                 <li>Reizdarmsyndrom</li>
                                 <li>Microbiome</li>
                             </ul>
@@ -124,8 +104,7 @@ export default function Page() {
                             <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Gewichtsmanagement (Zu- oder Abnahme)</li>
                         </ul>
 
-
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Was erwartet Sie und was würde so eine Beratung kosten?</p>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Was erwartet Sie und was würde so eine Beratung kosten?</h3>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In einem etwa 15-minütigen, kostenfreien Vorgespräch besprechen wir zunächst Ihr persönliches Anliegen und Ihre Ziele. Im Anschluss informiere ich Sie über die anfallenden Kosten. Die Ernährungsberatung ist als Einzeltherapie gedacht.</p>
 
@@ -134,17 +113,16 @@ export default function Page() {
                             <li>Das Folgegespräch dauert ca. 45 Min. und kostet 60 Euro</li>
                         </ul>
 
-
-                        <p className="text-xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Die Beratungsinhalte sind:</p>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Beratungsinhalte</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>ausführliches Anamnesegespräch und Optimierung des Essverhaltens</li>
+                            <li>Ausführliches Anamnesegespräch und Optimierung des Essverhaltens</li>
                             <li>Alltagstaugliche Tipps wie Mengen, Lebensmittelauswahl, Einkaufen, Sport</li>
                             <li>Erarbeitung von individuell angepassten Ernährungskonzepten</li>
                             <li>Lösungsorientierte Begleitung bei Problemen</li>
                             <li>Ganzheitliche Betreuung über mehrere Wochen und Motivation</li>
                             <li>Personalisierter Ernährungsplan für 7 Tage mit Rezepten (50 Euro)</li>
-                            <li>Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40Euro)</li>
+                            <li>Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40 Euro)</li>
                             <li>Folge-BIA-Messungen (25 Euro)</li>
                         </ul>
 
