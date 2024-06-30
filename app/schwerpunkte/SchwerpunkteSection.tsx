@@ -14,7 +14,7 @@ export default function Page() {
       name: 'Schilddrüse',
       id: '1',
       description:
-        'Die Schilddrüse, ein kleines, schmetterlingsförmiges Organ im Halsbereich, spielt eine zentrale Rolle für unseren Stoffwechsel. Sie produziert Hormone (T4, T3 und Calcitonin), die für zahlreiche Körperfunktionen wichtig sind, wie die Regulation der Körpertemperatur, des Energiehaushalts und des Herzschlags.',
+        'Die Schilddrüse, ein kleines, schmetterlingsförmiges Organ im Halsbereich, spielt eine zentrale Rolle für unseren Stoffwechsel. Sie produziert Hormone (T4, T3 und Calcitonin), die für zahlreiche Körperfunktionen wichtig sind, wie die Regulation der Körpertemperatur, der Energiehaushalt und der Herzschlag.',
       descriptionRest: '\n\n Eine Fehlfunktion der Schilddrüse kann vielfältige Symptome verursachen und beeinträchtigt das Wohlbefinden erheblich. Die häufigsten Erkrankungen sind Hypothyreose (z.B. Hashimoto), Hyperthyreose (z.B. M. Basedow) und Schilddrüsenknoten. Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln.\n\n\n\n Wir bieten:\n\n - Blutuntersuchungen\n\n Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen.\n\n - Ultraschalluntersuchung\n\n Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.\n\n\n\n Die frühzeitige Diagnose und adäquate Behandlung von Schilddrüsenerkrankungen können die Lebensqualität signifikant verbessern.',
       url: '/schwerpunkte/schilddruse',
       icon: CloudArrowUpIcon,

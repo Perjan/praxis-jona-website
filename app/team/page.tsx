@@ -48,7 +48,7 @@ export default function Example() {
                 transition: 'max-height 0.5s ease-in-out'
               }}>
                 <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                  Zu ihren Schwerpunkten zählen Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
+                  Zu ihren Schwerpunkten zählen Schilddrüse, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
                 </p>
                 <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophie</h2>
                 <p className="mt-6 text-lg leading-8 text-primaryLighter">

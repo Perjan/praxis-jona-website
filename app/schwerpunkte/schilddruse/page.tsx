@@ -55,7 +55,7 @@ export default function Page() {
                         <h2 className="mt-6 text-2xl leading-8 font-serif font-semibold text-primaryLighter">Die Symptome bei einer Überfunktion</h2>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Schneller HerzschlagSchneller Herzschlag</li>
+                            <li>Schneller Herzschlag</li>
                             <li>Gewichtsverlust trotz vermehrter Kalorienzufuhr</li>
                             <li>Feinschlägiger Fingertremor</li>
                             <li>Leicht erhöhte Körpertemperatur mit vermehrtem Schwitzen</li>
@@ -67,7 +67,7 @@ export default function Page() {
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Niedriger Herzschlag</li>
                             <li>Gewichtszunahme trotz geringer Kalorienzufuhr</li>
-                            <li>Kälteempfindlichkeit und blasser, trockener Haut</li>
+                            <li>Kälteempfindlichkeit und blasse, trockene Haut</li>
                             <li>Müdigkeit, Depression</li>
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
