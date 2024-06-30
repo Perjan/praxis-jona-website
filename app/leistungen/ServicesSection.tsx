@@ -37,14 +37,14 @@ export default function ServicesSection() {
       name: 'Labordiagnostik',
       href: '#4',
       imageSrc: '/images/leistungen/lab.png',
-      description: "In unserer Praxis führen wir neben Anamnese und körperlicher Untersuchung falls notwendig auch ein breites Spektrum an Laboruntersuchungen durch. Dies umfasst Standardtests für akute und chronische Erkrankungen sowie spezielle Blutanalysen, wie Mikronährstoff- und Vitaminbestimmungen, Tumor-Markern. Wir beraten Sie gerne ausführlich dazu."
+      description: "In unserer Praxis führen wir neben Anamnese und körperlicher Untersuchung falls notwendig auch ein breites Spektrum an Laboruntersuchungen durch. Dies umfasst Standardtests für akute und chronische Erkrankungen sowie spezielle Blutanalysen, wie Mikronährstoff- und Vitaminbestimmungen, Darmmikrobiomanalyse. Wir beraten Sie gerne ausführlich dazu."
     },
     {
       id: 5,
       name: 'Check-up',
       href: '#5',
       imageSrc: '/images/leistungen/checkupPremium.png',
-      description: "- Anamnese\n\n - körperliche Untersuchung\n\n - Labor (Blutbild, Cholesterin (HDL,LDL-Cholesterin) Triglyceride, Leberwerte, Bauchspeicheldrüsenwerte, Nierenwerte, Harnsäure, Schilddrüsenwerte, Nüchtern-Blutzucker und HbA1C (Früherkennung Diabetes mellitus), Elektrolyte, Urinstatus und eventuell Eisen, Vitamin B12, Vitamin D, Folsäure, Zink\n\n - EKG bzw. Belastungs-EKG zur Früherkennung von Erkrankungen der Herzkranzgefäße\n\n - Abdomensonographie: Ultraschall der Leber und Gallenblase, der Nieren, der Bauchspeicheldrüse, der Milz und der großen Gefäße\n\n - Auswertung und Beratung"
+      description: "Ab 35 Jahre besteht die Möglichkeit alle 3 Jahre eine Vorsorgeuntersuchung durchführen zu lassen. Zusätzlich gibt es jetzt die Möglichkeit, dass Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen können.\n\n\nVon der gesetzlichen Krankenkasse wird übernommen\n\n- Anamnese\n\n- körperliche Untersuchung\n\n- Ruhe-EKG\n\n- Beratung 15 Minuten\n\n- Labor (Blutbild, Eisen, Cholesterinwert, Leber-, Schilddrüsen- und Nierenwerte, Nüchtern Blutzucker, HbA1C, UrinStix)\n\n- Männer ab 50 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Frauen ab 55 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Ab 65 Jahren einmalig Ultraschall der Bauchaorta zur Früherkennung der Bauchaortenaneurysma\n\n\n\n**Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ)\n\n- Spurenelemente, Vitamin D, sowie Hormonspiegel\n\n- Parameter des Immunsystems, Blutgruppe\n\n- Auswertung der Befunde und Beratung bezüglich Nahrungsergänzungsmittel.\n\n\nSprechen Sie uns an und wir beraten Sie gerne dazu."
     },
     {
       id: 6,
