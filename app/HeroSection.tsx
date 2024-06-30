@@ -2,7 +2,8 @@ import Image from "next/image"
 
 export default function HeroSection() {
   return (
-    <div className="relative isolate overflow-hidden pt-4 sm:pt-14 bg-fixed bg-cover lg:shrink" style={{ backgroundImage: 'url("/images/clinic/clinic-newA.jpg")', position: 'relative' }}>
+    <div className="relative isolate overflow-hidden pt-4 sm:pt-14 shrink" style={{ backgroundImage: 'url("/images/clinic/clinic-newA.jpg")', position: 'relative' }}>
+    {/* <div className="relative isolate overflow-hidden pt-4 sm:pt-14 bg-fixed bg-cover lg:shrink" style={{ backgroundImage: 'url("/images/clinic/clinic-newA.jpg")', position: 'relative' }}> */}
     <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56 relative">
       <div className="text-center drop-shadow-xl relative z-10">
         <h1 className="text-5xl font-regular text-shadow-xl shadow-black tracking-tight font-serif text-white sm:text-6xl">

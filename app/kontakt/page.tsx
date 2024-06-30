@@ -2,7 +2,7 @@ import ContactSection from "app/Contact";
 import { Metadata } from "next";
 
 const title = 'Service & Kontakt'
-const description = "Praxis Jona - Gemeinschaftspraxis für Allgemeinmedizin, innere Medizin und Naturheilkunde. Nutzen Sie unsere Online Services bequem von zuhause aus oder nehmen Sie gerne direkt Kontakt zu uns auf."
+const description = "Praxis Jona - Praxis für Allgemeinmedizin, Innere Medizin mit Schwerpunkt Schilddrüse, Hypertensiologie, Lipidologie. Nutzen Sie unsere Online Services bequem von zuhause aus oder nehmen Sie gerne direkt Kontakt zu uns auf."
 
 export const metadata: Metadata = {
   title: title,
@@ -43,8 +43,7 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-            <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Praxis Jona - Gemeinschaftspraxis für Allgemeinmedizin, innere Medizin und Naturheilkunde.</h2>
-
+            <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Praxis Jona - Praxis für Allgemeinmedizin, Innere Medizin mit Schwerpunkt Schilddrüse, Hypertensiologie, Lipidologie.</h2>
             <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Nutzen Sie unsere Online Services bequem von zuhause aus oder nehmen Sie gerne direkt Kontakt zu uns auf.</h2>
           </div>
           <div className="mt-20">

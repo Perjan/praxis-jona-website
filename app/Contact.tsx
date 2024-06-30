@@ -14,7 +14,7 @@ import {
 const openingHours = [
   { day: 'Montag', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
   { day: 'Dienstag', hours: '08:30 - 14:30' },
-  { day: 'Mittwoch', hours: '08:30 - 14:30' },
+  { day: 'Mittwoch', hours: '08:30 - 12:30' },
   { day: 'Donnerstag', hours: '12:00 - 17:00' },
   { day: 'Freitag', hours: '08:30 - 12:30' },
   { day: 'Samstag', hours: 'Geschlossen' },

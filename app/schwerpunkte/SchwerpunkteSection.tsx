@@ -54,7 +54,7 @@ export default function Page() {
         <div className="mx-auto max-w-4xl lg:mx-0">
           <h1 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Schwerpunkte</h1>
           <p className="mt-6 text-lg leading-8 text-primaryLighter">
-            Besondere Schwerpunkte unserer Praxis sind die Behandlung von Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin.
+            Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenerkrankungen, Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin.
           </p>
         </div>
 
