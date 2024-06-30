@@ -7,17 +7,13 @@ const people = [
     name: 'Frau Heike Schmeiche',
     role: 'Arzthelferin, seit 2011 in der Praxis tätig',
     imageUrl:
-      '/images/team/heike.jpeg',
-    xUrl: '#',
-    linkedinUrl: '#',
+      '/images/team/heike.jpeg'
   },
   {
     name: 'Frau Kerstin Wawrzyniak',
     role: 'Arzthelferin, seit 2002  in der Praxis tätig',
     imageUrl:
-      '/images/team/kerstin.jpg',
-    xUrl: '#',
-    linkedinUrl: '#',
+      '/images/team/kerstin.jpg'
   },
   // More people...
 ]
@@ -27,11 +23,6 @@ export default function Example() {
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h2 className="text-3xl font-serif tracking-tight text-gray-900 sm:text-4xl">Team</h2>
-                    <p className="mt-6 text-lg leading-8 text-gray-600">
-                    </p>
-                </div> */}
         <div className="mx-auto my-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:flex lg:items-start lg:justify-center lg:pl-4 lg:pt-4">
             <div className="lg:max-w-lg">
@@ -39,7 +30,10 @@ export default function Example() {
               <p className="mt-6 text-lg leading-8 text-primaryLighter">
                 Jonida ist Fachärztin für Innere Medizin. Ihr Studium absolvierte sie in Tirana, Albanien, und nach ihrem Abschluss entschied sie sich für eine Weiterbildung zur Internistin in Deutschland. Den ersten Teil ihrer Weiterbildung absolvierte sie in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Anschließend arbeitete sie mehrere Jahre in der Medizinischen Klinik mit Schwerpunkt Nephrologie und internistische Intensivmedizin an der Charité Berlin, wo sie auch ihre Promotion durchführt.
               </p>
-              <button onClick={() => setExpanded(!expanded)} className="text-primary hover:text-primaryDarker font-semibold mt-4 transition duration-300 ease-in-out">
+              <p className="mt-6 text-lg leading-8 text-primaryLighter">
+                  Zu ihren Schwerpunkten zählen Schilddrüse, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
+                </p>
+              <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
                 {expanded ? 'Schließen' : 'Weiterlesen'}
               </button>
               <div style={{
@@ -47,9 +41,6 @@ export default function Example() {
                 overflow: 'hidden',
                 transition: 'max-height 0.5s ease-in-out'
               }}>
-                <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                  Zu ihren Schwerpunkten zählen Schilddrüse, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
-                </p>
                 <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophie</h2>
                 <p className="mt-6 text-lg leading-8 text-primaryLighter">
                   "In meiner täglichen beruflichen Praxis ist es von herausragender Bedeutung für mich, einen umfassenden und ganzheitlichen Ansatz bei der Betrachtung des Menschen einzunehmen. Ich lege großen Wert darauf, nicht nur isolierte Symptome oder Krankheitsbilder zu analysieren, sondern vielmehr das Individuum in seiner Gesamtheit zu verstehen. Dies umfasst physische, psychische und soziale Aspekte, die alle in Verbindung stehen und einen Einfluss auf die Gesundheit und das Wohlbefinden des Einzelnen haben können. Mein Ziel ist es, durch diesen Blick eine effektive und individuell angepasste Betreuung und Unterstützung zu gewährleisten, um die bestmöglichen Ergebnisse für die Gesundheit meiner Patienten zu erzielen."
@@ -70,9 +61,10 @@ export default function Example() {
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 className="mt-20 text-2xl font-serif tracking-tight text-primary sm:text-3xl">MFAs</h2>
         <ul
           role="list"
-          className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+          className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2"
         >
           {people.map((person) => (
             <li key={person.name}>

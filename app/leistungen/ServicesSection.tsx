@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
+import { bool } from 'sharp';
 
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
@@ -19,7 +20,7 @@ export default function ServicesSection() {
     },
     {
       id: 2,
-      name: 'Botulinumtoxin (Demnächst)',
+      name: 'Botulinumtoxin',
       href: '#2',
       imageSrc: '/images/leistungen/botox.png',
       description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten. \n\n\n\n** Verwendung und Anwendungen\n\n**1. Ästhetische Medizin:\n\n - Faltenbehandlung: Botox wird verwendet, um mimische Falten wie Zornesfalten, Stirnfalten und Krähenfüße zu glätten, indem es die Muskelkontraktionen verringert.\n\n - Gesichtsstraffung: Es kann auch in anderen Bereichen des Gesichts eingesetzt werden, um ein jüngeres Aussehen zu erzielen.\n\n\n\n**2. Medizinische Anwendungen:\n\n - Hyperhidrose (übermäßiges Schwitzen): Botox kann in die Haut von Achseln, Händen, Füßen oder anderen Bereichen injiziert werden, um die Schweißproduktion zu reduzieren.\n\n - Migräne: Bei chronischen Migränepatienten kann Botox helfen, die Häufigkeit und Schwere der Kopfschmerzen zu verringern.\n\n - Spastizität und Muskelkrämpfe: Es wird zur Behandlung von Muskelspastizität bei Zuständen wie Zähneknirschen (Bruxismus) verwendet.\n\n\n\n** Nach der Behandlung:\n\n Patienten wird geraten, für 3-4 Tage auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche zu verzichten.\n\n Es ist wichtig, die Injektionsstellen nicht zu massieren oder unnötigem Druck auszusetzen, um eine unerwünschte Ausbreitung des Toxins zu vermeiden."
@@ -108,7 +109,7 @@ export default function ServicesSection() {
               leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             >
               <DialogPanel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-3xl sm:p-6">
-                <div className="absolute right-0 top-0 hidden pr-4 pt-6 sm:block">
+                <div className="absolute right-0 top-0 pr-4 pt-6 sm:block">
                   <button
                     type="button"
                     className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
@@ -184,6 +185,7 @@ export default function ServicesSection() {
                           {product.name}
                         </a>
                       </h3>
+                      {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Demnächst</span>}
                     </div>
                   </div>
                 </li>
