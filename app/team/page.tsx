@@ -13,7 +13,7 @@ const people = [
     name: 'Frau Kerstin Wawrzyniak',
     role: 'Arzthelferin, seit 2002  in der Praxis tätig',
     imageUrl:
-      '/images/team/kerstin.jpg'
+      '/images/team/kerstin.jpeg'
   },
   // More people...
 ]
@@ -68,7 +68,7 @@ export default function Example() {
         >
           {people.map((person) => (
             <li key={person.name}>
-              {/* <Image className="aspect-[3/2] w-full rounded-2xl object-cover" src={person.imageUrl} width={1920} height={1080} alt="" /> */}
+              <Image className="w-32 rounded-2xl object-cover" src={person.imageUrl} width={200} height={200} alt="" />
               <h3 className="mt-6 text-xl font-serif leading-8 tracking-tight text-primary">{person.name}</h3>
               <p className="text-base leading-7 text-primaryLighter">{person.role}</p>
             </li>
