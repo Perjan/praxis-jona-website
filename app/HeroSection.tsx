@@ -1,5 +1,3 @@
-import Image from "next/image"
-
 export default function HeroSection() {
   return (<>
     <div className="pt-4 bg-center sm:bg-fixed bg-cover z-4" style={{ backgroundImage: 'url("/images/clinic/clinic-newA.jpg")' }}>

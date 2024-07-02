@@ -3,14 +3,6 @@ import Link from "next/link";
 export default function NotFound() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full">
-        <body class="h-full">
-        ```
-      */}
       <main className="grid min-h-full place-items-center bg-white py-24 px-6 sm:py-32 lg:px-8">
         <div className="text-center">
           <p className="text-base font-semibold text-primary">404</p>
@@ -23,7 +15,7 @@ export default function NotFound() {
             >
               Zurück zur Startseite
             </Link>
-            <Link href="/support" className="text-sm font-semibold text-primary">
+            <Link href="/kontakt" className="text-sm font-semibold text-primary">
             Kontakt zum Support <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>

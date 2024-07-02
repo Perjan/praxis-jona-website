@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Post } from 'contentlayer/generated'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
-import Image from 'next/image'  
+import Image from 'next/image'
 
 import { useSearchParams } from 'next/navigation';
 
@@ -87,16 +87,6 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
 
     return (
         <>
-            {/* <div className="mx-auto flex flex-wrap gap-x-4 pt-4 max-w-2xl lg:mx-0 lg:max-w-none">
-                {categories.map((category) => (
-                    <div key={category} className='mb-4'>
-                        {makeSelectionPill(name(category), activePill === category, () => {
-                            handleSave(category)
-                        })}
-                    </div>
-                ))
-                }
-            </div> */}
             <div className="mx-auto mt-10 pb-14 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-b border-gray-200 pt-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
                 {

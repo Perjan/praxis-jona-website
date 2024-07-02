@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { cn } from 'app/lib/utils';
 import { Metadata } from 'next';
 import DoctorSection from './DoctorSection';
 
@@ -19,9 +18,9 @@ const people = [
 ]
 
 
-const title = 'Bluthochdruck'
-const description = "Hypertonie, auch bekannt als Bluthochdruck, ist eine weit verbreitete Erkrankung, die das Risiko für schwerwiegende Gesundheitsprobleme wie Herzinfarkt, Schlaganfall, Herzinsuffizienz und Nierenerkrankungen erhöht. Da Hypertonie häufig ohne offensichtliche Symptome verläuft, wird sie oft als „stiller Killer“ bezeichnet."
-const url = '/schwerpunkte/bluthochdruck'
+const title = 'Team'
+const description = "Lerne unser Team kennen."
+const url = '/team'
 
 export const metadata: Metadata = {
     title: title,

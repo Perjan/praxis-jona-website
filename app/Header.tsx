@@ -18,10 +18,8 @@ import { Constants } from './Constants'
 const navigationItemsEnglish = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
-    // { title: "Blog", href: "/blog" },
     { title: "Team", href: "/team" },
-   { title: "Aktuelles", href: "/aktuelles" },
-    // { title: "Service & Kontakt", href: "/kontakt" }
+    { title: "Aktuelles", href: "/aktuelles" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"

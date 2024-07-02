@@ -1,7 +1,5 @@
-'use client';
 import Link from 'next/link';
-import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import {
   CalendarDaysIcon,
@@ -10,16 +8,9 @@ import {
   MapPinIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline';
+import { Constants } from './Constants';
 
-const openingHours = [
-  { day: 'Montag', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
-  { day: 'Dienstag', hours: '08:30 - 14:30' },
-  { day: 'Mittwoch', hours: '08:30 - 12:30' },
-  { day: 'Donnerstag', hours: '12:00 - 17:00' },
-  { day: 'Freitag', hours: '08:30 - 12:30' },
-  { day: 'Samstag', hours: 'Geschlossen' },
-  { day: 'Sonntag', hours: 'Geschlossen' },
-];
+const openingHours = Constants.openingHours
 
 // create a form handler that sends the email using our api endpoint for sendgrid
 const formHandler = async (event) => {
@@ -67,9 +58,7 @@ export function ReusableButton({ url, title }) {
 
 export default function ContactSection() {
 
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [message, setMessage] = useState("");
+  const contact = Constants.contact
 
   return (
     <>
@@ -114,11 +103,11 @@ export default function ContactSection() {
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>Für die Terminvereinbarung erreichen Sie uns während unserer Sprechzeiten telefonisch unter:</p>
                           <p className='pt-4'>
-                            <a href='tel://03040054273' className='font-bold'>030 / 40054273</a>
+                            <a href={contact.phoneUrl} className='font-bold'>{contact.phone}</a>
                           </p>
                         </address>
                         <div className='mt-8'>
-                          <ReusableButton url="tel://03040054273" title={"Anrufen"} />
+                          <ReusableButton url={contact.phoneUrl} title={"Anrufen"} />
                         </div>
                       </div>
                     </dl>
@@ -164,17 +153,17 @@ export default function ContactSection() {
                     <div>
                       <dd>
                         <p className="text-md leading-6 text-primaryLighter">
-                          Tel: <a href="tel://03040054273" style={{ textDecoration: 'underline' }}>030 / 40054273</a>
+                          Tel: <a href={contact.phoneUrl} style={{ textDecoration: 'underline' }}>{contact.phone}</a>
                         </p>
                       </dd>
                       <dd>
                         <p className="text-md leading-6 text-primaryLighter">
-                          Fax: 030 / 40054275
+                          Fax: {contact.fax}
                         </p>
                       </dd>
                       <dd>
                         <p className="text-md mt-2 leading-6 text-primaryLighter">
-                          Email: <a href="mailto:info@praxisjona.de" style={{ textDecoration: 'underline' }}>info@praxisjona.de</a>
+                          Email: <a href={contact.email} style={{ textDecoration: 'underline' }}>{contact.email}</a>
                         </p>
                       </dd>
                     </div>
@@ -192,8 +181,7 @@ export default function ContactSection() {
                     <div>
                       <dd>
                         <p>Praxis Jona</p>
-                        <p>Torstraße 125</p>
-                        <p>10119, Berlin</p>
+                        <p>{Constants.address}</p>
                         <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
                       </dd>
                       <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>

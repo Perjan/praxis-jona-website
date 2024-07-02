@@ -28,7 +28,6 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     site: title,
-    creator: "@perjanduro",
     card: "summary_large_image",
     images: ['/images/og-image.png']
   },
