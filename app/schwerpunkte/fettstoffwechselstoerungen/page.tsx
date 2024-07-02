@@ -4,7 +4,7 @@ import React from "react";
 
 const title = 'Fettstoffwechselstörungen'
 const description = "Fettstoffwechselstörungen, auch Dyslipidämien genannt, bezeichnen eine Gruppe von Erkrankungen, bei denen es zu einer Abweichung der Blutfettwerte von der Norm kommt. Diese Störungen können das Risiko für Herz-Kreislauf-Erkrankungen wie Herzinfarkt und Schlaganfall erhöhen, da abnormale Fettwerte zur Bildung von Plaques in den Arterien führen können, die das Risiko einer Arterienverkalkung (Atherosklerose) erhöhen."
-const url = '/schwerpunkte/fettstoffwechselstorungen'
+const url = '/schwerpunkte/fettstoffwechselstoerungen'
 
 export const metadata: Metadata = {
     title: title,

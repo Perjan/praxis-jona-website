@@ -64,7 +64,7 @@ export default function Page() {
             <div className="grid text-sm grid-cols-1 text-primaryLighter grid-flow-col space-y-2">
               <div className='col-span-1'>
                 {Constants.openingHours.map((item) => (
-                  <div key={item.day} className="flex">
+                  <div key={item.day} className="flex justify-center sm:justify-normal">
                     <div className="flex-none w-24 mt-2">
                       <p>{item.day}</p>
                     </div>

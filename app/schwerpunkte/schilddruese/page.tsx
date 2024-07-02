@@ -3,7 +3,7 @@ import SectionWithColor from "app/SectionWithColor";
 
 const title = 'Schilddrüse'
 const description = "Die Schilddrüse, ein kleines, schmetterlingsförmiges Organ im Halsbereich, spielt eine zentrale Rolle für unseren Stoffwechsel. Sie produziert Hormone (T4, T3 und Calcitonin), die für zahlreiche Körperfunktionen wichtig sind, wie die Regulation der Körpertemperatur, des Energiehaushalts und des Herzschlags."
-const url = '/schwerpunkte/fettstoffwechselstorungen'
+const url = '/schwerpunkte/fettstoffwechselstoerungen'
 
 export const metadata: Metadata = {
     title: title,
