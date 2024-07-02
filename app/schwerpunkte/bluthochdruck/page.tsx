@@ -92,7 +92,7 @@ export default function Page() {
                                 <tr>
                                     <th>Kategorie</th>
                                     <th>Systolisch (mmHg)</th>
-                                    <th></th>
+                                    <th className="hidden"></th>
                                     <th>Diastolisch (mmHg)</th>
                                 </tr>
                             </thead>
@@ -100,37 +100,37 @@ export default function Page() {
                                 <tr>
                                     <td>Normal</td>
                                     <td>130</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>80</td>
                                 </tr>
                                 <tr>
                                     <td>Hoch-normal</td>
                                     <td>130-139</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>85-89</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 1</td>
                                     <td>140–159</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>90–99</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 2</td>
                                     <td>160–179</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>100–109</td>
                                 </tr>
                                 <tr>
                                     <td>Hypertonie Grad 3</td>
                                     <td>≥ 180</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>≥ 110</td>
                                 </tr>
                                 <tr>
                                     <td>Isolierte systolische Hypertonie</td>
                                     <td>≥ 140</td>
-                                    <td>und/oder</td>
+                                    <td className="hidden">und/oder</td>
                                     <td>und &lt; 90</td>
                                 </tr>
                             </tbody>

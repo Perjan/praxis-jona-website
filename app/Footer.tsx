@@ -102,12 +102,9 @@ export default function Example() {
     <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
       <div className="text-center md:text-left">
         <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona. Alle Rechte vorbehalten.</p>
-        <a href="" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
-          Impressum
-        </a>
-        <a href="" className="text-xs pl-2 leading-6 text-primaryLighter hover:text-primary underline">
-          Datenschutz
-        </a>
+        <Link href="/impressum-datenschutz" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
+          Impressum und Datenschutz
+        </Link>
       </div>
       <div className="flex mt-4 md:mt-0 space-x-6">
         {socials.map((item) => (

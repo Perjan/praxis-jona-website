@@ -10,7 +10,6 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { notFound } from 'next/navigation';
 import BlogArticleFooter from './BlogArticleFooter';
 import { Authors } from '../authors/AuthorsDataSource';
-import { json } from 'stream/consumers';
 import { DashboardTableOfContents } from 'app/toc';
 import { getTableOfContents } from 'app/lib/toc';
 
@@ -152,7 +151,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                 {post.title}
               </h1>
               <time dateTime={post.date} className='text-gray-500'>
-                {format(parseISO(post.date), 'LLLL d, yyyy')}
+                {format(parseISO(post.date), 'dd.MM.yyyy')}
               </time>
               <span className='text-gray-500'> • geschrieben von </span>
               <Link href={author.url} className='hover:text-teal-500'>

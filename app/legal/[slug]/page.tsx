@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getMDXComponent } from 'next-contentlayer/hooks'
-import { compareDesc, format, parseISO } from 'date-fns'
+import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
@@ -70,8 +70,8 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           }
           
           <time dateTime={post.date} className="text-gray-500">
-                {format(parseISO(post.date), 'LLLL d, yyyy')}
-              </time>
+              {format(parseISO(post.date), 'dd.MM.yyyy')}
+          </time>
           <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
             {post.title}
           </h1>
