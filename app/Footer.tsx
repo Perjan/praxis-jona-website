@@ -2,15 +2,6 @@ import Link from "next/link"
 import { Constants } from "./Constants"
 
 const navigation = {
-  solutions: [
-    { name: 'Montag: 8:00 - 12:00 | 15:00 - 18:00' },
-    { name: 'Dienstag: 8:30 - 14:30' },
-    { name: 'Mittwoch: 8:30 - 12:30' },
-    { name: 'Donnerstag: 12:00 - 17:00' },
-    { name: 'Freitag: 8:30 - 12:30' },
-    { name: 'Samstag: Geschlossen' },
-    { name: 'Sonntag: Geschlossen' },
-  ],
   company: [
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
