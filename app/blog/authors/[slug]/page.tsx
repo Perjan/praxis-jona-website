@@ -8,8 +8,6 @@ import { Constants } from "app/Constants";
 const title = "Über den Autor"
 const description = "Dies ist die Seite des Autors. Sie zeigt das Fachwissen des Autors, seine Berufserfahrung und seine Persönlichkeit."
 
-
-
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {

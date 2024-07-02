@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { getMDXComponent } from 'next-contentlayer/hooks'
-import { format, parseISO } from 'date-fns'
+import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";

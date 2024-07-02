@@ -1,12 +1,11 @@
 import SchwerpunkteSection from "./SchwerpunkteSection"
 import PhilosophieSection from "./PhilosophieSection"
 
-export default function Example() {
+export default function Page() {
     return (
-    <>
+        <>
             <PhilosophieSection />
             <SchwerpunkteSection />
         </>
-
     )
 }

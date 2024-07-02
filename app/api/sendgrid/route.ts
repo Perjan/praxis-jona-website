@@ -18,14 +18,15 @@ export async function POST(request: Request) {
     })
 
     let fromEmail = "info@praxisjona.de"
+    let serverSenderEmail = 'info@moneycoach.ai'
 
     console.log('sendgrid route');
     console.log({ requestJson });
     const msg: MailDataRequired = {
         to: [fromEmail],
-        from: 'info@moneycoach.ai',
+        from: serverSenderEmail,
         replyTo: requestJson.email,
-        subject: '[Website Contact RTST] New message',
+        subject: '[Website Praxis Jona] New message',
         text: formattedBody,
         html: htmlBody,
     };
@@ -34,7 +35,7 @@ export async function POST(request: Request) {
         to: [requestJson.email],
         from: fromEmail,
         replyTo: fromEmail,
-        subject: '[Website Contact RTST] We have received your message',
+        subject: '[Website Praxis Jona] We have received your message',
         text: "Thanks for contacting us. We will get back to you as soon as possible."
     };
 

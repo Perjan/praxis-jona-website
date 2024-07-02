@@ -1,14 +1,10 @@
-import Image from "next/image";
 import ServicesSection from "./ServicesSection";
 
 
-export default function Example() {
+export default function Page() {
     return (
-        
         <>
             <ServicesSection />
-
         </>
-
     )
 }

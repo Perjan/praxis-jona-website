@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Example() {
+export default function Page() {
   return (
     <div className="relative bg-white">
       <div className="mx-auto max-w-7xl lg:flex lg:justify-between lg:px-8 xl:justify-end">

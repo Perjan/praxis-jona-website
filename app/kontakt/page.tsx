@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/kontakt',
     languages: {
-      en: '/kontakt'
+      de: '/kontakt'
     }
   },
   twitter: {

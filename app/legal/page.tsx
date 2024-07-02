@@ -39,7 +39,7 @@ function PostSection({ posts, title }) {
   )
 }
 
-export default function Home() {
+export default function Page() {
 
   return (
     <div className="bg-white py-24 sm:py-32">

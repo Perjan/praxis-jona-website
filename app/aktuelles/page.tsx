@@ -34,17 +34,6 @@ export const metadata: Metadata = {
     }
 }
 
-// export function ReusableButton({ url, title }) {
-//     return (
-//         <Link
-//             href={url}
-//             target='_blank'
-//             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
-//         >{title}
-//         </Link>
-//     )
-// }
-
 export default function Page() {
 
     return (
@@ -75,7 +64,7 @@ export default function Page() {
                                             </div>
 
                                             <h3 className="mt-16 text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                            Vom 22.07. bis zum 02.08.2024
+                                                Vom 22.07. bis zum 02.08.2024
                                             </h3>
                                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
                                                 <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
@@ -103,23 +92,23 @@ export default function Page() {
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
                                             <h3 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                            Hinweis
+                                                Hinweis
                                             </h3>
                                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
                                                 <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                                                     <div className="flex flex-col justify-center h-full">
                                                         <address className="mt-4 justify-center text-left space-y-1 text-md not-italic leading-6 text-primaryLighter">
                                                             <p className="text-md">Liebe Patientin, lieber Patient,<br></br>wenn bei Ihnen Krankheitszeichen wie Husten, Schnupfen, Halskratzen oder Fieber auftreten sollten, können Sie mit einem tagesaktuellen negativen Covid-Selbsttest und FFP2-Maske in unsere Sprechstunde kommen nach vorheriger telefonischer Absprache.</p>
-                                                            
+
                                                             <p className="text-md pt-4">
-                                                            Sollten Sie einen positiven Covid-Selbsttest haben, senden Sie uns bitte folgende Informationen per E-Mail zu:<br></br> 
-                                                            E-Mail: <a href="mailto:info@praxisjona.de" className="text-primary font-semibold">info@praxisjona.de</a><br></br>
-                                                            Ihre Symptome:<br></br>
-                                                            Ihre Anschrift:<br></br>
-                                                            Mobilfunknummer:<br></br>
-                                                            Foto von Vorder- und Rückseite der Versicherungskarte<br></br>
-                                                            Foto vom Corona-Schnelltest-Ergebnis<br></br>
-                                                            Wir nehmen Kontakt zu Ihnen auf.</p>
+                                                                Sollten Sie einen positiven Covid-Selbsttest haben, senden Sie uns bitte folgende Informationen per E-Mail zu:<br></br>
+                                                                E-Mail: <a href="mailto:info@praxisjona.de" className="text-primary font-semibold">info@praxisjona.de</a><br></br>
+                                                                Ihre Symptome:<br></br>
+                                                                Ihre Anschrift:<br></br>
+                                                                Mobilfunknummer:<br></br>
+                                                                Foto von Vorder- und Rückseite der Versicherungskarte<br></br>
+                                                                Foto vom Corona-Schnelltest-Ergebnis<br></br>
+                                                                Wir nehmen Kontakt zu Ihnen auf.</p>
                                                         </address>
                                                     </div>
                                                 </dl>

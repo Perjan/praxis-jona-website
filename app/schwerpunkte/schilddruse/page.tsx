@@ -36,7 +36,6 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-
     return (
         <>
             <div className="overflow-hidden bg-white relative isolate">

@@ -23,7 +23,7 @@ export function PostCard({ post }: { post: Post }) {
       <div>
         <div className="flex items-center gap-x-1 text-xs">
           <time dateTime={post.date} className="text-gray-500">
-            {format(parseISO(post.date), 'LLLL d, yyyy')}
+            {format(parseISO(post.date), 'dd.MM.yyyy')}
           </time>
           <span className="text-gray-500"> • written by </span>
           {author && <Link href={author.url} className='hover:text-teal-400'>{author.name}</Link>}
