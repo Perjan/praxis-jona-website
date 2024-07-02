@@ -180,8 +180,8 @@ export default function ContactSection() {
                   <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                     <div>
                       <dd>
-                        <p>Praxis Jona</p>
-                        <p>{Constants.address}</p>
+                        <p className='font-bold'>Praxis Jona</p>
+                        <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
                         <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
                       </dd>
                       <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
@@ -199,9 +199,9 @@ export default function ContactSection() {
                   <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">
                     <div className="flex flex-col justify-between h-full">
                       <dd>
-                        <p>Tram M2, M5, M8 Haltestelle: U Rosenthaler Platz.</p>
+                        <p>Tram M2, M5, M8 Haltestelle:<br></br> U Rosenthaler Platz.</p>
                         <p>Fußweg: ca. 150 m</p>
-                        <p>U8 Haltestelle: Rosenthaler Platz</p>
+                        <p className='pt-4'>U8 Haltestelle: Rosenthaler Platz</p>
                         <p>Fußweg: ca. 20m</p>
                       </dd>
                       <div className='mt-8'>
