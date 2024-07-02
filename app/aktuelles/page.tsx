@@ -35,6 +35,27 @@ export const metadata: Metadata = {
     }
 }
 
+function CardContent({ title, message }) {
+    return (
+        <>
+            <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
+                <h3 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
+                    {title}
+                </h3>
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
+                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                        <div className="flex flex-col justify-center h-full">
+                            <address className="mt-34justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                                {message}
+                            </address>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </>
+    )
+}
+
 export default function Page() {
 
     return (
@@ -49,35 +70,10 @@ export default function Page() {
                         <div className="bg-white py-16 sm:py-24">
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
+                                    
+                                    <CardContent title={"Vom 22.07. bis zum 02.08.2024"} message={"ist die Sprechstunde wegen Urlaub montags nur Vormittag und von Montag-Donnerstag. Dr. Thomas Rößner macht in dieser Zeit Vertretung"} />
+
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
-                                        <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
-                                            <h3 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                                Schließzeiten<br></br>Montag, 01.07.2024
-                                            </h3>
-                                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
-                                                <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                                                    <div className="flex flex-col justify-center h-full">
-                                                        <address className="mt-34justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p>bleibt die Praxis ganztägig geschlossen</p>
-                                                        </address>
-                                                    </div>
-                                                </dl>
-                                            </div>
-
-                                            <h3 className="mt-16 text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                                Vom 22.07. bis zum 02.08.2024
-                                            </h3>
-                                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
-                                                <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                                                    <div className="flex flex-col justify-center h-full">
-                                                        <address className="mt-4 justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p>ist die Sprechstunde wegen Urlaub montags nur Vormittag und von Montag-Donnerstag. Dr. Thomas Rößner macht in dieser Zeit Vertretung</p>
-                                                        </address>
-                                                    </div>
-                                                </dl>
-                                            </div>
-                                        </div>
-
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
                                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
