@@ -2,6 +2,7 @@ import { Metadata } from "next";
 
 const title = 'Aktuelles'
 const description = ""
+const url = "/aktuelles"
 
 export const metadata: Metadata = {
     title: title,
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         type: 'website',
-        url: '/aktuelles',
+        url: url,
         images: [
             {
                 url: '/images/og-image.png',
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: '/aktuelles',
+        canonical: url,
         languages: {
-            de: '/aktuelles'
+            de: url
         }
     },
     twitter: {

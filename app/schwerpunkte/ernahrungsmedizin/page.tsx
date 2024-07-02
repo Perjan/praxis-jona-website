@@ -4,6 +4,7 @@ import React from "react";
 
 const title = 'Ernährungsmedizin'
 const description = "Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten."
+const url = '/schwerpunkte/bluthochdruck'
 
 export const metadata: Metadata = {
     title: title,
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         type: 'website',
-        url: '/schwerpunkte/ernahrungsmedizin',
+        url: url,
         images: [
             {
                 url: '/images/og-image.png',
@@ -23,9 +24,9 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: '/schwerpunkte/ernahrungsmedizin',
+        canonical: url,
         languages: {
-            de: '/schwerpunkte/ernahrungsmedizin'
+            de: url
         }
     },
     twitter: {

@@ -10,12 +10,6 @@ const navigation = {
     { name: 'Samstag: Geschlossen' },
     { name: 'Sonntag: Geschlossen' },
   ],
-  support: [
-    { name: 'Pricing', href: '#' },
-    { name: 'Documentation', href: '#' },
-    { name: 'Guides', href: '#' },
-    { name: 'API Status', href: '#' },
-  ],
   company: [
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },

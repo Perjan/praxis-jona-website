@@ -5,6 +5,7 @@ import './BloodPressureTable.css';
 
 const title = 'Bluthochdruck'
 const description = "Hypertonie, auch bekannt als Bluthochdruck, ist eine weit verbreitete Erkrankung, die das Risiko für schwerwiegende Gesundheitsprobleme wie Herzinfarkt, Schlaganfall, Herzinsuffizienz und Nierenerkrankungen erhöht. Da Hypertonie häufig ohne offensichtliche Symptome verläuft, wird sie oft als „stiller Killer“ bezeichnet."
+const url = '/schwerpunkte/bluthochdruck'
 
 export const metadata: Metadata = {
     title: title,
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
         title: title,
         description: description,
         type: 'website',
-        url: '/schwerpunkte/bluthochdruck',
+        url: url,
         images: [
             {
                 url: '/images/og-image.png',
@@ -24,9 +25,9 @@ export const metadata: Metadata = {
         ],
     },
     alternates: {
-        canonical: '/schwerpunkte/bluthochdruck',
+        canonical: url,
         languages: {
-            de: '/schwerpunkte/bluthochdruck'
+            de: url
         }
     },
     twitter: {

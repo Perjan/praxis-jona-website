@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 const title = 'Service & Kontakt'
 const description = "Praxis Jona - Praxis für Allgemeinmedizin, Innere Medizin mit Schwerpunkt Schilddrüse, Hypertensiologie, Lipidologie. Nehmen Sie gerne direkt Kontakt zu uns auf."
+const url = "/kontakt"
 
 export const metadata: Metadata = {
   title: title,
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
     title: title,
     description: description,
     type: 'website',
-    url: '/kontakt',
+    url: url,
     images: [
       {
         url: '/images/og-image.png',
@@ -22,9 +23,9 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: '/kontakt',
+    canonical: url,
     languages: {
-      de: '/kontakt'
+      de: url
     }
   },
   twitter: {
