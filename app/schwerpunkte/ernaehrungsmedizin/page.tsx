@@ -123,13 +123,19 @@ export default function Page() {
                             <li>Lösungsorientierte Begleitung bei Problemen</li>
                             <li>Ganzheitliche Betreuung über mehrere Wochen und Motivation</li>
                             <li>Personalisierter Ernährungsplan für 7 Tage mit Rezepten (50 Euro)</li>
-                            <li>Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40 Euro)</li>
-                            <li>Folge-BIA-Messungen (25 Euro)</li>
+                            <li><ComingSoonBadge />Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40 Euro)</li>
+                            <li><ComingSoonBadge />Folge-BIA-Messungen (25 Euro)</li>
                         </ul>
 
                     </SectionWithColor>
                 </div>
             </div>
         </>
+    )
+}
+
+export function ComingSoonBadge() {
+    return (
+        <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white mr-2'>Demnächst</span>
     )
 }

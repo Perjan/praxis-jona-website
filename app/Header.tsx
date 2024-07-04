@@ -36,7 +36,7 @@ export function DownloadButton({ url, locale, title }) {
         <Link
             href={url}
             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
-            data-umami-event="mc-app-download-button-in-header"
+            data-umami-event="button-in-header"
         >{title}
         </Link>
     )
