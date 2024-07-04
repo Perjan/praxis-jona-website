@@ -134,7 +134,7 @@ export default function Page() {
     )
 }
 
-export function ComingSoonBadge() {
+function ComingSoonBadge() {
     return (
         <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white mr-2'>Demnächst</span>
     )
