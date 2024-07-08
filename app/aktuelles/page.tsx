@@ -71,7 +71,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
-                                    <CardContent title={"Vom 22.07. bis zum 02.08.2024"} message={"eingeschränkte Öffnungszeiten wegen Urlaub\n\nMontag 8.00 - 12.00\nDienstag 8.00 - 14.00\nMittwoch 8.00 - 12.00\nDonnerstag 13.00 - 18.00\nFreitag geschlossen"} />
+                                    <CardContent title={"Vom 22.07. bis zum 02.08.2024"} message={"eingeschränkte Öffnungszeiten wegen Urlaub\n\nMontag 8:00 - 12:00\nDienstag 8:00 - 14:00\nMittwoch 8:00 - 12:00\nDonnerstag 13:00 - 18:00\nFreitag geschlossen"} />
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
