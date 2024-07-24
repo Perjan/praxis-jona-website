@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
-import DoctorSection from './DoctorSection';
+import DoctorSection from './DoctorSectionEN';
 
 const people = [
   {
-    name: 'Frau Heike Schmeiche',
-    role: 'Arzthelferin, seit 2011 in der Praxis tätig',
+    name: 'Mrs. Heike Schmeiche',
+    role: 'Medical assistant, working in the practice since 2011',
     imageUrl:
       '/images/team/heike-avatar.jpeg'
   },
   {
-    name: 'Frau Kerstin Wawrzyniak',
-    role: 'Arzthelferin, seit 2002  in der Praxis tätig',
+    name: 'Mrs. Kerstin Wawrzyniak',
+    role: 'Medical assistant, working in the practice since 2002',
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },
@@ -19,8 +19,8 @@ const people = [
 
 
 const title = 'Team'
-const description = "Lerne unser Team kennen."
-const url = '/team'
+const description = "Get to know our team."
+const url = '/en/team'
 
 export const metadata: Metadata = {
     title: title,
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: url,
         languages: {
-            de: url,
-            en: "en/team"
+            de: "/team",
+            en: url
         }
     },
     twitter: {
@@ -81,7 +81,7 @@ export default function Page() {
             <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
               <h2 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Praxis</h2>
               <p className="mt-6 text-xl font-medium leading-8 text-primaryLighter">
-                Wir streben danach, dass unsere Patienten ein tiefes Gefühl des Wohlbefindens erleben. Hier, inmitten der sanften Umarmung der Ruhe, fördern wir eine Umgebung, in der Heilung gedeiht und Vitalität wiederhergestellt wird.
+              We strive for our patients to experience a deep sense of well-being. Here, amidst the gentle embrace of tranquility, we foster an environment where healing thrives and vitality is restored.
               </p>
             </div>
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">

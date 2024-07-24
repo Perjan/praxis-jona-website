@@ -27,7 +27,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: url,
         languages: {
-            de: url
+            de: url,
+            en: "/en/focus-areas/high-blood-pressure"
         }
     },
     twitter: {

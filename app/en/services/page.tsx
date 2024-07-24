@@ -1,9 +1,9 @@
-import ServicesSection from "./ServicesSection";
+import ServicesSection from "./ServicesSectionEN";
 import { Metadata } from "next";
 
-const title = 'Leistungen'
-const description = "Anbei finden Sie eine Liste mit unseren Leistungen."
-const url = "/leistungen"
+const title = 'Services'
+const description = "Below you will find a list of our services."
+const url = "/en/services"
 
 export const metadata: Metadata = {
   title: title,
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: url,
-      en: "/en/services"
+      de: '/leistungen',
+      en: url
     }
   },
   twitter: {

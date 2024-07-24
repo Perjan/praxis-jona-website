@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     url: author.url
   })),
   keywords: Constants.keywords,
+  alternates: {
+    canonical: '/',
+    languages: {
+      de: "/",
+      en: "/en"
+    }
+  },
   twitter: {
     title: title,
     description: description,

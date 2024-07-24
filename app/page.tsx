@@ -6,8 +6,12 @@ import ClinicSection from './ClinicSection'
 
 export const metadata: Metadata = {
     alternates: {
-        canonical: "/",
-    }
+        canonical: '/',
+        languages: {
+          de: "/",
+          en: "/en"
+        }
+      }
 }
 
 export default function Features() {

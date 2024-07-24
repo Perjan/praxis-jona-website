@@ -49,3 +49,55 @@ export const Services = [
       description: "Wir betreuen Sie auch bei Ihren hausärztlichen Problemen. Unsere Praxis bietet ein breites Spektrum an Diagnoseverfahren, wodurch zusätzliche Arztbesuche oft unnötig werden. Einige Leistungen können wir nur als Selbst- oder Privatzahler abrechnen. Hierzu beraten wir Sie gerne."
     }
   ]
+
+  export const ServicesEN = [
+    {
+      id: 1,
+      name: 'Acute Consultation',
+      href: '#1',
+      imageSrc: '/images/leistungen/acuteEmergency.png',
+      description: "An acute consultation is available for our patients in our practice. We always try to keep waiting times as short as possible, but would like to point out that delays may occasionally occur. If you are suffering from an infectious disease or have a fever, please let us know when you make your appointment. This way we can ensure that appropriate precautions are taken to protect the health of all our patients and the practice team."
+    },
+    {
+      id: 2,
+      name: 'Botox',
+      href: '#2',
+      imageSrc: '/images/leistungen/botox.png',
+      description: "Botulinum toxin, often referred to as Botox, is a neurotoxin produced by the bacterium Clostridium botulinum. The injection of botulinum toxin into a muscle leads to a temporary paralysis of this muscle. This prevents muscle contractions, relaxes the muscle and smoothes the overlying skin, reducing wrinkles. The effect is temporary and requires regular follow-up treatments to maintain the effect. \n\n\n\n** Uses and applications\n\n**1. Aesthetic medicine:\n\n - Wrinkle treatment: Botox is used to smooth mimic wrinkles such as frown lines, forehead wrinkles and crow's feet by reducing muscle contractions. \n\n - Facelift: It can also be used in other areas of the face to achieve a more youthful appearance.\n\n\n\n**2. Medical applications:\n\n - Hyperhidrosis (excessive sweating): Botox can be injected into the skin of the armpits, hands, feet or other areas to reduce sweat production.\n\n - Migraine: For chronic migraine sufferers, Botox can help reduce the frequency and severity of headaches.\n\n - Spasticity and muscle spasms: It is used to treat muscle spasticity in conditions such as teeth grinding (bruxism). \n\n\n\n** After treatment:\n\nPatients are advised to refrain from physical activities such as sports, swimming and sauna visits for 3-4 days.\n\nIt is important not to massage the injection sites or subject them to unnecessary pressure to avoid unwanted spread of the toxin."
+    },
+    {
+      id: 3,
+      name: 'Diagnostics of the Abdominal Organs (Abdominal Sonography)',
+      href: '#3',
+      imageSrc: '/images/leistungen/abdomen.png',
+      description: "Ultrasound examination of the abdomen is used to diagnose and monitor various diseases. This method can be used to assess the size, structure and position of abdominal organs such as the liver, gallbladder, spleen, kidneys, pancreas, prostate, lymph nodes, abdominal aorta, urinary bladder and bowel. For an optimal examination, you should be fasting to avoid intestinal gas overlay and to ensure a full gallbladder."
+    },
+    {
+      id: 4,
+      name: 'Laboratory Diagnostics',
+      href: '#4',
+      imageSrc: '/images/leistungen/lab.png',
+      description: "In our practice, we carry out a wide range of laboratory tests in addition to a medical history and physical examination if necessary. This includes standard tests for acute and chronic illnesses as well as special blood analyses, such as micronutrient and vitamin determinations and intestinal microbiome analysis. We will be happy to advise you in detail."
+    },
+    {
+      id: 5,
+      name: 'Check-up',
+      href: '#5',
+      imageSrc: '/images/leistungen/checkupPremium.png',
+      description: "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday. \n\n\nThe statutory health insurance fund covers:\n\n\n- Medical history\n\n- Physical examination\n\n- Resting ECG\n\n- Consultation 15 minutes\n\n- Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)\n\n- Men aged 50 and over: Two colonoscopies every 10 years, test for hidden blood every two years\n\n- Women aged 55 and over: Two colonoscopies every 10 years, test for hidden blood every two years\n\n- From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm\n\n\n\n**Additional laboratory (for self-payers, charged according to GOÄ)\n\n- Trace elements, vitamin D, and hormone levels\n\n- Parameters of the immune system, blood group\n\n- Evaluation of the findings and advice on dietary supplements. \n\n\nContact us and we will be happy to advise you."
+    },
+    {
+      id: 6,
+      name: 'Vaccinations',
+      href: '#6',
+      imageSrc: '/images/leistungen/syringe.png',
+      description: "We will work with you to check existing vaccination gaps or booster vaccinations in accordance with STIKO recommendations. It is recommended that all adults have their vaccinations checked every 10 years and, from the age of 60, have annual flu, pneumococcal and Covid-19 vaccinations as well as a one-off shingles vaccination. We will be happy to advise you in detail. Please bring your vaccination card with you to your appointment at the practice and have your vaccination status checked."
+    },
+    {
+      id: 7,
+      name: 'GP Care',
+      href: '#7',
+      imageSrc: '/images/leistungen/medpack.png',
+      description: "We can also help you with your GP problems. Our practice offers a wide range of diagnostic procedures, which often makes additional visits to the doctor unnecessary. Some services can only be billed to self-payers or private payers. We will be happy to advise you on this."
+    }
+  ]

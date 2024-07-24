@@ -1,11 +1,26 @@
+"use client"
 import Link from "next/link"
 import { Constants } from "./Constants"
+import { usePathname } from "next/navigation";
+import { localeFromPathname } from "./Header";
 
-const navigation = {
+const navigationGerman = {
+  copyright: "© 2024 Praxis Jona. Alle Rechte vorbehalten.",
+  imprint: "Impressum und Datenschutz",
   company: [
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
     { name: 'Aktuelles', href: '/aktuelles' },
+  ],
+}
+
+const navigationEnglish = {
+  copyright: "© 2024 Praxis Jona. All rights reserved.",
+  imprint: "Imprint and Privacy",
+  company: [
+    { name: 'Team', href: '/en/team' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Latest News', href: '/en/latest-news' },
   ],
 }
 
@@ -27,6 +42,34 @@ export const socials = [
 
 export default function Page() {
   const contact = Constants.contact
+  const pathname = usePathname();
+  const locale = localeFromPathname(pathname)
+
+  var openingHours = Constants.openingHours
+
+  var navigation = navigationGerman
+  var languageLabel = "Sprache"
+  var addressLabel = "Standort"
+  var contactLabel = "Kontakt"
+  var openingHoursLabel = "Öffnungszeiten"
+  var googleMapsLabel = "Öffnen in Google Maps"
+  var appleMapsLabel = "Öffnen in Apple Maps"
+
+  switch (locale) {
+    case "en":
+      navigation = navigationEnglish
+      openingHours = Constants.openingHoursEN
+      languageLabel = "Language"
+      addressLabel = "Location"
+      contactLabel = "Contact"
+      openingHoursLabel = "Consultation Hours"
+      googleMapsLabel = "Open in Google Maps"
+      appleMapsLabel = "Open in Apple Maps"
+      break;
+    default:
+      navigation = navigationGerman
+      break;
+  }
 
   return (
     <footer className="bg-stone-100" aria-labelledby="footer-heading">
@@ -36,19 +79,19 @@ export default function Page() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-8 pt-12 sm:pt-16 lg:px-8 lg:pt-24">
         <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Standort</h3>
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{addressLabel}</h3>
             <div className="text-sm mt-2 text-primaryLighter">
               <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
             </div>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" className="underline">Öffnen in Google Maps</a>
+              <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" className="underline">{googleMapsLabel}</a>
             </p>
             <p className="text-sm leading-6 text-primaryLighter">
-              <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" className="underline">Öffnen in Apple Maps</a>
+              <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" className="underline">{appleMapsLabel}</a>
             </p>
           </div>
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Kontakt</h3>
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{contactLabel}</h3>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
               Tel: <a href={contact.phoneUrl} className="underline">{contact.phone}</a>
             </p>
@@ -60,10 +103,10 @@ export default function Page() {
             </p>
           </div>
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Öffnungszeiten</h3>
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{openingHoursLabel}</h3>
             <div className="grid text-sm grid-cols-1 text-primaryLighter grid-flow-col space-y-2">
               <div className='col-span-1'>
-                {Constants.openingHours.map((item) => (
+                {openingHours.map((item) => (
                   <div key={item.day} className="flex justify-center sm:justify-normal">
                     <div className="flex-none w-24 mt-2">
                       <p>{item.day}</p>
@@ -91,10 +134,15 @@ export default function Page() {
         </div>
         <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
           <div className="text-center md:text-left">
-            <p className="text-xs leading-5 text-primaryLighter">&copy; 2024 Praxis Jona. Alle Rechte vorbehalten.</p>
+          <p className="text-xs leading-5 text-primaryLighter">{navigation.copyright}</p>
             <Link href="/impressum-datenschutz" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
-              Impressum und Datenschutz
+              {navigation.imprint}
             </Link>
+            <div className="mt-8 text-xs space-x-1 leading-5 text-gray-500 md:order-1 md:mt-0">
+                <span>{languageLabel}:</span>
+                <Link href="/">🇩🇪 /</Link>
+                <Link href="/en">🇬🇧</Link>
+              </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">
             {socials.map((item) => (

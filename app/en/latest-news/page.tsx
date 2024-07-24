@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-const title = 'Aktuelles'
+const title = 'Latest News'
 const description = ""
-const url = "/aktuelles"
+const url = "/en/latest-news"
 
 export const metadata: Metadata = {
     title: title,
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     alternates: {
         canonical: url,
         languages: {
-            de: url,
-            en: "/en/latest-news"
+            de: "/aktuelles",
+            en: url
         }
     },
     twitter: {
@@ -72,7 +72,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
-                                    <CardContent title={"Vom 22.07. bis zum 02.08.2024"} message={"eingeschränkte Öffnungszeiten wegen Urlaub\n\nMontag 8:00 - 12:00\nDienstag 8:00 - 14:00\nMittwoch 8:00 - 12:00\nDonnerstag 13:00 - 18:00\nFreitag geschlossen"} />
+                                    <CardContent title={"From 22.07. to 02.08.2024"} message={"Limited opening hours due to vacation\n\nMonday 8:00 - 12:00\nTuesday 8:00 - 14:00\nWednesday 8:00 - 12:00\nThursday 13:00 - 18:00\nFriday closed"} />
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
@@ -80,7 +80,7 @@ export default function Page() {
                                                 <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                                                     <div className="flex flex-col justify-center h-full">
                                                         <address className="mt-34justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p>Bitte wenden Sie sich auch in dringenden Fällen an den ärztlichen Bereitschaftsdienst der KV Berlin unter der Telefonnummer 116117, in lebensbedrohlichen Situationen an die Feuerwehr unter 112.</p>
+                                                            <p>In urgent cases, please also contact the medical on-call service of the KV Berlin at 116117, in life-threatening situations call the fire department at 112.</p>
                                                         </address>
                                                     </div>
                                                 </dl>
@@ -89,23 +89,23 @@ export default function Page() {
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
                                             <h3 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                                Hinweis
+                                            Notice
                                             </h3>
                                             <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
                                                 <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                                                     <div className="flex flex-col justify-center h-full">
                                                         <address className="mt-4 justify-center text-left space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p className="text-md">Liebe Patientin, lieber Patient,<br></br>wenn bei Ihnen Krankheitszeichen wie Husten, Schnupfen, Halskratzen oder Fieber auftreten sollten, können Sie mit einem tagesaktuellen negativen Covid-Selbsttest und FFP2-Maske in unsere Sprechstunde kommen nach vorheriger telefonischer Absprache.</p>
+                                                            <p className="text-md">Dear patient,<br></br>If you show signs of illness such as a cough, cold, scratchy throat or fever, you can come to our consultation with a daily negative Covid self-test and FFP2 mask by prior arrangement by telephone.</p>
 
                                                             <p className="text-md pt-4">
-                                                                Sollten Sie einen positiven Covid-Selbsttest haben, senden Sie uns bitte folgende Informationen per E-Mail zu:<br></br>
+                                                            If you have a positive Covid self-test, please send us the following information by e-mail:<br></br>
                                                                 E-Mail: <a href="mailto:info@praxisjona.de" className="text-primary font-semibold">info@praxisjona.de</a><br></br>
-                                                                Ihre Symptome:<br></br>
-                                                                Ihre Anschrift:<br></br>
-                                                                Mobilfunknummer:<br></br>
-                                                                Foto von Vorder- und Rückseite der Versicherungskarte<br></br>
-                                                                Foto vom Corona-Schnelltest-Ergebnis<br></br>
-                                                                Wir nehmen Kontakt zu Ihnen auf.</p>
+                                                                Your symptoms:<br></br>
+                                                                Your address:<br></br>
+                                                                Mobile phone number:<br></br>
+                                                                Photo of the front and back of the insurance card<br></br>
+                                                                Photo of the Corona rapid test result<br></br>
+                                                                We will get in touch with you.</p>
                                                         </address>
                                                     </div>
                                                 </dl>

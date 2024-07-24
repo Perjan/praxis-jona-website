@@ -15,11 +15,18 @@ import { cn } from './lib/utils'
 import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
 
-const navigationItemsEnglish = [
+const navigationItemsGerman = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
     { title: "Team", href: "/team" },
     { title: "Aktuelles", href: "/aktuelles" }
+]
+
+const navigationItemsEnglish = [
+    { title: "Focus Areas", href: "/en/focus-areas" },
+    { title: "Services", href: "/en/services" },
+    { title: "Team", href: "/en/team" },
+    { title: "Latest News", href: "/en/latest-news" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
@@ -30,25 +37,38 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
+function downloadAppTitle(locale: string) {
+    if (locale === "en") {
+        return "Services & Contact"
+    } else {
+        return "Service & Kontakt"
+    }
+}
+
+function downloadAppUrl(locale: string) {
+    if (locale === "en") {
+        return "/en/contact"
+    } else {
+        return "/kontakt"
+    }
+}
 
 export function DownloadButton({ url, locale, title }) {
     return (
         <Link
-            href={url}
+            href={downloadAppUrl(locale)}
             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="button-in-header"
-        >{title}
+        >{downloadAppTitle(locale)}
         </Link>
     )
 }
 
 export function localeFromPathname(pathname: string) {
-    if (pathname.startsWith("/it")) {
-        return "it"
-    } else if (pathname.startsWith("/de")) {
-        return "de"
-    } else {
+    if (pathname.startsWith("/en/") || pathname === "/en") {
         return "en"
+    } else {
+        return "de"
     }
 }
 
@@ -62,16 +82,20 @@ export default function Header() {
 
     var navigationItems = []
 
-    var languageLabel = "Language"
+    var languageLabel = "Sprache"
 
     switch (locale) {
-        default:
+        case "en":
             navigationItems = navigationItemsEnglish
+            languageLabel = "Language"
+            break;
+        default:
+            navigationItems = navigationItemsGerman
             break;
     }
 
     const navigationItemsMobile = [
-        { title: "Home", href: locale === "en" ? "/" : "/" + locale }
+        { title: "Home", href: locale === "de" ? "/" : "/" + locale }
     ]
     navigationItemsMobile.push(...navigationItems)
 
@@ -86,7 +110,7 @@ export default function Header() {
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0 cursor-pointer">
                     <Link
-                        href={locale === "en" ? "/" : "/" + locale}
+                        href={locale === "de" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
                         <Image
@@ -145,6 +169,10 @@ export default function Header() {
                 </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
+                <div className="mt-0 pl-4 mx-auto space-x-1 leading-5 text-gray-500 md:order-1">
+                                <Link prefetch={false} href="/">🇩🇪 /</Link>
+                                <Link prefetch={false} href="/en">🇬🇧</Link>
+                </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
                 <div className="fixed inset-0 z-40" />
@@ -178,6 +206,11 @@ export default function Header() {
                             </div>
                             <div className="py-6">
                                 <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
+                            </div>
+                            <div className="mt-0 space-x-1 leading-5 text-gray-500 md:order-1 pt-8">
+                                <span>{languageLabel}:</span>
+                                <Link prefetch={false} href="/">🇩🇪 /</Link>
+                                <Link prefetch={false} href="/en">🇬🇧</Link>
                             </div>
                         </div>
                     </div>

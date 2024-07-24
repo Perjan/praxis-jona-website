@@ -21,5 +21,14 @@ export const Constants = {
         { day: 'Freitag', hours: '08:00 - 12:00' },
         { day: 'Samstag', hours: 'Geschlossen' },
         { day: 'Sonntag', hours: 'Geschlossen' },
+    ],
+    openingHoursEN: [
+        { day: 'Monday', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
+        { day: 'Tuesday', hours: '08:00 - 14:00' },
+        { day: 'Wednesday', hours: '08:00 - 12:00' },
+        { day: 'Thursday', hours: '13:00 - 18:00' },
+        { day: 'Friday', hours: '08:00 - 12:00' },
+        { day: 'Saturday', hours: 'Closed' },
+        { day: 'Sunday', hours: 'Closed' },
     ]
 }

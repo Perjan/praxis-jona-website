@@ -38,3 +38,42 @@ export const Specialties = [
       icon: ArrowPathIcon,
     },
   ]
+
+  export const SpecialtiesEN = [
+    {
+      name: 'Thyroid Gland',
+      id: '1',
+      description:
+        'The thyroid gland, a small, butterfly-shaped organ in the neck, plays a central role in our metabolism. It produces hormones (T4, T3 and calcitonin) that are important for numerous bodily functions, such as the regulation of body temperature, energy balance and heart rate.',
+      descriptionRest: "\n\n A malfunction of the thyroid gland can cause a wide range of symptoms and significantly impairs well-being. The most common diseases are hypothyroidism (e.g. Hashimoto's), hyperthyroidism (e.g. Graves' disease) and thyroid nodules. Thyroid diagnostics are crucial for the early detection and treatment of such diseases.\n\n\n\n We offer:\n\n - Blood tests\n\n\n Checking the thyroid hormones in the blood to assess the function of the thyroid gland. \n\n - Ultrasound examination\n\n An imaging method to detect the size, structure and possible nodules or cysts in the thyroid gland.\n\n\n\n Early diagnosis and adequate treatment of thyroid diseases can significantly improve the quality of life.",
+      url: '/en/focus-areas/thyroid-gland',
+      icon: CloudArrowUpIcon,
+    },
+    {
+      name: 'High Blood Pressure',
+      id: '2',
+      description:
+        'Hypertension, also known as high blood pressure, is a common condition that increases the risk of serious health problems such as heart attack, stroke, heart failure and kidney disease. As hypertension often progresses without obvious symptoms, it is often referred to as the “silent killer”.',
+      descriptionRest: '\n\n The diagnosis of hypertension is primarily based on the measurement of blood pressure. We offer 24-hour long-term blood pressure measurements, but regular checks at home can provide additional information and contribute to therapy monitoring.\n\n\n\n In addition, we can carry out further examinations such as\n\n - blood tests\n\n - urinalysis\n\n - cardiovascular examinations\n\n\n\n\n To identify possible causes of high blood pressure and assess consequential damage. Early diagnosis and treatment of hypertension is essential to minimize the risk of serious complications.',
+      url: '/en/focus-areas/high-blood-pressure',
+      icon: LockClosedIcon,
+    },
+    {
+      name: 'Lipometabolic Disorders',
+      id: '3',
+      description:
+        'Lipid metabolism disorders, also known as dyslipidemias, refer to a group of diseases in which blood lipid levels deviate from the norm. These disorders can increase the risk of cardiovascular diseases such as heart attacks and strokes, as abnormal fat levels can lead to the formation of plaques in the arteries, which increase the risk of arteriosclerosis (hardening of the arteries).',
+      descriptionRest: '\n\n The diagnosis of lipometabolic disorders is mainly carried out using blood tests that provide information about the various fat levels in the blood.\n\n\n\n Our services:\n\n - Lipid profile: This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. It is often advisable to be fasting for this test.\n\n\n - Further blood tests: Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated conditions, such as diabetes, thyroid disorders or kidney disease.\n\n\n - Advice on lifestyle changes, such as a healthy diet, regular physical activity, weight management and smoking cessation.\n\n\n\n Since dyslipidemia often does not cause direct symptoms, regular medical check-ups are crucial to identify and treat potential risks at an early stage.',
+      url: '/en/focus-areas/lipometabolic-disorders',
+      icon: ArrowPathIcon,
+    },
+    {
+      name: 'Nutritional Medicine',
+      id: '4',
+      description:
+        'Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers.',
+      descriptionRest: '\n\n The diagnosis of lipometabolic disorders is mainly carried out using blood tests that provide information about the various fat levels in the blood.\n\n\n\n Our services:\n\n - Lipid profile: This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. It is often advisable to be fasting for this test.\n\n\n - Further blood tests: Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated conditions, such as diabetes, thyroid disorders or kidney disease.\n\n\n - Advice on lifestyle changes, such as a healthy diet, regular physical activity, weight management and smoking cessation.\n\n\n\n Since dyslipidemia often does not cause direct symptoms, regular medical check-ups are crucial to identify and treat potential risks at an early stage.',
+      url: '/en/focus-areas/nutritional-medicine',
+      icon: ArrowPathIcon,
+    },
+  ]
