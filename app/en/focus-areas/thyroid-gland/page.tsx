@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 
 const title = 'Thyroid Gland'
-const description = "The thyroid gland, a small, butterfly-shaped organ in the neck, plays a central role in our metabolism. It produces hormones (T4, T3 and calcitonin) that are important for numerous bodily functions, such as the regulation of body temperature, energy levels and heart rate."
+const description = "The thyroid gland, a small, butterfly-shaped organ in the neck, plays a central role in our metabolism. It produces hormones (T4, T3 and calcitonin) that are important for numerous body functions, such as the regulation of body temperature, energy levels and heart rate."
 const url = '/en/focus-areas/thyroid-gland'
 
 export const metadata: Metadata = {

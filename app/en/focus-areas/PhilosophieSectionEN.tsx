@@ -20,7 +20,7 @@ export default function Page() {
             <h1 className="mt-2 text-3xl font-serif tracking-tight text-primary sm:text-4xl">Philosophy</h1>
             <p className="mt-6 text-xl leading-8 text-primaryLighter">
             We see people as an individual overall system and focus on a holistic view of their physical, psychological and social aspects.
-            Our practice is characterized by a wide range of services aimed at providing patients with comprehensive care and support. At the same time, we attach great importance to personal and empathetic care in order to promote a trusting doctor-patient relationship.
+            Our practice is characterized by a wide range of services aimed at providing patients with comprehensive care and support. At the same time, we assign a high degree of priority to personal and empathetic treatment in order to promote a trusting doctor-patient relationship.
             </p>
             <p className="mt-6 text-xl leading-8 text-primaryLighter">
             The cornerstones of our philosophy include proactive preventive work, in which we develop individual health goals together with our patients. In doing so, we not only take acute complaints into account, but also focus on long-term measures to promote a healthy lifestyle.

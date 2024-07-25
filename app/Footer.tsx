@@ -55,6 +55,8 @@ export default function Page() {
   var googleMapsLabel = "Öffnen in Google Maps"
   var appleMapsLabel = "Öffnen in Apple Maps"
 
+  var praxisLabel = "Praxis"
+
   switch (locale) {
     case "en":
       navigation = navigationEnglish
@@ -65,6 +67,7 @@ export default function Page() {
       openingHoursLabel = "Consultation Hours"
       googleMapsLabel = "Open in Google Maps"
       appleMapsLabel = "Open in Apple Maps"
+      praxisLabel = "Practice"
       break;
     default:
       navigation = navigationGerman
@@ -121,7 +124,7 @@ export default function Page() {
             </div>
           </div>
           <div className="text-center sm:text-left">
-            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">Praxis</h3>
+            <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{praxisLabel}</h3>
             <ul role="list" className="mt-2 space-y-2">
               {navigation.company.map((item) => (
                 <li key={item.name}>

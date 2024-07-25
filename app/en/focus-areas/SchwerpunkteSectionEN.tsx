@@ -7,7 +7,7 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid'; // Import the Chev
 import { SpecialtiesEN } from 'app/schwerpunkte/Specialties';
 
 const title = "Specialty Areas"
-const description = "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipometabolic Disorders and Nutritional Medicine."
+const description = "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipid Metabolic Disorders and Nutritional Medicine."
 
 export default function Page() {
   return (

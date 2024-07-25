@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 
-const title = 'Lipometabolic Disorders'
+const title = 'Lipid Metabolic Disorders'
 const description = "Lipid metabolism disorders, also known as dyslipidemias, refer to a group of diseases in which blood lipid levels deviate from the norm. These disorders can increase the risk of cardiovascular diseases such as heart attacks and strokes, as abnormal fat levels can lead to the formation of plaques in the arteries, which increase the risk of arteriosclerosis (atherosclerosis)."
 const url = '/en/focus-areas/lipometabolic-disorders'
 

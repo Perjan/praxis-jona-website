@@ -88,7 +88,7 @@ export default function Page() {
                             <li className="text-lg mt-4 font-serif font-medium">Metabolic Disorders and Body Weight</li>
                             <ul className="px-8 list-disc text-lg ">
                                 <li>Weight Gain due to Autoimmune Diseases such as Hashimoto's</li>
-                                <li>Lipometabolic Disorders</li>
+                                <li>Lipid Metabolic Disorders</li>
                                 <li>Diabetes Mellitus</li>
                             </ul>
 
