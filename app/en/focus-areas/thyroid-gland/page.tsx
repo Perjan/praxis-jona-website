@@ -51,7 +51,7 @@ export default function Page() {
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The thyroid gland produces the two hormones T3 (triiodothyronine) and T4 (thyroxine, also known as tetraiodothyronine). T4 is produced in large quantities, but is only slightly active on its own. In the blood and in the cytosol of most body cells, T4 is converted into the biologically more active T3 by a deiodase. The physiological role of calcitonin is rather minor because bone and calcium metabolism is mainly regulated by the parathyroid hormone and vitamin D.</p>
 
-                        <p className="mt-6 text-lg leading-8 text-primaryLighter">A malfunction of the thyroid gland can cause a variety of symptoms and significantly impairs well-being. The most common diseases are hypothyroidism (e.g. Hashimoto's), hyperthyroidism (e.g. Graves' disease) and thyroid nodules.</p>
+                        <p className="mt-6 text-lg leading-8 text-primaryLighter">A malfunction of the thyroid gland can cause a variety of symptoms and significantly impairs well-being. The most common diseases are hypothyroidism (e.g. Hashimoto's), hyperthyroidism (e.g. Grave's disease) and thyroid nodules.</p>
 
                         <h2 className="mt-6 text-2xl leading-8 font-serif font-semibold text-primaryLighter">The symptoms of Hyperthyroidism</h2>
 
@@ -60,7 +60,7 @@ export default function Page() {
                             <li>Weight loss despite increased calorie intake</li>
                             <li>Finger Tremor</li>
                             <li>Slightly increased body temperature with increased sweating</li>
-                            <li>Nervousness, sleep disorders, inner restlessness</li>
+                            <li>Nervousness, sleep disorders, anxiety</li>
                         </ul>
 
                         <h2 className="text-2xl mt-6 leading-8 font-serif font-semibold text-primaryLighter">The symptoms of Hypothyroidism</h2>
@@ -68,9 +68,9 @@ export default function Page() {
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Low Heartbeat</li>
                             <li>Weight gain despite low calorie intake</li>
-                            <li>Sensitivity to cold and pale, dry skin</li>
+                            <li>Sensitivity to cold, pale and dry skin</li>
                             <li>Fatigue, Depression</li>
-                            <li>Shaggy, brittle hair</li>
+                            <li>Fuzzy brittle hair</li>
                         </ul>
 
                         <h2 className="text-2xl mt-8 font-serif font-semibold leading-8 text-primaryLighter">Diagnosis</h2>

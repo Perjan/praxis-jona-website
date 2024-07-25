@@ -70,7 +70,7 @@ export const Services = [
       name: 'Diagnostics of the Abdominal Organs (Abdominal Sonography)',
       href: '#3',
       imageSrc: '/images/leistungen/abdomen.png',
-      description: "Ultrasound examination of the abdomen is used to diagnose and monitor various diseases. This method can be used to assess the size, structure and position of abdominal organs such as the liver, gallbladder, spleen, kidneys, pancreas, prostate, lymph nodes, abdominal aorta, urinary bladder and bowel. For an optimal examination, you should be fasting to avoid intestinal gas overlay and to ensure a full gallbladder."
+      description: "Ultrasound examination of the abdomen is used to diagnose and monitor various diseases. This method can be used to assess the size, structure and position of abdominal organs such as the liver, gallbladder, spleen, kidneys, pancreas, prostate, lymph nodes, abdominal aorta, urinary bladder and bowel. For an optimal examination, you should not eat or drink before the blood test to avoid intestinal gas overlay and to ensure a full gallbladder."
     },
     {
       id: 4,

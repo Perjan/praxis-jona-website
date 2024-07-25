@@ -61,7 +61,7 @@ export default function Page() {
                             <p>Nutritional therapy can help prevent and treat chronic diseases such as diabetes, cardiovascular diseases, high blood pressure and certain types of cancer, and keep autoimmune diseases in a latent phase.</p>
                             <li className="text-xl mt-4 font-serif font-medium">Improvement of the Intestinal Flora</li>
                             <p>By changing the diet, the intestinal flora can be restored, which can lead to relief of intestinal complaints.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Weight mMnagement</li>
+                            <li className="text-xl mt-4 font-serif font-medium">Weight Management</li>
                             <p>By adjusting the diet, weight can be controlled, which contributes to the prevention and treatment of obesity and underweight.</p>
                             <li className="text-xl mt-4 font-serif font-medium">Improvement in General Well-Being</li>
                             <p>A balanced diet promotes general well-being, boosts energy levels and improves mental health.</p>

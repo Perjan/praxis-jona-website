@@ -16,7 +16,7 @@ export default function Page() {
                             Jonida is a specialist in Internal Medicine. She completed her studies in Tirana, Albania, and after graduating she decided to train as an Internist in Germany. She completed the first part of her training at the Medical Clinic III of the Waldkrankenhaus St. Marien in Erlangen. She then worked for several years in the Medical Clinic specializing in nephrology and internal intensive care medicine at Charité Berlin, where she is also completing her doctorate.
                             </p>
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                            Her specialties include thyroid, hypertension, lipid metabolism disorders and nutritional medicine. She is a member of the German Society for Internal Medicine (DGIM) and the DGFF (Lipid League) e. V. She is also a certified lipidologist and hypertensiologist.
+                            Her specialties include thyroid, hypertension, lipid metabolic disorders and nutritional medicine. She is a member of the German Society for Internal Medicine (DGIM) and the DGFF (Lipid League) e. V. She is also a certified lipidologist and hypertensiologist.
                             </p>
                             <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
                                 {expanded ? 'Collapse' : 'Expand'}
