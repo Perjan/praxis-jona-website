@@ -58,7 +58,7 @@ export default function Page() {
   switch (locale) {
     case "en":
       navigation = navigationEnglish
-      openingHours = Constants.openingHoursEN
+      openingHours = Constants.openingHours;
       languageLabel = "Language"
       addressLabel = "Location"
       contactLabel = "Contact"
@@ -109,10 +109,11 @@ export default function Page() {
                 {openingHours.map((item) => (
                   <div key={item.day} className="flex justify-center sm:justify-normal">
                     <div className="flex-none w-24 mt-2">
-                      <p>{item.day}</p>
+                      <p>{locale === "en" ? item.dayEn : item.day}</p>                    
                     </div>
                     <div className="flex-initial mt-2">
-                      <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />') }} />
+                      <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />').replace("Geschlossen", locale === "en" ? 'Closed' : "Geschlossen")                      
+                    }} />
                     </div>
                   </div>
                 ))}

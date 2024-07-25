@@ -14,21 +14,12 @@ export const Constants = {
         emailUrl: "mailto:info@praxisjona.de"
     },
     openingHours: [
-        { day: 'Montag', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
-        { day: 'Dienstag', hours: '08:00 - 14:00' },
-        { day: 'Mittwoch', hours: '08:00 - 12:00' },
-        { day: 'Donnerstag', hours: '13:00 - 18:00' },
-        { day: 'Freitag', hours: '08:00 - 12:00' },
-        { day: 'Samstag', hours: 'Geschlossen' },
-        { day: 'Sonntag', hours: 'Geschlossen' },
-    ],
-    openingHoursEN: [
-        { day: 'Monday', hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
-        { day: 'Tuesday', hours: '08:00 - 14:00' },
-        { day: 'Wednesday', hours: '08:00 - 12:00' },
-        { day: 'Thursday', hours: '13:00 - 18:00' },
-        { day: 'Friday', hours: '08:00 - 12:00' },
-        { day: 'Saturday', hours: 'Closed' },
-        { day: 'Sunday', hours: 'Closed' },
+        { day: 'Montag', dayEn: "Monday", hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
+        { day: 'Dienstag', dayEn: "Tuesday", hours: '08:00 - 14:00' },
+        { day: 'Mittwoch', dayEn: "Wednesday", hours: '08:00 - 12:00' },
+        { day: 'Donnerstag', dayEn: "Thursday", hours: '13:00 - 18:00' },
+        { day: 'Freitag', dayEn: "Friday", hours: '08:00 - 12:00' },
+        { day: 'Samstag', dayEn: "Saturday", hours: 'Geschlossen' },
+        { day: 'Sonntag', dayEn: "Sunday", hours: 'Geschlossen' },
     ]
 }

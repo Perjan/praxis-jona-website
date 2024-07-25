@@ -23,7 +23,7 @@ const navigationItemsGerman = [
 ]
 
 const navigationItemsEnglish = [
-    { title: "Focus Areas", href: "/en/focus-areas" },
+    { title: "Specialty Areas", href: "/en/focus-areas" },
     { title: "Services", href: "/en/services" },
     { title: "Team", href: "/en/team" },
     { title: "Latest News", href: "/en/latest-news" }

@@ -3,7 +3,7 @@ import PhilosophieSection from "./PhilosophieSectionEN"
 
 import { Metadata } from "next"
 
-const title = "Focus Areas & Philosophy"
+const title = "Specialty Areas & Philosophy"
 const description = "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipometabolic Disorders and Nutritional Medicine."
 const url = "/en/focus-areas"
 

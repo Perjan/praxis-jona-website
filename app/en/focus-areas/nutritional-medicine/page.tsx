@@ -82,7 +82,7 @@ export default function Page() {
                             <p>Developing a long-term nutrition plan that includes flexible and realistic goals contributes to the sustainability of the dietary change.</p>
                         </ul>
                         
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">My Focus Areas</h3>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">My s</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li className="text-lg mt-4 font-serif font-medium">Metabolic Disorders and Body Weight</li>

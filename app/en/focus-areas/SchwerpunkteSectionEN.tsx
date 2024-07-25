@@ -6,7 +6,7 @@ const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 import { ChevronRightIcon } from '@heroicons/react/20/solid'; // Import the ChevronRightIcon component
 import { SpecialtiesEN } from 'app/schwerpunkte/Specialties';
 
-const title = "Focus Areas"
+const title = "Specialty Areas"
 const description = "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipometabolic Disorders and Nutritional Medicine."
 
 export default function Page() {

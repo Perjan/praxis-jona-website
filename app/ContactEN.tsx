@@ -10,7 +10,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { Constants } from './Constants';
 
-const openingHours = Constants.openingHoursEN
+const openingHours = Constants.openingHours;
 
 // create a form handler that sends the email using our api endpoint for sendgrid
 const formHandler = async (event) => {
@@ -131,7 +131,7 @@ export default function ContactSection() {
                             {openingHours.map((item) => (
                               <div key={item.day} className="flex">
                                 <div className="flex-none w-24">
-                                  <p>{item.day}</p>
+                                  <p>{item.dayEn}</p>
                                 </div>
                                 <div className="flex-initial">
                                   <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />') }} />
