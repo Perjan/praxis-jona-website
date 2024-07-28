@@ -82,7 +82,7 @@ export default function Page() {
                             <p>Developing a long-term nutrition plan that includes flexible and realistic goals contributes to the sustainability of the dietary change.</p>
                         </ul>
                         
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">My s</h3>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">My Specialty Areas</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li className="text-lg mt-4 font-serif font-medium">Metabolic Disorders and Body Weight</li>
@@ -124,8 +124,8 @@ export default function Page() {
                             <li>Solution-oriented support for problems</li>
                             <li>Holistic support over several weeks and motivation</li>
                             <li>Personalized nutrition plan for 7 days with recipes (50 Euro)</li>
-                            <li><ComingSoonBadge />Body composition measurement (BMI measurement) incl. evaluation (40 euros)</li>
-                            <li><ComingSoonBadge />Follow-up BMI measurements (25 euros)</li>
+                            <li><ComingSoonBadge />Body composition measurement incl. evaluation (40 euros)</li>
+                            <li><ComingSoonBadge />Follow-up measurements (25 euros)</li>
                         </ul>
 
                     </SectionWithColor>

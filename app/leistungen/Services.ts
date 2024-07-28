@@ -53,10 +53,10 @@ export const Services = [
   export const ServicesEN = [
     {
       id: 1,
-      name: 'Acute Consultation',
+      name: 'Emergency Consultation Hours',
       href: '#1',
       imageSrc: '/images/leistungen/acuteEmergency.png',
-      description: "An acute consultation is available for our patients in our practice. We always try to keep waiting times as short as possible, but would like to point out that delays may occasionally occur. If you are suffering from an infectious disease or have a fever, please let us know when you make your appointment. This way we can ensure that appropriate precautions are taken to protect the health of all our patients and the practice team."
+      description: "Emergency consultation hours are available for our patients in our practice. We always try to keep waiting times as short as possible, but would like to point out that delays may occasionally occur. If you are suffering from an infectious disease or have fever, please let us know before you come in our clinic. This way we can ensure that appropriate precautions are taken to protect the health of all our patients and our team."
     },
     {
       id: 2,
@@ -84,18 +84,18 @@ export const Services = [
       name: 'Check-up',
       href: '#5',
       imageSrc: '/images/leistungen/checkupPremium.png',
-      description: "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday. \n\n\nThe statutory health insurance fund covers:\n\n\n- Medical history\n\n- Physical examination\n\n- Resting ECG\n\n- Consultation 15 minutes\n\n- Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)\n\n- Men aged 50 and over: Two colonoscopies every 10 years, test for hidden blood every two years\n\n- Women aged 55 and over: Two colonoscopies every 10 years, test for hidden blood every two years\n\n- From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm\n\n\n\n**Additional laboratory (for self-payers, charged according to GOÄ)\n\n- Trace elements, vitamin D, and hormone levels\n\n- Parameters of the immune system, blood group\n\n- Evaluation of the findings and advice on dietary supplements. \n\n\nContact us and we will be happy to advise you."
+      description: "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday. \n\n\nThe statutory health insurance fund covers:\n\n\n- Medical history\n\n- Physical examination\n\n- Resting ECG\n\n- Consultation 15 minutes\n\n- Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)\n\n- Men aged 50 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- Women aged 55 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm\n\n\n\n**Additional laboratory (for self-payers or private insurance, charged according to GOÄ)\n\n- Trace elements, vitamin D, and hormone levels\n\n- Parameters of the immune system, blood group\n\n- Evaluation of the findings and advice on dietary supplements. \n\n\nContact us and we will be happy to advise you."
     },
     {
       id: 6,
       name: 'Vaccinations',
       href: '#6',
       imageSrc: '/images/leistungen/syringe.png',
-      description: "We will work with you to check existing vaccination gaps or booster vaccinations in accordance with STIKO recommendations. It is recommended that all adults have their vaccinations checked every 10 years and, from the age of 60, have annual flu, pneumococcal and Covid-19 vaccinations as well as a one-off shingles vaccination. We will be happy to advise you in detail. Please bring your vaccination card with you to your appointment at the practice and have your vaccination status checked."
+      description: "We will work with you to check existing vaccination gaps or booster vaccinations in accordance with STIKO recommendations. It is recommended that all adults have their vaccinations checked every 10 years and, from the age of 60, have annual flu, pneumococcal and Covid-19 vaccinations as well as a one-off Shingles vaccination. We will be happy to advise you in detail. Please bring your vaccination pass to your appointment and have your vaccination status checked."
     },
     {
       id: 7,
-      name: 'GP Care',
+      name: 'General Medical Care',
       href: '#7',
       imageSrc: '/images/leistungen/medpack.png',
       description: "We can also help you with your GP problems. Our practice offers a wide range of diagnostic procedures, which often makes additional visits to the doctor unnecessary. Some services can only be billed to self-payers or private payers. We will be happy to advise you on this."

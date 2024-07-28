@@ -68,7 +68,7 @@ export default function Page() {
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Niedriger Herzschlag</li>
                             <li>Gewichtszunahme trotz geringer Kalorienzufuhr</li>
-                            <li>Kälteempfindlichkeit und blasse, trockene Haut</li>
+                            <li>Kälteempfindlichkeit, blasse und trockene Haut</li>
                             <li>Müdigkeit, Depression</li>
                             <li>Struppiges, sprödes Haar</li>
                         </ul>
