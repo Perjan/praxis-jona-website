@@ -134,7 +134,7 @@ export default function ContactSection() {
                                   <p>{item.dayEn}</p>
                                 </div>
                                 <div className="flex-initial">
-                                  <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />') }} />
+                                  <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />').replace("Geschlossen", 'Closed') }} />
                                 </div>
                               </div>
                             ))}

@@ -13,10 +13,10 @@ export default function Page() {
                         <div className="lg:max-w-lg">
                             <h2 className="mt-2 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Jonida Gjolli</h2>
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                                Jonida ist Fachärztin für Innere Medizin. Ihr Studium absolvierte sie in Tirana, Albanien, und nach ihrem Abschluss entschied sie sich für eine Weiterbildung zur Internistin in Deutschland. Den ersten Teil ihrer Weiterbildung absolvierte sie in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Anschließend arbeitete sie mehrere Jahre in der Medizinischen Klinik mit Schwerpunkt Nephrologie und internistische Intensivmedizin an der Charité Berlin, wo sie auch ihre Promotion durchführt.
+                                Jonida arbeitete mehrere Jahre an der Charité Berlin in der nephrologischen Abteilung, wo sie auch Fachärztin für Innere Medizin wurde und ihre Promotion noch durchführt. 
                             </p>
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                                Zu ihren Schwerpunkten zählen Schilddrüse, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Darüber hinaus ist sie zertifizierte Lipidologin und Hypertensiologin.
+                                Zudem ist sie zertifizierte Lipidologin, Hypertensiologin und bald auch Ernährungsmedizinerin. Zu ihren Schwerpunkten zählen Schilddrüsenerkrankungen, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Vor ihrer Tätigkeit an der Charité arbeitete Jonida in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Das Studium absolvierte sie in Tirana, Albanien.
                             </p>
                             <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
                                 {expanded ? 'Schließen' : 'Weiterlesen'}

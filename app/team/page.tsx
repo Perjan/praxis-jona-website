@@ -11,7 +11,7 @@ const people = [
   },
   {
     name: 'Frau Kerstin Wawrzyniak',
-    role: 'Arzthelferin, seit 2002  in der Praxis tätig',
+    role: 'Arzthelferin, seit 2002 in der Praxis tätig. Zudem abgeschlossene Ausbildung zum autogenen Training',
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },

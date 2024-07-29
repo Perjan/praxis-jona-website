@@ -4,14 +4,44 @@ import ClinicSection from "app/ClinicSection";
 import HeroSection from "app/HeroSectionEN";
 import QuoteSection from "app/QuoteSectionEN";
 
+const title = "Praxis Jona"
+const description = "Holistic care for a healthy life – At our practice, you are more than just another patient."
+
 export const metadata: Metadata = {
+    title: {
+        default: title,
+        template: "%s"
+    },
+    description: description,
+    twitter: {
+        title: title,
+        description: description,
+        site: title,
+        card: "summary_large_image",
+        images: ['/images/og-image.png']
+    },
+    openGraph: {
+        title: title,
+        siteName: title,
+        description: description,
+        type: 'website',
+        url: '/',
+        images: [
+            {
+                url: '/images/og-image.png',
+                width: 1200,
+                height: 600,
+                alt: 'Praxis Jona'
+            }
+        ],
+    },
     alternates: {
-        canonical: '/',
+        canonical: '/en',
         languages: {
-          de: "/",
-          en: "/en"
+            de: "/",
+            en: "/en"
         }
-      }
+    }
 }
 
 export default function Features() {

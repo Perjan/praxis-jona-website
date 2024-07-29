@@ -11,7 +11,7 @@ const people = [
   },
   {
     name: 'Mrs. Kerstin Wawrzyniak',
-    role: 'Medical assistant, working in the practice since 2002',
+    role: 'Medical assistant, working in the practice since 2002, certified autogenic trainer.',
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },

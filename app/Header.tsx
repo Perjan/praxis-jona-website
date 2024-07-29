@@ -170,8 +170,8 @@ export default function Header() {
                     <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
                 <div className="mt-0 pl-4 mx-auto space-x-1 leading-5 text-gray-500 md:order-1">
-                                <Link prefetch={false} href="/">🇩🇪 /</Link>
-                                <Link prefetch={false} href="/en">🇬🇧</Link>
+                                <Link prefetch={false} href="/">DE /</Link>
+                                <Link prefetch={false} href="/en">EN</Link>
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -209,8 +209,8 @@ export default function Header() {
                             </div>
                             <div className="mt-0 space-x-1 leading-5 text-gray-500 md:order-1 pt-8">
                                 <span>{languageLabel}:</span>
-                                <Link prefetch={false} href="/">🇩🇪 /</Link>
-                                <Link prefetch={false} href="/en">🇬🇧</Link>
+                                <Link prefetch={false} href="/">DE /</Link>
+                                <Link prefetch={false} href="/en">EN</Link>
                             </div>
                         </div>
                     </div>

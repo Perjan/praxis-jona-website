@@ -50,6 +50,10 @@ const nextConfig = {
         {
           source: "/impressum-datenschutz",
           destination: "/legal/impressum-datenschutz",
+        },
+        {
+          source: "/imprint-privacy",
+          destination: "/legal/imprint-privacy"
         }
       ]
     }

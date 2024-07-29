@@ -176,7 +176,7 @@ function emojiFlag(language: string | undefined) {
         case "it":
             return "🇮🇹"
         case "de":
-            return "🇩🇪"
+            return "DE"
         default:
             return ""
     }

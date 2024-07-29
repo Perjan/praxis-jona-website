@@ -8,18 +8,18 @@ function PostCard(post: Post) {
   return (
     <>
       <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
-              <div className="flex items-center gap-x-4 text-xs">
-              </div>
-              <div className="group relative">
-                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <Link href={`/legal/${post._raw.flattenedPath}`}>
-                    <span className="absolute inset-0" />
-                    {post.title}
-                  </Link>
-                </h3>
+        <div className="flex items-center gap-x-4 text-xs">
+        </div>
+        <div className="group relative">
+          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <Link href={`/legal/${post._raw.flattenedPath}`}>
+              <span className="absolute inset-0" />
+              {post.title}
+            </Link>
+          </h3>
 
-              </div>
-            </article>
+        </div>
+      </article>
     </>
   )
 }

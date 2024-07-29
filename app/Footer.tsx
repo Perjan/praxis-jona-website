@@ -7,6 +7,7 @@ import { localeFromPathname } from "./Header";
 const navigationGerman = {
   copyright: "© 2024 Praxis Jona. Alle Rechte vorbehalten.",
   imprint: "Impressum und Datenschutz",
+  imprintUrl: "/impressum-datenschutz",
   company: [
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
@@ -17,6 +18,7 @@ const navigationGerman = {
 const navigationEnglish = {
   copyright: "© 2024 Praxis Jona. All rights reserved.",
   imprint: "Imprint and Privacy",
+  imprintUrl: "/imprint-privacy",
   company: [
     { name: 'Team', href: '/en/team' },
     { name: 'Blog', href: '/blog' },
@@ -139,13 +141,13 @@ export default function Page() {
         <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
           <div className="text-center md:text-left">
           <p className="text-xs leading-5 text-primaryLighter">{navigation.copyright}</p>
-            <Link href="/impressum-datenschutz" className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
+            <Link href={navigation.imprintUrl} className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
               {navigation.imprint}
             </Link>
             <div className="mt-8 text-xs space-x-1 leading-5 text-gray-500 md:order-1 md:mt-0">
                 <span>{languageLabel}:</span>
-                <Link href="/">🇩🇪 /</Link>
-                <Link href="/en">🇬🇧</Link>
+                <Link href="/">DE /</Link>
+                <Link href="/en">EN</Link>
               </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">
