@@ -6,13 +6,13 @@ export const Services = [
       imageSrc: '/images/leistungen/acuteEmergency.png',
       description: "In unserer Praxis steht für unsere Patienten eine Akutsprechstunde zur Verfügung. Wir bemühen uns stets, die Wartezeiten so gering wie möglich zu halten, möchten jedoch darauf hinweisen, dass es gelegentlich zu Verzögerungen kommen kann. Für den Fall, dass Sie an einer ansteckenden Krankheit leiden oder Fieber haben, bitten wir Sie, dies bereits bei der Terminvereinbarung anzugeben. So können wir sicherstellen, dass angemessene Vorsichtsmaßnahmen ergriffen werden, um die Gesundheit aller unserer Patienten und des Praxisteams zu schützen."
     },
-    {
-      id: 2,
-      name: 'Botulinumtoxin',
-      href: '#2',
-      imageSrc: '/images/leistungen/botox.png',
-      description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten. \n\n\n\n** Verwendung und Anwendungen\n\n**1. Ästhetische Medizin:\n\n - Faltenbehandlung: Botox wird verwendet, um mimische Falten wie Zornesfalten, Stirnfalten und Krähenfüße zu glätten, indem es die Muskelkontraktionen verringert.\n\n - Gesichtsstraffung: Es kann auch in anderen Bereichen des Gesichts eingesetzt werden, um ein jüngeres Aussehen zu erzielen.\n\n\n\n**2. Medizinische Anwendungen:\n\n - Hyperhidrose (übermäßiges Schwitzen): Botox kann in die Haut von Achseln, Händen, Füßen oder anderen Bereichen injiziert werden, um die Schweißproduktion zu reduzieren.\n\n - Migräne: Bei chronischen Migränepatienten kann Botox helfen, die Häufigkeit und Schwere der Kopfschmerzen zu verringern.\n\n - Spastizität und Muskelkrämpfe: Es wird zur Behandlung von Muskelspastizität bei Zuständen wie Zähneknirschen (Bruxismus) verwendet.\n\n\n\n** Nach der Behandlung:\n\n Patienten wird geraten, für 3-4 Tage auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche zu verzichten.\n\n Es ist wichtig, die Injektionsstellen nicht zu massieren oder unnötigem Druck auszusetzen, um eine unerwünschte Ausbreitung des Toxins zu vermeiden."
-    },
+    // {
+    //   id: 2,
+    //   name: 'Botulinumtoxin',
+    //   href: '#2',
+    //   imageSrc: '/images/leistungen/botox.png',
+    //   description: "Botulinumtoxin, oft als Botox bezeichnet, ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Die Injektion von Botulinumtoxin in einen Muskel führt zu einer temporären Lähmung dieses Muskels. Dies verhindert Muskelkontraktionen, entspannt den Muskel und glättet die darüberliegende Haut, wodurch Falten reduziert werden. Die Wirkung ist vorübergehend und erfordert regelmäßige Nachbehandlungen, um den Effekt aufrechtzuerhalten. \n\n\n\n** Verwendung und Anwendungen\n\n**1. Ästhetische Medizin:\n\n - Faltenbehandlung: Botox wird verwendet, um mimische Falten wie Zornesfalten, Stirnfalten und Krähenfüße zu glätten, indem es die Muskelkontraktionen verringert.\n\n - Gesichtsstraffung: Es kann auch in anderen Bereichen des Gesichts eingesetzt werden, um ein jüngeres Aussehen zu erzielen.\n\n\n\n**2. Medizinische Anwendungen:\n\n - Hyperhidrose (übermäßiges Schwitzen): Botox kann in die Haut von Achseln, Händen, Füßen oder anderen Bereichen injiziert werden, um die Schweißproduktion zu reduzieren.\n\n - Migräne: Bei chronischen Migränepatienten kann Botox helfen, die Häufigkeit und Schwere der Kopfschmerzen zu verringern.\n\n - Spastizität und Muskelkrämpfe: Es wird zur Behandlung von Muskelspastizität bei Zuständen wie Zähneknirschen (Bruxismus) verwendet.\n\n\n\n** Nach der Behandlung:\n\n Patienten wird geraten, für 3-4 Tage auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche zu verzichten.\n\n Es ist wichtig, die Injektionsstellen nicht zu massieren oder unnötigem Druck auszusetzen, um eine unerwünschte Ausbreitung des Toxins zu vermeiden."
+    // },
     {
       id: 3,
       name: 'Diagnostik der Bauchorgane (Abdomensonographie)',
@@ -58,13 +58,13 @@ export const Services = [
       imageSrc: '/images/leistungen/acuteEmergency.png',
       description: "Emergency consultation hours are available for our patients in our practice. We always try to keep waiting times as short as possible, but would like to point out that delays may occasionally occur. If you are suffering from an infectious disease or have fever, please let us know before you come in our clinic. This way we can ensure that appropriate precautions are taken to protect the health of all our patients and our team."
     },
-    {
-      id: 2,
-      name: 'Botox',
-      href: '#2',
-      imageSrc: '/images/leistungen/botox.png',
-      description: "Botulinum toxin, often referred to as Botox, is a neurotoxin produced by the bacterium Clostridium botulinum. The injection of botulinum toxin into a muscle leads to a temporary paralysis of this muscle. This prevents muscle contractions, relaxes the muscle and smoothes the overlying skin, reducing wrinkles. The effect is temporary and requires regular follow-up treatments to maintain the effect. \n\n\n\n** Uses and applications\n\n**1. Aesthetic medicine:\n\n - Wrinkle treatment: Botox is used to smooth mimic wrinkles such as frown lines, forehead wrinkles and crow's feet by reducing muscle contractions. \n\n - Facelift: It can also be used in other areas of the face to achieve a more youthful appearance.\n\n\n\n**2. Medical applications:\n\n - Hyperhidrosis (excessive sweating): Botox can be injected into the skin of the armpits, hands, feet or other areas to reduce sweat production.\n\n - Migraine: For chronic migraine sufferers, Botox can help reduce the frequency and severity of headaches.\n\n - Spasticity and muscle spasms: It is used to treat muscle spasticity in conditions such as teeth grinding (bruxism). \n\n\n\n** After treatment:\n\nPatients are advised to refrain from physical activities such as sports, swimming and sauna visits for 3-4 days.\n\nIt is important not to massage the injection sites or subject them to unnecessary pressure to avoid unwanted spread of the toxin."
-    },
+    // {
+    //   id: 2,
+    //   name: 'Botox',
+    //   href: '#2',
+    //   imageSrc: '/images/leistungen/botox.png',
+    //   description: "Botulinum toxin, often referred to as Botox, is a neurotoxin produced by the bacterium Clostridium botulinum. The injection of botulinum toxin into a muscle leads to a temporary paralysis of this muscle. This prevents muscle contractions, relaxes the muscle and smoothes the overlying skin, reducing wrinkles. The effect is temporary and requires regular follow-up treatments to maintain the effect. \n\n\n\n** Uses and applications\n\n**1. Aesthetic medicine:\n\n - Wrinkle treatment: Botox is used to smooth mimic wrinkles such as frown lines, forehead wrinkles and crow's feet by reducing muscle contractions. \n\n - Facelift: It can also be used in other areas of the face to achieve a more youthful appearance.\n\n\n\n**2. Medical applications:\n\n - Hyperhidrosis (excessive sweating): Botox can be injected into the skin of the armpits, hands, feet or other areas to reduce sweat production.\n\n - Migraine: For chronic migraine sufferers, Botox can help reduce the frequency and severity of headaches.\n\n - Spasticity and muscle spasms: It is used to treat muscle spasticity in conditions such as teeth grinding (bruxism). \n\n\n\n** After treatment:\n\nPatients are advised to refrain from physical activities such as sports, swimming and sauna visits for 3-4 days.\n\nIt is important not to massage the injection sites or subject them to unnecessary pressure to avoid unwanted spread of the toxin."
+    // },
     {
       id: 3,
       name: 'Diagnostics of the Abdominal Organs (Abdominal Sonography)',
