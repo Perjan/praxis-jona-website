@@ -15,10 +15,10 @@ export const Constants = {
     },
     openingHours: [
         { day: 'Montag', dayEn: "Monday", hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
-        { day: 'Dienstag', dayEn: "Tuesday", hours: '08:00 - 14:00' },
-        { day: 'Mittwoch', dayEn: "Wednesday", hours: '08:00 - 12:00' },
-        { day: 'Donnerstag', dayEn: "Thursday", hours: '13:00 - 18:00' },
-        { day: 'Freitag', dayEn: "Friday", hours: '08:00 - 12:00' },
+        { day: 'Dienstag', dayEn: "Tuesday", hours: '08:30 - 14:30' },
+        { day: 'Mittwoch', dayEn: "Wednesday", hours: '08:30 - 12:30' },
+        { day: 'Donnerstag', dayEn: "Thursday", hours: '12:00 - 17:00' },
+        { day: 'Freitag', dayEn: "Friday", hours: '08:30 - 12:30' },
         { day: 'Samstag', dayEn: "Saturday", hours: 'Geschlossen' },
         { day: 'Sonntag', dayEn: "Sunday", hours: 'Geschlossen' },
     ]

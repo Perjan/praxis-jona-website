@@ -72,7 +72,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
-                                    <CardContent title={"From 22.07. to 02.08.2024"} message={"Limited opening hours due to holiday\n\nMonday 8:00 - 12:00\nTuesday 8:00 - 14:00\nWednesday 8:00 - 12:00\nThursday 13:00 - 18:00\nFriday closed"} />
+                                    <CardContent title={"From 05.08. to 16.08."} message={"Limited opening hours due to holiday\n\nTuesday 8:00 - 13:00"} />
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
