@@ -59,5 +59,6 @@ export default function Features() {
                 description2="Our practice focuses in particular on the treatment of thyroid disorders, high blood pressure, lipid metabolic disorders and nutritional medicine."
                 description3="We look forward to welcoming you personally to our practice in Berlin Mitte and to working with you on your health. " />
         </>
+        
     );
 }
