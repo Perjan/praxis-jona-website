@@ -19,14 +19,16 @@ const navigationItemsGerman = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
     { title: "Team", href: "/team" },
-    { title: "Aktuelles", href: "/aktuelles" }
+    { title: "Aktuelles", href: "/aktuelles" },
+    { title: "Apps", href: "/apps" }
 ]
 
 const navigationItemsEnglish = [
     { title: "Specialty Areas", href: "/en/focus-areas" },
     { title: "Services", href: "/en/services" },
     { title: "Team", href: "/en/team" },
-    { title: "Latest News", href: "/en/latest-news" }
+    { title: "Latest News", href: "/en/latest-news" },
+    { title: "Apps", href: "/en/apps" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
@@ -169,7 +171,7 @@ export default function Header() {
                     </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
-                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex">
+                <div className="hidden sm:flex mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1">
                     <Link prefetch={false} href="/">DE /</Link>
                     <Link prefetch={false} href="/en">EN</Link>
                 </div>
