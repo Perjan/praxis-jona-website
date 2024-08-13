@@ -118,7 +118,7 @@ export default function Header() {
                             className="h-14 w-auto object-contain cursor-pointer"
                             src={Logo}
                             alt="Praxis Jona Logo"
-                            aria-hidden="true" 
+                            aria-hidden="true"
                         />
                         <span className="sr-only hidden">Praxis Jona</span>
                     </Link>
@@ -139,39 +139,39 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:flex-2 lg:justify-end">
-                <Popover.Group className="hidden px-10 lg:flex items-center lg:gap-x-8">
-                    <Popover className="relative">
+                    <Popover.Group className="hidden px-10 lg:flex items-center lg:gap-x-8">
+                        <Popover className="relative">
 
-                        <Transition
-                            as={Fragment}
-                            enter="transition ease-out duration-200"
-                            enterFrom="opacity-0 translate-y-1"
-                            enterTo="opacity-100 translate-y-0"
-                            leave="transition ease-in duration-150"
-                            leaveFrom="opacity-100 translate-y-0"
-                            leaveTo="opacity-0 translate-y-1"
-                        >
-                        </Transition>
-                    </Popover>
-                    {navigationItems.map((item) =>
-                        <Link
-                            key={item.title}
-                            href={item.href}
-                            scroll={true}
-                            className={
-                                cn(pathname === item.href ? "text-green-700" : "text-gray-900",
-                                    "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600")
-                            }
-                        >{item.title}
-                        </Link>
+                            <Transition
+                                as={Fragment}
+                                enter="transition ease-out duration-200"
+                                enterFrom="opacity-0 translate-y-1"
+                                enterTo="opacity-100 translate-y-0"
+                                leave="transition ease-in duration-150"
+                                leaveFrom="opacity-100 translate-y-0"
+                                leaveTo="opacity-0 translate-y-1"
+                            >
+                            </Transition>
+                        </Popover>
+                        {navigationItems.map((item) =>
+                            <Link
+                                key={item.title}
+                                href={item.href}
+                                scroll={true}
+                                className={
+                                    cn(pathname === item.href ? "text-green-700" : "text-gray-900",
+                                        "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600")
+                                }
+                            >{item.title}
+                            </Link>
 
-                    )}
-                </Popover.Group>
+                        )}
+                    </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
-                <div className="mt-0 pl-4 mx-auto space-x-1 leading-5 text-gray-500 md:order-1">
-                                <Link prefetch={false} href="/">DE /</Link>
-                                <Link prefetch={false} href="/en">EN</Link>
+                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex">
+                    <Link prefetch={false} href="/">DE /</Link>
+                    <Link prefetch={false} href="/en">EN</Link>
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
