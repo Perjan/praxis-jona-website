@@ -14,19 +14,22 @@ import { cn } from './lib/utils'
 
 import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
+import { LanguagePicker } from './LanguagePicker'
 
 const navigationItemsGerman = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
     { title: "Team", href: "/team" },
-    { title: "Aktuelles", href: "/aktuelles" }
+    { title: "Aktuelles", href: "/aktuelles" },
+    { title: "Service & Kontakt", href: "/kontakt" }
 ]
 
 const navigationItemsEnglish = [
     { title: "Specialty Areas", href: "/en/focus-areas" },
     { title: "Services", href: "/en/services" },
     { title: "Team", href: "/en/team" },
-    { title: "Latest News", href: "/en/latest-news" }
+    { title: "Latest News", href: "/en/latest-news" },
+    { title: "Service & Contakt", href: "/en/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
@@ -37,29 +40,26 @@ function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-function downloadAppTitle(locale: string) {
+function bookAppointmentTitle(locale: string) {
     if (locale === "en") {
-        return "Services & Contact"
+        return "Book Appointment"
     } else {
-        return "Service & Kontakt"
+        return "Termin buchen"
     }
 }
 
-function downloadAppUrl(locale: string) {
-    if (locale === "en") {
-        return "/en/contact"
-    } else {
-        return "/kontakt"
-    }
+function bookAppointmentUrl(locale: string) {
+    return "/termin-buchen"
 }
 
 export function DownloadButton({ url, locale, title }) {
     return (
         <Link
-            href={downloadAppUrl(locale)}
+            href={bookAppointmentUrl(locale)}
+            target="_blank"
             className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="button-in-header"
-        >{downloadAppTitle(locale)}
+        >{bookAppointmentTitle(locale)}
         </Link>
     )
 }
@@ -139,7 +139,7 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:flex-2 lg:justify-end">
-                    <Popover.Group className="hidden px-10 lg:flex items-center lg:gap-x-8">
+                    <Popover.Group className="hidden pr-10 lg:flex items-center lg:gap-x-8">
                         <Popover className="relative">
 
                             <Transition
@@ -169,9 +169,8 @@ export default function Header() {
                     </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                 </div>
-                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex">
-                    <Link prefetch={false} href="/">DE /</Link>
-                    <Link prefetch={false} href="/en">EN</Link>
+                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex items-center">
+                    {LanguagePicker(locale)}
                 </div>
             </nav>
             <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -207,10 +206,9 @@ export default function Header() {
                             <div className="py-6">
                                 <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
                             </div>
-                            <div className="mt-0 space-x-1 leading-5 text-gray-500 md:order-1 pt-8">
-                                <span>{languageLabel}:</span>
-                                <Link prefetch={false} href="/">DE /</Link>
-                                <Link prefetch={false} href="/en">EN</Link>
+                            <div className="mt-0 space-x-1 leading-5md:order-1 pt-8">
+                                <span className=" text-gray-500">{languageLabel}:</span>
+                                {LanguagePicker(locale)}
                             </div>
                         </div>
                     </div>
@@ -219,7 +217,6 @@ export default function Header() {
         </header>
     )
 }
-
 
 export const useScrollPosition = () => {
     const [scrollPosition, setScrollPosition] = useState(0)

@@ -6,9 +6,10 @@ export const Constants = {
     umamiId: "cc9a5b16-c893-492f-af55-e6b79a844358",
     dataDomain: "praxisjona.de",
     address: "Torstraße 125\n10119, Berlin",
+    appointmentUrl: "/termin-buchen",
     contact: {
         phone: "030 / 40054273",
-        phoneUrl: "tel://03040054273",
+        phoneUrl: "tel://+493040054273",
         fax: "030 / 40054275",
         email: "info@praxisjona.de",
         emailUrl: "mailto:info@praxisjona.de"
