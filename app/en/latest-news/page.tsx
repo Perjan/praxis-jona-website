@@ -1,3 +1,4 @@
+import { Constants } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Latest News'
@@ -99,7 +100,7 @@ export default function Page() {
 
                                                             <p className="text-md pt-4">
                                                             If you have a positive Covid self-test, please send us the following information by e-mail:<br></br>
-                                                                E-Mail: <a href="mailto:info@praxisjona.de" className="text-primary font-semibold">info@praxisjona.de</a><br></br>
+                                                                E-Mail: <a href={Constants.contact.emailUrl} className="text-primary font-semibold">{Constants.contact.email}</a><br></br>
                                                                 Your symptoms:<br></br>
                                                                 Your address:<br></br>
                                                                 Mobile phone number:<br></br>
