@@ -38,6 +38,11 @@ const nextConfig = {
         permanent: true
       },
       {
+        source: '/qr-google-review',
+        destination: 'https://g.page/r/CcOilvpHHoT3EB0/review',
+        permanent: true
+      },
+      {
         source: '/images',
         destination: '/',
         permanent: true
