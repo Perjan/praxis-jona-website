@@ -184,8 +184,8 @@ export default function ContactSection() {
                         <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
                       </dd>
                       <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
-                        <ReusableButton url="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" title={"Google Maps"} />
-                        <ReusableButton url="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" title={"Apple Maps"} />
+                        <ReusableButton url={Constants.contact.googleMapsUrl} title={"Google Maps"} />
+                        <ReusableButton url={Constants.contact.appleMapsUrl} title={"Apple Maps"} />
                       </div>
                     </div>
                   </dl>

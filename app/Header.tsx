@@ -21,7 +21,7 @@ const navigationItemsGerman = [
     { title: "Leistungen", href: "/leistungen" },
     { title: "Team", href: "/team" },
     { title: "Aktuelles", href: "/aktuelles" },
-    { title: "Service & Kontakt", href: "/kontakt" }
+    { title: "Kontakt", href: "/kontakt" }
 ]
 
 const navigationItemsEnglish = [
@@ -29,7 +29,7 @@ const navigationItemsEnglish = [
     { title: "Services", href: "/en/services" },
     { title: "Team", href: "/en/team" },
     { title: "Latest News", href: "/en/latest-news" },
-    { title: "Service & Contakt", href: "/en/contact" }
+    { title: "Contact", href: "/en/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
