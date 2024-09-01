@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Constants } from "./Constants"
 import { usePathname } from "next/navigation";
 import { localeFromPathname } from "./Header";
+import { LanguagePicker } from "./LanguagePicker";
 
 const navigationGerman = {
   copyright: "© 2024 Praxis Jona. Alle Rechte vorbehalten.",
@@ -89,10 +90,10 @@ export default function Page() {
               <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
             </div>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              <a href="https://maps.app.goo.gl/bBYgMkkHZrF6z1gy9" target="_blank" className="underline">{googleMapsLabel}</a>
+              <a href={Constants.contact.googleMapsUrl} target="_blank" className="underline">{googleMapsLabel}</a>
             </p>
             <p className="text-sm leading-6 text-primaryLighter">
-              <a href="https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&ll=52.529748,13.400656&q=Torstra%C3%9Fe%20125" target="_blank" className="underline">{appleMapsLabel}</a>
+              <a href={Constants.contact.appleMapsUrl} target="_blank" className="underline">{appleMapsLabel}</a>
             </p>
           </div>
           <div className="text-center sm:text-left">
@@ -114,11 +115,12 @@ export default function Page() {
                 {openingHours.map((item) => (
                   <div key={item.day} className="flex justify-center sm:justify-normal">
                     <div className="flex-none w-24 mt-2">
-                      <p>{locale === "en" ? item.dayEn : item.day}</p>                    
+                      <p>{locale === "en" ? item.dayEn : item.day}</p>
                     </div>
                     <div className="flex-initial mt-2">
-                      <p dangerouslySetInnerHTML={{ __html: item.hours.replace(/<br>/g, '<br />').replace("Geschlossen", locale === "en" ? 'Closed' : "Geschlossen")                      
-                    }} />
+                      <p dangerouslySetInnerHTML={{
+                        __html: item.hours.replace(/<br>/g, '<br />').replace("Geschlossen", locale === "en" ? 'Closed' : "Geschlossen")
+                      }} />
                     </div>
                   </div>
                 ))}
@@ -140,15 +142,16 @@ export default function Page() {
         </div>
         <div className="mt-8 border-t border-gray-900/10 pt-8 flex flex-col items-center md:flex-row md:items-center md:justify-between">
           <div className="text-center md:text-left">
-          <p className="text-xs leading-5 text-primaryLighter">{navigation.copyright}</p>
-            <Link href={navigation.imprintUrl} className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
-              {navigation.imprint}
-            </Link>
-            <div className="mt-8 text-xs space-x-1 leading-5 text-gray-500 md:order-1 md:mt-0">
-                <span>{languageLabel}:</span>
-                <Link href="/">DE /</Link>
-                <Link href="/en">EN</Link>
-              </div>
+            <div className="text-xs leading-5 text-primaryLighter">
+              {navigation.copyright}
+              <Link href={navigation.imprintUrl} className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
+                {navigation.imprint}
+              </Link></div>
+
+            <div className="mt-8 text-xs space-x-1 leading-5 md:order-1 md:mt-0">
+              <span className=" text-gray-500">{languageLabel}:</span>
+              {LanguagePicker(locale)}
+            </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">
             {socials.map((item) => (

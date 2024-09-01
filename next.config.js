@@ -18,6 +18,16 @@ const nextConfig = {
   redirects: async () => {
     return [
       {
+        source: '/termin-buchen',
+        destination: 'https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&amp;utm_source=gjolli-jonida-website-button&amp;utm_medium=referral&amp;utm_content=option-8&amp;utm_term=gjolli-jonida',
+        permanent: false
+      },
+      {
+        source: '/termin-buchen-gm',
+        destination: 'https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_source=google-maps&utm_campaign=google-maps',
+        permanent: false
+      },
+      {
         source: '/author-sitemap.xml',
         destination: '/404',
         permanent: true
@@ -26,6 +36,11 @@ const nextConfig = {
         source: '/qr',
         destination: '/',
         permanent: true
+      },
+      {
+        source: '/qr-google-review',
+        destination: 'https://g.page/r/CcOilvpHHoT3EB0/review',
+        permanent: false
       },
       {
         source: '/images',

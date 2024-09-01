@@ -6,12 +6,16 @@ export const Constants = {
     umamiId: "cc9a5b16-c893-492f-af55-e6b79a844358",
     dataDomain: "praxisjona.de",
     address: "Torstraße 125\n10119, Berlin",
+    appointmentUrl: "/termin-buchen",
     contact: {
         phone: "030 / 40054273",
-        phoneUrl: "tel://03040054273",
+        phoneUrl: "tel://+493040054273",
         fax: "030 / 40054275",
         email: "info@praxisjona.de",
-        emailUrl: "mailto:info@praxisjona.de"
+        emailUrl: "mailto:info@praxisjona.de",
+        googleMapsUrl: "https://maps.app.goo.gl/2gL1xkWUpRKRcajK8",
+        appleMapsUrl: "https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&auid=5736151680530482814&ll=52.529748,13.400656&lsp=9902&q=Praxis%20Jona"
+
     },
     openingHours: [
         { day: 'Montag', dayEn: "Monday", hours: '08:00 - 12:00 <br> 15:00 - 18:00' },

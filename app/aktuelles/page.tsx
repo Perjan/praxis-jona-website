@@ -1,3 +1,4 @@
+import { Constants } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Aktuelles'
@@ -100,7 +101,7 @@ export default function Page() {
 
                                                             <p className="text-md pt-4">
                                                                 Sollten Sie einen positiven Covid-Selbsttest haben, senden Sie uns bitte folgende Informationen per E-Mail zu:<br></br>
-                                                                E-Mail: <a href="mailto:info@praxisjona.de" className="text-primary font-semibold">info@praxisjona.de</a><br></br>
+                                                                E-Mail: <a href={Constants.contact.emailUrl} className="text-primary font-semibold">{Constants.contact.email}</a><br></br>
                                                                 Ihre Symptome:<br></br>
                                                                 Ihre Anschrift:<br></br>
                                                                 Mobilfunknummer:<br></br>

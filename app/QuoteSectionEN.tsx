@@ -14,8 +14,8 @@ export default function QuoteSection(params: { quote: string }) {
           </blockquote>
           <figcaption className="mt-10">
             <Image
-              className="mx-auto h-10 w-10 rounded-full"
-              src="/images/team/jona-square.png"
+              className="mx-auto h-28 w-28 rounded-full"
+              src="/images/team/jonida-image.jpeg"
               alt=""
               width={100}
               height={100}

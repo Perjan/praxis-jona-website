@@ -25,7 +25,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: url
+      de: url,
+      en: "/en/contact"
     }
   },
   twitter: {
