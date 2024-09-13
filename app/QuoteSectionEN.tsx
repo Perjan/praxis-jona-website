@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export default function QuoteSection(params: { quote: string }) {
   return (
@@ -28,6 +29,14 @@ export default function QuoteSection(params: { quote: string }) {
             </div>
           </figcaption>
         </figure>
+        <div className="mt-4 flex justify-center">
+          <Link
+            href="/en/team"
+            className="rounded-lg bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+          >
+            Read more about our team
+          </Link>
+        </div>
       </div>
     </section>
   )
