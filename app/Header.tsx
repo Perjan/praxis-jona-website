@@ -6,7 +6,6 @@ import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import Image from 'next/image'
 
 import {
-    Bars3Icon,
     XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
@@ -137,7 +136,7 @@ export default function Header() {
                         onClick={() => setMobileMenuOpen(true)}
                     >
                         <span className="sr-only">Open main menu</span>
-                        <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                        <CustomHamburgerIcon />
                     </button>
                 </div>
                 <div className="hidden lg:flex lg:flex-2 lg:justify-end">
@@ -237,3 +236,11 @@ export const useScrollPosition = () => {
 
     return scrollPosition
 }
+
+const CustomHamburgerIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#000000"} fill={"none"}>
+        <path d="M4 5L20 5" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 12L20 12" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M4 19L20 19" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+)
