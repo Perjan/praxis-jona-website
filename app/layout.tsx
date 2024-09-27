@@ -1,4 +1,5 @@
 import './globals.css'
+import './styles/animations.css' // This line should now work
 import Header from './Header'
 import { Analytics } from '@vercel/analytics/react';
 import Footer from './Footer';
