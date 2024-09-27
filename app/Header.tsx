@@ -53,12 +53,12 @@ function bookAppointmentUrl(locale: string) {
     return "/termin-buchen"
 }
 
-export function DownloadButton({ url, locale, title }) {
+export function DownloadButton({ url, locale }) {
     return (
         <Link
             href={bookAppointmentUrl(locale)}
             target="_blank"
-            className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
+            className="block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="button-in-header"
         >{bookAppointmentTitle(locale)}
         </Link>
@@ -102,7 +102,6 @@ export default function Header() {
 
     return (
         <header
-            // className="bg-white sticky top-0"
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
                 'sticky top-0 z-20 transition-shadow backdrop-blur-md bg-white/30',
@@ -126,10 +125,6 @@ export default function Header() {
                 </div>
 
                 <div className="flex lg:hidden">
-                    <div className='mr-2'>
-                        <DownloadButton url={downloadUrl} locale={locale} title={"Kontakt"} />
-                    </div>
-
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -168,53 +163,21 @@ export default function Header() {
 
                         )}
                     </Popover.Group>
-                    <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
+                    <DownloadButton url={downloadUrl} locale={locale} />
                 </div>
                 <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex items-center">
                     {LanguagePicker(locale)}
                 </div>
             </nav>
-            <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                <div className="fixed inset-0 z-40" />
-                <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto backdrop-filter backdrop-blur-md bg-white/80 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div className="items-end content-end">
-                        <button
-                            type="button"
-                            className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            <span className="sr-only">Close menu</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                    </div>
-                    <div className="mt-6 flow-root">
-                        <div className="-my-6 divide-y divide-gray-500/10">
-                            <div className="space-y-2 py-6">
-                                {navigationItemsMobile.map((item) =>
-                                    <Link
-                                        key={item.title}
-                                        href={item.href}
-                                        className={
-                                            cn(pathname === item.href ? "text-green-700" : "text-gray-900",
-                                                menuItemClassName)
-                                        }
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >{item.title}
-                                    </Link>
-
-                                )}
-                            </div>
-                            <div className="py-6">
-                                <DownloadButton url={downloadUrl} locale={locale} title={"Service & Kontakt"} />
-                            </div>
-                            <div className="mt-0 space-x-1 leading-5md:order-1 pt-8">
-                                <span className=" text-gray-500">{languageLabel}:</span>
-                                {LanguagePicker(locale)}
-                            </div>
-                        </div>
-                    </div>
-                </Dialog.Panel>
-            </Dialog>
+            <MobileMenuDialog
+                mobileMenuOpen={mobileMenuOpen}
+                setMobileMenuOpen={setMobileMenuOpen}
+                navigationItemsMobile={navigationItemsMobile}
+                pathname={pathname}
+                downloadUrl={downloadUrl}
+                locale={locale}
+                languageLabel={languageLabel}
+            />
         </header>
     )
 }
@@ -244,3 +207,48 @@ const CustomHamburgerIcon = () => (
         <path d="M4 19L20 19" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 )
+
+function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMobile, pathname, downloadUrl, locale, languageLabel }) {
+    return (
+        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+            <div className="fixed inset-0 z-40" />
+            <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto backdrop-filter backdrop-blur-md bg-white/80 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                <div className="flex justify-end">
+                    <button
+                        type="button"
+                        className="rounded-md p-2.5 text-gray-700"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        <span className="sr-only">Close menu</span>
+                        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                    </button>
+                </div>
+                <div className="mt-6 flow-root">
+                    <div className="-my-6 divide-y divide-gray-500/10">
+                        <div className="py-6">
+                            <DownloadButton url={downloadUrl} locale={locale} />
+                        </div>
+                        <div className="space-y-2 py-6">
+                            {navigationItemsMobile.map((item) =>
+                                <Link
+                                    key={item.title}
+                                    href={item.href}
+                                    className={
+                                        cn(pathname === item.href ? "text-green-700" : "text-gray-900",
+                                            menuItemClassName)
+                                    }
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >{item.title}
+                                </Link>
+                            )}
+                        </div>
+                        <div className="mt-0 space-x-1 leading-5md:order-1 pt-8">
+                            <span className=" text-gray-500">{languageLabel}:</span>
+                            {LanguagePicker(locale)}
+                        </div>
+                    </div>
+                </div>
+            </Dialog.Panel>
+        </Dialog>
+    )
+}
