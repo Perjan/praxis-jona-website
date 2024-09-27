@@ -1,6 +1,26 @@
 import Image from 'next/image';
 
-export function AppCard({ app }) {
+export default function AppsPageBody({title, description, apps}) {
+  return (
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:text-center">
+          <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
+          <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
+        </div>
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
+            {apps.map((app) => (
+              <AppCard key={app.name} app={app} />
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function AppCard({ app }) {
   return (
     <div className="flex flex-col">
       <h2 className="flex items-center gap-x-3 text-xl font-semibold leading-7 text-primary">

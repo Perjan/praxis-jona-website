@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { appsDE } from 'app/data/appsDE';
-import { AppCard } from 'app/components/AppComponents';
+import AppsPageBody from 'app/components/AppsPageComponents';
 
 const title = "Unsere Apps"
 const description = "Entdecken Sie unsere Auswahl an Gesundheits- und Wellness-Apps, die entwickelt wurden, um Sie auf Ihrem Weg zu besserer Gesundheit zu unterstützen."
@@ -40,20 +40,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
-          <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
-        </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
-            {appsDE.map((app) => (
-              <AppCard key={app.name} app={app} />
-            ))}
-          </dl>
-        </div>
-      </div>
-    </div>
+    <AppsPageBody title={title} description={description} apps={appsDE} />
   )
 }
