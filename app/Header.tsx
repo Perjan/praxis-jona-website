@@ -28,7 +28,7 @@ const navigationItemsEnglish = [
     { title: "Specialty Areas", href: "/en/focus-areas" },
     { title: "Services", href: "/en/services" },
     { title: "Team", href: "/en/team" },
-    { title: "Apps", href: "/en/apps" }
+    { title: "Apps", href: "/en/apps" },
     { title: "Latest News", href: "/en/latest-news" },
     { title: "Contact", href: "/en/contact" }
 ]

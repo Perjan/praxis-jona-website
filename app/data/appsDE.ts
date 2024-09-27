@@ -1,50 +1,50 @@
 export const appsDE = [
   {
     name: "Feat - Ernährungsplaner & Ernährungscoach",
-    description: "Eine personalisierte Ernährungsplan-App, entwickelt von Praxis Jona und Imperium Apps, maßgeschneidert für Bluthochdruck, Autoimmunerkrankungen und Lipidstoffwechselstörungen.",
+    description: "Entwickelt von Praxis Jona und Imperium Apps GmbH. Ein individueller Ernährungsplan, erstellt von uns. Unsere personalisierten Ernährungspläne, sind auf Menschen zugeschnitten, die unter Bluthochdruck, Autoimmunerkrankungen oder Fettstoffwechselstörungen leiden.",
     benefits: [
-      "Personalisierte Ernährungspläne von einem Arzt & Ernährungsberater",
-      "Maßgeschneidert für Bluthochdruck, Autoimmunerkrankungen und Lipidstörungen",
-      "Gesunde Gewichtsabnahme durch natürliche Ernährung",
-      "Individuelle Ernährungspläne für Ihre spezifische Erkrankung",
-      "Fortschrittskontrolle mit unserem Arzt (Gold- & Platin-Pakete)"
+"Individuelle Ernährungspläne für Ihre spezifische Erkrankung oder Situation",
+      "Gesunde Gewichtsabnahme oder -zunahme durch natürliche Ernährung",
+      "Speziell angepasst für Menschen mit Bluthochdruck, Autoimmunerkrankungen und Lipidstörungen",
+      "Fortschrittskontrolle bei uns in Berlin oder Online (Gold- & Platin-Pakete)"
     ],
-    image: "https://f-eat.com/images/app-screenshot.png",
+    image: "https://f-eat.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeat-all-devices.bb6b142d.png&w=2048&q=100",
     downloadLink: {
       website: "https://f-eat.com",
-      ios: "https://apps.apple.com/app/id1661681601"
+      ios: "https://apps.apple.com/de/app/weight-loss-meal-plans-feat/id1586331711?l=de"
     }
   },
   {
     name: "Bioscientia Patienten-App",
-    description: "Greifen Sie schnell und einfach auf Ihre Laborergebnisse zu mit der Bioscientia Patienten-App.",
+    description: "Die Pat.App ist eine fortschrittliche und benutzerfreundliche Anwendung, die es Ihnen ermöglicht, einfach, sicher und bequem auf Ihre Labor-Befunde zuzugreifen. Auch außerhalb der Öffnungszeiten Ihrer Praxis und ganz ohne Wartezeit.",
     benefits: [
       "Einsicht in Ihre Laborergebnisse jederzeit und überall",
+      "Einfacher Zugriff auf Ihre Laborergebnisse via QR-Code oder Auftragsschlüssel",
+      "Ohne Wartezeit und von überall aus.",
+      "Push-Benachrichtigungen über den Status Ihrer Laboruntersuchung",
       "Grafische Darstellung Ihrer Werte im Zeitverlauf",
-      "Erklärungen zu medizinischen Fachbegriffen",
-      "Sicherer Zugang mit Zwei-Faktor-Authentifizierung",
       "Kostenlos"
     ],
-    image: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/a1/fc/d7/a1fcd7b4-b8e1-3524-0e2d-07f6a5d2f2b1/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.webp",
+    image: "https://www.bioscientia.de/media/0ochl4v3/app_screenshots.png?rmode=max&width=500",
     downloadLink: {
-      android: "https://play.google.com/store/apps/details?id=de.bioscientia.patientenapp",
-      ios: "https://apps.apple.com/de/app/bioscientia-patientenapp/id1438743501"
+      android: "https://play.google.com/store/apps/details?id=de.docnet.app.patapp&hl=de",
+      ios: "https://apps.apple.com/de/app/bioscientia-pat-app/id1636669119?l=en-GB"
     }
   },
   {
-    name: "AppScreenTime",
-    description: "Eine medizinisch fundierte Digital-Detox-App, entwickelt zur Bekämpfung von Bildschirmzeitsucht und zur Förderung gesünderer Technologiegewohnheiten.",
+    name: "SandFlow - Bildschirmzeit Tracker",
+    description: "Eine Digital-Detox-App, entwickelt zur Bekämpfung von Bildschirmzeitsucht und zur Förderung gesünderer Technologiegewohnheiten. Praxis Jona hat bei der Entwicklung der App geholfen, indem sie ihre Erfahrungen in den Bereichen Gesundheit und Technologie eingebracht hat.",
     benefits: [
-      "Umfassendes Tracking der Bildschirmzeit über alle Geräte hinweg",
+      "Privat. Sicher. Kein Login.",
+      "Ihre Bildschirmzeit in Echtzeit sehen",
+      "Sehen die Bildschirmzeit Ihre Familie und Freunde (Einladung erforderlich)",
       "Personalisierte Einblicke in digitale Verhaltensmuster",
-      "Anpassbare App-Blockierung und Nutzungslimits",
-      "Achtsamkeitsübungen zur Reduzierung der Technologieabhängigkeit",
       "Fortschrittsberichte zur Unterstützung langfristiger Verhaltensänderungen"
     ],
-    image: "https://appscreentime.com/wp-content/uploads/2022/10/appscreentime-hero-2.png",
+    image: "https://appscreentime.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frtst-all-devices.5490a794.png&w=2048&q=100",
     downloadLink: {
       website: "https://appscreentime.com",
-      ios: "https://apps.apple.com/us/app/appscreentime/id1613102481"
+      ios: "https://apps.apple.com/us/app/screen-time-realtime/id6452629146?pt=118449936&ct=praxisjona&mt=8"
     }
   }
 ];

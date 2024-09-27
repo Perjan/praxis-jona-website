@@ -1,50 +1,50 @@
 export const appsEN = [
   {
-    name: "Feat - Meal Planner & Nutrition Coach",
-    description: "A personalized meal plan app, created by Praxis Jona and Imperium Apps, tailored for high blood pressure, autoimmune diseases, and lipid metabolic disorders.",
+    name: "Feat - Nutrition Planner & Nutrition Coach",
+    description: "Developed by Praxis Jona and Imperium Apps GmbH. An individual nutrition plan, created by us. Our personalized nutrition plans are tailored for people suffering from high blood pressure, autoimmune diseases, or lipid metabolism disorders.",
     benefits: [
-      "Personalized meal plans by a medical doctor & nutritionist",
-      "Tailored for high blood pressure, autoimmune diseases, and lipid disorders",
-      "Healthy weight loss through natural eating",
-      "Custom nutrition plans for your specific condition",
-      "Progress check-ups with our doctor (Gold & Platinum packages)"
+      "Individual nutrition plans for your specific illness or situation",
+      "Healthy weight loss or gain through natural nutrition",
+      "Specially adapted for people with high blood pressure, autoimmune diseases, and lipid disorders",
+      "Progress monitoring with us in Berlin or online (Gold & Platinum packages)"
     ],
-    image: "https://f-eat.com/images/app-screenshot.png",
+    image: "https://f-eat.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeat-all-devices.bb6b142d.png&w=2048&q=100",
     downloadLink: {
       website: "https://f-eat.com",
-      ios: "https://apps.apple.com/app/id1661681601"
+      ios: "https://apps.apple.com/us/app/weight-loss-meal-plans-feat/id1586331711"
     }
   },
   {
     name: "Bioscientia Patient App",
-    description: "Access your laboratory results quickly and easily with the Bioscientia patient app.",
+    description: "The Patient App is an advanced and user-friendly application that allows you to access your laboratory results easily, securely, and conveniently. Even outside your doctor's office hours and without any waiting time.",
     benefits: [
-      "View your laboratory results anytime, anywhere",
+      "View your laboratory results anytime and anywhere",
+      "Easy access to your laboratory results via QR code or order key",
+      "No waiting time and accessible from anywhere",
+      "Push notifications about the status of your laboratory examination",
       "Graphical display of your values over time",
-      "Explanations of medical terms",
-      "Secure access with two-factor authentication",
       "Free of charge"
     ],
-    image: "https://is1-ssl.mzstatic.com/image/thumb/Purple116/v4/a1/fc/d7/a1fcd7b4-b8e1-3524-0e2d-07f6a5d2f2b1/AppIcon-0-0-1x_U007emarketing-0-0-0-5-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/246x0w.webp",
+    image: "https://www.bioscientia.de/media/0ochl4v3/app_screenshots.png?rmode=max&width=500",
     downloadLink: {
-      android: "https://play.google.com/store/apps/details?id=de.bioscientia.patientenapp",
-      ios: "https://apps.apple.com/de/app/bioscientia-patientenapp/id1438743501"
+      android: "https://play.google.com/store/apps/details?id=de.docnet.app.patapp&hl=en",
+      ios: "https://apps.apple.com/us/app/bioscientia-pat-app/id1636669119"
     }
   },
   {
-    name: "AppScreenTime",
-    description: "A medically-informed digital detox app designed to combat screen time addiction and promote healthier technology habits.",
+    name: "SandFlow - Screen Time Tracker",
+    description: "A digital detox app developed to combat screen time addiction and promote healthier technology habits. Praxis Jona helped in the development of the app by contributing their experience in the fields of health and technology.",
     benefits: [
-      "Comprehensive screen time tracking across all devices",
-      "Personalized insights on digital behavior patterns",
-      "Customizable app blocking and usage limits",
-      "Mindfulness exercises to reduce technology dependence",
+      "Private. Secure. No login required.",
+      "See your screen time in real-time",
+      "View the screen time of your family and friends (invitation required)",
+      "Personalized insights into digital behavior patterns",
       "Progress reports to support long-term behavioral changes"
     ],
-    image: "https://appscreentime.com/wp-content/uploads/2022/10/appscreentime-hero-2.png",
+    image: "https://appscreentime.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frtst-all-devices.5490a794.png&w=2048&q=100",
     downloadLink: {
       website: "https://appscreentime.com",
-      ios: "https://apps.apple.com/us/app/appscreentime/id1613102481"
+      ios: "https://apps.apple.com/us/app/screen-time-realtime/id6452629146?pt=118449936&ct=praxisjona&mt=8"
     }
   }
 ];
