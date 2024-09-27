@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import ClinicSection from "app/ClinicSection";
-import HeroSection from "app/HeroSectionEN";
+import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSectionEN";
 
 const title = "Praxis Jona"
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 export default function Features() {
     return (
         <>
-            <HeroSection />
+            <HeroSection title={title} description="Holistic care for a healthy life - with us, you are more than just another patient" />
 
             <QuoteSection
                 quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
