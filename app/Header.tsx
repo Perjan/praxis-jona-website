@@ -108,7 +108,7 @@ export default function Header() {
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1 ml-0 md:ml-14 lg:ml-0 cursor-pointer">
+                <div className="flex lg:flex-1 ml-0 cursor-pointer">
                     <Link
                         href={locale === "de" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
@@ -265,7 +265,7 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="py-6">
 
-                                        <DownloadButton url={downloadUrl} locale={locale} />
+                                    <DownloadButton url={downloadUrl} locale={locale} />
 
                                 </div>
                                 <div className="space-y-2 py-6">
