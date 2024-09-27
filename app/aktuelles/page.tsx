@@ -73,6 +73,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
+                                    <CardContent title={"Von 26.09.2024 - 30.09.2024"} message={"wegen Abrechnung eingeschränkte Öffnungszeiten."} />
                                 
                                     <CardContent title={"Am 30.09.2024"} message={"ist die Praxis bis 12 Uhr geöffnet."} />
 
