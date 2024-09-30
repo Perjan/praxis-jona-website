@@ -1,20 +1,23 @@
 import Image from 'next/image';
 
-export default function AppsPageBody({title, description, apps}) {
+export default function AppsPageBody({ title, description, apps }) {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white mt-2 sm:mt-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:text-center">
+        <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
+          <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
-            {apps.map((app) => (
-              <AppCard key={app.name} app={app} />
-            ))}
-          </dl>
+        <div className="mt-20">
+          <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+            <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
+              {apps.map((app) => (
+                <AppCard key={app.name} app={app} />
+              ))}
+            </dl>
+          </div>
         </div>
+
       </div>
     </div>
   )
@@ -23,13 +26,13 @@ export default function AppsPageBody({title, description, apps}) {
 function AppCard({ app }) {
   return (
     <div className="flex flex-col">
-      <h2 className="flex items-center gap-x-3 text-xl font-semibold leading-7 text-primary">
+      <h2 className="flex items-center gap-x-3 text-2xl font-semibold leading-7 text-primary">
         {app.name}
       </h2>
-      <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-primaryLighter">
-        <Image src={app.image} alt={app.name} width={600} height={400} className="mb-4 rounded-lg h-[400px] object-contain" />
-        <p className="flex-auto">{app.description}</p>
-        <ul className="mt-4 space-y-2 text-sm">
+      <dd className="mt-4 flex flex-auto flex-col leading-7 text-primaryLighter">
+        <Image src={app.image} alt={app.name} width={600} height={300} className="mb-4 rounded-lg h-[300px] object-contain" />
+        <p className="">{app.description}</p>
+        <ul className="mt-4 flex-auto space-y-2">
           {app.benefits.map((benefit, index) => (
             <li key={index} className="flex items-center">
               <svg className="h-4 w-4 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
