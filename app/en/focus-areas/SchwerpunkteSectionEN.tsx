@@ -3,7 +3,6 @@
 import { Dialog } from '@headlessui/react';
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
-import { ChevronRightIcon } from '@heroicons/react/20/solid'; // Import the ChevronRightIcon component
 import { SpecialtiesEN } from 'app/schwerpunkte/Specialties';
 
 const title = "Specialty Areas"
@@ -11,7 +10,7 @@ const description = "Our practice focuses in particular on the treatment of Thyr
 
 export default function Page() {
   return (
-    <div className="bg-white mt-2 sm:mt-10">
+    <div className="bg-white mt-2 sm:mt-10 pb-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
@@ -26,13 +25,16 @@ export default function Page() {
             >
               <a href={specialty.url} onClick={(e) => { }} className="flex justify-between items-center w-full">
                 <div className="flex flex-col w-full">
-                  <h3 className="text-2xl font-medium font-serif leading-6 text-primary">
-                    {specialty.name}
-                  </h3>
+                  <div className='flex items-center justify-between'>
+                    <h3 className="text-2xl font-medium font-serif leading-6 text-primary flex items-center">
+                      {specialty.name}
+                    </h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-primary">
+                      <path fillRule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm4.28 10.28a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.06l1.72 1.72H8.25a.75.75 0 0 0 0 1.5h5.69l-1.72 1.72a.75.75 0 1 0 1.06 1.06l3-3Z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+
                   <p className="text-md pt-2 leading-6 pr-8 text-primaryLighter break-words">{specialty.description}</p>
-                </div>
-                <div className="flex items-center">
-                  <ChevronRightIcon className="h-6 w-6 text-primary" /> {/* Add the ChevronRightIcon */}
                 </div>
               </a>
             </li>
