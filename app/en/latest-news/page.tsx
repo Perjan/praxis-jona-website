@@ -73,8 +73,8 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                 
-                                <CardContent title={"From September 26th, 2024 - September 30th, 2024"} message={"limited opening hours due to accounting."} />
-                                <CardContent title={"On September 30th, 2024"} message={"the practice is open until 12 pm."} />
+                                <CardContent title={"On October 29th, 2024"} message={"is flu vaccination day from 11 AM to 1 PM."} />
+
                                 <CardContent title={"On November 14th and 15th, 2024"} message={"are only flu vaccination days, no consultations will take place on these days."} />
                                     
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
@@ -107,7 +107,7 @@ export default function Page() {
                                                                 Your symptoms:<br></br>
                                                                 Your address:<br></br>
                                                                 Mobile phone number:<br></br>
-                                                                Photo of the front and back of the insurance card<br></br>
+                                                                Proof of insurance<br></br>
                                                                 Photo of the Corona rapid test result<br></br>
                                                                 We will get in touch with you.</p>
                                                         </address>

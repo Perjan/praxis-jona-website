@@ -73,9 +73,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
-                                    <CardContent title={"Von 26.09.2024 - 30.09.2024"} message={"wegen Abrechnung eingeschränkte Öffnungszeiten."} />
-                                
-                                    <CardContent title={"Am 30.09.2024"} message={"ist die Praxis bis 12 Uhr geöffnet."} />
+                                    <CardContent title={"Am 29.10.2024"} message={"ist von 11 Uhr bis 13 Uhr Grippeimpftag."} />
 
                                     <CardContent title={"Am 14.11.2024 und 15.11.2024"} message={"sind nur Grippeimpftage, an diesen Tagen findet keine Sprechstunde an."} />
                                     
@@ -109,7 +107,7 @@ export default function Page() {
                                                                 Ihre Symptome:<br></br>
                                                                 Ihre Anschrift:<br></br>
                                                                 Mobilfunknummer:<br></br>
-                                                                Foto von Vorder- und Rückseite der Versicherungskarte<br></br>
+                                                                Versicherungsnachweis<br></br>
                                                                 Foto vom Corona-Schnelltest-Ergebnis<br></br>
                                                                 Wir nehmen Kontakt zu Ihnen auf.</p>
                                                         </address>
