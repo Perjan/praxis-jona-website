@@ -73,7 +73,7 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     
-                                    <CardContent title={"Am 29.10.2024"} message={"ist von 11 Uhr bis 13 Uhr Grippeimpftag."} />
+                                    <CardContent title={"Am 29.10.2024"} message={"ist von 11 Uhr bis 13 Uhr nur Grippeimpfung geplant."} />
 
                                     <CardContent title={"Am 14.11.2024 und 15.11.2024"} message={"sind nur Grippeimpftage, an diesen Tagen findet keine Sprechstunde an."} />
                                     
