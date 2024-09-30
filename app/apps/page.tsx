@@ -3,7 +3,7 @@ import { appsDE } from 'app/data/appsDE';
 import AppsPageBody from 'app/components/AppsPageComponents';
 
 const title = "Unsere Apps"
-const description = "Entdecken Sie unsere Auswahl an Gesundheits- und Wellness-Apps, die entwickelt wurden, um Sie auf Ihrem Weg zu besserer Gesundheit zu unterstützen."
+const description = "Entdecken Sie unsere Auswahl an Gesundheits- und Wellness-Apps, die entwickelt wurden, um Sie auf Ihren Weg zu besserer Gesundheit zu unterstützen."
 const url = "/apps"
 
 export const metadata: Metadata = {

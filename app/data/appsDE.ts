@@ -3,9 +3,9 @@ export const appsDE = [
     name: "Feat - Ernährungsplaner & Ernährungscoach",
     description: "Entwickelt von Praxis Jona und Imperium Apps GmbH. Ein individueller Ernährungsplan, erstellt von uns. Unsere personalisierten Ernährungspläne, sind auf Menschen zugeschnitten, die unter Bluthochdruck, Autoimmunerkrankungen oder Fettstoffwechselstörungen leiden.",
     benefits: [
-"Individuelle Ernährungspläne für Ihre spezifische Erkrankung oder Situation",
-      "Gesunde Gewichtsabnahme oder -zunahme durch natürliche Ernährung",
-      "Speziell angepasst für Menschen mit Bluthochdruck, Autoimmunerkrankungen und Lipidstörungen",
+      "Individuelle Ernährungspläne an Ihre Bedürfnisse angepasst",
+      "Gesunde Gewichtsabnahme oder -zunahme durch gesunde Ernährung",
+      "Speziell entwickelt für Menschen mit Bluthochdruck, Autoimmunerkrankungen und Fettstoffwechselstörungen.",
       "Fortschrittskontrolle bei uns in Berlin oder Online (Gold- & Platin-Pakete)"
     ],
     image: "https://f-eat.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeat-all-devices.bb6b142d.png&w=2048&q=100",
@@ -32,14 +32,15 @@ export const appsDE = [
     }
   },
   {
-    name: "SandFlow - Bildschirmzeit Tracker",
-    description: "Eine Digital-Detox-App, entwickelt zur Bekämpfung von Bildschirmzeitsucht und zur Förderung gesünderer Technologiegewohnheiten. Praxis Jona hat bei der Entwicklung der App geholfen, indem sie ihre Erfahrungen in den Bereichen Gesundheit und Technologie eingebracht hat.",
+    name: "SandFlow - Bildschirmzeit Manager",
+    description: "Eine Digital-Detox-App, entwickelt zur Bekämpfung von Bildschirmzeitsucht und zur Stressreduktion. Praxis Jona hat bei der Entwicklung der App geholfen, indem sie ihre Erfahrungen in den Bereichen Gesundeslebenstil eingebracht hat.",
     benefits: [
       "Privat. Sicher. Kein Login.",
       "Ihre Bildschirmzeit in Echtzeit sehen",
+      "Fortschrittsberichte zur Unterstützung langfristiger Verhaltensänderungen",
+      "Verbesserung der mentalen Gesundheit durch Reduktion von Bildschirmzeit",
       "Sehen die Bildschirmzeit Ihre Familie und Freunde (Einladung erforderlich)",
-      "Personalisierte Einblicke in digitale Verhaltensmuster",
-      "Fortschrittsberichte zur Unterstützung langfristiger Verhaltensänderungen"
+      "Personalisierte Einblicke in digitale Verhaltensmuster"
     ],
     image: "https://appscreentime.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frtst-all-devices.5490a794.png&w=2048&q=100",
     downloadLink: {
