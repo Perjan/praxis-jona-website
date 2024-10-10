@@ -6,7 +6,7 @@ import { Constants } from 'app/Constants'
 export const dynamic = "force-static"
 
 const title = 'Blog - Praxis Jona'
-const description = "Wir veröffentlichen Blogbeiträge über Gesundheit, Schönheit und Ernährung."
+const description = "Wir veröffentlichen Blogbeiträge über Gesundheit, Schönheit und Ernährung. Wir berichten über Neuigkeiten in unserer Praxis und über aktuelle Themen aus der Medizin."
 
 export const metadata: Metadata = {
   title: title,

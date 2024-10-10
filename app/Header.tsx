@@ -241,16 +241,6 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                     leaveTo="translate-x-full opacity-0"
                 >
                     <Dialog.Panel className="fixed inset-y-0 right-0 z-40 w-full overflow-y-auto backdrop-filter backdrop-blur-md bg-white/80 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                        {/* <div className="flex justify-end">
-                            <button
-                                type="button"
-                                className="rounded-md p-2.5 text-gray-700"
-                                onClick={() => setMobileMenuOpen(false)}
-                            >
-                                <span className="sr-only">Close menu</span>
-                                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                            </button>
-                        </div> */}
                         <div className="flex justify-end mt-4">
                             <button
                                 type="button"
@@ -264,9 +254,7 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="py-6">
-
                                     <DownloadButton url={downloadUrl} locale={locale} />
-
                                 </div>
                                 <div className="space-y-2 py-6">
                                     {navigationItemsMobile.map((item) =>
@@ -281,6 +269,14 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                                         >{item.title}
                                         </Link>
                                     )}
+                                    {/* Add Blog link at the bottom of the mobile menu */}
+                                    <Link
+                                        href="/blog"
+                                        className={cn(pathname === "/blog" ? "text-green-700" : "text-gray-900", menuItemClassName)}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Blog
+                                    </Link>
                                 </div>
                                 <div className="mt-0 space-x-1 leading-5md:order-1 pt-8">
                                     <span className=" text-gray-500">{languageLabel}:</span>
