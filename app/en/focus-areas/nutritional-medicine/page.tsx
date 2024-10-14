@@ -123,7 +123,7 @@ export default function Page() {
                             <li>Development of customized nutritional concepts</li>
                             <li>Solution-oriented support for problems</li>
                             <li>Holistic support over several weeks and motivation</li>
-                            <li>Personalized nutrition plan for 7 days with recipes (50 Euro)</li>
+                            <li>Personalized nutrition plan for 7 days with recipes (100 Euro)</li>
                             <li><ComingSoonBadge />Body composition measurement incl. evaluation (40 euros)</li>
                             <li><ComingSoonBadge />Follow-up measurements (25 euros)</li>
                         </ul>

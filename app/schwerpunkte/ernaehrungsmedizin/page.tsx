@@ -123,7 +123,7 @@ export default function Page() {
                             <li>Erarbeitung von individuell angepassten Ernährungskonzepten</li>
                             <li>Lösungsorientierte Begleitung bei Problemen</li>
                             <li>Ganzheitliche Betreuung über mehrere Wochen und Motivation</li>
-                            <li>Personalisierter Ernährungsplan für 7 Tage mit Rezepten (50 Euro)</li>
+                            <li>Personalisierter Ernährungsplan für 7 Tage mit Rezepten (100 Euro)</li>
                             <li><ComingSoonBadge />Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40 Euro)</li>
                             <li><ComingSoonBadge />Folge-BIA-Messungen (25 Euro)</li>
                         </ul>
