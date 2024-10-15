@@ -1,7 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 import PaginatedPostsSection from '../PaginatedPostsSection'
 import { Metadata } from 'next'
-import { Constants } from 'app/Constants'
 
 export const dynamic = "force-static"
 
