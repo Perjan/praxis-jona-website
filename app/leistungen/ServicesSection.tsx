@@ -5,6 +5,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
 import { Services } from './Services';
+import ReactMarkdown from 'react-markdown';
 
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
@@ -61,22 +62,14 @@ export default function ServicesSection() {
                 </div>
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 max-w-3xl text-center sm:mt-0 sm:text-left">
-                    <DialogTitle as="h3" className="text-base font-semibold text-primary">
+                    <DialogTitle as="h3" className="text-2xl font-semibold text-primary">
                     {selectedProduct?.name}
                     </DialogTitle>
                     <div className="relative mt-6 flex-1 text-primaryLighter">
                         <div className="overflow-y-auto max-h-[500px] lg:max-h-[800px]">
-                          {selectedProduct?.description.split(/\n{2}/).map((text, i) => (
-                            <span key={i} className="text-base text-primaryLighter">
-                              {text.split(/\n/).map((line, j) => (
-                                <span key={j}>
-                                  {line.startsWith('##') ? <h2>{line.substring(2)}</h2> : line.startsWith('**') ? <strong>{line.substring(2)}</strong> : line}
-                                  <br />
-                                </span>
-                              ))}
-                            </span>
-                          ))}
-
+                          <ReactMarkdown className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-7xl">
+                            {selectedProduct?.description}
+                          </ReactMarkdown>
                         </div>
                       </div>
                   </div>
