@@ -111,8 +111,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In einem etwa 15-minütigen, kostenfreien Vorgespräch besprechen wir zunächst Ihr persönliches Anliegen und Ihre Ziele. Im Anschluss informiere ich Sie über die anfallenden Kosten. Die Ernährungsberatung ist als Einzeltherapie gedacht.</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Das Erstgespräch und Beratung dauert ca. 60 Min. und kostet 80 Euro</li>
-                            <li>Das Folgegespräch dauert ca. 45 Min. und kostet 60 Euro</li>
+                            <li>Das Erstgespräch und Beratung dauert ca. 60 Min. und kostet 100 Euro</li>
+                            <li>Das Folgegespräch dauert ca. 45 Min. und kostet 80 Euro</li>
                         </ul>
 
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Beratungsinhalte</h3>

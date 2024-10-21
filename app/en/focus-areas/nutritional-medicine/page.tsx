@@ -111,8 +111,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In a free preliminary consultation lasting around 15 minutes, we will first discuss your personal concerns and goals. I will then inform you about the costs involved. Nutritional counseling is intended as individual therapy.</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>The initial consultation lasts approx. 60 minutes and costs 80 euros</li>
-                            <li>The follow-up consultation lasts approx. 45 minutes and costs 60 euros</li>
+                            <li>The initial consultation lasts approx. 60 minutes and costs 100 euros</li>
+                            <li>The follow-up consultation lasts approx. 45 minutes and costs 80 euros</li>
                         </ul>
 
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Consulting Content</h3>
