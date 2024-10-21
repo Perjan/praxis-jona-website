@@ -118,7 +118,7 @@ export default function ServicesSection() {
                           {product.name}
                         </a>
                       </h3>
-                      {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Demnächst</span>}
+                      {/* {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Demnächst</span>} */}
                     </div>
                   </div>
                 </li>
