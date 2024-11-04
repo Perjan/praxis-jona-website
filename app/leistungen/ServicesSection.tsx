@@ -91,13 +91,15 @@ export default function ServicesSection() {
               role="list"
               className="mx-4 grid grid-cols-1 gap-y-16 sm:mx-6 md:grid-cols-2 lg:mx-0 lg:grid-cols-4 lg:gap-x-8"
             >
-              {Services.map((product) => (
+               {Services.map((product) => (
                 <li key={product.id} className="flex w-full flex-col text-center">
                   <div className="group relative">
                     <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-[rgba(249,237,223,0.3)]">
-                      <a href={`#details-${product.id}`} onClick={(e) => {
-                        e.preventDefault();
-                        handleScrollToProduct(product.id);
+                      <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
+                        if (product.id !== 2) {
+                          e.preventDefault();
+                          handleScrollToProduct(product.id);
+                        }
                       }}>
                         <Image
                           src={product.imageSrc}
@@ -110,15 +112,17 @@ export default function ServicesSection() {
                     </div>
                     <div className="mt-6">
                       <h3 className="mt-1 text-lg font-semibold font-serif text-primary">
-                        <a href={`#details-${product.id}`} onClick={(e) => {
-                          e.preventDefault();
-                          handleScrollToProduct(product.id);
+                        <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
+                          if (product.id !== 2) {
+                            e.preventDefault();
+                            handleScrollToProduct(product.id);
+                          }
                         }}>
                           <span className="absolute inset-0" />
                           {product.name}
                         </a>
                       </h3>
-                      {/* {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Demnächst</span>} */}
+                      {/* {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Coming Soon</span>} */}
                     </div>
                   </div>
                 </li>
