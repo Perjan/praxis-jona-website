@@ -38,6 +38,22 @@ export const metadata: Metadata = {
     }
 }
 
+const treatments = [
+    { name: "Consultation Without Treatment", price: "49€" },
+    { name: "Bruxism (teeth grinding) or face slimming", price: "from 349€" },
+    { name: "Sweat Gland Treatment (hyperhidrosis)", price: "from 549€" },
+    { name: "Frown Lines", price: "from 199€" },
+    { name: "Forehead Wrinkles", price: "from 199€" },
+    { name: "2 Zones", price: "from 349€" },
+    { name: "3 Zones", price: "from 449€" },
+    { name: "4 Zones", price: "from 499€" },
+    { name: "Brow Lift", price: "from 159€" },
+    { name: "Crow's Feet", price: "from 199€" },
+    { name: "Bunny Lines", price: "from 159€" },
+    { name: "Strawberry Chin", price: "from 199€" },
+    { name: "Platysma", price: "from 349€" },
+];
+
 export default function Page() {
 
     return (
@@ -51,38 +67,36 @@ export default function Page() {
                 </SectionWithColor>
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Medical Applications</h2>
-                        <ol>
-                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Hyperhidrosis (excessive sweating)</li>
+                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Medical Applications</h2>
+                        <ol className="list-decimal pl-5">
+                            <li>
+                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Hyperhidrosis (excessive sweating)</h3>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin is injected into the skin of areas such as armpits, hands, and feet to significantly reduce sweat production. This provides an effective treatment for patients suffering from severe hyperhidrosis that does not respond to conventional antiperspirants.</p>
+                            </li>
+
+                            <li>
+                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Migraine Treatment</h3>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients with chronic migraines, botulinum toxin can help reduce the number and severity of headache attacks. It is injected into specific muscles around the head and neck, reducing muscle tension that often contributes to migraine attacks.</p>
+                            </li>
+
+                            <li>
+                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Bruxism (teeth grinding)</h3>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients who involuntarily grind their teeth, botulinum toxin can be injected into the masticatory muscles to relax them, thus reducing teeth grinding and associated discomfort.</p>
+                            </li>
                         </ol>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin is injected into the skin of areas such as armpits, hands, and feet to significantly reduce sweat production. This provides an effective treatment for patients suffering from severe hyperhidrosis that does not respond to conventional antiperspirants.</p>
-
-                        <ol>
-                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Migraine Treatment</li>
-                        </ol>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients with chronic migraines, botulinum toxin can help reduce the number and severity of headache attacks. It is injected into specific muscles around the head and neck, reducing muscle tension that often contributes to migraine attacks.</p>
-
-                        <ol>
-                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">3 - Bruxism (teeth grinding)</li>
-                        </ol>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients who involuntarily grind their teeth, botulinum toxin can be injected into the masticatory muscles to relax them, thus reducing teeth grinding and associated discomfort.</p>
-
 
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Aesthetic Applications</h2>
-                        <ol>
-                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">1 - Wrinkle Treatment</li>
+                        <ol className="list-decimal pl-5">
+                            <li>
+                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Wrinkle Treatment</h3>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">In aesthetic medicine, Botox is most commonly used to smooth expression lines such as frown lines, forehead wrinkles, and crow's feet. By reducing muscle activity in these areas, the skin appears smoother and more youthful.</p>
+                            </li>
+
+                            <li>
+                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Facial Tightening</h3>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin can also be injected into other facial areas to selectively relax certain muscles and achieve a younger appearance.</p>
+                            </li>
                         </ol>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">In aesthetic medicine, Botox is most commonly used to smooth expression lines such as frown lines, forehead wrinkles, and crow's feet. By reducing muscle activity in these areas, the skin appears smoother and more youthful.</p>
-
-                        <ol>
-                            <li className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Facial Tightening</li>
-                        </ol>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin can also be injected into other facial areas to selectively relax certain muscles and achieve a younger appearance.</p>
 
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">After Treatment</h2>
 
@@ -93,75 +107,35 @@ export default function Page() {
                         </ul>
 
 
-                        <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
+                    </SectionWithColor>
+                    </div>
+                    
+                    <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
+
+                    <SectionWithColor backgroundClassName='bg-tealColor'>
+                    <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Price</h2>
+                    <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
                             <table style={{ width: "100%", borderCollapse: "collapse" }}>
                                 <thead>
                                     <tr>
-                                        <th style={{ borderBottom: "2px solid #ddd", textAlign: "left" }}>
-                                            <h2 className="text-2xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Treatment</h2>
+                                        <th style={{ borderBottom: "2px solid #0D322B", textAlign: "left" }}>
+                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Treatment</h3>
                                         </th>
-                                        <th style={{ borderBottom: "2px solid #ddd", textAlign: "right" }}>
-                                            <h2 className="text-2xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Price</h2>
+                                        <th style={{ borderBottom: "2px solid #0D322B", textAlign: "right" }}>
+                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Price</h3>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Consultation Without Treatment</td>
-                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>49€</td>
+                                    {treatments.map((treatment, index) => (
+                                        <tr key={index}>
+                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>{treatment.name}</td>
+                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>{treatment.price}</td>
                                     </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Bruxism (teeth grinding) or face slimming</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 349€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Sweat Gland Treatment (hyperhidrosis)</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 549€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Frown Lines</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 199€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Forehead Wrinkles</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 199€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>2 Zones</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 349€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>3 Zones</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 449€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>4 Zones</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 499€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Brow Lift</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 159€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Crow's Feet</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 199€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Bunny Lines</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 159€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd" }}>Strawberry Chin</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{ borderBottom: "1px solid #ddd",  textAlign: "right" }}>from 199€</td>
-                                    </tr>
-                                    <tr>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter">Platysma</td>
-                                        <td className="pt-4 pb-4 leading-8 text-lg text-primaryLighter" style={{  textAlign: "right" }}>from 349€</td>
-                                    </tr>
+                                    ))}
                                 </tbody>
                             </table>
                         </div>
-
                     </SectionWithColor>
 
                 </div>
