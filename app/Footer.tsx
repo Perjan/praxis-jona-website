@@ -126,6 +126,20 @@ export default function Page() {
             <p className="text-sm leading-6 text-primaryLighter">
               <a href={Constants.contact.appleMapsUrl} target="_blank" className="underline">{appleMapsLabel}</a>
             </p>
+            <div className="mt-8">
+              <h3 className="text-sm font-semibold font-serif leading-6 text-primary">
+                {locale === "en" ? "New: Card Payment Available" : "Neu: Kartenzahlung möglich"}
+              </h3>
+              <p className="text-sm mt-2 leading-6 text-primaryLighter">
+                {locale === "en" 
+                  ? "We now accept card payments (EC/credit card) and mobile payments for private treatments." 
+                  : "Wir akzeptieren jetzt Kartenzahlungen (EC/Kreditkarte) und mobile Zahlungen für private Leistungen."}
+                {" "}
+                <Link href="/blog/digitale-zahlungen" className="underline">
+                  {locale === "en" ? "Read more" : "Mehr lesen"}
+                </Link>
+              </p>
+            </div>
           </div>
           <div className="text-center sm:text-left">
             <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{contactLabel}</h3>
