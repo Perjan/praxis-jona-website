@@ -1,4 +1,4 @@
-import { Constants } from "app/Constants";
+import { Constants, NewsMessages } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Latest News'
@@ -73,10 +73,14 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                 
-                                <CardContent title={"On October 29th, 2024"} message={"is flu vaccination day from 11 AM to 1 PM."} />
+                                    {NewsMessages.en.map((item, index) => (
+                                        <CardContent 
+                                            key={index}
+                                            title={item.title} 
+                                            message={item.message} 
+                                        />
+                                    ))}
 
-                                <CardContent title={"On November 14th and 15th, 2024"} message={"are only flu vaccination days, no consultations will take place on these days."} />
-                                    
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">

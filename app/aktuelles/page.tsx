@@ -1,4 +1,4 @@
-import { Constants } from "app/Constants";
+import { Constants, NewsMessages } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Aktuelles'
@@ -72,10 +72,13 @@ export default function Page() {
                         <div className="bg-white py-16 sm:py-24">
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
-                                    
-                                    <CardContent title={"Am 29.10.2024"} message={"ist von 11 Uhr bis 13 Uhr nur Grippeimpfung geplant."} />
-
-                                    <CardContent title={"Am 14.11.2024 und 15.11.2024"} message={"sind nur Grippeimpftage, an diesen Tagen findet keine Sprechstunde an."} />
+                                    {NewsMessages.de.map((item, index) => (
+                                        <CardContent 
+                                            key={index}
+                                            title={item.title} 
+                                            message={item.message} 
+                                        />
+                                    ))}
                                     
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
