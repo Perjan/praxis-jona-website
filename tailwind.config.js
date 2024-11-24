@@ -33,6 +33,7 @@ module.exports = {
         neutralColor: "#FFF3E7",
         "bg-base-100": "#9debff",
         bgColor1: "#bfc6d0",
+        tealColorDark: '#092320',
       }
     },
     textShadow: {

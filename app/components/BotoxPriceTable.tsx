@@ -28,45 +28,69 @@ const treatments: Treatment[] = [
 ];
 
 export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTableProps) {
+    const bookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=private&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
+
     return (
-        <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-            <SectionWithColor backgroundClassName='bg-tealColor'>
-                <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">
-                    {isEnglish ? "Prices" : "Preise"}
-                </h2>
-                <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
-                    <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                        <thead>
-                            <tr>
-                                <th style={{ borderBottom: "2px solid #0D322B", textAlign: "left" }}>
-                                    <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
-                                        {isEnglish ? "Treatment" : "Behandlung"}
-                                    </h3>
-                                </th>
-                                <th style={{ borderBottom: "2px solid #0D322B", textAlign: "right" }}>
-                                    <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
-                                        {isEnglish ? "Price" : "Preise"}
-                                    </h3>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {treatments.map((treatment, index) => (
-                                <tr key={index}>
-                                    <td className="pt-4 pb-4 text-lg text-primaryLighter" 
-                                        style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
-                                        {isEnglish ? treatment.nameEN : treatment.nameDE}
-                                    </td>
-                                    <td className="pt-4 pb-4 text-lg text-primaryLighter" 
-                                        style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
-                                        {isEnglish ? treatment.price.replace("ab", "from") : treatment.price}
-                                    </td>
+        <>
+            <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 relative">
+                <a 
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer" 
+                    className="hidden lg:block absolute mt-10 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
+                >
+                    {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
+                </a>
+
+                <SectionWithColor backgroundClassName='bg-tealColor'>
+                    <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">
+                        {isEnglish ? "Prices" : "Preise"}
+                    </h2>
+                    <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
+                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                            <thead>
+                                <tr>
+                                    <th style={{ borderBottom: "2px solid #0D322B", textAlign: "left" }}>
+                                        <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
+                                            {isEnglish ? "Treatment" : "Behandlung"}
+                                        </h3>
+                                    </th>
+                                    <th style={{ borderBottom: "2px solid #0D322B", textAlign: "right" }}>
+                                        <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
+                                            {isEnglish ? "Price" : "Preise"}
+                                        </h3>
+                                    </th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </SectionWithColor>
-        </div>
+                            </thead>
+                            <tbody>
+                                {treatments.map((treatment, index) => (
+                                    <tr key={index}>
+                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" 
+                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
+                                            {isEnglish ? treatment.nameEN : treatment.nameDE}
+                                        </td>
+                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" 
+                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
+                                            {isEnglish ? treatment.price.replace("ab", "from") : treatment.price}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </SectionWithColor>
+            </div>
+
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+                <a 
+                    href={bookingUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-primaryLighter hover:bg-tealColorDark text-white text-center px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
+                >
+                    {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
+                </a>
+            </div>
+        </>
     );
 } 
