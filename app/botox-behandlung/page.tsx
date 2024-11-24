@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import BotoxPriceTable from "app/components/BotoxPriceTable";
 
 const title = 'Botulinumtoxin'
 const description = "Botulinumtoxin (Botox) ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Durch die Injektion in einen Muskel führt es zu einer temporären Lähmung dieses Muskels, was Muskelkontraktionen verhindert. Dies kann ästhetische und medizinische Vorteile bieten, indem es die Haut glättet oder spezifische medizinische Symptome lindert. Da die Wirkung vorübergehend ist, sind regelmäßige Behandlungen erforderlich, um die gewünschten Ergebnisse beizubehalten."
@@ -37,22 +38,6 @@ export const metadata: Metadata = {
         images: ['/images/og-image.png']
     }
 }
-
-const treatments = [
-    { name: "Beratung ohne Behandlung", price: "49€" },
-    { name: "Bruxismus (Zähneknirschen) oder Faceslimming", price: "ab 349€" },
-    { name: "Schweißdrüsenbehandlung (Hyperhidrose)", price: "ab 549€" },
-    { name: "Zornesfalte", price: "ab 199€" },
-    { name: "Stirnfalten", price: "ab 199€" },
-    { name: "2-Zonen", price: "ab 349€" },
-    { name: "3-Zonen", price: "ab 449€" },
-    { name: "4-Zonen", price: "ab 499€" },
-    { name: "Browlift", price: "ab 159€" },
-    { name: "Krähenfüße", price: "ab 199€" },
-    { name: "Bunny Lines", price: "ab 159€" },
-    { name: "Erdbeerkinn", price: "ab 199€" },
-    { name: "Platysma", price: "ab 349€" },
-];
 
 export default function Page() {
     return (
@@ -102,33 +87,7 @@ export default function Page() {
                     </SectionWithColor>
                 </div>
 
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-tealColor'>
-                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Preise</h2>
-                        <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
-                            <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                                <thead>
-                                    <tr>
-                                        <th style={{ borderBottom: "2px solid #0D322B", textAlign: "left" }}>
-                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Behandlung</h3>
-                                        </th>
-                                        <th style={{ borderBottom: "2px solid #0D322B", textAlign: "right" }}>
-                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">Preise</h3>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {treatments.map((treatment, index) => (
-                                        <tr key={index}>
-                                            <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>{treatment.name}</td>
-                                            <td className="pt-4 pb-4 text-lg text-primaryLighter" style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>{treatment.price}</td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                    </SectionWithColor>
-                </div>
+                <BotoxPriceTable isEnglish={false} />
             </div>
         </>
     )
