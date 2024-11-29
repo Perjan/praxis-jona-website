@@ -162,7 +162,7 @@ export default function ContactSection() {
                       </dd>
                       <dd>
                         <p className="text-md mt-2 leading-6 text-primaryLighter">
-                          Email: <a href={contact.email} style={{ textDecoration: 'underline' }}>{contact.email}</a>
+                          Email: <a href={contact.emailUrl} style={{ textDecoration: 'underline' }}>{contact.email}</a>
                         </p>
                       </dd>
                     </div>
