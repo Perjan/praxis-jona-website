@@ -31,22 +31,14 @@ export const Constants = {
 export const NewsMessages = {
     de: [
         {
-            title: "13.11. - 15.11.2024",
-            message: "Am 13.11., 14.11. und 15.11. findet keine reguläre Sprechstunde statt.\n\nAm 13.11. und 15.11. können Sie jedoch Rezepte und Krankschreibungen abholen oder eine Grippeimpfung erhalten.\n\nFür dringende Notfälle wenden Sie sich bitte an die Praxis Dr. Schwarz, Auguststraße 1, 10117 Berlin. Die Praxis ist für die Notfälle an diesen Uhrzeiten geöffnet:\n• 13.11. von 8:00 bis 10:00 Uhr\n• 14.11. von 13:00 bis 15:00 Uhr\n• 15.11. von 8:00 bis 10:00 Uhr."
-        },
-        {
-            title: "18.11.2024",
-            message: "Am 18.11. findet keine Nachmittagssprechstunde statt."
+            title: "Praxisschließung Weihnachten/Neujahr",
+            message: "Unsere Praxis bleibt vom 23.12.2024 bis zum 03.01.2025 geschlossen.\nIn dringenden Notfällen wenden Sie sich bitte an unsere Vertretung:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nTelefon: 03044013947\nSprechzeiten: 9:00–15:00 Uhr\n\nVielen Dank für Ihr Verständnis! Wir sind ab dem 06.01.2025 wieder für Sie da."
         }
     ],
     en: [
         {
-            title: "November 13th - 15th, 2024",
-            message: "No regular consultations will take place on Nov. 13th, 14th, and 15th.\n\nOn Nov. 13th and 15th, you can still pick up prescriptions and sick notes or receive flu vaccinations.\n\nFor urgent emergencies, please contact Dr. Schwarz's practice at Auguststraße 1, 10117 Berlin. The practice is open for emergencies at these times:\n• Nov. 13th from 8:00 AM to 10:00 AM\n• Nov. 14th from 1:00 PM to 3:00 PM\n• Nov. 15th from 8:00 AM to 10:00 AM"
-        },
-        {
-            title: "November 18th, 2024",
-            message: "There will be no afternoon consultation on November 18th."
+            title: "Practice Closure Christmas/New Year",
+            message: "Our practice will be closed from December 23rd, 2024 to January 3rd, 2025.\nFor urgent emergencies, please contact our replacement practice:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nPhone: 03044013947\nConsultation hours: 9:00 AM–3:00 PM\n\nThank you for your understanding! We will be back for you from January 6th, 2025."
         }
     ]
 }
