@@ -31,11 +31,19 @@ export const Constants = {
 export const NewsMessages = {
     de: [
         {
+            title: "🎄 Weihnachtsaktion: 20% Rabatt auf Botulinumtoxin Botox® Behandlungen",
+            message: "Beschenken Sie sich selbst zu Weihnachten! 🎁\n\nUnser festliches Angebot für Sie: 20% Rabatt auf alle Botulinumtoxin Botox® Behandlungen. Starten Sie strahlend ins neue Jahr!\n\nIhre Weihnachtsvorteile:\n• Zornesfalte: statt 199€ nur 159€\n• 3-Zonen: statt 449€ nur 359€\n• Schweißdrüsenbehandlung: statt 549€ nur 439€\n\n✨ Sonderangebot gültig bis zum 30. Januar 2025.\n\nAlle Behandlungen und Preise finden Sie <a href=\"/botox-preise\"><b><u>hier</u></b></a>."
+        },
+        {
             title: "Praxisschließung Weihnachten/Neujahr",
             message: "Unsere Praxis bleibt vom 23.12.2024 bis zum 03.01.2025 geschlossen.\nIn dringenden Notfällen wenden Sie sich bitte an unsere Vertretung:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nTelefon: 03044013947\nSprechzeiten: 9:00–15:00 Uhr\n\nVielen Dank für Ihr Verständnis! Wir sind ab dem 06.01.2025 wieder für Sie da."
         }
     ],
     en: [
+        {
+            title: "🎄 Christmas Special: 20% Off Botulinumtoxin Botox® Treatments",
+            message: "Treat yourself this Christmas! 🎁\n\nOur festive offer for you: 20% off all Botulinumtoxin Botox® treatments. Start the New Year looking radiant!\n\nYour Christmas savings:\n• Frown Lines: reduced from €199 to €159\n• 3 Zones: reduced from €449 to €359\n• Sweat Gland Treatment: reduced from €549 to €439\n\n✨ Special offer valid until January 30th, 2025.\n\nView all treatments and prices <a href=\"/en/botox-prices\"><b><u>here</u></b></a>."
+        },
         {
             title: "Practice Closure Christmas/New Year",
             message: "Our practice will be closed from December 23rd, 2024 to January 3rd, 2025.\nFor urgent emergencies, please contact our replacement practice:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nPhone: 03044013947\nConsultation hours: 9:00 AM–3:00 PM\n\nThank you for your understanding! We will be back for you from January 6th, 2025."
