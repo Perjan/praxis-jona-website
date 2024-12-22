@@ -32,7 +32,7 @@ export const NewsMessages = {
     de: [
         {
             title: "Praxisschließung Weihnachten/Neujahr",
-            message: "Unsere Praxis bleibt vom 23.12.2024 bis zum 03.01.2025 geschlossen.\nIn dringenden Notfällen wenden Sie sich bitte an unsere Vertretung:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nTelefon: 03044013947\nSprechzeiten: 9:00–15:00 Uhr\n\nVielen Dank für Ihr Verständnis! Wir sind ab dem 06.01.2025 wieder für Sie da."
+            message: "Unsere Praxis bleibt vom 23.12.2024 bis zum 03.01.2025 geschlossen.\nIn dringenden Notfällen wenden Sie sich bitte an unsere Vertretung:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nTelefon: 03044013947\nSprechzeiten: 9:00 – 12:00 Uhr\n\nVielen Dank für Ihr Verständnis! Wir sind ab dem 06.01.2025 wieder für Sie da."
         },
         {
             title: "🎄 Weihnachtsaktion: 20% Rabatt auf Botulinumtoxin Botox® Behandlungen",
@@ -42,7 +42,7 @@ export const NewsMessages = {
     en: [
         {
             title: "Practice Closure Christmas/New Year",
-            message: "Our practice will be closed from December 23rd, 2024 to January 3rd, 2025.\nFor urgent emergencies, please contact our replacement practice:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nPhone: 03044013947\nConsultation hours: 9:00 AM–3:00 PM\n\nThank you for your understanding! We will be back for you from January 6th, 2025."
+            message: "Our practice will be closed from December 23rd, 2024 to January 3rd, 2025.\nFor urgent emergencies, please contact our replacement practice:\nSchmerzzentrum Berlin\nSchönhauser Allee 172a\n10435 Berlin\nPhone: 03044013947\nConsultation hours: 9:00 AM – 12:00 PM\n\nThank you for your understanding! We will be back for you from January 6th, 2025."
         },
         {
             title: "🎄 Christmas Special: 20% Off Botulinumtoxin Botox® Treatments",
