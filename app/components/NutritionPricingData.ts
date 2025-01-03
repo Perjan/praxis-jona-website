@@ -5,11 +5,17 @@ export const nutritionPricingPlans = [
             en: 'Bronze'
         },
         subtitle: {
-            de: 'Grundlegende Ernährungsberatung',
-            en: 'Basic Nutritional Consultation'
+            de: 'Einmalige Beratung',
+            en: 'One-Time Consultation'
         },
-        price: '99€',
-        link: '/termine/bronze'
+        price: {
+            de: '149€',
+            en: '149€'
+        },
+        link: {
+            de: '/termine/bronze',
+            en: '/appointments/bronze'
+        }
     },
     {
         title: {
@@ -17,11 +23,17 @@ export const nutritionPricingPlans = [
             en: 'Silver'
         },
         subtitle: {
-            de: 'Erweiterte Ernährungsberatung',
-            en: 'Advanced Nutritional Consultation'
+            de: 'Monatlich',
+            en: 'Monthly'
         },
-        price: '199€',
-        link: '/termine/silber'
+        price: {
+            de: 'ab 249€',
+            en: 'from 249€'
+        },
+        link: {
+            de: '/termine/silber',
+            en: '/appointments/silver'
+        }
     },
     {
         title: {
@@ -29,10 +41,16 @@ export const nutritionPricingPlans = [
             en: 'Gold'
         },
         subtitle: {
-            de: 'Premium Ernährungsberatung',
-            en: 'Premium Nutritional Consultation'
+            de: 'Monatlich',
+            en: 'Monthly'
         },
-        price: '299€',
-        link: '/termine/gold'
+        price: {
+            de: 'ab 299€',
+            en: 'from 299€'
+        },
+        link: {
+            de: '/termine/gold',
+            en: '/appointments/gold'
+        }
     }
 ]; 

@@ -51,7 +51,7 @@ export default function Page() {
                     </div>
                 </SectionWithColor>
 
-                <NutritionPricing buttonText="Termin buchen" language="de" />
+                <NutritionPricing buttonText="Mehr erfahren" language="de" />
 
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>

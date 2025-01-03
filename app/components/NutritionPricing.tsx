@@ -22,6 +22,7 @@ export default function NutritionPricing({ buttonText, language }: NutritionPric
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter max-w-7xl mx-auto px-4 lg:px-0 mb-8">Unsere Pakete</h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                 {nutritionPricingPlans.map((plan) => (
                     <div 
@@ -31,11 +32,11 @@ export default function NutritionPricing({ buttonText, language }: NutritionPric
                         <div>
                             <h3 className="text-center text-2xl font-serif font-medium text-primary">{plan.title[language]}</h3>
                             <p className="mt-4 text-center text-sm text-primaryLighter">{plan.subtitle[language]}</p>
-                            <p className="mt-4 text-center text-4xl font-serif font-bold text-primary">{plan.price}</p>
+                            <p className="mt-4 text-center text-4xl font-serif font-bold text-primary">{plan.price[language]}</p>
                         </div>
                         <div className="mt-6">
                             <a
-                                href={plan.link}
+                                href={plan.link[language]}
                                 className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                             >
                                 {buttonText}
