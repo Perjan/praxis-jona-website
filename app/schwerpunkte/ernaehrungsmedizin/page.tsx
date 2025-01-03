@@ -105,29 +105,7 @@ export default function Page() {
 
                             <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Gewichtsmanagement (Zu- oder Abnahme)</li>
                         </ul>
-
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Was erwartet Sie und was würde so eine Beratung kosten?</h3>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">In einem etwa 15-minütigen, kostenfreien Vorgespräch besprechen wir zunächst Ihr persönliches Anliegen und Ihre Ziele. Im Anschluss informiere ich Sie über die anfallenden Kosten. Die Ernährungsberatung ist als Einzeltherapie gedacht.</p>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Das Erstgespräch und Beratung dauert ca. 60 Min. und kostet 100 Euro</li>
-                            <li>Das Folgegespräch dauert ca. 45 Min. und kostet 80 Euro</li>
-                        </ul>
-
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Beratungsinhalte</h3>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Ausführliches Anamnesegespräch und Optimierung des Essverhaltens</li>
-                            <li>Alltagstaugliche Tipps wie Mengen, Lebensmittelauswahl, Einkaufen, Sport</li>
-                            <li>Erarbeitung von individuell angepassten Ernährungskonzepten</li>
-                            <li>Lösungsorientierte Begleitung bei Problemen</li>
-                            <li>Ganzheitliche Betreuung über mehrere Wochen und Motivation</li>
-                            <li>Personalisierter Ernährungsplan für 7 Tage mit Rezepten (100 Euro)</li>
-                            <li><ComingSoonBadge />Körperzusammensetzungsmessung (BIA-Messung) inkl. Auswertung (40 Euro)</li>
-                            <li><ComingSoonBadge />Folge-BIA-Messungen (25 Euro)</li>
-                        </ul>
-
+                        
                     </SectionWithColor>
                 </div>
             </div>

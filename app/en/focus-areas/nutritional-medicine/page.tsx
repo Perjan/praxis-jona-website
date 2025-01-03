@@ -105,29 +105,6 @@ export default function Page() {
 
                             <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Weight Management (Gaining or Losing Weight)</li>
                         </ul>
-
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">What can you expect and how much would such a consultation cost?</h3>
-
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">In a free preliminary consultation lasting around 15 minutes, we will first discuss your personal concerns and goals. I will then inform you about the costs involved. Nutritional counseling is intended as individual therapy.</p>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>The initial consultation lasts approx. 60 minutes and costs 100 euros</li>
-                            <li>The follow-up consultation lasts approx. 45 minutes and costs 80 euros</li>
-                        </ul>
-
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Consulting Content</h3>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li>Detailed anamnesis interview and optimization of eating habits</li>
-                            <li>Everyday tips such as quantities, food selection, shopping, sport</li>
-                            <li>Development of customized nutritional concepts</li>
-                            <li>Solution-oriented support for problems</li>
-                            <li>Holistic support over several weeks and motivation</li>
-                            <li>Personalized nutrition plan for 7 days with recipes (100 Euro)</li>
-                            <li><ComingSoonBadge />Body composition measurement incl. evaluation (40 euros)</li>
-                            <li><ComingSoonBadge />Follow-up measurements (25 euros)</li>
-                        </ul>
-
                     </SectionWithColor>
                 </div>
             </div>

@@ -1,6 +1,15 @@
 import { CloudArrowUpIcon, LockClosedIcon, ArrowPathIcon } from '@heroicons/react/20/solid'
 
 export const Specialties = [
+  {
+    name: 'Ernährungsmedizin',
+    id: '4',
+    description:
+      'Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten.',
+    descriptionRest: '\n\n Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben.\n\n\n\n Unsere Leistungen:\n\n - Lipidprofil: Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Es ist oft empfehlenswert, für diesen Test nüchtern zu sein.\n\n\n - Weitere Blutuntersuchungen: Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.\n\n - Beratung über Änderungen des Lebensstils, wie eine gesunde Ernährung, regelmäßige körperliche Aktivität, Gewichtsmanagement und Rauchentwöhnung.\n\n\n\n Da Fettstoffwechselstörungen oft keine direkten Symptome verursachen, ist die regelmäßige medizinische Kontrolle entscheidend, um mögliche Risiken frühzeitig zu erkennen und zu behandeln.',
+    url: '/schwerpunkte/ernaehrungsmedizin',
+    icon: ArrowPathIcon,
+  },
     {
       name: 'Schilddrüse',
       id: '1',
@@ -27,19 +36,19 @@ export const Specialties = [
       descriptionRest: '\n\n Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben.\n\n\n\n Unsere Leistungen:\n\n - Lipidprofil: Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Es ist oft empfehlenswert, für diesen Test nüchtern zu sein.\n\n\n - Weitere Blutuntersuchungen: Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.\n\n - Beratung über Änderungen des Lebensstils, wie eine gesunde Ernährung, regelmäßige körperliche Aktivität, Gewichtsmanagement und Rauchentwöhnung.\n\n\n\n Da Fettstoffwechselstörungen oft keine direkten Symptome verursachen, ist die regelmäßige medizinische Kontrolle entscheidend, um mögliche Risiken frühzeitig zu erkennen und zu behandeln.',
       url: '/schwerpunkte/fettstoffwechselstoerungen',
       icon: ArrowPathIcon,
-    },
-    {
-      name: 'Ernährungsmedizin',
-      id: '4',
-      description:
-        'Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten.',
-      descriptionRest: '\n\n Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben.\n\n\n\n Unsere Leistungen:\n\n - Lipidprofil: Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Es ist oft empfehlenswert, für diesen Test nüchtern zu sein.\n\n\n - Weitere Blutuntersuchungen: Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.\n\n - Beratung über Änderungen des Lebensstils, wie eine gesunde Ernährung, regelmäßige körperliche Aktivität, Gewichtsmanagement und Rauchentwöhnung.\n\n\n\n Da Fettstoffwechselstörungen oft keine direkten Symptome verursachen, ist die regelmäßige medizinische Kontrolle entscheidend, um mögliche Risiken frühzeitig zu erkennen und zu behandeln.',
-      url: '/schwerpunkte/ernaehrungsmedizin',
-      icon: ArrowPathIcon,
-    },
+    }
   ]
 
   export const SpecialtiesEN = [
+    {
+      name: 'Nutritional Medicine',
+      id: '4',
+      description:
+        'Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers.',
+      descriptionRest: '\n\n The diagnosis of lipometabolic disorders is mainly carried out using blood tests that provide information about the various fat levels in the blood.\n\n\n\n Our services:\n\n - Lipid profile: This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. It is often advisable to be fasting for this test.\n\n\n - Further blood tests: Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated conditions, such as diabetes, thyroid disorders or kidney disease.\n\n\n - Advice on lifestyle changes, such as a healthy diet, regular physical activity, weight management and smoking cessation.\n\n\n\n Since dyslipidemia often does not cause direct symptoms, regular medical check-ups are crucial to identify and treat potential risks at an early stage.',
+      url: '/en/focus-areas/nutritional-medicine',
+      icon: ArrowPathIcon,
+    },
     {
       name: 'Thyroid Gland',
       id: '1',
@@ -66,14 +75,5 @@ export const Specialties = [
       descriptionRest: '\n\n The diagnosis of lipid metabolic disorders is mainly carried out using blood tests that provide information about the various fat levels in the blood.\n\n\n\n Our services:\n\n - Lipid profile: This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. It is often advisable to be fasting for this test.\n\n\n - Further blood tests: Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated conditions, such as diabetes, thyroid disorders or kidney disease.\n\n\n - Advice on lifestyle changes, such as a healthy diet, regular physical activity, weight management and smoking cessation.\n\n\n\n Since dyslipidemia often does not cause direct symptoms, regular medical check-ups are crucial to identify and treat potential risks at an early stage.',
       url: '/en/focus-areas/lipometabolic-disorders',
       icon: ArrowPathIcon,
-    },
-    {
-      name: 'Nutritional Medicine',
-      id: '4',
-      description:
-        'Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers.',
-      descriptionRest: '\n\n The diagnosis of lipometabolic disorders is mainly carried out using blood tests that provide information about the various fat levels in the blood.\n\n\n\n Our services:\n\n - Lipid profile: This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. It is often advisable to be fasting for this test.\n\n\n - Further blood tests: Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated conditions, such as diabetes, thyroid disorders or kidney disease.\n\n\n - Advice on lifestyle changes, such as a healthy diet, regular physical activity, weight management and smoking cessation.\n\n\n\n Since dyslipidemia often does not cause direct symptoms, regular medical check-ups are crucial to identify and treat potential risks at an early stage.',
-      url: '/en/focus-areas/nutritional-medicine',
-      icon: ArrowPathIcon,
-    },
+    }
   ]
