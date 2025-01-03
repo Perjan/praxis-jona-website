@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import NutritionPricing from "app/components/NutritionPricing";
+import OzempicPricing from "app/components/OzempicPricing";
 
 const title = 'Ernährungsmedizin'
 const description = "Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten."
@@ -52,6 +53,7 @@ export default function Page() {
                 </SectionWithColor>
 
                 <NutritionPricing buttonText="Mehr erfahren" language="de" />
+                <OzempicPricing buttonText="Termin buchen" language="de" />
 
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>

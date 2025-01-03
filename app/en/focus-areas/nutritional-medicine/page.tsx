@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import NutritionPricing from "app/components/NutritionPricing";
+import OzempicPricing from "app/components/OzempicPricing";
 
 const title = 'Nutritional Medicine'
 const description = "Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers."
@@ -52,6 +53,7 @@ export default function Page() {
                 </SectionWithColor>
 
                 <NutritionPricing buttonText="Book Appointment" language="en" />
+                <OzempicPricing buttonText="Book Appointment" language="en" />
 
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
