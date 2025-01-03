@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import NutritionPricing from "app/components/NutritionPricing";
 
 const title = 'Nutritional Medicine'
 const description = "Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers."
@@ -49,6 +50,9 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
+
+                <NutritionPricing buttonText="Book Appointment" language="en" />
+
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The causes of obesity are varied and include genetic factors, various medications, autoimmune diseases, lifestyle choices such as insufficient exercise and an unbalanced diet, as well as psychological components such as stress and emotional eating.</p>

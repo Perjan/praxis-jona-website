@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import NutritionPricing from "app/components/NutritionPricing";
 
 const title = 'Ernährungsmedizin'
 const description = "Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten."
@@ -49,6 +50,9 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
+
+                <NutritionPricing buttonText="Termin buchen" language="de" />
+
                 <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Ursachen für Übergewicht sind vielfältig und umfassen genetische Faktoren, verschiedene Medikamenteneinnahme, Autoimmunerkrankungen, Lebensstilentscheidungen wie unzureichende Bewegung und unausgewogene Ernährung, sowie psychologische Komponenten wie Stress und emotionales Essen.</p>
