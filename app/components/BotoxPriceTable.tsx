@@ -89,21 +89,23 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                                             {isEnglish ? treatment.nameEN : treatment.nameDE}
                                         </td>
                                         <td className="pt-4 pb-4 text-lg text-primaryLighter" 
-                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
+                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right", minWidth: "280px" }}>
                                             {treatment.hasDiscount ? (
-                                                <div className="flex items-center justify-end gap-2">
-                                                    <span className="text-md bg-[#E8F5F3] text-green-600 px-2 py-0.5 rounded-full font-bold">
-                                                        {isEnglish ? "Save " : "Spare "}{treatment.price - calculateDiscountedPrice(treatment.price)}€
-                                                    </span>
-                                                    <span className="line-through text-gray-500">
-                                                        {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
-                                                    </span>
-                                                    <span className="">
+                                                <div className="flex flex-col items-end gap-1">
+                                                    <div className="flex items-center justify-end gap-1 whitespace-nowrap">
+                                                        <span className="text-sm bg-[#E8F5F3] text-green-600 px-2 py-0.5 rounded-full font-bold whitespace-nowrap">
+                                                            {isEnglish ? "Save " : "Spare "}{treatment.price - calculateDiscountedPrice(treatment.price)}€
+                                                        </span>
+                                                        <span className="line-through text-gray-500 whitespace-nowrap">
+                                                            {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
+                                                        </span>
+                                                    </div>
+                                                    <span className="font-medium whitespace-nowrap">
                                                         {isEnglish ? `from ${calculateDiscountedPrice(treatment.price)}€` : `ab ${calculateDiscountedPrice(treatment.price)}€`}
                                                     </span>
                                                 </div>
                                             ) : (
-                                                <span>
+                                                <span className="whitespace-nowrap">
                                                     {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
                                                 </span>
                                             )}
