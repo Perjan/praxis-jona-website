@@ -13,8 +13,8 @@ export const nutritionPricingPlans = [
             en: '149€'
         },
         link: {
-            de: '/termine/bronze',
-            en: '/appointments/bronze'
+            de: '/schwerpunkte/ernaehrungsmedizin/pakete/bronze',
+            en: '/focus-areas/nutritional-medicine/packages/bronze'
         }
     },
     {
@@ -31,8 +31,8 @@ export const nutritionPricingPlans = [
             en: 'from 155€'
         },
         link: {
-            de: '/termine/silber',
-            en: '/appointments/silver'
+            de: '/schwerpunkte/ernaehrungsmedizin/pakete/silber',
+            en: '/focus-areas/nutritional-medicine/packages/silver'
         }
     },
     {
@@ -49,8 +49,8 @@ export const nutritionPricingPlans = [
             en: 'from 280€'
         },
         link: {
-            de: '/termine/gold',
-            en: '/appointments/gold'
+            de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
+            en: '/focus-areas/nutritional-medicine/packages/gold'
         }
     }
 ];
