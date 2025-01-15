@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import ConsultationPromiseDE from "app/components/ConsultationPromiseDE";
 import React from "react";
+import { Constants } from "app/Constants";
 
 const title = 'Silber Ernährungspaket - Monatliche Betreuung'
 const description = "Ab 155€ pro Monat - Der Silber-Plan ist perfekt für alle, die eine strukturierte, aber flexible Beratung wünschen, ohne auf regelmäßige Check-ins verzichten zu müssen."
@@ -114,7 +115,7 @@ export default function Page() {
                         </div>
                         <div className="mt-8">
                             <a
-                                href="/termin-buchen"
+                                href={Constants.appointmentUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"

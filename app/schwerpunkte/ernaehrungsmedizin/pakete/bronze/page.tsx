@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import ConsultationPromiseDE from "app/components/ConsultationPromiseDE";
 import React from "react";
+import { Constants } from "app/Constants";
 
 const title = 'Bronze Ernährungspaket - Einmalige Beratung'
 const description = "Einmaliges Beratungsgespräch für 149€ - Perfekt für alle, die eine individuelle Beratung möchten, aber keine längerfristige Betreuung benötigen."
@@ -92,7 +93,7 @@ export default function Page() {
                         </div>
                         <div className="mt-8">
                             <a
-                                href="/termin-buchen"
+                                href={Constants.appointmentUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"

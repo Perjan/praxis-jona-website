@@ -1,3 +1,5 @@
+import { Constants } from "app/Constants";
+
 export const nutritionPricingPlans = [
     {
         title: {
@@ -106,7 +108,7 @@ export const nutritionPricingPlans = [
 export const nutrientTherapyPackage = {
     title: {
         de: 'Nährstofftherapie',
-        en: 'Nutrient Therapy'
+        en: 'Micronutrient Therapy'
     },
     price: {
         de: '299€',
@@ -118,7 +120,7 @@ export const nutrientTherapyPackage = {
     },
     description: {
         de: 'Individuelle Nährstoffberatung und Therapie',
-        en: 'Individual nutrient consultation and therapy'
+        en: 'Individual micronutrient consultation and therapy'
     },
     details: {
         de: [
@@ -139,8 +141,8 @@ export const nutrientTherapyPackage = {
         en: 'Book appointment'
     },
     link: {
-        de: '/termine/naehrstoffberatung',
-        en: '/appointments/nutrient-consultation'
+        de: Constants.appointmentUrl,
+        en: Constants.appointmentUrl
     }
 };
 
@@ -183,8 +185,8 @@ export const ozempicPackages = [
             en: 'Book appointment'
         },
         link: {
-            de: '/termine/ozempic-silber',
-            en: '/appointments/ozempic-silver'
+            de: Constants.appointmentUrl,
+            en: Constants.appointmentUrl
         }
     },
     {
@@ -223,8 +225,8 @@ export const ozempicPackages = [
             en: 'Book appointment'
         },
         link: {
-            de: '/termine/ozempic-rundum',
-            en: '/appointments/ozempic-complete'
+            de: Constants.appointmentUrl,
+            en: Constants.appointmentUrl
         }
     }
 ];
