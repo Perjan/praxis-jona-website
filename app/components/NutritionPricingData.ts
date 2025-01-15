@@ -4,13 +4,29 @@ export const nutritionPricingPlans = [
             de: 'Bronze',
             en: 'Bronze'
         },
-        subtitle: {
-            de: 'Einmalig 60 Minuten',
-            en: 'One-Time 60 Minutes'
-        },
         price: {
             de: '149€',
             en: '149€'
+        },
+        billingCycle: {
+            de: 'Einmalig',
+            en: 'One-time'
+        },
+        description: {
+            de: 'Einmalige Ernährungsberatung',
+            en: 'One-time nutrition consultation'
+        },
+        details: {
+            de: [
+                
+            ],
+            en: [
+                
+            ]
+        },
+        buttonText: {
+            de: 'Mehr erfahren',
+            en: 'Learn more'
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/bronze',
@@ -22,13 +38,29 @@ export const nutritionPricingPlans = [
             de: 'Silber',
             en: 'Silver'
         },
-        subtitle: {
-            de: 'Mindestlaufzeit: 3 Monate',
-            en: 'Minimum duration: 3 months'
-        },
         price: {
             de: 'ab 155€ / Monat',
             en: 'from 155€ / month'
+        },
+        billingCycle: {
+            de: 'Mindestlaufzeit: 3 Monate',
+            en: 'Minimum duration: 3 months'
+        },
+        description: {
+            de: 'Kontinuierliche Ernährungsbegleitung',
+            en: 'Continuous nutrition support'
+        },
+        details: {
+            de: [
+                
+            ],
+            en: [
+                
+            ]
+        },
+        buttonText: {
+            de: 'Mehr erfahren',
+            en: 'Learn more'
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/silber',
@@ -40,13 +72,29 @@ export const nutritionPricingPlans = [
             de: 'Gold',
             en: 'Gold'
         },
-        subtitle: {
-            de: 'Mindestlaufzeit: 2 Monate',
-            en: 'Minimum duration: 2 months'
-        },
         price: {
             de: 'ab 280€ / Monat',
             en: 'from 280€ / month'
+        },
+        billingCycle: {
+            de: 'Mindestlaufzeit: 2 Monate',
+            en: 'Minimum duration: 2 months'
+        },
+        description: {
+            de: 'Intensive Ernährungsbegleitung',
+            en: 'Intensive nutrition support'
+        },
+        details: {
+            de: [
+                
+            ],
+            en: [
+                
+            ]
+        },
+        buttonText: {
+            de: 'Mehr erfahren',
+            en: 'Learn more'
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
@@ -149,8 +197,8 @@ export const ozempicPackages = [
             en: '1499€'
         },
         billingCycle: {
-            de: '3 Monate',
-            en: '3 months'
+            de: 'Mindestlaufzeit: 3 Monate',
+            en: 'Minimum duration: 3 months'
         },
         description: {
             de: 'Alles in der Praxis - Ärztlich begleitetes Abnehmen mit Abnehmspritze',
