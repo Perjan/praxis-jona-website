@@ -50,23 +50,41 @@ export default function Page() {
                 </SectionWithColor>
 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                    <div className="max-w-2xl mx-auto lg:mx-0 flex flex-col justify-between rounded-lg p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50">
+                    <div className="max-w-4xl mx-auto lg:mx-0 flex flex-col justify-between rounded-lg p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow duration-300 bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50">
                         <div>
-                            <h2 className="text-center text-2xl font-serif font-medium text-primary">Bronze</h2>
-                            <p className="mt-4 text-center text-sm text-primaryLighter">Einmaliges Beratungsgespräch</p>
+                            <p className="text-center text-2xl font-serif font-medium text-primary">Bronze</p>
+                            <p className="mt-4 text-center text-sm text-primaryLighter">Einmalig 60 Minuten</p>
                             <p className="mt-4 text-center text-4xl font-serif font-bold text-primary">149€</p>
                             <p className="mt-4 text-center text-sm text-primary font-medium">Einmalig</p>
                             
                             <div className="mt-8">
-                                <h3 className="text-xl font-serif font-medium text-primary mb-4">Was erwartet dich?</h3>
+                                <h2 className="text-xl font-serif font-medium text-primary mb-4">Für wen ist diese Beratung geeignet?</h2>
+                                <p className="text-primaryLighter mb-6">
+                                    Diese Beratung richtet sich an Personen, die bereits eine überwiegend gesunde Ernährungsweise verfolgen und nach einer Feinjustierung suchen. Wenn du also schon viel Wert auf gesunde Ernährung legst, aber noch das gewisse Etwas verbessern möchtest – sei es für deinen Sport, dein Wohlbefinden oder deine Gesundheit – bist du hier genau richtig.
+                                </p>
+
+                                <h2 className="text-xl font-serif font-medium text-primary mb-4">Was erwartet dich?</h2>
                                 <ul className="space-y-4 text-primaryLighter">
                                     <li className="flex items-start">
                                         <span className="mr-2">•</span>
-                                        <span>Persönliche Beratung: Gemeinsam analysieren wir deine aktuellen Gewohnheiten und entwickeln einen individuellen Aktionsplan.</span>
+                                        <div>
+                                            <h3 className="font-bold">Persönliche Beratung (ca. 60 Minuten):</h3>
+                                            <p>Wir nehmen uns die Zeit, deine aktuellen Gewohnheiten detailliert zu analysieren und darauf basierend einen individuellen Aktionsplan zu entwickeln, der perfekt auf dich zugeschnitten ist.</p>
+                                        </div>
                                     </li>
                                     <li className="flex items-start">
                                         <span className="mr-2">•</span>
-                                        <span>Makronährstoffverteilung, Periodisierung und Analyse deines Ernährungstagebuchs.</span>
+                                        <div>
+                                            <h3 className="font-bold">Makronährstoffverteilung & Periodisierung:</h3>
+                                            <p>Gemeinsam erarbeiten wir die optimale Verteilung deiner Makronährstoffe (Kohlenhydrate, Fette, Proteine) und stimmen diese auf deinen Alltag, deine Ziele und deinen Aktivitätslevel ab.</p>
+                                        </div>
+                                    </li>
+                                    <li className="flex items-start">
+                                        <span className="mr-2">•</span>
+                                        <div>
+                                            <h3 className="font-bold">Analyse deines Ernährungstagebuchs:</h3>
+                                            <p>Wir werfen einen genauen Blick auf dein Ernährungstagebuch, um Feinheiten zu erkennen und gezielte Verbesserungen vorzunehmen.</p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

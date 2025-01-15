@@ -5,8 +5,8 @@ export const nutritionPricingPlans = [
             en: 'Bronze'
         },
         subtitle: {
-            de: 'Einmalige Beratung',
-            en: 'One-Time Consultation'
+            de: 'Einmalig 60 Minuten',
+            en: 'One-Time 60 Minutes'
         },
         price: {
             de: '149€',
@@ -23,12 +23,12 @@ export const nutritionPricingPlans = [
             en: 'Silver'
         },
         subtitle: {
-            de: 'Monatlich',
-            en: 'Monthly'
+            de: 'Mindestlaufzeit: 3 Monate',
+            en: 'Minimum duration: 3 months'
         },
         price: {
-            de: 'ab 155€',
-            en: 'from 155€'
+            de: 'ab 155€ / Monat',
+            en: 'from 155€ / month'
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/silber',
@@ -41,12 +41,12 @@ export const nutritionPricingPlans = [
             en: 'Gold'
         },
         subtitle: {
-            de: 'Monatlich',
-            en: 'Monthly'
+            de: 'Mindestlaufzeit: 2 Monate',
+            en: 'Minimum duration: 2 months'
         },
         price: {
-            de: 'ab 280€',
-            en: 'from 280€'
+            de: 'ab 280€ / Monat',
+            en: 'from 280€ / month'
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
