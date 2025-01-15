@@ -55,6 +55,47 @@ export const nutritionPricingPlans = [
     }
 ];
 
+export const nutrientTherapyPackage = {
+    title: {
+        de: 'Nährstofftherapie',
+        en: 'Nutrient Therapy'
+    },
+    price: {
+        de: '299€',
+        en: '299€'
+    },
+    billingCycle: {
+        de: 'Einmalig',
+        en: 'One-time'
+    },
+    description: {
+        de: 'Individuelle Nährstoffberatung und Therapie',
+        en: 'Individual nutrient consultation and therapy'
+    },
+    details: {
+        de: [
+            '1. Termin: Umfassende Anamnese, bei der wir deine Ernährung, sportliche Aktivitäten und Beschwerden analysieren und entscheiden, welche Laborparameter im Rahmen deiner individuellen Bedürfnisse sinnvoll sind (Dauer: 60 Minuten).',
+            '2. Termin: Besprechung der Laborbefunde',
+            'Ein persönlicher Plan als PDF, mit Empfehlungen zu Supplementen, deren Dosierung und optimalen Einnahmezeitpunkten',
+            'Planung der nächsten Laborkontrolle, um Fortschritte zu überprüfen und den Plan anzupassen'
+        ],
+        en: [
+            '1st appointment: Medical history and analysis parameter decision (60 minutes)',
+            '2nd appointment: Discussion of laboratory findings',
+            'Personal PDF plan (supplements, dosage, timing)',
+            'Planning of next laboratory check'
+        ]
+    },
+    buttonText: {
+        de: 'Termin buchen',
+        en: 'Book appointment'
+    },
+    link: {
+        de: '/termine/naehrstoffberatung',
+        en: '/appointments/nutrient-consultation'
+    }
+};
+
 export const ozempicPackages = [
     {
         title: {
@@ -136,46 +177,6 @@ export const ozempicPackages = [
         link: {
             de: '/termine/ozempic-rundum',
             en: '/appointments/ozempic-complete'
-        }
-    },
-    {
-        title: {
-            de: 'Nährstoffberatung',
-            en: 'Nutrient Consultation'
-        },
-        price: {
-            de: '299€',
-            en: '299€'
-        },
-        billingCycle: {
-            de: 'Einmalig',
-            en: 'One-time'
-        },
-        description: {
-            de: 'Individuelle Nährstoffberatung und Therapie',
-            en: 'Individual nutrient consultation and therapy'
-        },
-        details: {
-            de: [
-                '1. Termin: Anamnese und Entscheidung zu Analyseparametern (60 Minuten)',
-                '2. Termin: Besprechung der Laborbefunde',
-                'Persönlicher Plan als PDF (Supplemente, Dosierung, Einnahmezeitpunkt)',
-                'Planung der nächsten Laborkontrolle'
-            ],
-            en: [
-                '1st appointment: Medical history and analysis parameter decision (60 minutes)',
-                '2nd appointment: Discussion of laboratory findings',
-                'Personal PDF plan (supplements, dosage, timing)',
-                'Planning of next laboratory check'
-            ]
-        },
-        buttonText: {
-            de: 'Termin buchen',
-            en: 'Book appointment'
-        },
-        link: {
-            de: '/termine/naehrstoffberatung',
-            en: '/appointments/nutrient-consultation'
         }
     }
 ];
