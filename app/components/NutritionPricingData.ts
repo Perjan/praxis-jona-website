@@ -14,7 +14,7 @@ export const nutritionPricingPlans = [
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/bronze',
-            en: '/focus-areas/nutritional-medicine/packages/bronze'
+            en: '/en/focus-areas/nutritional-medicine/packages/bronze'
         }
     },
     {
@@ -32,7 +32,7 @@ export const nutritionPricingPlans = [
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/silber',
-            en: '/focus-areas/nutritional-medicine/packages/silver'
+            en: '/en/focus-areas/nutritional-medicine/packages/silver'
         }
     },
     {
@@ -50,7 +50,7 @@ export const nutritionPricingPlans = [
         },
         link: {
             de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
-            en: '/focus-areas/nutritional-medicine/packages/gold'
+            en: '/en/focus-areas/nutritional-medicine/packages/gold'
         }
     }
 ];
@@ -75,13 +75,15 @@ export const ozempicPackages = [
         },
         details: {
             de: [
-                'Erstberatung',
+                'Erstberatung: Prüfung der Kontraindikationen und ausführliche Beratung zur Ernährungsumstellung',
+                'Beratung zu Laborwerten und Befundauswertung',
                 'Rezeptausstellung für die Abnehmspritze',
                 'Check-ins alle 4 Wochen bis zur Erhaltungsdosis (30 Minuten)',
                 'Beratung zu Laborwerten (Laborwerte separat abgerechnet)'
             ],
             en: [
-                'Initial consultation',
+                'Initial consultation: Check for contraindications and detailed consultation on dietary changes',
+                'Consultation on lab values and interpretation of results',
                 'Prescription for weight loss injection',
                 'Check-ins every 4 weeks until maintenance dose (30 minutes)',
                 'Lab value consultation (lab values billed separately)'

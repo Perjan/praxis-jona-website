@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
+import ConsultationPromiseDE from "app/components/ConsultationPromiseDE";
 import React from "react";
 
 const title = 'Gold Ernährungspaket - Intensive Betreuung'
@@ -136,11 +137,7 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Ideal für alle, die kontinuierliche Unterstützung und eine flexible, auf ihren Alltag abgestimmte Beratung wünschen.</p>
-                    </SectionWithColor>
-                </div>
+                <ConsultationPromiseDE />
             </div>
         </>
     )
