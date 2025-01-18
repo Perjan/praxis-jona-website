@@ -148,9 +148,14 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
             {showInsuranceDialog && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                     <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
-                        <h3 className="text-xl font-medium mb-4 text-primaryLighter">
+                        <h3 className="text-xl font-medium mb-2 text-primaryLighter">
                             {isEnglish ? "Select Insurance Type" : "Versicherungsart auswählen"}
                         </h3>
+                        <p className="text-gray-600 mb-4 text-sm">
+                            {isEnglish 
+                                ? "Please note: Botox® treatments are private services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib." 
+                                : "Bitte beachten Sie: Botox®-Behandlungen sind private Leistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib."}
+                        </p>
                         <div className="space-y-3">
                             <button
                                 onClick={() => handleInsuranceSelect(true)}
