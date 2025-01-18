@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import SectionWithColor from "app/SectionWithColor";
 
 export type Treatment = {
@@ -31,7 +33,20 @@ const treatments: Treatment[] = [
 ];
 
 export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTableProps) {
-    const bookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=private&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
+    const [showInsuranceDialog, setShowInsuranceDialog] = useState(false);
+    const privatePatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=private&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
+    const publicPatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=public&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
+
+    const handleBookingClick = (e: React.MouseEvent) => {
+        e.preventDefault();
+        setShowInsuranceDialog(true);
+    };
+
+    const handleInsuranceSelect = (isPrivate: boolean) => {
+        const url = isPrivate ? privatePatientBookingUrl : publicPatientBookingUrl;
+        window.open(url, '_blank', 'noopener noreferrer');
+        setShowInsuranceDialog(false);
+    };
 
     const calculateDiscountedPrice = (price: number) => {
         return Math.round(price * (1 - DISCOUNT_PERCENTAGE / 100));
@@ -53,9 +68,8 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                 </div>
 
                 <a 
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer" 
+                    href="#"
+                    onClick={handleBookingClick}
                     className="hidden lg:block absolute mt-10 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                 >
                     {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
@@ -122,14 +136,44 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
 
             <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
                 <a 
-                    href={bookingUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="#"
+                    onClick={handleBookingClick}
                     className="block w-full bg-primaryLighter hover:bg-tealColorDark text-white text-center px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                 >
                     {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
                 </a>
             </div>
+
+            {/* Insurance Selection Dialog */}
+            {showInsuranceDialog && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
+                        <h3 className="text-xl font-medium mb-4 text-primaryLighter">
+                            {isEnglish ? "Select Insurance Type" : "Versicherungsart auswählen"}
+                        </h3>
+                        <div className="space-y-3">
+                            <button
+                                onClick={() => handleInsuranceSelect(true)}
+                                className="w-full bg-primaryLighter hover:bg-tealColorDark text-white px-4 py-2 rounded transition-colors duration-200"
+                            >
+                                {isEnglish ? "Private Insurance" : "Privatversichert"}
+                            </button>
+                            <button
+                                onClick={() => handleInsuranceSelect(false)}
+                                className="w-full bg-primaryLighter hover:bg-tealColorDark text-white px-4 py-2 rounded transition-colors duration-200"
+                            >
+                                {isEnglish ? "Public Insurance" : "Gesetzlich versichert"}
+                            </button>
+                            <button
+                                onClick={() => setShowInsuranceDialog(false)}
+                                className="w-full border border-gray-300 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded transition-colors duration-200"
+                            >
+                                {isEnglish ? "Cancel" : "Abbrechen"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 } 
