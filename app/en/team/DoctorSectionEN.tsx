@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { cn } from 'app/lib/utils';
+import InstagramCard from 'app/components/InstagramCard';
 
 export default function Page() {
     const [expanded, setExpanded] = useState(false);
@@ -21,6 +22,7 @@ export default function Page() {
                             <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
                                 {expanded ? 'Collapse' : 'Expand'}
                             </button>
+                            <InstagramCard isEnglish={true} />
                             <div
                                 className={
                                     cn(expanded ? "max-h-auto" : "max-h-0",
@@ -29,7 +31,7 @@ export default function Page() {
                             >
                                 <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophy</h2>
                                 <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                                “In my daily professional practice, it is extremely important for me to take a comprehensive and holistic approach when looking at people. I place great importance not only on analyzing isolated symptoms or clinical conditions, but also on understanding the individual as a whole. This includes physical, psychological and social aspects, which are all interconnected and can have an impact on the health and well-being of the individual. My aim is to use this view to provide effective and personalized care and support to achieve the best possible health outcomes for my patients.”
+                                "In my daily professional practice, it is extremely important for me to take a comprehensive and holistic approach when looking at people. I place great importance not only on analyzing isolated symptoms or clinical conditions, but also on understanding the individual as a whole. This includes physical, psychological and social aspects, which are all interconnected and can have an impact on the health and well-being of the individual. My aim is to use this view to provide effective and personalized care and support to achieve the best possible health outcomes for my patients."
                                 </p>
                             </div>
 
