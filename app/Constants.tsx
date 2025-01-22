@@ -30,15 +30,15 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
-        {
-            title: "🎄 Frohes Neues Jahr: 20% Rabatt auf Botulinumtoxin Botox® Behandlungen",
-            message: "Beschenken Sie sich selbst im neuen Jahr! 🎁\n\nUnser festliches Angebot für Sie: 20% Rabatt auf alle Botulinumtoxin Botox® Behandlungen. Starten Sie strahlend ins neue Jahr!\n\nIhre Weihnachtsvorteile:\n• Zornesfalte: statt 199€ nur 159€\n• 3-Zonen: statt 449€ nur 359€\n• Schweißdrüsenbehandlung: statt 549€ nur 439€\n\n✨ Sonderangebot gültig bis zum 30. Januar 2025.\n\nAlle Behandlungen und Preise finden Sie <a href=\"/botox-preise\"><b><u>hier</u></b></a>."
-        }
+        // {
+        //     title: "🎄 Frohes Neues Jahr: 20% Rabatt auf Botulinumtoxin Botox® Behandlungen",
+        //     message: "Beschenken Sie sich selbst im neuen Jahr! 🎁\n\nUnser festliches Angebot für Sie: 20% Rabatt auf alle Botulinumtoxin Botox® Behandlungen. Starten Sie strahlend ins neue Jahr!\n\nIhre Weihnachtsvorteile:\n• Zornesfalte: statt 199€ nur 159€\n• 3-Zonen: statt 449€ nur 359€\n• Schweißdrüsenbehandlung: statt 549€ nur 439€\n\n✨ Sonderangebot gültig bis zum 30. Januar 2025.\n\nAlle Behandlungen und Preise finden Sie <a href=\"/botox-preise\"><b><u>hier</u></b></a>."
+        // }
     ],
     en: [
-        {
-            title: "🎄 New Year Special: 20% Off Botulinumtoxin Botox® Treatments",
-            message: "Treat yourself this New Year! 🎁\n\nOur festive offer for you: 20% off all Botulinumtoxin Botox® treatments. Start the New Year looking radiant!\n\nYour Christmas savings:\n• Frown Lines: reduced from €199 to €159\n• 3 Zones: reduced from €449 to €359\n• Sweat Gland Treatment: reduced from €549 to €439\n\n✨ Special offer valid until January 30th, 2025.\n\nView all treatments and prices <a href=\"/en/botox-prices\"><b><u>here</u></b></a>."
-        }
+        // {
+        //     title: "🎄 New Year Special: 20% Off Botulinumtoxin Botox® Treatments",
+        //     message: "Treat yourself this New Year! 🎁\n\nOur festive offer for you: 20% off all Botulinumtoxin Botox® treatments. Start the New Year looking radiant!\n\nYour Christmas savings:\n• Frown Lines: reduced from €199 to €159\n• 3 Zones: reduced from €449 to €359\n• Sweat Gland Treatment: reduced from €549 to €439\n\n✨ Special offer valid until January 30th, 2025.\n\nView all treatments and prices <a href=\"/en/botox-prices\"><b><u>here</u></b></a>."
+        // }
     ]
 }
