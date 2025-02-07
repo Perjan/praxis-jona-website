@@ -20,9 +20,31 @@ module.exports = {
       display: ["Open Sans", "sans-serif"],
     },
     extend: {
-      // fontFamily: {
-      //   'sans': ['"Proxima Nova"', ...defaultTheme.fontFamily.sans],
-      // },
+      keyframes: {
+        popIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '50%': { transform: 'scale(1.05)' },
+          '100%': { transform: 'scale(1)', opacity: '1' }
+        },
+        popOut: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0.95)', opacity: '0' }
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' }
+        }
+      },
+      animation: {
+        popIn: 'popIn 0.3s ease-out forwards',
+        popOut: 'popOut 0.2s ease-out forwards',
+        fadeIn: 'fadeIn 0.2s ease-out forwards',
+        fadeOut: 'fadeOut 0.2s ease-out forwards'
+      },
       colors: {
         primary: "#0D322B",
         primaryDarker: "#081F1A",

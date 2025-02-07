@@ -35,18 +35,30 @@ const treatments: Treatment[] = [
 
 export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTableProps) {
     const [showInsuranceDialog, setShowInsuranceDialog] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
     const privatePatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=private&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
     const publicPatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=public&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
 
     const handleBookingClick = (e: React.MouseEvent) => {
         e.preventDefault();
         setShowInsuranceDialog(true);
+        setIsClosing(false);
+    };
+
+    const handleClose = () => {
+        setIsClosing(true);
+        setTimeout(() => {
+            setShowInsuranceDialog(false);
+            setIsClosing(false);
+        }, 200);
     };
 
     const handleInsuranceSelect = (isPrivate: boolean) => {
         const url = isPrivate ? privatePatientBookingUrl : publicPatientBookingUrl;
-        window.open(url, '_blank', 'noopener noreferrer');
-        setShowInsuranceDialog(false);
+        handleClose();
+        setTimeout(() => {
+            window.open(url, '_blank', 'noopener noreferrer');
+        }, 100);
     };
 
     const calculateDiscountedPrice = (price: number) => {
@@ -82,16 +94,16 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">
                         {isEnglish ? "Prices" : "Preise"}
                     </h2>
-                    <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }}>
-                        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                    <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }} className="overflow-x-auto">
+                        <table className="w-full">
                             <thead>
                                 <tr>
-                                    <th style={{ borderBottom: "2px solid #0D322B", textAlign: "left" }}>
+                                    <th className="text-left border-b-2 border-[#0D322B]">
                                         <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
                                             {isEnglish ? "Treatment" : "Behandlung"}
                                         </h3>
                                     </th>
-                                    <th style={{ borderBottom: "2px solid #0D322B", textAlign: "right" }}>
+                                    <th className="text-right border-b-2 border-[#0D322B]">
                                         <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
                                             {isEnglish ? "Price" : "Preise"}
                                         </h3>
@@ -101,12 +113,12 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                             <tbody>
                                 {treatments.map((treatment, index) => (
                                     <tr key={index}>
-                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" 
+                                        <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter pr-4" 
                                             style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
                                             {isEnglish ? treatment.nameEN : treatment.nameDE}
                                         </td>
-                                        <td className="pt-4 pb-4 text-lg text-primaryLighter" 
-                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right", minWidth: "280px" }}>
+                                        <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter" 
+                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
                                             {treatment.hasDiscount ? (
                                                 <div className="flex flex-col items-end gap-1">
                                                     {SHOW_DISCOUNT && (
@@ -151,11 +163,27 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
 
             {/* Insurance Selection Dialog */}
             {showInsuranceDialog && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4">
-                        <h3 className="text-xl font-medium mb-2 text-primaryLighter">
-                            {isEnglish ? "Select Insurance Type" : "Versicherungsart auswählen"}
-                        </h3>
+                <div 
+                    className={`fixed inset-0 bg-black flex items-center justify-center z-50 ${isClosing ? 'animate-fadeOut bg-opacity-50' : 'animate-fadeIn bg-opacity-50'}`}
+                    onClick={handleClose}
+                >
+                    <div 
+                        className={`bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4 ${isClosing ? 'animate-popOut' : 'animate-popIn'}`}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="flex justify-between items-start mb-2">
+                            <h3 className="text-xl font-medium text-primaryLighter">
+                                {isEnglish ? "Select Insurance Type" : "Versicherungsart auswählen"}
+                            </h3>
+                            <button 
+                                onClick={handleClose}
+                                className="text-gray-400 hover:text-gray-600 transition-colors"
+                            >
+                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
                         <p className="text-gray-600 mb-4 text-sm">
                             {isEnglish 
                                 ? "Please note: Botox® treatments are private services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib." 
@@ -175,7 +203,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                                 {isEnglish ? "Public Insurance" : "Gesetzlich versichert"}
                             </button>
                             <button
-                                onClick={() => setShowInsuranceDialog(false)}
+                                onClick={handleClose}
                                 className="w-full border border-gray-300 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded transition-colors duration-200"
                             >
                                 {isEnglish ? "Cancel" : "Abbrechen"}
