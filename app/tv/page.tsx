@@ -12,7 +12,7 @@ const baseImages = [
   // '/tv/slide4.jpg',
 ];
 
-const SLIDE_DURATION = 5000; // 5 seconds in milliseconds
+const SLIDE_DURATION = 10000; // 10 seconds in milliseconds
 
 export default function TVPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -167,20 +167,23 @@ export default function TVPage() {
             />
           </div>
         ))}
-        <div className="absolute bottom-4 right-4 flex gap-2 z-20">
-          <button
-            onClick={clearCache}
-            className="bg-black/50 text-white px-4 py-2 rounded-lg hover:bg-black/70 transition-colors"
-          >
-            Clear Cache
-          </button>
-          <button
-            onClick={toggleFullscreen}
-            className="bg-black/50 text-white px-4 py-2 rounded-lg hover:bg-black/70 transition-colors"
-          >
-            {isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
-          </button>
-        </div>
+        {/* Conditionally render buttons only when not in fullscreen */}
+        {!isFullscreen && (
+          <div className="absolute bottom-4 right-4 flex gap-2 z-20"> {/* Ensure buttons are above images */}
+            <button
+              onClick={clearCache}
+              className="bg-black/50 text-white px-4 py-2 rounded-lg hover:bg-black/70 transition-colors"
+            >
+              Clear Cache
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className="bg-black/50 text-white px-4 py-2 rounded-lg hover:bg-black/70 transition-colors"
+            >
+              {isFullscreen ? 'Exit Fullscreen' : 'Enter Fullscreen'}
+            </button>
+          </div>
+        )}
         
         {/* Progress Indicator Restored */}
         <div className="absolute bottom-4 left-4 flex items-center gap-2 z-20">
