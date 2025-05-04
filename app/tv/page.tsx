@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 // Base images without cache-busting
 const baseImages = [
   '/tv/slide1.jpg',
-  // '/tv/slide2.jpg',
+  '/tv/slide2.jpg',
   '/tv/slide3.jpg',
   // '/tv/slide4.jpg',
 ];
