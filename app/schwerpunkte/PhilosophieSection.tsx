@@ -26,7 +26,7 @@ export default function PhilosophieSection({ locale = 'de' }: PhilosophieSection
           <div className="relative h-80 lg:-ml-8 lg:h-auto lg:w-full lg:grow xl:ml-0">
             <Image
               className="absolute inset-0 h-full w-full bg-gray-50 object-cover"
-              src="/images/clinic/clinic-philosophie.jpeg"
+              src="/images/clinic/clinic-philo-2025.jpeg"
               alt=""
               width={1080}
               height={1920}
