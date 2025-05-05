@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import SectionWithColor from "app/SectionWithColor";
 
 export type Treatment = {
     nameDE: string;
@@ -67,7 +66,16 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
 
     return (
         <>
-            <div className="pt-16 px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 relative">
+            {/* Main container with full teal background */}
+            <div 
+                className="mx-auto sm:mb-16 relative max-w-7xl"
+                style={{
+                    borderRadius: "0.75rem",
+                    boxShadow: "0 0 0 1px rgba(0,0,0,0.05)",
+                    position: "relative",
+                    zIndex: 1
+                }}
+            >
                 {/* Special Offer Badge */}
                 {SHOW_DISCOUNT && (
                     <div className="absolute top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50">
@@ -82,76 +90,86 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     </div>
                 )}
 
-                <a 
-                    href="#"
-                    onClick={handleBookingClick}
-                    className="hidden lg:block absolute mt-10 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
+                {/* Teal container with rounded corners */}
+                <div 
+                    className="bg-tealColor pt-8 mt-8"
+                    style={{
+                        borderRadius: "0.75rem"
+                    }}
                 >
-                    {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
-                </a>
+                    {/* Booking button */}
+                    <a 
+                        href="#"
+                        onClick={handleBookingClick}
+                        className="hidden lg:block absolute top-8 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
+                    >
+                        {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
+                    </a>
 
-                <SectionWithColor backgroundClassName='bg-tealColor'>
-                    <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">
-                        {isEnglish ? "Prices" : "Preise"}
-                    </h2>
-                    <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }} className="overflow-x-auto">
-                        <table className="w-full">
-                            <thead>
-                                <tr>
-                                    <th className="text-left border-b-2 border-[#0D322B]">
-                                        <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
-                                            {isEnglish ? "Treatment" : "Behandlung"}
-                                        </h3>
-                                    </th>
-                                    <th className="text-right border-b-2 border-[#0D322B]">
-                                        <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
-                                            {isEnglish ? "Price" : "Preise"}
-                                        </h3>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {treatments.map((treatment, index) => (
-                                    <tr key={index}>
-                                        <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter pr-4" 
-                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
-                                            {isEnglish ? treatment.nameEN : treatment.nameDE}
-                                        </td>
-                                        <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter" 
-                                            style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
-                                            {treatment.hasDiscount ? (
-                                                <div className="flex flex-col items-end gap-1">
-                                                    {SHOW_DISCOUNT && (
-                                                        <div className="flex items-center justify-end gap-1 whitespace-nowrap">
-                                                            <span className="text-sm bg-[#E8F5F3] text-green-600 px-2 py-0.5 rounded-full font-bold whitespace-nowrap">
-                                                                {isEnglish ? "Save " : "Spare "}{treatment.price - calculateDiscountedPrice(treatment.price)}€
-                                                            </span>
-                                                            <span className="line-through text-gray-500 whitespace-nowrap">
-                                                                {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
-                                                            </span>
-                                                        </div>
-                                                    )}
-                                                    <span className="font-medium whitespace-nowrap">
-                                                        {isEnglish ? `from ${calculateDiscountedPrice(treatment.price)}€` : `ab ${calculateDiscountedPrice(treatment.price)}€`}
-                                                    </span>
-                                                </div>
-                                            ) : (
-                                                <span className="whitespace-nowrap">
-                                                    {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
-                                                </span>
-                                            )}
-                                        </td>
+                    {/* Content section */}
+                    <div className="mx-auto max-w-7xl text-leading py-4 px-6 lg:px-8">
+                        <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter">
+                            {isEnglish ? "Prices" : "Preise"}
+                        </h2>
+                        <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }} className="overflow-x-auto">
+                            <table className="w-full">
+                                <thead>
+                                    <tr>
+                                        <th className="text-left border-b-2 border-[#0D322B]">
+                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
+                                                {isEnglish ? "Treatment" : "Behandlung"}
+                                            </h3>
+                                        </th>
+                                        <th className="text-right border-b-2 border-[#0D322B]">
+                                            <h3 className="text-xl mt-8 pb-4 font-serif font-medium leading-8 text-primaryLighter">
+                                                {isEnglish ? "Price" : "Preise"}
+                                            </h3>
+                                        </th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                        {/* <p className="text-sm text-primaryLighter mt-4">¹⁾ {isEnglish ? "Special offer valid until January 30th, 2025" : "Sonderangebot bis zum 30. Januar 2025"}</p> */}
-                        <p className="text-sm text-primaryLighter">²⁾ {isEnglish ? "If a treatment is planned after the consultation, this consultation will be free." : "Wenn nach der Beratung eine Behandlung geplant wird, ist diese Beratung kostenlos."}</p>
+                                </thead>
+                                <tbody>
+                                    {treatments.map((treatment, index) => (
+                                        <tr key={index}>
+                                            <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter pr-4" 
+                                                style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
+                                                {isEnglish ? treatment.nameEN : treatment.nameDE}
+                                            </td>
+                                            <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter" 
+                                                style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
+                                                {treatment.hasDiscount ? (
+                                                    <div className="flex flex-col items-end gap-1">
+                                                        {SHOW_DISCOUNT && (
+                                                            <div className="flex items-center justify-end gap-1 whitespace-nowrap">
+                                                                <span className="text-sm bg-[#E8F5F3] text-green-600 px-2 py-0.5 rounded-full font-bold whitespace-nowrap">
+                                                                    {isEnglish ? "Save " : "Spare "}{treatment.price - calculateDiscountedPrice(treatment.price)}€
+                                                                </span>
+                                                                <span className="line-through text-gray-500 whitespace-nowrap">
+                                                                    {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
+                                                                </span>
+                                                            </div>
+                                                        )}
+                                                        <span className="font-medium whitespace-nowrap">
+                                                            {isEnglish ? `from ${calculateDiscountedPrice(treatment.price)}€` : `ab ${calculateDiscountedPrice(treatment.price)}€`}
+                                                        </span>
+                                                    </div>
+                                                ) : (
+                                                    <span className="whitespace-nowrap">
+                                                        {isEnglish ? `from ${treatment.price}€` : `ab ${treatment.price}€`}
+                                                    </span>
+                                                )}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                            <p className="text-sm text-primaryLighter">²⁾ {isEnglish ? "If a treatment is planned after the consultation, this consultation will be free." : "Wenn nach der Beratung eine Behandlung geplant wird, ist diese Beratung kostenlos."}</p>
+                        </div>
                     </div>
-                </SectionWithColor>
+                </div>
             </div>
 
-            <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200">
+            {/* Mobile booking button - outside the main container to avoid overflow issues */}
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 z-50">
                 <a 
                     href="#"
                     onClick={handleBookingClick}
@@ -212,6 +230,15 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     </div>
                 </div>
             )}
+
+            {/* Media query for larger screens */}
+            <style jsx>{`
+                @media (min-width: 1024px) {
+                    div[style*="borderRadius"] {
+                        border-radius: 1rem !important;
+                    }
+                }
+            `}</style>
         </>
     );
 } 
