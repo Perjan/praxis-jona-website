@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import HeroSection from './HeroSection'
 import QuoteSection from "./QuoteSection";
 import ClinicSection from './ClinicSection'
+import Warning from "./components/Warning";
 
 const title = "Praxis Jona"
 const description = "Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist Du mehr als nur ein weiterer Patient"
@@ -51,7 +52,11 @@ export default function Features() {
 
             <QuoteSection
                 quote='"Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern."'
+                buttonLink="/leistungen"
+                buttonText="Unsere Leistungen"
             />
+
+            <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." />
 
             <ClinicSection
                 title="Besuchen Sie uns in unserer Praxis"

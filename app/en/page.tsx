@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import ClinicSection from "app/ClinicSection";
 import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSectionEN";
+import Warning from "app/components/Warning";
 
 const title = "Praxis Jona"
 const description = "Holistic care for a healthy life – At our practice, you are more than just another patient."
@@ -51,7 +52,11 @@ export default function Features() {
 
             <QuoteSection
                 quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
+                buttonLink="/en/services"
+                buttonText="Our Services"
             />
+
+            <Warning message="Please note that we currently do not accept new insured patients." />
 
             <ClinicSection
                 title="Visit us in our Practice"

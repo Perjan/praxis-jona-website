@@ -24,6 +24,55 @@ export default function ServicesSection() {
     }
   };
 
+  // Filter services by type
+  const gesetzlicheLeistungen = Services.filter(service => service.type === 'gesetzliche');
+  const privateLeistungen = Services.filter(service => service.type === 'private');
+
+  // Function to render a list of services
+  const renderServicesList = (services) => (
+    <ul
+      role="list"
+      className="mx-4 grid grid-cols-1 gap-y-16 sm:mx-6 md:grid-cols-2 lg:mx-0 lg:grid-cols-4 lg:gap-x-8"
+    >
+      {services.map((product) => (
+        <li key={product.id} className="flex flex-col justify-between rounded-lg p-6 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow duration-300 text-center bg-[rgba(249,237,223,0.3)]">
+          <div className="group relative">
+            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden">
+              <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
+                if (product.id !== 2) {
+                  e.preventDefault();
+                  handleScrollToProduct(product.id);
+                }
+              }}>
+                <Image
+                  src={product.imageSrc}
+                  alt={product.name}
+                  width={280}
+                  height={210}
+                  className="w-3/4 h-auto object-cover object-center group-hover:opacity-75 mx-auto"
+                />
+              </a>
+            </div>
+            <div className="mt-6">
+              <h3 className="mt-1 text-lg font-semibold font-serif text-primary">
+                <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
+                  if (product.id !== 2) {
+                    e.preventDefault();
+                    handleScrollToProduct(product.id);
+                  }
+                }}>
+                  <span className="absolute inset-0" />
+                  {product.name}
+                </a>
+              </h3>
+              {/* {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Coming Soon</span>} */}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <div className="bg-white">
       <Transition show={open}>
@@ -81,53 +130,27 @@ export default function ServicesSection() {
         </Dialog>
       </Transition>
       <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
-        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
-          <h2 className="text-4xl font-serif tracking-tight text-primary">Leistungen</h2>
+        {/* Gesetzliche Leistungen Section */}
+        <div>
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
+            <h2 className="text-4xl font-serif tracking-tight text-primary">Gesetzliche Leistungen</h2>
+          </div>
+          <div className="relative mt-8">
+            <div className="relative -mb-6 w-full overflow-x-auto pb-6">
+              {renderServicesList(gesetzlicheLeistungen)}
+            </div>
+          </div>
         </div>
 
-        <div className="relative mt-8">
-          <div className="relative -mb-6 w-full overflow-x-auto pb-6">
-            <ul
-              role="list"
-              className="mx-4 grid grid-cols-1 gap-y-16 sm:mx-6 md:grid-cols-2 lg:mx-0 lg:grid-cols-4 lg:gap-x-8"
-            >
-               {Services.map((product) => (
-                <li key={product.id} className="flex w-full flex-col text-center">
-                  <div className="group relative">
-                    <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-[rgba(249,237,223,0.3)]">
-                      <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
-                        if (product.id !== 2) {
-                          e.preventDefault();
-                          handleScrollToProduct(product.id);
-                        }
-                      }}>
-                        <Image
-                          src={product.imageSrc}
-                          alt={product.name}
-                          width={280}
-                          height={210}
-                          className="w-3/4 h-auto object-cover object-center group-hover:opacity-75 mx-auto"
-                        />
-                      </a>
-                    </div>
-                    <div className="mt-6">
-                      <h3 className="mt-1 text-lg font-semibold font-serif text-primary">
-                        <a href={product.id === 2 ? '/botox-behandlung' : `#details-${product.id}`} onClick={(e) => {
-                          if (product.id !== 2) {
-                            e.preventDefault();
-                            handleScrollToProduct(product.id);
-                          }
-                        }}>
-                          <span className="absolute inset-0" />
-                          {product.name}
-                        </a>
-                      </h3>
-                      {/* {product.id == 2 && <span className='bg-primaryDarker px-4 py-1 rounded-xl text-sm font-bold text-white'>Coming Soon</span>} */}
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* Private Leistungen Section */}
+        <div className="mt-16">
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
+            <h2 className="text-4xl font-serif tracking-tight text-primary">Private Leistungen (IGeL)</h2>
+          </div>
+          <div className="relative mt-8">
+            <div className="relative -mb-6 w-full overflow-x-auto pb-6">
+              {renderServicesList(privateLeistungen)}
+            </div>
           </div>
         </div>
 

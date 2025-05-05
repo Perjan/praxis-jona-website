@@ -1,7 +1,13 @@
 import Image from "next/image"
-import Link from "next/link"
+import PrimaryButton from "./components/PrimaryButton"
 
-export default function QuoteSection(params: { quote: string }) {
+interface QuoteSectionParams {
+  quote: string;
+  buttonLink?: string;
+  buttonText?: string;
+}
+
+export default function QuoteSection(params: QuoteSectionParams) {
   return (
     <section className="relative isolate overflow-hidden bg-white px-6 pb-16 pt-16 sm:pt-24 lg:px-8">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
@@ -30,12 +36,9 @@ export default function QuoteSection(params: { quote: string }) {
           </figcaption>
         </figure>
         <div className="mt-4 flex justify-center">
-          <Link
-            href="/team"
-            className="rounded-lg bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          >
-            Mehr über unser Team erfahren
-          </Link>
+          <PrimaryButton href={params.buttonLink}>
+            {params.buttonText}
+          </PrimaryButton>
         </div>
       </div>
     </section>
