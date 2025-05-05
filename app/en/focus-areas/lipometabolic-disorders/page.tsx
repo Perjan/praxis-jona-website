@@ -45,12 +45,12 @@ export default function Page() {
             <div className="overflow-hidden bg-white relative isolate">
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
-                        <h1 className="text-xl sm:text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
+                        <h1 className="text-3xl sm:text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Lipid metabolic disorders are divided into two large groups:  </p>
 
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Primary Dyslipidemias</h2>

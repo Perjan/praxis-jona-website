@@ -48,8 +48,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnostik der Bauchorgane (Abdomensonographie)</h2>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Ultraschalluntersuchung des Bauchraums dient der Diagnose und Überwachung verschiedener Erkrankungen. Mit dieser Methode können die Größe, Struktur und Position von Bauchorganen wie Leber, Gallenblase, Milz, Nieren, Pankreas, Prostata, Lymphknoten, Bauchaorta, Harnblase und Darm beurteilt werden. Für eine optimale Untersuchung sollte man nüchtern sein, um Darmgasüberlagerungen zu vermeiden und eine gefüllte Gallenblase zu gewährleisten.</p>
                            

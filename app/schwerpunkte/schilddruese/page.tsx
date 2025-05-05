@@ -47,8 +47,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 ">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüse produziert die beiden Hormone T3 (Triiodthyronin) und T4 (Thyroxin, auch Tetraiodthyronin genannt). T4 wird in größeren Mengen gebildet, ist jedoch von sich aus nur geringfügig aktiv. Im Blut und im Zytosol der meisten Körperzellen wird T4 durch eine Deiodase in das biologisch aktivere T3 umgewandelt. Die physiologische Rolle von Calcitonin ist eher gering, weil der Knochen- und Calciumstoffwechsel hauptsächlich durch das Parathormon der Nebenschilddrüsen und durch Vitamin D reguliert wird.</p>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Eine Fehlfunktion der Schilddrüse kann vielfältige Symptome verursachen und beeinträchtigt das Wohlbefinden erheblich. Die häufigsten Erkrankungen sind Hypothyreose (z.B. Hashimoto), Hyperthyreose (z.B. M. Basedow) und Schilddrüsenknoten.</p>

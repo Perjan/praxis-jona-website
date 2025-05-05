@@ -4,7 +4,7 @@ import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
 
 const title = 'Private Insurance Check-up'
-const description = "A private insurance check-up helps ensure your coverage still meets your current needs and lifestyle. It’s a smart way to identify gaps, optimize benefits, and potentially save on premiums."
+const description = "A private insurance check-up helps ensure your coverage still meets your current needs and lifestyle. It's a smart way to identify gaps, optimize benefits, and potentially save on premiums."
 const url = '/en/services/private-insurance-check-up'
 
 export const metadata: Metadata = {
@@ -50,8 +50,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Additional laboratory (for self-payers or private insurance, charged according to GOÄ):</h2>
                         <ul className="list-disc pl-5">
                             <li>
@@ -78,8 +78,8 @@ export default function Page() {
                     </SectionWithColor>
                     </div>
 
-                    <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-tealColor'>
+                    <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mt-8 sm:mt-0 mb-12">
+                    <SectionWithColor backgroundClassName='bg-tealColor rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Find out more about the public insurance check-up</h2>
                         <div className="flex flex-col items-center justify-center">
                         <PrimaryButton

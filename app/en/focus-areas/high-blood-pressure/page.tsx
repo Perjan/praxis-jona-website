@@ -4,7 +4,7 @@ import React from "react";
 import 'app/schwerpunkte/bluthochdruck/BloodPressureTable.css';
 
 const title = 'High Blood Pressure'
-const description = "Hypertension, also known as high blood pressure, is a common condition that increases the risk of serious health problems such as heart attack, stroke, heart failure and kidney disease. As hypertension often progresses without obvious symptoms, it is often referred to as the “silent killer”."
+const description = "Hypertension, also known as high blood pressure, is a common condition that increases the risk of serious health problems such as heart attack, stroke, heart failure and kidney disease. As hypertension often progresses without obvious symptoms, it is often referred to as the 'silent killer'."
 const url = '/en/focus-areas/high-blood-pressure'
 
 export const metadata: Metadata = {
@@ -50,8 +50,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In Germany, around one in three adults suffers from high blood pressure, which corresponds to around 20 to 30 million people. As the risk of developing high blood pressure increases with age, as many as three out of four people over the age of 70 have high blood pressure.</p>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">If the pressure is too high, this can lead to serious damage to health in the long term. Elevated blood pressure is the cause of cardiovascular diseases such as heart attacks, strokes and kidney failure, making it the number one cause of death in Germany.</p>

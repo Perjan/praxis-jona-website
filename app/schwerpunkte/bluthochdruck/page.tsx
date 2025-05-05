@@ -50,8 +50,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">In Deutschland leidet etwa jeder dritte Erwachsene unter Bluthochdruck, was einer Zahl von circa 20 bis 30 Millionen Menschen entspricht. Da das Risiko, an Bluthochdruck zu erkranken, mit dem Alter steigt, haben sogar drei von vier der über 70-Jährigen einen Bluthochdruck.</p>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">Ist der Druck zu hoch, kann das auf Dauer zu schwerwiegenden gesundheitlichen Schäden führen. Ein erhöhter Blutdruck ist ursächlich für Herz-Kreislauf-Erkrankungen wie Herzinfarkt, Schlaganfall und Nierenversagen und damit für die Todesursache Nummer eins in Deutschland.</p>

@@ -50,8 +50,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ):</h2>
                         <ul className="list-disc pl-5">
                             <li>
@@ -79,8 +79,8 @@ export default function Page() {
 
                     </div>
 
-                    <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                        <SectionWithColor backgroundClassName='bg-tealColor'>
+                    <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mt-8 sm:mt-0 mb-12">
+                        <SectionWithColor backgroundClassName='bg-tealColor rounded-xl lg:rounded-2xl overflow-hidden'>
                         <div className="flex flex-col items-center justify-center">
                             <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Mehr über den öffentlichen Gesetzlichen Check-up erfahren</h2>
                             <PrimaryButton

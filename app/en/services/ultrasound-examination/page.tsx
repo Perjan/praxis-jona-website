@@ -48,8 +48,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Diagnostic Ultrasound of Abdominal Organs (Abdominal Sonography)</h2>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">The ultrasound examination of the abdomen is used for diagnosing and monitoring various conditions. This method allows for the assessment of the size, structure, and position of abdominal organs such as the liver, gallbladder, spleen, kidneys, pancreas, prostate, lymph nodes, abdominal aorta, bladder, and intestines. For optimal results, it is recommended to fast before the examination to avoid gas interference and ensure a filled gallbladder.</p>
                            

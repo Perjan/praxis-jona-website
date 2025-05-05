@@ -55,8 +55,8 @@ export default function Page() {
                 <NutritionPricing buttonText="Book Appointment" language="en" />
                 <OzempicPricing buttonText="Book Appointment" language="en" />
 
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The causes of obesity are varied and include genetic factors, various medications, autoimmune diseases, lifestyle choices such as insufficient exercise and an unbalanced diet, as well as psychological components such as stress and emotional eating.</p>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Successful treatment of obesity often requires a comprehensive approach that includes a healthier diet, regular physical activity and, if necessary, psychological support. The aim is not only to reduce weight, but also to promote a healthy and balanced lifestyle in the long term.</p>

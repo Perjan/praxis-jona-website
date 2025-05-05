@@ -47,8 +47,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16 ">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The thyroid gland produces the two hormones T3 (triiodothyronine) and T4 (thyroxine, also known as tetraiodothyronine). T4 is produced in large quantities, but is only slightly active on its own. In the blood and in the cytosol of most body cells, T4 is converted into the biologically more active T3 by a deiodase. The physiological role of calcitonin is rather minor because bone and calcium metabolism is mainly regulated by the parathyroid hormone and vitamin D.</p>
 
                         <p className="mt-6 text-lg leading-8 text-primaryLighter">A malfunction of the thyroid gland can cause a variety of symptoms and significantly impairs well-being. The most common diseases are hypothyroidism (e.g. Hashimoto's), hyperthyroidism (e.g. Grave's disease) and thyroid nodules.</p>
