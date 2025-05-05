@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { cn } from 'app/lib/utils';
+import InstagramCard from '../components/InstagramCard';
 
 export default function Page() {
     const [expanded, setExpanded] = useState(false);
@@ -21,6 +22,7 @@ export default function Page() {
                             <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
                                 {expanded ? 'Schließen' : 'Weiterlesen'}
                             </button>
+                            <InstagramCard />
                             <div
                                 className={
                                     cn(expanded ? "max-h-auto" : "max-h-0",

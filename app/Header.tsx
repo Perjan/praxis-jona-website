@@ -49,14 +49,10 @@ function bookAppointmentTitle(locale: string) {
     }
 }
 
-function bookAppointmentUrl(locale: string) {
-    return "/termin-buchen"
-}
-
 export function DownloadButton({ url, locale }) {
     return (
         <Link
-            href={bookAppointmentUrl(locale)}
+            href={Constants.appointmentUrl}
             target="_blank"
             className="block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="button-in-header"

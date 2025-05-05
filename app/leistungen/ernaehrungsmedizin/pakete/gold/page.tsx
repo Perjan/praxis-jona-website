@@ -1,6 +1,8 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
+import ConsultationPromiseDE from "app/components/ConsultationPromiseDE";
 import React from "react";
+import { Constants } from "app/Constants";
 
 const title = 'Gold Ernährungspaket - Intensive Betreuung'
 const description = "Ab 280€ pro Monat - Der Gold-Plan ist ideal für alle, die eine intensive und engmaschige Betreuung für maximale Ergebnisse suchen."
@@ -125,7 +127,7 @@ export default function Page() {
                         </div>
                         <div className="mt-8">
                             <a
-                                href="/termin-buchen"
+                                href={Constants.appointmentUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -136,11 +138,7 @@ export default function Page() {
                     </div>
                 </div>
 
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Ideal für alle, die kontinuierliche Unterstützung und eine flexible, auf ihren Alltag abgestimmte Beratung wünschen.</p>
-                    </SectionWithColor>
-                </div>
+                <ConsultationPromiseDE />
             </div>
         </>
     )
