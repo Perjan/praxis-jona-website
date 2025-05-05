@@ -1,0 +1,107 @@
+import { Metadata } from "next";
+import SectionWithColor from "app/SectionWithColor";
+import React from "react";
+import PrimaryButton from "app/components/PrimaryButton";
+
+const title = 'Public Insurance Check-up'
+const description = "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday."
+const url = '/en/services/public-insurance-check-up'
+
+export const metadata: Metadata = {
+    title: title,
+    description: description,
+    openGraph: {
+        title: title,
+        description: description,
+        type: 'website',
+        url: url,
+        images: [
+            {
+                url: '/images/og-image.png',
+                width: 1200,
+                height: 600,
+                alt: 'Praxis Jona'
+            }
+        ],
+    },
+    alternates: {
+        canonical: url,
+        languages: {
+            en: url,
+            de: "/leistungen/gesetzliche-check-up"
+        }
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: title,
+        description: description,
+        images: ['/images/og-image.png']
+    }
+}
+
+export default function Page() {
+
+    return (
+        <>
+            <div className="overflow-hidden bg-white relative isolate">
+                <SectionWithColor backgroundClassName='bg-white'>
+                    <div className="mx-auto max-w-4xl lg:mx-0">
+                        <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
+                    </div>
+                </SectionWithColor>
+                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
+                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">The statutory health insurance fund covers:</h2>
+                        <ul className="list-disc pl-5">
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Medical history</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Physical examination</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Resting ECG</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Consultation 15 minutes</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Men aged 50 and over: Two colonoscopies every 10 years, screening for occult blood every two years</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Women aged 55 and over: Two colonoscopies every 10 years, screening for occult blood every two years</p>
+                            </li>
+
+                            <li>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm</p>
+                            </li>
+                        </ul>
+
+                    </SectionWithColor>
+                    </div>
+                    <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
+                    <SectionWithColor backgroundClassName='bg-tealColor'>
+                        <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Additional laboratory (for self-payers, calculation according to the GOÄ)</h2>
+                        <div className="flex flex-col items-center justify-center">
+                        <PrimaryButton
+                            href="/en/services/private-insurance-check-up"
+                        >
+                            Learn More
+                        </PrimaryButton>
+                        </div>
+                    </SectionWithColor>
+                    </div>
+            </div>
+        </>
+    )
+}

@@ -6,7 +6,7 @@ import OzempicPricing from "app/components/OzempicPricing";
 
 const title = 'Nutritional Medicine'
 const description = "Obesity is a growing health problem that affects many people in modern society. It can lead to a variety of health problems, including cardiovascular disease, type 2 diabetes, joint problems and an increased risk of certain cancers."
-const url = '/en/focus-areas/nutritional-medicine'
+const url = '/en/services/nutritional-medicine'
 
 export const metadata: Metadata = {
     title: title,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     alternates: {
         canonical: url,
         languages: {
-            de: "/schwerpunkte/bluthochdruck",
+            de: "/leistungen/ernaehrungsmedizin",
             en: url
         }
     },

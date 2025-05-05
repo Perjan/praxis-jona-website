@@ -1,5 +1,6 @@
 import React from 'react';
 import { ozempicPackages } from './NutritionPricingData';
+import PrimaryButton from './PrimaryButton';
 
 interface OzempicPricingProps {
     buttonText: string;
@@ -49,12 +50,12 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
                             </ul>
                         </div>
                         <div className="mt-8">
-                            <a
+                            <PrimaryButton
                                 href={plan.link[language]}
-                                className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                fullWidth
                             >
                                 {plan.buttonText[language]}
-                            </a>
+                            </PrimaryButton>
                         </div>
                     </div>
                 ))}

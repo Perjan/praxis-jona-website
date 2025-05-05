@@ -6,7 +6,7 @@ import OzempicPricing from "app/components/OzempicPricing";
 
 const title = 'Ernährungsmedizin'
 const description = "Übergewicht ist ein zunehmendes Gesundheitsproblem, das viele Menschen in der modernen Gesellschaft betrifft. Sie kann zu einer Vielzahl von Gesundheitsproblemen führen, darunter Herz-Kreislauf-Erkrankungen, Diabetes Typ 2, Gelenkprobleme und ein erhöhtes Risiko für bestimmte Krebsarten."
-const url = '/schwerpunkte/bluthochdruck'
+const url = '/leistungen/ernaehrungsmedizin'
 
 export const metadata: Metadata = {
     title: title,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/focus-areas/nutritional-medicine'
+            en: '/en/services/nutritional-medicine'
         }
     },
     twitter: {

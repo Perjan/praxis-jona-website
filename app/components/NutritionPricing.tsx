@@ -1,5 +1,6 @@
 import React from 'react';
 import { nutritionPricingPlans } from './NutritionPricingData';
+import PrimaryButton from './PrimaryButton';
 
 interface NutritionPricingProps {
     buttonText: string;
@@ -37,12 +38,12 @@ export default function NutritionPricing({ buttonText, language }: NutritionPric
                             <p className="mt-4 text-center text-4xl font-serif font-bold text-primary">{plan.price[language]}</p>
                         </div>
                         <div className="mt-6">
-                            <a
+                            <PrimaryButton
                                 href={plan.link[language]}
-                                className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                                fullWidth
                             >
                                 {buttonText}
-                            </a>
+                            </PrimaryButton>
                         </div>
                     </div>
                 ))}

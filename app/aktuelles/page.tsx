@@ -1,3 +1,4 @@
+import Warning from "app/components/Warning";
 import { Constants, NewsMessages } from "app/Constants";
 import { Metadata } from "next";
 
@@ -72,6 +73,7 @@ export default function Page() {
                         <div className="bg-white py-16 sm:py-24">
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
+                                    <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." />
                                     {NewsMessages.de.map((item, index) => (
                                         <CardContent 
                                             key={index}
