@@ -3,12 +3,24 @@
 import { Dialog } from '@headlessui/react';
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
 
-import { Specialties } from './Specialties';
+import { Specialties, SpecialtiesEN } from './Specialties';
 
-const title = "Schwerpunkte"
-const description = "Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenerkrankungen, Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin."
+interface SchwerpunkteSectionProps {
+  locale?: 'de' | 'en';
+}
 
-export default function Page() {
+export default function SchwerpunkteSection({ locale = 'de' }: SchwerpunkteSectionProps) {
+  // Use the appropriate language content based on locale
+  const isGerman = locale === 'de';
+  
+  const title = isGerman ? "Schwerpunkte" : "Specialty Areas";
+  const description = isGerman 
+    ? "Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenerkrankungen, Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin."
+    : "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipid Metabolic Disorders and Nutritional Medicine.";
+  
+  // Select the appropriate specialties data based on locale
+  const specialtiesData = isGerman ? Specialties : SpecialtiesEN;
+
   return (
     <div className="bg-white mt-2 sm:mt-10 pb-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -18,7 +30,7 @@ export default function Page() {
         </div>
 
         <ul role="list" className="mt-8 space-y-4 overflow-visible">
-          {Specialties.map((specialty) => (
+          {specialtiesData.map((specialty) => (
             <li
               key={specialty.id}
               className="relative flex items-center gap-4 px-4 py-5 rounded-xl bg-lightBeige hover:bg-primary hover:bg-opacity-20 sm:px-6 lg:px-8 transition duration-300"

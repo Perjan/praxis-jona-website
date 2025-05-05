@@ -1,5 +1,5 @@
-import SchwerpunkteSection from "./SchwerpunkteSectionEN"
-import PhilosophieSection from "./PhilosophieSectionEN"
+import SchwerpunkteSection from "../../schwerpunkte/SchwerpunkteSection"
+import PhilosophieSection from "../../schwerpunkte/PhilosophieSection"
 
 import { Metadata } from "next"
 
@@ -42,8 +42,8 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <SchwerpunkteSection />
-            <PhilosophieSection />
+            <SchwerpunkteSection locale="en" />
+            <PhilosophieSection locale="en" />
         </>
     )
 }

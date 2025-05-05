@@ -41,8 +41,8 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <SchwerpunkteSection />
-            <PhilosophieSection />
+            <SchwerpunkteSection locale="de" />
+            <PhilosophieSection locale="de" />
         </>
     )
 }
