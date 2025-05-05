@@ -49,8 +49,8 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="overflow-hidden px-4 lg:px-0 rounded-xl lg:rounded-2xl bg-white max-w-7xl mx-auto sm:mb-16">
-                    <SectionWithColor backgroundClassName='bg-lightBeige'>
+                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto">
+                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl'>
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Medizinische Anwendungen</h2>
                         <ol className="list-decimal pl-5">
                             <li>
@@ -87,7 +87,9 @@ export default function Page() {
                     </SectionWithColor>
                 </div>
 
-                <BotoxPriceTable isEnglish={false} />
+                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
+                    <BotoxPriceTable isEnglish={false} />
+                </div>
             </div>
         </>
     )

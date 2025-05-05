@@ -1,4 +1,4 @@
-import ServicesSection from "./ServicesSectionEN";
+import ServicesSection from "app/components/ServicesSection";
 import { Metadata } from "next";
 
 const title = 'Services'
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
-            <ServicesSection />
+            <ServicesSection language="en" />
         </>
     )
 }
