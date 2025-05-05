@@ -19,14 +19,17 @@ export default function Page() {
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
                                 Zudem ist sie zertifizierte Lipidologin, Hypertensiologin und bald auch Ernährungsmedizinerin. Zu ihren Schwerpunkten zählen Schilddrüsenerkrankungen, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Vor ihrer Tätigkeit an der Charité arbeitete Jonida in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Das Studium absolvierte sie in Tirana, Albanien.
                             </p>
-                            <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
+                            <button 
+                                onClick={() => setExpanded(!expanded)} 
+                                className="rounded-lg mt-4 bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 inline-flex justify-center hover:bg-primaryLighter hover:shadow-md"
+                            >
                                 {expanded ? 'Schließen' : 'Weiterlesen'}
                             </button>
                             <InstagramCard />
                             <div
                                 className={
-                                    cn(expanded ? "max-h-auto" : "max-h-0",
-                                        "overflow-hidden transition duration-500 ease-in-out")
+                                    cn(expanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0",
+                                        "overflow-hidden transition-all duration-700 ease-in-out")
                                 }
                             >
                                 <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophie</h2>

@@ -17,7 +17,7 @@ export default function InstagramCard({ isEnglish = false }: InstagramCardProps)
       href="https://www.instagram.com/doc.jonida/"
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-full max-w-2xl mx-auto my-8 p-6 rounded-xl transition-transform hover:scale-[1.02] border border-white/20 shadow-lg"
+      className="block w-full max-w-2xl mx-auto my-8 p-6 rounded-xl transition-transform hover:scale-[1.02] border shadow-lg"
       style={{
         background: "linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)",
         boxShadow: "0 0 20px rgba(0,0,0,0.15)"

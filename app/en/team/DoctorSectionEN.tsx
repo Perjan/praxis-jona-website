@@ -19,14 +19,17 @@ export default function Page() {
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
                                 Her specialties include thyroid diseases, hypertension, lipid metabolic disorders, and nutritional medicine. Before Charité Jonida worked at the Medical Clinic III of the Waldkrankenhaus St. Marien in Erlangen. She is a member of the German Society for Internal Medicine (DGIM) and the DGFF (Lipid League) e. V. After completing her studies in Tirana (Albania), she decided to train as an Internist in Germany. 
                             </p>
-                            <button onClick={() => setExpanded(!expanded)} className="bg-primaryDarker px-4 py-2 rounded-xl hover:bg-primaryLighter text-white font-semibold mt-4 transition duration-300 ease-in-out">
+                            <button 
+                                onClick={() => setExpanded(!expanded)} 
+                                className="rounded-lg mt-4 bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 inline-flex justify-center hover:bg-primaryLighter hover:shadow-md"
+                            >
                                 {expanded ? 'Collapse' : 'Expand'}
                             </button>
                             <InstagramCard isEnglish={true} />
                             <div
                                 className={
-                                    cn(expanded ? "max-h-auto" : "max-h-0",
-                                        "overflow-hidden transition duration-500 ease-in-out")
+                                    cn(expanded ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0",
+                                        "overflow-hidden transition-all duration-700 ease-in-out")
                                 }
                             >
                                 <h2 className="mt-12 text-xl font-serif tracking-tight text-primary sm:text-2xl">Philosophy</h2>

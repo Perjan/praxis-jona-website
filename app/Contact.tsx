@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import PrimaryButton from './components/PrimaryButton';
 
 import {
   CalendarDaysIcon,
@@ -45,17 +46,6 @@ const formHandler = async (event) => {
   return response;
 };
 
-export function ReusableButton({ url, title }) {
-  return (
-    <Link
-      href={url}
-      target='_blank'
-      className="block rounded-xl bg-primary py-1 lg:py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
-    >{title}
-    </Link>
-  )
-}
-
 export default function ContactSection() {
 
   const contact = Constants.contact
@@ -81,7 +71,7 @@ export default function ContactSection() {
                           <p>Sie haben die Möglichkeit Ihren Termin online über Doctolib zu buchen. Nutzen Sie dazu einfach den Doctolib-Button.</p>
                         </address>
                         <div className='mt-8'>
-                          <ReusableButton url={Constants.appointmentUrl} title={"Termin via Doctolib buchen"} />
+                          <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true}>Termin via Doctolib buchen</PrimaryButton>
                         </div>
                       </div>
                     </dl>
@@ -93,7 +83,7 @@ export default function ContactSection() {
                           <p className='pt-4'>Schreiben Sie uns Ihren Terminwunsch mit alternativen Terminvorschlägen. Und geben Sie bitte auch Ihre Telefon-nummer für evtl. Rückfragen an.</p>
                         </address>
                         <div className='mt-8'>
-                          <ReusableButton url="mailto:info@praxisjona.de" title={"Email"} />
+                          <PrimaryButton href="mailto:info@praxisjona.de">Email</PrimaryButton>
                         </div>
                       </div>
                     </dl> */}
@@ -106,7 +96,7 @@ export default function ContactSection() {
                           </p>
                         </address>
                         <div className='mt-8'>
-                          <ReusableButton url={contact.phoneUrl} title={"Anrufen"} />
+                          <PrimaryButton href={contact.phoneUrl} fullWidth={true}>Anrufen</PrimaryButton>
                         </div>
                       </div>
                     </dl>
@@ -184,8 +174,8 @@ export default function ContactSection() {
                         <p className='pt-4'>Öffentliche Parkmöglichkeiten finden Sie umliegend um die Praxis.</p>
                       </dd>
                       <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
-                        <ReusableButton url={Constants.contact.googleMapsUrl} title={"Google Maps"} />
-                        <ReusableButton url={Constants.contact.appleMapsUrl} title={"Apple Maps"} />
+                        <PrimaryButton href={Constants.contact.googleMapsUrl} target="_blank" fullWidth={true}>Google Maps</PrimaryButton>
+                        <PrimaryButton href={Constants.contact.appleMapsUrl} target="_blank" fullWidth={true}>Apple Maps</PrimaryButton>
                       </div>
                     </div>
                   </dl>
@@ -204,7 +194,7 @@ export default function ContactSection() {
                         <p>Fußweg: ca. 20m</p>
                       </dd>
                       <div className='mt-8'>
-                        <ReusableButton url="https://www.bvg.de/de/verbindungen/verbindungssuche" title={"BVG-Routenplaner"} />
+                        <PrimaryButton href="https://www.bvg.de/de/verbindungen/verbindungssuche" target="_blank" fullWidth={true}>BVG-Routenplaner</PrimaryButton>
                       </div>
                     </div>
                   </dl>
