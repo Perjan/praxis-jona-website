@@ -68,13 +68,14 @@ export default function Page() {
                         </ul>
 
                         <p className="mt-2 text-lg mb-8 leading-8 text-primaryLighter">Contact us and we will be happy to advise you.</p>
+                        <div className="flex flex-col items-center justify-center">
                         <PrimaryButton
                             href="https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/new-patient?specialityId=1302&profile_skipped=true&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral"
                             fullWidth={true}
                         >
                             Book an appointment
                         </PrimaryButton>
-
+                        </div>
                     </SectionWithColor>
                     </div>
 
