@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
+import PrivateCheckupPricingComponent from "app/components/PrivateCheckupPricingComponent";
 
 const title = 'Private Check-up'
 const description = "Ein privater Versicherungs-Check stellt sicher, dass dein aktueller Schutz noch zu deinem Leben passt. So kannst du Versorgungslücken erkennen, Leistungen optimieren und eventuell Beiträge sparen."
@@ -50,34 +51,22 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
                     </div>
                 </SectionWithColor>
-                <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16">
+                <div className="px-4 lg:px-0 max-w-7xl mx-auto">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
-                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ):</h2>
-                        <ul className="list-disc pl-5">
-                            <li>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Spurenelemente, Vitamin D, sowie Hormonspiegel</p>
-                            </li>
+                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Umfassende Vorsorge für Ihre Gesundheit</h2>
+                    
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten Ihnen drei maßgeschneiderte Check-up-Pakete, die optimal auf Ihre individuellen Bedürfnisse abgestimmt sind.</p>
 
-                            <li>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Parameter des Immunsystems, Blutgruppe</p>
-                            </li>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die gesetzliche Gesundheitsuntersuchung, die ab dem 35. Lebensjahr alle drei Jahre erstattet wird, deckt nur grundlegende Tests wie die Bestimmung von Blutzucker, Cholesterin und eine Urinuntersuchung ab. Aus unserer fachärztlichen Sicht reicht dies nicht aus, um alle relevanten Gesundheitsrisiken rechtzeitig zu erkennen.</p>
 
-                            <li>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Auswertung der Befunde und Beratung bezüglich Nahrungsergänzungsmittel.</p>
-                            </li>
-                        </ul>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Unsere erweiterten Vorsorgeuntersuchungen ergänzen diese Basisleistungen sinnvoll. Sie umfassen unter anderem eine detaillierte Untersuchung Ihres Herz-Kreislauf-Systems (z. B. Ruhe- und Belastungs-EKG), Gefäßuntersuchungen wie Schlaganfall-Checks und eine internistische Krebsvorsorge durch Ultraschalluntersuchungen der Bauchorgane und der Schilddrüse.</p>
 
-                        <p className="mt-2 text-lg mb-8 leading-8 text-primaryLighter">Sprechen Sie uns an und wir beraten Sie gerne dazu.</p>
-                        <div className="flex flex-col items-center justify-center">
-                        <PrimaryButton
-                            href="https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/new-patient?specialityId=1302&profile_skipped=true&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_campaign=website-button&utm_content=option-8&bookingFunnelSource=external_referral"
-                        >
-                            Termin buchen
-                        </PrimaryButton>
-                        </div>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Ein Teil der Leistungen wird von Ihrer gesetzlichen Krankenkasse übernommen, für die Zusatzuntersuchungen beraten wir Sie gerne individuell. Sprechen Sie unser Praxis-Team an – gemeinsam finden wir das passende Vorsorgepaket für Sie.</p>
+                        
                     </SectionWithColor>
+                 </div>
 
-                    </div>
+                 <PrivateCheckupPricingComponent buttonText="Jetzt online buchen" language="de" />
 
                     <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mt-8 sm:mt-0 mb-12">
                         <SectionWithColor backgroundClassName='bg-tealColor rounded-xl lg:rounded-2xl overflow-hidden'>

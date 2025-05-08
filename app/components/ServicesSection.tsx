@@ -29,6 +29,9 @@ export default function ServicesSection({ language = 'de' }) {
         6: '/leistungen/ernaehrungsmedizin',
         7: '/leistungen/ultraschalluntersuchung',
         8: '/leistungen/private-check-up',
+        9: '/leistungen/reiseimpfungen',
+        10: '/leistungen/mikronahrstoffanalyse',
+        11: '/leistungen/infusionstherapie',
       };
 
   // Section titles based on language

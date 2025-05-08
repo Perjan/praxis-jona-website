@@ -73,7 +73,7 @@ export const Services = [
     },
     {
       id: 10,
-      name: 'Nahrstofftherapie',
+      name: 'Mikronährstoffanalyse',
       href: '#10',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
