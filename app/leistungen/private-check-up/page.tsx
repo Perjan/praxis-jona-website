@@ -55,7 +55,7 @@ export default function Page() {
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Umfassende Vorsorge für Ihre Gesundheit</h2>
                     
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten Ihnen drei maßgeschneiderte Check-up-Pakete, die optimal auf Ihre individuellen Bedürfnisse abgestimmt sind.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten Ihnen zwei maßgeschneiderte Check-up-Pakete, die optimal auf Ihre individuellen Bedürfnisse abgestimmt sind.</p>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die gesetzliche Gesundheitsuntersuchung, die ab dem 35. Lebensjahr alle drei Jahre erstattet wird, deckt nur grundlegende Tests wie die Bestimmung von Blutzucker, Cholesterin und eine Urinuntersuchung ab. Aus unserer fachärztlichen Sicht reicht dies nicht aus, um alle relevanten Gesundheitsrisiken rechtzeitig zu erkennen.</p>
 

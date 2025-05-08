@@ -52,7 +52,7 @@ export default function Page() {
                 </SectionWithColor>
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
-                        <h2 className="text-2xl mt-4 max-w-5xl font-serif font-medium leading-8 text-primaryLighter">Check Up Basis übernimmt die Krankenkasse alle 3 Jahre ab 35 Jahre alt und einmalig zwischen 18-35 Jahre alt:</h2>
+                        <h2 className="text-2xl mt-4 max-w-5xl font-serif font-medium leading-8 text-primaryLighter">Der Check-up der öffentlichen Versicherung umfasst:</h2>
                         <ul className="list-disc pl-5">
                             <li>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Anamnese</p>
