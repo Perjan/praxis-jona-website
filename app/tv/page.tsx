@@ -9,7 +9,7 @@ const baseImages = [
   '/tv/slide1.jpg',
   '/tv/slide2.jpg',
   '/tv/slide3.jpg',
-  // '/tv/slide4.jpg',
+  // '/tv/slide4.jpg', 
 ];
 
 const SLIDE_DURATION = 10000; // 10 seconds in milliseconds
