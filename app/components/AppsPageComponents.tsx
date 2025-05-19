@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AppsPageBody({ title, description, apps }) {
   return (
-    <div className="bg-white mt-2 sm:mt-10">
+    <div className="bg-white mt-2 sm:mt-10 mb-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>

@@ -1,7 +1,22 @@
 export const appsDE = [
   {
+    name: "GLP 1 Gewichtstagebuch - Velto",
+    description: "Entwickelt von Praxis Jona und MoneyCoach AI. Velto GLP-1 ist der einfachste und intelligenteste Weg, Ihre Gewichtsreduktion zu überwachen. Egal ob Sie Ozempic©, Mounjaro©, Wegovy©, Zepbound© oder ein anderes GLP-1-Medikament nutzen, Velto unterstützt Sie, Ihre Fortschritte nachzuverfolgen, gesunde Gewohnheiten zu entwickeln und die Kontrolle über Ihren Weg zu behalten.",
+    benefits: [
+      "Loggen Sie Ihre Injektionen mit einem Klick. Erinnerungen sorgen dafür, dass Sie keine Dosis verpassen.",
+      "Verfolgen Sie, wie sich Gewicht und Emotionen im Laufe der Zeit ändern.",
+      "Erfassen Sie Nebenwirkungen und Symptome einfach, um die Reaktion Ihres Körpers besser zu verstehen.",
+      "Visualisieren Sie Ihre Trends und Fortschritte in den Bereichen Gewicht, Stimmung und mehr."
+    ],
+    image: "https://veltoglp.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvelto-why.62d25b00.png&w=3840&q=75",
+    downloadLink: {
+      website: "https://veltoglp.com",
+      ios: "https://apps.apple.com/de/app/glp1-tracker-velto/id6745454932?l=en-GB"
+    }
+  },
+  {
     name: "Feat - Ernährungsplaner & Ernährungscoach",
-    description: "Entwickelt von Praxis Jona und Imperium Apps GmbH. Ein individueller Ernährungsplan, erstellt von uns. Unsere personalisierten Ernährungspläne, sind auf Menschen zugeschnitten, die unter Bluthochdruck, Autoimmunerkrankungen oder Fettstoffwechselstörungen leiden.",
+    description: "Entwickelt von Praxis Jona und MoneyCoach AI. Ein individueller Ernährungsplan, erstellt von uns. Unsere personalisierten Ernährungspläne, sind auf Menschen zugeschnitten, die unter Bluthochdruck, Autoimmunerkrankungen oder Fettstoffwechselstörungen leiden.",
     benefits: [
       "Individuelle Ernährungspläne an Ihre Bedürfnisse angepasst",
       "Gesunde Gewichtsabnahme oder -zunahme durch gesunde Ernährung",
