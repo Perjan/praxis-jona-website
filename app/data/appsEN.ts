@@ -1,6 +1,6 @@
 export const appsEN = [
   {
-    name: "GLP 1 Gewichtstagebuch - Velto",
+    name: "GLP 1 Tracker - Velto Journal",
     description: "Developed by Praxis Jona and MoneyCoach AI. Velto GLP-1 is the easiest and smartest way to stay on top of your weight loss treatment. Whether you're using Ozempic©, Mounjaro©, Wegovy©, Zepbound©, or another GLP-1 medication, Velto helps you track your progress, build healthy habits, and feel more in control of your journey.",
     benefits: [
       "Log your shots with a single tap. Set reminders so you never miss a dose again.",
