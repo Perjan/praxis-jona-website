@@ -30,15 +30,43 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
-        // {
-        //     title: "🎄 Frohes Neues Jahr: 20% Rabatt auf Botulinumtoxin Botox® Behandlungen",
-        //     message: "Beschenken Sie sich selbst im neuen Jahr! 🎁\n\nUnser festliches Angebot für Sie: 20% Rabatt auf alle Botulinumtoxin Botox® Behandlungen. Starten Sie strahlend ins neue Jahr!\n\nIhre Weihnachtsvorteile:\n• Zornesfalte: statt 199€ nur 159€\n• 3-Zonen: statt 449€ nur 359€\n• Schweißdrüsenbehandlung: statt 549€ nur 439€\n\n✨ Sonderangebot gültig bis zum 30. Januar 2025.\n\nAlle Behandlungen und Preise finden Sie <a href=\"/botox-preise\"><b><u>hier</u></b></a>."
-        // }
+        {
+            title: "🚨 Achtung: Keine reguläre Sprechstunde am Donnerstag den 22.05. und Freitag den 23.05.2025",
+            message: `
+            Am Donnerstag und Freitag findet keine reguläre Sprechstunde in unserer Praxis statt.
+            Sie können jedoch wie gewohnt Rezepte und Krankschreibungen während unserer Öffnungszeiten abholen.
+            
+            Für akute medizinische Notfälle wenden Sie sich bitte an die:
+            
+            Praxis Dr. Karsten Schwarz
+            
+            Auguststr. 1/Ecke Oranienburger Straße
+            10117 Berlin – Mitte
+            Telefon: 030 280 44 999
+            
+            -- Donnerstag: Akutsprechstunde von 13:00 bis 14:00 Uhr --
+            -- Freitag: Akutsprechstunde von 08:00 bis 09:00 Uhr --
+            `
+        }
     ],
     en: [
-        // {
-        //     title: "🎄 New Year Special: 20% Off Botulinumtoxin Botox® Treatments",
-        //     message: "Treat yourself this New Year! 🎁\n\nOur festive offer for you: 20% off all Botulinumtoxin Botox® treatments. Start the New Year looking radiant!\n\nYour Christmas savings:\n• Frown Lines: reduced from €199 to €159\n• 3 Zones: reduced from €449 to €359\n• Sweat Gland Treatment: reduced from €549 to €439\n\n✨ Special offer valid until January 30th, 2025.\n\nView all treatments and prices <a href=\"/en/botox-prices\"><b><u>here</u></b></a>."
-        // }
+        {
+            title: "🚨 Attention: No regular consultation hours on Thursday, May 22nd and Friday, May 23rd, 2025",
+            message: `
+            On Thursday and Friday, there will be no regular consultation hours at our practice.
+            You can however pick up prescriptions and sick notes as usual during our opening hours.
+            
+            For urgent medical needs, please contact:
+            
+            Praxis Dr. Karsten Schwarz
+            
+            Auguststr. 1/Ecke Oranienburger Straße
+            10117 Berlin – Mitte
+            Phone: 030 280 44 999
+            
+            -- Thursday: Emergency consultation from 13:00 to 14:00 --
+            -- Friday: Emergency consultation from 08:00 to 09:00 --
+            `
+        }
     ]
 }
