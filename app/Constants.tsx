@@ -30,43 +30,7 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
-        {
-            title: "🚨 Achtung: Keine reguläre Sprechstunde am Donnerstag den 22.05. und Freitag den 23.05.2025",
-            message: `
-            Am Donnerstag und Freitag findet keine reguläre Sprechstunde in unserer Praxis statt.
-            Sie können jedoch wie gewohnt Rezepte und Krankschreibungen während unserer Öffnungszeiten abholen.
-            
-            Für akute medizinische Notfälle wenden Sie sich bitte an die:
-            
-            Praxis Dr. Karsten Schwarz
-            
-            Auguststr. 1/Ecke Oranienburger Straße
-            10117 Berlin – Mitte
-            Telefon: 030 280 44 999
-            
-            -- Donnerstag: Akutsprechstunde von 13:00 bis 14:00 Uhr --
-            -- Freitag: Akutsprechstunde von 08:00 bis 09:00 Uhr --
-            `
-        }
     ],
     en: [
-        {
-            title: "🚨 Attention: No regular consultation hours on Thursday, May 22nd and Friday, May 23rd, 2025",
-            message: `
-            On Thursday and Friday, there will be no regular consultation hours at our practice.
-            You can however pick up prescriptions and sick notes as usual during our opening hours.
-            
-            For urgent medical needs, please contact:
-            
-            Praxis Dr. Karsten Schwarz
-            
-            Auguststr. 1/Ecke Oranienburger Straße
-            10117 Berlin – Mitte
-            Phone: 030 280 44 999
-            
-            -- Thursday: Emergency consultation from 13:00 to 14:00 --
-            -- Friday: Emergency consultation from 08:00 to 09:00 --
-            `
-        }
     ]
 }
