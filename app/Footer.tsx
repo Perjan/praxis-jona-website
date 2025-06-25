@@ -15,6 +15,7 @@ const navigationGerman = {
     { name: 'Team', href: '/team' },
     { name: 'Blog', href: '/blog' },
     { name: 'Aktuelles', href: '/aktuelles' },
+    { name: 'Karriere', href: '/jobs' },
   ],
 }
 

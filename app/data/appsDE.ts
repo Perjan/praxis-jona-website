@@ -1,5 +1,22 @@
 export const appsDE = [
   {
+    name: "Velto - GLP-1 Tracker",
+    description: "Velto ist die ultimative App zur Begleitung Ihrer GLP-1-Therapie. Entwickelt für Patienten, die Medikamente wie Ozempic®, Mounjaro®, Wegovy® oder Zepbound® verwenden. Verfolgen Sie Ihre Fortschritte, dokumentieren Sie Nebenwirkungen und bleiben Sie motiviert auf Ihrem Weg zur Gewichtsabnahme.",
+    benefits: [
+      "Protokollieren Sie Ihre GLP-1-Medikamenteneinnahme mit Datum, Uhrzeit und Dosierung",
+      "Verfolgen Sie Ihre Gewichtsentwicklung mit visuellen Diagrammen",
+      "Dokumentieren Sie Symptome und Nebenwirkungen",
+      "Verwaltung Ihres Medikationsplans",
+      "Privat, einfach und wirklich hilfreich",
+      "Bleiben Sie informiert, motiviert und auf Kurs"
+    ],
+    image: "https://veltoglp.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvelto-why.62d25b00.png&w=3840&q=75",
+    downloadLink: {
+      website: "https://veltoglp.com",
+      ios: "https://apps.apple.com/de/app/velto-glp-1-tracker/id6745454932"
+    }
+  },
+  {
     name: "Feat - Ernährungsplaner & Ernährungscoach",
     description: "Entwickelt von Praxis Jona und Imperium Apps GmbH. Ein individueller Ernährungsplan, erstellt von uns. Unsere personalisierten Ernährungspläne, sind auf Menschen zugeschnitten, die unter Bluthochdruck, Autoimmunerkrankungen oder Fettstoffwechselstörungen leiden.",
     benefits: [
