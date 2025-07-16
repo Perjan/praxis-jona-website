@@ -1,17 +1,19 @@
 export const appsDE = [
   {
-    name: "GLP 1 Gewichtstagebuch - Velto",
-    description: "Entwickelt von Praxis Jona und MoneyCoach AI. Velto GLP-1 ist der einfachste und intelligenteste Weg, Ihre Gewichtsreduktion zu überwachen. Egal ob Sie Ozempic©, Mounjaro©, Wegovy©, Zepbound© oder ein anderes GLP-1-Medikament nutzen, Velto unterstützt Sie, Ihre Fortschritte nachzuverfolgen, gesunde Gewohnheiten zu entwickeln und die Kontrolle über Ihren Weg zu behalten.",
+    name: "Velto - GLP-1 Tracker",
+    description: "Velto ist die ultimative App zur Begleitung Ihrer GLP-1-Therapie. Entwickelt für Patienten, die Medikamente wie Ozempic®, Mounjaro®, Wegovy® oder Zepbound® verwenden. Verfolgen Sie Ihre Fortschritte, dokumentieren Sie Nebenwirkungen und bleiben Sie motiviert auf Ihrem Weg zur Gewichtsabnahme.",
     benefits: [
-      "Loggen Sie Ihre Injektionen mit einem Klick. Erinnerungen sorgen dafür, dass Sie keine Dosis verpassen.",
-      "Verfolgen Sie, wie sich Gewicht und Emotionen im Laufe der Zeit ändern.",
-      "Erfassen Sie Nebenwirkungen und Symptome einfach, um die Reaktion Ihres Körpers besser zu verstehen.",
-      "Visualisieren Sie Ihre Trends und Fortschritte in den Bereichen Gewicht, Stimmung und mehr."
+      "Protokollieren Sie Ihre GLP-1-Medikamenteneinnahme mit Datum, Uhrzeit und Dosierung",
+      "Verfolgen Sie Ihre Gewichtsentwicklung mit visuellen Diagrammen",
+      "Dokumentieren Sie Symptome und Nebenwirkungen",
+      "Verwaltung Ihres Medikationsplans",
+      "Privat, einfach und wirklich hilfreich",
+      "Bleiben Sie informiert, motiviert und auf Kurs"
     ],
-    image: "/images/velto-why-de.png",
+    image: "https://veltoglp.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvelto-why.62d25b00.png&w=3840&q=75",
     downloadLink: {
       website: "https://veltoglp.com",
-      ios: "https://apps.apple.com/de/app/glp1-tracker-velto/id6745454932?l=de-DE"
+      ios: "https://apps.apple.com/de/app/velto-glp-1-tracker/id6745454932"
     }
   },
   {

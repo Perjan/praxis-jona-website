@@ -6,7 +6,7 @@ import { Constants } from "app/Constants";
 
 const title = 'Silber Ernährungspaket - Monatliche Betreuung'
 const description = "Ab 155€ pro Monat - Der Silber-Plan ist perfekt für alle, die eine strukturierte, aber flexible Beratung wünschen, ohne auf regelmäßige Check-ins verzichten zu müssen."
-const url = '/schwerpunkte/ernaehrungsmedizin/pakete/silber'
+const url = '/leistungen/ernaehrungsmedizin/pakete/silber'
 
 export const metadata: Metadata = {
     title: title,

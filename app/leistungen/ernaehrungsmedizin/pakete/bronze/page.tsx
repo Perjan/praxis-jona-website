@@ -6,7 +6,7 @@ import { Constants } from "app/Constants";
 
 const title = 'Bronze Ernährungspaket - Einmalige Beratung'
 const description = "Einmaliges Beratungsgespräch für 149€ - Perfekt für alle, die eine individuelle Beratung möchten, aber keine längerfristige Betreuung benötigen."
-const url = '/schwerpunkte/ernaehrungsmedizin/pakete/bronze'
+const url = '/leistungen/ernaehrungsmedizin/pakete/bronze'
 
 export const metadata: Metadata = {
     title: title,
