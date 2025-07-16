@@ -31,7 +31,7 @@ export const nutritionPricingPlans = [
             en: 'Learn more'
         },
         link: {
-            de: '/schwerpunkte/ernaehrungsmedizin/pakete/bronze',
+            de: '/leistungen/ernaehrungsmedizin/pakete/bronze',
             en: '/en/focus-areas/nutritional-medicine/packages/bronze'
         }
     },
@@ -65,7 +65,7 @@ export const nutritionPricingPlans = [
             en: 'Learn more'
         },
         link: {
-            de: '/schwerpunkte/ernaehrungsmedizin/pakete/silber',
+            de: '/leistungen/ernaehrungsmedizin/pakete/silber',
             en: '/en/focus-areas/nutritional-medicine/packages/silver'
         }
     },
@@ -99,7 +99,7 @@ export const nutritionPricingPlans = [
             en: 'Learn more'
         },
         link: {
-            de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
+            de: '/leistungen/ernaehrungsmedizin/pakete/gold',
             en: '/en/focus-areas/nutritional-medicine/packages/gold'
         }
     }

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     alternates: {
         canonical: url,
         languages: {
-            de: '/schwerpunkte/ernaehrungsmedizin/pakete/gold',
+            de: '/leistungen/ernaehrungsmedizin/pakete/gold',
             en: url
         }
     },

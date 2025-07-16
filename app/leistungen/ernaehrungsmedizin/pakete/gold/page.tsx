@@ -6,7 +6,7 @@ import { Constants } from "app/Constants";
 
 const title = 'Gold Ernährungspaket - Intensive Betreuung'
 const description = "Ab 280€ pro Monat - Der Gold-Plan ist ideal für alle, die eine intensive und engmaschige Betreuung für maximale Ergebnisse suchen."
-const url = '/schwerpunkte/ernaehrungsmedizin/pakete/gold'
+const url = '/leistungen/ernaehrungsmedizin/pakete/gold'
 
 export const metadata: Metadata = {
     title: title,
