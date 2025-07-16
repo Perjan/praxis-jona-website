@@ -55,7 +55,7 @@ export default function Page() {
 
                 <NutritionPricing buttonText="Book Appointment" language="en" />
                 <OzempicPricing buttonText="Book Appointment" language="en" />
-                <NutrientTherapyPricing buttonText="Book Appointment" language="en" />
+                {/* <NutrientTherapyPricing buttonText="Book Appointment" language="en" /> */}
 
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>

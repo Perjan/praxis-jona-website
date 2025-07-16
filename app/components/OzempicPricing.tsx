@@ -12,19 +12,6 @@ interface OzempicPricingProps {
 }
 
 export default function OzempicPricing({ buttonText, language }: OzempicPricingProps) {
-    const getBackgroundStyle = (title: string) => {
-        switch (title.toLowerCase()) {
-            case 'abnehmspritze':
-            case 'weight loss injection':
-                return 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50';
-            case 'rundum-sorglos':
-            case 'all-inclusive':
-                return 'bg-gradient-to-br from-[#fff9e6] to-[#fff3cc] backdrop-blur-sm bg-opacity-50';
-            default:
-                return 'bg-white';
-        }
-    };
-
     // Get Velto app data based on language
     const veltoApp = language === 'de' ? appsDE[0] : appsEN[0];
 
@@ -40,7 +27,6 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
                         key={plan.title[language]}
                         package={plan}
                         language={language}
-                        getBackgroundStyle={getBackgroundStyle}
                     />
                 ))}
             </div>
@@ -89,7 +75,7 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
                         </div>
                     </div>
                     
-                    <div className="lg:w-1/2 my-auto">
+                    <div className="lg:w-1/2 flex justify-center items-center">
                         <Image 
                             src={veltoApp.image} 
                             alt={veltoApp.name} 
