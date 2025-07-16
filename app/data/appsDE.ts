@@ -8,10 +8,10 @@ export const appsDE = [
       "Erfassen Sie Nebenwirkungen und Symptome einfach, um die Reaktion Ihres Körpers besser zu verstehen.",
       "Visualisieren Sie Ihre Trends und Fortschritte in den Bereichen Gewicht, Stimmung und mehr."
     ],
-    image: "https://veltoglp.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvelto-why.62d25b00.png&w=3840&q=75",
+    image: "/images/velto-why-de.png",
     downloadLink: {
       website: "https://veltoglp.com",
-      ios: "https://apps.apple.com/de/app/glp1-tracker-velto/id6745454932?l=en-GB"
+      ios: "https://apps.apple.com/de/app/glp1-tracker-velto/id6745454932?l=de-DE"
     }
   },
   {
