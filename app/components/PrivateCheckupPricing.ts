@@ -49,7 +49,8 @@ export const privateCheckupPlans = [
         link: {
             de: Constants.appointmentUrl,
             en: Constants.appointmentUrl
-        }
+        },
+        color: 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50'
     },
     {
         title: {
@@ -101,6 +102,7 @@ export const privateCheckupPlans = [
         link: {
             de: Constants.appointmentUrl,
             en: Constants.appointmentUrl
-        }
+        },
+        color: 'bg-gradient-to-br from-[#fff9e6] to-[#fff3cc] backdrop-blur-sm bg-opacity-50'
     }
 ]; 
