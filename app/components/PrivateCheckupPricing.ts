@@ -8,7 +8,7 @@ export const privateCheckupPlans = [
         },
         price: {
             de: 'ab 213,34€',
-            en: 'from 213.34€'
+            en: 'from 213,34€'
         },
         billingCycle: {
             de: 'nach GOÄ',
@@ -58,8 +58,8 @@ export const privateCheckupPlans = [
             en: 'Gold'
         },
         price: {
-            de: 'ab 371,30€',
-            en: 'from 371.30€'
+            de: 'ab 392,91€',
+            en: 'from 392,91€'
         },
         billingCycle: {
             de: 'nach GOÄ',
