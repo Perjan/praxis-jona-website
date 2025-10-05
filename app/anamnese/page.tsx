@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { z } from 'zod';
+import Logo from '/public/images/praxis-jona-web-logo.png';
 
 interface FormData {
   // Persoenliche Angaben
@@ -56,6 +59,66 @@ interface FormData {
   testosteroneSubstitution: 'ja' | 'nein' | '';
 }
 
+// Zod validation schema
+const anamneseSchema = z.object({
+  // Personal information - all required
+  name: z.string().min(2, 'Name muss mindestens 2 Zeichen lang sein'),
+  birthdate: z.string().refine((date) => {
+    const birthDate = new Date(date);
+    const today = new Date();
+    return birthDate <= today;
+  }, 'Geburtsdatum kann nicht in der Zukunft liegen'),
+  age: z.string().refine((val) => {
+    const num = parseInt(val);
+    return num >= 0 && num <= 150;
+  }, 'Alter muss zwischen 0 und 150 Jahren liegen'),
+  height: z.string().refine((val) => {
+    const num = parseInt(val);
+    return num >= 50 && num <= 250;
+  }, 'Größe muss zwischen 50 und 250 cm liegen'),
+  weight: z.string().refine((val) => {
+    const num = parseInt(val);
+    return num >= 20 && num <= 300;
+  }, 'Gewicht muss zwischen 20 und 300 kg liegen'),
+  occupation: z.string().min(1, 'Beruf ist erforderlich'),
+  email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein'),
+
+  // Optional medical history fields
+  currentComplaints: z.string().optional(),
+  programGoals: z.string().optional(),
+  previousDiseases: z.string().optional(),
+  operations: z.string().optional(),
+  familyHeartStroke: z.string().optional(),
+  familyCancer: z.string().optional(),
+  familyDementia: z.string().optional(),
+  familyDiabetes: z.string().optional(),
+  medications: z.string().optional(),
+  supplements: z.string().optional(),
+  exerciseFrequency: z.string().optional(),
+  sleepQuality: z.string().optional(),
+  diet: z.string().optional(),
+  smoking: z.string().optional(),
+  smokingAmount: z.string().optional(),
+  alcohol: z.string().optional(),
+  stressLevel: z.string().optional(),
+  gender: z.string().optional(),
+  cycleRegular: z.string().optional(),
+  femaleLibidoEnergy: z.string().optional(),
+  pregnancies: z.string().optional(),
+  children: z.string().optional(),
+  hormonalContraception: z.string().optional(),
+  hormonalContraceptionDetails: z.string().optional(),
+  maleLibidoEnergy: z.string().optional(),
+  testosteroneMeasured: z.string().optional(),
+  testosteroneSubstitution: z.string().optional(),
+});
+
+// Helper component for error display
+const ErrorMessage = ({ error }: { error?: string }) => {
+  if (!error) return null;
+  return <p className="mt-1 text-sm text-red-600">{error}</p>;
+};
+
 export default function AnamnesePage() {
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -97,9 +160,18 @@ export default function AnamnesePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear validation error for this field when user starts typing
+    if (validationErrors[field]) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
+    }
   };
 
   // Hide header/footer navigation like in TV page
@@ -130,14 +202,18 @@ export default function AnamnesePage() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitMessage('');
+    setValidationErrors({});
 
     try {
+      // Validate form data with Zod
+      const validatedData = anamneseSchema.parse(formData);
+
       const response = await fetch('/api/anamnese', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(validatedData),
       });
 
       if (response.ok) {
@@ -146,7 +222,19 @@ export default function AnamnesePage() {
         setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
       }
     } catch (error) {
-      setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es spaeter erneut.');
+      if (error instanceof z.ZodError) {
+        // Handle validation errors
+        const errors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            errors[err.path[0] as string] = err.message;
+          }
+        });
+        setValidationErrors(errors);
+        setSubmitMessage('Bitte überprüfen Sie die markierten Felder.');
+      } else {
+        setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -191,6 +279,7 @@ export default function AnamnesePage() {
     });
     setIsSubmitted(false);
     setSubmitMessage('');
+    setValidationErrors({});
   };
 
   // Thank you screen
@@ -231,15 +320,25 @@ export default function AnamnesePage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">Anamnesebogen</h1>
-        <p className="text-gray-600 mb-8">
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <Image
+            src={Logo}
+            alt="Praxis Jona Logo"
+            className="h-16 w-auto object-contain"
+            priority
+          />
+        </div>
+
+        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">Anamnesebogen</h1>
+        <p className="text-gray-600 mb-8 text-center">
           Bitte füllen Sie diesen Bogen möglichst vollständig aus. Die Angaben helfen uns, Ihr Gesundheitsprofil ganzheitlich zu verstehen und Ihre Behandlung individuell zu gestalten.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Persönliche Angaben */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Persönliche Angaben</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Persönliche Angaben</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -250,8 +349,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.name} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -262,8 +364,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.birthdate}
                   onChange={(e) => handleInputChange('birthdate', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.birthdate ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.birthdate} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -274,8 +379,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.age}
                   onChange={(e) => handleInputChange('age', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.age ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.age} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -286,8 +394,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.height}
                   onChange={(e) => handleInputChange('height', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.height ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.height} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -298,8 +409,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.weight}
                   onChange={(e) => handleInputChange('weight', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.weight ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.weight} />
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -310,8 +424,11 @@ export default function AnamnesePage() {
                   required
                   value={formData.occupation}
                   onChange={(e) => handleInputChange('occupation', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.occupation ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.occupation} />
               </div>
               <div className="md:col-span-2">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -322,15 +439,18 @@ export default function AnamnesePage() {
                   required
                   value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 />
+                <ErrorMessage error={validationErrors.email} />
               </div>
             </div>
           </section>
 
           {/* Beschwerden & Ziele */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Beschwerden & Ziele</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Beschwerden & Ziele</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -359,7 +479,7 @@ export default function AnamnesePage() {
 
           {/* Vorerkrankungen & Operationen */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Vorerkrankungen & Operationen</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Vorerkrankungen & Operationen</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -388,7 +508,7 @@ export default function AnamnesePage() {
 
           {/* Familienanamnese */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Familienanamnese</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Familienanamnese</h2>
             <p className="text-sm text-gray-600 mb-4">Gab es in Ihrer Familie (Eltern/Großeltern) Erkrankungen wie:</p>
             <div className="space-y-4">
               <div>
@@ -432,7 +552,7 @@ export default function AnamnesePage() {
 
           {/* Medikamente & Nahrungsergänzung */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Medikamente & Nahrungsergänzung</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Medikamente & Nahrungsergänzung</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -461,8 +581,8 @@ export default function AnamnesePage() {
 
           {/* Lebensstil */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Lebensstil</h2>
-            <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Lebensstil</h2>
+            <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Bewegung: Wie oft pro Woche trainieren Sie?
@@ -475,7 +595,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Schlaf</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">Schlaf</label>
                 <div className="flex gap-4">
                   {(['gut', 'mittelmäßig', 'schlecht'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -492,7 +612,7 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Ernährung</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">Ernährung</label>
                 <div className="flex flex-wrap gap-4">
                   {(['mischköstlich', 'vegetarisch', 'vegan', 'low carb', 'mediterran'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -509,7 +629,7 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Rauchen</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">Rauchen</label>
                 <div className="flex gap-4 items-center">
                   <label className="flex items-center">
                     <input
@@ -541,7 +661,7 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Alkohol</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">Alkohol</label>
                 <div className="flex gap-4">
                   {(['nein', 'gelegentlich', 'regelmäßig'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -558,7 +678,7 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Stressbelastung</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">Stressbelastung</label>
                 <div className="flex gap-4">
                   {(['niedrig', 'mittel', 'hoch'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -579,7 +699,7 @@ export default function AnamnesePage() {
 
           {/* Geschlechtsspezifische Fragen */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Geschlechtsspezifische Angaben</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Geschlechtsspezifische Angaben</h2>
             <div className="mb-4">
               <label className="block text-sm font-medium text-gray-700 mb-2">Geschlecht</label>
               <div className="flex gap-4">
