@@ -225,14 +225,15 @@ export default function AnamnesePage() {
       if (error instanceof z.ZodError) {
         // Handle validation errors
         const errors: Record<string, string> = {};
-        error.errors.forEach((err) => {
-          if (err.path[0]) {
-            errors[err.path[0] as string] = err.message;
+        error.issues.forEach((issue) => {
+          if (issue.path && issue.path[0]) {
+            errors[issue.path[0] as string] = issue.message;
           }
         });
         setValidationErrors(errors);
         setSubmitMessage('Bitte überprüfen Sie die markierten Felder.');
       } else {
+        console.error('Form submission error:', error);
         setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
       }
     } finally {
