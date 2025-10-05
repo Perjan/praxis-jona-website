@@ -89,7 +89,7 @@ function generatePDF(data: FormData): string {
 
   // Header
   doc.setFontSize(18);
-  addText('Anamnesebogen - Longevity-Programm', true);
+  addText('Anamnesebogen', true);
   yPosition += 5;
 
   doc.setFontSize(10);

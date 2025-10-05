@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface FormData {
   // Persoenliche Angaben
@@ -32,11 +32,11 @@ interface FormData {
 
   // Lebensstil
   exerciseFrequency: string;
-  sleepQuality: 'gut' | 'mittelmaessig' | 'schlecht' | '';
-  diet: 'mischkoestlich' | 'vegetarisch' | 'vegan' | 'low carb' | 'mediterran' | '';
+  sleepQuality: 'gut' | 'mittelmäßig' | 'schlecht' | '';
+  diet: 'mischköstlich' | 'vegetarisch' | 'vegan' | 'low carb' | 'mediterran' | '';
   smoking: 'nein' | 'ja' | '';
   smokingAmount: string;
-  alcohol: 'nein' | 'gelegentlich' | 'regelmaessig' | '';
+  alcohol: 'nein' | 'gelegentlich' | 'regelmäßig' | '';
   stressLevel: 'niedrig' | 'mittel' | 'hoch' | '';
 
   // Geschlechtsspezifisch
@@ -96,10 +96,35 @@ export default function AnamnesePage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
+
+  // Hide header/footer navigation like in TV page
+  useEffect(() => {
+    // Hide header and footer
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+
+    if (header) {
+      (header as HTMLElement).style.display = 'none';
+    }
+    if (footer) {
+      (footer as HTMLElement).style.display = 'none';
+    }
+
+    // Cleanup: restore header and footer when component unmounts
+    return () => {
+      if (header) {
+        (header as HTMLElement).style.display = '';
+      }
+      if (footer) {
+        (footer as HTMLElement).style.display = '';
+      }
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -116,46 +141,9 @@ export default function AnamnesePage() {
       });
 
       if (response.ok) {
-        setSubmitMessage('Vielen Dank! Ihr Anamnesebogen wurde erfolgreich uebermittelt.');
-        // Reset form
-        setFormData({
-          name: '',
-          birthdate: '',
-          age: '',
-          height: '',
-          weight: '',
-          occupation: '',
-          email: '',
-          currentComplaints: '',
-          programGoals: '',
-          previousDiseases: '',
-          operations: '',
-          familyHeartStroke: '',
-          familyCancer: '',
-          familyDementia: '',
-          familyDiabetes: '',
-          medications: '',
-          supplements: '',
-          exerciseFrequency: '',
-          sleepQuality: '',
-          diet: '',
-          smoking: '',
-          smokingAmount: '',
-          alcohol: '',
-          stressLevel: '',
-          gender: '',
-          cycleRegular: '',
-          femaleLibidoEnergy: '',
-          pregnancies: '',
-          children: '',
-          hormonalContraception: '',
-          hormonalContraceptionDetails: '',
-          maleLibidoEnergy: '',
-          testosteroneMeasured: '',
-          testosteroneSubstitution: '',
-        });
+        setIsSubmitted(true);
       } else {
-        setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es spaeter erneut.');
+        setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
       }
     } catch (error) {
       setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es spaeter erneut.');
@@ -164,21 +152,99 @@ export default function AnamnesePage() {
     }
   };
 
+  const handleNewPatient = () => {
+    setFormData({
+      name: '',
+      birthdate: '',
+      age: '',
+      height: '',
+      weight: '',
+      occupation: '',
+      email: '',
+      currentComplaints: '',
+      programGoals: '',
+      previousDiseases: '',
+      operations: '',
+      familyHeartStroke: '',
+      familyCancer: '',
+      familyDementia: '',
+      familyDiabetes: '',
+      medications: '',
+      supplements: '',
+      exerciseFrequency: '',
+      sleepQuality: '',
+      diet: '',
+      smoking: '',
+      smokingAmount: '',
+      alcohol: '',
+      stressLevel: '',
+      gender: '',
+      cycleRegular: '',
+      femaleLibidoEnergy: '',
+      pregnancies: '',
+      children: '',
+      hormonalContraception: '',
+      hormonalContraceptionDetails: '',
+      maleLibidoEnergy: '',
+      testosteroneMeasured: '',
+      testosteroneSubstitution: '',
+    });
+    setIsSubmitted(false);
+    setSubmitMessage('');
+  };
+
+  // Thank you screen
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 w-screen h-screen bg-primary flex items-center justify-center px-4">
+        <div className="text-center">
+          <div className="mb-8">
+            <svg
+              className="mx-auto h-24 w-24 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Vielen Dank!</h1>
+          <p className="text-2xl md:text-3xl text-white mb-12">
+            Bitte geben Sie das Gerät an der Rezeption zurück.
+          </p>
+          <button
+            onClick={handleNewPatient}
+            className="bg-white text-primary px-8 py-4 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Neuer Patient
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-4">Anamnesebogen</h1>
         <p className="text-gray-600 mb-8">
-          Bitte fuellen Sie diesen Bogen moeglichst vollstaendig aus. Die Angaben helfen uns, Ihr Gesundheitsprofil ganzheitlich zu verstehen und Ihr Longevity-Programm individuell zu gestalten.
+          Bitte füllen Sie diesen Bogen möglichst vollständig aus. Die Angaben helfen uns, Ihr Gesundheitsprofil ganzheitlich zu verstehen und Ihre Behandlung individuell zu gestalten.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Persoenliche Angaben */}
+          {/* Persönliche Angaben */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Persoenliche Angaben</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Persönliche Angaben</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Name <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="text"
                   required
@@ -188,7 +254,9 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Geburtsdatum</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Geburtsdatum <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="date"
                   required
@@ -198,43 +266,57 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Alter (Jahre)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Alter (Jahre) <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="number"
+                  required
                   value={formData.age}
                   onChange={(e) => handleInputChange('age', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Groesse (cm)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Größe (cm) <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="number"
+                  required
                   value={formData.height}
                   onChange={(e) => handleInputChange('height', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Gewicht (kg)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Gewicht (kg) <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="number"
+                  required
                   value={formData.weight}
                   onChange={(e) => handleInputChange('weight', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Beruf</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Beruf <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="text"
+                  required
                   value={formData.occupation}
                   onChange={(e) => handleInputChange('occupation', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-700 mb-1">Kontakt / E-Mail</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Kontakt / E-Mail <span className="text-red-600">*</span>
+                </label>
                 <input
                   type="email"
                   required
@@ -263,7 +345,7 @@ export default function AnamnesePage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Was sind Ihre Ziele mit diesem Programm? (z. B. mehr Energie, Praevention, Muskelaufbau, Leistungsfaehigkeit)
+                  Was sind Ihre Ziele? (z. B. mehr Energie, Prävention, Muskelaufbau, Leistungsfähigkeit)
                 </label>
                 <textarea
                   rows={3}
@@ -307,7 +389,7 @@ export default function AnamnesePage() {
           {/* Familienanamnese */}
           <section>
             <h2 className="text-2xl font-semibold text-gray-800 mb-4">Familienanamnese</h2>
-            <p className="text-sm text-gray-600 mb-4">Gab es in Ihrer Familie (Eltern/Grosseltern) Erkrankungen wie:</p>
+            <p className="text-sm text-gray-600 mb-4">Gab es in Ihrer Familie (Eltern/Großeltern) Erkrankungen wie:</p>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Herzinfarkt / Schlaganfall</label>
@@ -337,7 +419,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Diabetes / Stoffwechselstoerungen</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Diabetes / Stoffwechselstörungen</label>
                 <input
                   type="text"
                   value={formData.familyDiabetes}
@@ -348,13 +430,13 @@ export default function AnamnesePage() {
             </div>
           </section>
 
-          {/* Medikamente & Nahrungsergaenzung */}
+          {/* Medikamente & Nahrungsergänzung */}
           <section>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Medikamente & Nahrungsergaenzung</h2>
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Medikamente & Nahrungsergänzung</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nehmen Sie regelmaessig Medikamente ein? Wenn ja, welche?
+                  Nehmen Sie regelmäßig Medikamente ein? Wenn ja, welche?
                 </label>
                 <textarea
                   rows={4}
@@ -365,7 +447,7 @@ export default function AnamnesePage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nehmen Sie Nahrungsergaenzungsmittel ein? Wenn ja, welche?
+                  Nehmen Sie Nahrungsergänzungsmittel ein? Wenn ja, welche?
                 </label>
                 <textarea
                   rows={4}
@@ -395,7 +477,7 @@ export default function AnamnesePage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Schlaf</label>
                 <div className="flex gap-4">
-                  {(['gut', 'mittelmaessig', 'schlecht'] as const).map((option) => (
+                  {(['gut', 'mittelmäßig', 'schlecht'] as const).map((option) => (
                     <label key={option} className="flex items-center">
                       <input
                         type="radio"
@@ -410,9 +492,9 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Ernaehrung</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Ernährung</label>
                 <div className="flex flex-wrap gap-4">
-                  {(['mischkoestlich', 'vegetarisch', 'vegan', 'low carb', 'mediterran'] as const).map((option) => (
+                  {(['mischköstlich', 'vegetarisch', 'vegan', 'low carb', 'mediterran'] as const).map((option) => (
                     <label key={option} className="flex items-center">
                       <input
                         type="radio"
@@ -461,7 +543,7 @@ export default function AnamnesePage() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Alkohol</label>
                 <div className="flex gap-4">
-                  {(['nein', 'gelegentlich', 'regelmaessig'] as const).map((option) => (
+                  {(['nein', 'gelegentlich', 'regelmäßig'] as const).map((option) => (
                     <label key={option} className="flex items-center">
                       <input
                         type="radio"
@@ -527,9 +609,9 @@ export default function AnamnesePage() {
             {/* Fuer Frauen */}
             {formData.gender === 'female' && (
               <div className="space-y-4 bg-pink-50 p-4 rounded-md">
-                <h3 className="font-semibold text-gray-800">Fuer Frauen:</h3>
+                <h3 className="font-semibold text-gray-800">Für Frauen:</h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Zyklus regelmaessig?</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Zyklus regelmäßig?</label>
                   <div className="flex gap-4">
                     {(['ja', 'nein'] as const).map((option) => (
                       <label key={option} className="flex items-center">
@@ -584,7 +666,7 @@ export default function AnamnesePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Hormonelle Verhuetung oder Therapie
+                    Hormonelle Verhütung oder Therapie
                   </label>
                   <div className="flex gap-4 mb-2">
                     {(['ja', 'nein'] as const).map((option) => (
@@ -615,10 +697,10 @@ export default function AnamnesePage() {
               </div>
             )}
 
-            {/* Fuer Maenner */}
+            {/* Für Männer */}
             {formData.gender === 'male' && (
               <div className="space-y-4 bg-blue-50 p-4 rounded-md">
-                <h3 className="font-semibold text-gray-800">Fuer Maenner:</h3>
+                <h3 className="font-semibold text-gray-800">Für Männer:</h3>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Libido / Energie</label>
                   <div className="flex gap-4">
@@ -687,7 +769,7 @@ export default function AnamnesePage() {
               disabled={isSubmitting}
               className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-primary/90 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             >
-              {isSubmitting ? 'Wird uebermittelt...' : 'Absenden'}
+              {isSubmitting ? 'Wird übermittelt...' : 'Absenden'}
             </button>
             {submitMessage && (
               <p className={`text-sm ${submitMessage.includes('Fehler') ? 'text-red-600' : 'text-green-600'}`}>
