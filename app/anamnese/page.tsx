@@ -43,7 +43,7 @@ interface FormData {
   stressLevel: 'niedrig' | 'mittel' | 'hoch' | '';
 
   // Geschlechtsspezifisch
-  gender: 'female' | 'male' | '';
+  gender: 'female' | 'male' | 'diverse' | '';
 
   // Fuer Frauen
   cycleRegular: 'ja' | 'nein' | '';
@@ -722,7 +722,17 @@ export default function AnamnesePage() {
                     onChange={(e) => handleInputChange('gender', e.target.value)}
                     className="mr-2"
                   />
-                  Maennlich
+                  Männlich
+                </label>
+                <label className="flex items-center">
+                  <input
+                    type="radio"
+                    value="diverse"
+                    checked={formData.gender === 'diverse'}
+                    onChange={(e) => handleInputChange('gender', e.target.value)}
+                    className="mr-2"
+                  />
+                  Divers
                 </label>
               </div>
             </div>
