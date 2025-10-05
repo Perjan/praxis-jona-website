@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import sgMail from '@sendgrid/mail';
 import { jsPDF } from 'jspdf';
-
-// Initialize SendGrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 interface FormData {
   // Persönliche Angaben
@@ -187,32 +183,39 @@ export async function POST(request: NextRequest) {
 
     // Generate PDF
     const pdfBase64 = generatePDF(formData);
+    const pdfBuffer = Buffer.from(pdfBase64, 'base64');
 
-    // Prepare email with PDF attachment
-    const msg = {
-      to: process.env.ANAMNESE_RECIPIENT_EMAIL || 'praxis@example.com', // Configure this in environment variables
-      from: process.env.SENDGRID_FROM_EMAIL || 'noreply@praxisjona.de', // Configure this in environment variables
-      subject: `Anamnesebogen - ${formData.name}`,
-      text: `Ein neuer Anamnesebogen wurde ausgefüllt von: ${formData.name} (${formData.email})`,
-      html: `
-        <h2>Neuer Anamnesebogen eingegangen</h2>
-        <p><strong>Patient:</strong> ${formData.name}</p>
-        <p><strong>E-Mail:</strong> ${formData.email}</p>
-        <p><strong>Eingegangen am:</strong> ${new Date().toLocaleString('de-DE')}</p>
-        <p>Der vollständige Anamnesebogen ist als PDF angehängt.</p>
-      `,
-      attachments: [
-        {
-          content: pdfBase64,
-          filename: `Anamnesebogen_${formData.name.replace(/\s/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`,
-          type: 'application/pdf',
-          disposition: 'attachment',
-        },
-      ],
-    };
+    // Prepare filename
+    const filename = `Anamnesebogen_${formData.name.replace(/\s/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
 
-    // Send email
-    await sgMail.send(msg);
+    // Send to Make.com webhook
+    const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+
+    if (!makeWebhookUrl) {
+      throw new Error('MAKE_WEBHOOK_URL environment variable is not configured');
+    }
+
+    // Create FormData for multipart/form-data
+    const makeFormData = new FormData();
+
+    // Add the PDF file as a blob
+    const pdfBlob = new Blob([pdfBuffer], { type: 'application/pdf' });
+    makeFormData.append('file', pdfBlob, filename);
+
+    // Add additional form data as JSON
+    makeFormData.append('patientName', formData.name);
+    makeFormData.append('patientEmail', formData.email);
+    makeFormData.append('submittedAt', new Date().toISOString());
+
+    // Send to Make.com
+    const response = await fetch(makeWebhookUrl, {
+      method: 'POST',
+      body: makeFormData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Make.com webhook failed with status: ${response.status}`);
+    }
 
     return NextResponse.json({ success: true, message: 'Anamnesebogen erfolgreich gesendet' });
   } catch (error) {
