@@ -31,14 +31,14 @@ export const Constants = {
 export const NewsMessages = {
     de: [
         {
-            title: "Praxisinformation – Urlaubszeiten und Vertretung",
-            message: "Liebe Patientinnen und Patienten,\n\nbitte beachten Sie folgende organisatorische Hinweise:\n\nAm 21.07.2025 findet keine Nachmittagssprechstunde statt.\n\nVom 28. Juli bis einschließlich 1. August 2025 bleibt unsere Praxis aufgrund von Sommerferien geschlossen.\n\nIn dieser Zeit übernimmt Frau Constanze Buhrmann die ärztliche Vertretung.\n\nVielen Dank für Ihr Verständnis – wir wünschen Ihnen einen gesunden Sommer!\n\nIhr Praxisteam"
+            title: "Wichtige Praxisinformation – Keine Sprechstunde",
+            message: "Liebe Patientinnen und Patienten,\n\naufgrund eines unerwarteten Notfalls findet am Montag und Dienstag, den 8. und 9. September 2025, keine Sprechstunde statt.\n\nVielen Dank für Ihr Verständnis.\nIhr Praxisteam"
         }
     ],
     en: [
         {
-            title: "Practice Information – Vacation Times and Representation",
-            message: "Dear patients,\n\nplease note the following organizational information:\n\nOn July 21, there will be no afternoon consultation.\n\nFrom July 28 to August 1, 2025, our practice will be closed due to summer holidays.\n\nDuring this time, Mrs. Constanze Buhrmann will take over the medical representation.\n\nThank you for your understanding – we wish you a healthy summer!\n\nYour practice team"
+            title: "Important Notice – No Consultation Hours",
+            message: "Dear patients,\n\ndue to an unexpected emergency, there will be no consultation hours on Monday and Tuesday, the 8th and 9th of September, 2025.\n\nThank you for your understanding.\nYour practice team"
         }
     ]
 }

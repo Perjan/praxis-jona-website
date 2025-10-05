@@ -15,8 +15,8 @@ export const nutritionPricingPlans = [
             en: '(after GOÄ)'
         },
         billingCycle: {
-            de: '3 Termine à 30 Minuten',
-            en: '3 appointments of 30 minutes'
+            de: '3 Termine, jeweils 30 Minuten',
+            en: '3 appointments of 30 minutes each'
         },
         description: {
             de: 'Ideal für den Einstieg oder gezielte Beratung bei klarer Fragestellung.',
@@ -64,8 +64,8 @@ export const nutritionPricingPlans = [
             en: '(after GOÄ)'
         },
         billingCycle: {
-            de: '5 Termine à 30 Minuten',
-            en: '5 appointments of 30 minutes'
+            de: '5 Termine, jeweils 30 Minuten',
+            en: '5 appointments of 30 minutes each'
         },
         description: {
             de: 'Empfohlen für nachhaltige Umstellung, komplexe Themen oder begleitend zur Abnehmspritze..',
