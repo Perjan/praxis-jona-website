@@ -189,32 +189,32 @@ export async function POST(request: NextRequest) {
     const filename = `Anamnesebogen_${formData.name.replace(/\s/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
 
     // Send to Make.com webhook
-    const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+    const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
 
-    if (!makeWebhookUrl) {
-      throw new Error('MAKE_WEBHOOK_URL environment variable is not configured');
+    if (!n8nWebhookUrl) {
+      throw new Error('N8_WEBHOOK_URL environment variable is not configured');
     }
 
     // Create FormData for multipart/form-data
-    const makeFormData = new FormData();
+    const n8nFormData = new FormData();
 
     // Add the PDF file as a blob
     const pdfBlob = new Blob([pdfBuffer], { type: 'application/pdf' });
-    makeFormData.append('file', pdfBlob, filename);
+    n8nFormData.append('file', pdfBlob, filename);
 
     // Add additional form data as JSON
-    makeFormData.append('patientName', formData.name);
-    makeFormData.append('patientEmail', formData.email);
-    makeFormData.append('submittedAt', new Date().toISOString());
+    n8nFormData.append('patientName', formData.name);
+    n8nFormData.append('patientEmail', formData.email);
+    n8nFormData.append('submittedAt', new Date().toISOString());
 
     // Send to Make.com
-    const response = await fetch(makeWebhookUrl, {
+    const response = await fetch(n8nWebhookUrl, {
       method: 'POST',
-      body: makeFormData,
+      body: n8nFormData,
     });
 
     if (!response.ok) {
-      throw new Error(`Make.com webhook failed with status: ${response.status}`);
+      throw new Error(`N8N webhook failed with status: ${response.status}`);
     }
 
     return NextResponse.json({ success: true, message: 'Anamnesebogen erfolgreich gesendet' });
