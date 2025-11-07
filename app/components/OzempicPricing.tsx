@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { ozempicPackages } from './NutritionPricingData';
+import { glp1TherapyPackage } from './NutritionPricingData';
 import PricingCard from './PricingCard';
 import PrimaryButton from './PrimaryButton';
 import { appsEN } from '../data/appsEN';
@@ -21,14 +21,12 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
                 {language === 'de' ? 'Abnehmspritze' : 'Weight Loss Injection'}
                 <span className='sr-only'>Ozempic, Mounjaro, Wegovy</span>
             </h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-                {ozempicPackages.map((plan) => (
-                    <PricingCard
-                        key={plan.title[language]}
-                        package={plan}
-                        language={language}
-                    />
-                ))}
+            <div className="w-full">
+                <PricingCard
+                    key={glp1TherapyPackage.title[language]}
+                    package={glp1TherapyPackage}
+                    language={language}
+                />
             </div>
             
             <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter max-w-7xl mx-auto px-4 lg:px-0 mt-16 mb-8">

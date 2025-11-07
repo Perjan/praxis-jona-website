@@ -1,5 +1,5 @@
 import React from 'react';
-import { nutritionPricingPlans } from './NutritionPricingData';
+import { nutritionConsultationPackage } from './NutritionPricingData';
 import PrimaryButton from './PrimaryButton';
 import PricingCard from './PricingCard';
 
@@ -14,14 +14,12 @@ export default function NutritionPricing({ buttonText, language }: NutritionPric
             <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter max-w-7xl mx-auto px-4 lg:px-0 mb-8">
                 {language === 'de' ? 'Unsere Ernährungspakete' : 'Our Nutrition Packages'}
             </h2>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                {nutritionPricingPlans.map((plan) => (
-                    <PricingCard
-                        key={plan.title[language]}
-                        package={plan}
-                        language={language}
-                    />
-                ))}
+            <div className="w-full">
+                <PricingCard
+                    key={nutritionConsultationPackage.title[language]}
+                    package={nutritionConsultationPackage}
+                    language={language}
+                />
             </div>
         </div>
     );

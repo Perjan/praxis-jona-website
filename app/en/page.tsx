@@ -56,7 +56,7 @@ export default function Features() {
                 buttonText="Our Services"
             />
 
-            <Warning message="Please note that we currently do not accept new public insured patients." />
+            {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}
 
             <ClinicSection
                 title="Visit us in our Practice"
