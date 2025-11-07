@@ -31,14 +31,14 @@ export const Constants = {
 export const NewsMessages = {
     de: [
         {
-            title: "Wichtige Praxisinformation – Keine Sprechstunde",
-            message: "Liebe Patientinnen und Patienten,\n\naufgrund eines unerwarteten Notfalls findet am Montag und Dienstag, den 8. und 9. September 2025, keine Sprechstunde statt.\n\nVielen Dank für Ihr Verständnis.\nIhr Praxisteam"
+            title: "Wichtige Praxisinformation – Weihnachtsschließzeiten",
+            message: "Liebe Patientinnen und Patienten,\n\nunsere Praxis bleibt vom 16. Dezember 2025 bis einschließlich 4. Januar 2026 geschlossen.\n\nDie Vertretungspraxis wird in Kürze bekannt gegeben.\n\nVielen Dank für Ihr Verständnis.\nIhr Praxisteam"
         }
     ],
     en: [
         {
-            title: "Important Notice – No Consultation Hours",
-            message: "Dear patients,\n\ndue to an unexpected emergency, there will be no consultation hours on Monday and Tuesday, the 8th and 9th of September, 2025.\n\nThank you for your understanding.\nYour practice team"
+            title: "Important Practice Information – Christmas Closing Times",
+            message: "Dear patients,\n\nOur practice will be closed from December 16, 2025 to January 4, 2026, inclusive.\n\nThe substitute practice will be announced shortly.\n\nThank you for your understanding.\nYour practice team"
         }
     ]
 }

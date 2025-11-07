@@ -56,7 +56,7 @@ export default function Features() {
                 buttonText="Unsere Leistungen"
             />
 
-            <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." />
+            {/* <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." /> */}
 
             <ClinicSection
                 title="Besuchen Sie uns in unserer Praxis"

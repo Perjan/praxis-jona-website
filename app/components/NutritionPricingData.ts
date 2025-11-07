@@ -1,5 +1,53 @@
 import { Constants } from "app/Constants";
 
+export const nutritionConsultationPackage = {
+    title: {
+        de: 'Ernährungsberatung',
+        en: 'Nutrition Consultation'
+    },
+    price: {
+        de: 'ab 90€ ',
+        en: 'from 90€ '
+    },
+    priceAppend: {
+        de: '(nach GOÄ)',
+        en: '(after GOÄ)'
+    },
+    billingCycle: {
+        de: 'ca. 30 Minuten Ernährungsberatung',
+        en: 'approx. 30 minutes nutrition consultation'
+    },
+    description: {
+        de: 'Die Ernährungsberatung erfolgt individuell, medizinisch fundiert und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet. Sie richtet sich an Personen, die ihre Ernährung gezielt zur Verbesserung ihres Wohlbefindens, zur Gewichtsregulation oder im Rahmen bestimmter Erkrankungen optimieren möchten.',
+        en: 'Nutrition consultation is provided individually, based on medical evidence, and is fully billed according to the German Medical Fee Schedule (GOÄ). It is aimed at people who want to optimize their nutrition specifically to improve their well-being, for weight regulation, or in the context of certain diseases.'
+    },
+    details: {
+        de: [
+            'BIA-Messung zur Bestimmung der Körperzusammensetzung',
+            'Auswertung eines 3-Tage-Ernährungsprotokolls',
+            'Erarbeitung individueller Ernährungsstrategien und praktischer Umsetzungsempfehlungen'
+        ],
+        en: [
+            'BIA measurement to determine body composition',
+            'Evaluation of a 3-day nutrition protocol',
+            'Development of individual nutrition strategies and practical implementation recommendations'
+        ]
+    },
+    bottomText: {
+        de: 'Die Kosten der ernährungsmedizinischen Beratung sind Selbstzahlerleistungen und werden nicht von den gesetzlichen Krankenkassen übernommen. In Einzelfällen kann bei privat Versicherten eine Erstattung nach GOÄ erfolgen – abhängig vom jeweiligen Versicherungsvertrag.',
+        en: 'The costs of nutritional medicine consultation are self-pay services and are not covered by statutory health insurance. In individual cases, privately insured patients may receive reimbursement according to GOÄ – depending on the respective insurance contract.'
+    },
+    buttonText: {
+        de: 'Termin buchen',
+        en: 'Book appointment'
+    },
+    link: {
+        de: Constants.appointmentUrl,
+        en: Constants.appointmentUrl
+    },
+    color: 'bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe] backdrop-blur-sm bg-opacity-50'
+};
+
 export const nutritionPricingPlans = [
     {
         title: {
@@ -182,6 +230,72 @@ export const nutrientTherapyPackage = {
         en: Constants.appointmentUrl
     },
     color: 'bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50'
+};
+
+export const glp1TherapyPackage = {
+    title: {
+        de: 'Medizinische Begleitung bei der Therapie mit GLP-1-Analoga („Abnehmspritze")',
+        en: 'Medical Support for GLP-1 Analogue Therapy ("Weight Loss Injection")'
+    },
+    price: {
+        de: 'ab 90€',
+        en: 'from 90€'
+    },
+    priceAppend: {
+        de: '(nach GOÄ)',
+        en: '(after GOÄ)'
+    },
+    firstPriceLabel: {
+        de: 'ca. 30 Minuten Ernährungsberatung',
+        en: 'approx. 30 minutes nutrition consultation'
+    },
+    secondPrice: {
+        de: 'ab 50€',
+        en: 'from 50€'
+    },
+    secondPriceLabel: {
+        de: 'In der Erhaltungsphase, ca. 15 Minuten',
+        en: 'In maintenance phase, approx. 15 minutes'
+    },
+    billingCycle: {
+        de: 'Ernährungsmedizinische Beratung',
+        en: 'Nutritional Medicine Consultation'
+    },
+    description: {
+        de: 'Die Behandlung erfolgt individuell nach ärztlicher Verordnung und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet.',
+        en: 'Treatment is provided individually according to medical prescription and is fully billed according to the German Medical Fee Schedule (GOÄ).'
+    },
+    details: {
+        de: [
+            'BIA-Messung zur Bestimmung der Körperzusammensetzung',
+            'Besprechung der Laborwerte (sofern vorhanden)',
+            'Auswertung eines 3-Tage-Ernährungsprotokolls',
+            'Ernährungsanpassung entsprechend des aktuellen Therapieabschnitts',
+            'Medizinisches Monitoring: Blutkontrollen nach 3 und 6 Monaten',
+            'Ultraschall der Bauchorgane'
+        ],
+        en: [
+            'BIA measurement to determine body composition',
+            'Discussion of laboratory values (if available)',
+            'Evaluation of a 3-day nutrition protocol',
+            'Nutrition adjustment according to current therapy phase',
+            'Medical monitoring: Blood checks after 3 and 6 months',
+            'Ultrasound of abdominal organs'
+        ]
+    },
+    bottomText: {
+        de: 'Die Kosten für das Medikament (GLP-1-Analogon) sind nicht im Preis enthalten. Weder die Kosten für das Medikament noch die Kosten für die ärztliche Beratung und Begleitung werden derzeit von den gesetzlichen Krankenkassen übernommen.',
+        en: 'The costs for the medication (GLP-1 analogue) are not included in the price. Neither the costs for the medication nor the costs for medical consultation and support are currently covered by statutory health insurance.'
+    },
+    buttonText: {
+        de: 'Termin buchen',
+        en: 'Book appointment'
+    },
+    link: {
+        de: Constants.appointmentUrl,
+        en: Constants.appointmentUrl
+    },
+    color: 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50'
 };
 
 export const ozempicPackages = [
