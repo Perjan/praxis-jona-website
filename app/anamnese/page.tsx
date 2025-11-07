@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { z } from 'zod';
 import Logo from '/public/images/praxis-jona-web-logo.png';
+import SignaturePadField, { SignaturePadHandle } from './SignaturePad';
 
 interface FormData {
   // Persoenliche Angaben
@@ -57,6 +58,7 @@ interface FormData {
   maleLibidoEnergy: 'normal' | 'vermindert' | '';
   testosteroneMeasured: 'ja' | 'nein' | '';
   testosteroneSubstitution: 'ja' | 'nein' | '';
+  signature: string;
 }
 
 // Zod validation schema
@@ -68,10 +70,7 @@ const anamneseSchema = z.object({
     const today = new Date();
     return birthDate <= today;
   }, 'Geburtsdatum kann nicht in der Zukunft liegen'),
-  age: z.string().refine((val) => {
-    const num = parseInt(val);
-    return num >= 0 && num <= 150;
-  }, 'Alter muss zwischen 0 und 150 Jahren liegen'),
+  age: z.string().optional(),
   height: z.string().refine((val) => {
     const num = parseInt(val);
     return num >= 50 && num <= 250;
@@ -111,12 +110,30 @@ const anamneseSchema = z.object({
   maleLibidoEnergy: z.string().optional(),
   testosteroneMeasured: z.string().optional(),
   testosteroneSubstitution: z.string().optional(),
+  signature: z.string().min(1, 'Bitte unterschreiben Sie den Bogen'),
 });
 
 // Helper component for error display
 const ErrorMessage = ({ error }: { error?: string }) => {
   if (!error) return null;
   return <p className="mt-1 text-sm text-red-600">{error}</p>;
+};
+
+const calculateAgeFromBirthdate = (dateStr: string) => {
+  if (!dateStr) return '';
+  const birthDate = new Date(dateStr);
+  if (Number.isNaN(birthDate.getTime())) return '';
+
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+  const dayDiff = today.getDate() - birthDate.getDate();
+
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+    age -= 1;
+  }
+
+  return age >= 0 ? String(age) : '';
 };
 
 export default function AnamnesePage() {
@@ -155,20 +172,35 @@ export default function AnamnesePage() {
     maleLibidoEnergy: '',
     testosteroneMeasured: '',
     testosteroneSubstitution: '',
+    signature: '',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const signaturePadRef = useRef<SignaturePadHandle | null>(null);
 
   const handleInputChange = (field: keyof FormData, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData(prev => {
+      const updated = { ...prev, [field]: value };
+      if (field === 'birthdate') {
+        updated.age = calculateAgeFromBirthdate(value);
+      }
+      return updated;
+    });
     // Clear validation error for this field when user starts typing
     if (validationErrors[field]) {
       setValidationErrors(prev => {
         const newErrors = { ...prev };
         delete newErrors[field];
+        return newErrors;
+      });
+    }
+    if (field === 'birthdate' && validationErrors.age) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev };
+        delete newErrors.age;
         return newErrors;
       });
     }
@@ -205,8 +237,15 @@ export default function AnamnesePage() {
     setValidationErrors({});
 
     try {
+      const signatureData = signaturePadRef.current?.getSignature() ?? formData.signature;
+      const dataToValidate = { ...formData, signature: signatureData };
+
+      if (signatureData !== formData.signature) {
+        setFormData(prev => ({ ...prev, signature: signatureData }));
+      }
+
       // Validate form data with Zod
-      const validatedData = anamneseSchema.parse(formData);
+      const validatedData = anamneseSchema.parse(dataToValidate);
 
       const response = await fetch('/api/anamnese', {
         method: 'POST',
@@ -277,10 +316,12 @@ export default function AnamnesePage() {
       maleLibidoEnergy: '',
       testosteroneMeasured: '',
       testosteroneSubstitution: '',
+      signature: '',
     });
     setIsSubmitted(false);
     setSubmitMessage('');
     setValidationErrors({});
+    signaturePadRef.current?.clear();
   };
 
   // Thank you screen
@@ -340,8 +381,8 @@ export default function AnamnesePage() {
           {/* Persönliche Angaben */}
           <section>
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Persönliche Angaben</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="md:col-span-2">
+            <div className="flex flex-wrap gap-4">
+              <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Name <span className="text-red-600">*</span>
                 </label>
@@ -356,52 +397,29 @@ export default function AnamnesePage() {
                 />
                 <ErrorMessage error={validationErrors.name} />
               </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-0.5rem)]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Geburtsdatum <span className="text-red-600">*</span>
                 </label>
-                <input
-                  type="date"
-                  required
-                  value={formData.birthdate}
-                  onChange={(e) => handleInputChange('birthdate', e.target.value)}
-                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
-                    validationErrors.birthdate ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
+                <div className="flex items-center gap-4">
+                  <input
+                    type="date"
+                    required
+                    value={formData.birthdate}
+                    onChange={(e) => handleInputChange('birthdate', e.target.value)}
+                    className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                      validationErrors.birthdate ? 'border-red-500' : 'border-gray-300'
+                    }`}
+                  />
+                  {formData.age && (
+                    <span className="text-sm text-gray-600 whitespace-nowrap">
+                      Alter: <span className="font-semibold">{formData.age}</span> Jahre
+                    </span>
+                  )}
+                </div>
                 <ErrorMessage error={validationErrors.birthdate} />
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Alter (Jahre) <span className="text-red-600">*</span>
-                </label>
-                <input
-                  type="number"
-                  required
-                  value={formData.age}
-                  onChange={(e) => handleInputChange('age', e.target.value)}
-                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
-                    validationErrors.age ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
-                <ErrorMessage error={validationErrors.age} />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Größe (cm) <span className="text-red-600">*</span>
-                </label>
-                <input
-                  type="number"
-                  required
-                  value={formData.height}
-                  onChange={(e) => handleInputChange('height', e.target.value)}
-                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
-                    validationErrors.height ? 'border-red-500' : 'border-gray-300'
-                  }`}
-                />
-                <ErrorMessage error={validationErrors.height} />
-              </div>
-              <div>
+              <div className="w-full md:w-[calc(50%-0.5rem)]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Gewicht (kg) <span className="text-red-600">*</span>
                 </label>
@@ -416,7 +434,22 @@ export default function AnamnesePage() {
                 />
                 <ErrorMessage error={validationErrors.weight} />
               </div>
-              <div className="md:col-span-2">
+              <div className="w-full md:w-[calc(50%-0.5rem)]">
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Größe (cm) <span className="text-red-600">*</span>
+                </label>
+                <input
+                  type="number"
+                  required
+                  value={formData.height}
+                  onChange={(e) => handleInputChange('height', e.target.value)}
+                  className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
+                    validationErrors.height ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                />
+                <ErrorMessage error={validationErrors.height} />
+              </div>
+              <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Beruf <span className="text-red-600">*</span>
                 </label>
@@ -431,7 +464,7 @@ export default function AnamnesePage() {
                 />
                 <ErrorMessage error={validationErrors.occupation} />
               </div>
-              <div className="md:col-span-2">
+              <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Kontakt / E-Mail <span className="text-red-600">*</span>
                 </label>
@@ -891,6 +924,20 @@ export default function AnamnesePage() {
                 )}
               </div>
             )}
+          </section>
+
+          {/* Unterschrift */}
+          <section>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">Unterschrift</h2>
+            <p className="text-gray-600 mb-4">
+              Bitte bestätigen Sie mit Ihrer Unterschrift, dass die gemachten Angaben der Wahrheit entsprechen.
+            </p>
+            <SignaturePadField
+              ref={signaturePadRef}
+              value={formData.signature}
+              onChange={(dataUrl) => handleInputChange('signature', dataUrl)}
+            />
+            <ErrorMessage error={validationErrors.signature} />
           </section>
 
           {/* Submit Button */}
