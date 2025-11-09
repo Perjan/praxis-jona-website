@@ -17,16 +17,36 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter max-w-7xl mx-auto px-4 lg:px-0 mb-8">
-                {language === 'de' ? 'Abnehmspritze' : 'Weight Loss Injection'}
-                <span className='sr-only'>Ozempic, Mounjaro, Wegovy</span>
-            </h2>
             <div className="w-full">
                 <PricingCard
                     key={glp1TherapyPackage.title[language]}
                     package={glp1TherapyPackage}
                     language={language}
                 />
+            </div>
+            
+            <div className="max-w-7xl mx-auto px-4 lg:px-0 mt-8">
+                <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter mb-4">
+                    {language === 'de' ? 'Medizinisches Monitoring' : 'Medical Monitoring'}
+                </h2>
+                <p className="text-lg leading-8 text-primaryLighter mb-4">
+                    {language === 'de' 
+                        ? 'Zur Sicherstellung der Wirksamkeit und Sicherheit der Therapie erfolgt eine regelmäßige medizinische Verlaufskontrolle:'
+                        : 'To ensure the effectiveness and safety of the therapy, regular medical monitoring is carried out:'}
+                </p>
+                <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter mb-4">
+                    <li className="mt-2">
+                        {language === 'de' ? 'Blutkontrollen nach 3 und 6 Monaten' : 'Blood checks after 3 and 6 months'}
+                    </li>
+                    <li className="mt-2">
+                        {language === 'de' ? 'Ultraschall der Bauchorgane' : 'Ultrasound of abdominal organs'}
+                    </li>
+                </ul>
+                <p className="text-lg leading-8 text-primaryLighter">
+                    {language === 'de' 
+                        ? 'Diese Leistungen werden ebenfalls nach GOÄ abgerechnet und können.'
+                        : 'These services are also billed according to GOÄ and can be.'}
+                </p>
             </div>
             
             <h2 className="text-2xl font-serif font-medium leading-8 text-primaryLighter max-w-7xl mx-auto px-4 lg:px-0 mt-16 mb-8">

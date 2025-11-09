@@ -48,6 +48,14 @@ export const Services = [
       description: "In unserer Praxis führen wir neben Anamnese und körperlicher Untersuchung falls notwendig auch ein breites Spektrum an Laboruntersuchungen durch. Dies umfasst Standardtests für akute und chronische Erkrankungen sowie spezielle Blutanalysen, wie Mikronährstoff- und Vitaminbestimmungen, Darmmikrobiomanalyse. Wir beraten Sie gerne ausführlich dazu."
     },
     {
+      id: 13,
+      name: 'Abnehmspritze',
+      href: '#13',
+      imageSrc: '/images/leistungen/glp1-syringe.png',
+      type: 'private',
+      description: "Die Abnehmspritze (GLP-1-Analoga wie Ozempic®, Wegovy®, Mounjaro®) ist eine moderne medizinische Behandlungsmethode zur Gewichtsreduktion. Diese Medikamente wirken durch die Nachahmung des natürlichen Hormons GLP-1, das den Appetit reduziert, das Sättigungsgefühl verstärkt und die Magenentleerung verlangsamt. Die Behandlung erfolgt unter ärztlicher Aufsicht und wird individuell auf Ihre Bedürfnisse abgestimmt. Die Kosten für das Medikament sind nicht im Preis enthalten und werden derzeit nicht von den gesetzlichen Krankenkassen übernommen."
+    },
+    {
       id: 7,
       name: 'Ultraschalluntersuchung',
       href: '#6',
@@ -145,6 +153,14 @@ export const Services = [
       imageSrc: '/images/leistungen/nutrition.png',
       type: 'private',
       description: "In our practice, we carry out a wide range of laboratory tests in addition to a medical history and physical examination if necessary. This includes standard tests for acute and chronic illnesses as well as special blood analyses, such as micronutrient and vitamin determinations and intestinal microbiome analysis. We will be happy to advise you in detail."
+    },
+    {
+      id: 13,
+      name: 'Weight Loss Injection',
+      href: '#13',
+      imageSrc: '/images/leistungen/glp1-syringe.png',
+      type: 'private',
+      description: "Weight loss injections (GLP-1 analogues such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs. The costs for the medication are not included in the price and are currently not covered by statutory health insurance."
     },
     {
       id: 7,

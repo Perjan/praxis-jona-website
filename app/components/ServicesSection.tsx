@@ -22,6 +22,7 @@ export default function ServicesSection({ language = 'de' }) {
         6: '/en/services/nutritional-medicine',
         7: '/en/services/ultrasound-examination',
         8: '/en/services/private-insurance-check-up',
+        13: '/en/services/weight-loss-injection',
       }
     : {
         2: '/leistungen/gesetzliche-check-up',
@@ -32,6 +33,7 @@ export default function ServicesSection({ language = 'de' }) {
         9: '/leistungen/reiseimpfungen',
         10: '/leistungen/mikronahrstoffanalyse',
         11: '/leistungen/infusionstherapie',
+        13: '/leistungen/abnehmspritze',
       };
 
   // Section titles based on language

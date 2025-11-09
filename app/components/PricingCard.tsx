@@ -107,7 +107,11 @@ export default function PricingCard({
                         )}
                     </div>
                 )}
-                <p className="mt-4 text-center text-sm text-primary font-medium">{pkg.description[language]}</p>
+                <div className="mt-4 text-center text-sm text-primary font-medium">
+                    {pkg.description[language].split('\n\n').map((paragraph, index) => (
+                        <p key={index} className={index > 0 ? 'mt-2' : ''}>{paragraph}</p>
+                    ))}
+                </div>
                 <ul className="mt-6 space-y-2 text-sm text-gray-600">
                     {pkg.details[language].map((detail, index) => (
                         <li key={index} className="flex items-start">

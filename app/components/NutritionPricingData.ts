@@ -6,8 +6,8 @@ export const nutritionConsultationPackage = {
         en: 'Nutrition Consultation'
     },
     price: {
-        de: 'ab 90€ ',
-        en: 'from 90€ '
+        de: 'ab 124€ ',
+        en: 'from 124€ '
     },
     priceAppend: {
         de: '(nach GOÄ)',
@@ -238,8 +238,8 @@ export const glp1TherapyPackage = {
         en: 'Medical Support for GLP-1 Analogue Therapy ("Weight Loss Injection")'
     },
     price: {
-        de: 'ab 90€',
-        en: 'from 90€'
+        de: 'ab 124€',
+        en: 'from 124€'
     },
     priceAppend: {
         de: '(nach GOÄ)',
@@ -254,7 +254,7 @@ export const glp1TherapyPackage = {
         en: 'from 50€'
     },
     secondPriceLabel: {
-        de: 'In der Erhaltungsphase, ca. 15 Minuten',
+        de: 'in der Erhaltungsphase, ca. 15 Minuten',
         en: 'In maintenance phase, approx. 15 minutes'
     },
     billingCycle: {
@@ -262,25 +262,21 @@ export const glp1TherapyPackage = {
         en: 'Nutritional Medicine Consultation'
     },
     description: {
-        de: 'Die Behandlung erfolgt individuell nach ärztlicher Verordnung und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet.',
-        en: 'Treatment is provided individually according to medical prescription and is fully billed according to the German Medical Fee Schedule (GOÄ).'
+        de: 'Die Behandlung erfolgt individuell nach ärztlicher Verordnung und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet.\n\nJede Beratung umfasst eine medizinisch fundierte Ernährungsanalyse, individuelle Zielanpassung sowie die kontinuierliche Kontrolle des Therapieverlaufs.',
+        en: 'Treatment is provided individually according to medical prescription and is fully billed according to the German Medical Fee Schedule (GOÄ).\n\nEach consultation includes a medically sound nutritional analysis, individual goal adjustment, and continuous monitoring of the therapy progress.'
     },
     details: {
         de: [
             'BIA-Messung zur Bestimmung der Körperzusammensetzung',
             'Besprechung der Laborwerte (sofern vorhanden)',
             'Auswertung eines 3-Tage-Ernährungsprotokolls',
-            'Ernährungsanpassung entsprechend des aktuellen Therapieabschnitts',
-            'Medizinisches Monitoring: Blutkontrollen nach 3 und 6 Monaten',
-            'Ultraschall der Bauchorgane'
+            'Ernährungsanpassung entsprechend des aktuellen Therapieabschnitts'
         ],
         en: [
             'BIA measurement to determine body composition',
             'Discussion of laboratory values (if available)',
             'Evaluation of a 3-day nutrition protocol',
-            'Nutrition adjustment according to current therapy phase',
-            'Medical monitoring: Blood checks after 3 and 6 months',
-            'Ultrasound of abdominal organs'
+            'Nutrition adjustment according to current therapy phase'
         ]
     },
     bottomText: {

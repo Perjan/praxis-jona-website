@@ -2,7 +2,6 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import NutritionPricing from "app/components/NutritionPricing";
-import OzempicPricing from "app/components/OzempicPricing";
 import NutrientTherapyPricing from "app/components/NutrientTherapyPricing";
 
 const title = 'Ernährungsmedizin'
@@ -54,7 +53,6 @@ export default function Page() {
                 </SectionWithColor>
 
                 <NutritionPricing buttonText="Mehr erfahren" language="de" />
-                <OzempicPricing buttonText="Termin buchen" language="de" />
                 {/* <NutrientTherapyPricing buttonText="Termin buchen" language="de" /> */}
 
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
