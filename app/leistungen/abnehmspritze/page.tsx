@@ -81,7 +81,7 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Diese Nebenwirkungen sind meist mild bis mittelschwer und klingen oft nach einigen Wochen ab, wenn sich der Körper an das Medikament gewöhnt hat. Wir besprechen alle möglichen Risiken und Nebenwirkungen ausführlich mit Ihnen vor Beginn der Behandlung.</p>
 
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Wichtige Hinweise</h2>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Kosten für das Medikament (GLP-1-Analogon) sind nicht im Preis enthalten und werden derzeit nicht von den gesetzlichen Krankenkassen übernommen. Die Behandlung erfolgt als Selbstzahlerleistung gemäß der Gebührenordnung für Ärzte (GOÄ).</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Kosten für das Medikament (GLP-1) sind nicht im Preis enthalten und werden derzeit nicht von den gesetzlichen Krankenkassen übernommen. Die Behandlung erfolgt als Selbstzahlerleistung gemäß der Gebührenordnung für Ärzte (GOÄ).</p>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine erfolgreiche Gewichtsreduktion erfordert eine umfassende Herangehensweise, die neben der medikamentösen Behandlung auch eine gesunde Ernährung, regelmäßige körperliche Aktivität und gegebenenfalls psychologische Unterstützung umfasst.</p>
                     </SectionWithColor>

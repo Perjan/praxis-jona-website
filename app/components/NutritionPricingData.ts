@@ -235,7 +235,7 @@ export const nutrientTherapyPackage = {
 export const glp1TherapyPackage = {
     title: {
         de: 'Medizinische Begleitung bei der Therapie mit GLP-1-Analoga („Abnehmspritze")',
-        en: 'Medical Support for GLP-1 Analogue Therapy ("Weight Loss Injection")'
+        en: 'Medical Support for GLP-1 Therapy ("Weight Loss Injection")'
     },
     price: {
         de: 'ab 124€',
@@ -280,8 +280,8 @@ export const glp1TherapyPackage = {
         ]
     },
     bottomText: {
-        de: 'Die Kosten für das Medikament (GLP-1-Analogon) sind nicht im Preis enthalten. Weder die Kosten für das Medikament noch die Kosten für die ärztliche Beratung und Begleitung werden derzeit von den gesetzlichen Krankenkassen übernommen.',
-        en: 'The costs for the medication (GLP-1 analogue) are not included in the price. Neither the costs for the medication nor the costs for medical consultation and support are currently covered by statutory health insurance.'
+        de: 'Die Kosten für das Medikament (GLP-1) sind nicht im Preis enthalten. Weder die Kosten für das Medikament noch die Kosten für die ärztliche Beratung und Begleitung werden derzeit von den gesetzlichen Krankenkassen übernommen.',
+        en: 'The costs for the medication (GLP-1) are not included in the price. Neither the costs for the medication nor the costs for medical consultation and support are currently covered by statutory health insurance.'
     },
     buttonText: {
         de: 'Termin buchen',

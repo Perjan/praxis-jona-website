@@ -160,7 +160,7 @@ export const Services = [
       href: '#13',
       imageSrc: '/images/leistungen/glp1-syringe.png',
       type: 'private',
-      description: "Weight loss injections (GLP-1 analogues such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs. The costs for the medication are not included in the price and are currently not covered by statutory health insurance."
+      description: "Weight loss injections (GLP-1 such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs. The costs for the medication are not included in the price and are currently not covered by statutory health insurance."
     },
     {
       id: 7,

@@ -44,7 +44,7 @@ export default function OzempicPricing({ buttonText, language }: OzempicPricingP
                 </ul>
                 <p className="text-lg leading-8 text-primaryLighter">
                     {language === 'de' 
-                        ? 'Diese Leistungen werden ebenfalls nach GOÄ abgerechnet und können.'
+                        ? 'Diese Leistungen werden ebenfalls nach GOÄ abgerechnet.'
                         : 'These services are also billed according to GOÄ and can be.'}
                 </p>
             </div>
