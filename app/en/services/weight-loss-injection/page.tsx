@@ -4,7 +4,7 @@ import React from "react";
 import OzempicPricing from "app/components/OzempicPricing";
 
 const title = 'Weight Loss Injection'
-const description = "Weight loss injections (GLP-1 analogues such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs."
+const description = "Weight loss injections (GLP-1 such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs."
 const url = '/en/services/weight-loss-injection'
 
 export const metadata: Metadata = {
@@ -56,7 +56,7 @@ export default function Page() {
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">How Does the Weight Loss Injection Work?</h2>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">GLP-1 analogues (Glucagon-like Peptide-1) are medications that mimic the natural hormone GLP-1. This hormone is normally produced in the intestine and plays an important role in regulating appetite and blood sugar levels.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">GLP-1 (Glucagon-like Peptide-1) are medications that mimic the natural hormone GLP-1. This hormone is normally produced in the intestine and plays an important role in regulating appetite and blood sugar levels.</p>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The mechanism of action includes:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
@@ -81,7 +81,7 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">These side effects are usually mild to moderate and often subside after a few weeks as the body adjusts to the medication. We discuss all possible risks and side effects in detail with you before starting treatment.</p>
 
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Important Notes</h2>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">The costs for the medication (GLP-1 analogue) are not included in the price and are currently not covered by statutory health insurance. Treatment is provided as a self-pay service according to the German Medical Fee Schedule (GOÄ).</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">The costs for the medication (GLP-1) are not included in the price and are currently not covered by statutory health insurance. Treatment is provided as a self-pay service according to the German Medical Fee Schedule (GOÄ).</p>
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Successful weight reduction requires a comprehensive approach that includes not only medication but also a healthy diet, regular physical activity, and, if necessary, psychological support.</p>
                     </SectionWithColor>
