@@ -15,7 +15,6 @@ export const Constants = {
         emailUrl: "mailto:info@praxisjona.de",
         googleMapsUrl: "https://maps.app.goo.gl/2gL1xkWUpRKRcajK8",
         appleMapsUrl: "https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&auid=5736151680530482814&ll=52.529748,13.400656&lsp=9902&q=Praxis%20Jona"
-
     },
     openingHours: [
         { day: 'Montag', dayEn: "Monday", hours: '08:00 - 12:00 <br> 15:00 - 18:00' },
