@@ -27,6 +27,7 @@ export const Constants = {
     ]
 }
 
+
 export const NewsMessages = {
     de: [
         {
