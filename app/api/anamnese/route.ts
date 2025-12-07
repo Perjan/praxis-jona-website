@@ -53,7 +53,35 @@ interface FormData {
   maleLibidoEnergy: string;
   testosteroneMeasured: string;
   testosteroneSubstitution: string;
+  signature: string;
 }
+
+const parseDataUrl = (dataUrl: string) => {
+  const matches = dataUrl.match(/^data:(.+);base64,(.+)$/);
+  if (!matches) {
+    throw new Error('Invalid data URL');
+  }
+  const [, mimeType, base64Data] = matches;
+  return { mimeType, base64Data };
+};
+
+const getImageFormatFromMime = (mimeType: string) => {
+  if (mimeType === 'image/png') return 'PNG';
+  if (mimeType === 'image/jpeg' || mimeType === 'image/jpg') return 'JPEG';
+  return 'PNG';
+};
+
+const getFileExtensionFromMime = (mimeType: string) => {
+  if (mimeType === 'image/png') return 'png';
+  if (mimeType === 'image/jpeg' || mimeType === 'image/jpg') return 'jpg';
+  return 'png';
+};
+
+const dataUrlToBlob = (dataUrl: string) => {
+  const { mimeType, base64Data } = parseDataUrl(dataUrl);
+  const buffer = Buffer.from(base64Data, 'base64');
+  return { blob: new Blob([buffer], { type: mimeType }), mimeType };
+};
 
 function generatePDF(data: FormData): string {
   const doc = new jsPDF();
@@ -173,6 +201,28 @@ function generatePDF(data: FormData): string {
     }
   }
 
+  if (data.signature) {
+    addSection('Unterschrift des Patienten');
+    try {
+      const { mimeType } = parseDataUrl(data.signature);
+      const imageFormat = getImageFormatFromMime(mimeType);
+      const imageProps = doc.getImageProperties(data.signature);
+      const targetWidth = 80;
+      const aspectRatio = imageProps.width ? imageProps.height / imageProps.width : 0.4;
+      const targetHeight = targetWidth * aspectRatio;
+
+      if (yPosition > pageHeight - margin - targetHeight) {
+        doc.addPage();
+        yPosition = 20;
+      }
+
+      doc.addImage(data.signature, imageFormat, margin, yPosition, targetWidth, targetHeight);
+      yPosition += targetHeight + 5;
+    } catch (error) {
+      addText('Hinweis: Unterschrift konnte nicht eingebettet werden.', false, 5);
+    }
+  }
+
   // Return PDF as base64 string
   return doc.output('datauristring').split(',')[1];
 }
@@ -189,32 +239,42 @@ export async function POST(request: NextRequest) {
     const filename = `Anamnesebogen_${formData.name.replace(/\s/g, '_')}_${new Date().toISOString().split('T')[0]}.pdf`;
 
     // Send to Make.com webhook
-    const makeWebhookUrl = process.env.MAKE_WEBHOOK_URL;
+    const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
 
-    if (!makeWebhookUrl) {
-      throw new Error('MAKE_WEBHOOK_URL environment variable is not configured');
+    if (!n8nWebhookUrl) {
+      throw new Error('N8_WEBHOOK_URL environment variable is not configured');
     }
 
     // Create FormData for multipart/form-data
-    const makeFormData = new FormData();
+    const n8nFormData = new FormData();
 
     // Add the PDF file as a blob
     const pdfBlob = new Blob([pdfBuffer], { type: 'application/pdf' });
-    makeFormData.append('file', pdfBlob, filename);
+    n8nFormData.append('file', pdfBlob, filename);
 
     // Add additional form data as JSON
-    makeFormData.append('patientName', formData.name);
-    makeFormData.append('patientEmail', formData.email);
-    makeFormData.append('submittedAt', new Date().toISOString());
+    n8nFormData.append('patientName', formData.name);
+    n8nFormData.append('patientEmail', formData.email);
+    n8nFormData.append('submittedAt', new Date().toISOString());
+    if (formData.signature) {
+      try {
+        const { blob, mimeType } = dataUrlToBlob(formData.signature);
+        const extension = getFileExtensionFromMime(mimeType);
+        n8nFormData.append('signatureImage', blob, `signature.${extension}`);
+      } catch (error) {
+        console.warn('Unable to convert signature to blob, sending as data URL fallback.', error);
+        n8nFormData.append('signatureImageDataUrl', formData.signature);
+      }
+    }
 
     // Send to Make.com
-    const response = await fetch(makeWebhookUrl, {
+    const response = await fetch(n8nWebhookUrl, {
       method: 'POST',
-      body: makeFormData,
+      body: n8nFormData,
     });
 
     if (!response.ok) {
-      throw new Error(`Make.com webhook failed with status: ${response.status}`);
+      throw new Error(`N8N webhook failed with status: ${response.status}`);
     }
 
     return NextResponse.json({ success: true, message: 'Anamnesebogen erfolgreich gesendet' });

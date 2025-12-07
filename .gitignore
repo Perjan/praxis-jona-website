@@ -39,3 +39,4 @@ next-env.d.ts
 .contentlayer
 /.contentlayer
 /public/sitemap-0.xml
+.env

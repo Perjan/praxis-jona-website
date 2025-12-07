@@ -9,7 +9,7 @@ export default function ConsultationPromise() {
                     <div className="relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20">
                         <Image
                             src="/images/team/jonida-image.jpeg"
-                            alt="Jonida Gjolli"
+                            alt="Dr. med. Jonida Gjolli"
                             fill
                             className="object-cover rounded-full border-2 border-white shadow-md"
                         />
