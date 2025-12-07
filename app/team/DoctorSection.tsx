@@ -12,15 +12,15 @@ export default function Page() {
                 <div className="mx-auto my-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                     <div className="lg:flex lg:items-start lg:justify-center lg:pl-4 lg:pt-4">
                         <div className="lg:max-w-lg">
-                            <h2 className="mt-2 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Jonida Gjolli</h2>
+                            <h2 className="mt-2 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Dr. med. Jonida Gjolli</h2>
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
-                                Jonida arbeitete mehrere Jahre an der Charité Berlin in der nephrologischen Abteilung, wo sie auch Fachärztin für Innere Medizin wurde und ihre Promotion noch durchführt. 
+                                Jonida arbeitete mehrere Jahre an der Charité Berlin in der nephrologischen Abteilung, wo sie auch Fachärztin für Innere Medizin wurde und ihre Promotion erfolgreich abschloss.
                             </p>
                             <p className="mt-6 text-lg leading-8 text-primaryLighter">
                                 Zudem ist sie zertifizierte Lipidologin, Hypertensiologin und bald auch Ernährungsmedizinerin. Zu ihren Schwerpunkten zählen Schilddrüsenerkrankungen, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Vor ihrer Tätigkeit an der Charité arbeitete Jonida in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Das Studium absolvierte sie in Tirana, Albanien.
                             </p>
-                            <button 
-                                onClick={() => setExpanded(!expanded)} 
+                            <button
+                                onClick={() => setExpanded(!expanded)}
                                 className="rounded-lg mt-4 bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 inline-flex justify-center hover:bg-primaryLighter hover:shadow-md"
                             >
                                 {expanded ? 'Schließen' : 'Weiterlesen'}
