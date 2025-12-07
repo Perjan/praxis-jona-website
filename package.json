@@ -18,7 +18,6 @@
     "@types/node": "22.16.4",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "@types/signature_pad": "^2.3.6",
     "@vercel/analytics": "^0.1.11",
     "@vercel/edge-config": "^0.2.1",
     "clsx": "^1.2.1",
@@ -53,6 +52,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.9",
+    "@types/signature_pad": "^2.3.6",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.4.1"

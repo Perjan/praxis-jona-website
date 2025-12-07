@@ -99,13 +99,15 @@ const SignaturePad = ({ value, onChange }: SignaturePadProps, ref: React.Ref<Sig
     signaturePadRef.current = signaturePad;
     resizeCanvas();
 
-    signaturePad.onEnd = () => {
+    const handleEnd = () => {
       const dataUrl = signaturePad.isEmpty() ? '' : exportSignature(signaturePad);
       if (dataUrl !== valueRef.current) {
         valueRef.current = dataUrl;
         onChange(dataUrl);
       }
     };
+
+    signaturePad.addEventListener('endStroke', handleEnd);
 
     if (value) {
       valueRef.current = value;
@@ -118,6 +120,7 @@ const SignaturePad = ({ value, onChange }: SignaturePadProps, ref: React.Ref<Sig
     return () => {
       window.removeEventListener('resize', handleResize);
       signaturePad.off();
+      signaturePad.removeEventListener('endStroke', handleEnd);
       signaturePadRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
