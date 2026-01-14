@@ -4,6 +4,16 @@ import DoctorSection from './DoctorSectionEN';
 
 const people = [
   {
+    name: 'Mrs. Constanze C. Buhrman',
+    role: 'Specialist for Internal Medicine, Sports Medicine, Naturopathy, Chirotherapy, Acupuncture/TCM',
+    imageUrl: '/images/team/avatar.jpeg'
+  },
+  {
+    name: 'Mrs. Anja Garlin',
+    role: 'Practice Manager',
+    imageUrl: '/images/team/avatar.jpeg'
+  },
+  {
     name: 'Mrs. Heike Schmeiche',
     role: 'Medical assistant, working in the practice since 2011',
     imageUrl:
@@ -15,6 +25,11 @@ const people = [
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },
+  {
+    name: 'Mrs. Elhame Neziri',
+    role: 'Medical Assistant (MFA)',
+    imageUrl: '/images/team/avatar.jpeg'
+  },
 ]
 
 
@@ -23,35 +38,35 @@ const description = "Get to know our team."
 const url = '/en/team'
 
 export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
     title: title,
     description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: url,
-        images: [
-            {
-                url: '/images/og-image.png',
-                width: 1200,
-                height: 600,
-                alt: 'Praxis Jona'
-            }
-        ],
-    },
-    alternates: {
-        canonical: url,
-        languages: {
-            de: "/team",
-            en: url
-        }
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/og-image.png']
+    type: 'website',
+    url: url,
+    images: [
+      {
+        url: '/images/og-image.png',
+        width: 1200,
+        height: 600,
+        alt: 'Praxis Jona'
+      }
+    ],
+  },
+  alternates: {
+    canonical: url,
+    languages: {
+      de: "/team",
+      en: url
     }
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: ['/images/og-image.png']
+  }
 }
 
 export default function Page() {
@@ -60,7 +75,7 @@ export default function Page() {
     <div className="bg-white">
       <DoctorSection />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="mt-20 text-2xl font-serif tracking-tight text-primary sm:text-3xl">MFAs</h2>
+        <h2 className="mt-20 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Our Team</h2>
         <ul
           role="list"
           className="mx-auto mt-6 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -81,11 +96,11 @@ export default function Page() {
             <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
               <h2 className="text-3xl font-serif tracking-tight text-primary sm:text-4xl">Praxis</h2>
               <p className="mt-6 text-xl font-medium leading-8 text-primaryLighter">
-              We strive for our patients to experience a deep sense of well-being. Here, amidst the gentle embrace of tranquility, we foster an environment where healing thrives and vitality is restored.
+                We strive for our patients to experience a deep sense of well-being. Here, amidst the gentle embrace of tranquility, we foster an environment where healing thrives and vitality is restored.
               </p>
             </div>
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
-            <div className="w-full flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+              <div className="w-full flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                 <Image
                   src="/images/team/jonaEcho.jpeg"
                   alt=""
@@ -95,7 +110,7 @@ export default function Page() {
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-              <div className="order-first flex w-full sm:w-64 flex-none justify-end self-end lg:w-auto">
+                <div className="order-first flex w-full sm:w-64 flex-none justify-end self-end lg:w-auto">
                   <Image
                     src="/images/clinic/praxi2.jpeg"
                     alt=""
