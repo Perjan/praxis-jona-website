@@ -18,6 +18,7 @@ import { LanguagePicker } from './LanguagePicker'
 const navigationItemsGerman = [
     { title: "Schwerpunkte", href: "/schwerpunkte" },
     { title: "Leistungen", href: "/leistungen" },
+    { title: "Prävention", href: "/praevention" },
     { title: "Team", href: "/team" },
     { title: "Aktuelles", href: "/aktuelles" },
     { title: "Apps", href: "/apps" },
@@ -27,6 +28,7 @@ const navigationItemsGerman = [
 const navigationItemsEnglish = [
     { title: "Specialty Areas", href: "/en/focus-areas" },
     { title: "Services", href: "/en/services" },
+    { title: "Prevention", href: "/en/prevention" },
     { title: "Team", href: "/en/team" },
     { title: "Apps", href: "/en/apps" },
     { title: "Latest News", href: "/en/latest-news" },

@@ -1,8 +1,6 @@
 "use client"
 
-import { Dialog } from '@headlessui/react';
-const { Panel: DialogPanel, Title: DialogTitle } = Dialog;
-
+import Link from 'next/link';
 import { Specialties, SpecialtiesEN } from './Specialties';
 
 interface SchwerpunkteSectionProps {
@@ -12,12 +10,12 @@ interface SchwerpunkteSectionProps {
 export default function SchwerpunkteSection({ locale = 'de' }: SchwerpunkteSectionProps) {
   // Use the appropriate language content based on locale
   const isGerman = locale === 'de';
-  
+
   const title = isGerman ? "Schwerpunkte" : "Specialty Areas";
-  const description = isGerman 
+  const description = isGerman
     ? "Besondere Schwerpunkte unserer Praxis sind die Behandlung von Schilddrüsenerkrankungen, Bluthochdruck, Fettstoffwechselstörungen und Ernährungsmedizin."
     : "Our practice focuses in particular on the treatment of Thyroid Disorders, High Blood Pressure, Lipid Metabolic Disorders and Nutritional Medicine.";
-  
+
   // Select the appropriate specialties data based on locale
   const specialtiesData = isGerman ? Specialties : SpecialtiesEN;
 
@@ -35,7 +33,7 @@ export default function SchwerpunkteSection({ locale = 'de' }: SchwerpunkteSecti
               key={specialty.id}
               className="relative flex items-center gap-4 px-4 py-5 rounded-xl bg-lightBeige hover:bg-primary hover:bg-opacity-20 sm:px-6 lg:px-8 transition duration-300"
             >
-              <a href={specialty.url} onClick={(e) => { }} className="flex justify-between items-center w-full">
+              <Link href={specialty.url} className="flex justify-between items-center w-full">
                 <div className="flex flex-col w-full">
                   <div className='flex items-center justify-between'>
                     <h3 className="text-2xl font-medium font-serif leading-6 text-primary flex items-center">
@@ -48,7 +46,7 @@ export default function SchwerpunkteSection({ locale = 'de' }: SchwerpunkteSecti
 
                   <p className="text-md pt-2 leading-6 pr-2 text-primaryLighter break-words">{specialty.description}</p>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
