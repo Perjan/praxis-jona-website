@@ -1,11 +1,11 @@
-import { Metadata } from "next";
 import Link from "next/link";
+import { Metadata } from "next";
 import { Constants } from "app/Constants";
 
-const title = 'Karriere'
-const description = "Offene Stellen bei Praxis Jona in Berlin-Mitte"
-const url = "/jobs"
-const jobUrl = "/jobs/mfa-mwd-berlin-mitte"
+const title = "Jobs";
+const description = "Open positions at Praxis Jona in Berlin-Mitte";
+const url = "/en/jobs";
+const jobUrl = "/en/jobs/medical-assistant-berlin-mitte";
 
 const jobsListingStructuredData = {
     "@context": "https://schema.org",
@@ -13,7 +13,7 @@ const jobsListingStructuredData = {
     name: title,
     description,
     url: `${Constants.baseUrl}${url}`,
-    inLanguage: "de-DE",
+    inLanguage: "en-US",
     mainEntity: {
         "@type": "ItemList",
         itemListElement: [
@@ -21,43 +21,43 @@ const jobsListingStructuredData = {
                 "@type": "ListItem",
                 position: 1,
                 url: `${Constants.baseUrl}${jobUrl}`,
-                name: "MFA (m/w/d) in Teil- oder Vollzeit"
+                name: "Medical Assistant (MFA) (f/m/d), part-time or full-time"
             }
         ]
     }
-}
+};
 
 export const metadata: Metadata = {
-    title: title,
-    description: description,
+    title,
+    description,
     openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: url,
+        title,
+        description,
+        type: "website",
+        url,
         images: [
             {
-                url: '/images/og-image.png',
+                url: "/images/og-image.png",
                 width: 1200,
                 height: 600,
-                alt: 'Praxis Jona'
+                alt: "Praxis Jona"
             }
-        ],
+        ]
     },
     alternates: {
         canonical: url,
         languages: {
-            de: url,
-            en: "/en/jobs"
+            de: "/jobs",
+            en: url
         }
     },
     twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/og-image.png']
+        card: "summary_large_image",
+        title,
+        description,
+        images: ["/images/og-image.png"]
     }
-}
+};
 
 export default function Page() {
     return (
@@ -76,29 +76,27 @@ export default function Page() {
 
                 <div className="mt-12 max-w-4xl mx-auto">
                     <div className="rounded-2xl bg-lightBeige bg-opacity-40 p-8 sm:p-10">
-                        <h2 className="text-2xl font-serif font-semibold text-primary">
-                            Offene Stellen
-                        </h2>
+                        <h2 className="text-2xl font-serif font-semibold text-primary">Open Position</h2>
                         <p className="mt-3 text-primaryLighter leading-8">
-                            Hier finden Sie alle aktuellen Jobangebote der Praxis Jona.
+                            This page is the central place for current job openings at Praxis Jona.
                         </p>
 
                         <article className="mt-8 rounded-xl bg-white p-6 border border-stone-200">
                             <h3 className="text-xl font-serif font-semibold text-primary">
-                                MFA (m/w/d) in Teil- oder Vollzeit
+                                Medical Assistant (MFA) (f/m/d), part-time or full-time
                             </h3>
                             <p className="mt-2 text-primaryLighter leading-7">
                                 Praxis Jona, Torstraße 125, 10119 Berlin-Mitte.
                             </p>
                             <p className="mt-2 text-primaryLighter leading-7">
-                                Freundliche, engagierte und teamfähige medizinische Fachangestellte gesucht.
+                                We are looking for a friendly, committed and team-oriented medical assistant.
                             </p>
                             <div className="mt-5">
                                 <Link
                                     href={jobUrl}
                                     className="inline-flex rounded-xl bg-primary py-2.5 px-5 text-white font-serif hover:bg-primaryDarker"
                                 >
-                                    Zur Stellenanzeige
+                                    View job posting
                                 </Link>
                             </div>
                         </article>
@@ -106,5 +104,5 @@ export default function Page() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

@@ -27,6 +27,7 @@ const navigationEnglish = {
     { name: 'Team', href: '/en/team' },
     { name: 'Blog', href: '/blog' },
     { name: 'Latest News', href: '/en/latest-news' },
+    { name: 'Jobs', href: '/en/jobs' },
   ],
 }
 
@@ -181,7 +182,14 @@ export default function Page() {
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary underline">
-                    {item.name}
+                    <span className="inline-flex items-center gap-2">
+                      <span>{item.name}</span>
+                      {(item.href === '/jobs' || item.href === '/en/jobs') && (
+                        <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-primary px-1.5 text-xs font-semibold text-white no-underline">
+                          1
+                        </span>
+                      )}
+                    </span>
                   </a>
                 </li>
               ))}
