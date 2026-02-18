@@ -25,11 +25,6 @@ const people = [
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },
-  {
-    name: 'Frau Elhame Neziri',
-    role: 'Medizinische Fachangestellte (MFA)',
-    imageUrl: '/images/team/avatar.jpeg'
-  },
 ]
 
 const title = 'Team'

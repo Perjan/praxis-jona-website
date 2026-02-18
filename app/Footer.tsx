@@ -39,7 +39,7 @@ export const SocialMediaIconPath = {
 export const socials = [
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/doc.jonida/',
+    href: 'https://www.instagram.com/doc.jona/',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path

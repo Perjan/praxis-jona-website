@@ -25,11 +25,6 @@ const people = [
     imageUrl:
       '/images/team/kerstin-avatar.jpeg'
   },
-  {
-    name: 'Mrs. Elhame Neziri',
-    role: 'Medical Assistant (MFA)',
-    imageUrl: '/images/team/avatar.jpeg'
-  },
 ]
 
 
