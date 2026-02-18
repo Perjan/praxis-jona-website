@@ -11,7 +11,7 @@ const people = [
   {
     name: 'Mrs. Anja Garlin',
     role: 'Practice Manager',
-    imageUrl: '/images/team/avatar.jpeg'
+    imageUrl: '/images/team/anja-garlin.jpeg'
   },
   {
     name: 'Mrs. Heike Schmeiche',
