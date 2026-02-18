@@ -172,7 +172,7 @@ export default function TVPageClient({ baseImages }: TVPageClientProps) {
               transform: scale(1) translate(0, 0);
             }
             100% {
-              transform: scale(1.04) translate(0, 0);
+              transform: scale(1.02) translate(0, 0);
             }
           }
         `}</style>
