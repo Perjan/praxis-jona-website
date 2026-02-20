@@ -75,18 +75,6 @@ export default function ContactSection() {
                         </div>
                       </div>
                     </dl>
-                    {/* <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                      <div className="flex flex-col justify-between h-full">
-                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                          <p>Gerne können Sie Ihren Termin auch per E-Mail anfragen:</p>
-                          <p className='pt-4 font-bold'>info@praxisjona.de</p>
-                          <p className='pt-4'>Schreiben Sie uns Ihren Terminwunsch mit alternativen Terminvorschlägen. Und geben Sie bitte auch Ihre Telefon-nummer für evtl. Rückfragen an.</p>
-                        </address>
-                        <div className='mt-8'>
-                          <PrimaryButton href="mailto:info@praxisjona.de" fullWidth={true}>Email</PrimaryButton>
-                        </div>
-                      </div>
-                    </dl> */}
                     <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">

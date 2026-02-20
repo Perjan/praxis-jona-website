@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Constants } from "./Constants"
 import { usePathname } from "next/navigation";
-import { localeFromPathname } from "./Header";
+import { localeFromPathname } from "./lib/i18n-routing";
 import { LanguagePicker } from "./LanguagePicker";
 
 const currentYear = new Date().getFullYear(); // Get the current year
@@ -39,7 +39,7 @@ export const SocialMediaIconPath = {
 export const socials = [
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/doc.jonida/',
+    href: 'https://www.instagram.com/doc.jona/',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -206,7 +206,7 @@ export default function Page() {
 
             <div className="mt-8 text-xs space-x-1 leading-5 md:order-1 md:mt-0">
               <span className=" text-gray-500">{languageLabel}:</span>
-              {LanguagePicker(locale)}
+              <LanguagePicker locale={locale} pathname={pathname} />
             </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">

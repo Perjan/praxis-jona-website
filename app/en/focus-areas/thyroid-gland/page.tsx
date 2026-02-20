@@ -86,20 +86,6 @@ export default function Page() {
                         </ul>
 
                     </SectionWithColor>
-                    {/* <SectionWithColor backgroundClassName='bg-tealColor my-16'>
-                        
-                        <p className="text-3xl mt-4 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter"> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Ultraschalluntersuchung</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
-                    </SectionWithColor> */}
                 </div>
             </div>
         </>
