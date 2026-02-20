@@ -4,6 +4,7 @@ import ClinicSection from "app/ClinicSection";
 import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSectionEN";
 import Warning from "app/components/Warning";
+import { Constants } from "app/Constants";
 
 const title = "Praxis Jona"
 const description = "Holistic care for a healthy life – At our practice, you are more than just another patient."
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
         siteName: title,
         description: description,
         type: 'website',
-        url: '/',
+        url: '/en',
         images: [
             {
                 url: '/images/og-image.png',
@@ -40,14 +41,46 @@ export const metadata: Metadata = {
         canonical: '/en',
         languages: {
             de: "/",
-            en: "/en"
+            en: "/en",
+            "x-default": "/"
         }
     }
 }
 
+const organizationSchemaEn = {
+    "@context": "https://schema.org",
+    "@type": "MedicalClinic",
+    "@id": `${Constants.baseUrl}/#organization`,
+    name: "Praxis Jona",
+    url: `${Constants.baseUrl}/en`,
+    image: `${Constants.baseUrl}/images/og-image.png`,
+    telephone: "+49-30-40054273",
+    email: Constants.contact.email,
+    address: {
+        "@type": "PostalAddress",
+        streetAddress: "Torstraße 125",
+        postalCode: "10119",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+    },
+    medicalSpecialty: [
+        "Internal Medicine",
+        "General Practice",
+    ],
+    sameAs: [
+        "https://www.instagram.com/doc.jona/",
+        "https://www.youtube.com/@doc.jonida",
+        "https://www.tiktok.com/@doc.jonida",
+    ],
+};
+
 export default function Features() {
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaEn) }}
+            />
             <HeroSection title={title} description="Holistic care for a healthy life - with us, you are more than just another patient" />
 
             <QuoteSection

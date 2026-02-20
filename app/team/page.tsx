@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
 import DoctorSection from './DoctorSection';
+import { Constants } from 'app/Constants';
 
 const people = [
   {
@@ -51,9 +52,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: url,
-      en: "en/team"
-    }
+            de: url,
+            en: "/en/team",
+            "x-default": url
+        }
   },
   twitter: {
     card: 'summary_large_image',
@@ -63,10 +65,35 @@ export const metadata: Metadata = {
   }
 }
 
+const teamPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${Constants.baseUrl}/team#webpage`,
+  url: `${Constants.baseUrl}/team`,
+  name: title,
+  inLanguage: "de",
+  mainEntity: {
+    "@type": "Physician",
+    "@id": `${Constants.baseUrl}/#physician`,
+    name: "Dr. med. Jonida Gjolli",
+    medicalSpecialty: [
+      "Innere Medizin",
+      "Allgemeinmedizin"
+    ],
+    worksFor: {
+      "@id": `${Constants.baseUrl}/#organization`
+    }
+  }
+};
+
 export default function Page() {
 
   return (
     <div className="bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamPageSchema) }}
+      />
       <DoctorSection />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="mt-20 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Unser Team</h2>

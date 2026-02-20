@@ -85,7 +85,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: "/en/jobs/medical-assistant-berlin-mitte"
+            en: "/en/jobs/medical-assistant-berlin-mitte",
+            "x-default": url
         }
     },
     twitter: {

@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/infusion-therapy'
+            en: '/en/services/infusion-therapy',
+            "x-default": url
         }
     },
     twitter: {

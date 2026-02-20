@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/focus-areas/lipometabolic-disorders'
+            en: '/en/focus-areas/lipometabolic-disorders',
+            "x-default": url
         }
     },
     twitter: {

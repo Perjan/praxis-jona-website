@@ -29,7 +29,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/praevention",
-            en: url
+            en: url,
+            "x-default": "/praevention"
         }
     },
     twitter: {

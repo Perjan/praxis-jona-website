@@ -8,6 +8,7 @@ import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
 import Script from 'next/script';
 import Authors from './blog/authors/AuthorsDataSource';
+import HtmlLangSync from './HtmlLangSync';
 
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang='en'>
+    <html lang='de'>
       <Script
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id={Constants.umamiId}
@@ -47,6 +48,7 @@ export default function RootLayout({
           />
       <body>
         <ReactToastWrapper>
+          <HtmlLangSync />
           <Header />
           {children}
           <Footer />

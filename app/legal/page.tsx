@@ -1,7 +1,23 @@
 import { Post, allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
+import { Metadata } from 'next';
 
 const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
+
+export const metadata: Metadata = {
+  title: "Legal",
+  alternates: {
+    canonical: "/legal",
+  },
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 function PostCard(post: Post) {
 

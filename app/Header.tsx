@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
 import { cn } from './lib/utils'
+import { localeFromPathname } from './lib/i18n-routing'
 
 import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
@@ -61,14 +62,6 @@ export function DownloadButton({ url, locale }) {
         >{bookAppointmentTitle(locale)}
         </Link>
     )
-}
-
-export function localeFromPathname(pathname: string) {
-    if (pathname.startsWith("/en/") || pathname === "/en") {
-        return "en"
-    } else {
-        return "de"
-    }
 }
 
 export default function Header() {
@@ -164,7 +157,7 @@ export default function Header() {
                     <DownloadButton url={downloadUrl} locale={locale} />
                 </div>
                 <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex items-center">
-                    {LanguagePicker(locale)}
+                    <LanguagePicker locale={locale} pathname={pathname} />
                 </div>
             </nav>
             <MobileMenuDialog
@@ -278,7 +271,7 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                                 </div>
                                 <div className="mt-0 space-x-1 leading-5md:order-1 pt-8">
                                     <span className=" text-gray-500">{languageLabel}:</span>
-                                    {LanguagePicker(locale)}
+                                    <LanguagePicker locale={locale} pathname={pathname} />
                                 </div>
                             </div>
                         </div>

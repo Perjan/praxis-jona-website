@@ -28,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: "/en/focus-areas/high-blood-pressure"
+            en: "/en/focus-areas/high-blood-pressure",
+            "x-default": url
         }
     },
     twitter: {
