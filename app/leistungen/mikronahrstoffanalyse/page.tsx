@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/micro-nutrient-analysis'
+            en: '/en/services/micro-nutrient-analysis',
+            "x-default": url
         }
     },
     twitter: {

@@ -26,7 +26,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: '/schwerpunkte/schilddruese',
-            en: url
+            en: url,
+            "x-default": '/schwerpunkte/schilddruese'
         }
     },
     twitter: {

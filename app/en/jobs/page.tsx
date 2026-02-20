@@ -48,7 +48,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/jobs",
-            en: url
+            en: url,
+            "x-default": "/jobs"
         }
     },
     twitter: {

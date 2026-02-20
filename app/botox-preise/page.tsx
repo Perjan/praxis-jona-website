@@ -28,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: "/en/botox-prices"
+            en: "/en/botox-prices",
+            "x-default": url
         }
     },
     twitter: {

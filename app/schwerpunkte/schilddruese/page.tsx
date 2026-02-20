@@ -26,7 +26,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/focus-areas/thyroid-gland'
+            en: '/en/focus-areas/thyroid-gland',
+            "x-default": url
         }
     },
     twitter: {

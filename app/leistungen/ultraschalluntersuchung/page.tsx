@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/ultrasound-examination'
+            en: '/en/services/ultrasound-examination',
+            "x-default": url
         }
     },
     twitter: {

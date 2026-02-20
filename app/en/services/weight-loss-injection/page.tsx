@@ -28,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/leistungen/abnehmspritze",
-            en: url
+            en: url,
+            "x-default": "/leistungen/abnehmspritze"
         }
     },
     twitter: {
