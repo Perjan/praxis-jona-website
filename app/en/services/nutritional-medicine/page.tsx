@@ -63,14 +63,22 @@ export default function Page() {
 
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Goals of Nutritional Therapy</h2>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Disease Prevention and Treatment</li>
-                            <p>Nutritional therapy can help prevent and treat chronic diseases such as diabetes, cardiovascular diseases, high blood pressure and certain types of cancer, and keep autoimmune diseases in a latent phase.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Improvement of the Intestinal Flora</li>
-                            <p>By changing the diet, the intestinal flora can be restored, which can lead to relief of intestinal complaints.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Weight Management</li>
-                            <p>By adjusting the diet, weight can be controlled, which contributes to the prevention and treatment of obesity and underweight.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Improvement in General Well-Being</li>
-                            <p>A balanced diet promotes general well-being, boosts energy levels and improves mental health.</p>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium leading-8 text-primaryLighter">Disease Prevention and Treatment</p>
+                                <p>Nutritional therapy can help prevent and treat chronic diseases such as diabetes, cardiovascular diseases, high blood pressure and certain types of cancer, and keep autoimmune diseases in a latent phase.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Improvement of the Intestinal Flora</p>
+                                <p>By changing the diet, the intestinal flora can be restored, which can lead to relief of intestinal complaints.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Weight Management</p>
+                                <p>By adjusting the diet, weight can be controlled, which contributes to the prevention and treatment of obesity and underweight.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Improvement in General Well-Being</p>
+                                <p>A balanced diet promotes general well-being, boosts energy levels and improves mental health.</p>
+                            </li>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">It is important to me to find out how a change in diet can become easier and sustainable for you.</p>
@@ -78,37 +86,48 @@ export default function Page() {
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">How can a change in diet be made easier and sustainable?</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium ">Individual Consultation</li>
-                            <p>A personal consultation helps to take individual needs and preferences into account and set realistic goals.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Gradual Changes</li>
-                            <p>Small, gradual changes to your diet are often more sustainable and easier to implement than radical changes.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Education and Knowledge</li>
-                            <p>Knowledge about healthy eating and understanding the effects of certain foods on the body can increase motivation and help to make informed choices.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Long-term Planning</li>
-                            <p>Developing a long-term nutrition plan that includes flexible and realistic goals contributes to the sustainability of the dietary change.</p>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Individual Consultation</p>
+                                <p>A personal consultation helps to take individual needs and preferences into account and set realistic goals.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Gradual Changes</p>
+                                <p>Small, gradual changes to your diet are often more sustainable and easier to implement than radical changes.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Education and Knowledge</p>
+                                <p>Knowledge about healthy eating and understanding the effects of certain foods on the body can increase motivation and help to make informed choices.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Long-term Planning</p>
+                                <p>Developing a long-term nutrition plan that includes flexible and realistic goals contributes to the sustainability of the dietary change.</p>
+                            </li>
                         </ul>
                         
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">My Specialty Areas</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium">Metabolic Disorders and Body Weight</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>Weight Gain due to Autoimmune Diseases such as Hashimoto's</li>
-                                <li>Lipid Metabolic Disorders</li>
-                                <li>Diabetes Mellitus</li>
-                            </ul>
-
-                            <li className="text-lg mt-4 font-serif font-medium ">Cardiovascular Diseases</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>High Blood Pressure (Hypertension)</li>
-                            </ul>
-
-                            <li className="text-lg mt-4 font-serif font-medium ">Gastrointestinal Tract</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>Irritable Bowel Syndrome (IBS)</li>
-                                <li>Microbiome</li>
-                            </ul>
-
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Metabolic Disorders and Body Weight
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>Weight Gain due to Autoimmune Diseases such as Hashimoto's</li>
+                                    <li>Lipid Metabolic Disorders</li>
+                                    <li>Diabetes Mellitus</li>
+                                </ul>
+                            </li>
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Cardiovascular Diseases
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>High Blood Pressure (Hypertension)</li>
+                                </ul>
+                            </li>
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Gastrointestinal Tract
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>Irritable Bowel Syndrome (IBS)</li>
+                                    <li>Microbiome</li>
+                                </ul>
+                            </li>
                             <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Weight Management (Gaining or Losing Weight)</li>
                         </ul>
                     </SectionWithColor>

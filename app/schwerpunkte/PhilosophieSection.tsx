@@ -27,7 +27,7 @@ export default function PhilosophieSection({ locale = 'de' }: PhilosophieSection
             <Image
               className="absolute inset-0 h-full w-full bg-gray-50 object-cover"
               src="/images/clinic/clinic-philo-2025.jpg"
-              alt=""
+              alt="Praxis Jona in Berlin-Mitte"
               width={1080}
               height={1920}
             />
@@ -35,7 +35,7 @@ export default function PhilosophieSection({ locale = 'de' }: PhilosophieSection
         </div>
         <div className="px-6 lg:contents">
           <div className="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2">
-            <h1 className="mt-2 text-3xl font-serif tracking-tight text-primary sm:text-4xl">{title}</h1>
+            <h2 className="mt-2 text-3xl font-serif tracking-tight text-primary sm:text-4xl">{title}</h2>
             {paragraphs.map((paragraph, index) => (
               <p key={index} className="mt-6 text-xl leading-8 text-primaryLighter">
                 {paragraph}

@@ -2,9 +2,10 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import Link from "next/link";
 
-const title = 'Botulinumtoxin'
-const description = "Botulinumtoxin (Botox) ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Durch die Injektion in einen Muskel führt es zu einer temporären Lähmung dieses Muskels, was Muskelkontraktionen verhindert. Dies kann ästhetische und medizinische Vorteile bieten, indem es die Haut glättet oder spezifische medizinische Symptome lindert. Da die Wirkung vorübergehend ist, sind regelmäßige Behandlungen erforderlich, um die gewünschten Ergebnisse beizubehalten."
+const title = 'Botulinumtoxin Behandlung'
+const description = "Botulinumtoxin (Botox) zur medizinischen und ästhetischen Behandlung in der Praxis Jona mit individueller ärztlicher Beratung und sicherer Anwendung."
 const url = '/botox-behandlung'
 
 export const metadata: Metadata = {
@@ -89,6 +90,11 @@ export default function Page() {
 
                 <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
                     <BotoxPriceTable isEnglish={false} />
+                    <div className="mt-6 mb-2 text-center">
+                        <Link href="/botox-preise" className="text-primary underline">
+                            Zu den aktuellen Botox-Preisen
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

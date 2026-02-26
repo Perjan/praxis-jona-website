@@ -14,6 +14,14 @@ export const metadata: Metadata = {
         description: description,
         type: 'website',
         url: url,
+        images: [
+            {
+                url: '/images/og-image.png',
+                width: 1200,
+                height: 600,
+                alt: 'Praxis Jona',
+            }
+        ],
     },
     alternates: {
         canonical: url,
@@ -99,6 +107,13 @@ export default function PremiumPage() {
                             >
                                 Request non-binding initial consultation
                             </a>
+                        </div>
+                        <div className="mt-12 text-center">
+                            <p className="text-base text-primaryLighter">Compare the other packages:</p>
+                            <div className="mt-3 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/en/prevention/basic" className="text-primary underline">BASIC Package</Link>
+                                <Link href="/en/prevention/medium" className="text-primary underline">MEDIUM Package</Link>
+                            </div>
                         </div>
                     </div>
                 </SectionWithColor>

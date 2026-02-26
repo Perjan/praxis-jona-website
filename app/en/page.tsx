@@ -5,8 +5,8 @@ import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSectionEN";
 import Warning from "app/components/Warning";
 
-const title = "Praxis Jona"
-const description = "Holistic care for a healthy life – At our practice, you are more than just another patient."
+const title = "Praxis Jona Berlin - Internal Medicine"
+const description = "Holistic medical care in Berlin-Mitte: internal medicine, preventive diagnostics, and personalized treatment at Praxis Jona."
 
 export const metadata: Metadata = {
     title: {
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         siteName: title,
         description: description,
         type: 'website',
-        url: '/',
+        url: '/en',
         images: [
             {
                 url: '/images/og-image.png',

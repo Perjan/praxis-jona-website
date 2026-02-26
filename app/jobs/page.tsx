@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Constants } from "app/Constants";
 
-const title = 'Karriere'
-const description = "Offene Stellen bei Praxis Jona in Berlin-Mitte"
+const title = 'Karriere bei Praxis Jona in Berlin-Mitte'
+const description = "Entdecken Sie aktuelle Stellenangebote bei Praxis Jona in Berlin-Mitte und werden Sie Teil unseres engagierten medizinischen Teams."
 const url = "/jobs"
 const jobUrl = "/jobs/mfa-mwd-berlin-mitte"
 

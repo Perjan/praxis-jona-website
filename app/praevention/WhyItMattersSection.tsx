@@ -30,9 +30,9 @@ export default function WhyItMattersSection({ locale = 'de' }: WhyItMattersProps
     return (
         <div className="bg-white py-16 sm:py-24">
             <div className="mx-auto max-w-4xl px-6 lg:px-8">
-                <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">
                     {title}
-                </h1>
+                </h2>
 
                 <div className="mt-8 space-y-6">
                     {paragraphs.map((paragraph, index) => (

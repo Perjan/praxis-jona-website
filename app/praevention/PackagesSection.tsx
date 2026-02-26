@@ -20,12 +20,12 @@ export default function PackagesSection({ locale = 'de' }: PackagesSectionProps)
         <div className="bg-white mt-2 sm:mt-10 pb-12">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="mx-auto max-w-2xl lg:mx-0">
-                    <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">
+                    <h2 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">
                         {title}
-                    </h1>
-                    <h2 className="mt-2 text-lg leading-8 text-primaryLighter">
-                        {subtitle}
                     </h2>
+                    <p className="mt-2 text-lg leading-8 text-primaryLighter">
+                        {subtitle}
+                    </p>
                 </div>
 
                 <ul role="list" className="mt-8 space-y-4 overflow-visible">

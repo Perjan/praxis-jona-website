@@ -75,7 +75,7 @@ export default function Page() {
                             <PrimaryButton
                                 href="/en/services/public-insurance-check-up"
                             >
-                                Learn More
+                                View Public Insurance Check-up Details
                             </PrimaryButton>
                         </div>
                         </SectionWithColor>

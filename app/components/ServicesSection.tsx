@@ -140,7 +140,7 @@ export default function ServicesSection({ language = 'de' }) {
                 <div className="absolute right-0 top-0 pr-4 pt-6 sm:block">
                   <button
                     type="button"
-                    className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                    className="rounded-md bg-white text-gray-600 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close</span>

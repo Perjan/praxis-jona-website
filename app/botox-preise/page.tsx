@@ -2,9 +2,10 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import Link from "next/link";
 
-const title = 'Botox Preise'
-const description = "Nachstehend finden Sie die Preise für die Botox-Behandlungen. Buchen Sie jetzt Ihren Termin und profitieren Sie von den medizinischen und ästhetischen Vorteilen!"
+const title = 'Botox Behandlung Preise'
+const description = "Aktuelle Botox-Preise in der Praxis Jona inklusive transparenter Übersicht für private und gesetzlich versicherte Patientinnen und Patienten."
 const url = '/botox-preise'
 
 export const metadata: Metadata = {
@@ -51,6 +52,11 @@ export default function Page() {
                 </SectionWithColor>
 
                 <BotoxPriceTable isEnglish={false} />
+                <div className="mt-6 mb-8 text-center">
+                    <Link href="/botox-behandlung" className="text-primary underline">
+                        Mehr zur Botox-Behandlung
+                    </Link>
+                </div>
             </div>
         </>
     )

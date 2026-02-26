@@ -137,24 +137,27 @@ function postCard(post: Post) {
 
         </div>
         <div className="group relative">
-            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <h2 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                 <Link href={post.url}>
                     <span className="absolute inset-0" />
                     {post.title}
                 </Link>
-            </h3>
+            </h2>
             <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.summaryOrExcerpt}</p>
         </div>
     </article>
 }
 
 function makePill(item: string, onClick): JSX.Element {
+    const label = name(categoryFromString(item)) ?? item?.toUpperCase?.() ?? "Category"
     return <button
         key={item}
+        type="button"
+        aria-label={`Category: ${label}`}
         className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
         onClick={() => onClick()}
     >
-        {name(categoryFromString(item))}
+        {label}
     </button>
 }
 
@@ -164,6 +167,8 @@ function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Elem
 
     return <button
         key={item}
+        type="button"
+        aria-label={`Filter by ${item}`}
         className={isSelected ? selectedClasses : defaultClasses}
         onClick={() => onClick()}
     >

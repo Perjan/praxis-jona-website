@@ -8,10 +8,6 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
       }
     ]
   },
@@ -19,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: '/termin-buchen',
-        destination: 'https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&amp;utm_source=gjolli-jonida-website-button&amp;utm_medium=referral&amp;utm_content=option-8&amp;utm_term=gjolli-jonida',
+        destination: 'https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_content=option-8&utm_term=gjolli-jonida',
         permanent: false
       },
       {
@@ -56,6 +52,23 @@ const nextConfig = {
         source: "/faq",
         destination: "/faqs",
         permanent: true
+      }
+    ]
+  },
+  headers: async () => {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self';"
+          }
+        ]
       }
     ]
   },
