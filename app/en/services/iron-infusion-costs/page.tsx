@@ -3,8 +3,8 @@ import SectionWithColor from "app/SectionWithColor";
 import Link from "next/link";
 import React from "react";
 
-const title = "Iron Infusion Costs in Berlin: Pricing, Process & FAQs";
-const description = "How much does an iron infusion cost in Berlin? Clear guidance on typical pricing, medical process, and common questions about private billing (GOÄ).";
+const title = "Iron Infusion Costs in Berlin & Berlin Mitte: Pricing, Process & FAQs";
+const description = "How much does an iron infusion cost in Berlin and Berlin Mitte? Clear guidance on typical pricing, medical process, and common questions about private billing (GOÄ).";
 const url = "/en/services/iron-infusion-costs";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function Page() {
         name: "How much does an iron infusion cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "At our practice, treatment usually starts from around €120. Final costs depend on medical findings, required iron dose, and treatment plan."
+          text: "At our practice, treatment usually starts from around €135. Final costs depend on medical findings, required iron dose, and treatment plan."
         }
       },
       {
@@ -87,7 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Iron infusion price overview</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              For medically confirmed iron deficiency, treatment in our practice typically starts from €120.
+              For medically confirmed iron deficiency, treatment in our practice typically starts from €135.
               Exact pricing depends on medical indication, dose requirement, treatment progression, and any additional diagnostics.
             </p>
 

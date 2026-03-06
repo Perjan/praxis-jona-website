@@ -3,8 +3,8 @@ import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
 
-const title = 'Botox Preise in Berlin: Zonen, Kosten & Ablauf'
-const description = "Aktuelle Botox Preise in Berlin: transparente Kosten pro Zone, medizinische Anwendungen und häufige Fragen zu Ablauf, Haltbarkeit und Nachsorge in der Praxis Jona."
+const title = 'Botox Preise in Berlin & Berlin Mitte: Zonen, Kosten & Ablauf'
+const description = "Aktuelle Botox Preise in Berlin und Berlin Mitte: transparente Kosten pro Zone, medizinische Anwendungen und häufige Fragen zu Ablauf, Haltbarkeit und Nachsorge in der Praxis Jona."
 const url = '/botox-preise'
 
 export const metadata: Metadata = {

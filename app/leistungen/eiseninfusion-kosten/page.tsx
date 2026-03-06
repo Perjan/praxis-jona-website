@@ -3,8 +3,8 @@ import SectionWithColor from "app/SectionWithColor";
 import Link from "next/link";
 import React from "react";
 
-const title = "Eiseninfusion Kosten in Berlin: Preise, Ablauf & FAQs";
-const description = "Was kostet eine Eiseninfusion in Berlin? Transparent erklärt: typische Kosten, medizinischer Ablauf, mögliche Zusatzkosten und häufige Fragen zur privaten Abrechnung (GOÄ).";
+const title = "Eiseninfusion Kosten in Berlin & Berlin Mitte: Preise, Ablauf & FAQs";
+const description = "Was kostet eine Eiseninfusion in Berlin und Berlin Mitte? Transparent erklärt: typische Kosten, medizinischer Ablauf, mögliche Zusatzkosten und häufige Fragen zur privaten Abrechnung (GOÄ).";
 const url = "/leistungen/eiseninfusion-kosten";
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function Page() {
         name: "Was kostet eine Eiseninfusion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Die Kosten starten in unserer Praxis typischerweise ab 120 Euro. Der Endpreis hängt u. a. von der benötigten Eisendosis und dem individuellen Befund ab."
+          text: "Die Kosten starten in unserer Praxis typischerweise ab 135 Euro. Der Endpreis hängt u. a. von der benötigten Eisendosis und dem individuellen Befund ab."
         }
       },
       {
@@ -87,7 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Preisübersicht Eiseninfusion</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              Bei nachgewiesenem Eisenmangel startet die Behandlung in unserer Praxis üblicherweise ab 120 €.
+              Bei nachgewiesenem Eisenmangel startet die Behandlung in unserer Praxis üblicherweise ab 135 €.
               Die konkrete Höhe richtet sich nach medizinischem Bedarf, Dosis, Verlauf und ggf. zusätzlicher Diagnostik.
             </p>
 
