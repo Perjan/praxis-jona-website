@@ -17,21 +17,6 @@ export const appsEN = [
     }
   },
   {
-    name: "Feat - Nutrition Planner & Nutrition Coach",
-    description: "Developed by Praxis Jona and MoneyCoach AI. An individual nutrition plan, created by us. Our personalized nutrition plans are tailored for people suffering from high blood pressure, autoimmune diseases, or lipid metabolism disorders.",
-    benefits: [
-      "Individual nutrition plans for your specific illness or situation",
-      "Healthy weight loss or gain through natural nutrition",
-      "Specially adapted for people with high blood pressure, autoimmune diseases, and lipid disorders",
-      "Progress monitoring with us in Berlin or online (Gold & Platinum packages)"
-    ],
-    image: "https://f-eat.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffeat-all-devices.bb6b142d.png&w=2048&q=100",
-    downloadLink: {
-      website: "https://f-eat.com",
-      ios: "https://apps.apple.com/us/app/weight-loss-meal-plans-feat/id1586331711"
-    }
-  },
-  {
     name: "Bioscientia Patient App",
     description: "The Patient App is an advanced and user-friendly application that allows you to access your laboratory results easily, securely, and conveniently. Even outside your doctor's office hours and without any waiting time.",
     benefits: [

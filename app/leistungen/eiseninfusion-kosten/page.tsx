@@ -87,8 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Preisübersicht Eiseninfusion</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              Bei nachgewiesenem Eisenmangel startet die Behandlung in unserer Praxis üblicherweise ab 135 €.
-              Die konkrete Höhe richtet sich nach medizinischem Bedarf, Dosis, Verlauf und ggf. zusätzlicher Diagnostik.
+              Bei nachgewiesenem Eisenmangel kostet die Behandlung in unserer Praxis als Festpreis 135 €.
             </p>
 
             <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Was beeinflusst die Kosten?</h2>

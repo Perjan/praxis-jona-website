@@ -21,7 +21,6 @@ const navigationItemsGerman = [
     { title: "Prävention", href: "/praevention" },
     { title: "Team", href: "/team" },
     { title: "Aktuelles", href: "/aktuelles" },
-    { title: "Apps", href: "/apps" },
     { title: "Kontakt", href: "/kontakt" }
 ]
 
@@ -30,7 +29,6 @@ const navigationItemsEnglish = [
     { title: "Services", href: "/en/services" },
     { title: "Prevention", href: "/en/prevention" },
     { title: "Team", href: "/en/team" },
-    { title: "Apps", href: "/en/apps" },
     { title: "Latest News", href: "/en/latest-news" },
     { title: "Contact", href: "/en/contact" }
 ]

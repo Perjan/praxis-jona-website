@@ -60,6 +60,9 @@ export default function Page() {
             especially when oral supplementation is not tolerated or not sufficient.
           </p>
           <p className="mt-2 text-lg leading-8 text-primaryLighter">
+            Billing is based on the German Medical Fee Schedule (GOÄ); the treatment is offered at a fixed price of €135.
+          </p>
+          <p className="mt-2 text-lg leading-8 text-primaryLighter">
             Looking for pricing details? See our
             <Link className="underline ml-1" href="/en/services/iron-infusion-costs">iron infusion costs page</Link>.
           </p>

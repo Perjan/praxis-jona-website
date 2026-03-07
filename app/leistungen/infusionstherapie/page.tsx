@@ -56,7 +56,7 @@ export default function Page() {
 
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Wenn ein relevanter Mangel anhand der Laborwerte (z. B. Ferritin, Transferrinsättigung) festgestellt wird, kann eine Eiseninfusion sinnvoll sein – insbesondere, wenn eine orale Therapie nicht vertragen wird oder nicht ausreichend wirkt.</p>
 
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ); die Kosten beginnen ab 135 Euro und können je nach Eisendosis variieren.</p>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ); der Preis beträgt als Festpreis 135 Euro.</p>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine detaillierte Übersicht finden Sie auf unserer Seite <Link className="underline" href="/leistungen/eiseninfusion-kosten">Eiseninfusion Kosten</Link>.</p>
                            
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Vitamin B12- und Folsäure-Infusionen</h2>

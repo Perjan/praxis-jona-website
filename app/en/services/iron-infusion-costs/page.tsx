@@ -49,7 +49,7 @@ export default function Page() {
         name: "How much does an iron infusion cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "At our practice, treatment usually starts from around €135. Final costs depend on medical findings, required iron dose, and treatment plan."
+          text: "At our practice, treatment for medically confirmed iron deficiency is offered at a fixed price of €135."
         }
       },
       {
@@ -87,8 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Iron infusion price overview</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              For medically confirmed iron deficiency, treatment in our practice typically starts from €135.
-              Exact pricing depends on medical indication, dose requirement, treatment progression, and any additional diagnostics.
+              For medically confirmed iron deficiency, treatment in our practice is offered at a fixed price of €135.
             </p>
 
             <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">What affects the final price?</h2>
