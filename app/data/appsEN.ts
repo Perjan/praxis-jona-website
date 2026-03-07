@@ -10,7 +10,7 @@ export const appsEN = [
       "Private, simple, and truly helpful",
       "Stay informed, motivated, and on track"
     ],
-    image: "https://veltoglp.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fvelto-why.62d25b00.png&w=3840&q=75",
+    image: "/images/velto-why.png",
     downloadLink: {
       website: "https://veltoglp.com",
       ios: "https://apps.apple.com/us/app/velto-glp-1-tracker/id6745454932"

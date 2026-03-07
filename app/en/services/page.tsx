@@ -25,9 +25,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: '/leistungen',
-      en: url
-    }
+            de: '/leistungen',
+            en: url,
+            "x-default": '/leistungen'
+        }
   },
   twitter: {
     card: 'summary_large_image',

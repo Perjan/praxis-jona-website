@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/travel-vaccinations'
+            en: '/en/services/travel-vaccinations',
+            "x-default": url
         }
     },
     twitter: {

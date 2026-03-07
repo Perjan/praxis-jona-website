@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/aktuelles",
-            en: url
+            en: url,
+            "x-default": "/aktuelles"
         }
     },
     twitter: {

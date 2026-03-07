@@ -29,7 +29,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/nutritional-medicine'
+            en: '/en/services/nutritional-medicine',
+            "x-default": url
         }
     },
     twitter: {

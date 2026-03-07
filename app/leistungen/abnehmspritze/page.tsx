@@ -28,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/services/weight-loss-injection'
+            en: '/en/services/weight-loss-injection',
+            "x-default": url
         }
     },
     twitter: {

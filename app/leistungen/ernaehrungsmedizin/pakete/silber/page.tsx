@@ -29,7 +29,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: '/en/focus-areas/nutritional-medicine/packages/silver'
+            en: '/en/focus-areas/nutritional-medicine/packages/silver',
+            "x-default": url
         }
     },
     twitter: {

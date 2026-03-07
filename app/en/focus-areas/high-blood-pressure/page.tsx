@@ -28,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/schwerpunkte/bluthochdruck",
-            en: url
+            en: url,
+            "x-default": "/schwerpunkte/bluthochdruck"
         }
     },
     twitter: {

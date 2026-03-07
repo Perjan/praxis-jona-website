@@ -2,7 +2,7 @@
 import Link from "next/link"
 import { Constants } from "./Constants"
 import { usePathname } from "next/navigation";
-import { localeFromPathname } from "./Header";
+import { localeFromPathname } from "./lib/i18n-routing";
 import { LanguagePicker } from "./LanguagePicker";
 
 const currentYear = new Date().getFullYear(); // Get the current year
@@ -27,6 +27,7 @@ const navigationEnglish = {
     { name: 'Team', href: '/en/team' },
     { name: 'Blog', href: '/blog' },
     { name: 'Latest News', href: '/en/latest-news' },
+    { name: 'Jobs', href: '/en/jobs' },
   ],
 }
 
@@ -38,7 +39,7 @@ export const SocialMediaIconPath = {
 export const socials = [
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/doc.jonida/',
+    href: 'https://www.instagram.com/doc.jona/',
     icon: (props) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -181,7 +182,14 @@ export default function Page() {
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary underline">
-                    {item.name}
+                    <span className="inline-flex items-center gap-2">
+                      <span>{item.name}</span>
+                      {(item.href === '/jobs' || item.href === '/en/jobs') && (
+                        <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-primary px-1.5 text-xs font-semibold text-white no-underline">
+                          1
+                        </span>
+                      )}
+                    </span>
                   </a>
                 </li>
               ))}
@@ -198,7 +206,7 @@ export default function Page() {
 
             <div className="mt-8 text-xs space-x-1 leading-5 md:order-1 md:mt-0">
               <span className=" text-gray-500">{languageLabel}:</span>
-              {LanguagePicker(locale)}
+              <LanguagePicker locale={locale} pathname={pathname} />
             </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">

@@ -1,81 +1,108 @@
-import { Constants } from 'app/Constants';
-import Authors from 'app/blog/authors/AuthorsDataSource';
-import { Post, allPosts } from 'contentlayer/generated';
+import { Constants } from "app/Constants";
+import Authors from "app/blog/authors/AuthorsDataSource";
+import { Post, allPosts } from "contentlayer/generated";
 import { Metadata } from "next";
 
 const baseUrl = Constants.baseUrl;
 
-function slugForLanguage(post: Post, language: string) {
+type PostRouteType = "blog" | "legal" | "guides";
+type SupportedLanguage = "de" | "en" | "it";
+
+function postPath(routeType: PostRouteType, slug: string) {
+  return `/${routeType}/${slug}`;
+}
+
+function postUrl(routeType: PostRouteType, slug: string) {
+  return `${baseUrl}${postPath(routeType, slug)}`;
+}
+
+function postSlugForLanguage(post: Post, language: SupportedLanguage) {
   switch (language) {
-    case 'it':
-      return post.slugIt ?? post.slug;
-    case 'de':
-      return post.slugDe ?? post.slug;
+    case "de":
+      return post.slugDe;
+    case "it":
+      return post.slugIt;
     default:
-      return post.slugEn ?? post.slug;
+      return post.slugEn;
   }
 }
 
-function generateAlternatesIfNeeded(post: Post) {
-  var alternates = {
-    canonical: postUrl(post, 'en'),
-    languages: {}
+function alternatesForPost(post: Post, routeType: PostRouteType, canonicalSlug: string) {
+  const languages: Record<string, string> = {};
+
+  const slugDe = postSlugForLanguage(post, "de");
+  const slugEn = postSlugForLanguage(post, "en");
+  const slugIt = postSlugForLanguage(post, "it");
+
+  if (slugDe) {
+    languages.de = postUrl(routeType, slugDe);
+    languages["x-default"] = postUrl(routeType, slugDe);
+  }
+  if (slugEn) {
+    languages.en = postUrl(routeType, slugEn);
+  }
+  if (slugIt) {
+    languages.it = postUrl(routeType, slugIt);
   }
 
-  // check if the post has a slug in the other languages
-  if (post.slugEn != undefined || post.slugIt != undefined || post.slugDe != undefined) {
-
+  const canonical = postUrl(routeType, canonicalSlug);
+  if (Object.keys(languages).length === 0) {
+    return { canonical };
   }
 
-  if (post.slugIt) {
-    alternates.languages["it"] = postUrl(post, 'it');
-  }
-
-  if (post.slugDe) {
-    alternates.languages["de"] = postUrl(post, 'de');
-  }
-
-  if (post.slugEn) {
-    alternates.languages["en"] = postUrl(post, 'en');
-  }
-
-  return alternates;
+  return {
+    canonical,
+    languages,
+  };
 }
 
-export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
-  
-  const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
-  const author = Authors.find((author) => author.id === (post.author ?? "jonida-gjolli"));
+export async function generateMetadataForPost(
+  postSlug: string,
+  routeType: PostRouteType = "blog",
+): Promise<Metadata | undefined> {
+  const post = allPosts.find((item) => item._raw.flattenedPath === postSlug);
 
   if (!post) {
     return;
   }
 
-  const {
-    title, 
-    date: publishedTime, 
-    summaryOrExcerpt: description, 
-    coverImageUrl: image
-  } = post;
-  const ogImage = image ?? baseUrl + '/images/og-image.png';
+  const author = Authors.find((item) => item.id === (post.author ?? "jonida-gjolli"));
+  const title = post.title;
+  const publishedTime = post.date;
+  const description = post.summaryOrExcerpt;
+  const ogImage = post.coverImageUrl ?? `${baseUrl}/images/og-image.png`;
+  const canonicalUrl = postUrl(routeType, postSlug);
+  const isLegalPost = post.categories?.includes("legal") ?? false;
 
   return {
     title,
     description,
-    alternates: generateAlternatesIfNeeded(post),
-    authors: [
-      {
-        name: author.name,
-        url: author.url
-      }
-    ],
+    alternates: alternatesForPost(post, routeType, postSlug),
+    authors: author
+      ? [
+          {
+            name: author.name,
+            url: author.url,
+          },
+        ]
+      : undefined,
+    robots: isLegalPost
+      ? {
+          index: false,
+          follow: true,
+          googleBot: {
+            index: false,
+            follow: true,
+          },
+        }
+      : undefined,
     openGraph: {
       title,
       description,
       siteName: Constants.appName,
-      type: 'article',
+      type: "article",
       publishedTime,
-      url: postUrl(post, 'en'),
+      url: canonicalUrl,
       images: [
         {
           url: ogImage,
@@ -83,20 +110,10 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       ],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: [ogImage],
     },
   };
-}
-
-
-function postUrl(post: Post, language: string) {
-  if (post.categories?.includes("legal")) {
-    return baseUrl + "/" + slugForLanguage(post, language);
-  } else if (post.categories?.includes("guide")) {
-    return baseUrl + "/guides/" + slugForLanguage(post, language);
-  }
-  return baseUrl + "/blog/" + slugForLanguage(post, language);
 }

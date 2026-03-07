@@ -27,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: '/schwerpunkte/fettstoffwechselstoerungen',
-            en: url
+            en: url,
+            "x-default": '/schwerpunkte/fettstoffwechselstoerungen'
         }
     },
     twitter: {

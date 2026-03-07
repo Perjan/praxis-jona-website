@@ -26,9 +26,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: "/apps",
-      en: url
-    }
+            de: "/apps",
+            en: url,
+            "x-default": "/apps"
+        }
   },
   twitter: {
     card: 'summary_large_image',

@@ -1,4 +1,5 @@
 import ContactSection from "app/ContactEN";
+import { Constants } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Service & Contact'
@@ -25,9 +26,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: "/kontakt",
-      en: url
-    }
+            de: "/kontakt",
+            en: url,
+            "x-default": "/kontakt"
+        }
   },
   twitter: {
     card: 'summary_large_image',
@@ -37,10 +39,37 @@ export const metadata: Metadata = {
   }
 }
 
+const contactPageSchemaEn = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${Constants.baseUrl}/en/contact#webpage`,
+  url: `${Constants.baseUrl}/en/contact`,
+  name: title,
+  inLanguage: "en",
+  mainEntity: {
+    "@type": "MedicalClinic",
+    "@id": `${Constants.baseUrl}/#organization`,
+    name: "Praxis Jona",
+    telephone: "+49-30-40054273",
+    email: Constants.contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Torstraße 125",
+      postalCode: "10119",
+      addressLocality: "Berlin",
+      addressCountry: "DE"
+    }
+  }
+};
+
 export default function Page() {
 
     return (
       <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchemaEn) }}
+      />
       <div className="bg-white mt-2 sm:mt-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
