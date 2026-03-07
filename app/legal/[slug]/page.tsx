@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
-  return generateMetadataForPost(params.slug, "legal");
+  return generateMetadataForPost(params.slug);
 }
 
 const H1 = (props) => {

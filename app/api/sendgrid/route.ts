@@ -1,11 +1,25 @@
 import { MailDataRequired, MailService } from "@sendgrid/mail";
 import { NextResponse } from "next/server";
 
-const sendgrid = new MailService()
-sendgrid.setApiKey(process.env.SENDGRID_API_KEY);
+const sendgridApiKey = process.env.SENDGRID_API_KEY;
+
+function createSendgridClient() {
+    if (!sendgridApiKey?.startsWith("SG.")) {
+        return null;
+    }
+
+    const sendgrid = new MailService();
+    sendgrid.setApiKey(sendgridApiKey);
+    return sendgrid;
+}
 
 //send email using sendgrid from contact form
 export async function POST(request: Request) {
+    const sendgrid = createSendgridClient();
+    if (!sendgrid) {
+        return NextResponse.json({ error: "Email service is not configured." }, { status: 500 });
+    }
+
     const requestJson = await request.json()
 
     // generate formatted email body from requestjson
@@ -49,5 +63,6 @@ export async function POST(request: Request) {
         if (error.response) {
             console.error(error.response.body)
         }
+        return NextResponse.json({ error: "Failed to send email." }, { status: 500 });
     }
 }

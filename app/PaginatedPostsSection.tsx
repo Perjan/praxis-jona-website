@@ -78,12 +78,13 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
             console.log(activePill)
             setActivePill(categoryFromString(activePill ?? "all"));
         }
+    }, []);
 
+    useEffect(() => {
         if (selectedCategoryType !== undefined && categoryFromString(selectedCategoryType) !== undefined) {
             handleSave(categoryFromString(selectedCategoryType));
         }
-
-    }, []);
+    }, [selectedCategoryType]);
 
     return (
         <>
