@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { appsDE } from 'app/data/appsDE';
 import AppsPageBody from 'app/components/AppsPageComponents';
 
-const title = "Unsere Apps"
+const title = "Unsere Gesundheits-Apps"
 const description = "Entdecken Sie unsere Auswahl an Gesundheits- und Wellness-Apps, die entwickelt wurden, um Sie auf Ihren Weg zu besserer Gesundheit zu unterstützen."
 const url = "/apps"
 
@@ -26,9 +26,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: url,
-      en: "/en/apps"
-    }
+            de: url,
+            en: "/en/apps",
+            "x-default": url
+        }
   },
   twitter: {
     card: 'summary_large_image',

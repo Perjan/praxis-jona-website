@@ -18,7 +18,7 @@ export default function TeamSection({ locale = 'de' }: TeamSectionProps) {
         ? 'Gemeinsam arbeiten wir mit einem Ziel: Deine Gesundheit langfristig zu stärken.'
         : 'Together we work with one goal: to strengthen your health in the long term.';
 
-    const readMoreText = isGerman ? 'Weiterlesen' : 'Read more';
+    const readMoreText = isGerman ? 'Vollständiges Profil anzeigen' : 'View full profile';
     const closeText = isGerman ? 'Schließen' : 'Close';
 
     return (

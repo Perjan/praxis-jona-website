@@ -8,7 +8,7 @@ export function LanguagePicker(locale) {
     return (
         <>
             <Link prefetch={false} href="/" className={classNamesForSelection(locale, "de")}>DE</Link>
-            <span className="text-gray-400">|</span>
+            <span className="text-gray-500">|</span>
             <Link prefetch={false} href="/en" className={classNamesForSelection(locale, "en")}>EN</Link>
         </>
     );

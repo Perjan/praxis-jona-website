@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import Link from "next/link";
 
 const title = 'Botox Preise in Berlin & Berlin Mitte: Zonen, Kosten & Ablauf'
 const description = "Aktuelle Botox Preise in Berlin und Berlin Mitte: transparente Kosten pro Zone, medizinische Anwendungen und häufige Fragen zu Ablauf, Haltbarkeit und Nachsorge in der Praxis Jona."
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: url,
-            en: "/en/botox-prices"
+            en: "/en/botox-prices",
+            "x-default": url
         }
     },
     twitter: {

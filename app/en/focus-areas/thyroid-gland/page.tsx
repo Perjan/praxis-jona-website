@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
+import Link from "next/link";
 
 const title = 'Thyroid Gland'
 const description = "The thyroid gland, a small, butterfly-shaped organ in the neck, plays a central role in our metabolism. It produces hormones (T4, T3 and calcitonin) that are important for numerous body functions, such as the regulation of body temperature, energy levels and heart rate."
@@ -26,7 +27,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: '/schwerpunkte/schilddruese',
-            en: url
+            en: url,
+            "x-default": '/schwerpunkte/schilddruese'
         }
     },
     twitter: {
@@ -77,29 +79,28 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Thyroid diagnostics is crucial for the early detection and treatment of such diseases. It consists of</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl leading-6 mt-2 font-serif font-semibold">Blood Tests</li>
-                            <p> Checking the thyroid hormones in the blood to assess the function of the thyroid gland. The TSH level in the blood reacts extremely sensitively to changes in thyroid hormone levels. Therefore, the TSH measured in serum is an important parameter for assessing thyroid function and the first step in the clinical diagnosis of the thyroid gland.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Ultrasound Examination</li>
-                            <p>An imaging method to detect the size, structure and possible nodules or cysts in the thyroid gland.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Thyroid Scintigraphy</li>
-                            <p>The examination is only recommended if there are suspicious changes on ultrasound.</p>
+                            <li className="mt-2">
+                                <p className="text-xl leading-6 font-serif font-semibold">Blood Tests</p>
+                                <p>Checking the thyroid hormones in the blood to assess the function of the thyroid gland. The TSH level in the blood reacts extremely sensitively to changes in thyroid hormone levels. Therefore, the TSH measured in serum is an important parameter for assessing thyroid function and the first step in the clinical diagnosis of the thyroid gland.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Ultrasound Examination</p>
+                                <p>An imaging method to detect the size, structure and possible nodules or cysts in the thyroid gland.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Thyroid Scintigraphy</p>
+                                <p>The examination is only recommended if there are suspicious changes on ultrasound.</p>
+                            </li>
                         </ul>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">More focus areas:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/en/focus-areas/high-blood-pressure" className="text-primary underline">High Blood Pressure</Link>
+                                <Link href="/en/focus-areas/lipometabolic-disorders" className="text-primary underline">Lipid Metabolic Disorders</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
-                    {/* <SectionWithColor backgroundClassName='bg-tealColor my-16'>
-                        
-                        <p className="text-3xl mt-4 font-serif font-semibold leading-8 text-primaryLighter">Diagnose</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Blutuntersuchungen</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter"> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Ultraschalluntersuchung</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
-
-                        <p className="text-xl mt-2 font-serif font-semibold leading-8 text-primaryLighter">Schilddrüsenszintigraphie</p>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
-                    </SectionWithColor> */}
                 </div>
             </div>
         </>

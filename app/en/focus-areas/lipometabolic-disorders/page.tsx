@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import Link from "next/link";
 
 const title = 'Lipid Metabolic Disorders'
 const description = "Lipid metabolic disorders, also known as dyslipidemias, refer to a group of diseases in which blood lipid levels deviate from the norm. These disorders can increase the risk of cardiovascular diseases such as heart attacks and strokes, as abnormal fat levels can lead to the formation of plaques in the arteries, which increase the risk of arteriosclerosis (atherosclerosis)."
@@ -27,7 +28,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: '/schwerpunkte/fettstoffwechselstoerungen',
-            en: url
+            en: url,
+            "x-default": '/schwerpunkte/fettstoffwechselstoerungen'
         }
     },
     twitter: {
@@ -61,52 +63,64 @@ export default function Page() {
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                             <div className="col-span-1">
                                 <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Hypertriglyceridemia</li>
-                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                        <li>Malnutrition (fructose, easily digestible carbohydrates)</li>
-                                        <li>Diseases</li>
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">
+                                        Hypertriglyceridemia
                                         <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Obesity</li>
-                                            <li>Diabetes Mellitus Type 2</li>
-                                            <li>Metabolic syndrome</li>
-                                            <li>Renal or Hepatic Insufficiency</li>
-                                            <li>Hypothyroidism</li>
-                                            <li>Cushing Disease</li>
+                                            <li>Malnutrition (fructose, easily digestible carbohydrates)</li>
+                                            <li>
+                                                Diseases
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Obesity</li>
+                                                    <li>Diabetes Mellitus Type 2</li>
+                                                    <li>Metabolic syndrome</li>
+                                                    <li>Renal or Hepatic Insufficiency</li>
+                                                    <li>Hypothyroidism</li>
+                                                    <li>Cushing Disease</li>
+                                                </ul>
+                                            </li>
+                                            <li>Pregnancy</li>
+                                            <li>Alcohol</li>
+                                            <li>
+                                                Medications
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Oestrogens, Contraceptives</li>
+                                                    <li>Amiodarone, Beta-Blockers, Thiazide Diuretics</li>
+                                                    <li>Glucocorticosteroids</li>
+                                                    <li>Tamoxifen, Cyclosporin</li>
+                                                    <li>Protease Inhibitors</li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                        <li>Pregnancy</li>
-                                        <li>Alcohol</li>
-                                        <li>Medications</li>
-                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Oestrogens, Contraceptives</li>
-                                            <li>Amiodarone, Beta-Blockers, Thiazide Diuretics</li>
-                                            <li>Glucocorticosteroids</li>
-                                            <li>Tamoxifen, Cyclosporin</li>
-                                            <li>Protease Inhibitors</li>
-                                        </ul>
-                                    </ul>
+                                    </li>
                                 </ul>
                             </div>
 
                             <div className="col-span-1">
                                 <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Elevated LDL value comes through:</li>
-                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                        <li>Incorrect diet (trans fats, saturated fatty acids)</li>
-                                        <li>Diseases</li>
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">
+                                        Elevated LDL value comes through:
                                         <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Hypothyroidism</li>
-                                            <li>Nephrotic Syndrome</li>
-                                            <li>Cholestasis</li>
-                                            <li>Anorexia nervosa</li>
+                                            <li>Incorrect diet (trans fats, saturated fatty acids)</li>
+                                            <li>
+                                                Diseases
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Hypothyroidism</li>
+                                                    <li>Nephrotic Syndrome</li>
+                                                    <li>Cholestasis</li>
+                                                    <li>Anorexia nervosa</li>
+                                                </ul>
+                                            </li>
+                                            <li>Pregnancy</li>
+                                            <li>
+                                                Medications
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Progestogens</li>
+                                                    <li>Androgens</li>
+                                                    <li>Protease Inhibitors</li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                        <li>Pregnancy</li>
-                                        <li>Medications</li>
-                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Progestogens</li>
-                                            <li>Androgens</li>
-                                            <li>Protease Inhibitors</li>
-                                        </ul>
-                                    </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -121,10 +135,14 @@ export default function Page() {
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnosis</h2>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">The diagnosis of lipometabolic disorders is mainly carried out using blood tests, which provide information about the various fat levels in the blood. Our services:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl mt-4 font-serif font-semibold">Lipid Profile</li>
-                            <p className="text-lg">This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. You should not eat or drink before the blood test.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Additional Blood Tests</li>
-                            <p className="text-lg">Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated diseases, such as diabetes, thyroid disorders or kidney disease.</p>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Lipid Profile</p>
+                                <p className="text-lg">This test measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides. You should not eat or drink before the blood test.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Additional Blood Tests</p>
+                                <p className="text-lg">Depending on the findings, additional blood tests may be ordered to identify underlying causes or associated diseases, such as diabetes, thyroid disorders or kidney disease.</p>
+                            </li>
                         </ul>
 
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">The Therapy consists of 3 Stages</h3>
@@ -133,6 +151,13 @@ export default function Page() {
                             <li>Medication Therapy</li>
                             <li>Technical Procedures (Lipid Apheresis)</li>
                         </ul>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">More focus areas:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/en/focus-areas/high-blood-pressure" className="text-primary underline">High Blood Pressure</Link>
+                                <Link href="/en/focus-areas/thyroid-gland" className="text-primary underline">Thyroid Gland</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
                 </div>

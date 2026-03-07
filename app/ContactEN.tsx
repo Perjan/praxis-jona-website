@@ -65,7 +65,7 @@ export default function ContactSection() {
                     <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Appointments
                   </h3>
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-1 lg:gap-8">
-                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                    <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>You have the option to book your appointment online via Doctolib. Simply use the Doctolib button for this purpose.</p>
@@ -74,8 +74,8 @@ export default function ContactSection() {
                           <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true}>Book online via Doctolib</PrimaryButton>
                         </div>
                       </div>
-                    </dl>
-                    {/* <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                    </div>
+                    {/* <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>Gerne können Sie Ihren Termin auch per E-Mail anfragen:</p>
@@ -86,8 +86,8 @@ export default function ContactSection() {
                           <PrimaryButton href="mailto:info@praxisjona.de" fullWidth={true}>Email</PrimaryButton>
                         </div>
                       </div>
-                    </dl> */}
-                    <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                    </div> */}
+                    <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                       <div className="flex flex-col justify-between h-full">
                         <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
                           <p>To make an appointment, you can reach us by telephone during our consultation hours at:</p>
@@ -99,7 +99,7 @@ export default function ContactSection() {
                           <PrimaryButton href={contact.phoneUrl} fullWidth={true}>Call</PrimaryButton>
                         </div>
                       </div>
-                    </dl>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -112,9 +112,9 @@ export default function ContactSection() {
                     <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" />Consultation Hours
                   </h3>
 
-                  <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
+                  <div className="mt-3 space-y-1 text-md leading-6 text-gray-600">
                     <div>
-                      <dd>
+                      <div>
                         <div className="grid grid-cols-1 text-primaryLighter grid-flow-col">
                           <div className='col-span-1'>
                             {openingHours.map((item) => (
@@ -129,34 +129,34 @@ export default function ContactSection() {
                             ))}
                           </div>
                         </div>
-                      </dd>
+                      </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
 
                 <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3">
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <PhoneIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Contact
                   </h3>
-                  <dl className="mt-3 space-y-1 text-md leading-6 text-gray-600">
+                  <div className="mt-3 space-y-1 text-md leading-6 text-gray-600">
                     <div>
-                      <dd>
+                      <div>
                         <p className="text-md leading-6 text-primaryLighter">
                           Tel: <a href={contact.phoneUrl} style={{ textDecoration: 'underline' }}>{contact.phone}</a>
                         </p>
-                      </dd>
-                      <dd>
+                      </div>
+                      <div>
                         <p className="text-md leading-6 text-primaryLighter">
                           Fax: {contact.fax}
                         </p>
-                      </dd>
-                      <dd>
+                      </div>
+                      <div>
                         <p className="text-md mt-2 leading-6 text-primaryLighter">
-                          Email: <a href={contact.email} style={{ textDecoration: 'underline' }}>{contact.email}</a>
+                          Email: <a href={contact.emailUrl} style={{ textDecoration: 'underline' }}>{contact.email}</a>
                         </p>
-                      </dd>
+                      </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
               </div>
 
@@ -166,38 +166,38 @@ export default function ContactSection() {
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <MapIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Address
                   </h3>
-                  <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                  <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                     <div>
-                      <dd>
+                      <div>
                         <p className='font-bold'>Praxis Jona</p>
                         <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
                         <p className='pt-4'>Public parking is available in the area around the practice.</p>
-                      </dd>
+                      </div>
                       <div className='mt-8 flex flex-col justify-between sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4'>
                         <PrimaryButton href={Constants.contact.googleMapsUrl} target="_blank" fullWidth={true}>Google Maps</PrimaryButton>
                         <PrimaryButton href={Constants.contact.appleMapsUrl} target="_blank" fullWidth={true}>Apple Maps</PrimaryButton>
                       </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
 
                 <div className="rounded-2xl bg-lightBeige bg-opacity-40  p-10 col-span-3 flex flex-col">
                   <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
                     <MapPinIcon className="h-8 w-8 mr-2" aria-hidden="true" /> Arrival by Public Transport
                   </h3>
-                  <dl className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">
+                  <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter flex-grow">
                     <div className="flex flex-col justify-between h-full">
-                      <dd>
+                      <div>
                         <p>Tram M2, M5, M8 <br></br>Bus stop: U Rosenthaler Platz.</p>
                         <p>Footpath: approx. 150 m</p>
                         <p className='pt-4'>U8 Bus stop: Rosenthaler Platz</p>
                         <p>Footpath: approx. 20m</p>
-                      </dd>
+                      </div>
                       <div className='mt-8'>
                         <PrimaryButton href="https://www.bvg.de/de/verbindungen/verbindungssuche" target="_blank" fullWidth={true}>BVG Route Planner</PrimaryButton>
                       </div>
                     </div>
-                  </dl>
+                  </div>
                 </div>
               </div>
             </div>

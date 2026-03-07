@@ -85,7 +85,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/jobs/mfa-mwd-berlin-mitte",
-            en: url
+            en: url,
+            "x-default": "/jobs/mfa-mwd-berlin-mitte"
         }
     },
     twitter: {

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import Link from "next/link";
 
 const title = 'Botox Prices in Berlin & Berlin Mitte: Areas, Costs & Process'
 const description = "Current Botox prices in Berlin and Berlin Mitte with transparent costs per area, medical use cases, and practical answers on process, duration, and aftercare at Praxis Jona."

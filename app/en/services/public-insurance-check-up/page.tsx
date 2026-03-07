@@ -83,9 +83,9 @@ export default function Page() {
                         <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Additional laboratory tests (for self-payers, calculated according to GOÄ)</h2>
                         <div className="flex flex-col items-center justify-center">
                         <PrimaryButton
-                            href="/en/services/private-check-up"
+                            href="/en/services/private-insurance-check-up"
                         >
-                            Learn More
+                            View Private Insurance Check-up Details
                         </PrimaryButton>
                         </div>
                     </SectionWithColor>

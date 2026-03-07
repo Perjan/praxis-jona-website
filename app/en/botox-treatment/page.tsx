@@ -2,9 +2,10 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import Link from "next/link";
 
 const title = 'Botox'
-const description = "Botulinum toxin (Botox) is a neurotoxin produced by the bacterium Clostridium botulinum. When injected into a muscle, it leads to temporary paralysis of that muscle, preventing muscle contractions. This can offer aesthetic and medical benefits by smoothing the skin or alleviating specific medical symptoms. As the effect is temporary, regular treatments are necessary to maintain the desired results."
+const description = "Botox treatment at Praxis Jona for medical and aesthetic indications with individualized consultation and physician-led care."
 const url = '/en/botox-treatment'
 
 export const metadata: Metadata = {
@@ -97,6 +98,11 @@ export default function Page() {
                 
                 <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
                     <BotoxPriceTable isEnglish={true} />
+                    <div className="mt-6 mb-2 text-center">
+                        <Link href="/en/botox-prices" className="text-primary underline">
+                            View current Botox prices
+                        </Link>
+                    </div>
                 </div>
             </div>
         </>

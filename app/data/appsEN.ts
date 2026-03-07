@@ -29,8 +29,7 @@ export const appsEN = [
     ],
     image: "https://www.bioscientia.de/media/0ochl4v3/app_screenshots.png?rmode=max&width=500",
     downloadLink: {
-      android: "https://play.google.com/store/apps/details?id=de.docnet.app.patapp&hl=en",
-      ios: "https://apps.apple.com/us/app/bioscientia-pat-app/id1636669119"
+      android: "https://play.google.com/store/apps/details?id=de.docnet.app.patapp&hl=en"
     }
   },
   {

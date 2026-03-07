@@ -23,7 +23,7 @@ export default function QuoteSection(params: QuoteSectionParams) {
             <Image
               className="mx-auto h-28 w-28 rounded-full"
               src="/images/team/jonida-image.jpeg"
-              alt=""
+              alt="Dr. med. Jonida Gjolli"
               width={100}
               height={100}
             />

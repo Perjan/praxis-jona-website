@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { appsEN } from 'app/data/appsEN';
 import AppsPageBody from 'app/components/AppsPageComponents';
 const title = "Our Apps"
-const description = "Discover our range of health and wellness apps designed to support your journey to better health."
+const description = "Discover our curated health and wellness apps designed to support your journey to better health with practical daily guidance."
 const url = "/en/apps"
 
 export const metadata: Metadata = {
@@ -26,9 +26,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: url,
     languages: {
-      de: "/apps",
-      en: url
-    }
+            de: "/apps",
+            en: url,
+            "x-default": "/apps"
+        }
   },
   twitter: {
     card: 'summary_large_image',

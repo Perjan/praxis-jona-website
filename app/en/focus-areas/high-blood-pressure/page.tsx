@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import Link from "next/link";
 import 'app/schwerpunkte/bluthochdruck/BloodPressureTable.css';
 
 const title = 'High Blood Pressure'
@@ -28,7 +29,8 @@ export const metadata: Metadata = {
         canonical: url,
         languages: {
             de: "/schwerpunkte/bluthochdruck",
-            en: url
+            en: url,
+            "x-default": "/schwerpunkte/bluthochdruck"
         }
     },
     twitter: {
@@ -67,24 +69,30 @@ export default function Page() {
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">We offer 24-hour long-term blood pressure measurements, but regular checks at home usually provide better information.<br></br>To measure your blood pressure correctly, you should follow a few important steps:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-2 font-serif font-medium leading-8 text-primaryLighter">Time of the Measurement</li>
-                            <p className="leading-8 text-primaryLighter">Measure your blood pressure twice a day - in the morning before you start your day and in the evening before you go to bed.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Preparation</li>
-                            <p className="leading-8 text-primaryLighter">You should relax and calm down before the measurement. Do not carry out any other activities during the measurement and wait at least 30 minutes after physical exertion.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Position</li>
-                            <p className="text-lg leading-8 text-primaryLighter">Sit relaxed on a chair with both feet flat on the floor. Place the cuff at heart level:</p>
-                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                                <li>For upper arm devices: Place the cuff at heart level on the upper arm.</li>
-                                <li>For wrist devices: Place the wrist on the chest at heart level.</li>
-                            </ul>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Measuring Procedure</li>
-                            <p className="text-lg leading-8 text-primaryLighter">Take two measurements at least one minute apart and record the values of both measurements.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Documentation</li>
-                            <p className="leading-8 text-primaryLighter">Keep a blood pressure diary. Document the readings for seven days, taking two readings in the morning and two in the evening. If you notice high values, discuss the findings with your doctor.</p>
+                            <li className="mt-2">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Time of the Measurement</p>
+                                <p className="leading-8 text-primaryLighter">Measure your blood pressure twice a day - in the morning before you start your day and in the evening before you go to bed.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Preparation</p>
+                                <p className="leading-8 text-primaryLighter">You should relax and calm down before the measurement. Do not carry out any other activities during the measurement and wait at least 30 minutes after physical exertion.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Position</p>
+                                <p className="text-lg leading-8 text-primaryLighter">Sit relaxed on a chair with both feet flat on the floor. Place the cuff at heart level:</p>
+                                <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                    <li>For upper arm devices: Place the cuff at heart level on the upper arm.</li>
+                                    <li>For wrist devices: Place the wrist on the chest at heart level.</li>
+                                </ul>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Measuring Procedure</p>
+                                <p className="text-lg leading-8 text-primaryLighter">Take two measurements at least one minute apart and record the values of both measurements.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Documentation</p>
+                                <p className="leading-8 text-primaryLighter">Keep a blood pressure diary. Document the readings for seven days, taking two readings in the morning and two in the evening. If you notice high values, discuss the findings with your doctor.</p>
+                            </li>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">Here is the definition of hypertension according to the 2023 ESC guidelines:</p>
@@ -150,6 +158,13 @@ export default function Page() {
                             <li>Movement</li>
                         </ul>
                         <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Antihypertensive Drug Therapy</h3>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">More focus areas:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/en/focus-areas/lipometabolic-disorders" className="text-primary underline">Lipid Metabolic Disorders</Link>
+                                <Link href="/en/focus-areas/thyroid-gland" className="text-primary underline">Thyroid Gland</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
 

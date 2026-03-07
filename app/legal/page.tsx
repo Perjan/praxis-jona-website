@@ -1,5 +1,42 @@
 import { Post, allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+const title = "Impressum, Datenschutz & Rechtliches"
+const description = "Rechtliche Informationen der Praxis Jona in Berlin-Mitte mit Impressum, Datenschutz und weiteren verbindlichen rechtlichen Hinweisen."
+const url = "/legal"
+
+export const metadata: Metadata = {
+  title,
+  description,
+  alternates: {
+    canonical: url,
+    languages: {
+      de: "/impressum-datenschutz",
+      en: "/imprint-privacy",
+    },
+  },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    url,
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 600,
+        alt: "Praxis Jona",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/images/og-image.png"],
+  },
+}
 
 const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
 
@@ -11,12 +48,12 @@ function PostCard(post: Post) {
         <div className="flex items-center gap-x-4 text-xs">
         </div>
         <div className="group relative">
-          <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <h2 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
             <Link href={`/legal/${post._raw.flattenedPath}`}>
               <span className="absolute inset-0" />
               {post.title}
             </Link>
-          </h3>
+          </h2>
 
         </div>
       </article>

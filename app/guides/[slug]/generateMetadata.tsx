@@ -57,11 +57,23 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     summaryOrExcerpt: description, 
     coverImageUrl: image
   } = post;
+  const rawDescription = (description ?? "").replace(/\s+/g, " ").trim();
+  const withMinLength = rawDescription.length < 110
+    ? `${rawDescription} ${post.categories?.includes("legal")
+      ? "Weitere rechtliche Informationen der Praxis Jona in Berlin."
+      : "Mehr medizinische Informationen und praktische Hinweise der Praxis Jona in Berlin."}`.trim()
+    : rawDescription;
+  const seoDescription = withMinLength.length > 160
+    ? `${withMinLength.slice(0, 157).trimEnd()}...`
+    : withMinLength;
+  const seoTitle = title.length > 62
+    ? `${title.slice(0, 59).trimEnd()}...`
+    : title;
   const ogImage = image ?? baseUrl + '/images/og-image.png';
 
   return {
-    title,
-    description,
+    title: seoTitle,
+    description: seoDescription,
     alternates: generateAlternatesIfNeeded(post),
     authors: [
       {
@@ -70,8 +82,8 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       }
     ],
     openGraph: {
-      title,
-      description,
+      title: seoTitle,
+      description: seoDescription,
       siteName: Constants.appName,
       type: 'article',
       publishedTime,
@@ -84,8 +96,8 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: seoTitle,
+      description: seoDescription,
       images: [ogImage],
     },
   };
