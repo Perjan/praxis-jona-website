@@ -22,6 +22,7 @@ export default function ServicesSection({ language = 'de' }) {
         6: '/en/services/nutritional-medicine',
         7: '/en/services/ultrasound-examination',
         8: '/en/services/private-insurance-check-up',
+        11: '/en/services/infusion-therapy',
         13: '/en/services/weight-loss-injection',
       }
     : {

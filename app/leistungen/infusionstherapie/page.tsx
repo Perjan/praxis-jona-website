@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
+import Link from "next/link";
 import React from "react";
 
-const title = 'Individualisierte Infusionstherapie bei Mikronährstoffmangel'
-const description = "In unserer Praxis bieten wir gezielte Infusionstherapien bei nachgewiesenem Mangel wie z.B. an Eisen, Vitamin B12 oder Folsäure an - individuell angepasst an Ihre Laborwerte und Bedürfnisse."
+const title = 'Infusionstherapie in Berlin bei Eisen-, B12- und Folsäuremangel'
+const description = "Individuelle Infusionstherapie in Berlin bei nachgewiesenem Mangel (Eisen, Vitamin B12, Folsäure) – medizinisch begleitet, transparent erklärt und an Laborwerte angepasst."
 const url = '/leistungen/infusionstherapie'
 
 export const metadata: Metadata = {
@@ -56,7 +57,8 @@ export default function Page() {
 
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Wenn ein relevanter Mangel anhand der Laborwerte (z. B. Ferritin, Transferrinsättigung) festgestellt wird, kann eine Eiseninfusion sinnvoll sein – insbesondere, wenn eine orale Therapie nicht vertragen wird oder nicht ausreichend wirkt.</p>
 
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ); die Kosten beginnen ab 135 Euro und können je nach Eisendosis variieren.</p>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ); der Preis beträgt als Festpreis 135 Euro.</p>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Eine detaillierte Übersicht finden Sie auf unserer Seite <Link className="underline" href="/leistungen/eiseninfusion-kosten">Eiseninfusion Kosten</Link>.</p>
                            
                         <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Vitamin B12- und Folsäure-Infusionen</h2>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Insbesondere bei veganer oder vegetarischer Ernährung kann es zu einem schleichenden Mangel an Vitamin B12 und/oder Folsäure kommen – mit Folgen wie Erschöpfung, neurologischen Beschwerden oder Blutbildveränderungen.</p>
