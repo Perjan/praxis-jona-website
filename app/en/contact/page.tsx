@@ -3,7 +3,7 @@ import { Constants } from "app/Constants";
 import { Metadata } from "next";
 
 const title = 'Service & Contact'
-const description = "Praxis Jona - Practice for general medicine, internal medicine with a focus on thyroid, hypertensiology, lipidology. Please feel free to contact us directly."
+const description = "Contact Praxis Jona in Berlin-Mitte for internal medicine, preventive care, and personalized treatment."
 const url = "/en/contact"
 
 export const metadata: Metadata = {

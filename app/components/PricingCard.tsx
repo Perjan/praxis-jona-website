@@ -72,7 +72,7 @@ export default function PricingCard({
             className={`flex flex-col justify-between rounded-lg p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-shadow duration-300 ${backgroundStyle}`}
         >
             <div>
-                <h3 className="text-center text-2xl font-serif font-medium text-primary">{pkg.title[language]}</h3>
+                <h2 className="text-center text-2xl font-serif font-medium text-primary">{pkg.title[language]}</h2>
                 <p className="mt-0 text-center font-bold text-primaryLighter">{pkg.billingCycle[language]}</p>
                 {pkg.secondPrice ? (
                     <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4">

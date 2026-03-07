@@ -12,6 +12,7 @@ import BlogArticleFooter from './BlogArticleFooter';
 import { Authors } from '../authors/AuthorsDataSource';
 import { DashboardTableOfContents } from 'app/toc';
 import { getTableOfContents } from 'app/lib/toc';
+import { Constants } from 'app/Constants';
 
 export const dynamic = 'force-static';
 
@@ -138,12 +139,23 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   const relatedArticles = filteredBlogPosts.slice(postIndex + 1, postIndex + 6);
 
   const Content = getMDXComponent(post.body.code);
+  const structuredData = {
+    ...post.structuredData,
+    publisher: post.structuredData?.publisher ?? {
+      '@type': 'Organization',
+      name: Constants.appName,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${Constants.baseUrl}/images/og-image.png`,
+      },
+    },
+  };
 
   const toc = await getTableOfContents(post.body.raw);
 
   return (
     <>
-      <main className="px-4 md:px-8 mx-auto max-w-6xl relative py-6 lg:grid lg:grid-cols-[1fr_300px] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20">
+      <div className="px-4 md:px-8 mx-auto max-w-6xl relative py-6 lg:grid lg:grid-cols-[1fr_300px] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20">
       <div className="mx-auto sm:max-w-2xl md:max-w-7xl">
           <div className=''>
             <div className=''>
@@ -164,7 +176,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                 <script
                   type='application/ld+json'
                   dangerouslySetInnerHTML={{
-                    __html: JSON.stringify(post.structuredData),
+                    __html: JSON.stringify(structuredData),
                   }}
                 ></script>
                 {post.coverImage !== undefined && (
@@ -187,7 +199,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                 <div className='pt-10 mt-2 mx-auto max-w-2xl lg:mx-0 space-x-6'>
                   <div className='mb-10 text-slate-700 font-semibold flex items-center'>
                     <ChevronLeftIcon
-                      className='h-5 w-5 text-gray-400'
+                      className='h-5 w-5 text-gray-600'
                       aria-hidden='true'
                     />
                     <Link
@@ -214,7 +226,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
 
-      </main>
+      </div>
     </>
   );
 };

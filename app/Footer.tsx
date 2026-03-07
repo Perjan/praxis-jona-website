@@ -13,6 +13,7 @@ const navigationGerman = {
   imprintUrl: "/impressum-datenschutz",
   company: [
     { name: 'Team', href: '/team' },
+    { name: 'Apps', href: '/apps' },
     { name: 'Blog', href: '/blog' },
     { name: 'Aktuelles', href: '/aktuelles' },
     { name: 'Karriere', href: '/jobs' },
@@ -25,6 +26,7 @@ const navigationEnglish = {
   imprintUrl: "/imprint-privacy",
   company: [
     { name: 'Team', href: '/en/team' },
+    { name: 'Apps', href: '/en/apps' },
     { name: 'Blog', href: '/blog' },
     { name: 'Latest News', href: '/en/latest-news' },
     { name: 'Jobs', href: '/en/jobs' },
@@ -125,10 +127,10 @@ export default function Page() {
               <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
             </div>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              <a href={Constants.contact.googleMapsUrl} target="_blank" className="underline">{googleMapsLabel}</a>
+              <a href={Constants.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="underline">{googleMapsLabel}</a>
             </p>
             <p className="text-sm leading-6 text-primaryLighter">
-              <a href={Constants.contact.appleMapsUrl} target="_blank" className="underline">{appleMapsLabel}</a>
+              <a href={Constants.contact.appleMapsUrl} target="_blank" rel="noopener noreferrer" className="underline">{appleMapsLabel}</a>
             </p>
             <div className="mt-8">
               <h3 className="text-sm font-semibold font-serif leading-6 text-primary">
@@ -140,7 +142,7 @@ export default function Page() {
                   : "Wir akzeptieren jetzt Kartenzahlungen (EC/Kreditkarte) und mobile Zahlungen für private Leistungen."}
                 {" "}
                 <Link href="/blog/digitale-zahlungen" className="underline">
-                  {locale === "en" ? "Read more" : "Mehr lesen"}
+                  {locale === "en" ? "Read the full article on digital payments" : "Mehr über digitale Zahlungen lesen"}
                 </Link>
               </p>
             </div>

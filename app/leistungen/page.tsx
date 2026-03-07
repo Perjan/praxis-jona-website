@@ -1,8 +1,8 @@
 import ServicesSection from "app/components/ServicesSection";
 import { Metadata } from "next";
 
-const title = 'Leistungen'
-const description = "Anbei finden Sie eine Liste mit unseren Leistungen."
+const title = 'Leistungen der Praxis Jona in Berlin-Mitte'
+const description = "Entdecken Sie das gesamte Leistungsspektrum der Praxis Jona: Allgemeinmedizin, Innere Medizin, Prävention und individuelle Diagnostik."
 const url = "/leistungen"
 
 export const metadata: Metadata = {
@@ -41,6 +41,7 @@ export const metadata: Metadata = {
 export default function Page() {
     return (
         <>
+            <h1 className="sr-only">Leistungen der Praxis Jona</h1>
             <ServicesSection language="de" />
         </>
     )

@@ -6,8 +6,8 @@ import ClinicSection from './ClinicSection'
 import Warning from "./components/Warning";
 import { Constants } from "./Constants";
 
-const title = "Praxis Jona"
-const description = "Ganzheitliche Betreuung für ein gesundes Leben – Bei uns bist Du mehr als nur ein weiterer Patient"
+const title = "Praxis Jona Berlin - Allgemeinmedizin & Innere Medizin"
+const description = "Ganzheitliche medizinische Betreuung in Berlin-Mitte: Allgemeinmedizin, Innere Medizin, Prävention und individuelle Diagnostik bei Praxis Jona."
 
 export const metadata: Metadata = {
     title: {

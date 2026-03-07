@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import Link from "next/link";
 import './BloodPressureTable.css';
 
 const title = 'Bluthochdruck'
@@ -68,24 +69,30 @@ export default function Page() {
 
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten 24h-Langzeitblutdruckmessungen an, jedoch die regelmäßige Kontrolle zu Hause liefert meistens bessere Informationen.<br></br>Um den Blutdruck korrekt zu messen, sollten Sie einige wichtige Schritte beachten:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-2 font-serif font-medium leading-8 text-primaryLighter">Zeitpunkt der Messung</li>
-                            <p className="leading-8 text-primaryLighter">Messen Sie den Blutdruck zweimal täglich - morgens vor dem Start in den Tag und abends bevor Sie zu Bett gehen.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Vorbereitung</li>
-                            <p className="leading-8 text-primaryLighter">Vor der Messung sollten Sie sich entspannen und zur Ruhe kommen. Führen Sie keine anderen Aktivitäten während der Messung durch und warten Sie nach körperlicher Anstrengung mindestens 30 Minuten.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Position</li>
-                            <p className="text-lg leading-8 text-primaryLighter">Sitzen Sie entspannt auf einem Stuhl, mit beiden Füßen flach auf dem Boden. Legen Sie die Manschette auf Herzhöhe an:</p>
-                            <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                                <li>Bei Oberarmgeräten: Manschette auf Herzhöhe am Oberarm anlegen.</li>
-                                <li>Bei Handgelenkgeräten: Handgelenk auf Herzhöhe auf der Brust ablegen.</li>
-                            </ul>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Messvorgang</li>
-                            <p className="text-lg leading-8 text-primaryLighter">Führen Sie zwei Messungen im Abstand von mindestens einer Minute durch und notieren Sie die Werte beider Messungen.</p>
-
-                            <li className="mt-4 font-serif font-medium leading-8 text-primaryLighter">Dokumentation</li>
-                            <p className="leading-8 text-primaryLighter">Führen Sie ein Blutdruck-Tagebuch. Dokumentieren Sie die Messwerte sieben Tage lang, jeweils zwei Messungen morgens und zwei abends. Falls Sie hohe Werten feststellen, besprechen Sie den Befund mit Ihrem Arzt oder Ihrer Ärztin.</p>
+                            <li className="mt-2">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Zeitpunkt der Messung</p>
+                                <p className="leading-8 text-primaryLighter">Messen Sie den Blutdruck zweimal täglich - morgens vor dem Start in den Tag und abends bevor Sie zu Bett gehen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Vorbereitung</p>
+                                <p className="leading-8 text-primaryLighter">Vor der Messung sollten Sie sich entspannen und zur Ruhe kommen. Führen Sie keine anderen Aktivitäten während der Messung durch und warten Sie nach körperlicher Anstrengung mindestens 30 Minuten.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Position</p>
+                                <p className="text-lg leading-8 text-primaryLighter">Sitzen Sie entspannt auf einem Stuhl, mit beiden Füßen flach auf dem Boden. Legen Sie die Manschette auf Herzhöhe an:</p>
+                                <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
+                                    <li>Bei Oberarmgeräten: Manschette auf Herzhöhe am Oberarm anlegen.</li>
+                                    <li>Bei Handgelenkgeräten: Handgelenk auf Herzhöhe auf der Brust ablegen.</li>
+                                </ul>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Messvorgang</p>
+                                <p className="text-lg leading-8 text-primaryLighter">Führen Sie zwei Messungen im Abstand von mindestens einer Minute durch und notieren Sie die Werte beider Messungen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="font-serif font-medium leading-8 text-primaryLighter">Dokumentation</p>
+                                <p className="leading-8 text-primaryLighter">Führen Sie ein Blutdruck-Tagebuch. Dokumentieren Sie die Messwerte sieben Tage lang, jeweils zwei Messungen morgens und zwei abends. Falls Sie hohe Werten feststellen, besprechen Sie den Befund mit Ihrem Arzt oder Ihrer Ärztin.</p>
+                            </li>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">Hier ist die Definition von Hypertonie nach den ESC-Leitlinien 2023:</p>
@@ -151,6 +158,13 @@ export default function Page() {
                             <li>Bewegung</li>
                         </ul>
                         <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">2 - Antihypertensive medikamentöse Therapie</h3>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">Weitere Schwerpunkte:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/schwerpunkte/fettstoffwechselstoerungen" className="text-primary underline">Fettstoffwechselstörungen</Link>
+                                <Link href="/schwerpunkte/schilddruese" className="text-primary underline">Schilddrüse</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
 

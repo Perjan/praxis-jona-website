@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
+import Link from "next/link";
 
 const title = 'Schilddrüse'
 const description = "Die Schilddrüse, ein kleines, schmetterlingsförmiges Organ im Halsbereich, spielt eine zentrale Rolle für unseren Stoffwechsel. Sie produziert Hormone (T4, T3 und Calcitonin), die für zahlreiche Körperfunktionen wichtig sind, wie die Regulation der Körpertemperatur, des Energiehaushalts und des Herzschlags."
@@ -78,13 +79,26 @@ export default function Page() {
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Schilddrüsendiagnostik ist entscheidend, um solche Erkrankungen frühzeitig zu erkennen und zu behandeln. Sie besteht aus:</p>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl leading-6 mt-2 font-serif font-semibold">Blutuntersuchungen</li>
-                            <p> Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Ultraschalluntersuchung</li>
-                            <p>Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Schilddrüsenszintigraphie</li>
-                            <p>Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
+                            <li className="mt-2">
+                                <p className="text-xl leading-6 font-serif font-semibold">Blutuntersuchungen</p>
+                                <p>Überprüfung der Schilddrüsenhormone im Blut, um die Funktion der Schilddrüse zu beurteilen. Der TSH-Spiegel im Blut reagiert äußerst sensibel auf Veränderungen der Schilddrüsenhormonspiegel. Daher ist das im Serum gemessene TSH ein wichtiger Parameter zur Beurteilung der Schilddrüsenfunktion und der erste Schritt in der klinischen Diagnostik der Schilddrüse.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Ultraschalluntersuchung</p>
+                                <p>Eine bildgebende Methode, um die Größe, Struktur und mögliche Knoten oder Zysten in der Schilddrüse zu erkennen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Schilddrüsenszintigraphie</p>
+                                <p>Die Untersuchung wird nur bei verdächtigen Veränderungen im Ultraschall empfohlen.</p>
+                            </li>
                         </ul>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">Weitere Schwerpunkte:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/schwerpunkte/bluthochdruck" className="text-primary underline">Bluthochdruck</Link>
+                                <Link href="/schwerpunkte/fettstoffwechselstoerungen" className="text-primary underline">Fettstoffwechselstörungen</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
                     {/* <SectionWithColor backgroundClassName='bg-tealColor my-16'>

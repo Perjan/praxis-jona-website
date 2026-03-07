@@ -13,6 +13,18 @@ import HtmlLangSync from './HtmlLangSync';
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
+  title: {
+    default: "Praxis Jona Berlin - Allgemeinmedizin & Innere Medizin",
+    template: "%s | Praxis Jona",
+  },
+  description: "Praxis Jona in Berlin-Mitte: Allgemeinmedizin, Innere Medizin, Prävention, Diagnostik und persönliche medizinische Betreuung.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon.png", type: "image/png" }],
+  },
   authors: Authors.map((author) => ({
     name: author.name,
     url: author.url
@@ -50,7 +62,7 @@ export default function RootLayout({
         <ReactToastWrapper>
           <HtmlLangSync />
           <Header />
-          {children}
+          <main id="main-content">{children}</main>
           <Footer />
           <Analytics />
         </ReactToastWrapper>

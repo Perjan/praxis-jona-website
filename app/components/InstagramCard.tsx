@@ -14,7 +14,7 @@ export default function InstagramCard({ isEnglish = false }: InstagramCardProps)
 
   return (
     <a
-      href="https://www.instagram.com/doc.jonida/"
+      href="https://www.instagram.com/doc.jona/"
       target="_blank"
       rel="noopener noreferrer"
       className="block w-full max-w-2xl mx-auto my-8 p-6 rounded-xl transition-transform hover:scale-[1.02] border shadow-lg"
@@ -28,7 +28,7 @@ export default function InstagramCard({ isEnglish = false }: InstagramCardProps)
         <div className="flex flex-col">
           <div className="flex items-center space-x-1 mb-1">
             <span className="bg-white/90 text-[#833AB4] px-3 py-1 rounded-lg font-medium text-sm flex items-center">
-              @doc.jonida
+              @doc.jona
               <HiMiniCheckBadge className="ml-1 text-[#833AB4] text-lg" />
             </span>
           </div>

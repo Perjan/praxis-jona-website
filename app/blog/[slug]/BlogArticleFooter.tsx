@@ -15,7 +15,7 @@ export function PostCard({ post }: { post: Post }) {
           src={post.coverImageUrl}
           width={1368}
           height={760}
-          alt=""
+          alt={post.title}
           className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
         />
         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />

@@ -6,15 +6,15 @@ export default function AppsPageBody({ title, description, apps }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-          <h2 className="mt-2 text-lg leading-8 text-primaryLighter">{description}</h2>
+          <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
         </div>
         <div className="mt-20">
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-            <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
+            <div className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-16 lg:max-w-none lg:grid-cols-2">
               {apps.map((app) => (
                 <AppCard key={app.name} app={app} />
               ))}
-            </dl>
+            </div>
           </div>
         </div>
 
@@ -29,7 +29,7 @@ function AppCard({ app }) {
       <h2 className="flex items-center gap-x-3 text-2xl font-semibold leading-7 text-primary">
         {app.name}
       </h2>
-      <dd className="mt-4 flex flex-auto flex-col leading-7 text-primaryLighter">
+      <div className="mt-4 flex flex-auto flex-col leading-7 text-primaryLighter">
         <Image src={app.image} alt={app.name} width={600} height={300} className="mb-4 rounded-lg h-[300px] object-contain" />
         <p className="">{app.description}</p>
         <ul className="mt-4 flex-auto space-y-2">
@@ -42,8 +42,8 @@ function AppCard({ app }) {
             </li>
           ))}
         </ul>
-        <DownloadLinks downloadLink={app.downloadLink} />
-      </dd>
+        <DownloadLinks appName={app.name} downloadLink={app.downloadLink} />
+      </div>
     </div>
   )
 }
@@ -63,22 +63,24 @@ function DownloadButton({ href, label }) {
   )
 }
 
-export function DownloadLinks({ downloadLink }) {
+export function DownloadLinks({ downloadLink, appName }: { downloadLink: any; appName: string }) {
   if (typeof downloadLink === 'string') {
     return (
       <div className="flex flex-wrap mt-6">
-        <DownloadButton href={downloadLink} label="Jetzt Herunterladen" />
+        <DownloadButton href={downloadLink} label={`${appName} herunterladen`} />
       </div>
     )
   }
 
   const links = []
-  if ('website' in downloadLink) {
-    links.push({ href: downloadLink.website, label: 'Website' })
-    links.push({ href: downloadLink.ios, label: 'iOS' })
-  } else {
-    links.push({ href: downloadLink.ios, label: 'iOS' })
-    links.push({ href: downloadLink.android, label: 'Android' })
+  if ('website' in downloadLink && downloadLink.website) {
+    links.push({ href: downloadLink.website, label: `${appName} Website` })
+  }
+  if ('ios' in downloadLink && downloadLink.ios) {
+    links.push({ href: downloadLink.ios, label: `${appName} iOS` })
+  }
+  if ('android' in downloadLink && downloadLink.android) {
+    links.push({ href: downloadLink.android, label: `${appName} Android` })
   }
 
   return (

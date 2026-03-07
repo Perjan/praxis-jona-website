@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
+import Link from "next/link";
 
 const title = 'Fettstoffwechselstörungen'
 const description = "Fettstoffwechselstörungen, auch Dyslipidämien genannt, bezeichnen eine Gruppe von Erkrankungen, bei denen es zu einer Abweichung der Blutfettwerte von der Norm kommt. Diese Störungen können das Risiko für Herz-Kreislauf-Erkrankungen wie Herzinfarkt und Schlaganfall erhöhen, da abnormale Fettwerte zur Bildung von Plaques in den Arterien führen können, die das Risiko einer Arterienverkalkung (Atherosklerose) erhöhen."
@@ -62,52 +63,64 @@ export default function Page() {
                         <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:grid-cols-2 lg:gap-8">
                             <div className="col-span-1">
                                 <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Hypertriglyceridämie</li>
-                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                        <li>Fehlernährung (Fructose, leicht verdauliche Kohlenhydrate)</li>
-                                        <li>Erkrankungen</li>
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">
+                                        Hypertriglyceridämie
                                         <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Adipositas</li>
-                                            <li>Diabetes mellitus Typ 2</li>
-                                            <li>Metabolisches Syndrom</li>
-                                            <li>Nieren- oder Leberinsuffizienz</li>
-                                            <li>Hypothyreose</li>
-                                            <li>Morbus Cushing</li>
+                                            <li>Fehlernährung (Fructose, leicht verdauliche Kohlenhydrate)</li>
+                                            <li>
+                                                Erkrankungen
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Adipositas</li>
+                                                    <li>Diabetes mellitus Typ 2</li>
+                                                    <li>Metabolisches Syndrom</li>
+                                                    <li>Nieren- oder Leberinsuffizienz</li>
+                                                    <li>Hypothyreose</li>
+                                                    <li>Morbus Cushing</li>
+                                                </ul>
+                                            </li>
+                                            <li>Schwangerschaft</li>
+                                            <li>Alkohol</li>
+                                            <li>
+                                                Medikamente
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Östrogene, Kontrazeptiva</li>
+                                                    <li>Amiodaron, Betablocker, Thiaziddiuretika</li>
+                                                    <li>Glucocorticosteroide</li>
+                                                    <li>Tamoxifen, Cyclosporin</li>
+                                                    <li>Proteasehemmer</li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                        <li>Schwangerschaft</li>
-                                        <li>Alkohol</li>
-                                        <li>Medikamente</li>
-                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Östrogene, Kontrazeptiva</li>
-                                            <li>Amiodaron, Betablocker, Thiaziddiuretika</li>
-                                            <li>Glucocorticosteroide</li>
-                                            <li>Tamoxifen, Cyclosporin</li>
-                                            <li>Proteasehemmer</li>
-                                        </ul>
-                                    </ul>
+                                    </li>
                                 </ul>
                             </div>
 
                             <div className="col-span-1">
                                 <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">Erhöhter LDL-Wert kommt durch:</li>
-                                    <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                        <li>Falsche Ernährung (Transfette, gesättigte Fettsäuren)</li>
-                                        <li>Erkrankungen</li>
+                                    <li className="mt-2 text-lg sm:text-lg font-serif font-semibold leading-6 sm:leading-8 text-primaryLighter">
+                                        Erhöhter LDL-Wert kommt durch:
                                         <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Hypothyreose</li>
-                                            <li>Nephrotisches Syndrom</li>
-                                            <li>Cholestase</li>
-                                            <li>Anorexia nervosa</li>
+                                            <li>Falsche Ernährung (Transfette, gesättigte Fettsäuren)</li>
+                                            <li>
+                                                Erkrankungen
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Hypothyreose</li>
+                                                    <li>Nephrotisches Syndrom</li>
+                                                    <li>Cholestase</li>
+                                                    <li>Anorexia nervosa</li>
+                                                </ul>
+                                            </li>
+                                            <li>Schwangerschaft</li>
+                                            <li>
+                                                Medikamente
+                                                <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
+                                                    <li>Gestagene</li>
+                                                    <li>Androgene</li>
+                                                    <li>Proteasehemmer</li>
+                                                </ul>
+                                            </li>
                                         </ul>
-                                        <li>Schwangerschaft</li>
-                                        <li>Medikamente</li>
-                                        <ul className="px-4 sm:px-8 list-disc text-base sm:text-lg leading-6 sm:leading-8 text-primaryLighter">
-                                            <li>Gestagene</li>
-                                            <li>Androgene</li>
-                                            <li>Proteasehemmer</li>
-                                        </ul>
-                                    </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -122,10 +135,14 @@ export default function Page() {
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnose</h2>
                         <p className="mt-2 text-lg leading-8 text-primaryLighter">Die Diagnostik von Fettstoffwechselstörungen erfolgt hauptsächlich durch Blutuntersuchungen, die Aufschluss über die verschiedenen Fettwerte im Blut geben. Unsere Leistungen:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl mt-4 font-serif font-semibold">Lipidprofil</li>
-                            <p className="text-lg">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
-                            <li className="text-xl mt-4 font-serif font-semibold">Weitere Blutuntersuchungen</li>
-                            <p className="text-lg">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Lipidprofil</p>
+                                <p className="text-lg">Dieser Test misst Gesamtcholesterin, LDL-Cholesterin, HDL-Cholesterin und Triglyceride. Sie sollten für diesen Test nüchtern sein.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-semibold">Weitere Blutuntersuchungen</p>
+                                <p className="text-lg">Je nach Befund können zusätzliche Bluttests angeordnet werden, um zugrunde liegende Ursachen oder assoziierte Erkrankungen zu erkennen, wie Diabetes, Schilddrüsenstörungen oder Nierenerkrankungen.</p>
+                            </li>
                         </ul>
 
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Die Therapie besteht auf 3 Stufen</h3>
@@ -134,6 +151,13 @@ export default function Page() {
                             <li>Medikamentöse Therapie</li>
                             <li>Technische Verfahren (Lipid-Apherese)</li>
                         </ul>
+                        <div className="mt-10 text-center">
+                            <p className="text-base text-primaryLighter">Weitere Schwerpunkte:</p>
+                            <div className="mt-2 flex flex-wrap items-center justify-center gap-4">
+                                <Link href="/schwerpunkte/bluthochdruck" className="text-primary underline">Bluthochdruck</Link>
+                                <Link href="/schwerpunkte/schilddruese" className="text-primary underline">Schilddrüse</Link>
+                            </div>
+                        </div>
 
                     </SectionWithColor>
                 </div>

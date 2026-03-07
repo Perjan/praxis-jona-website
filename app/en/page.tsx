@@ -6,8 +6,8 @@ import QuoteSection from "app/QuoteSectionEN";
 import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
 
-const title = "Praxis Jona"
-const description = "Holistic care for a healthy life – At our practice, you are more than just another patient."
+const title = "Praxis Jona Berlin - Internal Medicine"
+const description = "Holistic medical care in Berlin-Mitte: internal medicine, preventive diagnostics, and personalized treatment at Praxis Jona."
 
 export const metadata: Metadata = {
     title: {

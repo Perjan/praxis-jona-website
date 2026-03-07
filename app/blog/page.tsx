@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 export const dynamic = "force-static"
 
 const title = 'Blog - Praxis Jona'
-const description = "Wir veröffentlichen Blogbeiträge über Gesundheit, Schönheit und Ernährung. Wir berichten über Neuigkeiten in unserer Praxis und über aktuelle Themen aus der Medizin."
+const description = "Blogbeiträge zu Gesundheit, Ernährung und medizinischen Themen aus der Praxis Jona in Berlin-Mitte mit praktischen Empfehlungen."
 
 export const metadata: Metadata = {
   title: title,

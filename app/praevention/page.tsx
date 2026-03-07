@@ -4,8 +4,8 @@ import TeamSection from "./TeamSection"
 import WhyItMattersSection from "./WhyItMattersSection"
 import { Metadata } from "next"
 
-const title = "Prävention"
-const description = "Gesundheit ist kein Zufall. Sondern eine Entscheidung. Wir machen Prävention planbar. Mit ärztlicher Diagnostik, interdisziplinärer Expertise und individueller Begleitung."
+const title = "Präventionsmedizin & Check-ups"
+const description = "Prävention mit ärztlicher Diagnostik, klarer Auswertung und individueller Begleitung in der Praxis Jona für langfristige Gesundheitsziele."
 const url = "/praevention"
 
 export const metadata: Metadata = {

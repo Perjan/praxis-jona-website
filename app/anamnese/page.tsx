@@ -389,7 +389,7 @@ export default function AnamnesePage() {
                 <input
                   type="text"
                   required
-                  value={formData.name}
+                  id="name" name="name" aria-label="name" value={formData.name}
                   onChange={(e) => handleInputChange('name', e.target.value)}
                   className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                     validationErrors.name ? 'border-red-500' : 'border-gray-300'
@@ -405,7 +405,7 @@ export default function AnamnesePage() {
                   <input
                     type="date"
                     required
-                    value={formData.birthdate}
+                    id="birthdate" name="birthdate" aria-label="birthdate" value={formData.birthdate}
                     onChange={(e) => handleInputChange('birthdate', e.target.value)}
                     className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                       validationErrors.birthdate ? 'border-red-500' : 'border-gray-300'
@@ -426,7 +426,7 @@ export default function AnamnesePage() {
                 <input
                   type="number"
                   required
-                  value={formData.weight}
+                  id="weight" name="weight" aria-label="weight" value={formData.weight}
                   onChange={(e) => handleInputChange('weight', e.target.value)}
                   className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                     validationErrors.weight ? 'border-red-500' : 'border-gray-300'
@@ -441,7 +441,7 @@ export default function AnamnesePage() {
                 <input
                   type="number"
                   required
-                  value={formData.height}
+                  id="height" name="height" aria-label="height" value={formData.height}
                   onChange={(e) => handleInputChange('height', e.target.value)}
                   className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                     validationErrors.height ? 'border-red-500' : 'border-gray-300'
@@ -456,7 +456,7 @@ export default function AnamnesePage() {
                 <input
                   type="text"
                   required
-                  value={formData.occupation}
+                  id="occupation" name="occupation" aria-label="occupation" value={formData.occupation}
                   onChange={(e) => handleInputChange('occupation', e.target.value)}
                   className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                     validationErrors.occupation ? 'border-red-500' : 'border-gray-300'
@@ -471,7 +471,7 @@ export default function AnamnesePage() {
                 <input
                   type="email"
                   required
-                  value={formData.email}
+                  id="email" name="email" aria-label="email" value={formData.email}
                   onChange={(e) => handleInputChange('email', e.target.value)}
                   className={`w-full px-3 py-2 border rounded-md focus:ring-primary focus:border-primary ${
                     validationErrors.email ? 'border-red-500' : 'border-gray-300'
@@ -492,7 +492,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={3}
-                  value={formData.currentComplaints}
+                  id="currentComplaints" name="currentComplaints" aria-label="currentComplaints" value={formData.currentComplaints}
                   onChange={(e) => handleInputChange('currentComplaints', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -503,7 +503,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={3}
-                  value={formData.programGoals}
+                  id="programGoals" name="programGoals" aria-label="programGoals" value={formData.programGoals}
                   onChange={(e) => handleInputChange('programGoals', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -521,7 +521,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={3}
-                  value={formData.previousDiseases}
+                  id="previousDiseases" name="previousDiseases" aria-label="previousDiseases" value={formData.previousDiseases}
                   onChange={(e) => handleInputChange('previousDiseases', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -532,7 +532,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={3}
-                  value={formData.operations}
+                  id="operations" name="operations" aria-label="operations" value={formData.operations}
                   onChange={(e) => handleInputChange('operations', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -549,7 +549,7 @@ export default function AnamnesePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Herzinfarkt / Schlaganfall</label>
                 <input
                   type="text"
-                  value={formData.familyHeartStroke}
+                  id="familyHeartStroke" name="familyHeartStroke" aria-label="familyHeartStroke" value={formData.familyHeartStroke}
                   onChange={(e) => handleInputChange('familyHeartStroke', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -558,7 +558,7 @@ export default function AnamnesePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Krebs (Art?)</label>
                 <input
                   type="text"
-                  value={formData.familyCancer}
+                  id="familyCancer" name="familyCancer" aria-label="familyCancer" value={formData.familyCancer}
                   onChange={(e) => handleInputChange('familyCancer', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -567,7 +567,7 @@ export default function AnamnesePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Demenz / Alzheimer</label>
                 <input
                   type="text"
-                  value={formData.familyDementia}
+                  id="familyDementia" name="familyDementia" aria-label="familyDementia" value={formData.familyDementia}
                   onChange={(e) => handleInputChange('familyDementia', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -576,7 +576,7 @@ export default function AnamnesePage() {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Diabetes / Stoffwechselstörungen</label>
                 <input
                   type="text"
-                  value={formData.familyDiabetes}
+                  id="familyDiabetes" name="familyDiabetes" aria-label="familyDiabetes" value={formData.familyDiabetes}
                   onChange={(e) => handleInputChange('familyDiabetes', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -594,7 +594,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={4}
-                  value={formData.medications}
+                  id="medications" name="medications" aria-label="medications" value={formData.medications}
                   onChange={(e) => handleInputChange('medications', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -605,7 +605,7 @@ export default function AnamnesePage() {
                 </label>
                 <textarea
                   rows={4}
-                  value={formData.supplements}
+                  id="supplements" name="supplements" aria-label="supplements" value={formData.supplements}
                   onChange={(e) => handleInputChange('supplements', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -623,7 +623,7 @@ export default function AnamnesePage() {
                 </label>
                 <input
                   type="text"
-                  value={formData.exerciseFrequency}
+                  id="exerciseFrequency" name="exerciseFrequency" aria-label="exerciseFrequency" value={formData.exerciseFrequency}
                   onChange={(e) => handleInputChange('exerciseFrequency', e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                 />
@@ -688,7 +688,7 @@ export default function AnamnesePage() {
                   <input
                     type="text"
                     disabled={formData.smoking !== 'ja'}
-                    value={formData.smokingAmount}
+                    id="smokingAmount" name="smokingAmount" aria-label="smokingAmount" value={formData.smokingAmount}
                     onChange={(e) => handleInputChange('smokingAmount', e.target.value)}
                     className="px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary disabled:bg-gray-100"
                   />
@@ -813,7 +813,7 @@ export default function AnamnesePage() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Schwangerschaften</label>
                     <input
                       type="text"
-                      value={formData.pregnancies}
+                      id="pregnancies" name="pregnancies" aria-label="pregnancies" value={formData.pregnancies}
                       onChange={(e) => handleInputChange('pregnancies', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
@@ -822,7 +822,7 @@ export default function AnamnesePage() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Kinder</label>
                     <input
                       type="text"
-                      value={formData.children}
+                      id="children" name="children" aria-label="children" value={formData.children}
                       onChange={(e) => handleInputChange('children', e.target.value)}
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                     />
@@ -851,7 +851,7 @@ export default function AnamnesePage() {
                       <label className="block text-sm font-medium text-gray-700 mb-1">Falls ja, welche:</label>
                       <input
                         type="text"
-                        value={formData.hormonalContraceptionDetails}
+                        id="hormonalContraceptionDetails" name="hormonalContraceptionDetails" aria-label="hormonalContraceptionDetails" value={formData.hormonalContraceptionDetails}
                         onChange={(e) => handleInputChange('hormonalContraceptionDetails', e.target.value)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                       />

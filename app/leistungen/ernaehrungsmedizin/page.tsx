@@ -64,14 +64,22 @@ export default function Page() {
 
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Ziele der Ernährungstherapie</h2>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Krankheitsprävention und -behandlung</li>
-                            <p>Ernährungstherapie kann helfen, chronische Krankheiten wie Diabetes, Herz-Kreislauf-Erkrankungen, Bluthochdruck und bestimmte Krebsarten zu verhindern und zu behandeln, Autoimmunerkrankungen in latenter Phase zu halten.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Verbesserung der Darmflora</li>
-                            <p>Durch Umstellung der Ernährung kann die Darmflora wiederhergestellt werden, was zur Linderung der Darmbeschwerden führen kann.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Gewichtsmanagement</li>
-                            <p>Durch die Anpassung der Ernährung kann das Gewicht kontrolliert werden, was zur Prävention und Behandlung von Adipositas und Untergewicht beiträgt.</p>
-                            <li className="text-xl mt-4 font-serif font-medium">Verbesserung des Allgemeinbefindens</li>
-                            <p>Eine ausgewogene Ernährung fördert das allgemeine Wohlbefinden, steigert die Energielevels und verbessert die geistige Gesundheit.</p>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium leading-8 text-primaryLighter">Krankheitsprävention und -behandlung</p>
+                                <p>Ernährungstherapie kann helfen, chronische Krankheiten wie Diabetes, Herz-Kreislauf-Erkrankungen, Bluthochdruck und bestimmte Krebsarten zu verhindern und zu behandeln, Autoimmunerkrankungen in latenter Phase zu halten.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Verbesserung der Darmflora</p>
+                                <p>Durch Umstellung der Ernährung kann die Darmflora wiederhergestellt werden, was zur Linderung der Darmbeschwerden führen kann.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Gewichtsmanagement</p>
+                                <p>Durch die Anpassung der Ernährung kann das Gewicht kontrolliert werden, was zur Prävention und Behandlung von Adipositas und Untergewicht beiträgt.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-xl font-serif font-medium">Verbesserung des Allgemeinbefindens</p>
+                                <p>Eine ausgewogene Ernährung fördert das allgemeine Wohlbefinden, steigert die Energielevels und verbessert die geistige Gesundheit.</p>
+                            </li>
                         </ul>
 
                         <p className="mt-4 text-lg leading-8 text-primaryLighter">Mir ist es wichtig, herauszufinden, wie es für Sie eine Ernährungsumstellung leichter und nachhaltig werden kann.</p>
@@ -79,37 +87,48 @@ export default function Page() {
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Wie kann eine Ernährungsumstellung leichter und nachhaltig gestaltet werden?</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium ">Individuelle Beratung</li>
-                            <p>Eine persönliche Beratung hilft dabei, individuelle Bedürfnisse und Vorlieben zu berücksichtigen und realistische Ziele zu setzen.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Schrittweise Änderungen</li>
-                            <p>Kleine, schrittweise Veränderungen in der Ernährung sind oft nachhaltiger und leichter umzusetzen als radikale Umstellungen.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Bildung und Wissen</li>
-                            <p>Wissen über gesunde Ernährung und das Verständnis der Auswirkungen bestimmter Lebensmittel auf den Körper können die Motivation erhöhen und helfen, informierte Entscheidungen zu treffen.</p>
-                            <li className="text-lg mt-4 font-serif font-medium ">Langfristige Planung</li>
-                            <p>Die Entwicklung eines langfristigen Ernährungsplans, der flexible und realistische Ziele beinhaltet, trägt zur Nachhaltigkeit der Ernährungsumstellung bei.</p>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Individuelle Beratung</p>
+                                <p>Eine persönliche Beratung hilft dabei, individuelle Bedürfnisse und Vorlieben zu berücksichtigen und realistische Ziele zu setzen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Schrittweise Änderungen</p>
+                                <p>Kleine, schrittweise Veränderungen in der Ernährung sind oft nachhaltiger und leichter umzusetzen als radikale Umstellungen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Bildung und Wissen</p>
+                                <p>Wissen über gesunde Ernährung und das Verständnis der Auswirkungen bestimmter Lebensmittel auf den Körper können die Motivation erhöhen und helfen, informierte Entscheidungen zu treffen.</p>
+                            </li>
+                            <li className="mt-4">
+                                <p className="text-lg font-serif font-medium">Langfristige Planung</p>
+                                <p>Die Entwicklung eines langfristigen Ernährungsplans, der flexible und realistische Ziele beinhaltet, trägt zur Nachhaltigkeit der Ernährungsumstellung bei.</p>
+                            </li>
                         </ul>
                         
                         <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Meine Schwerpunkte</h3>
 
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="text-lg mt-4 font-serif font-medium">Stoffwechselstörungen und Körpergewicht</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>Gewichtszunahme durch Autoimmunerkrankungen wie Hashimoto</li>
-                                <li>Fettstoffwechselstörungen</li>
-                                <li>Diabetes Mellitus</li>
-                            </ul>
-
-                            <li className="text-lg mt-4 font-serif font-medium ">Herz-Kreislauf-Erkrankungen</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>Hypertonie</li>
-                            </ul>
-
-                            <li className="text-lg mt-4 font-serif font-medium ">Magen-Darm-Trakt</li>
-                            <ul className="px-8 list-disc text-lg ">
-                                <li>Reizdarmsyndrom</li>
-                                <li>Microbiome</li>
-                            </ul>
-
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Stoffwechselstörungen und Körpergewicht
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>Gewichtszunahme durch Autoimmunerkrankungen wie Hashimoto</li>
+                                    <li>Fettstoffwechselstörungen</li>
+                                    <li>Diabetes Mellitus</li>
+                                </ul>
+                            </li>
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Herz-Kreislauf-Erkrankungen
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>Hypertonie</li>
+                                </ul>
+                            </li>
+                            <li className="text-lg mt-4 font-serif font-medium">
+                                Magen-Darm-Trakt
+                                <ul className="px-8 list-disc text-lg">
+                                    <li>Reizdarmsyndrom</li>
+                                    <li>Microbiome</li>
+                                </ul>
+                            </li>
                             <li className="text-lg mt-4 font-serif font-medium leading-8 text-primaryLighter">Gewichtsmanagement (Zu- oder Abnahme)</li>
                         </ul>
                         
