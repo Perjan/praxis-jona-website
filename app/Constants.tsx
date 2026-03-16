@@ -29,7 +29,31 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
+        {
+            title: '17.03.',
+            message: 'An diesem Tag findet keine reguläre Sprechstunde bei Frau Buhrmann statt.\nEine Akutsprechstunde wird von 08:30 bis 10:00 Uhr angeboten.'
+        },
+        {
+            title: '30.03. – 10.04.',
+            message: 'In diesem Zeitraum übernimmt Herr Dr. Rössner die Vertretung in unseren Praxisräumen.'
+        },
+        {
+            title: '20.04. – 24.04.',
+            message: 'Unsere Praxis bleibt geschlossen.\nEine Vertretung wird in Kürze bekannt gegeben.\n\nWir danken Ihnen für Ihr Verständnis.'
+        }
     ],
     en: [
+        {
+            title: '17.03.',
+            message: 'On this day, there will be no regular consultation hours with Ms. Buhrmann.\nAn acute consultation will be offered from 08:30 to 10:00.'
+        },
+        {
+            title: '30.03. – 10.04.',
+            message: 'During this period, Dr. Rössner will provide cover in our practice rooms.'
+        },
+        {
+            title: '20.04. – 24.04.',
+            message: 'Our practice will remain closed.\nA substitute practice will be announced shortly.\n\nThank you for your understanding.'
+        }
     ]
 }
