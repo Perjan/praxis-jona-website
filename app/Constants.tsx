@@ -36,6 +36,14 @@ export const NewsMessages = {
         {
             title: '31.03.',
             message: 'Am 31.03. findet die Sprechstunde aufgrund von Abrechnung nur bis 12:00 Uhr statt.'
+        },
+        {
+            title: '30.03. – 10.04.',
+            message: 'In diesem Zeitraum übernimmt Herr Dr. Rössner die Vertretung in unseren Praxisräumen.'
+        },
+        {
+            title: '20.04. – 24.04.',
+            message: 'Unsere Praxis bleibt geschlossen.\nEine Vertretung wird in Kürze bekannt gegeben.\n\nWir danken Ihnen für Ihr Verständnis.'
         }
     ],
     en: [
@@ -46,6 +54,14 @@ export const NewsMessages = {
         {
             title: '31.03.',
             message: 'On 31 March, consultation hours will only take place until 12:00 due to billing.'
+        },
+        {
+            title: '30.03. – 10.04.',
+            message: 'During this period, Dr. Rössner will provide cover in our practice rooms.'
+        },
+        {
+            title: '20.04. – 24.04.',
+            message: 'Our practice will remain closed.\nA substitute practice will be announced shortly.\n\nThank you for your understanding.'
         }
     ]
 }
