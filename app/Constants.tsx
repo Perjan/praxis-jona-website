@@ -39,7 +39,7 @@ export const NewsMessages = {
         },
         {
             title: '20.04. – 24.04.',
-            message: 'Unsere Praxis bleibt geschlossen.\nEine Vertretung wird in Kürze bekannt gegeben.\n\nWir danken Ihnen für Ihr Verständnis.'
+            message: 'Unsere Praxis bleibt wegen Umbauarbeiten geschlossen.\n\nIn akuten Notfällen können Sie sich hier melden:\nKfH MVZ Gesundheitszentrum\nGroße Hamburger Str. 5-11\n10119 Berlin\nTel.: 030 / 367510070'
         }
     ],
     en: [
@@ -53,7 +53,7 @@ export const NewsMessages = {
         },
         {
             title: '20.04. – 24.04.',
-            message: 'Our practice will remain closed.\nA substitute practice will be announced shortly.\n\nThank you for your understanding.'
+            message: 'Our practice will be closed due to renovation work.\n\nIn urgent cases, please contact:\nKfH MVZ Gesundheitszentrum\nGroße Hamburger Str. 5-11\n10119 Berlin\nPhone: 030 / 367510070'
         }
     ]
 }
