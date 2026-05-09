@@ -49,7 +49,7 @@ export default function Page() {
         name: "Was kostet eine Eiseninfusion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Die Kosten starten in unserer Praxis typischerweise ab 135 Euro. Der Endpreis hängt u. a. von der benötigten Eisendosis und dem individuellen Befund ab."
+          text: "Die Kosten starten in unserer Praxis typischerweise ab 150,95 Euro. Der Endpreis hängt u. a. von der benötigten Eisendosis und dem individuellen Befund ab."
         }
       },
       {
@@ -87,7 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Preisübersicht Eiseninfusion</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              Bei nachgewiesenem Eisenmangel kostet die Behandlung in unserer Praxis als Festpreis 135 €.
+              Bei nachgewiesenem Eisenmangel kostet die Behandlung in unserer Praxis als Festpreis 150,95 €.
             </p>
 
             <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Was beeinflusst die Kosten?</h2>

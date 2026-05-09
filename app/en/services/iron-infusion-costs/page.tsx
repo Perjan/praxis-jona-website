@@ -49,7 +49,7 @@ export default function Page() {
         name: "How much does an iron infusion cost?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "At our practice, treatment for medically confirmed iron deficiency is offered at a fixed price of €135."
+          text: "At our practice, treatment for medically confirmed iron deficiency is offered at a fixed price of €150.95."
         }
       },
       {
@@ -87,7 +87,7 @@ export default function Page() {
           <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
             <h2 className="text-2xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Iron infusion price overview</h2>
             <p className="mt-2 text-lg leading-8 text-primaryLighter">
-              For medically confirmed iron deficiency, treatment in our practice is offered at a fixed price of €135.
+              For medically confirmed iron deficiency, treatment in our practice is offered at a fixed price of €150.95.
             </p>
 
             <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">What affects the final price?</h2>

@@ -29,31 +29,9 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
-        {
-            title: '17.03.',
-            message: 'An diesem Tag findet keine reguläre Sprechstunde bei Frau Buhrmann statt.\nEine Akutsprechstunde wird von 08:30 bis 10:00 Uhr angeboten.'
-        },
-        {
-            title: '30.03. – 10.04.',
-            message: 'In diesem Zeitraum übernimmt Herr Dr. Rössner die Vertretung in unseren Praxisräumen.'
-        },
-        {
-            title: '20.04. – 24.04.',
-            message: 'Unsere Praxis bleibt wegen Umbauarbeiten geschlossen.\n\nIn akuten Notfällen können Sie sich hier melden:\nKfH MVZ Gesundheitszentrum\nGroße Hamburger Str. 5-11\n10119 Berlin\nTel.: 030 / 367510070'
-        }
+        
     ],
     en: [
-        {
-            title: '17.03.',
-            message: 'On this day, there will be no regular consultation hours with Ms. Buhrmann.\nAn acute consultation will be offered from 08:30 to 10:00.'
-        },
-        {
-            title: '30.03. – 10.04.',
-            message: 'During this period, Dr. Rössner will provide cover in our practice rooms.'
-        },
-        {
-            title: '20.04. – 24.04.',
-            message: 'Our practice will be closed due to renovation work.\n\nIn urgent cases, please contact:\nKfH MVZ Gesundheitszentrum\nGroße Hamburger Str. 5-11\n10119 Berlin\nPhone: 030 / 367510070'
-        }
+        
     ]
 }
