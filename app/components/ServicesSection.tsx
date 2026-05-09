@@ -169,26 +169,26 @@ export default function ServicesSection({ language = 'de' }) {
         </Dialog>
       </Transition>
       <div className="py-16 sm:py-24 lg:mx-auto lg:max-w-7xl lg:px-8">
-        {/* Standard/Gesetzliche Services Section */}
-        <div>
-          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
-            <h2 className="text-4xl font-serif tracking-tight text-primary">{sectionTitles.standard}</h2>
-          </div>
-          <div className="relative mt-8">
-            <div className="relative -mb-6 w-full pb-6">
-              {renderServicesList(gesetzlicheLeistungen)}
-            </div>
-          </div>
-        </div>
-
         {/* Additional/Private Services Section */}
-        <div className="mt-16">
+        <div>
           <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
             <h2 className="text-4xl font-serif tracking-tight text-primary">{sectionTitles.additional}</h2>
           </div>
           <div className="relative mt-8">
             <div className="relative -mb-6 w-full pb-6">
               {renderServicesList(privateLeistungen)}
+            </div>
+          </div>
+        </div>
+
+        {/* Standard/Gesetzliche Services Section */}
+        <div className="mt-16">
+          <div className="flex items-center justify-between px-4 sm:px-6 lg:px-0">
+            <h2 className="text-4xl font-serif tracking-tight text-primary">{sectionTitles.standard}</h2>
+          </div>
+          <div className="relative mt-8">
+            <div className="relative -mb-6 w-full pb-6">
+              {renderServicesList(gesetzlicheLeistungen)}
             </div>
           </div>
         </div>

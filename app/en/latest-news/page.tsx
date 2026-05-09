@@ -85,17 +85,19 @@ export default function Page() {
 
                                     <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-1">
 
-                                        <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
-                                            <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
-                                                <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                                                    <div className="flex flex-col justify-center h-full">
-                                                        <address className="mt-34justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p>In urgent cases, please also contact the medical on-call service of the KV Berlin at 116117, in life-threatening situations call the fire department at 112.</p>
-                                                        </address>
+                                        {!NewsMessages.en.length && (
+                                            <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
+                                                <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 lg:col-span-1 lg:gap-8">
+                                                    <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                                                        <div className="flex flex-col justify-center h-full">
+                                                            <address className="mt-34justify-center text-center space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                                                                <p>In urgent cases, please also contact the medical on-call service of the KV Berlin at 116117, in life-threatening situations call the fire department at 112.</p>
+                                                            </address>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        )}
 
                                         <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1">
                                             <h2 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
