@@ -52,11 +52,12 @@ export default function ServiceCardsEn() {
     ]
 
     return (
-        <div 
-            ref={sectionRef} 
-            className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 mb-16 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
+        <div className="w-full bg-white">
+            <div 
+                ref={sectionRef} 
+                className={`w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pb-16 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            >
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full">
                 {cards.map((card, index) => (
                     <div 
                         key={index} 
@@ -78,6 +79,7 @@ export default function ServiceCardsEn() {
                     </div>
                 ))}
             </div>
+        </div>
         </div>
     )
 }
