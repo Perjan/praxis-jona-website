@@ -15,7 +15,6 @@ const navigationGerman = {
     { name: 'Team', href: '/team' },
     { name: 'Apps', href: '/apps' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Aktuelles', href: '/aktuelles' },
     { name: 'Karriere', href: '/jobs' },
   ],
 }
@@ -28,7 +27,6 @@ const navigationEnglish = {
     { name: 'Team', href: '/en/team' },
     { name: 'Apps', href: '/en/apps' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Latest News', href: '/en/latest-news' },
     { name: 'Jobs', href: '/en/jobs' },
   ],
 }

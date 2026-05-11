@@ -17,20 +17,18 @@ import { Constants } from './Constants'
 import { LanguagePicker } from './LanguagePicker'
 
 const navigationItemsGerman = [
-    { title: "Schwerpunkte", href: "/schwerpunkte" },
-    { title: "Leistungen", href: "/leistungen" },
-    { title: "Prävention", href: "/praevention" },
+    { title: "Hausärztliche Leistungen", href: "/hausaerztliche-leistungen" },
+    { title: "Ästhetik", href: "/aesthetik" },
+    { title: "Health / Longevity", href: "/health-longevity" },
     { title: "Team", href: "/team" },
-    { title: "Aktuelles", href: "/aktuelles" },
     { title: "Kontakt", href: "/kontakt" }
 ]
 
 const navigationItemsEnglish = [
-    { title: "Specialty Areas", href: "/en/focus-areas" },
-    { title: "Services", href: "/en/services" },
-    { title: "Prevention", href: "/en/prevention" },
+    { title: "General Medicine", href: "/en/general-medicine" },
+    { title: "Aesthetics", href: "/en/aesthetics" },
+    { title: "Health / Longevity", href: "/en/health-longevity" },
     { title: "Team", href: "/en/team" },
-    { title: "Latest News", href: "/en/latest-news" },
     { title: "Contact", href: "/en/contact" }
 ]
 
