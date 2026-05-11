@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import HeroSection from './HeroSection'
+import ServiceCards from './components/ServiceCards'
 import QuoteSection from "./QuoteSection";
 import ClinicSection from './ClinicSection'
 import Warning from "./components/Warning";
@@ -82,6 +83,8 @@ export default function Features() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
             />
             <HeroSection title="PRAXIS JONA" description="Ganzheitliche Betreuung für ein gesundes Leben - Bei uns bist Du mehr als nur ein weiterer Patient" />
+
+            <ServiceCards />
 
             <QuoteSection
                 quote='"Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern."'

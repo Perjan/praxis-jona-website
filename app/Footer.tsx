@@ -12,6 +12,10 @@ const navigationGerman = {
   imprint: "Impressum und Datenschutz",
   imprintUrl: "/impressum-datenschutz",
   company: [
+    { name: 'Aktuelles', href: '/aktuelles' },
+    { name: 'Schwerpunkte', href: '/schwerpunkte' },
+    { name: 'Leistungen', href: '/leistungen' },
+    { name: 'Prävention', href: '/praevention' },
     { name: 'Team', href: '/team' },
     { name: 'Apps', href: '/apps' },
     { name: 'Blog', href: '/blog' },
@@ -24,6 +28,10 @@ const navigationEnglish = {
   imprint: "Imprint and Privacy",
   imprintUrl: "/imprint-privacy",
   company: [
+    { name: 'Latest News', href: '/en/latest-news' },
+    { name: 'Specialty Areas', href: '/en/focus-areas' },
+    { name: 'Services', href: '/en/services' },
+    { name: 'Prevention', href: '/en/prevention' },
     { name: 'Team', href: '/en/team' },
     { name: 'Apps', href: '/en/apps' },
     { name: 'Blog', href: '/blog' },
