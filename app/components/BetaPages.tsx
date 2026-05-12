@@ -123,7 +123,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
                   height={1125}
                   priority
                   sizes="(min-width: 1024px) 38vw, 92vw"
-                  className="h-72 w-full object-cover object-[28%_72%] sm:h-96 lg:h-auto lg:aspect-[4/5] lg:object-center"
+                  className={`h-72 w-full object-cover sm:h-96 lg:h-auto lg:aspect-[4/5] ${content.heroImage.objectPositionClass ?? "object-center"}`}
                 />
               </div>
             )}

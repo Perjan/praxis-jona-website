@@ -17,6 +17,7 @@ export type CategoryContent = {
   heroImage?: {
     src: string;
     alt: string;
+    objectPositionClass?: string;
   };
   cta: string;
   ctaHref: string;
@@ -110,6 +111,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     heroImage: {
       src: "/images/clinic/clinic-philo-2025.jpg",
       alt: "Behandlungsstuhl für ästhetische Medizin in der Praxis Jona in Berlin-Mitte",
+      objectPositionClass: "object-[28%_72%] lg:object-center",
     },
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
@@ -177,6 +179,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     heroImage: {
       src: "/images/clinic/clinic-philo-2025.jpg",
       alt: "Treatment chair for aesthetic medicine at Praxis Jona in Berlin-Mitte",
+      objectPositionClass: "object-[28%_72%] lg:object-center",
     },
     cta: "Book appointment",
     ctaHref: Constants.appointmentUrl,
@@ -240,7 +243,12 @@ export const categoryContent: Record<string, CategoryContent> = {
     locale: "de",
     title: "Health / Longevity in Berlin-Mitte",
     eyebrow: "Prävention, Stoffwechsel & Vitalität",
-    description: "Präventionsmedizin, Check-ups, Ernährung, Mikronährstoffe, Infusionen und medizinische Gewichtsreduktion mit ärztlicher Einordnung.",
+    description: "Ärztlich geführte Prävention, Check-ups, Ernährung, Mikronährstoffe, Infusionen und medizinische Gewichtsreduktion in der Praxis Jona am Rosenthaler Platz.",
+    heroImage: {
+      src: "/images/clinic/clinic-newA.jpg",
+      alt: "Ruhiger Behandlungs- und Beratungsraum der Praxis Jona für Health und Longevity in Berlin-Mitte",
+      objectPositionClass: "object-[18%_55%] lg:object-[22%_50%]",
+    },
     cta: "Termin zur Abklärung buchen",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "Präventionspakete ansehen",
@@ -248,31 +256,69 @@ export const categoryContent: Record<string, CategoryContent> = {
     sections: [
       {
         title: "Medizinisch geführte Gesundheitsoptimierung",
-        intro: "Wir verbinden Laborwerte, Symptome, Risikoprofil und persönliche Ziele zu einer nachvollziehbaren ärztlichen Empfehlung.",
+        intro: "Longevity beginnt nicht mit einzelnen Trends, sondern mit einer klaren ärztlichen Einordnung. Wir verbinden Beschwerden, Laborwerte, Risikoprofil und persönliche Ziele zu konkreten nächsten Schritten.",
         services: [
-          { title: "Eiseninfusion", href: "/leistungen/eiseninfusion-kosten", description: "Bei passendem Befund und medizinischer Indikation. Festpreis: 150,95 €." },
-          { title: "Vitamininfusion", href: "/leistungen/infusionstherapie", description: "Gezielte Infusionen bei relevantem Mangel oder passender medizinischer Fragestellung." },
-          { title: "Abnehmspritze", href: "/leistungen/abnehmspritze", description: "Ärztlich begleitete Gewichtsreduktion mit GLP-1-basierten Medikamenten, wenn geeignet." },
-          { title: "Ernährungsberatung", href: "/leistungen/ernaehrungsmedizin", description: "Medizinische Ernährungstherapie für Stoffwechsel, Gewicht und langfristige Gesundheit." },
-          { title: "Premium Check-up", href: "/leistungen/private-check-up", description: "Erweiterte Vorsorge über gesetzliche Leistungen hinaus." },
-          { title: "Prävention / Longevity", href: "/praevention", description: "Strukturierte Pakete von Basic bis Premium für langfristige Gesundheitsziele." },
-          { title: "Mikronährstofftherapie", href: "/leistungen/mikronahrstoffanalyse", description: "Diagnostik und Therapieplanung auf Basis relevanter Laborwerte." },
-          { title: "Reiseimpfung", href: "/leistungen/reiseimpfungen", description: "Reisemedizinische Beratung und Impfungen nach Ziel, Risiko und Vorgeschichte." },
-          { title: "Haarausfall-Abklärung", href: "/leistungen/haarausfall-berlin-mitte", description: "Ärztliches Konzept mit Diagnostik, PRP und Mikronährstofftherapie nach Befund." },
+          { title: "Eiseninfusion", href: "/leistungen/eiseninfusion-kosten", eyebrow: "Mangel & Energie", description: "Bei nachgewiesenem Eisenmangel und passender Indikation. Festpreis: 150,95 €." },
+          { title: "Vitamininfusion", href: "/leistungen/infusionstherapie", eyebrow: "Gezielte Auffüllung", description: "Infusionen bei relevantem Mangel oder passender medizinischer Fragestellung, nicht als pauschale Wellnesslösung." },
+          { title: "Abnehmspritze", href: "/leistungen/abnehmspritze", eyebrow: "Gewicht & Stoffwechsel", description: "Ärztlich begleitete Gewichtsreduktion mit GLP-1-basierten Medikamenten, wenn sie medizinisch geeignet ist." },
+          { title: "Ernährungsberatung", href: "/leistungen/ernaehrungsmedizin", eyebrow: "Alltag & Stoffwechsel", description: "Medizinische Ernährungstherapie für Gewicht, Stoffwechselwerte und langfristige Gesundheitsziele." },
+          { title: "Premium Check-up", href: "/leistungen/private-check-up", eyebrow: "Erweiterte Diagnostik", description: "Vorsorge über gesetzliche Leistungen hinaus mit strukturierter ärztlicher Auswertung." },
+          { title: "Prävention / Longevity", href: "/praevention", eyebrow: "Programm", description: "Strukturierte Pakete von Basic bis Premium für Menschen, die Gesundheit planbarer machen möchten." },
+          { title: "Mikronährstofftherapie", href: "/leistungen/mikronahrstoffanalyse", eyebrow: "Laborbasiert", description: "Diagnostik und Therapieplanung auf Basis relevanter Laborwerte, Symptome und Ernährungssituation." },
+          { title: "Reiseimpfung", href: "/leistungen/reiseimpfungen", eyebrow: "Reisemedizin", description: "Reisemedizinische Beratung und Impfungen nach Ziel, Risiko, Impfstatus und Vorgeschichte." },
+          { title: "Haarausfall-Abklärung", href: "/leistungen/haarausfall-berlin-mitte", eyebrow: "Diagnostik & PRP", description: "Ärztliches Konzept mit Diagnostik, PRP und Mikronährstofftherapie nach Befund." },
+        ],
+      },
+      {
+        title: "Welche Leistung passt zu welchem Anliegen?",
+        intro: "Viele Beschwerden sind unspezifisch. Müdigkeit, Gewichtszunahme, Haarausfall oder Leistungsabfall können unterschiedliche Ursachen haben. Deshalb beginnt die Empfehlung mit einer medizinischen Einordnung.",
+        services: [
+          { title: "Müdigkeit und niedrige Speicher", href: "/leistungen/eiseninfusion-kosten", description: "Bei Eisenmangel prüfen wir, ob Tabletten ausreichen oder eine Eiseninfusion medizinisch sinnvoll ist." },
+          { title: "Gesundheit proaktiv messen", href: "/praevention", description: "Für Menschen, die Risiken früh erkennen und aus Messwerten konkrete Schritte ableiten möchten." },
+          { title: "Gewicht medizinisch begleiten", href: "/leistungen/abnehmspritze", description: "Für Patientinnen und Patienten, bei denen Ernährung, Stoffwechsel und medikamentöse Optionen zusammen gedacht werden sollen." },
+          { title: "Mängel gezielt prüfen", href: "/leistungen/mikronahrstoffanalyse", description: "Wenn Ernährung, Symptome oder Verlauf eine laborbasierte Mikronährstoffdiagnostik sinnvoll machen." },
+        ],
+      },
+      {
+        title: "Warum Praxis Jona für Health / Longevity?",
+        intro: "Unser Anspruch ist nicht möglichst viel Diagnostik, sondern sinnvolle Diagnostik mit verständlicher Auswertung. Entscheidend ist, was aus den Ergebnissen folgt.",
+        services: [
+          { title: "Ärztliche Priorisierung", href: "/team", description: "Wir ordnen Werte, Symptome und Risiken medizinisch ein, damit aus Daten ein nachvollziehbarer Plan wird." },
+          { title: "Transparente Selbstzahlerleistungen", href: "/kontakt", description: "Kosten, Nutzen und Grenzen privater Leistungen werden vorab besprochen." },
+          { title: "Zentral am Rosenthaler Platz", href: "/kontakt", description: "Die Praxis liegt in Berlin-Mitte und ist mit U-Bahn und Tram gut erreichbar." },
+        ],
+      },
+      {
+        title: "So läuft die Abklärung ab",
+        intro: "Health / Longevity ist ein Prozess. Am Anfang steht die Frage, welches Ziel Sie verfolgen und welche Diagnostik dafür wirklich hilfreich ist.",
+        services: [
+          { title: "1. Anliegen klären", href: "/kontakt", description: "Wir besprechen Beschwerden, Ziele, Vorgeschichte, Medikamente und vorhandene Befunde." },
+          { title: "2. Diagnostik planen", href: "/leistungen/mikronahrstoffanalyse", description: "Labor, Check-up oder weiterführende Diagnostik werden gezielt und nicht pauschal ausgewählt." },
+          { title: "3. Empfehlung ableiten", href: "/praevention", description: "Sie erhalten eine ärztliche Einordnung mit konkreten nächsten Schritten und Verlaufsempfehlung." },
         ],
       },
     ],
     faq: [
+      { question: "Was bedeutet Health / Longevity in der Praxis Jona?", answer: "Wir verstehen darunter ärztlich geführte Prävention, Diagnostik und Therapieplanung für langfristige Gesundheitsziele, nicht pauschale Wellnessangebote." },
       { question: "Ist Health / Longevity nur für Privatpatienten?", answer: "Viele erweiterte Leistungen sind Selbstzahlerleistungen. Wir besprechen Kosten und medizinische Sinnhaftigkeit transparent vorab." },
       { question: "Wann ist eine Infusion sinnvoll?", answer: "Infusionen kommen nach ärztlicher Einschätzung und bei passender Indikation infrage, zum Beispiel bei relevantem Mangel oder Unverträglichkeit oraler Therapie." },
       { question: "Was kostet die Eiseninfusion?", answer: "Die Eiseninfusion kostet als Festpreis 150,95 €." },
+      { question: "Wann ist eine Mikronährstoffanalyse sinnvoll?", answer: "Sie kann sinnvoll sein, wenn Beschwerden, Ernährung, Haarausfall, Müdigkeit oder Verlaufskontrollen auf mögliche Mängel hinweisen." },
+      { question: "Was ist der Unterschied zwischen Check-up und Präventionspaket?", answer: "Ein Check-up ist eine diagnostische Bestandsaufnahme. Die Präventionspakete gehen weiter und verbinden Diagnostik, Auswertung und längerfristige Begleitung." },
+      { question: "Kann ich eine Abnehmspritze direkt buchen?", answer: "Vor einer medikamentösen Gewichtsreduktion steht eine ärztliche Einschätzung, ob die Behandlung geeignet ist und welche Begleitung sinnvoll ist." },
+      { question: "Wie buche ich einen Termin?", answer: "Sie können online über Doctolib oder telefonisch mit der Praxis einen Termin vereinbaren." },
     ],
   },
   longevityEn: {
     locale: "en",
     title: "Health / Longevity in Berlin-Mitte",
     eyebrow: "Prevention, metabolism & vitality",
-    description: "Preventive medicine, check-ups, nutrition, micronutrients, infusions and medical weight management with physician-led assessment.",
+    description: "Physician-led prevention, check-ups, nutrition, micronutrients, infusions and medical weight management at Praxis Jona near Rosenthaler Platz.",
+    heroImage: {
+      src: "/images/clinic/clinic-newA.jpg",
+      alt: "Calm consultation and treatment room at Praxis Jona for Health and Longevity in Berlin-Mitte",
+      objectPositionClass: "object-[18%_55%] lg:object-[22%_50%]",
+    },
     cta: "Book assessment",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "View prevention packages",
@@ -280,24 +326,57 @@ export const categoryContent: Record<string, CategoryContent> = {
     sections: [
       {
         title: "Physician-led health optimization",
-        intro: "We connect lab values, symptoms, risk profile and personal goals into a clear medical recommendation.",
+        intro: "Longevity does not start with trends. It starts with clear medical assessment. We connect symptoms, lab values, risk profile and personal goals into concrete next steps.",
         services: [
-          { title: "Iron infusion", href: "/en/services/iron-infusion-costs", description: "When findings and medical indication fit. Fixed price: €150.95." },
-          { title: "Vitamin infusion", href: "/en/services/infusion-therapy", description: "Targeted infusions for relevant deficiencies or suitable medical indications." },
-          { title: "Weight-loss injection", href: "/en/services/weight-loss-injection", description: "Physician-supervised weight management with GLP-1-based medication when suitable." },
-          { title: "Nutrition counseling", href: "/en/services/nutritional-medicine", description: "Medical nutrition therapy for metabolism, weight and long-term health." },
-          { title: "Premium check-up", href: "/en/services/private-insurance-check-up", description: "Extended preventive care beyond standard public insurance services." },
-          { title: "Prevention / Longevity", href: "/en/prevention", description: "Structured packages from Basic to Premium for long-term health goals." },
-          { title: "Micronutrient therapy", href: "/en/services/micronutrient-analysis", description: "Diagnostics and therapy planning based on relevant laboratory values." },
-          { title: "Travel vaccination", href: "/en/services/travel-vaccinations", description: "Travel medicine advice and vaccinations based on destination, risk and history." },
-          { title: "Hair-loss assessment", href: "/en/services/hair-loss-berlin-mitte", description: "Medical concept with diagnostics, PRP and micronutrient therapy depending on findings." },
+          { title: "Iron infusion", href: "/en/services/iron-infusion-costs", eyebrow: "Deficiency & energy", description: "For documented iron deficiency and suitable indication. Fixed price: €150.95." },
+          { title: "Vitamin infusion", href: "/en/services/infusion-therapy", eyebrow: "Targeted repletion", description: "Infusions for relevant deficiencies or suitable medical questions, not as a generic wellness product." },
+          { title: "Weight-loss injection", href: "/en/services/weight-loss-injection", eyebrow: "Weight & metabolism", description: "Physician-supervised weight management with GLP-1-based medication when medically suitable." },
+          { title: "Nutrition counseling", href: "/en/services/nutritional-medicine", eyebrow: "Daily habits & metabolism", description: "Medical nutrition therapy for weight, metabolic values and long-term health goals." },
+          { title: "Premium check-up", href: "/en/services/private-insurance-check-up", eyebrow: "Extended diagnostics", description: "Preventive care beyond standard public insurance services with structured medical interpretation." },
+          { title: "Prevention / Longevity", href: "/en/prevention", eyebrow: "Program", description: "Structured packages from Basic to Premium for patients who want to make health more measurable." },
+          { title: "Micronutrient therapy", href: "/en/services/micronutrient-analysis", eyebrow: "Lab-based", description: "Diagnostics and treatment planning based on lab values, symptoms and nutrition context." },
+          { title: "Travel vaccination", href: "/en/services/travel-vaccinations", eyebrow: "Travel medicine", description: "Travel medicine advice and vaccination planning based on destination, risk, records and history." },
+          { title: "Hair-loss assessment", href: "/en/services/hair-loss-berlin-mitte", eyebrow: "Diagnostics & PRP", description: "Medical concept with diagnostics, PRP and micronutrient therapy depending on findings." },
+        ],
+      },
+      {
+        title: "Which service fits which concern?",
+        intro: "Many symptoms are non-specific. Fatigue, weight gain, hair loss or lower performance can have different causes. That is why every recommendation starts with medical assessment.",
+        services: [
+          { title: "Fatigue and low stores", href: "/en/services/iron-infusion-costs", description: "With iron deficiency, we assess whether tablets are enough or whether an iron infusion is medically reasonable." },
+          { title: "Measure health proactively", href: "/en/prevention", description: "For patients who want to identify risks earlier and translate measurements into practical next steps." },
+          { title: "Support weight medically", href: "/en/services/weight-loss-injection", description: "For patients who want nutrition, metabolism and medication options considered together." },
+          { title: "Check deficiencies deliberately", href: "/en/services/micronutrient-analysis", description: "When diet, symptoms or follow-up make lab-based micronutrient diagnostics useful." },
+        ],
+      },
+      {
+        title: "Why Praxis Jona for Health / Longevity?",
+        intro: "Our goal is not maximum testing. It is useful testing with clear interpretation. What matters is what follows from the results.",
+        services: [
+          { title: "Medical prioritization", href: "/en/team", description: "We interpret values, symptoms and risks medically so data becomes a clear plan." },
+          { title: "Transparent self-pay services", href: "/en/contact", description: "Cost, benefit and limits of private services are discussed before treatment." },
+          { title: "Central Berlin-Mitte location", href: "/en/contact", description: "The practice is located in Berlin-Mitte and is easy to reach by U-Bahn and tram." },
+        ],
+      },
+      {
+        title: "How the assessment works",
+        intro: "Health / Longevity is a process. It starts with the goal you are pursuing and which diagnostics are actually useful for it.",
+        services: [
+          { title: "1. Clarify the concern", href: "/en/contact", description: "We discuss symptoms, goals, medical history, medication and existing findings." },
+          { title: "2. Plan diagnostics", href: "/en/services/micronutrient-analysis", description: "Lab testing, check-ups or further diagnostics are selected deliberately, not generically." },
+          { title: "3. Derive recommendations", href: "/en/prevention", description: "You receive medical interpretation with concrete next steps and follow-up recommendations." },
         ],
       },
     ],
     faq: [
+      { question: "What does Health / Longevity mean at Praxis Jona?", answer: "It means physician-led prevention, diagnostics and treatment planning for long-term health goals, not generic wellness services." },
       { question: "Is Health / Longevity only for privately insured patients?", answer: "Many extended services are self-pay services. We discuss cost and medical suitability transparently in advance." },
       { question: "When is an infusion useful?", answer: "Infusions may be considered after medical assessment and suitable indication, for example relevant deficiency or intolerance of oral therapy." },
       { question: "What does the iron infusion cost?", answer: "The iron infusion has a fixed price of €150.95." },
+      { question: "When is micronutrient analysis useful?", answer: "It may be useful when symptoms, diet, hair loss, fatigue or follow-up suggest possible deficiencies." },
+      { question: "What is the difference between a check-up and a prevention package?", answer: "A check-up is a diagnostic snapshot. Prevention packages go further and combine diagnostics, interpretation and longer-term guidance." },
+      { question: "Can I book a weight-loss injection directly?", answer: "Before medication-based weight management, we assess whether treatment is suitable and what support is useful." },
+      { question: "How do I book an appointment?", answer: "You can book online via Doctolib or contact the practice by phone." },
     ],
   },
 };
