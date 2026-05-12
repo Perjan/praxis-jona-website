@@ -22,8 +22,14 @@ export default function ServicesSection({ language = 'de' }) {
         6: '/en/services/nutritional-medicine',
         7: '/en/services/ultrasound-examination',
         8: '/en/services/private-insurance-check-up',
+        9: '/en/services/travel-vaccinations',
+        10: '/en/services/micronutrient-analysis',
         11: '/en/services/infusion-therapy',
         13: '/en/services/weight-loss-injection',
+        14: '/en/aesthetics/prp-treatment',
+        15: '/en/aesthetics/microneedling',
+        16: '/en/aesthetics/polynucleotides',
+        17: '/en/services/hair-loss-berlin-mitte',
       }
     : {
         2: '/leistungen/gesetzliche-check-up',
@@ -35,6 +41,10 @@ export default function ServicesSection({ language = 'de' }) {
         10: '/leistungen/mikronahrstoffanalyse',
         11: '/leistungen/infusionstherapie',
         13: '/leistungen/abnehmspritze',
+        14: '/aesthetik/prp-behandlung',
+        15: '/aesthetik/microneedling',
+        16: '/aesthetik/polynukleotide',
+        17: '/leistungen/haarausfall-berlin-mitte',
       };
 
   // Section titles based on language

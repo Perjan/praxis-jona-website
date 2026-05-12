@@ -1,10 +1,18 @@
-export default function HealthLongevityEnPage() {
-    return (
-        <div className="bg-white mt-2 sm:mt-10 min-h-[50vh] flex flex-col items-center justify-center">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 text-center">
-                <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">Health / Longevity</h1>
-                <p className="mt-6 text-lg leading-8 text-primaryLighter">This page is under construction.</p>
-            </div>
-        </div>
-    )
+import { Metadata } from "next";
+import { CategoryHub } from "app/components/BetaPages";
+import { categoryContent } from "app/components/betaContent";
+import { buildMetadata } from "app/components/pageMetadata";
+
+const content = categoryContent.longevityEn;
+
+export const metadata: Metadata = buildMetadata({
+  title: content.title,
+  description: content.description,
+  canonical: "/en/health-longevity",
+  alternate: "/health-longevity",
+  locale: content.locale,
+});
+
+export default function Page() {
+  return <CategoryHub content={content} canonical="/en/health-longevity" alternate="/health-longevity" />;
 }

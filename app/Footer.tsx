@@ -12,12 +12,12 @@ const navigationGerman = {
   imprint: "Impressum und Datenschutz",
   imprintUrl: "/impressum-datenschutz",
   company: [
-    { name: 'Aktuelles', href: '/aktuelles' },
-    { name: 'Schwerpunkte', href: '/schwerpunkte' },
+    { name: 'Hausärztliche Leistungen', href: '/hausaerztliche-leistungen' },
+    { name: 'Ästhetik', href: '/aesthetik' },
+    { name: 'Health / Longevity', href: '/health-longevity' },
     { name: 'Leistungen', href: '/leistungen' },
-    { name: 'Prävention', href: '/praevention' },
     { name: 'Team', href: '/team' },
-    { name: 'Apps', href: '/apps' },
+    { name: 'Aktuelles', href: '/aktuelles' },
     { name: 'Blog', href: '/blog' },
     { name: 'Karriere', href: '/jobs' },
   ],
@@ -28,12 +28,12 @@ const navigationEnglish = {
   imprint: "Imprint and Privacy",
   imprintUrl: "/imprint-privacy",
   company: [
-    { name: 'Latest News', href: '/en/latest-news' },
-    { name: 'Specialty Areas', href: '/en/focus-areas' },
+    { name: 'General Medicine', href: '/en/general-medicine' },
+    { name: 'Aesthetics', href: '/en/aesthetics' },
+    { name: 'Health / Longevity', href: '/en/health-longevity' },
     { name: 'Services', href: '/en/services' },
-    { name: 'Prevention', href: '/en/prevention' },
     { name: 'Team', href: '/en/team' },
-    { name: 'Apps', href: '/en/apps' },
+    { name: 'Latest News', href: '/en/latest-news' },
     { name: 'Blog', href: '/blog' },
     { name: 'Jobs', href: '/en/jobs' },
   ],
@@ -190,14 +190,7 @@ export default function Page() {
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary underline">
-                    <span className="inline-flex items-center gap-2">
-                      <span>{item.name}</span>
-                      {(item.href === '/jobs' || item.href === '/en/jobs') && (
-                        <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-primary px-1.5 text-xs font-semibold text-white no-underline">
-                          1
-                        </span>
-                      )}
-                    </span>
+                    {item.name}
                   </a>
                 </li>
               ))}

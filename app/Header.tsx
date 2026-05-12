@@ -68,6 +68,7 @@ export default function Header() {
     const scrollPosition = useScrollPosition()
 
     const locale = localeFromPathname(pathname)
+    const isHomepage = pathname === "/" || pathname === "/en"
 
     var navigationItems = []
 
@@ -92,7 +93,8 @@ export default function Header() {
         <header
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                'sticky top-0 z-20 transition-shadow backdrop-blur-md bg-white/30',
+                isHomepage ? 'bg-white/30' : 'border-b border-primary/10 bg-white/95',
+                'sticky top-0 z-20 transition-shadow backdrop-blur-md',
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">

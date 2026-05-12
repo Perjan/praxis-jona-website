@@ -43,7 +43,7 @@ export default function Page() {
                     <div className="lg:flex lg:items-start lg:justify-end lg:order-first">
                         <Image
                             src="/images/team/jonaClinic.jpeg"
-                            alt="Product screenshot"
+                            alt="Dr. med. Jonida Gjolli at Praxis Jona"
                             className="w-full max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 lg:w-[48rem] lg:max-w-none lg:ring-0"
                             width={2432}
                             height={1442}

@@ -1,103 +1,57 @@
 import { Metadata } from "next";
-import SectionWithColor from "app/SectionWithColor";
-import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
-import Link from "next/link";
+import { LandingPage } from "app/components/BetaPages";
+import { buildMetadata } from "app/components/pageMetadata";
+import type { LandingContent } from "app/components/betaContent";
 
-const title = 'Botulinumtoxin Behandlung'
-const description = "Botulinumtoxin (Botox) zur medizinischen und ästhetischen Behandlung in der Praxis Jona mit individueller ärztlicher Beratung und sicherer Anwendung."
-const url = '/botox-behandlung'
+const content: LandingContent = {
+  locale: "de",
+  title: "Botox in Berlin-Mitte",
+  eyebrow: "Botulinumtoxin Behandlung",
+  description: "Botox beziehungsweise Botulinumtoxin in Berlin-Mitte mit individueller ärztlicher Beratung, transparenter Preisübersicht und Behandlung in der Praxis Jona.",
+  canonical: "/botox-behandlung",
+  alternate: "/en/botox-treatment",
+  cta: "Botox-Beratung buchen",
+  secondaryCta: "Preise ansehen",
+  secondaryHref: "/botox-preise",
+  intro: "In der Praxis Jona erfolgt jede Behandlung mit Botulinumtoxin auf Grundlage einer persönlichen ärztlichen Beratung. Im Mittelpunkt stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein Behandlungsplan, der zu Ihrer Mimik und persönlichen Situation passt.",
+  facts: [
+    { label: "Fokus", value: "Mimische Falten, Mimik, ärztliche Beratung" },
+    { label: "Bereiche", value: "Zornesfalte, Stirn, Krähenfüße, Browlift" },
+    { label: "Preise", value: "Behandlungen ab 159 €" },
+  ],
+  sections: [
+    { title: "Wofür Botulinumtoxin eingesetzt wird", body: ["Botulinumtoxin kann eingesetzt werden, um bestimmte Muskelaktivitäten gezielt zu reduzieren. In der ästhetischen Medizin wird es vor allem bei mimischen Falten genutzt."], bullets: ["Zornesfalte", "Stirnfalten", "Krähenfüße", "Bunny Lines", "Browlift", "Erdbeerkinn"] },
+    { title: "Natürlich wirkende Planung", body: ["Viele Patientinnen und Patienten wünschen sich ein frischeres und entspannteres Erscheinungsbild, ohne dass die Mimik unnatürlich wirkt. Deshalb planen wir Dosierung und Areale individuell."] },
+    { title: "Ablauf und Grenzen", body: ["Vor jeder Behandlung besprechen wir Wünsche, geeignete Bereiche, Kosten, mögliche Grenzen und Risiken. Die Wirkung zeigt sich meist nach einigen Tagen und ist individuell unterschiedlich."] },
+  ],
+  related: [
+    { title: "Botox Preise", href: "/botox-preise", description: "Transparente Preisübersicht für einzelne Zonen und Kombinationen." },
+    { title: "Ästhetik", href: "/aesthetik", description: "Alle ästhetischen Behandlungen der Praxis Jona." },
+    { title: "Hautbild & Regeneration", href: "/aesthetik/hautbild-verbessern", description: "Regenerative Verfahren wie PRP, Microneedling und Polynukleotide." },
+  ],
+  faq: [
+    { question: "Ist Botox für mich geeignet?", answer: "Ob eine Behandlung geeignet ist, hängt von Ziel, Befund und gesundheitlicher Situation ab. Das klären wir im persönlichen Gespräch." },
+    { question: "Wirkt das Ergebnis natürlich?", answer: "Unser Ansatz ist zurückhaltend und individuell. Ziel ist ein Ergebnis, das zu Ihrem Gesicht passt." },
+    { question: "Was kostet Botox?", answer: "Die Kosten richten sich nach Zone und Aufwand. Eine erste Orientierung finden Sie in der Preisübersicht auf dieser Seite und auf der Preisseite." },
+  ],
+};
 
-export const metadata: Metadata = {
-    title: title,
-    description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: url,
-        images: [
-            {
-                url: '/images/og-image.png',
-                width: 1200,
-                height: 600,
-                alt: 'Praxis Jona'
-            }
-        ],
-    },
-    alternates: {
-        canonical: url,
-        languages: {
-            de: url,
-            en: "/en/botox-treatment",
-            "x-default": url
-        }
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/og-image.png']
-    }
-}
+export const metadata: Metadata = buildMetadata({
+  title: content.title,
+  description: content.description,
+  canonical: content.canonical,
+  alternate: content.alternate,
+  locale: content.locale,
+});
 
 export default function Page() {
-    return (
-        <>
-            <div className="overflow-hidden bg-white relative isolate">
-                <SectionWithColor backgroundClassName='bg-white'>
-                    <div className="mx-auto max-w-4xl lg:mx-0">
-                        <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
-                    </div>
-                </SectionWithColor>
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto">
-                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl'>
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Medizinische Anwendungen</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Hyperhidrose (übermäßiges Schwitzen)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinumtoxin wird in die Haut von Bereichen wie Achseln, Händen und Füßen injiziert, um die Schweißproduktion signifikant zu reduzieren. Dies stellt eine wirksame Behandlung für Patienten dar, die unter schwerer Hyperhidrose leiden, welche auf herkömmliche Antitranspirante nicht anspricht.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Migränebehandlung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Bei Patienten mit chronischer Migräne kann Botulinumtoxin helfen, die Anzahl und Schwere der Kopfschmerzattacken zu reduzieren. Es wird in spezifische Muskeln rund um den Kopf und Nacken injiziert, was die Muskelspannung reduziert, die häufig zu Migräneanfällen beiträgt.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Bruxismus (Zähneknirschen)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Bei Patienten, die unwillkürlich mit den Zähnen knirschen, kann Botulinumtoxin in die Kaumuskulatur injiziert werden, um diese zu entspannen und so das Zähneknirschen und die damit verbundenen Beschwerden zu reduzieren.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Ästhetische Anwendungen</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Faltenbehandlung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">In der ästhetischen Medizin wird Botox am häufigsten zur Glättung mimischer Falten wie Zornesfalten, Stirnfalten und Krähenfüße eingesetzt. Durch die Reduktion der Muskelaktivität in diesen Bereichen wirkt die Haut glatter und jugendlicher.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Gesichtsstraffung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinumtoxin kann auch in anderen Gesichtszonen injiziert werden, um gezielt bestimmte Muskeln zu entspannen und so ein jüngeres Aussehen zu erreichen.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Nach der Behandlung</h2>
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-2 leading-8 text-primaryLighter">Nach der Injektion von Botulinumtoxin sollten Patienten auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche für etwa 3-4 Tage verzichten.</li>
-                            <li className="mt-2 leading-8 text-primaryLighter">Die Injektionsstellen sollten nicht massiert oder Druck ausgesetzt werden, um eine unerwünschte Verteilung des Toxins zu verhindern.</li>
-                        </ul>
-                    </SectionWithColor>
-                </div>
-
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
-                    <BotoxPriceTable isEnglish={false} />
-                    <div className="mt-6 mb-2 text-center">
-                        <Link href="/botox-preise" className="text-primary underline">
-                            Zu den aktuellen Botox-Preisen
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <LandingPage content={content} />
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <BotoxPriceTable isEnglish={false} />
+      </div>
+    </>
+  );
 }
