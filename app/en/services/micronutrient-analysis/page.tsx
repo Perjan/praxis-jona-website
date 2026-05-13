@@ -17,9 +17,12 @@ const content: LandingContent = {
   facts: [
     { label: "Focus", value: "Labor values, symptoms, treatment plan" },
     { label: "Process", value: "Consultation, diagnostics, interpretation" },
+    { label: "Useful for", value: "fatigue, hair loss, diet questions" },
+    { label: "After results", value: "targeted recommendations" },
     { label: "Important", value: "Testing is selected individually" },
   ],
   sections: [
+    { title: "What is micronutrient analysis?", body: ["Micronutrient analysis uses selected lab values to assess whether deficiencies may be relevant for symptoms, diet or prevention goals. The goal is not to test everything, but to choose useful diagnostics."] },
     { title: "When testing may be useful", body: ["Micronutrient diagnostics may be considered for fatigue, hair loss, dietary restrictions or preventive health goals."], bullets: ["fatigue", "hair loss", "vegan or vegetarian diet", "deficiency follow-up"] },
     { title: "What happens after results", body: ["We discuss the findings and, when appropriate, recommend targeted supplementation, nutrition measures or infusions for documented deficiencies."] },
     { title: "Medical positioning", body: ["Micronutrient therapy should not be generic. The goal is a targeted recommendation based on symptoms, history and laboratory values."] },
@@ -32,6 +35,9 @@ const content: LandingContent = {
     { question: "Are all micronutrients tested automatically?", answer: "No. We discuss which values are medically useful for your situation." },
     { question: "Can deficiencies be treated with infusions?", answer: "In selected cases and with appropriate indication, infusions may be considered." },
     { question: "Is this a self-pay service?", answer: "Many extended micronutrient tests are self-pay services. Costs are discussed before testing." },
+    { question: "Can micronutrient analysis help with hair loss?", answer: "It can be useful when deficiency is suspected or hair loss is diffuse. The decision depends on history, symptoms and findings." },
+    { question: "Do I need to bring previous lab values?", answer: "If you have recent lab values, please bring them. They can help avoid unnecessary duplicate testing." },
+    { question: "Do abnormal values always require treatment?", answer: "No. Lab values are interpreted in context with symptoms, history, nutrition and possible medication." },
   ],
 };
 

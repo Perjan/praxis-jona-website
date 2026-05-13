@@ -394,13 +394,18 @@ export const landingPages: Record<string, LandingContent> = {
     secondaryHref: "/aesthetik/hautbild-verbessern",
     intro: "PRP ist ein Eigenblutverfahren, bei dem plättchenreiches Plasma aus einer kleinen Blutprobe gewonnen und in ausgewählte Hautareale eingebracht wird. Ob PRP sinnvoll ist, klären wir individuell.",
     facts: [
-      { label: "Fokus", value: "Hautqualität, Regeneration, Frische" },
+      { label: "Behandlungsart", value: "Eigenblutverfahren mit PRP" },
       { label: "Ablauf", value: "Beratung, Blutentnahme, Aufbereitung, Behandlung" },
+      { label: "Ausfallzeit", value: "meist gering, abhängig von Hautreaktion" },
+      { label: "Serie", value: "individuell nach Hautbefund" },
+      { label: "Kombination", value: "ggf. mit Microneedling nach Einschätzung" },
       { label: "Wichtig", value: "Ergebnisse können individuell variieren" },
     ],
     sections: [
+      { title: "Was ist PRP?", body: ["PRP steht für plättchenreiches Plasma. Es wird aus einer kleinen Blutprobe gewonnen und anschließend in ausgewählte Hautareale eingebracht.", "Das Verfahren wird eingesetzt, um regenerative Prozesse und Hautqualität nach ärztlicher Einschätzung zu unterstützen."] },
       { title: "Für wen PRP infrage kommen kann", body: ["PRP kann für Patientinnen und Patienten interessant sein, die ihre Hautqualität ärztlich begleitet unterstützen möchten."], bullets: ["müde wirkendes Hautbild", "feine Linien", "Regenerationswunsch", "Kombination mit Microneedling nach Einschätzung"] },
       { title: "So läuft die Behandlung ab", body: ["Nach der ärztlichen Einschätzung wird Blut entnommen, aufbereitet und das plättchenreiche Plasma gezielt in die Haut eingebracht. Vorab besprechen wir Grenzen, Risiken und realistische Erwartungen."] },
+      { title: "Wann Ergebnisse sichtbar werden können", body: ["PRP ist nicht auf einen Soforteffekt ausgelegt. Veränderungen werden individuell wahrgenommen und hängen unter anderem von Hautbild, Behandlungsziel und Verlauf ab."] },
       { title: "Medizinische Einordnung", body: ["PRP ist kein Sofort-Lifting und kein garantiertes Anti-Aging-Verfahren. Es kann je nach Befund Teil eines individuellen Behandlungskonzepts sein."] },
     ],
     related: [
@@ -411,6 +416,8 @@ export const landingPages: Record<string, LandingContent> = {
       { question: "Ist PRP für jeden geeignet?", answer: "Nein. Ob PRP geeignet ist, hängt von Befund, Zielsetzung und medizinischer Situation ab." },
       { question: "Kann PRP mit Microneedling kombiniert werden?", answer: "Eine Kombination kann je nach Hautbild sinnvoll sein und wird individuell besprochen." },
       { question: "Wann sieht man Ergebnisse?", answer: "Die Wahrnehmung ist individuell. PRP ist auf Regeneration ausgelegt und nicht auf einen sofortigen Volumeneffekt." },
+      { question: "Wie viele PRP-Behandlungen sind sinnvoll?", answer: "Das hängt von Ausgangsbefund, Ziel und Verlauf ab. Eine Serie kann sinnvoll sein, wird aber individuell geplant." },
+      { question: "Welche Nebenwirkungen sind möglich?", answer: "Möglich sind vorübergehende Rötungen, Schwellungen, kleine Blutergüsse oder ein Spannungsgefühl. Individuelle Risiken werden vorab besprochen." },
     ],
   },
   prpAestheticEn: {
@@ -425,13 +432,18 @@ export const landingPages: Record<string, LandingContent> = {
     secondaryHref: "/en/aesthetics/improve-skin-quality",
     intro: "PRP is an autologous procedure in which platelet-rich plasma is prepared from a small blood sample and applied to selected skin areas. We assess individually whether PRP is suitable.",
     facts: [
-      { label: "Focus", value: "Skin quality, regeneration, freshness" },
+      { label: "Treatment type", value: "Autologous PRP procedure" },
       { label: "Process", value: "Consultation, blood draw, preparation, treatment" },
+      { label: "Downtime", value: "usually low, depending on skin reaction" },
+      { label: "Series", value: "individual, based on skin findings" },
+      { label: "Combination", value: "possibly with microneedling after assessment" },
       { label: "Important", value: "Results can vary individually" },
     ],
     sections: [
+      { title: "What is PRP?", body: ["PRP means platelet-rich plasma. It is prepared from a small blood sample and applied to selected skin areas.", "The procedure is used to support regenerative processes and skin quality after medical assessment."] },
       { title: "Who PRP may be suitable for", body: ["PRP may be of interest for patients who want physician-led support for skin quality."], bullets: ["tired-looking skin", "fine lines", "regeneration goals", "combination with microneedling after assessment"] },
       { title: "How treatment works", body: ["After medical assessment, blood is drawn, prepared and the platelet-rich plasma is applied to the skin. We discuss limits, risks and realistic expectations beforehand."] },
+      { title: "When results may be visible", body: ["PRP is not designed as an immediate effect treatment. Perceived changes vary and depend on skin findings, treatment goals and course."] },
       { title: "Medical positioning", body: ["PRP is not an instant lifting procedure and does not guarantee anti-aging results. Depending on findings, it may be part of an individual treatment concept."] },
     ],
     related: [
@@ -442,6 +454,8 @@ export const landingPages: Record<string, LandingContent> = {
       { question: "Is PRP suitable for everyone?", answer: "No. Suitability depends on findings, goals and medical situation." },
       { question: "Can PRP be combined with microneedling?", answer: "A combination may be useful depending on skin findings and is discussed individually." },
       { question: "When are results visible?", answer: "Perception varies individually. PRP is aimed at regeneration, not an immediate volume effect." },
+      { question: "How many PRP treatments are useful?", answer: "This depends on baseline findings, goals and course. A series can be useful but is planned individually." },
+      { question: "What side effects are possible?", answer: "Temporary redness, swelling, small bruises or tightness can occur. Individual risks are discussed beforehand." },
     ],
   },
 };
@@ -449,20 +463,34 @@ export const landingPages: Record<string, LandingContent> = {
 function treatmentPage(input: Omit<LandingContent, "facts" | "sections" | "related" | "faq"> & {
   focus: string;
   process: string;
+  duration?: string;
+  downtime?: string;
+  sessions?: string;
+  cost?: string;
   suitable: string[];
   limits: string;
   related: ServiceLink[];
   faq: { question: string; answer: string }[];
 }): LandingContent {
   const isEn = input.locale === "en";
+  const facts = [
+    { label: isEn ? "Focus" : "Fokus", value: input.focus },
+    { label: isEn ? "Process" : "Ablauf", value: input.process },
+    input.duration ? { label: isEn ? "Duration" : "Dauer", value: input.duration } : null,
+    input.downtime ? { label: isEn ? "Downtime" : "Ausfallzeit", value: input.downtime } : null,
+    input.sessions ? { label: isEn ? "Sessions" : "Sitzungen", value: input.sessions } : null,
+    input.cost ? { label: isEn ? "Cost" : "Kosten", value: input.cost } : null,
+    { label: isEn ? "Important" : "Wichtig", value: input.limits },
+  ].filter(Boolean) as { label: string; value: string }[];
+
   return {
     ...input,
-    facts: [
-      { label: isEn ? "Focus" : "Fokus", value: input.focus },
-      { label: isEn ? "Process" : "Ablauf", value: input.process },
-      { label: isEn ? "Important" : "Wichtig", value: input.limits },
-    ],
+    facts,
     sections: [
+      {
+        title: isEn ? `What is ${input.title.split(" in ")[0]}?` : `Was ist ${input.title.split(" in ")[0]}?`,
+        body: [input.description, input.intro],
+      },
       {
         title: isEn ? "When this may be suitable" : "Wann die Behandlung infrage kommen kann",
         body: [input.suitable.length ? (isEn ? "The treatment may be considered for selected concerns after medical assessment." : "Die Behandlung kann nach ärztlicher Einschätzung bei ausgewählten Anliegen infrage kommen.") : input.description],
@@ -496,6 +524,9 @@ Object.assign(landingPages, {
     intro: "Microneedling setzt kontrollierte Mikroimpulse in der Haut. Ziel ist die Unterstützung natürlicher Regenerationsprozesse und eine Verbesserung der Hautstruktur nach individueller Einschätzung.",
     focus: "Hautstruktur, Poren, feine Linien",
     process: "Beratung, Hautanalyse, Behandlung, Pflegehinweise",
+    duration: "je nach Areal und Hautbild",
+    downtime: "Rötung meist vorübergehend",
+    sessions: "häufig mehrere Sitzungen",
     limits: "Ergebnisse und Anzahl der Sitzungen hängen vom Hautbild und Behandlungsziel ab.",
     suitable: ["großporige Haut", "unruhige Hautstruktur", "feine Linien", "ausgewählte Aknenarben"],
     related: [
@@ -506,6 +537,8 @@ Object.assign(landingPages, {
       { question: "Ist Microneedling für jede Haut geeignet?", answer: "Nein. Die Eignung hängt unter anderem von Hautzustand, Entzündungen, Medikamenten und Zielsetzung ab." },
       { question: "Wie viele Sitzungen sind sinnvoll?", answer: "Das wird individuell geplant. Häufig sind mehrere Sitzungen sinnvoll, abhängig vom Ausgangsbefund." },
       { question: "Kann Microneedling mit PRP kombiniert werden?", answer: "Eine Kombination kann je nach Befund besprochen werden." },
+      { question: "Wann ist man nach Microneedling wieder gesellschaftsfähig?", answer: "Rötungen und Empfindlichkeit können vorübergehend auftreten. Die konkrete Nachpflege und Ausfallzeit besprechen wir beim Termin." },
+      { question: "Hilft Microneedling bei Aknenarben?", answer: "Bei ausgewählten Narbenbildern kann Microneedling infrage kommen. Ob es passt, hängt vom Befund ab." },
     ],
   }),
   microneedlingEn: treatmentPage({
@@ -521,6 +554,9 @@ Object.assign(landingPages, {
     intro: "Microneedling creates controlled micro-stimulation in the skin. The goal is to support natural regeneration and improve skin texture after individual assessment.",
     focus: "Texture, pores, fine lines",
     process: "Consultation, skin assessment, treatment, aftercare guidance",
+    duration: "depends on area and skin findings",
+    downtime: "redness is usually temporary",
+    sessions: "often several sessions",
     limits: "Results and number of sessions depend on skin findings and treatment goals.",
     suitable: ["enlarged pore appearance", "uneven texture", "fine lines", "selected acne scar patterns"],
     related: [
@@ -531,6 +567,8 @@ Object.assign(landingPages, {
       { question: "Is microneedling suitable for every skin type?", answer: "No. Suitability depends on skin condition, inflammation, medication and goals." },
       { question: "How many sessions are useful?", answer: "This is planned individually. Several sessions are often useful depending on baseline findings." },
       { question: "Can microneedling be combined with PRP?", answer: "A combination can be discussed depending on findings." },
+      { question: "When can I return to normal activities?", answer: "Redness and sensitivity can occur temporarily. Specific aftercare and downtime are discussed at the appointment." },
+      { question: "Can microneedling help acne scars?", answer: "Microneedling may be considered for selected scar patterns. Suitability depends on findings." },
     ],
   }),
   polynucleotidesDe: treatmentPage({
@@ -546,6 +584,9 @@ Object.assign(landingPages, {
     intro: "Polynukleotide werden als regenerative Behandlung zur Unterstützung der Hautqualität eingesetzt. Ob sie zu Ihrem Befund passen, klären wir im persönlichen Gespräch.",
     focus: "Hautqualität, Spannkraft, Augenpartie",
     process: "Beratung, Befund, Behandlungsplan",
+    duration: "wenige Minuten bis kurz, je nach Areal",
+    downtime: "mögliche Rötung oder Schwellung",
+    sessions: "individuell, oft als Konzept geplant",
     limits: "Keine Behandlung ersetzt eine ärztliche Einschätzung; Ergebnisse können variieren.",
     suitable: ["feine Linien", "trockene oder beanspruchte Haut", "Augenpartie nach Befund", "regenerationsbedürftige Haut"],
     related: [
@@ -556,6 +597,8 @@ Object.assign(landingPages, {
       { question: "Was sind Polynukleotide?", answer: "Polynukleotide werden in der ästhetischen Medizin zur Unterstützung regenerativer Prozesse der Haut eingesetzt." },
       { question: "Für welche Areale sind sie interessant?", answer: "Je nach Befund können Gesicht, Hals oder sensible Areale wie die Augenpartie besprochen werden." },
       { question: "Ist das ein Ersatz für Botox?", answer: "Nein. Polynukleotide und Botulinumtoxin haben unterschiedliche Zielsetzungen." },
+      { question: "Wann sieht man Ergebnisse?", answer: "Das ist individuell unterschiedlich. Polynukleotide sind auf Hautqualität und Regeneration ausgelegt, nicht auf einen sofortigen Volumeneffekt." },
+      { question: "Welche Nebenwirkungen sind möglich?", answer: "Vorübergehende Rötungen, Schwellungen oder kleine Blutergüsse können auftreten. Individuelle Risiken werden ärztlich besprochen." },
     ],
   }),
   polynucleotidesEn: treatmentPage({
@@ -571,6 +614,9 @@ Object.assign(landingPages, {
     intro: "Polynucleotides are used as a regenerative treatment to support skin quality. We clarify whether they fit your findings in a personal consultation.",
     focus: "Skin quality, firmness, eye area",
     process: "Consultation, findings, treatment plan",
+    duration: "short, depending on area",
+    downtime: "possible redness or swelling",
+    sessions: "individual, often planned as a concept",
     limits: "No treatment replaces medical assessment; results can vary.",
     suitable: ["fine lines", "dry or stressed skin", "eye area depending on findings", "skin needing regenerative support"],
     related: [
@@ -581,6 +627,8 @@ Object.assign(landingPages, {
       { question: "What are polynucleotides?", answer: "Polynucleotides are used in aesthetic medicine to support regenerative processes in the skin." },
       { question: "Which areas can be discussed?", answer: "Depending on findings, the face, neck or delicate areas such as the eye area can be discussed." },
       { question: "Is this a replacement for Botox?", answer: "No. Polynucleotides and botulinum toxin have different treatment goals." },
+      { question: "When are results visible?", answer: "This varies individually. Polynucleotides focus on skin quality and regeneration, not an immediate volume effect." },
+      { question: "What side effects are possible?", answer: "Temporary redness, swelling or small bruises can occur. Individual risks are discussed medically." },
     ],
   }),
   skinQualityDe: treatmentPage({
@@ -596,6 +644,7 @@ Object.assign(landingPages, {
     intro: "Für Hautqualität, Struktur und Regeneration gibt es unterschiedliche Verfahren. In der Praxis Jona wählen wir nicht pauschal, sondern nach Hautbild, Ziel und medizinischer Einschätzung.",
     focus: "Feuchtigkeit, Struktur, Regeneration",
     process: "Beratung, Hautbefund, individuelles Konzept",
+    sessions: "abhängig von Verfahren und Ziel",
     limits: "Die passende Behandlung hängt vom Befund ab; Kombinationen werden individuell entschieden.",
     suitable: ["müdes Hautbild", "feine Linien", "großporige Haut", "Wunsch nach natürlicher Regeneration"],
     related: [
@@ -607,6 +656,8 @@ Object.assign(landingPages, {
       { question: "Welche Behandlung verbessert das Hautbild am besten?", answer: "Das hängt vom Hautbefund ab. PRP, Microneedling und Polynukleotide haben unterschiedliche Schwerpunkte." },
       { question: "Kann man Verfahren kombinieren?", answer: "Ja, wenn es medizinisch und ästhetisch sinnvoll ist. Das wird individuell geplant." },
       { question: "Ist eine Beratung notwendig?", answer: "Ja. Die Beratung hilft, Ziele, Grenzen und geeignete Verfahren sauber einzuordnen." },
+      { question: "Was ist der Unterschied zu Botox?", answer: "Botulinumtoxin zielt auf mimische Muskelaktivität. PRP, Microneedling und Polynukleotide zielen stärker auf Hautqualität, Struktur und Regeneration." },
+      { question: "Welche Behandlung passt bei großen Poren?", answer: "Bei Porenbild und Hautstruktur wird häufig Microneedling besprochen. Die Entscheidung hängt vom Hautbefund ab." },
     ],
   }),
   skinQualityEn: treatmentPage({
@@ -622,6 +673,7 @@ Object.assign(landingPages, {
     intro: "Different procedures can support skin quality, texture and regeneration. At Praxis Jona we choose based on skin findings, goals and medical assessment.",
     focus: "Hydration, texture, regeneration",
     process: "Consultation, skin findings, individual concept",
+    sessions: "depends on procedure and goal",
     limits: "The suitable treatment depends on findings; combinations are decided individually.",
     suitable: ["tired-looking skin", "fine lines", "enlarged pore appearance", "desire for natural regenerative support"],
     related: [
@@ -633,6 +685,8 @@ Object.assign(landingPages, {
       { question: "Which treatment improves skin quality best?", answer: "It depends on skin findings. PRP, microneedling and polynucleotides have different focuses." },
       { question: "Can procedures be combined?", answer: "Yes, if medically and aesthetically appropriate. This is planned individually." },
       { question: "Is consultation necessary?", answer: "Yes. Consultation helps clarify goals, limits and suitable procedures." },
+      { question: "How is this different from Botox?", answer: "Botulinum toxin targets facial muscle activity. PRP, microneedling and polynucleotides focus more on skin quality, texture and regeneration." },
+      { question: "Which treatment fits enlarged pores?", answer: "Microneedling is often discussed for pore appearance and texture. The decision depends on skin findings." },
     ],
   }),
   hairLossDe: treatmentPage({
@@ -648,6 +702,8 @@ Object.assign(landingPages, {
     intro: "Haarausfall kann viele Ursachen haben. Deshalb steht am Anfang eine ärztliche Einschätzung. Je nach Befund können PRP, Mikronährstoffdiagnostik und gezielte Therapieempfehlungen sinnvoll sein.",
     focus: "Diagnostik, PRP, Mikronährstoffe",
     process: "Anamnese, Befund, Laborplanung, Therapiekonzept",
+    duration: "Beratung nach Anliegen und Befund",
+    sessions: "Therapieplan abhängig von Ursache",
     limits: "PRP kann je nach Ursache Teil eines Konzepts sein, ersetzt aber keine Abklärung.",
     suitable: ["diffuser Haarausfall", "androgenetische Alopezie nach Einschätzung", "Verdacht auf Mikronährstoffmangel", "Haarausfall mit Müdigkeit oder Zyklusveränderungen"],
     related: [
@@ -659,6 +715,9 @@ Object.assign(landingPages, {
       { question: "Sollte Haarausfall zuerst abgeklärt werden?", answer: "Ja. Ursache und Verlauf sind wichtig, bevor eine Behandlung geplant wird." },
       { question: "Hilft PRP immer gegen Haarausfall?", answer: "Nein. Die Wirkung hängt unter anderem von Ursache und individuellem Befund ab." },
       { question: "Welche Laborwerte sind relevant?", answer: "Das wird individuell entschieden. Häufig können Eisenstatus, Schilddrüsenwerte und ausgewählte Mikronährstoffe relevant sein." },
+      { question: "Was ist der Unterschied zwischen diffusem und anlagebedingtem Haarausfall?", answer: "Diffuser Haarausfall betrifft häufig die gesamte Kopfhaut und kann verschiedene Auslöser haben. Anlagebedingter Haarausfall folgt eher typischen Mustern. Die Einordnung erfolgt ärztlich." },
+      { question: "Kann Eisenmangel Haarausfall verstärken?", answer: "Ein relevanter Eisenmangel kann bei manchen Patientinnen und Patienten eine Rolle spielen. Ob das zutrifft, wird anhand von Beschwerden und Laborwerten eingeordnet." },
+      { question: "Wird direkt PRP empfohlen?", answer: "Nicht automatisch. Am Anfang steht die Abklärung; PRP ist nur eine mögliche Option je nach Befund." },
     ],
   }),
   hairLossEn: treatmentPage({
@@ -674,6 +733,8 @@ Object.assign(landingPages, {
     intro: "Hair loss can have many causes. Medical assessment comes first. Depending on findings, PRP, micronutrient diagnostics and targeted therapy recommendations may be useful.",
     focus: "Diagnostics, PRP, micronutrients",
     process: "History, findings, lab planning, treatment concept",
+    duration: "consultation depends on concern and findings",
+    sessions: "treatment plan depends on cause",
     limits: "PRP may be part of a concept depending on cause, but does not replace assessment.",
     suitable: ["diffuse hair loss", "androgenetic alopecia after assessment", "suspected micronutrient deficiency", "hair loss with fatigue or cycle changes"],
     related: [
@@ -685,6 +746,9 @@ Object.assign(landingPages, {
       { question: "Should hair loss be assessed first?", answer: "Yes. Cause and pattern matter before treatment is planned." },
       { question: "Does PRP always help hair loss?", answer: "No. Effect depends on cause and individual findings." },
       { question: "Which lab values are relevant?", answer: "This is decided individually. Iron status, thyroid values and selected micronutrients may be relevant." },
+      { question: "What is the difference between diffuse and pattern hair loss?", answer: "Diffuse hair loss often affects the whole scalp and can have different triggers. Pattern hair loss usually follows typical patterns. Medical assessment clarifies this." },
+      { question: "Can iron deficiency worsen hair loss?", answer: "Relevant iron deficiency can contribute in some patients. This is assessed through symptoms and lab values." },
+      { question: "Is PRP recommended immediately?", answer: "Not automatically. Assessment comes first; PRP is one possible option depending on findings." },
     ],
   }),
   prpHairDe: treatmentPage({
@@ -700,6 +764,8 @@ Object.assign(landingPages, {
     intro: "PRP bei Haarausfall ist ein Eigenblutverfahren, bei dem plättchenreiches Plasma in die Kopfhaut eingebracht wird. Ob das Verfahren passt, hängt von Ursache und Befund ab.",
     focus: "Kopfhaut, Haarwurzelumfeld, Befund",
     process: "Abklärung, Blutentnahme, PRP-Aufbereitung, Kopfhautbehandlung",
+    duration: "Behandlung nach Areal und Plan",
+    sessions: "meist als Serie zu besprechen",
     limits: "Die Studienlage ist positiv, aber heterogen; ein Erfolg kann nicht garantiert werden.",
     suitable: ["frühe androgenetische Alopezie nach Einschätzung", "Verlaufskontrolle möglich", "Kombination mit Diagnostik", "realistische Erwartungen"],
     related: [
@@ -710,6 +776,9 @@ Object.assign(landingPages, {
       { question: "Wie funktioniert PRP bei Haarausfall?", answer: "Aus einer Blutprobe wird plättchenreiches Plasma gewonnen und in die Kopfhaut eingebracht." },
       { question: "Ist PRP garantiert wirksam?", answer: "Nein. Die Ergebnisse variieren und hängen vom Befund ab." },
       { question: "Brauche ich vorher Laborwerte?", answer: "Je nach Situation können Laborwerte sinnvoll sein, besonders bei diffusem Haarausfall oder Mangelverdacht." },
+      { question: "Wie viele PRP-Sitzungen sind bei Haarausfall sinnvoll?", answer: "Das wird individuell geplant. Häufig wird eine Serie besprochen, abhängig von Befund, Verlauf und Ziel." },
+      { question: "Wann sieht man Veränderungen?", answer: "Das ist individuell unterschiedlich und hängt unter anderem von Ursache, Ausgangsbefund und Verlauf ab." },
+      { question: "Welche Nebenwirkungen sind möglich?", answer: "Möglich sind vorübergehende Rötungen, Druckgefühl, kleine Blutergüsse oder Empfindlichkeit der Kopfhaut." },
     ],
   }),
   prpHairEn: treatmentPage({
@@ -725,6 +794,8 @@ Object.assign(landingPages, {
     intro: "PRP for hair loss is an autologous procedure in which platelet-rich plasma is applied to the scalp. Suitability depends on cause and findings.",
     focus: "Scalp, hair-follicle environment, findings",
     process: "Assessment, blood draw, PRP preparation, scalp treatment",
+    duration: "depends on area and plan",
+    sessions: "often discussed as a series",
     limits: "The evidence is positive but heterogeneous; success cannot be guaranteed.",
     suitable: ["early androgenetic alopecia after assessment", "possible follow-up monitoring", "combined with diagnostics", "realistic expectations"],
     related: [
@@ -735,6 +806,9 @@ Object.assign(landingPages, {
       { question: "How does PRP for hair loss work?", answer: "Platelet-rich plasma is prepared from a blood sample and applied to the scalp." },
       { question: "Is PRP guaranteed to work?", answer: "No. Results vary and depend on findings." },
       { question: "Do I need lab values first?", answer: "Depending on the situation, lab values may be useful, especially with diffuse hair loss or suspected deficiency." },
+      { question: "How many PRP sessions are useful for hair loss?", answer: "This is planned individually. A series is often discussed depending on findings, course and goal." },
+      { question: "When are changes visible?", answer: "This varies and depends on cause, baseline findings and course." },
+      { question: "What side effects are possible?", answer: "Temporary redness, pressure sensation, small bruises or scalp sensitivity can occur." },
     ],
   }),
 });

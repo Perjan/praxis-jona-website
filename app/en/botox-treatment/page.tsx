@@ -6,24 +6,72 @@ import type { LandingContent } from "app/components/betaContent";
 
 const content: LandingContent = {
   locale: "en",
-  title: "Botox in Berlin-Mitte",
+  title: "Botulinum Toxin (Botox) in Berlin-Mitte",
   eyebrow: "Botulinum toxin treatment",
-  description: "Botox / botulinum toxin in Berlin-Mitte with individual medical consultation, transparent prices and treatment at Praxis Jona.",
+  description: "Botulinum toxin / Botox in Berlin-Mitte with physician-led consultation, natural-looking planning, transparent prices and treatment at Praxis Jona near Rosenthaler Platz.",
   canonical: "/en/botox-treatment",
   alternate: "/botox-behandlung",
-  cta: "Book Botox consultation",
+  cta: "Book appointment",
   secondaryCta: "View prices",
   secondaryHref: "/en/botox-prices",
-  intro: "At Praxis Jona, every botulinum toxin treatment is based on personal medical consultation. The focus is careful assessment, realistic information and a treatment plan that fits your facial expression and personal situation.",
+  intro: "At Praxis Jona, every botulinum toxin treatment is based on personal medical consultation. The focus is careful assessment, realistic information and a treatment plan that fits your facial expression, anatomy and personal situation.",
   facts: [
-    { label: "Focus", value: "Expression lines, facial movement, consultation" },
-    { label: "Areas", value: "Frown lines, forehead, crow's feet, brow lift" },
-    { label: "Prices", value: "Treatments from €159" },
+    { label: "Treatment time", value: "approx. 10-15 minutes" },
+    { label: "Anaesthesia", value: "usually not required" },
+    { label: "Downtime", value: "often none" },
+    { label: "Onset", value: "usually after 3-14 days" },
+    { label: "Duration", value: "often approx. 3-6 months" },
+    { label: "Cost", value: "from €159, depending on area" },
   ],
   sections: [
-    { title: "What botulinum toxin is used for", body: ["Botulinum toxin can be used to reduce selected muscle activity. In aesthetic medicine it is mainly used for expression lines."], bullets: ["frown lines", "forehead lines", "crow's feet", "bunny lines", "brow lift", "strawberry chin"] },
-    { title: "Natural-looking planning", body: ["Many patients want a fresher, more relaxed appearance without an unnatural facial expression. We therefore plan dose and treatment areas individually."] },
-    { title: "Process and limits", body: ["Before treatment we discuss goals, suitable areas, cost, possible limits and risks. The effect usually appears after several days and varies individually."] },
+    {
+      title: "What is botulinum toxin?",
+      body: [
+        "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. In aesthetic medicine, it is mainly used for expression lines.",
+        "Whether treatment is suitable depends on findings, facial movement, anatomy and your goals. The treatment therefore starts with medical assessment, not with a standard dose."
+      ],
+    },
+    {
+      title: "Areas that may be treated",
+      body: ["Common aesthetic treatment areas include forehead lines, frown lines and crow's feet. Depending on findings, bunny lines, brow lift, strawberry chin or platysma can also be discussed."],
+      bullets: ["forehead lines", "frown lines", "crow's feet", "brow lift", "bunny lines", "strawberry chin", "platysma"]
+    },
+    {
+      title: "Natural-looking planning",
+      body: [
+        "Many patients want a fresher, more relaxed appearance without an unnatural facial expression. We therefore plan dose and treatment areas individually.",
+        "We do not treat by template. Planning is based on muscle activity, facial anatomy and the desired result."
+      ],
+    },
+    {
+      title: "Treatment process",
+      body: [
+        "Before treatment, we discuss your goals, suitable areas, process, cost, possible limits and risks.",
+        "The treatment itself usually takes only a few minutes. Afterwards, you receive specific aftercare guidance."
+      ],
+    },
+    {
+      title: "When does Botox start working and how long does it last?",
+      body: [
+        "The effect is usually not immediate. It often begins after a few days and develops further within about 3 to 14 days.",
+        "How long the effect lasts varies individually. It often lasts around 3 to 6 months, depending on area, muscle activity and personal response."
+      ],
+    },
+    {
+      title: "Costs and Botox prices",
+      body: [
+        "Costs depend on treatment area and individual scope. The transparent price overview gives an initial orientation.",
+        "All prices are discussed before treatment. Botulinum toxin treatment is a private self-pay service."
+      ],
+      bullets: ["Botox prices from €159", "Consultation without treatment from €49", "Combination areas with separate pricing"]
+    },
+    {
+      title: "Risks, limits and side effects",
+      body: [
+        "As with any medical treatment, side effects may occur, such as temporary redness, small bruises, pressure sensation or an unfamiliar feeling of tightness.",
+        "Rare or individual risks as well as treatment limits are explained during the medical consultation. Results cannot be guaranteed."
+      ],
+    },
   ],
   related: [
     { title: "Botox prices", href: "/en/botox-prices", description: "Transparent price overview for individual areas and combinations." },
@@ -31,9 +79,15 @@ const content: LandingContent = {
     { title: "Skin quality & regeneration", href: "/en/aesthetics/improve-skin-quality", description: "Regenerative procedures such as PRP, microneedling and polynucleotides." },
   ],
   faq: [
+    { question: "What is Botox or botulinum toxin?", answer: "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. Botox is a brand name often used colloquially." },
     { question: "Is Botox suitable for me?", answer: "Suitability depends on your goals, findings and medical situation. We clarify this in personal consultation." },
-    { question: "Can results look natural?", answer: "Our approach is measured and individual. The goal is a result that fits your face." },
-    { question: "What does Botox cost?", answer: "Costs depend on area and scope. You can find an initial overview in the price table on this page and on the price page." },
+    { question: "When does Botox start working?", answer: "The effect usually appears after a few days and often develops further within 3 to 14 days. The exact timing varies individually." },
+    { question: "How long does Botox last?", answer: "The effect often lasts around 3 to 6 months. Duration and strength depend on area, muscle activity and individual response." },
+    { question: "How often can treatment be repeated?", answer: "Repeat treatment may be considered after medical assessment once the effect wears off. Timing is discussed individually." },
+    { question: "How much does Botox cost in Berlin-Mitte?", answer: "Prices start from €159 depending on treatment area. The full overview is available on the Botox prices page." },
+    { question: "Can forehead lines or frown lines be treated specifically?", answer: "Yes, forehead lines and frown lines are commonly discussed areas. Suitability and planning depend on facial movement, anatomy and findings." },
+    { question: "What side effects are possible?", answer: "Possible side effects include temporary redness, small bruises, pressure sensation or an unfamiliar feeling of tightness. Individual risks are discussed before treatment." },
+    { question: "Can results look natural?", answer: "Our approach is measured and individual. The goal is a result that fits your face without unnecessarily changing facial expression." },
   ],
 };
 

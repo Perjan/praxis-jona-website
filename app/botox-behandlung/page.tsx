@@ -6,24 +6,72 @@ import type { LandingContent } from "app/components/betaContent";
 
 const content: LandingContent = {
   locale: "de",
-  title: "Botox in Berlin-Mitte",
+  title: "Botulinumtoxin (Botox) in Berlin-Mitte",
   eyebrow: "Botulinumtoxin Behandlung",
-  description: "Botox beziehungsweise Botulinumtoxin in Berlin-Mitte mit individueller ärztlicher Beratung, transparenter Preisübersicht und Behandlung in der Praxis Jona.",
+  description: "Botulinumtoxin beziehungsweise Botox in Berlin-Mitte: ärztliche Beratung, natürlich wirkende Planung, transparente Preise und Behandlung in der Praxis Jona am Rosenthaler Platz.",
   canonical: "/botox-behandlung",
   alternate: "/en/botox-treatment",
-  cta: "Botox-Beratung buchen",
+  cta: "Termin buchen",
   secondaryCta: "Preise ansehen",
   secondaryHref: "/botox-preise",
-  intro: "In der Praxis Jona erfolgt jede Behandlung mit Botulinumtoxin auf Grundlage einer persönlichen ärztlichen Beratung. Im Mittelpunkt stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein Behandlungsplan, der zu Ihrer Mimik und persönlichen Situation passt.",
+  intro: "In der Praxis Jona erfolgt jede Behandlung mit Botulinumtoxin auf Grundlage einer persönlichen ärztlichen Beratung. Im Mittelpunkt stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein Behandlungsplan, der zu Ihrer Mimik, Anatomie und persönlichen Situation passt.",
   facts: [
-    { label: "Fokus", value: "Mimische Falten, Mimik, ärztliche Beratung" },
-    { label: "Bereiche", value: "Zornesfalte, Stirn, Krähenfüße, Browlift" },
-    { label: "Preise", value: "Behandlungen ab 159 €" },
+    { label: "Behandlungsdauer", value: "ca. 10-15 Minuten" },
+    { label: "Betäubung", value: "meist nicht erforderlich" },
+    { label: "Gesellschaftsfähigkeit", value: "häufig direkt danach" },
+    { label: "Wirkungseintritt", value: "meist nach 3-14 Tagen" },
+    { label: "Wirkungsdauer", value: "häufig ca. 3-6 Monate" },
+    { label: "Kosten", value: "ab 159 €, je nach Zone" },
   ],
   sections: [
-    { title: "Wofür Botulinumtoxin eingesetzt wird", body: ["Botulinumtoxin kann eingesetzt werden, um bestimmte Muskelaktivitäten gezielt zu reduzieren. In der ästhetischen Medizin wird es vor allem bei mimischen Falten genutzt."], bullets: ["Zornesfalte", "Stirnfalten", "Krähenfüße", "Bunny Lines", "Browlift", "Erdbeerkinn"] },
-    { title: "Natürlich wirkende Planung", body: ["Viele Patientinnen und Patienten wünschen sich ein frischeres und entspannteres Erscheinungsbild, ohne dass die Mimik unnatürlich wirkt. Deshalb planen wir Dosierung und Areale individuell."] },
-    { title: "Ablauf und Grenzen", body: ["Vor jeder Behandlung besprechen wir Wünsche, geeignete Bereiche, Kosten, mögliche Grenzen und Risiken. Die Wirkung zeigt sich meist nach einigen Tagen und ist individuell unterschiedlich."] },
+    {
+      title: "Was ist Botulinumtoxin?",
+      body: [
+        "Botulinumtoxin ist ein verschreibungspflichtiger Wirkstoff, der Muskelaktivität vorübergehend beeinflussen kann. In der ästhetischen Medizin wird er vor allem bei mimischen Falten eingesetzt.",
+        "Ob eine Behandlung sinnvoll ist, hängt von Befund, Mimik, Anatomie und Ihren Zielen ab. Deshalb beginnt die Behandlung nicht mit einer Standarddosis, sondern mit einer ärztlichen Einschätzung."
+      ],
+    },
+    {
+      title: "Welche Bereiche behandelt werden können",
+      body: ["Häufige ästhetische Behandlungsbereiche sind Stirnfalten, Zornesfalte und Krähenfüße. Je nach Befund können auch Bunny Lines, Browlift, Erdbeerkinn oder Platysma besprochen werden."],
+      bullets: ["Stirnfalten", "Zornesfalte", "Krähenfüße", "Browlift", "Bunny Lines", "Erdbeerkinn", "Platysma"]
+    },
+    {
+      title: "Natürlich wirkende Planung",
+      body: [
+        "Viele Patientinnen und Patienten wünschen sich ein frischeres, entspannteres Erscheinungsbild, ohne dass die Mimik unnatürlich wirkt. Deshalb planen wir Dosierung und Areale individuell.",
+        "Wir behandeln nicht nach Schema, sondern nach Muskelaktivität, Gesichtsanatomie und gewünschtem Ergebnis."
+      ],
+    },
+    {
+      title: "Ablauf der Behandlung",
+      body: [
+        "Vor jeder Behandlung besprechen wir Ihre Wünsche, geeignete Bereiche, den Ablauf, die Kosten sowie mögliche Grenzen und Risiken.",
+        "Die Behandlung selbst dauert in der Regel nur wenige Minuten. Anschließend erhalten Sie konkrete Hinweise für die Zeit nach der Behandlung."
+      ],
+    },
+    {
+      title: "Wann wirkt Botox und wie lange hält es?",
+      body: [
+        "Die Wirkung zeigt sich meist nicht sofort. Häufig beginnt sie nach einigen Tagen und entwickelt sich innerhalb von etwa 3 bis 14 Tagen weiter.",
+        "Wie lange die Wirkung anhält, ist individuell unterschiedlich. Häufig liegt die Dauer bei etwa 3 bis 6 Monaten, abhängig von Region, Muskelaktivität und persönlicher Reaktion."
+      ],
+    },
+    {
+      title: "Kosten und Botox-Preise",
+      body: [
+        "Die Kosten richten sich nach Zone und individuellem Aufwand. Eine erste Orientierung finden Sie in der transparenten Preisübersicht.",
+        "Alle Preise werden vor der Behandlung ärztlich besprochen. Die Behandlung ist eine Privatleistung."
+      ],
+      bullets: ["Botox-Preise ab 159 €", "Beratung ohne Behandlung ab 49 €", "Kombinationszonen mit eigener Preisstaffel"]
+    },
+    {
+      title: "Risiken, Grenzen und Nebenwirkungen",
+      body: [
+        "Wie bei jeder medizinischen Behandlung können Nebenwirkungen auftreten, zum Beispiel vorübergehende Rötungen, kleine Blutergüsse, Druckgefühl oder ein ungewohntes Spannungsgefühl.",
+        "Seltene oder individuelle Risiken sowie Grenzen der Behandlung werden im ärztlichen Gespräch erklärt. Es gibt kein garantiertes Ergebnis."
+      ],
+    },
   ],
   related: [
     { title: "Botox Preise", href: "/botox-preise", description: "Transparente Preisübersicht für einzelne Zonen und Kombinationen." },
@@ -31,9 +79,15 @@ const content: LandingContent = {
     { title: "Hautbild & Regeneration", href: "/aesthetik/hautbild-verbessern", description: "Regenerative Verfahren wie PRP, Microneedling und Polynukleotide." },
   ],
   faq: [
+    { question: "Was ist Botox beziehungsweise Botulinumtoxin?", answer: "Botulinumtoxin ist ein verschreibungspflichtiger Wirkstoff, der Muskelaktivität vorübergehend beeinflussen kann. Umgangssprachlich wird häufig der Markenname Botox verwendet." },
     { question: "Ist Botox für mich geeignet?", answer: "Ob eine Behandlung geeignet ist, hängt von Ziel, Befund und gesundheitlicher Situation ab. Das klären wir im persönlichen Gespräch." },
-    { question: "Wirkt das Ergebnis natürlich?", answer: "Unser Ansatz ist zurückhaltend und individuell. Ziel ist ein Ergebnis, das zu Ihrem Gesicht passt." },
-    { question: "Was kostet Botox?", answer: "Die Kosten richten sich nach Zone und Aufwand. Eine erste Orientierung finden Sie in der Preisübersicht auf dieser Seite und auf der Preisseite." },
+    { question: "Wann beginnt Botox zu wirken?", answer: "Die Wirkung zeigt sich meist nach einigen Tagen und entwickelt sich häufig innerhalb von 3 bis 14 Tagen weiter. Der genaue Verlauf ist individuell." },
+    { question: "Wie lange hält Botox?", answer: "Die Wirkung hält häufig etwa 3 bis 6 Monate an. Dauer und Stärke hängen unter anderem von Region, Muskelaktivität und individueller Reaktion ab." },
+    { question: "Wie oft kann eine Behandlung wiederholt werden?", answer: "Eine Wiederholung kann nach individueller ärztlicher Einschätzung sinnvoll sein, wenn die Wirkung nachlässt. Der Abstand wird im Termin besprochen." },
+    { question: "Was kostet Botox in Berlin-Mitte?", answer: "Die Preise starten je nach Zone ab 159 €. Eine vollständige Übersicht finden Sie auf der Botox-Preisseite." },
+    { question: "Kann man Stirnfalten oder die Zornesfalte gezielt behandeln?", answer: "Ja, Stirnfalten und Zornesfalte gehören zu den häufig besprochenen Bereichen. Ob und wie behandelt wird, hängt von Mimik, Anatomie und Befund ab." },
+    { question: "Welche Nebenwirkungen sind möglich?", answer: "Möglich sind zum Beispiel vorübergehende Rötungen, kleine Blutergüsse, Druckgefühl oder ein ungewohntes Spannungsgefühl. Individuelle Risiken werden vorab ärztlich besprochen." },
+    { question: "Wirkt das Ergebnis natürlich?", answer: "Unser Ansatz ist zurückhaltend und individuell. Ziel ist ein Ergebnis, das zu Ihrem Gesicht passt, ohne die Mimik unnötig zu verändern." },
   ],
 };
 

@@ -17,9 +17,12 @@ const content: LandingContent = {
   facts: [
     { label: "Focus", value: "Destination, risk, vaccination status" },
     { label: "Process", value: "Consultation, vaccine plan, documentation" },
+    { label: "Bring", value: "vaccination record if available" },
+    { label: "Timing", value: "as early as possible before travel" },
     { label: "Important", value: "Plan early before travel" },
   ],
   sections: [
+    { title: "What is travel vaccination advice?", body: ["Travel vaccination advice reviews your destination, route, travel style, medical history and existing vaccination status. The goal is a practical vaccination plan before departure."] },
     { title: "When to book", body: ["Book early enough before your trip so vaccination schedules and booster intervals can be considered."], bullets: ["long-distance travel", "business travel", "backpacking", "unclear vaccination status"] },
     { title: "What we review", body: ["We look at your destination, travel duration, planned activities, existing vaccination records and medical history."] },
     { title: "Medical positioning", body: ["Travel vaccination advice is individualized. Recommendations can change depending on destination and current risk situation."] },
@@ -32,6 +35,9 @@ const content: LandingContent = {
     { question: "Should I bring my vaccination record?", answer: "Yes. Please bring any available vaccination documentation." },
     { question: "How early should I come?", answer: "As early as possible before travel, especially for trips requiring several vaccine doses." },
     { question: "Is travel vaccination covered by insurance?", answer: "Coverage depends on insurance and indication. We discuss costs transparently." },
+    { question: "Can I book shortly before travel?", answer: "You can ask, but earlier is better because some vaccines require time or multiple doses." },
+    { question: "Do recommendations differ by country?", answer: "Yes. Recommendations depend on destination, route, season, travel style and current risk situation." },
+    { question: "Can several vaccinations be planned together?", answer: "Often yes, but this depends on vaccine type, timing and your medical situation." },
   ],
 };
 
