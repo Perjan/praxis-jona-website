@@ -12,7 +12,7 @@ const navigationGerman = {
   imprint: "Impressum und Datenschutz",
   imprintUrl: "/impressum-datenschutz",
   company: [
-    { name: 'Hausärztliche Leistungen', href: '/hausaerztliche-leistungen' },
+    { name: 'Innere Medizin', href: '/hausaerztliche-leistungen' },
     { name: 'Ästhetik', href: '/aesthetik' },
     { name: 'Health / Longevity', href: '/health-longevity' },
     { name: 'Leistungen', href: '/leistungen' },
@@ -28,7 +28,7 @@ const navigationEnglish = {
   imprint: "Imprint and Privacy",
   imprintUrl: "/imprint-privacy",
   company: [
-    { name: 'General Medicine', href: '/en/general-medicine' },
+    { name: 'Internal Medicine', href: '/en/general-medicine' },
     { name: 'Aesthetics', href: '/en/aesthetics' },
     { name: 'Health / Longevity', href: '/en/health-longevity' },
     { name: 'Services', href: '/en/services' },

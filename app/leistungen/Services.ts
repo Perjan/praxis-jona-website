@@ -24,7 +24,7 @@ export const Services = [{
     },
     {
       id: 4,
-      name: 'Hausärztliche Versorgung',
+      name: 'Innere Medizin',
       href: '#4',
       imageSrc: '/images/leistungen/medpack.png',
       type: 'gesetzliche',
@@ -145,7 +145,7 @@ export const Services = [{
     },
     {
       id: 4,
-      name: 'General Medical Care',
+      name: 'Internal Medicine',
       href: '#4',
       imageSrc: '/images/leistungen/medpack.png',
       type: 'gesetzliche',

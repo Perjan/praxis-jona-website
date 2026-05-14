@@ -17,7 +17,7 @@ import { Constants } from './Constants'
 import { LanguagePicker } from './LanguagePicker'
 
 const navigationItemsGerman = [
-    { title: "Hausärztliche Leistungen", href: "/hausaerztliche-leistungen" },
+    { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
     { title: "Ästhetik", href: "/aesthetik" },
     { title: "Health / Longevity", href: "/health-longevity" },
     { title: "Team", href: "/team" },
@@ -25,7 +25,7 @@ const navigationItemsGerman = [
 ]
 
 const navigationItemsEnglish = [
-    { title: "General Medicine", href: "/en/general-medicine" },
+    { title: "Internal Medicine", href: "/en/general-medicine" },
     { title: "Aesthetics", href: "/en/aesthetics" },
     { title: "Health / Longevity", href: "/en/health-longevity" },
     { title: "Team", href: "/en/team" },

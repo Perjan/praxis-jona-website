@@ -2,8 +2,8 @@ import { Metadata } from "next";
 
 import ClinicSection from "app/ClinicSection";
 import HeroSection from "app/HeroSection";
-import ServiceCardsEn from "app/components/ServiceCardsEn";
-import QuoteSection from "app/QuoteSectionEN";
+import ServiceCards from "app/components/ServiceCards";
+import QuoteSection from "app/QuoteSection";
 import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
 
@@ -84,12 +84,13 @@ export default function Features() {
             />
             <HeroSection title={title} description="Holistic care for a healthy life - with us, you are more than just another patient" />
 
-            <ServiceCardsEn />
+            <ServiceCards locale="en" />
 
             <QuoteSection
                 quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
                 buttonLink="/en/health-longevity"
                 buttonText="Health / Longevity"
+                role="Specialist for Internal Medicine"
             />
 
             {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}

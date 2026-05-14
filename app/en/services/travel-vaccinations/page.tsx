@@ -28,7 +28,7 @@ const content: LandingContent = {
     { title: "Medical positioning", body: ["Travel vaccination advice is individualized. Recommendations can change depending on destination and current risk situation."] },
   ],
   related: [
-    { title: "General medicine", href: "/en/general-medicine", description: "Primary care and vaccination status review." },
+    { title: "Internal medicine", href: "/en/general-medicine", description: "Primary care and vaccination status review." },
     { title: "Health / Longevity", href: "/en/health-longevity", description: "Preventive and self-pay health services." },
   ],
   faq: [

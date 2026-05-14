@@ -3,8 +3,7 @@ import Image from 'next/image';
 import { glp1TherapyPackage } from './NutritionPricingData';
 import PricingCard from './PricingCard';
 import PrimaryButton from './PrimaryButton';
-import { appsEN } from '../data/appsEN';
-import { appsDE } from '../data/appsDE';
+import { appsByLocale } from '../data/apps';
 
 interface OzempicPricingProps {
     buttonText: string;
@@ -13,7 +12,7 @@ interface OzempicPricingProps {
 
 export default function OzempicPricing({ buttonText, language }: OzempicPricingProps) {
     // Get Velto app data based on language
-    const veltoApp = language === 'de' ? appsDE[0] : appsEN[0];
+    const veltoApp = appsByLocale[language][0];
 
     return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

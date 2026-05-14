@@ -51,7 +51,7 @@ export type LandingContent = {
 export const categoryContent: Record<string, CategoryContent> = {
   generalDe: {
     locale: "de",
-    title: "Hausärztliche Leistungen in Berlin-Mitte",
+    title: "Innere Medizin in Berlin-Mitte",
     eyebrow: "Allgemeinmedizin & Innere Medizin",
     description: "Strukturierte hausärztliche Versorgung, akute Abklärung, Vorsorge und Diagnostik in der Praxis Jona am Rosenthaler Platz.",
     cta: "Termin buchen",
@@ -64,7 +64,7 @@ export const categoryContent: Record<string, CategoryContent> = {
         intro: "Für akute Beschwerden und kontinuierliche Betreuung verbinden wir persönliche Anamnese, körperliche Untersuchung und sinnvolle Diagnostik.",
         services: [
           { title: "Akutsprechstunde", href: "/kontakt", description: "Einschätzung akuter Beschwerden mit klarer Empfehlung zum weiteren Vorgehen." },
-          { title: "Hausärztliche Versorgung", href: "/hausaerztliche-leistungen", description: "Kontinuierliche Betreuung bei internistischen und allgemeinmedizinischen Anliegen." },
+          { title: "Innere Medizin", href: "/hausaerztliche-leistungen", description: "Kontinuierliche Betreuung bei internistischen und allgemeinmedizinischen Anliegen." },
           { title: "Impfungen", href: "/hausaerztliche-leistungen", description: "Impfstatus-Check und Auffrischungen nach aktueller medizinischer Empfehlung." },
           { title: "Gesetzlicher Check-up", href: "/leistungen/gesetzliche-check-up", description: "Vorsorgeuntersuchung mit Anamnese, Untersuchung und Basisdiagnostik." },
         ],
@@ -78,7 +78,7 @@ export const categoryContent: Record<string, CategoryContent> = {
   },
   generalEn: {
     locale: "en",
-    title: "General Medicine in Berlin-Mitte",
+    title: "Internal Medicine in Berlin-Mitte",
     eyebrow: "General & Internal Medicine",
     description: "Structured primary care, acute assessment, preventive care and diagnostics at Praxis Jona near Rosenthaler Platz.",
     cta: "Book appointment",
@@ -91,7 +91,7 @@ export const categoryContent: Record<string, CategoryContent> = {
         intro: "For acute symptoms and ongoing care, we combine personal history, physical examination and appropriate diagnostics.",
         services: [
           { title: "Acute consultation", href: "/en/contact", description: "Assessment of acute symptoms with a clear recommendation for next steps." },
-          { title: "General medical care", href: "/en/general-medicine", description: "Ongoing support for internal medicine and general medical concerns." },
+          { title: "Internal medicine care", href: "/en/general-medicine", description: "Ongoing support for internal medicine and general medical concerns." },
           { title: "Vaccinations", href: "/en/general-medicine", description: "Vaccination status checks and boosters according to medical guidance." },
           { title: "Public insurance check-up", href: "/en/services/public-insurance-check-up", description: "Preventive check-up with medical history, examination and basic diagnostics." },
         ],
