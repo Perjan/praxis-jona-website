@@ -244,15 +244,15 @@ export function LandingPage({ content }: { content: LandingContent }) {
 
         <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige px-6 py-10 lg:px-10">
-            <div className="grid gap-8 lg:grid-cols-[0.8fr_1fr]">
-              <div>
-                <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "Related treatments" : "Verwandte Behandlungen"}</h2>
-                <p className="mt-4 text-primaryLighter">
-                  {content.locale === "en"
-                    ? "Nearby topics that are often considered during consultation."
-                    : "Naheliegende Themen, die häufig in der Beratung mitbesprochen werden."}
-                </p>
-              </div>
+            <div className="max-w-3xl">
+              <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "Related treatments" : "Verwandte Behandlungen"}</h2>
+              <p className="mt-4 text-primaryLighter">
+                {content.locale === "en"
+                  ? "Nearby topics that are often considered during consultation."
+                  : "Naheliegende Themen, die häufig in der Beratung mitbesprochen werden."}
+              </p>
+            </div>
+            <div className="mt-8">
               <ServiceGrid services={content.related} locale={content.locale} />
             </div>
           </div>
