@@ -19,6 +19,7 @@ export type CategoryContent = {
     src: string;
     alt: string;
     objectPositionClass?: string;
+    presentation?: "framed" | "vignette";
   };
   cta: string;
   ctaHref: string;

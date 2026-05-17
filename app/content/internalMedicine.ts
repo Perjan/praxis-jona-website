@@ -7,6 +7,12 @@ export const internalMedicineCategoryContent = {
     title: "Innere Medizin in Berlin-Mitte",
     eyebrow: "INNERE MEDIZIN & HAUSÄRZTLICHE LEISTUNGEN",
     description: "Praxis Jona am Rosenthaler Platz, hausärztliche Versorgung, Schilddrüsendiagnostik, Vorsorgeuntersuchungen, Akuttermine und moderne internistische Diagnostik in Berlin-Mitte.",
+    heroImage: {
+      src: "/images/clinic/berlin-watercolor-hero.png",
+      alt: "Aquarellillustration von Berlin mit Fernsehturm und Brücke",
+      objectPositionClass: "object-[62%_50%]",
+      presentation: "vignette",
+    },
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
     sections: [
@@ -36,6 +42,12 @@ export const internalMedicineCategoryContent = {
     title: "Internal Medicine in Berlin-Mitte",
     eyebrow: "General & Internal Medicine",
     description: "Praxis Jona near Rosenthaler Platz: primary care, thyroid diagnostics, preventive check-ups, acute appointments and modern internal medicine diagnostics in Berlin-Mitte.",
+    heroImage: {
+      src: "/images/clinic/berlin-watercolor-hero.png",
+      alt: "Watercolor illustration of Berlin with the TV tower and bridge",
+      objectPositionClass: "object-[62%_50%]",
+      presentation: "vignette",
+    },
     cta: "Book appointment",
     ctaHref: Constants.appointmentUrl,
     sections: [

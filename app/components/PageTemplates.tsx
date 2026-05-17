@@ -114,6 +114,43 @@ function ServiceGrid({
   );
 }
 
+function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["heroImage"]> }) {
+  if (image.presentation === "vignette") {
+    return (
+      <div className="relative hidden min-h-[360px] overflow-hidden lg:block" aria-hidden="true">
+        <Image
+          src={image.src}
+          alt=""
+          width={900}
+          height={643}
+          priority
+          sizes="(min-width: 1024px) 36vw, 0vw"
+          style={{
+            WebkitMaskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
+            maskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
+          }}
+          className={`absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-multiply animate-kenburns-subtle ${image.objectPositionClass ?? "object-center"}`}
+        />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/45 to-white/10" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={900}
+        height={1125}
+        priority
+        sizes="(min-width: 1024px) 38vw, 92vw"
+        className={`h-72 w-full object-cover sm:h-96 lg:h-auto lg:aspect-[4/5] ${image.objectPositionClass ?? "object-center"}`}
+      />
+    </div>
+  );
+}
+
 export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -164,19 +201,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.description}</p>
               <CtaButtons primary={content.cta} primaryHref={content.ctaHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
             </div>
-            {content.heroImage && (
-              <div className="relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10">
-                <Image
-                  src={content.heroImage.src}
-                  alt={content.heroImage.alt}
-                  width={900}
-                  height={1125}
-                  priority
-                  sizes="(min-width: 1024px) 38vw, 92vw"
-                  className={`h-72 w-full object-cover sm:h-96 lg:h-auto lg:aspect-[4/5] ${content.heroImage.objectPositionClass ?? "object-center"}`}
-                />
-              </div>
-            )}
+            {content.heroImage && <CategoryHeroImage image={content.heroImage} />}
           </div>
         </MotionSection>
 
