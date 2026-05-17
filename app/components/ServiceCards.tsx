@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import PrimaryButton from './PrimaryButton'
 
 type ServiceCardsLocale = "de" | "en"
@@ -66,56 +66,50 @@ const serviceCardsContent = {
 
 export default function ServiceCards({ locale = "de" }: { locale?: ServiceCardsLocale }) {
     const [isVisible, setIsVisible] = useState(false)
-    const sectionRef = useRef<HTMLDivElement>(null)
     const content = serviceCardsContent[locale]
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true)
-                    observer.disconnect()
-                }
-            },
-            { threshold: 0.1 }
-        )
+        const delay = window.setTimeout(() => {
+            setIsVisible(true)
+        }, 650)
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current)
-        }
-
-        return () => observer.disconnect()
+        return () => window.clearTimeout(delay)
     }, [])
 
     return (
         <div className="w-full bg-white">
-            <div 
-                ref={sectionRef} 
-                className={`relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            <div
+                className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16"
             >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full md:-mt-[260px]">
-                {content.cards.map((card, index) => (
-                    <div 
-                        key={index} 
-                        className="flex flex-col justify-between rounded-2xl p-8 sm:p-10 shadow-md ring-1 ring-gray-200 hover:shadow-xl transition-all duration-300 text-center bg-[rgba(249,237,223,0.3)]"
-                    >
-                        <div>
-                            <h2 className="text-xl md:text-2xl font-semibold font-serif text-primary mb-6">{card.title}</h2>
-                            <div className="space-y-4 text-center text-sm md:text-base text-primaryLighter leading-relaxed">
-                                {card.paragraphs.map((p, pIndex) => (
-                                    <p key={pIndex}>{p}</p>
-                                ))}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 w-full md:-mt-[160px]">
+                    {content.cards.map((card, index) => (
+                        <div
+                            key={index}
+                            className="flex flex-col justify-between rounded-2xl p-8 sm:p-10 shadow-md ring-1 ring-gray-200 hover:shadow-xl transition-all duration-300 text-center bg-[rgba(249,237,223,0.95)]"
+                            style={{
+                                opacity: isVisible ? 1 : 0,
+                                transform: isVisible ? 'translateY(0)' : 'translateY(16px)',
+                                transition: 'opacity 700ms ease-out, transform 700ms ease-out, box-shadow 300ms ease',
+                                transitionDelay: isVisible ? `${index * 140}ms` : '0ms',
+                            }}
+                        >
+                            <div>
+                                <h2 className="text-xl md:text-2xl font-semibold font-serif text-primary mb-6">{card.title}</h2>
+                                <div className="space-y-4 text-center text-sm md:text-base text-primaryLighter leading-relaxed">
+                                    {card.paragraphs.map((p, pIndex) => (
+                                        <p key={pIndex}>{p}</p>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className="mt-10 flex justify-center">
+                                <PrimaryButton href={card.href}>
+                                    {content.buttonText}
+                                </PrimaryButton>
                             </div>
                         </div>
-                        <div className="mt-10 flex justify-center">
-                            <PrimaryButton href={card.href}>
-                                {content.buttonText}
-                            </PrimaryButton>
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
         </div>
     )
 }
