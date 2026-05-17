@@ -109,7 +109,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
         <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className={content.heroImage ? "grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center" : "max-w-4xl"}>
             <div className="max-w-4xl">
-              <p className={`text-sm font-semibold tracking-[0.22em] text-primaryLighter ${content.preserveEyebrowCase ? "" : "uppercase"}`}>{content.eyebrow}</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primaryLighter">{content.eyebrow}</p>
               <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.description}</p>
               <CtaButtons primary={content.cta} primaryHref={content.ctaHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
