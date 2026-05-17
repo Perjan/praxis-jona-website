@@ -16,8 +16,9 @@ import {
   ShieldCheckIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import type { ComponentType, CSSProperties, SVGProps } from "react";
+import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
+import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
 import { MotionCard, MotionSection } from "./Motion";
 import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
 
@@ -132,11 +133,6 @@ function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["hero
 
 export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
   const hasVignetteHero = content.heroImage?.presentation === "vignette";
-  const wrapperStyle: CSSProperties | undefined = hasVignetteHero
-    ? {
-      "--category-hero-image": `url(${content.heroImage.src})`,
-    } as CSSProperties
-    : undefined;
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -178,8 +174,9 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={serviceSchema} />
-      <div className={`overflow-hidden bg-white ${hasVignetteHero ? "category-vignette-background" : ""}`} style={wrapperStyle}>
-        <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className="relative overflow-hidden bg-white">
+        {hasVignetteHero && <CategoryVignetteBackground src={content.heroImage.src} />}
+        <MotionSection className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
           <div className={content.heroImage && !hasVignetteHero ? "grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center" : "max-w-4xl"}>
             <div className="max-w-4xl">
               <p className={heroEyebrowClassName}>{content.eyebrow}</p>
@@ -192,7 +189,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
         </MotionSection>
 
         {content.sections.map((section) => (
-          <MotionSection key={section.title} className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
+          <MotionSection key={section.title} className="relative z-10 bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-7xl">
               <div className="max-w-3xl">
                 <h2 className="font-serif text-3xl font-semibold text-primary">{section.title}</h2>
@@ -203,7 +200,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
           </MotionSection>
         ))}
 
-        <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <MotionSection className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr]">
             <div>
               <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "Common questions" : "Häufige Fragen"}</h2>

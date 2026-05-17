@@ -16,25 +16,6 @@
   transform-origin: 62% 50%;
 }
 
-@media (min-width: 1024px) {
-  .category-vignette-background {
-    background-attachment: fixed;
-    background-image:
-      linear-gradient(
-        90deg,
-        #fff 0%,
-        #fff 45%,
-        rgba(255, 255, 255, 0.82) 62%,
-        rgba(255, 255, 255, 0.38) 82%,
-        rgba(255, 255, 255, 0.18) 100%
-      ),
-      var(--category-hero-image);
-    background-position: center, right top 11rem;
-    background-repeat: no-repeat;
-    background-size: 100% 100%, min(58vw, 980px) auto;
-  }
-}
-
 /* @layer base {
     html {
       font-family: "Proxima Nova", system-ui, sans-serif;
