@@ -223,7 +223,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
               <CtaButtons primary={content.cta} primaryHref={bookingHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
             </div>
             <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
-              <dl className="space-y-5">
+              <dl className="space-y-8">
                 {content.facts.map((fact, index) => {
                   const FactIcon = factIconComponents[index % factIconComponents.length];
 
