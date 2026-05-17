@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { LandingPage } from "app/components/BetaPages";
-import { landingPages } from "app/components/betaContent";
+import { LandingPage } from "app/components/PageTemplates";
+import { landingPages } from "app/components/pageContent";
 import { buildMetadata } from "app/components/pageMetadata";
 
 const content = landingPages.microneedlingEn;

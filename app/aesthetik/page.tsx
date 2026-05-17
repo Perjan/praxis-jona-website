@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import { CategoryHub } from "app/components/BetaPages";
-import { categoryContent } from "app/components/betaContent";
+import { CategoryHub } from "app/components/PageTemplates";
+import { categoryContent } from "app/components/pageContent";
 import { buildMetadata } from "app/components/pageMetadata";
 
 const content = categoryContent.aestheticDe;

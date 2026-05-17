@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
-import { LandingPage } from "app/components/BetaPages";
+import { LandingPage } from "app/components/PageTemplates";
 import { buildMetadata } from "app/components/pageMetadata";
-import type { LandingContent } from "app/components/betaContent";
+import type { LandingContent } from "app/components/pageContent";
 
 const content: LandingContent = {
   locale: "en",

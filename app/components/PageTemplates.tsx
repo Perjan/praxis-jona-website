@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Constants } from "app/Constants";
 import { MotionCard, MotionSection } from "./Motion";
-import type { CategoryContent, LandingContent, ServiceLink } from "./betaContent";
+import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
 
 function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
