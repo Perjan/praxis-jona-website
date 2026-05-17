@@ -16,7 +16,7 @@ import {
   ShieldCheckIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import type { ComponentType, SVGProps } from "react";
+import type { ComponentType, CSSProperties, SVGProps } from "react";
 import { Constants } from "app/Constants";
 import { MotionCard, MotionSection } from "./Motion";
 import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
@@ -115,27 +115,6 @@ function ServiceGrid({
 }
 
 function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["heroImage"]> }) {
-  if (image.presentation === "vignette") {
-    return (
-      <div className="relative hidden min-h-[360px] overflow-hidden lg:-mr-8 lg:block" aria-hidden="true">
-        <Image
-          src={image.src}
-          alt=""
-          width={900}
-          height={643}
-          priority
-          sizes="(min-width: 1024px) 36vw, 0vw"
-          style={{
-            WebkitMaskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
-            maskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
-          }}
-          className={`absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-multiply animate-kenburns-subtle ${image.objectPositionClass ?? "object-left"}`}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/45 to-white/5" />
-      </div>
-    );
-  }
-
   return (
     <div className="relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10">
       <Image
@@ -152,6 +131,13 @@ function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["hero
 }
 
 export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
+  const hasVignetteHero = content.heroImage?.presentation === "vignette";
+  const wrapperStyle: CSSProperties | undefined = hasVignetteHero
+    ? {
+      "--category-hero-image": `url(${content.heroImage.src})`,
+    } as CSSProperties
+    : undefined;
+
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -192,16 +178,16 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={serviceSchema} />
-      <div className="overflow-hidden bg-white">
+      <div className={`overflow-hidden bg-white ${hasVignetteHero ? "category-vignette-background" : ""}`} style={wrapperStyle}>
         <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className={content.heroImage ? "grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center" : "max-w-4xl"}>
+          <div className={content.heroImage && !hasVignetteHero ? "grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center" : "max-w-4xl"}>
             <div className="max-w-4xl">
               <p className={heroEyebrowClassName}>{content.eyebrow}</p>
               <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.description}</p>
               <CtaButtons primary={content.cta} primaryHref={content.ctaHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
             </div>
-            {content.heroImage && <CategoryHeroImage image={content.heroImage} />}
+            {content.heroImage && !hasVignetteHero && <CategoryHeroImage image={content.heroImage} />}
           </div>
         </MotionSection>
 
