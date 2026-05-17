@@ -41,9 +41,17 @@ function CtaButtons({
   );
 }
 
-function ServiceGrid({ services, locale = "de" }: { services: ServiceLink[]; locale?: "de" | "en" }) {
+function ServiceGrid({
+  services,
+  locale = "de",
+  maxColumns = 3,
+}: {
+  services: ServiceLink[];
+  locale?: "de" | "en";
+  maxColumns?: 2 | 3;
+}) {
   return (
-    <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div className={`mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 ${maxColumns === 3 ? "lg:grid-cols-3" : ""}`}>
       {services.map((service, index) => (
         <MotionCard
           key={`${service.href}-${service.title}`}
@@ -223,7 +231,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
         </MotionSection>
 
         <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2">
             {content.sections.map((section, index) => (
               <MotionCard key={section.title} delay={Math.min(index * 0.05, 0.16)} className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
                 <h2 className="font-serif text-2xl font-semibold text-primary">{section.title}</h2>
@@ -253,7 +261,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
               </p>
             </div>
             <div className="mt-8">
-              <ServiceGrid services={content.related} locale={content.locale} />
+              <ServiceGrid services={content.related} locale={content.locale} maxColumns={2} />
             </div>
           </div>
         </MotionSection>
