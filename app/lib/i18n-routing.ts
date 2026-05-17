@@ -105,6 +105,9 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
     if (isSharedRoute) {
       return normalizedPathname;
     }
+    if (normalizedPathname.startsWith("/botox-behandlung/")) {
+      return "/en/botox-treatment";
+    }
     return deToEnRouteMap[normalizedPathname] ?? "/en";
   }
 
