@@ -1,6 +1,22 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowsRightLeftIcon, CheckCircleIcon, ClockIcon, MoonIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowsRightLeftIcon,
+  BeakerIcon,
+  CalendarDaysIcon,
+  CheckBadgeIcon,
+  CheckCircleIcon,
+  ClipboardDocumentCheckIcon,
+  ClockIcon,
+  CurrencyEuroIcon,
+  ExclamationTriangleIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  MoonIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
+import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
 import { MotionCard, MotionSection } from "./Motion";
 import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
@@ -10,7 +26,28 @@ function JsonLd({ data }: { data: object }) {
 }
 
 const heroEyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
-const factIconComponents = [ClockIcon, ArrowsRightLeftIcon, MoonIcon, CheckCircleIcon];
+type FactIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
+function iconForFact(label: string, value: string): FactIconComponent {
+  const text = `${label} ${value}`.toLowerCase();
+
+  if (/(kosten|cost|price|preis|€|euro)/.test(text)) return CurrencyEuroIcon;
+  if (/(nachts|night|sleep|schlaf)/.test(text)) return MoonIcon;
+  if (/(messintervall|interval)/.test(text)) return ArrowsRightLeftIcon;
+  if (/(dauer|duration|time|timing|wirkungsdauer|behandlungsdauer|ausfallzeit|downtime|onset|wirkungseintritt)/.test(text)) return ClockIcon;
+  if (/(termin|appointment|serie|series|alle 3 jahre|every 3 years|once|einmalig|plan early)/.test(text)) return CalendarDaysIcon;
+  if (/(herz|heart|ekg|ecg|rhythm|belastbarkeit|exercise capacity)/.test(text)) return HeartIcon;
+  if (/(labor|lab|werte|values|diagnostics|diagnostik|befund|findings|testing)/.test(text)) return BeakerIcon;
+  if (/(impf|vaccin|infekt|infection|fieber|fever|schutz|protection)/.test(text)) return ShieldCheckIcon;
+  if (/(wichtig|important|bring|mitbringen|record|documentation)/.test(text)) return ExclamationTriangleIcon;
+  if (/(anspruch|eligibility|covered|kassenleistung|public insurance)/.test(text)) return CheckBadgeIcon;
+  if (/(verfahren|method|procedure|durchführung|process|ablauf|behandlungsart|treatment type|consultation|beratung)/.test(text)) return ClipboardDocumentCheckIcon;
+  if (/(fokus|focus|anliegen|concern|einsatz|use|useful|indication|indikation|grundlage|basis)/.test(text)) return MagnifyingGlassIcon;
+  if (/(kombination|combination|ergänzung|add-on|add-ons|skin|haut|ästhet|aesthetic|prp|microneedling)/.test(text)) return SparklesIcon;
+  if (/(ziel|goal|target|early risk|risiken|risk|recommendation|empfehlung)/.test(text)) return CheckCircleIcon;
+
+  return CheckCircleIcon;
+}
 
 function CtaButtons({
   primary,
@@ -224,8 +261,8 @@ export function LandingPage({ content }: { content: LandingContent }) {
             </div>
             <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
               <dl className="space-y-8">
-                {content.facts.map((fact, index) => {
-                  const FactIcon = factIconComponents[index % factIconComponents.length];
+                {content.facts.map((fact) => {
+                  const FactIcon = iconForFact(fact.label, fact.value);
 
                   return (
                     <div key={fact.label} className="flex gap-4">
