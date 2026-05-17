@@ -68,7 +68,7 @@ export const pricingSections = {
   botox: {
     slug: "botox",
     pillar: "aesthetics",
-    title: { de: "Botulinumtoxin / Botox", en: "Botulinum toxin / Botox" },
+    title: { de: "Botulinumtoxin", en: "Botulinum toxin" },
     description: {
       de: "Preise für Botulinumtoxin-Behandlungen nach Zone. Die genaue Planung erfolgt nach ärztlicher Beratung.",
       en: "Prices for botulinum toxin treatments by area. The exact plan is confirmed after medical consultation.",
@@ -294,7 +294,7 @@ const pageCopy: Record<PricingPageKey, {
 }> = {
   global: {
     title: { de: "Preise Praxis Jona: Ästhetik, Health / Longevity und Innere Medizin", en: "Praxis Jona prices: aesthetics, health / longevity and internal medicine" },
-    description: { de: "Preisübersicht der Praxis Jona in Berlin-Mitte mit Botox, Check-ups, Prävention, Ernährung, Infusionen und Ultraschall.", en: "Price overview for Praxis Jona in Berlin-Mitte including Botox, check-ups, prevention, nutrition, infusions and ultrasound." },
+    description: { de: "Preisübersicht der Praxis Jona in Berlin-Mitte mit Botulinumtoxin, Check-ups, Prävention, Ernährung, Infusionen und Ultraschall.", en: "Price overview for Praxis Jona in Berlin-Mitte including botulinum toxin, check-ups, prevention, nutrition, infusions and ultrasound." },
     eyebrow: { de: "Preisübersicht", en: "Price overview" },
     intro: { de: "Diese Seite bündelt die transparenten Selbstzahlerpreise aus den drei Säulen der Praxis. Bei medizinischen Leistungen hängt die finale Abrechnung von Indikation, Umfang und GOÄ ab.", en: "This page combines transparent self-pay prices across the practice's three pillars. For medical services, final billing depends on indication, scope and GOÄ." },
     canonical: { de: "/preise", en: "/en/prices" },
@@ -302,7 +302,7 @@ const pageCopy: Record<PricingPageKey, {
   },
   aesthetics: {
     title: { de: "Ästhetik Preise in Berlin-Mitte", en: "Aesthetics prices in Berlin-Mitte" },
-    description: { de: "Preise für ästhetische Medizin in der Praxis Jona, inklusive Botox-Preisen und Links zu Detailseiten.", en: "Prices for aesthetic medicine at Praxis Jona, including Botox prices and links to detail pages." },
+    description: { de: "Preise für ästhetische Medizin in der Praxis Jona, inklusive Botulinumtoxin-Preisen und Links zu Detailseiten.", en: "Prices for aesthetic medicine at Praxis Jona, including botulinum toxin prices and links to detail pages." },
     eyebrow: { de: "Ästhetik Preise", en: "Aesthetics prices" },
     intro: { de: "Ästhetische Preise sollten Orientierung geben, aber nicht die ärztliche Planung ersetzen. Die genaue Behandlung wird nach Anatomie, Befund und Ziel besprochen.", en: "Aesthetic prices provide orientation, but do not replace medical planning. The exact treatment is discussed after assessing anatomy, findings and goals." },
     canonical: { de: "/aesthetik/preise", en: "/en/aesthetics/prices" },
@@ -328,12 +328,12 @@ const pageCopy: Record<PricingPageKey, {
 
 const pillarLinks: Record<PricingLocale, PricingPageConfig["pillarLinks"]> = {
   de: [
-    { label: "Ästhetik Preise", href: "/aesthetik/preise", description: "Botox und weitere ästhetische Leistungen." },
+    { label: "Ästhetik Preise", href: "/aesthetik/preise", description: "Botulinumtoxin und weitere ästhetische Leistungen." },
     { label: "Health / Longevity Preise", href: "/health-longevity/preise", description: "Check-ups, Prävention, Ernährung und Infusionen." },
     { label: "Innere Medizin Preise", href: "/hausaerztliche-leistungen/preise", description: "Kassenleistungen, Selbstzahlerleistungen und Diagnostik." },
   ],
   en: [
-    { label: "Aesthetics prices", href: "/en/aesthetics/prices", description: "Botox and other aesthetic services." },
+    { label: "Aesthetics prices", href: "/en/aesthetics/prices", description: "Botulinum toxin and other aesthetic services." },
     { label: "Health / longevity prices", href: "/en/health-longevity/prices", description: "Check-ups, prevention, nutrition and infusions." },
     { label: "Internal medicine prices", href: "/en/general-medicine/prices", description: "Public insurance care, self-pay services and diagnostics." },
   ],

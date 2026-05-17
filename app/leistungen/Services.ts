@@ -52,7 +52,7 @@ export const Services = [{
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
-      description: "Botulinumtoxin wird in der Praxis Jona nach individueller ärztlicher Beratung eingesetzt. Im Vordergrund stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein natürlich wirkender Behandlungsplan. Details und Preise finden Sie auf den eigenen Botox-Seiten."
+      description: "Botulinumtoxin wird in der Praxis Jona nach individueller ärztlicher Beratung eingesetzt. Im Vordergrund stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein natürlich wirkender Behandlungsplan. Details und Preise finden Sie auf den eigenen Botulinumtoxin-Seiten."
     },
     {
       id: 10,
@@ -169,7 +169,7 @@ export const Services = [{
     },
     {
       id: 5,
-      name: 'Botox',
+      name: 'Botulinum toxin',
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',

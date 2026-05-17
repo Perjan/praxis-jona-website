@@ -6,9 +6,9 @@ import type { LandingContent } from "app/components/betaContent";
 
 const content: LandingContent = {
   locale: "en",
-  title: "Botulinum Toxin (Botox) in Berlin-Mitte",
+  title: "Botulinum toxin in Berlin-Mitte",
   eyebrow: "Botulinum toxin treatment",
-  description: "Botulinum toxin / Botox in Berlin-Mitte with physician-led consultation, natural-looking planning, transparent prices and treatment at Praxis Jona near Rosenthaler Platz.",
+  description: "Botulinum toxin in Berlin-Mitte with physician-led consultation, natural-looking planning, transparent prices and treatment for expression lines at Praxis Jona near Rosenthaler Platz.",
   canonical: "/en/botox-treatment",
   alternate: "/botox-behandlung",
   cta: "Book appointment",
@@ -28,6 +28,7 @@ const content: LandingContent = {
       title: "What is botulinum toxin?",
       body: [
         "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. In aesthetic medicine, it is mainly used for expression lines.",
+        "Botox® is a registered trademark. On this page, we use the medical term botulinum toxin. The specific preparation is discussed during medical consultation.",
         "Whether treatment is suitable depends on findings, facial movement, anatomy and your goals. The treatment therefore starts with medical assessment, not with a standard dose."
       ],
     },
@@ -51,19 +52,19 @@ const content: LandingContent = {
       ],
     },
     {
-      title: "When does Botox start working and how long does it last?",
+      title: "When does botulinum toxin start working and how long does it last?",
       body: [
         "The effect is usually not immediate. It often begins after a few days and develops further within about 3 to 14 days.",
         "How long the effect lasts varies individually. It often lasts around 3 to 6 months, depending on area, muscle activity and personal response."
       ],
     },
     {
-      title: "Costs and Botox prices",
+      title: "Costs and botulinum toxin prices",
       body: [
         "Costs depend on treatment area and individual scope. The transparent price overview gives an initial orientation.",
         "All prices are discussed before treatment. Botulinum toxin treatment is a private self-pay service."
       ],
-      bullets: ["Botox prices from €159", "Consultation without treatment from €49", "Combination areas with separate pricing"]
+      bullets: ["Botulinum toxin prices from €159", "Consultation without treatment from €49", "Combination areas with separate pricing"]
     },
     {
       title: "Risks, limits and side effects",
@@ -74,17 +75,17 @@ const content: LandingContent = {
     },
   ],
   related: [
-    { title: "Botox prices", href: "/en/botox-prices", description: "Transparent price overview for individual areas and combinations." },
+    { title: "Botulinum toxin prices", href: "/en/botox-prices", description: "Transparent price overview for individual areas and combinations." },
     { title: "Aesthetics", href: "/en/aesthetics", description: "All aesthetic treatments at Praxis Jona." },
     { title: "Skin quality & regeneration", href: "/en/aesthetics/improve-skin-quality", description: "Regenerative procedures such as PRP, microneedling and polynucleotides." },
   ],
   faq: [
-    { question: "What is Botox or botulinum toxin?", answer: "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. Botox is a brand name often used colloquially." },
-    { question: "Is Botox suitable for me?", answer: "Suitability depends on your goals, findings and medical situation. We clarify this in personal consultation." },
-    { question: "When does Botox start working?", answer: "The effect usually appears after a few days and often develops further within 3 to 14 days. The exact timing varies individually." },
-    { question: "How long does Botox last?", answer: "The effect often lasts around 3 to 6 months. Duration and strength depend on area, muscle activity and individual response." },
+    { question: "What is Botox or botulinum toxin?", answer: "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. Botox® is a brand name often used as an online search term." },
+    { question: "Is botulinum toxin suitable for me?", answer: "Suitability depends on your goals, findings and medical situation. We clarify this in personal consultation." },
+    { question: "When does botulinum toxin start working?", answer: "The effect usually appears after a few days and often develops further within 3 to 14 days. The exact timing varies individually." },
+    { question: "How long does botulinum toxin last?", answer: "The effect often lasts around 3 to 6 months. Duration and strength depend on area, muscle activity and individual response." },
     { question: "How often can treatment be repeated?", answer: "Repeat treatment may be considered after medical assessment once the effect wears off. Timing is discussed individually." },
-    { question: "How much does Botox cost in Berlin-Mitte?", answer: "Prices start from €159 depending on treatment area. The full overview is available on the Botox prices page." },
+    { question: "How much does Botox or botulinum toxin treatment cost in Berlin-Mitte?", answer: "Prices start from €159 depending on treatment area. The full overview is available on the botulinum toxin prices page." },
     { question: "Can forehead lines or frown lines be treated specifically?", answer: "Yes, forehead lines and frown lines are commonly discussed areas. Suitability and planning depend on facial movement, anatomy and findings." },
     { question: "What side effects are possible?", answer: "Possible side effects include temporary redness, small bruises, pressure sensation or an unfamiliar feeling of tightness. Individual risks are discussed before treatment." },
     { question: "Can results look natural?", answer: "Our approach is measured and individual. The goal is a result that fits your face without unnecessarily changing facial expression." },

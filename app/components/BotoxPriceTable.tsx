@@ -97,7 +97,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                         onClick={handleBookingClick}
                         className="hidden lg:block absolute top-8 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                     >
-                        {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
+                        {isEnglish ? "Book botulinum toxin appointment" : "Botulinumtoxin-Termin buchen"}
                     </a>
 
                     {/* Content section */}
@@ -169,7 +169,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     onClick={handleBookingClick}
                     className="block w-full bg-primaryLighter hover:bg-tealColorDark text-white text-center px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                 >
-                    {isEnglish ? "Book Botox® Appointment" : "Botox® Termin Buchen"}
+                    {isEnglish ? "Book botulinum toxin appointment" : "Botulinumtoxin-Termin buchen"}
                 </a>
             </div>
 
@@ -198,8 +198,8 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                         </div>
                         <p className="text-gray-600 mb-4 text-sm">
                             {isEnglish 
-                                ? "Please note: Botox® treatments are private services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib." 
-                                : "Bitte beachten Sie: Botox®-Behandlungen sind private Leistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib."}
+                                ? "Please note: botulinum toxin treatments are private self-pay services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib." 
+                                : "Bitte beachten Sie: Botulinumtoxin-Behandlungen sind private Selbstzahlerleistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib."}
                         </p>
                         <div className="space-y-3">
                             <button

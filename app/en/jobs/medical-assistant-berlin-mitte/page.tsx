@@ -132,7 +132,7 @@ export default function Page() {
                         <p>
                             Our practice is modern, digitalized and well equipped with ECG, lung function testing,
                             24-hour blood pressure monitoring and more. In addition to classic general practice care,
-                            we also offer thyroid diagnostics, nutritional medicine, infusion therapies and aesthetic treatments (e.g. Botox).
+                            we also offer thyroid diagnostics, nutritional medicine, infusion therapies and aesthetic treatments (e.g. botulinum toxin).
                         </p>
                     </div>
 

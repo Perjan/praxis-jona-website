@@ -1,4 +1,4 @@
-**Botulinumtoxin (Botox)** ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Durch die Injektion in einen Muskel führt es zu einer temporären Lähmung dieses Muskels, was Muskelkontraktionen verhindert. Dies kann ästhetische und medizinische Vorteile bieten, indem es die Haut glättet oder spezifische medizinische Symptome lindert. Da die Wirkung vorübergehend ist, sind regelmäßige Behandlungen erforderlich, um die gewünschten Ergebnisse beizubehalten.
+**Botulinumtoxin** ist ein Neurotoxin, das von dem Bakterium Clostridium botulinum produziert wird. Botox® ist eine eingetragene Marke; medizinisch sprechen wir allgemein von Botulinumtoxin. Durch die Injektion in einen Muskel kann es Muskelaktivität vorübergehend beeinflussen. Dies kann ästhetische und medizinische Vorteile bieten, indem es die Haut glättet oder spezifische medizinische Symptome lindert. Da die Wirkung vorübergehend ist, sind regelmäßige Behandlungen erforderlich, um die gewünschten Ergebnisse beizubehalten.
 
 ## Medizinische Anwendungen:
 1. **Hyperhidrose (übermäßiges Schwitzen):** Botulinumtoxin wird in die Haut von Bereichen wie Achseln, Händen und Füßen injiziert, um die Schweißproduktion signifikant zu reduzieren. Dies stellt eine wirksame Behandlung für Patienten dar, die unter schwerer Hyperhidrose leiden, welche auf herkömmliche Antitranspirante nicht anspricht.
@@ -6,7 +6,7 @@
 3. **Bruxismus (Zähneknirschen):** Bei Patienten, die unwillkürlich mit den Zähnen knirschen, kann Botulinumtoxin in die Kaumuskulatur injiziert werden, um diese zu entspannen und so das Zähneknirschen und die damit verbundenen Beschwerden zu reduzieren.
 
 ## Ästhetische Anwendungen:
-1. **Faltenbehandlung:** In der ästhetischen Medizin wird Botox am häufigsten zur Glättung mimischer Falten wie Zornesfalten, Stirnfalten und Krähenfüße eingesetzt. Durch die Reduktion der Muskelaktivität in diesen Bereichen wirkt die Haut glatter und jugendlicher.
+1. **Faltenbehandlung:** In der ästhetischen Medizin wird Botulinumtoxin häufig zur Glättung mimischer Falten wie Zornesfalten, Stirnfalten und Krähenfüße eingesetzt. Durch die Reduktion der Muskelaktivität in diesen Bereichen wirkt die Haut glatter und jugendlicher.
 2. **Gesichtsstraffung:** Botulinumtoxin kann auch in anderen Gesichtszonen injiziert werden, um gezielt bestimmte Muskeln zu entspannen und so ein jüngeres Aussehen zu erreichen.
 
 ## Nach der Behandlung:
