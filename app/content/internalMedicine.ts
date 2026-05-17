@@ -10,7 +10,7 @@ export const internalMedicineCategoryContent = {
     heroImage: {
       src: "/images/clinic/berlin-watercolor-hero.png",
       alt: "Aquarellillustration von Berlin mit Fernsehturm und Brücke",
-      objectPositionClass: "object-[62%_50%]",
+      objectPositionClass: "object-left",
       presentation: "vignette",
     },
     cta: "Termin buchen",
@@ -45,7 +45,7 @@ export const internalMedicineCategoryContent = {
     heroImage: {
       src: "/images/clinic/berlin-watercolor-hero.png",
       alt: "Watercolor illustration of Berlin with the TV tower and bridge",
-      objectPositionClass: "object-[62%_50%]",
+      objectPositionClass: "object-left",
       presentation: "vignette",
     },
     cta: "Book appointment",

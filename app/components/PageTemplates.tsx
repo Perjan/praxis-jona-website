@@ -117,7 +117,7 @@ function ServiceGrid({
 function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["heroImage"]> }) {
   if (image.presentation === "vignette") {
     return (
-      <div className="relative hidden min-h-[360px] overflow-hidden lg:block" aria-hidden="true">
+      <div className="relative hidden min-h-[360px] overflow-hidden lg:-mr-8 lg:block" aria-hidden="true">
         <Image
           src={image.src}
           alt=""
@@ -129,7 +129,7 @@ function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["hero
             WebkitMaskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
             maskImage: "radial-gradient(ellipse at center, #000 42%, rgba(0,0,0,0.72) 62%, transparent 86%)",
           }}
-          className={`absolute bottom-0 right-0 h-full w-auto max-w-none object-contain opacity-80 mix-blend-multiply animate-kenburns-subtle ${image.objectPositionClass ?? "object-right"}`}
+          className={`absolute inset-0 h-full w-full object-cover opacity-80 mix-blend-multiply animate-kenburns-subtle ${image.objectPositionClass ?? "object-left"}`}
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/45 to-white/5" />
       </div>
