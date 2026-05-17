@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowsRightLeftIcon, CheckCircleIcon, ClockIcon, MoonIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
 import { MotionCard, MotionSection } from "./Motion";
 import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
@@ -9,6 +10,7 @@ function JsonLd({ data }: { data: object }) {
 }
 
 const heroEyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
+const factIconComponents = [ClockIcon, ArrowsRightLeftIcon, MoonIcon, CheckCircleIcon];
 
 function CtaButtons({
   primary,
@@ -222,12 +224,21 @@ export function LandingPage({ content }: { content: LandingContent }) {
             </div>
             <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
               <dl className="space-y-5">
-                {content.facts.map((fact) => (
-                  <div key={fact.label}>
-                    <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primaryLighter">{fact.label}</dt>
-                    <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
-                  </div>
-                ))}
+                {content.facts.map((fact, index) => {
+                  const FactIcon = factIconComponents[index % factIconComponents.length];
+
+                  return (
+                    <div key={fact.label} className="flex gap-4">
+                      <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
+                        <FactIcon className="h-5 w-5" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
+                        <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
+                      </div>
+                    </div>
+                  );
+                })}
               </dl>
             </div>
           </div>
