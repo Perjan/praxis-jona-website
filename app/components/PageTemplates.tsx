@@ -53,20 +53,21 @@ function ServiceGrid({
   return (
     <div className={`mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 ${maxColumns === 3 ? "lg:grid-cols-3" : ""}`}>
       {services.map((service, index) => (
-        <MotionCard
-          key={`${service.href}-${service.title}`}
-          delay={Math.min(index * 0.04, 0.2)}
-          className="group flex h-full flex-col justify-between rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg"
-        >
-          <div>
-            {service.eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primaryLighter">{service.eyebrow}</p>}
-            <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{service.title}</h3>
-            <p className="mt-3 text-base leading-7 text-primaryLighter">{service.description}</p>
-          </div>
-          <Link href={service.href} className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">
-            {locale === "en" ? "Learn more" : "Mehr erfahren"}
-          </Link>
-        </MotionCard>
+        <Link key={`${service.href}-${service.title}`} href={service.href} className="block h-full">
+          <MotionCard
+            delay={Math.min(index * 0.04, 0.2)}
+            className="group flex h-full flex-col justify-between rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg"
+          >
+            <div>
+              {service.eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primaryLighter">{service.eyebrow}</p>}
+              <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{service.title}</h3>
+              <p className="mt-3 text-base leading-7 text-primaryLighter">{service.description}</p>
+            </div>
+            <span className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">
+              {locale === "en" ? "Learn more" : "Mehr erfahren"}
+            </span>
+          </MotionCard>
+        </Link>
       ))}
     </div>
   );
