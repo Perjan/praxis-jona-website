@@ -33,6 +33,7 @@ const navigationItemsEnglish = [
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
+const desktopNavItemClassName = "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600"
 
 const downloadUrl = Constants.downloadUrl
 
@@ -146,7 +147,7 @@ export default function Header() {
                                 scroll={true}
                                 className={
                                     cn(pathname === item.href ? "text-green-700" : "text-gray-900",
-                                        "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600")
+                                        desktopNavItemClassName)
                                 }
                             >{item.title}
                             </Link>
@@ -155,8 +156,13 @@ export default function Header() {
                     </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} />
                 </div>
-                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex items-center">
-                    <LanguagePicker locale={locale} pathname={pathname} />
+                <div className="hidden mt-0 pl-4 space-x-1 md:order-1 lg:flex items-center">
+                    <LanguagePicker
+                        locale={locale}
+                        pathname={pathname}
+                        linkClassName={desktopNavItemClassName}
+                        separatorClassName={desktopNavItemClassName}
+                    />
                 </div>
             </nav>
             <MobileMenuDialog
