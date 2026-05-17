@@ -1,85 +1,57 @@
 import { Metadata } from "next";
-import SectionWithColor from "app/SectionWithColor";
-import Link from "next/link";
-import React from "react";
+import { LandingPage } from "app/components/BetaPages";
+import { buildMetadata } from "app/components/pageMetadata";
+import type { LandingContent } from "app/components/betaContent";
 
-const title = "Individualized Infusion Therapy for Micronutrient Deficiency";
-const description = "In our Berlin practice, we offer targeted infusion therapy for medically confirmed deficiencies such as iron, vitamin B12, or folate — tailored to your lab results and clinical needs.";
-const url = "/en/services/infusion-therapy";
-
-export const metadata: Metadata = {
-  title,
-  description,
-  openGraph: {
-    title,
-    description,
-    type: "website",
-    url,
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 600,
-        alt: "Praxis Jona"
-      }
-    ]
-  },
-  alternates: {
-    canonical: url,
-    languages: {
-      en: url,
-      de: "/leistungen/infusionstherapie"
-    }
-  },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
-    images: ["/images/og-image.png"]
-  }
+const content: LandingContent = {
+  locale: "en",
+  title: "Infusion Therapy in Berlin-Mitte",
+  eyebrow: "Iron, B12, folic acid & vitamins",
+  description: "Infusion therapy in Berlin-Mitte for medically assessed iron, vitamin B12, folic acid or micronutrient deficiency.",
+  canonical: "/en/services/infusion-therapy",
+  alternate: "/leistungen/infusionstherapie",
+  cta: "Book assessment",
+  secondaryCta: "View iron infusion",
+  secondaryHref: "/en/services/iron-infusion-costs",
+  intro: "At Praxis Jona, infusions are not a generic wellness product. They are planned after medical assessment and with suitable indication.",
+  facts: [
+    { label: "Focus", value: "Iron, B12, folic acid, vitamins" },
+    { label: "Basis", value: "Symptoms, history, lab values" },
+    { label: "Indication", value: "targeted after medical assessment" },
+    { label: "Process", value: "consultation, value review, infusion" },
+    { label: "Iron infusion", value: "Fixed price €150.95" },
+    { label: "Important", value: "not a generic wellness infusion" },
+  ],
+  sections: [
+    { title: "What is infusion therapy?", body: ["With infusion therapy, selected substances are administered intravenously. At Praxis Jona this is not done generically, but after medical assessment and with a suitable medical question."] },
+    { title: "When infusions may be useful", body: ["Infusions may be considered when a relevant deficiency is present, oral supplements are not sufficient or are not well tolerated."], bullets: ["iron deficiency", "vitamin B12 or folic acid deficiency", "targeted repletion after lab findings", "medically justified indication"] },
+    { title: "How assessment works", body: ["Before an infusion, we review symptoms, medical history and available lab values. If values are missing, we discuss which diagnostics are useful."] },
+    { title: "Cost and transparency", body: ["Infusions are private medical services under GOÄ. The iron infusion has a fixed price of €150.95. Any further costs are discussed in advance."] },
+    { title: "Limits and safety", body: ["Not every case of fatigue or low energy is caused by deficiency. We therefore discuss benefit, limits and possible risks individually before infusion."] },
+  ],
+  related: [
+    { title: "Iron infusion", href: "/en/services/iron-infusion-costs", description: "Cost, process and medical positioning." },
+    { title: "Micronutrient analysis", href: "/en/services/micronutrient-analysis", description: "Lab-based planning for possible deficiencies." },
+    { title: "Health / Longevity", href: "/en/health-longevity", description: "Prevention, nutrition, infusions and check-ups." },
+  ],
+  faq: [
+    { question: "Do I need lab values?", answer: "If current values are available, we include them. If needed, we discuss useful diagnostics." },
+    { question: "What does the iron infusion cost?", answer: "The iron infusion has a fixed price of €150.95." },
+    { question: "Are infusions always useful?", answer: "No. The decision depends on findings, symptoms and the overall medical situation." },
+    { question: "When is a vitamin infusion useful?", answer: "A vitamin infusion may be discussed when there is a suitable medical question or relevant deficiency. It is not a standard option for every patient." },
+    { question: "What happens if I do not have lab values?", answer: "We discuss which values are medically useful and whether an infusion is appropriate without further diagnostics." },
+    { question: "Can an infusion replace tablets?", answer: "Sometimes an infusion may be useful when oral supplements are not tolerated or are not effective enough. This is decided individually." },
+  ],
 };
 
+export const metadata: Metadata = buildMetadata({
+  title: content.title,
+  description: content.description,
+  canonical: content.canonical,
+  alternate: content.alternate,
+  locale: content.locale,
+});
+
 export default function Page() {
-  return (
-    <div className="overflow-hidden bg-white relative isolate">
-      <SectionWithColor backgroundClassName="bg-white">
-        <div className="mx-auto max-w-4xl lg:mx-0">
-          <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
-        </div>
-      </SectionWithColor>
-
-      <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mb-12">
-        <SectionWithColor backgroundClassName="bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden">
-          <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Iron infusions for iron deficiency</h2>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            Iron deficiency can lead to fatigue, reduced concentration, hair loss, or recurrent infections — even when hemoglobin is still within range.
-          </p>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            If relevant deficiency is confirmed (e.g., ferritin, transferrin saturation), iron infusion can be medically useful,
-            especially when oral supplementation is not tolerated or not sufficient.
-          </p>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            Billing is based on the German Medical Fee Schedule (GOÄ); the treatment is offered at a fixed price of €150.95.
-          </p>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            Looking for pricing details? See our
-            <Link className="underline ml-1" href="/en/services/iron-infusion-costs">iron infusion costs page</Link>.
-          </p>
-
-          <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Vitamin B12 and folate infusions</h2>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            Deficiencies in vitamin B12 or folate may occur gradually and can affect energy levels, neurological function, and blood parameters.
-            After diagnostics, we offer individualized infusion protocols to replenish stores effectively.
-          </p>
-
-          <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Costs and billing</h2>
-          <p className="mt-2 text-lg leading-8 text-primaryLighter">
-            These treatments are private medical services billed under GOÄ.
-            Final costs depend on indication and treatment scope, and are discussed transparently before treatment.
-          </p>
-        </SectionWithColor>
-      </div>
-    </div>
-  );
+  return <LandingPage content={content} />;
 }

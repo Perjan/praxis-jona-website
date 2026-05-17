@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
-import ConsultationPromiseDE from "app/components/ConsultationPromiseDE";
+import ConsultationPromise from "app/components/ConsultationPromise";
 import React from "react";
 import { Constants } from "app/Constants";
 
@@ -105,7 +105,7 @@ export default function Page() {
                     </div>
                 </div>
 
-                <ConsultationPromiseDE />
+                <ConsultationPromise />
             </div>
         </>
     )

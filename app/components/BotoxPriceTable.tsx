@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { pricingSections } from "app/components/pricing/pricingData";
 
 export type Treatment = {
     nameDE: string;
@@ -16,21 +17,14 @@ interface BotoxPriceTableProps {
 const DISCOUNT_PERCENTAGE = 10;
 const SHOW_DISCOUNT = false;
 
-const treatments: Treatment[] = [
-    { nameDE: "Beratung ohne Behandlung ²", nameEN: "Consultation Without Treatment ²", price: 49 },
-    { nameDE: "Zornesfalte", nameEN: "Frown Lines", price: 199, hasDiscount: false },
-    { nameDE: "Stirnfalten", nameEN: "Forehead Wrinkles", price: 199, hasDiscount: false },
-    { nameDE: "Browlift", nameEN: "Brow Lift", price: 159, hasDiscount: false },
-    { nameDE: "Krähenfüße", nameEN: "Crow's Feet", price: 199, hasDiscount: false },
-    { nameDE: "Bunny Lines", nameEN: "Bunny Lines", price: 159, hasDiscount: false },
-    { nameDE: "2-Zonen", nameEN: "2 Zones", price: 349, hasDiscount: true },
-    { nameDE: "3-Zonen", nameEN: "3 Zones", price: 449, hasDiscount: true },
-    { nameDE: "4-Zonen", nameEN: "4 Zones", price: 499, hasDiscount: true },
-    { nameDE: "Erdbeerkinn", nameEN: "Strawberry Chin", price: 199, hasDiscount: false },
-    { nameDE: "Platysma", nameEN: "Platysma", price: 349, hasDiscount: true },
-    { nameDE: "Bruxismus (Zähneknirschen) oder Faceslimming", nameEN: "Bruxism (teeth grinding) or face slimming", price: 349, hasDiscount: true },
-    { nameDE: "Schweißdrüsenbehandlung (Hyperhidrose)", nameEN: "Sweat Gland Treatment (hyperhidrosis)", price: 549, hasDiscount: true },
-];
+const treatments: Treatment[] = pricingSections.botox.rows
+    .filter((row) => typeof row.price?.amount === "number")
+    .map((row, index) => ({
+        nameDE: `${row.label.de}${index === 0 ? " ²" : ""}`,
+        nameEN: `${row.label.en}${index === 0 ? " ²" : ""}`,
+        price: row.price?.amount ?? 0,
+        hasDiscount: row.discountEligible,
+    }));
 
 export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTableProps) {
     const [showInsuranceDialog, setShowInsuranceDialog] = useState(false);

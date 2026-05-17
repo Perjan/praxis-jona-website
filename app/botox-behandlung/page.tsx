@@ -1,103 +1,111 @@
 import { Metadata } from "next";
-import SectionWithColor from "app/SectionWithColor";
-import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
-import Link from "next/link";
+import { LandingPage } from "app/components/BetaPages";
+import { buildMetadata } from "app/components/pageMetadata";
+import type { LandingContent } from "app/components/betaContent";
 
-const title = 'Botulinumtoxin Behandlung'
-const description = "Botulinumtoxin (Botox) zur medizinischen und ästhetischen Behandlung in der Praxis Jona mit individueller ärztlicher Beratung und sicherer Anwendung."
-const url = '/botox-behandlung'
+const content: LandingContent = {
+  locale: "de",
+  title: "Botulinumtoxin (Botox) in Berlin-Mitte",
+  eyebrow: "Botulinumtoxin Behandlung",
+  description: "Botulinumtoxin beziehungsweise Botox in Berlin-Mitte: ärztliche Beratung, natürlich wirkende Planung, transparente Preise und Behandlung in der Praxis Jona am Rosenthaler Platz.",
+  canonical: "/botox-behandlung",
+  alternate: "/en/botox-treatment",
+  cta: "Termin buchen",
+  secondaryCta: "Preise ansehen",
+  secondaryHref: "/botox-preise",
+  intro: "In der Praxis Jona erfolgt jede Behandlung mit Botulinumtoxin auf Grundlage einer persönlichen ärztlichen Beratung. Im Mittelpunkt stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein Behandlungsplan, der zu Ihrer Mimik, Anatomie und persönlichen Situation passt.",
+  facts: [
+    { label: "Behandlungsdauer", value: "ca. 10-15 Minuten" },
+    { label: "Betäubung", value: "meist nicht erforderlich" },
+    { label: "Gesellschaftsfähigkeit", value: "häufig direkt danach" },
+    { label: "Wirkungseintritt", value: "meist nach 3-14 Tagen" },
+    { label: "Wirkungsdauer", value: "häufig ca. 3-6 Monate" },
+    { label: "Kosten", value: "ab 159 €, je nach Zone" },
+  ],
+  sections: [
+    {
+      title: "Was ist Botulinumtoxin?",
+      body: [
+        "Botulinumtoxin ist ein verschreibungspflichtiger Wirkstoff, der Muskelaktivität vorübergehend beeinflussen kann. In der ästhetischen Medizin wird er vor allem bei mimischen Falten eingesetzt.",
+        "Ob eine Behandlung sinnvoll ist, hängt von Befund, Mimik, Anatomie und Ihren Zielen ab. Deshalb beginnt die Behandlung nicht mit einer Standarddosis, sondern mit einer ärztlichen Einschätzung."
+      ],
+    },
+    {
+      title: "Welche Bereiche behandelt werden können",
+      body: ["Häufige ästhetische Behandlungsbereiche sind Stirnfalten, Zornesfalte und Krähenfüße. Je nach Befund können auch Bunny Lines, Browlift, Erdbeerkinn oder Platysma besprochen werden."],
+      bullets: ["Stirnfalten", "Zornesfalte", "Krähenfüße", "Browlift", "Bunny Lines", "Erdbeerkinn", "Platysma"]
+    },
+    {
+      title: "Natürlich wirkende Planung",
+      body: [
+        "Viele Patientinnen und Patienten wünschen sich ein frischeres, entspannteres Erscheinungsbild, ohne dass die Mimik unnatürlich wirkt. Deshalb planen wir Dosierung und Areale individuell.",
+        "Wir behandeln nicht nach Schema, sondern nach Muskelaktivität, Gesichtsanatomie und gewünschtem Ergebnis."
+      ],
+    },
+    {
+      title: "Ablauf der Behandlung",
+      body: [
+        "Vor jeder Behandlung besprechen wir Ihre Wünsche, geeignete Bereiche, den Ablauf, die Kosten sowie mögliche Grenzen und Risiken.",
+        "Die Behandlung selbst dauert in der Regel nur wenige Minuten. Anschließend erhalten Sie konkrete Hinweise für die Zeit nach der Behandlung."
+      ],
+    },
+    {
+      title: "Wann wirkt Botox und wie lange hält es?",
+      body: [
+        "Die Wirkung zeigt sich meist nicht sofort. Häufig beginnt sie nach einigen Tagen und entwickelt sich innerhalb von etwa 3 bis 14 Tagen weiter.",
+        "Wie lange die Wirkung anhält, ist individuell unterschiedlich. Häufig liegt die Dauer bei etwa 3 bis 6 Monaten, abhängig von Region, Muskelaktivität und persönlicher Reaktion."
+      ],
+    },
+    {
+      title: "Kosten und Botox-Preise",
+      body: [
+        "Die Kosten richten sich nach Zone und individuellem Aufwand. Eine erste Orientierung finden Sie in der transparenten Preisübersicht.",
+        "Alle Preise werden vor der Behandlung ärztlich besprochen. Die Behandlung ist eine Privatleistung."
+      ],
+      bullets: ["Botox-Preise ab 159 €", "Beratung ohne Behandlung ab 49 €", "Kombinationszonen mit eigener Preisstaffel"]
+    },
+    {
+      title: "Risiken, Grenzen und Nebenwirkungen",
+      body: [
+        "Wie bei jeder medizinischen Behandlung können Nebenwirkungen auftreten, zum Beispiel vorübergehende Rötungen, kleine Blutergüsse, Druckgefühl oder ein ungewohntes Spannungsgefühl.",
+        "Seltene oder individuelle Risiken sowie Grenzen der Behandlung werden im ärztlichen Gespräch erklärt. Es gibt kein garantiertes Ergebnis."
+      ],
+    },
+  ],
+  related: [
+    { title: "Botox Preise", href: "/botox-preise", description: "Transparente Preisübersicht für einzelne Zonen und Kombinationen." },
+    { title: "Ästhetik", href: "/aesthetik", description: "Alle ästhetischen Behandlungen der Praxis Jona." },
+    { title: "Hautbild & Regeneration", href: "/aesthetik/hautbild-verbessern", description: "Regenerative Verfahren wie PRP, Microneedling und Polynukleotide." },
+  ],
+  faq: [
+    { question: "Was ist Botox beziehungsweise Botulinumtoxin?", answer: "Botulinumtoxin ist ein verschreibungspflichtiger Wirkstoff, der Muskelaktivität vorübergehend beeinflussen kann. Umgangssprachlich wird häufig der Markenname Botox verwendet." },
+    { question: "Ist Botox für mich geeignet?", answer: "Ob eine Behandlung geeignet ist, hängt von Ziel, Befund und gesundheitlicher Situation ab. Das klären wir im persönlichen Gespräch." },
+    { question: "Wann beginnt Botox zu wirken?", answer: "Die Wirkung zeigt sich meist nach einigen Tagen und entwickelt sich häufig innerhalb von 3 bis 14 Tagen weiter. Der genaue Verlauf ist individuell." },
+    { question: "Wie lange hält Botox?", answer: "Die Wirkung hält häufig etwa 3 bis 6 Monate an. Dauer und Stärke hängen unter anderem von Region, Muskelaktivität und individueller Reaktion ab." },
+    { question: "Wie oft kann eine Behandlung wiederholt werden?", answer: "Eine Wiederholung kann nach individueller ärztlicher Einschätzung sinnvoll sein, wenn die Wirkung nachlässt. Der Abstand wird im Termin besprochen." },
+    { question: "Was kostet Botox in Berlin-Mitte?", answer: "Die Preise starten je nach Zone ab 159 €. Eine vollständige Übersicht finden Sie auf der Botox-Preisseite." },
+    { question: "Kann man Stirnfalten oder die Zornesfalte gezielt behandeln?", answer: "Ja, Stirnfalten und Zornesfalte gehören zu den häufig besprochenen Bereichen. Ob und wie behandelt wird, hängt von Mimik, Anatomie und Befund ab." },
+    { question: "Welche Nebenwirkungen sind möglich?", answer: "Möglich sind zum Beispiel vorübergehende Rötungen, kleine Blutergüsse, Druckgefühl oder ein ungewohntes Spannungsgefühl. Individuelle Risiken werden vorab ärztlich besprochen." },
+    { question: "Wirkt das Ergebnis natürlich?", answer: "Unser Ansatz ist zurückhaltend und individuell. Ziel ist ein Ergebnis, das zu Ihrem Gesicht passt, ohne die Mimik unnötig zu verändern." },
+  ],
+};
 
-export const metadata: Metadata = {
-    title: title,
-    description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: url,
-        images: [
-            {
-                url: '/images/og-image.png',
-                width: 1200,
-                height: 600,
-                alt: 'Praxis Jona'
-            }
-        ],
-    },
-    alternates: {
-        canonical: url,
-        languages: {
-            de: url,
-            en: "/en/botox-treatment",
-            "x-default": url
-        }
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/og-image.png']
-    }
-}
+export const metadata: Metadata = buildMetadata({
+  title: content.title,
+  description: content.description,
+  canonical: content.canonical,
+  alternate: content.alternate,
+  locale: content.locale,
+});
 
 export default function Page() {
-    return (
-        <>
-            <div className="overflow-hidden bg-white relative isolate">
-                <SectionWithColor backgroundClassName='bg-white'>
-                    <div className="mx-auto max-w-4xl lg:mx-0">
-                        <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
-                    </div>
-                </SectionWithColor>
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto">
-                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl'>
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Medizinische Anwendungen</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Hyperhidrose (übermäßiges Schwitzen)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinumtoxin wird in die Haut von Bereichen wie Achseln, Händen und Füßen injiziert, um die Schweißproduktion signifikant zu reduzieren. Dies stellt eine wirksame Behandlung für Patienten dar, die unter schwerer Hyperhidrose leiden, welche auf herkömmliche Antitranspirante nicht anspricht.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Migränebehandlung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Bei Patienten mit chronischer Migräne kann Botulinumtoxin helfen, die Anzahl und Schwere der Kopfschmerzattacken zu reduzieren. Es wird in spezifische Muskeln rund um den Kopf und Nacken injiziert, was die Muskelspannung reduziert, die häufig zu Migräneanfällen beiträgt.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Bruxismus (Zähneknirschen)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Bei Patienten, die unwillkürlich mit den Zähnen knirschen, kann Botulinumtoxin in die Kaumuskulatur injiziert werden, um diese zu entspannen und so das Zähneknirschen und die damit verbundenen Beschwerden zu reduzieren.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Ästhetische Anwendungen</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Faltenbehandlung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">In der ästhetischen Medizin wird Botox am häufigsten zur Glättung mimischer Falten wie Zornesfalten, Stirnfalten und Krähenfüße eingesetzt. Durch die Reduktion der Muskelaktivität in diesen Bereichen wirkt die Haut glatter und jugendlicher.</p>
-                            </li>
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Gesichtsstraffung</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinumtoxin kann auch in anderen Gesichtszonen injiziert werden, um gezielt bestimmte Muskeln zu entspannen und so ein jüngeres Aussehen zu erreichen.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Nach der Behandlung</h2>
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-2 leading-8 text-primaryLighter">Nach der Injektion von Botulinumtoxin sollten Patienten auf körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche für etwa 3-4 Tage verzichten.</li>
-                            <li className="mt-2 leading-8 text-primaryLighter">Die Injektionsstellen sollten nicht massiert oder Druck ausgesetzt werden, um eine unerwünschte Verteilung des Toxins zu verhindern.</li>
-                        </ul>
-                    </SectionWithColor>
-                </div>
-
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
-                    <BotoxPriceTable isEnglish={false} />
-                    <div className="mt-6 mb-2 text-center">
-                        <Link href="/botox-preise" className="text-primary underline">
-                            Zu den aktuellen Botox-Preisen
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <LandingPage content={content} />
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <BotoxPriceTable isEnglish={false} />
+      </div>
+    </>
+  );
 }

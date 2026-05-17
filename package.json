@@ -25,6 +25,7 @@
     "date-fns": "^2.29.3",
     "eslint": "8.36.0",
     "eslint-config-next": "^13.4.6",
+    "framer-motion": "^12.38.0",
     "headlessui": "^0.0.0",
     "jspdf": "^3.0.3",
     "mdast-util-toc": "^7.0.0",

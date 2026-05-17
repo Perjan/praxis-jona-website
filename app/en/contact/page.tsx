@@ -1,4 +1,4 @@
-import ContactSection from "app/ContactEN";
+import ContactSection from "app/Contact";
 import { Constants } from "app/Constants";
 import { Metadata } from "next";
 
@@ -74,11 +74,11 @@ export default function Page() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-            <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Praxis Jona - Practice for General Medicine, Internal Medicine with a focus on Thyroid, Hypertension and Lipidology.</h2>
+            <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Praxis Jona - Practice for Internal Medicine with a focus on Thyroid, Hypertension and Lipidology.</h2>
             <h2 className="mt-2 text-lg leading-8 text-primaryLighter">Please feel free to contact us directly.</h2>
           </div>
           <div className="mt-20">
-            <ContactSection />
+            <ContactSection locale="en" />
           </div>
           
         </div>

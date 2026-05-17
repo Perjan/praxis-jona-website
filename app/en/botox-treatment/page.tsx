@@ -1,110 +1,111 @@
 import { Metadata } from "next";
-import SectionWithColor from "app/SectionWithColor";
-import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
-import Link from "next/link";
+import { LandingPage } from "app/components/BetaPages";
+import { buildMetadata } from "app/components/pageMetadata";
+import type { LandingContent } from "app/components/betaContent";
 
-const title = 'Botox'
-const description = "Botox treatment at Praxis Jona for medical and aesthetic indications with individualized consultation and physician-led care."
-const url = '/en/botox-treatment'
+const content: LandingContent = {
+  locale: "en",
+  title: "Botulinum Toxin (Botox) in Berlin-Mitte",
+  eyebrow: "Botulinum toxin treatment",
+  description: "Botulinum toxin / Botox in Berlin-Mitte with physician-led consultation, natural-looking planning, transparent prices and treatment at Praxis Jona near Rosenthaler Platz.",
+  canonical: "/en/botox-treatment",
+  alternate: "/botox-behandlung",
+  cta: "Book appointment",
+  secondaryCta: "View prices",
+  secondaryHref: "/en/botox-prices",
+  intro: "At Praxis Jona, every botulinum toxin treatment is based on personal medical consultation. The focus is careful assessment, realistic information and a treatment plan that fits your facial expression, anatomy and personal situation.",
+  facts: [
+    { label: "Treatment time", value: "approx. 10-15 minutes" },
+    { label: "Anaesthesia", value: "usually not required" },
+    { label: "Downtime", value: "often none" },
+    { label: "Onset", value: "usually after 3-14 days" },
+    { label: "Duration", value: "often approx. 3-6 months" },
+    { label: "Cost", value: "from €159, depending on area" },
+  ],
+  sections: [
+    {
+      title: "What is botulinum toxin?",
+      body: [
+        "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. In aesthetic medicine, it is mainly used for expression lines.",
+        "Whether treatment is suitable depends on findings, facial movement, anatomy and your goals. The treatment therefore starts with medical assessment, not with a standard dose."
+      ],
+    },
+    {
+      title: "Areas that may be treated",
+      body: ["Common aesthetic treatment areas include forehead lines, frown lines and crow's feet. Depending on findings, bunny lines, brow lift, strawberry chin or platysma can also be discussed."],
+      bullets: ["forehead lines", "frown lines", "crow's feet", "brow lift", "bunny lines", "strawberry chin", "platysma"]
+    },
+    {
+      title: "Natural-looking planning",
+      body: [
+        "Many patients want a fresher, more relaxed appearance without an unnatural facial expression. We therefore plan dose and treatment areas individually.",
+        "We do not treat by template. Planning is based on muscle activity, facial anatomy and the desired result."
+      ],
+    },
+    {
+      title: "Treatment process",
+      body: [
+        "Before treatment, we discuss your goals, suitable areas, process, cost, possible limits and risks.",
+        "The treatment itself usually takes only a few minutes. Afterwards, you receive specific aftercare guidance."
+      ],
+    },
+    {
+      title: "When does Botox start working and how long does it last?",
+      body: [
+        "The effect is usually not immediate. It often begins after a few days and develops further within about 3 to 14 days.",
+        "How long the effect lasts varies individually. It often lasts around 3 to 6 months, depending on area, muscle activity and personal response."
+      ],
+    },
+    {
+      title: "Costs and Botox prices",
+      body: [
+        "Costs depend on treatment area and individual scope. The transparent price overview gives an initial orientation.",
+        "All prices are discussed before treatment. Botulinum toxin treatment is a private self-pay service."
+      ],
+      bullets: ["Botox prices from €159", "Consultation without treatment from €49", "Combination areas with separate pricing"]
+    },
+    {
+      title: "Risks, limits and side effects",
+      body: [
+        "As with any medical treatment, side effects may occur, such as temporary redness, small bruises, pressure sensation or an unfamiliar feeling of tightness.",
+        "Rare or individual risks as well as treatment limits are explained during the medical consultation. Results cannot be guaranteed."
+      ],
+    },
+  ],
+  related: [
+    { title: "Botox prices", href: "/en/botox-prices", description: "Transparent price overview for individual areas and combinations." },
+    { title: "Aesthetics", href: "/en/aesthetics", description: "All aesthetic treatments at Praxis Jona." },
+    { title: "Skin quality & regeneration", href: "/en/aesthetics/improve-skin-quality", description: "Regenerative procedures such as PRP, microneedling and polynucleotides." },
+  ],
+  faq: [
+    { question: "What is Botox or botulinum toxin?", answer: "Botulinum toxin is a prescription-only substance that can temporarily influence selected muscle activity. Botox is a brand name often used colloquially." },
+    { question: "Is Botox suitable for me?", answer: "Suitability depends on your goals, findings and medical situation. We clarify this in personal consultation." },
+    { question: "When does Botox start working?", answer: "The effect usually appears after a few days and often develops further within 3 to 14 days. The exact timing varies individually." },
+    { question: "How long does Botox last?", answer: "The effect often lasts around 3 to 6 months. Duration and strength depend on area, muscle activity and individual response." },
+    { question: "How often can treatment be repeated?", answer: "Repeat treatment may be considered after medical assessment once the effect wears off. Timing is discussed individually." },
+    { question: "How much does Botox cost in Berlin-Mitte?", answer: "Prices start from €159 depending on treatment area. The full overview is available on the Botox prices page." },
+    { question: "Can forehead lines or frown lines be treated specifically?", answer: "Yes, forehead lines and frown lines are commonly discussed areas. Suitability and planning depend on facial movement, anatomy and findings." },
+    { question: "What side effects are possible?", answer: "Possible side effects include temporary redness, small bruises, pressure sensation or an unfamiliar feeling of tightness. Individual risks are discussed before treatment." },
+    { question: "Can results look natural?", answer: "Our approach is measured and individual. The goal is a result that fits your face without unnecessarily changing facial expression." },
+  ],
+};
 
-export const metadata: Metadata = {
-    title: title,
-    description: description,
-    openGraph: {
-        title: title,
-        description: description,
-        type: 'website',
-        url: url,
-        images: [
-            {
-                url: '/images/og-image.png',
-                width: 1200,
-                height: 600,
-                alt: 'Praxis Jona'
-            }
-        ],
-    },
-    alternates: {
-        canonical: url,
-        languages: {
-            en: url,
-            de: "/botox-behandlung"
-        }
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: title,
-        description: description,
-        images: ['/images/og-image.png']
-    }
-}
+export const metadata: Metadata = buildMetadata({
+  title: content.title,
+  description: content.description,
+  canonical: content.canonical,
+  alternate: content.alternate,
+  locale: content.locale,
+});
 
 export default function Page() {
-
-    return (
-        <>
-            <div className="overflow-hidden bg-white relative isolate">
-                <SectionWithColor backgroundClassName='bg-white'>
-                    <div className="mx-auto max-w-4xl lg:mx-0">
-                        <h1 className="text-3xl font-semibold tracking-tight font-serif text-primary sm:text-4xl">{title}</h1>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">{description}</p>
-                    </div>
-                </SectionWithColor>
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto">
-                    <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl'>
-                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Medical Applications</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Hyperhidrosis (excessive sweating)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin is injected into the skin of areas such as armpits, hands, and feet to significantly reduce sweat production. This provides an effective treatment for patients suffering from severe hyperhidrosis that does not respond to conventional antiperspirants.</p>
-                            </li>
-
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Migraine Treatment</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients with chronic migraines, botulinum toxin can help reduce the number and severity of headache attacks. It is injected into specific muscles around the head and neck, reducing muscle tension that often contributes to migraine attacks.</p>
-                            </li>
-
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Bruxism (teeth grinding)</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">For patients who involuntarily grind their teeth, botulinum toxin can be injected into the masticatory muscles to relax them, thus reducing teeth grinding and associated discomfort.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">Aesthetic Applications</h2>
-                        <ol className="list-decimal pl-5">
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Wrinkle Treatment</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">In aesthetic medicine, Botox is most commonly used to smooth expression lines such as frown lines, forehead wrinkles, and crow's feet. By reducing muscle activity in these areas, the skin appears smoother and more youthful.</p>
-                            </li>
-
-                            <li>
-                                <h3 className="text-xl mt-2 font-serif font-medium leading-8 text-primaryLighter">Facial Tightening</h3>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Botulinum toxin can also be injected into other facial areas to selectively relax certain muscles and achieve a younger appearance.</p>
-                            </li>
-                        </ol>
-
-                        <h2 className="text-2xl mt-8 font-serif font-medium leading-8 text-primaryLighter">After Treatment</h2>
-
-                        <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
-                            <li className="mt-2 leading-8 text-primaryLighter">After the injection of botulinum toxin, patients should avoid physical activities such as sports, swimming, and sauna visits for about 3-4 days.</li>
-
-                            <li className="mt-2 leading-8 text-primaryLighter">The injection sites should not be massaged or subjected to pressure to prevent unwanted distribution of the toxin.</li>
-                        </ul>
-
-
-                    </SectionWithColor>
-                </div>
-                
-                <div className="px-4 lg:px-0 bg-white max-w-7xl mx-auto sm:mb-16">
-                    <BotoxPriceTable isEnglish={true} />
-                    <div className="mt-6 mb-2 text-center">
-                        <Link href="/en/botox-prices" className="text-primary underline">
-                            View current Botox prices
-                        </Link>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <LandingPage content={content} />
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <BotoxPriceTable isEnglish={true} />
+      </div>
+    </>
+  );
 }

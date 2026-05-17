@@ -17,20 +17,18 @@ import { Constants } from './Constants'
 import { LanguagePicker } from './LanguagePicker'
 
 const navigationItemsGerman = [
-    { title: "Schwerpunkte", href: "/schwerpunkte" },
-    { title: "Leistungen", href: "/leistungen" },
-    { title: "Prävention", href: "/praevention" },
+    { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
+    { title: "Ästhetik", href: "/aesthetik" },
+    { title: "Health / Longevity", href: "/health-longevity" },
     { title: "Team", href: "/team" },
-    { title: "Aktuelles", href: "/aktuelles" },
     { title: "Kontakt", href: "/kontakt" }
 ]
 
 const navigationItemsEnglish = [
-    { title: "Specialty Areas", href: "/en/focus-areas" },
-    { title: "Services", href: "/en/services" },
-    { title: "Prevention", href: "/en/prevention" },
+    { title: "Internal Medicine", href: "/en/general-medicine" },
+    { title: "Aesthetics", href: "/en/aesthetics" },
+    { title: "Health / Longevity", href: "/en/health-longevity" },
     { title: "Team", href: "/en/team" },
-    { title: "Latest News", href: "/en/latest-news" },
     { title: "Contact", href: "/en/contact" }
 ]
 
@@ -70,6 +68,7 @@ export default function Header() {
     const scrollPosition = useScrollPosition()
 
     const locale = localeFromPathname(pathname)
+    const isHomepage = pathname === "/" || pathname === "/en"
 
     var navigationItems = []
 
@@ -94,7 +93,8 @@ export default function Header() {
         <header
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                'sticky top-0 z-20 transition-shadow backdrop-blur-md bg-white/30',
+                isHomepage ? 'bg-white/30' : 'border-b border-primary/10 bg-white/95',
+                'sticky top-0 z-20 transition-shadow backdrop-blur-md',
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">

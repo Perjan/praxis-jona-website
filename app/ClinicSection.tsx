@@ -1,4 +1,3 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 
 export default function ClinicSection(params: { title: string, description1: string, description2: string, description3: string }) {
@@ -24,14 +23,14 @@ export default function ClinicSection(params: { title: string, description1: str
             <div className='flex flex-col items-center lg:items-start'>
               <Image
                 src="/images/clinic/clinic-1.jpeg"
-                alt="Product screenshot"
+                alt="Behandlungsraum der Praxis Jona in Berlin-Mitte"
                 className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
                 width={1432}
                 height={1442}
               />
               <Image
                 src="/images/clinic/clinic-2.jpeg"
-                alt="Your second image description"
+                alt="Ruhige Praxisatmosphäre der Praxis Jona"
                 className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
                 width={1432}
                 height={1442}

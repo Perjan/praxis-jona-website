@@ -5,6 +5,7 @@ interface QuoteSectionParams {
   quote: string;
   buttonLink?: string;
   buttonText?: string;
+  role?: string;
 }
 
 export default function QuoteSection(params: QuoteSectionParams) {
@@ -31,7 +32,7 @@ export default function QuoteSection(params: QuoteSectionParams) {
               <div className="font-semibold text-xl font-serif text-primary">Dr. med. Jonida Gjolli</div>
             </div>
             <div className="flex items-center justify-center space-x-3 text-base">
-              <div className="font-regular text-primaryLighter">Fachärztin für Innere Medizin</div>
+              <div className="font-regular text-primaryLighter">{params.role ?? "Fachärztin für Innere Medizin"}</div>
             </div>
           </figcaption>
         </figure>

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { appsDE } from 'app/data/appsDE';
+import { appsByLocale } from 'app/data/apps';
 import AppsPageBody from 'app/components/AppsPageComponents';
 
 const title = "Unsere Gesundheits-Apps"
@@ -41,6 +41,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AppsPageBody title={title} description={description} apps={appsDE} />
+    <AppsPageBody title={title} description={description} apps={appsByLocale.de} />
   )
 }

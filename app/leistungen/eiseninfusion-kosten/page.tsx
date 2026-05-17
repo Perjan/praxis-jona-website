@@ -49,7 +49,7 @@ export default function Page() {
         name: "Was kostet eine Eiseninfusion?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Die Kosten starten in unserer Praxis typischerweise ab 150,95 Euro. Der Endpreis hängt u. a. von der benötigten Eisendosis und dem individuellen Befund ab."
+          text: "Die Eiseninfusion kostet in unserer Praxis als Festpreis 150,95 Euro. Falls zusätzliche Diagnostik oder Beratung erforderlich ist, wird dies vorab transparent besprochen."
         }
       },
       {

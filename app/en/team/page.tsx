@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Metadata } from 'next';
-import DoctorSection from './DoctorSectionEN';
+import DoctorSection from 'app/team/DoctorSection';
 
 const people = [
   {
@@ -69,7 +69,7 @@ export default function Page() {
   return (
     <div className="bg-white">
       <h1 className="sr-only">Team at Praxis Jona</h1>
-      <DoctorSection />
+      <DoctorSection locale="en" />
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 className="mt-20 text-2xl font-serif tracking-tight text-primary sm:text-3xl">Our Team</h2>
         <ul
