@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import { pricingSections, type PricingPageConfig } from "app/components/pricing/pricingData";
+import { buildPricingJsonLd } from "app/components/pricing/pricingSchema";
 
 const title = 'Botox Preise in Berlin & Berlin Mitte: Zonen, Kosten & Ablauf'
 const description = "Aktuelle Botox Preise in Berlin und Berlin Mitte: transparente Kosten pro Zone, medizinische Anwendungen und häufige Fragen zu Ablauf, Haltbarkeit und Nachsorge in der Praxis Jona."
@@ -76,25 +78,34 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-    const faqSchema = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer
-            }
-        }))
+    const pricingConfig: PricingPageConfig = {
+        key: "aesthetics",
+        locale: "de",
+        title,
+        description,
+        canonical: url,
+        alternate: "/en/botox-prices",
+        eyebrow: "Botox Preise",
+        intro: description,
+        sections: [pricingSections.botox],
+        breadcrumbs: [
+            { name: "Startseite", href: "/" },
+            { name: "Ästhetik", href: "/aesthetik" },
+            { name: "Botox Preise", href: url },
+        ],
+        faqs,
     }
+    const jsonLd = buildPricingJsonLd(pricingConfig);
 
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-            />
+            {jsonLd.map((schema, index) => (
+                <script
+                    key={index}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }}
+                />
+            ))}
             <div className="overflow-hidden bg-white relative isolate">
                 <SectionWithColor backgroundClassName='bg-white'>
                     <div className="mx-auto max-w-4xl lg:mx-0">
@@ -103,6 +114,7 @@ export default function Page() {
                         <p className="mt-4 text-base leading-7 text-primaryLighter">
                             Alle Preise verstehen sich als Richtwerte und werden vor der Behandlung transparent besprochen.
                             Für medizinische Fragestellungen oder individuelle Empfehlungen vereinbaren Sie bitte ein Beratungsgespräch.
+                            Weitere ästhetische Preise finden Sie in der <a href="/aesthetik/preise" className="font-semibold underline underline-offset-4">Ästhetik-Preisübersicht</a>.
                         </p>
                     </div>
                 </SectionWithColor>

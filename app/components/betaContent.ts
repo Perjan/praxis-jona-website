@@ -115,8 +115,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     },
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "Botox-Preise ansehen",
-    secondaryHref: "/botox-preise",
+    secondaryCta: "Preise ansehen",
+    secondaryHref: "/aesthetik/preise",
     sections: [
       {
         title: "Ästhetische Behandlungen mit medizinischer Einordnung",
@@ -166,7 +166,7 @@ export const categoryContent: Record<string, CategoryContent> = {
       { question: "Welche Behandlung passt zu mir?", answer: "Das hängt von Hautbild, Mimik, Zielsetzung und Befund ab. In der Beratung klären wir, welches Verfahren sinnvoll sein kann." },
       { question: "Sind natürliche Ergebnisse möglich?", answer: "Der Fokus liegt auf einer zurückhaltenden ärztlichen Planung. Ergebnisse und Dauer können individuell variieren." },
       { question: "Wie läuft ein ästhetischer Beratungstermin ab?", answer: "Wir besprechen Ihr Anliegen, prüfen Hautbild, Mimik und medizinische Faktoren und erklären geeignete Optionen, Grenzen, Ablauf und Kosten." },
-      { question: "Kann ich Botox-Preise vorab ansehen?", answer: "Ja. Die Botox-Preise sind auf einer eigenen Preisseite transparent aufgeführt." },
+      { question: "Kann ich Preise vorab ansehen?", answer: "Ja. Die Ästhetik-Preise sind in einer eigenen Preisübersicht transparent aufgeführt. Für Botox gibt es zusätzlich eine eigene Preisseite." },
       { question: "Ist die Praxis gut erreichbar?", answer: "Ja. Die Praxis Jona liegt in Berlin-Mitte in der Torstraße 125 am Rosenthaler Platz." },
       { question: "Kann ich direkt online buchen?", answer: "Ja. Sie können einen Termin online über Doctolib vereinbaren." },
     ],
@@ -183,8 +183,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     },
     cta: "Book appointment",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "View Botox prices",
-    secondaryHref: "/en/botox-prices",
+    secondaryCta: "View prices",
+    secondaryHref: "/en/aesthetics/prices",
     sections: [
       {
         title: "Aesthetic treatments with medical assessment",
@@ -234,7 +234,7 @@ export const categoryContent: Record<string, CategoryContent> = {
       { question: "Which treatment is right for me?", answer: "That depends on your skin, facial expression, goals and medical findings. During consultation, we clarify which procedure may be suitable." },
       { question: "Are natural-looking results possible?", answer: "The focus is on careful physician-led planning. Results and duration can vary individually." },
       { question: "How does an aesthetic consultation work?", answer: "We discuss your concern, assess skin, facial expression and medical factors, and explain suitable options, limits, process and cost." },
-      { question: "Can I view Botox prices in advance?", answer: "Yes. Botox prices are listed transparently on a separate price page." },
+      { question: "Can I view prices in advance?", answer: "Yes. Aesthetic prices are listed transparently in a dedicated price overview. Botox also has its own price page." },
       { question: "Is the practice easy to reach?", answer: "Yes. Praxis Jona is located in Berlin-Mitte at Torstraße 125 near Rosenthaler Platz." },
       { question: "Can I book online?", answer: "Yes. You can book an appointment online via Doctolib." },
     ],
@@ -251,8 +251,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     },
     cta: "Termin zur Abklärung buchen",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "Präventionspakete ansehen",
-    secondaryHref: "/praevention",
+    secondaryCta: "Preise ansehen",
+    secondaryHref: "/health-longevity/preise",
     sections: [
       {
         title: "Medizinisch geführte Gesundheitsoptimierung",
@@ -321,8 +321,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     },
     cta: "Book assessment",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "View prevention packages",
-    secondaryHref: "/en/prevention",
+    secondaryCta: "View prices",
+    secondaryHref: "/en/health-longevity/prices",
     sections: [
       {
         title: "Physician-led health optimization",
