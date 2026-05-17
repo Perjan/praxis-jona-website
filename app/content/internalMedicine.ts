@@ -9,8 +9,6 @@ export const internalMedicineCategoryContent = {
     description: "Praxis Jona am Rosenthaler Platz, hausärztliche Versorgung, Schilddrüsendiagnostik, Vorsorgeuntersuchungen, Akuttermine und moderne internistische Diagnostik in Berlin-Mitte.",
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "Kontakt aufnehmen",
-    secondaryHref: "/kontakt",
     sections: [
       {
         title: "Moderne hausärztliche Medizin, Vorsorge und Schilddrüsendiagnostik am Rosenthaler Platz",
@@ -40,8 +38,6 @@ export const internalMedicineCategoryContent = {
     description: "Praxis Jona near Rosenthaler Platz: primary care, thyroid diagnostics, preventive check-ups, acute appointments and modern internal medicine diagnostics in Berlin-Mitte.",
     cta: "Book appointment",
     ctaHref: Constants.appointmentUrl,
-    secondaryCta: "Contact",
-    secondaryHref: "/en/contact",
     sections: [
       {
         title: "Modern primary care, preventive medicine and thyroid diagnostics near Rosenthaler Platz",
