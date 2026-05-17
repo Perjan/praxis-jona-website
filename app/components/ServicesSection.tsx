@@ -17,10 +17,10 @@ export default function ServicesSection({ language = 'de' }) {
   // URL mapping for services that should redirect to dedicated pages
   const serviceUrlMapping = language === 'en' 
     ? {
-        2: '/en/services/public-insurance-check-up', 
+        2: '/en/general-medicine/preventive-check-up', 
         5: '/en/botox-treatment',
         6: '/en/services/nutritional-medicine',
-        7: '/en/services/ultrasound-examination',
+        7: '/en/general-medicine/ultrasound-examination',
         8: '/en/services/private-insurance-check-up',
         9: '/en/services/travel-vaccinations',
         10: '/en/services/micronutrient-analysis',
@@ -32,10 +32,10 @@ export default function ServicesSection({ language = 'de' }) {
         17: '/en/services/hair-loss-berlin-mitte',
       }
     : {
-        2: '/leistungen/gesetzliche-check-up',
+        2: '/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up',
         5: '/botox-behandlung',
         6: '/leistungen/ernaehrungsmedizin',
-        7: '/leistungen/ultraschalluntersuchung',
+        7: '/hausaerztliche-leistungen/ultraschalluntersuchung',
         8: '/leistungen/private-check-up',
         9: '/leistungen/reiseimpfungen',
         10: '/leistungen/mikronahrstoffanalyse',

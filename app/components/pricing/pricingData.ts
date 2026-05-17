@@ -227,7 +227,7 @@ export const pricingSections = {
       de: "Ultraschallleistungen nach GOÄ. Bei medizinischer Indikation können Kosten von der Krankenkasse übernommen werden.",
       en: "Ultrasound services according to GOÄ. With medical indication, costs may be covered by health insurance.",
     },
-    detailHref: { de: "/leistungen/ultraschalluntersuchung", en: "/en/services/ultrasound-examination" },
+    detailHref: { de: "/hausaerztliche-leistungen/ultraschalluntersuchung", en: "/en/general-medicine/ultrasound-examination" },
     bookingHref: appointmentHref,
     rows: [
       { slug: "bauchorgane", label: { de: "Ultraschall der Bauchorgane", en: "Abdominal ultrasound" }, price: { amount: 113.07, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true } },
@@ -254,7 +254,7 @@ export const pricingSections = {
     ],
     rows: [
       { slug: "akutsprechstunde", label: { de: "Akutsprechstunde", en: "Acute consultation" }, price: { currency: "EUR", displayOverride: byConsultation } },
-      { slug: "gesetzlicher-check-up", label: { de: "Gesetzlicher Check-up", en: "Public insurance check-up" }, price: { currency: "EUR", displayOverride: { de: "Kassenleistung nach Anspruch", en: "covered according to eligibility" } }, detailHref: { de: "/leistungen/gesetzliche-check-up", en: "/en/services/public-insurance-check-up" } },
+      { slug: "gesetzlicher-check-up", label: { de: "Gesundheitsuntersuchung (Check-up)", en: "Preventive health check-up" }, price: { currency: "EUR", displayOverride: { de: "Kassenleistung nach Anspruch", en: "covered according to eligibility" } }, detailHref: { de: "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up", en: "/en/general-medicine/preventive-check-up" } },
       { slug: "reiseimpfungen", label: { de: "Reiseimpfungen", en: "Travel vaccinations" }, price: { currency: "EUR", displayOverride: byConsultation }, detailHref: { de: "/leistungen/reiseimpfungen", en: "/en/services/travel-vaccinations" } },
     ],
   },
