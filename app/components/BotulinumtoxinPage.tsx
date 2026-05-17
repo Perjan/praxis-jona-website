@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ClockIcon } from "@heroicons/react/24/outline";
+import { ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
 import { pricingSections, type PricingLocale } from "app/components/pricing/pricingData";
 import {
@@ -30,6 +30,13 @@ function formatServiceDuration(service: BotulinumtoxinService, locale: PricingLo
   const minutes = isHyperhidrosis ? 45 : 30;
 
   return locale === "en" ? `${minutes} min` : `${minutes} Min.`;
+}
+
+function formatServiceDurationLong(service: BotulinumtoxinService, locale: PricingLocale) {
+  const isHyperhidrosis = service.pricingSlug === "hyperhidrose";
+  const minutes = isHyperhidrosis ? 45 : 30;
+
+  return locale === "en" ? `${minutes} minutes` : `${minutes} Minuten`;
 }
 
 function JsonLd({ data }: { data: object }) {
@@ -112,6 +119,89 @@ function Ctas({ content }: { content: BotulinumtoxinPageContent }) {
         {content.labels.prices}
       </Link>
     </div>
+  );
+}
+
+function ServiceFacts({ service, locale }: { service: BotulinumtoxinService; locale: PricingLocale }) {
+  const duration = formatServiceDurationLong(service, locale);
+  const price = formatBotulinumtoxinPrice(service, locale);
+  const facts =
+    locale === "en"
+      ? [
+          {
+            title: "Duration",
+            icon: ClockIcon,
+            body: (
+              <>
+                Treatment usually takes <strong>{duration}</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Effect",
+            icon: SparklesIcon,
+            body: (
+              <>
+                Starts after a few days and develops fully after about <strong>14 days</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Price",
+            icon: CreditCardIcon,
+            body: <strong>{price}</strong>,
+          },
+        ]
+      : [
+          {
+            title: "Dauer",
+            icon: ClockIcon,
+            body: (
+              <>
+                Die Behandlung dauert in der Regel <strong>{duration}</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Effekt",
+            icon: SparklesIcon,
+            body: (
+              <>
+                Wirkung nach wenigen Tagen, vollständig meist nach etwa <strong>14 Tagen</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Preis",
+            icon: CreditCardIcon,
+            body: <strong>{price}</strong>,
+          },
+        ];
+
+  return (
+    <MotionSection className="relative z-20 -mt-[50px] px-4 pb-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="overflow-hidden rounded-[2rem] bg-primary shadow-2xl shadow-primary/20 ring-1 ring-white/10">
+          <div className="grid grid-cols-1 divide-y divide-white/15 md:grid-cols-3 md:divide-x md:divide-y-0">
+            {facts.map((fact) => {
+              const Icon = fact.icon;
+
+              return (
+                <div key={fact.title} className="flex min-h-[112px] items-start gap-4 p-5 sm:p-6 lg:min-h-[132px] lg:p-7">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-16 sm:w-16">
+                    <Icon className="h-8 w-8 stroke-[2.2] text-white sm:h-9 sm:w-9" aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0">
+                    <h2 className="font-sans text-xl font-semibold leading-tight text-white sm:text-2xl">{fact.title}</h2>
+                    <p className="mt-2 text-base leading-7 text-white/70 sm:text-lg [&_strong]:font-semibold [&_strong]:text-white/70">{fact.body}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </MotionSection>
   );
 }
 
@@ -296,6 +386,8 @@ export function BotulinumtoxinServicePage({ service, locale = "de" }: { service:
           </div>
           <ServiceImage service={service} priority />
         </MotionSection>
+
+        <ServiceFacts service={service} locale={content.locale} />
 
         <CommonSections content={content} />
         <FaqSection content={content} />
