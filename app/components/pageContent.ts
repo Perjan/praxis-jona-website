@@ -60,8 +60,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     secondaryHref: "/kontakt",
     sections: [
       {
-        title: "Internistische und hausärztliche Versorgung",
-        intro: "Für akute Beschwerden, Vorsorge und gezielte Diagnostik verbinden wir Anamnese, Untersuchung, Labor und apparative Diagnostik nach medizinischer Notwendigkeit.",
+        title: "Moderne hausärztliche Medizin, Vorsorge und Schilddrüsendiagnostik am Rosenthaler Platz",
+        intro: "Von Akutmedizin und Check-ups bis zu Ultraschall, Langzeitdiagnostik und langfristiger Betreuung chronischer Erkrankungen, individuell, modern und ganzheitlich.",
         services: [
           { title: "Schilddrüse", href: "/schwerpunkte/schilddruese", description: "Schilddrüsendiagnostik mit Labor, Ultraschall und Einordnung häufiger Funktionsstörungen." },
           { title: "Akutsprechstunde", href: "/hausaerztliche-leistungen/akutsprechstunde", description: "Einschätzung akuter Beschwerden mit klarer Empfehlung zum weiteren Vorgehen." },
@@ -91,8 +91,8 @@ export const categoryContent: Record<string, CategoryContent> = {
     secondaryHref: "/en/contact",
     sections: [
       {
-        title: "Internal medicine and primary care",
-        intro: "For acute symptoms, preventive care and targeted diagnostics, we combine medical history, physical examination, lab testing and technical diagnostics when medically indicated.",
+        title: "Modern primary care, preventive medicine and thyroid diagnostics near Rosenthaler Platz",
+        intro: "From acute care and check-ups to ultrasound, long-term diagnostics and ongoing support for chronic conditions, individually, modernly and holistically.",
         services: [
           { title: "Thyroid diagnostics", href: "/en/focus-areas/thyroid-gland", description: "Thyroid assessment with lab testing, ultrasound and interpretation of common dysfunctions." },
           { title: "Acute consultation", href: "/en/general-medicine/acute-consultation", description: "Assessment of acute symptoms with a clear recommendation for next steps." },
