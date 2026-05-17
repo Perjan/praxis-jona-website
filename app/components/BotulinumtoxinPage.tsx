@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ClockIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
+import { pricingSections, type PricingLocale } from "app/components/pricing/pricingData";
 import {
   botulinumtoxinContentDe,
   botulinumtoxinContentEn,
@@ -11,6 +13,24 @@ import { MotionCard, MotionSection } from "./Motion";
 
 const bookingHref = Constants.appointmentUrl;
 const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
+
+function formatBotulinumtoxinPrice(service: BotulinumtoxinService, locale: PricingLocale) {
+  const row = pricingSections.botox.rows.find((item) => item.slug === service.pricingSlug);
+  const amount = row?.price?.amount;
+
+  if (!amount) {
+    return locale === "en" ? "from €199" : "ab 199 €";
+  }
+
+  return locale === "en" ? `from €${amount}` : `ab ${amount} €`;
+}
+
+function formatServiceDuration(service: BotulinumtoxinService, locale: PricingLocale) {
+  const isHyperhidrosis = service.pricingSlug === "hyperhidrose";
+  const minutes = isHyperhidrosis ? 45 : 30;
+
+  return locale === "en" ? `${minutes} min` : `${minutes} Min.`;
+}
 
 function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
@@ -34,7 +54,7 @@ function Paragraphs({ paragraphs }: { paragraphs: string[] }) {
   );
 }
 
-function ServiceImage({ service, priority = false }: { service: BotulinumtoxinService; priority?: boolean }) {
+function ServiceImage({ service, priority = false, compact = false }: { service: BotulinumtoxinService; priority?: boolean; compact?: boolean }) {
   return (
     <div className="relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10">
       <Image
@@ -44,7 +64,7 @@ function ServiceImage({ service, priority = false }: { service: BotulinumtoxinSe
         height={560}
         priority={priority}
         sizes="(min-width: 1024px) 34vw, 92vw"
-        className={`h-56 w-full object-cover sm:h-72 ${service.image.objectPositionClass ?? "object-center"}`}
+        className={`${compact ? "h-56 sm:h-36" : "h-56 sm:h-72"} w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${service.image.objectPositionClass ?? "object-center"}`}
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-white/10 to-lightBeige/30" />
     </div>
@@ -196,18 +216,30 @@ export function BotulinumtoxinMainPage({ locale = "de" }: { locale?: "de" | "en"
               <p className={eyebrowClassName}>{content.labels.areasEyebrow}</p>
               <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{content.labels.areasTitle}</h2>
             </div>
-            <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
               {content.services.map((service, index) => (
                 <Link key={service.slug} href={`${content.intro.canonical}/${service.slug}`} className="block h-full">
                   <MotionCard
                     delay={Math.min(index * 0.03, 0.24)}
-                    className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-primary/10 transition hover:shadow-lg"
+                    className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-primary/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:ring-primary/20"
                   >
-                    <ServiceImage service={service} />
-                    <div className="flex flex-1 flex-col p-6">
-                      <h3 className="font-serif text-2xl font-semibold text-primary">{service.title}</h3>
-                      <p className="mt-4 flex-1 text-base leading-7 text-primaryLighter">{service.paragraphs[0]}</p>
-                      <span className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">{content.labels.learnMore}</span>
+                    <ServiceImage service={service} compact />
+                    <div className="flex flex-1 flex-col p-5 sm:p-4">
+                      <h3 className="font-serif text-[1.45rem] font-semibold leading-[1.08] text-primary sm:text-xl md:min-h-[4.5rem] md:text-[1.05rem] lg:min-h-[4rem] lg:text-lg xl:text-xl">
+                        {service.title}
+                      </h3>
+                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-primary/10 pt-4">
+                        <p className="font-serif text-[1.65rem] font-semibold leading-none text-primary tabular-nums md:text-xl xl:text-2xl">
+                          {formatBotulinumtoxinPrice(service, content.locale)}
+                        </p>
+                        <div className="inline-flex min-h-9 items-center gap-2 rounded-full bg-lightBeige px-3 py-1.5 text-sm font-semibold text-primary ring-1 ring-primary/10">
+                          <ClockIcon className="h-4 w-4 stroke-[3]" aria-hidden="true" />
+                          <span>{formatServiceDuration(service, content.locale)}</span>
+                        </div>
+                      </div>
+                      <span className="mt-auto block pt-5 text-right text-sm font-semibold text-primary underline-offset-4 transition group-hover:underline">
+                        {content.labels.learnMore}
+                      </span>
                     </div>
                   </MotionCard>
                 </Link>

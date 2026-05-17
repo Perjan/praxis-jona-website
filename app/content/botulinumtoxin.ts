@@ -1,5 +1,6 @@
 export type BotulinumtoxinService = {
   slug: string;
+  pricingSlug: string;
   title: string;
   image: {
     src: string;
@@ -70,6 +71,7 @@ const placeholderImages = [
 export const botulinumtoxinServices: BotulinumtoxinService[] = [
   {
     slug: "zornesfalte",
+    pricingSlug: "zornesfalte",
     title: "Zornesfalte (Glabella)",
     image: { src: placeholderImages[0], alt: "Placeholder für Botulinumtoxin-Behandlung der Zornesfalte" },
     paragraphs: [
@@ -79,6 +81,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "stirnfalten",
+    pricingSlug: "stirnfalten",
     title: "Stirnfalten",
     image: { src: placeholderImages[1], alt: "Placeholder für Botulinumtoxin-Behandlung von Stirnfalten" },
     paragraphs: [
@@ -89,6 +92,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "kraehenfuesse",
+    pricingSlug: "kraehenfuesse",
     title: "Krähenfüße",
     image: { src: placeholderImages[2], alt: "Placeholder für Botulinumtoxin-Behandlung von Krähenfüßen" },
     paragraphs: [
@@ -98,6 +102,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "brow-lift-augenbrauenlifting",
+    pricingSlug: "browlift",
     title: "Brow Lift / Augenbrauenlifting",
     image: { src: placeholderImages[3], alt: "Placeholder für Brow Lift mit Botulinumtoxin" },
     paragraphs: [
@@ -107,6 +112,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "bunny-lines",
+    pricingSlug: "bunny-lines",
     title: "Bunny Lines",
     image: { src: placeholderImages[0], alt: "Placeholder für Bunny Lines Behandlung mit Botulinumtoxin" },
     paragraphs: [
@@ -116,6 +122,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "gummy-smile",
+    pricingSlug: "gummy-smile",
     title: "Gummy Smile",
     image: { src: placeholderImages[1], alt: "Placeholder für Gummy Smile Behandlung mit Botulinumtoxin" },
     paragraphs: [
@@ -125,6 +132,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "lip-flip",
+    pricingSlug: "lip-flip",
     title: "Lip Flip",
     image: { src: placeholderImages[2], alt: "Placeholder für Lip Flip mit Botulinumtoxin" },
     paragraphs: [
@@ -134,6 +142,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "mundwinkel-anheben",
+    pricingSlug: "mundwinkel",
     title: "Mundwinkel anheben",
     image: { src: placeholderImages[3], alt: "Placeholder für Mundwinkel anheben mit Botulinumtoxin" },
     paragraphs: [
@@ -144,6 +153,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "hyperhidrose-starkes-schwitzen",
+    pricingSlug: "hyperhidrose",
     title: "Hyperhidrose (starkes Schwitzen)",
     image: { src: placeholderImages[0], alt: "Placeholder für Hyperhidrose-Behandlung mit Botulinumtoxin" },
     paragraphs: [
@@ -155,6 +165,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "masseter-zaehneknirschen-bruxismus",
+    pricingSlug: "bruxismus",
     title: "Masseter-Behandlung / Zähneknirschen (Bruxismus)",
     image: { src: placeholderImages[1], alt: "Placeholder für Masseter-Behandlung mit Botulinumtoxin" },
     paragraphs: [
@@ -164,6 +175,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "trapezmuskel-barbie-botox",
+    pricingSlug: "trapezmuskel",
     title: "Trapezmuskel-Behandlung mit Botulinumtoxin (“Barbie-Botox”)",
     image: { src: placeholderImages[2], alt: "Placeholder für Trapezmuskel-Behandlung mit Botulinumtoxin" },
     paragraphs: [
@@ -180,6 +192,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   },
   {
     slug: "chronische-migraene",
+    pricingSlug: "migraene",
     title: "Botulinumtoxin bei chronischer Migräne",
     image: { src: placeholderImages[3], alt: "Placeholder für Botulinumtoxin bei chronischer Migräne" },
     paragraphs: [
@@ -322,6 +335,7 @@ export const botulinumtoxinOverviewEn = {
 export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   {
     slug: "frown-lines-glabella",
+    pricingSlug: "zornesfalte",
     title: "Frown lines (glabella)",
     image: { src: placeholderImages[0], alt: "Placeholder for botulinum toxin treatment of frown lines" },
     paragraphs: [
@@ -331,6 +345,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "forehead-lines",
+    pricingSlug: "stirnfalten",
     title: "Forehead lines",
     image: { src: placeholderImages[1], alt: "Placeholder for botulinum toxin treatment of forehead lines" },
     paragraphs: [
@@ -341,6 +356,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "crows-feet",
+    pricingSlug: "kraehenfuesse",
     title: "Crow’s feet",
     image: { src: placeholderImages[2], alt: "Placeholder for botulinum toxin treatment of crow’s feet" },
     paragraphs: [
@@ -350,6 +366,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "brow-lift",
+    pricingSlug: "browlift",
     title: "Brow lift / eyebrow lift",
     image: { src: placeholderImages[3], alt: "Placeholder for brow lift with botulinum toxin" },
     paragraphs: [
@@ -359,6 +376,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "bunny-lines",
+    pricingSlug: "bunny-lines",
     title: "Bunny lines",
     image: { src: placeholderImages[0], alt: "Placeholder for bunny lines treatment with botulinum toxin" },
     paragraphs: [
@@ -368,6 +386,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "gummy-smile",
+    pricingSlug: "gummy-smile",
     title: "Gummy smile",
     image: { src: placeholderImages[1], alt: "Placeholder for gummy smile treatment with botulinum toxin" },
     paragraphs: [
@@ -377,6 +396,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "lip-flip",
+    pricingSlug: "lip-flip",
     title: "Lip flip",
     image: { src: placeholderImages[2], alt: "Placeholder for lip flip with botulinum toxin" },
     paragraphs: [
@@ -386,6 +406,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "mouth-corners",
+    pricingSlug: "mundwinkel",
     title: "Lifting the corners of the mouth",
     image: { src: placeholderImages[3], alt: "Placeholder for lifting mouth corners with botulinum toxin" },
     paragraphs: [
@@ -396,6 +417,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "hyperhidrosis-excessive-sweating",
+    pricingSlug: "hyperhidrose",
     title: "Hyperhidrosis (excessive sweating)",
     image: { src: placeholderImages[0], alt: "Placeholder for hyperhidrosis treatment with botulinum toxin" },
     paragraphs: [
@@ -407,6 +429,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "masseter-bruxism",
+    pricingSlug: "bruxismus",
     title: "Masseter treatment / teeth grinding (bruxism)",
     image: { src: placeholderImages[1], alt: "Placeholder for masseter treatment with botulinum toxin" },
     paragraphs: [
@@ -416,6 +439,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "trapezius-barbie-botox",
+    pricingSlug: "trapezmuskel",
     title: "Trapezius treatment with botulinum toxin (“Barbie Botox”)",
     image: { src: placeholderImages[2], alt: "Placeholder for trapezius treatment with botulinum toxin" },
     paragraphs: [
@@ -432,6 +456,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   },
   {
     slug: "chronic-migraine",
+    pricingSlug: "migraene",
     title: "Botulinum toxin for chronic migraine",
     image: { src: placeholderImages[3], alt: "Placeholder for botulinum toxin for chronic migraine" },
     paragraphs: [
