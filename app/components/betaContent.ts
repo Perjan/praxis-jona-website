@@ -14,6 +14,7 @@ export type CategoryContent = {
   title: string;
   description: string;
   eyebrow: string;
+  preserveEyebrowCase?: boolean;
   heroImage?: {
     src: string;
     alt: string;
@@ -52,7 +53,8 @@ export const categoryContent: Record<string, CategoryContent> = {
   generalDe: {
     locale: "de",
     title: "Innere Medizin in Berlin-Mitte",
-    eyebrow: "Allgemeinmedizin & Innere Medizin",
+    eyebrow: "INNERE MEDIZIN & Hausärztliche Leistungen",
+    preserveEyebrowCase: true,
     description: "Strukturierte hausärztliche Versorgung, akute Abklärung, Vorsorge und Diagnostik in der Praxis Jona am Rosenthaler Platz.",
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
