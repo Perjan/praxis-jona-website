@@ -230,7 +230,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
                   return (
                     <div key={fact.label} className="flex gap-4">
                       <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
-                        <FactIcon className="h-5 w-5" aria-hidden="true" />
+                        <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
                       </div>
                       <div>
                         <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
