@@ -13,8 +13,8 @@ export function CategoryVignetteBackground({ src }: { src: string }) {
       style={{
         opacity,
         backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.72) 34%, rgba(255,255,255,0.2) 72%, rgba(255,255,255,0.06) 100%), url(${src})`,
-        WebkitMaskImage: "radial-gradient(ellipse at center, #000 48%, rgba(0,0,0,0.74) 66%, transparent 92%)",
-        maskImage: "radial-gradient(ellipse at center, #000 48%, rgba(0,0,0,0.74) 66%, transparent 92%)",
+        WebkitMaskImage: "radial-gradient(ellipse at center, #000 38%, rgba(0,0,0,0.72) 58%, transparent 86%)",
+        maskImage: "radial-gradient(ellipse at center, #000 38%, rgba(0,0,0,0.72) 58%, transparent 86%)",
       }}
     />
   );
