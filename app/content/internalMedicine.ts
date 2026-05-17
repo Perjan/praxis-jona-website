@@ -135,7 +135,7 @@ export const internalMedicineLandingPages = {
   },
   bloodPressureMonitoringDe: {
     locale: "de",
-    title: "Langzeit-Blutdruckmessung in Berlin-Mitte",
+    title: "Langzeit-Blutdruckmessung (24h-Blutdruckmessung)",
     eyebrow: "24h-Blutdruckmessung",
     description: "Langzeit-Blutdruckmessung in Berlin-Mitte: 24 Stunden automatische Blutdruckmessung zur Abklärung von Bluthochdruck und Therapiekontrolle.",
     canonical: "/hausaerztliche-leistungen/langzeit-blutdruckmessung",
@@ -143,7 +143,7 @@ export const internalMedicineLandingPages = {
     cta: "Termin buchen",
     secondaryCta: "Innere Medizin ansehen",
     secondaryHref: "/hausaerztliche-leistungen",
-    intro: "Mit der Langzeit-Blutdruckmessung wird Ihr Blutdruck über 24 Stunden automatisch aufgezeichnet, tagsüber und während des Schlafs. So entsteht ein realistisches Bild Ihrer Blutdruckwerte im Alltag.",
+    intro: "Mit der Langzeit-Blutdruckmessung wird Ihr Blutdruck über 24 Stunden automatisch und regelmäßig aufgezeichnet, tagsüber und auch während des Schlafs. So erhalten wir ein realistisches Bild Ihrer Blutdruckwerte im Alltag und können besser beurteilen, ob ein Bluthochdruck vorliegt oder wie gut eine bestehende Therapie wirkt.",
     facts: [
       { label: "Dauer", value: "24 Stunden" },
       { label: "Messintervall", value: "tagsüber ca. alle 15-20 Minuten" },
@@ -151,10 +151,11 @@ export const internalMedicineLandingPages = {
       { label: "Ziel", value: "Alltagswerte und Therapie beurteilen" },
     ],
     sections: [
-      { title: "Was ist eine Langzeit-Blutdruckmessung?", body: ["Bei dieser Untersuchung wird Ihr Blutdruck über einen gesamten Tag und eine Nacht hinweg gemessen. Dadurch erkennen wir Schwankungen im Tagesverlauf, nächtliche Blutdruckwerte und Auffälligkeiten, die bei einzelnen Messungen in der Praxis verborgen bleiben können."] },
-      { title: "Wie läuft die Untersuchung ab?", body: ["In der Praxis wird eine Blutdruckmanschette am Oberarm angelegt, die mit einem kleinen tragbaren Messgerät verbunden ist. Sie nehmen das Gerät mit nach Hause und führen Ihren normalen Alltag möglichst wie gewohnt fort."], bullets: ["tagsüber automatische Messung etwa alle 15-20 Minuten", "nachts automatische Messung etwa alle 30 Minuten", "Rückgabe des Geräts am nächsten Tag"] },
-      { title: "Was sollte ich während der Messung beachten?", body: ["Bitte gehen Sie Ihrem Alltag möglichst wie gewohnt nach. Halten Sie den Arm während der Messung ruhig und gestreckt, vermeiden Sie starke Bewegung beim Aufpumpen und führen Sie ein kurzes Protokoll über Aktivitäten, Ruhezeiten und Schlafenszeiten."] },
-      { title: "Was passiert nach den 24 Stunden?", body: ["Am nächsten Tag bringen Sie das Gerät zurück in die Praxis. Wir werten die Daten aus und besprechen, ob ein Bluthochdruck vorliegt, wie sich Ihr Blutdruck im Alltag verhält und ob eine Behandlung sinnvoll oder bereits gut eingestellt ist."] },
+      { title: "Was ist eine Langzeit-Blutdruckmessung?", body: ["Bei dieser Untersuchung wird Ihr Blutdruck über einen gesamten Tag und eine Nacht hinweg gemessen.", "Dadurch erkennen wir Schwankungen im Tagesverlauf, nächtliche Blutdruckwerte und mögliche Auffälligkeiten, die bei einer einzelnen Messung in der Praxis oft verborgen bleiben."] },
+      { title: "Wie läuft die Untersuchung ab?", body: ["In der Praxis wird Ihnen eine Blutdruckmanschette am Oberarm angelegt, die mit einem kleinen tragbaren Messgerät verbunden ist.", "Das Gerät misst Ihren Blutdruck automatisch. Sie können es bequem mit nach Hause nehmen und Ihren normalen Alltag fortführen."], bullets: ["tagsüber etwa alle 15-20 Minuten", "nachts etwa alle 30 Minuten"] },
+      { title: "Was sollte ich während der Messung beachten?", body: ["Bitte gehen Sie Ihrem Alltag möglichst wie gewohnt nach, denn genau dadurch erhalten wir aussagekräftige Werte."], bullets: ["Halten Sie den Arm während der Messung möglichst ruhig und gestreckt.", "Vermeiden Sie starke Bewegung während des Aufpumpens der Manschette.", "Führen Sie ein kurzes Protokoll über Aktivitäten, Ruhezeiten und Schlafenszeiten. Dies hilft uns bei der Auswertung."] },
+      { title: "Ist die Untersuchung unangenehm?", body: ["Die Manschette kann beim Aufpumpen kurzfristig etwas drücken, besonders nachts.", "Die Untersuchung ist jedoch harmlos, sicher und in der Regel gut verträglich."] },
+      { title: "Was passiert nach den 24 Stunden?", body: ["Am nächsten Tag bringen Sie das Gerät zurück in die Praxis.", "Wir werten die aufgezeichneten Daten sorgfältig aus und besprechen die Ergebnisse gemeinsam mit Ihnen."], bullets: ["ob ein Bluthochdruck vorliegt", "wie sich Ihr Blutdruck im Alltag verhält", "ob eine Behandlung sinnvoll oder bereits gut eingestellt ist"] },
     ],
     related: [
       { title: "EKG", href: "/hausaerztliche-leistungen/ekg", description: "Herzdiagnostik bei Rhythmus- oder Belastungsfragen." },
@@ -169,7 +170,7 @@ export const internalMedicineLandingPages = {
   },
   bloodPressureMonitoringEn: {
     locale: "en",
-    title: "24-Hour Blood Pressure Monitoring in Berlin-Mitte",
+    title: "24-Hour Blood Pressure Monitoring",
     eyebrow: "Ambulatory blood pressure monitoring",
     description: "24-hour blood pressure monitoring in Berlin-Mitte: automatic ambulatory measurement to assess hypertension and treatment control.",
     canonical: "/en/general-medicine/24-hour-blood-pressure-monitoring",
@@ -177,7 +178,7 @@ export const internalMedicineLandingPages = {
     cta: "Book appointment",
     secondaryCta: "View internal medicine",
     secondaryHref: "/en/general-medicine",
-    intro: "With 24-hour blood pressure monitoring, your blood pressure is recorded automatically over a full day and night. This gives a realistic picture of your values in daily life.",
+    intro: "With 24-hour blood pressure monitoring, your blood pressure is recorded automatically and regularly over 24 hours, during the day and while you sleep. This gives us a realistic picture of your blood pressure values in daily life and helps us assess whether high blood pressure is present or how well an existing treatment is working.",
     facts: [
       { label: "Duration", value: "24 hours" },
       { label: "Interval", value: "about every 15-20 minutes during the day" },
@@ -185,10 +186,11 @@ export const internalMedicineLandingPages = {
       { label: "Goal", value: "assess daily values and treatment" },
     ],
     sections: [
-      { title: "What is 24-hour blood pressure monitoring?", body: ["Your blood pressure is measured over a complete day and night. This helps detect daily fluctuations, night-time values and abnormalities that can be missed by a single measurement in the practice."] },
-      { title: "How does the examination work?", body: ["A blood pressure cuff is placed on your upper arm and connected to a small portable device. You take the device home and continue your usual daily routine as much as possible."], bullets: ["automatic measurement about every 15-20 minutes during the day", "automatic measurement about every 30 minutes at night", "return of the device the following day"] },
-      { title: "What should I consider during measurement?", body: ["Please continue your routine as normally as possible. Keep your arm still and extended during measurement, avoid strong movement while the cuff inflates and keep a short record of activities, rest periods and sleep times."] },
-      { title: "What happens after 24 hours?", body: ["You return the device to the practice the next day. We evaluate the data and discuss whether hypertension is present, how your blood pressure behaves in daily life and whether treatment is useful or already well adjusted."] },
+      { title: "What is 24-hour blood pressure monitoring?", body: ["Your blood pressure is measured over a complete day and night.", "This helps us detect fluctuations during the day, night-time blood pressure values and possible abnormalities that are often missed by a single measurement in the practice."] },
+      { title: "How does the examination work?", body: ["A blood pressure cuff is placed on your upper arm and connected to a small portable device.", "The device measures your blood pressure automatically. You can take it home and continue your normal daily routine."], bullets: ["during the day about every 15-20 minutes", "at night about every 30 minutes"] },
+      { title: "What should I consider during measurement?", body: ["Please continue your routine as normally as possible, because this is what makes the values meaningful."], bullets: ["Keep your arm as still and extended as possible during measurement.", "Avoid strong movement while the cuff inflates.", "Keep a short record of activities, rest periods and sleep times. This helps us interpret the results."] },
+      { title: "Is the examination uncomfortable?", body: ["The cuff can briefly feel tight while inflating, especially at night.", "The examination is harmless, safe and usually well tolerated."] },
+      { title: "What happens after 24 hours?", body: ["You return the device to the practice the next day.", "We carefully evaluate the recorded data and discuss the results with you."], bullets: ["whether high blood pressure is present", "how your blood pressure behaves in daily life", "whether treatment is useful or already well adjusted"] },
     ],
     related: [
       { title: "ECG", href: "/en/general-medicine/ecg", description: "Cardiac diagnostics for rhythm or exercise questions." },
@@ -204,7 +206,7 @@ export const internalMedicineLandingPages = {
 
   ecgInternalDe: {
     locale: "de",
-    title: "EKG-Untersuchung in Berlin-Mitte",
+    title: "EKG-Untersuchung",
     eyebrow: "Herzdiagnostik",
     description: "EKG in Berlin-Mitte: Ruhe-EKG und Belastungs-EKG zur Beurteilung von Herzrhythmus, Herzfrequenz, Beschwerden und Belastbarkeit.",
     canonical: "/hausaerztliche-leistungen/ekg",
@@ -212,7 +214,7 @@ export const internalMedicineLandingPages = {
     cta: "Termin buchen",
     secondaryCta: "Innere Medizin ansehen",
     secondaryHref: "/hausaerztliche-leistungen",
-    intro: "Das Elektrokardiogramm zeichnet die elektrische Aktivität des Herzens auf. Die Untersuchung hilft, Herzrhythmusstörungen, Durchblutungsstörungen oder andere Veränderungen der Herzfunktion frühzeitig zu erkennen.",
+    intro: "Das Elektrokardiogramm (EKG) dient der Aufzeichnung der elektrischen Aktivität des Herzens. Die Untersuchung hilft dabei, Herzrhythmusstörungen, Durchblutungsstörungen oder andere Veränderungen der Herzfunktion frühzeitig zu erkennen.",
     facts: [
       { label: "Verfahren", value: "Ruhe-EKG und Belastungs-EKG" },
       { label: "Dauer", value: "meist wenige Minuten" },
@@ -220,9 +222,10 @@ export const internalMedicineLandingPages = {
       { label: "Durchführung", value: "schmerzfrei" },
     ],
     sections: [
-      { title: "Wann wird ein EKG durchgeführt?", body: ["Ein EKG kann bei Beschwerden, bekannten Erkrankungen, Vorsorgeuntersuchungen oder sportmedizinischen Fragestellungen sinnvoll sein."], bullets: ["Herzstolpern oder Herzrasen", "Brustschmerzen oder Druckgefühl", "Schwindel oder Ohnmachtsanfälle", "Luftnot oder eingeschränkte Belastbarkeit", "Bluthochdruck", "Kontrolle bekannter Herzerkrankungen"] },
-      { title: "Ruhe-EKG", body: ["Beim Ruhe-EKG werden Elektroden auf Brust, Arme und Beine geklebt, während Sie entspannt liegen. Die Untersuchung dauert nur wenige Minuten und zeigt unter anderem Herzrhythmus, Herzfrequenz, Hinweise auf Rhythmusstörungen sowie mögliche Durchblutungsstörungen oder frühere Herzbelastungen."] },
-      { title: "Belastungs-EKG", body: ["Beim Belastungs-EKG erfolgt die Aufzeichnung unter körperlicher Belastung, meist auf einem Fahrradergometer. So kann beurteilt werden, wie Ihr Herz unter Belastung arbeitet, ob Beschwerden auftreten und ob Hinweise auf Durchblutungsstörungen bestehen. Herzfrequenz, Blutdruck und EKG werden kontinuierlich überwacht."] },
+      { title: "In unserer Praxis bieten wir an", body: ["In unserer Praxis bieten wir verschiedene EKG-Untersuchungen an."], bullets: ["Ruhe-EKG", "Belastungs-EKG"] },
+      { title: "Wann wird ein EKG durchgeführt?", body: ["Ein EKG kann sinnvoll sein bei:"], bullets: ["Herzstolpern oder Herzrasen", "Brustschmerzen oder Druckgefühl", "Schwindel oder Ohnmachtsanfällen", "Luftnot oder eingeschränkter Belastbarkeit", "Bluthochdruck", "Kontrolle bekannter Herzerkrankungen", "Vorsorgeuntersuchungen oder sportmedizinischen Fragestellungen"] },
+      { title: "Ruhe-EKG", body: ["Beim Ruhe-EKG werden Elektroden auf Brust, Arme und Beine geklebt, während Sie entspannt liegen.", "Die Untersuchung dauert nur wenige Minuten und ist vollkommen schmerzfrei.", "Das Ruhe-EKG zeigt unter anderem:"], bullets: ["Herzrhythmus", "Herzfrequenz", "Hinweise auf Rhythmusstörungen", "mögliche Durchblutungsstörungen oder frühere Herzbelastungen"] },
+      { title: "Belastungs-EKG", body: ["Beim Belastungs-EKG erfolgt die Aufzeichnung unter körperlicher Belastung, meist auf einem Fahrradergometer.", "So kann beurteilt werden:", "Während der Untersuchung werden Herzfrequenz, Blutdruck und EKG kontinuierlich überwacht."], bullets: ["wie Ihr Herz unter Belastung arbeitet", "ob Belastungsbeschwerden auftreten", "ob Hinweise auf Durchblutungsstörungen bestehen"] },
     ],
     related: [
       { title: "Langzeit-Blutdruckmessung", href: "/hausaerztliche-leistungen/langzeit-blutdruckmessung", description: "Blutdruckwerte über 24 Stunden erfassen." },
@@ -237,7 +240,7 @@ export const internalMedicineLandingPages = {
   },
   ecgInternalEn: {
     locale: "en",
-    title: "ECG Examination in Berlin-Mitte",
+    title: "ECG Examination",
     eyebrow: "Cardiac diagnostics",
     description: "ECG in Berlin-Mitte: resting ECG and exercise ECG to assess heart rhythm, heart rate, symptoms and exercise capacity.",
     canonical: "/en/general-medicine/ecg",
@@ -245,7 +248,7 @@ export const internalMedicineLandingPages = {
     cta: "Book appointment",
     secondaryCta: "View internal medicine",
     secondaryHref: "/en/general-medicine",
-    intro: "An electrocardiogram records the electrical activity of the heart. It helps detect rhythm disturbances, circulation problems or other changes in heart function early.",
+    intro: "An electrocardiogram (ECG) records the electrical activity of the heart. The examination helps detect cardiac arrhythmias, circulation problems or other changes in heart function early.",
     facts: [
       { label: "Method", value: "resting ECG and exercise ECG" },
       { label: "Duration", value: "usually a few minutes" },
@@ -253,9 +256,10 @@ export const internalMedicineLandingPages = {
       { label: "Procedure", value: "painless" },
     ],
     sections: [
-      { title: "When is an ECG performed?", body: ["An ECG can be useful for symptoms, known conditions, preventive examinations or sports medicine questions."], bullets: ["palpitations or racing heartbeat", "chest pain or pressure", "dizziness or fainting", "shortness of breath or reduced exercise capacity", "high blood pressure", "monitoring known heart disease"] },
-      { title: "Resting ECG", body: ["For a resting ECG, electrodes are attached to the chest, arms and legs while you lie relaxed. The examination takes only a few minutes and shows heart rhythm, heart rate, indications of rhythm disturbances and possible circulation problems or previous strain on the heart."] },
-      { title: "Exercise ECG", body: ["During an exercise ECG, recording takes place under physical exertion, usually on a bicycle ergometer. This helps assess how your heart works under load, whether symptoms occur and whether there are signs of circulation problems. Heart rate, blood pressure and ECG are monitored continuously."] },
+      { title: "In our practice, we offer", body: ["In our practice, we offer different ECG examinations."], bullets: ["resting ECG", "exercise ECG"] },
+      { title: "When is an ECG performed?", body: ["An ECG can be useful for:"], bullets: ["palpitations or racing heartbeat", "chest pain or pressure", "dizziness or fainting", "shortness of breath or reduced exercise capacity", "high blood pressure", "monitoring known heart disease", "preventive examinations or sports medicine questions"] },
+      { title: "Resting ECG", body: ["For a resting ECG, electrodes are attached to the chest, arms and legs while you lie relaxed.", "The examination takes only a few minutes and is completely painless.", "The resting ECG shows, among other things:"], bullets: ["heart rhythm", "heart rate", "indications of rhythm disturbances", "possible circulation problems or previous strain on the heart"] },
+      { title: "Exercise ECG", body: ["During an exercise ECG, recording takes place under physical exertion, usually on a bicycle ergometer.", "This allows us to assess:", "During the examination, heart rate, blood pressure and ECG are monitored continuously."], bullets: ["how your heart works under load", "whether exertion-related symptoms occur", "whether there are signs of circulation problems"] },
     ],
     related: [
       { title: "24-hour blood pressure monitoring", href: "/en/general-medicine/24-hour-blood-pressure-monitoring", description: "Record blood pressure over 24 hours." },
@@ -270,7 +274,7 @@ export const internalMedicineLandingPages = {
   },
   vaccinationsInternalDe: {
     locale: "de",
-    title: "Impfberatung und Schutzimpfungen in Berlin-Mitte",
+    title: "Impfberatung & Schutzimpfungen",
     eyebrow: "Impfschutz nach STIKO",
     description: "Impfberatung in Berlin-Mitte: Impfstatus prüfen, Auffrischungen planen und Schutzimpfungen nach STIKO individuell besprechen.",
     canonical: "/hausaerztliche-leistungen/impfungen",
@@ -286,9 +290,12 @@ export const internalMedicineLandingPages = {
       { label: "Beratung", value: "nach Alter, Risiko und Vorgeschichte" },
     ],
     sections: [
-      { title: "Welche Impfungen sind für Erwachsene wichtig?", body: ["Die STIKO empfiehlt Erwachsenen, den Impfstatus regelmäßig überprüfen zu lassen, idealerweise alle 10 Jahre. Dazu gehören unter anderem Auffrischimpfungen gegen Tetanus, Diphtherie, Keuchhusten und Polio. Je nach Alter, Vorerkrankungen oder persönlichem Risiko können weitere Impfungen sinnvoll sein."] },
-      { title: "Empfohlene Impfungen ab 60 Jahren", body: ["Für Menschen ab 60 Jahren empfiehlt die STIKO unter anderem die jährliche Grippeimpfung, regelmäßige COVID-19-Auffrischimpfungen, Pneumokokken-Impfung, RSV-Impfung ab 75 Jahren und eine einmalige Impfung gegen Gürtelrose."] },
-      { title: "Individuelle Impfberatung", body: ["Bei chronischen Erkrankungen, Kinderwunsch oder Schwangerschaft, Reisen, beruflichen Risiken oder unvollständigem Impfstatus beraten wir individuell zu sinnvollen Schutzimpfungen. Bitte bringen Sie Ihren Impfausweis zum Termin mit."] },
+      { title: "Bitte bringen Sie Ihren Impfausweis mit", body: ["Bitte bringen Sie Ihren Impfausweis zu Ihrem Termin mit, damit wir Ihren Impfstatus vollständig überprüfen können."] },
+      { title: "Welche Impfungen sind für Erwachsene wichtig?", body: ["Die STIKO empfiehlt Erwachsenen, den Impfstatus regelmäßig überprüfen zu lassen, idealerweise alle 10 Jahre.", "Dazu gehören unter anderem Auffrischimpfungen gegen:"], bullets: ["Tetanus", "Diphtherie", "Keuchhusten (Pertussis)", "Polio"] },
+      { title: "Weitere Impfungen nach Risiko", body: ["Je nach Alter, Vorerkrankungen oder persönlichem Risiko können weitere Impfungen sinnvoll oder empfohlen sein."] },
+      { title: "Empfohlene Impfungen ab 60 Jahren", body: ["Für Menschen ab 60 Jahren empfiehlt die STIKO unter anderem:"], bullets: ["jährliche Grippeimpfung (Influenza)", "regelmäßige COVID-19-Auffrischimpfungen", "Pneumokokken-Impfung", "RSV-Impfung zum Schutz vor schweren Atemwegsinfektionen ab 75 Jahre alt", "einmalige Impfung gegen Gürtelrose (Herpes Zoster)"] },
+      { title: "Individuelle Impfberatung", body: ["Auch bei den folgenden Situationen beraten wir Sie gerne individuell zu sinnvollen Schutzimpfungen:"], bullets: ["chronischen Erkrankungen", "Kinderwunsch oder Schwangerschaft", "Reisen", "beruflichen Risiken", "unvollständigem Impfstatus"] },
+      { title: "Gemeinsame Prüfung", body: ["Wir überprüfen gemeinsam, welche Impfungen empfohlen sind und welche Auffrischungen sinnvoll sein können."] },
     ],
     related: [
       { title: "Gesundheitsuntersuchung", href: "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up", description: "Vorsorge und Impfstatus gemeinsam prüfen." },
@@ -303,7 +310,7 @@ export const internalMedicineLandingPages = {
   },
   vaccinationsInternalEn: {
     locale: "en",
-    title: "Vaccination Advice and Immunizations in Berlin-Mitte",
+    title: "Vaccination Advice and Immunizations",
     eyebrow: "Protection according to STIKO guidance",
     description: "Vaccination advice in Berlin-Mitte: check vaccination status, plan boosters and discuss immunizations individually according to STIKO guidance.",
     canonical: "/en/general-medicine/vaccinations",
@@ -319,9 +326,12 @@ export const internalMedicineLandingPages = {
       { label: "Advice", value: "based on age, risk and history" },
     ],
     sections: [
-      { title: "Which vaccinations are important for adults?", body: ["STIKO recommends that adults have their vaccination status checked regularly, ideally every 10 years. This includes boosters against tetanus, diphtheria, pertussis and polio. Depending on age, pre-existing conditions or personal risk, further vaccinations may be useful."] },
-      { title: "Recommended vaccinations from age 60", body: ["For people aged 60 and older, STIKO recommends annual influenza vaccination, regular COVID-19 boosters, pneumococcal vaccination, RSV vaccination from age 75 and a one-time shingles vaccination."] },
-      { title: "Individual vaccination advice", body: ["For chronic conditions, pregnancy planning or pregnancy, travel, occupational risks or incomplete vaccination status, we provide individual advice on useful immunizations. Please bring your vaccination record to the appointment."] },
+      { title: "Please bring your vaccination record", body: ["Please bring your vaccination record to your appointment so we can review your vaccination status completely."] },
+      { title: "Which vaccinations are important for adults?", body: ["STIKO recommends that adults have their vaccination status checked regularly, ideally every 10 years.", "This includes booster vaccinations against:"], bullets: ["tetanus", "diphtheria", "pertussis (whooping cough)", "polio"] },
+      { title: "Further vaccinations depending on risk", body: ["Depending on age, pre-existing conditions or personal risk, further vaccinations may be useful or recommended."] },
+      { title: "Recommended vaccinations from age 60", body: ["For people aged 60 and older, STIKO recommends, among other things:"], bullets: ["annual influenza vaccination", "regular COVID-19 booster vaccinations", "pneumococcal vaccination", "RSV vaccination to protect against severe respiratory infections from age 75", "one-time vaccination against shingles (herpes zoster)"] },
+      { title: "Individual vaccination advice", body: ["We also provide individual advice on useful vaccinations in the following situations:"], bullets: ["chronic diseases", "wish to have children or pregnancy", "travel", "occupational risks", "incomplete vaccination status"] },
+      { title: "Joint review", body: ["Together, we review which vaccinations are recommended and which boosters may be useful."] },
     ],
     related: [
       { title: "Preventive health check-up", href: "/en/general-medicine/preventive-check-up", description: "Review prevention and vaccination status together." },
@@ -336,7 +346,7 @@ export const internalMedicineLandingPages = {
   },
   preoperativeInternalDe: {
     locale: "de",
-    title: "Präoperative Untersuchung in Berlin-Mitte",
+    title: "Präoperative Untersuchung vor einer Operation",
     eyebrow: "Vor Operationen",
     description: "Präoperative hausärztliche Untersuchung in Berlin-Mitte vor ambulanten oder stationären Operationen mit Anamnese, Untersuchung, EKG und Labor nach Bedarf.",
     canonical: "/hausaerztliche-leistungen/praeoperative-untersuchung",
@@ -352,10 +362,14 @@ export const internalMedicineLandingPages = {
       { label: "Kosten", value: "mit Überweisung meist Kassenleistung" },
     ],
     sections: [
-      { title: "Was beinhaltet die präoperative Untersuchung?", body: ["Je nach geplanter Operation und Vorerkrankungen umfasst die Untersuchung eine ausführliche Anamnese, körperliche Untersuchung, Blutdruckkontrolle, Ruhe-EKG, Laboruntersuchungen und gegebenenfalls weitere Diagnostik wie Lungenfunktion. Außerdem prüfen wir bestehende Erkrankungen, Medikamente und Risikofaktoren für Narkose oder Eingriff."] },
-      { title: "Was muss ich zum Termin mitbringen?", body: ["Bitte bringen Sie möglichst die Überweisung oder Anforderung des Operateurs beziehungsweise der Klinik, vorhandene Unterlagen zur Operation, Ihren Medikamentenplan und relevante Vorbefunde mit. Das erleichtert die Einschätzung und verhindert unnötige Doppeluntersuchungen."] },
+      { title: "Häufige Eingriffe", body: ["Zu den häufigen Eingriffen gehören zum Beispiel:"], bullets: ["Katarakt-Operationen (Grauer Star)", "Knie- oder Hüftoperationen", "Arthroskopien", "Hernienoperationen", "kleinere chirurgische Eingriffe", "ambulante Operationen in Vollnarkose oder Sedierung"] },
+      { title: "Was beinhaltet die präoperative Untersuchung?", body: ["Je nach geplanter Operation und Vorerkrankungen umfasst die Untersuchung unter anderem:"], bullets: ["ausführliche Anamnese", "körperliche Untersuchung", "Blutdruckkontrolle", "Ruhe-EKG", "Laboruntersuchungen", "gegebenenfalls weitere Untersuchungen wie Lungenfunktion oder zusätzliche Diagnostik"] },
+      { title: "Erkrankungen, Medikamente und Risikofaktoren", body: ["Außerdem prüfen wir bestehende Erkrankungen, Medikamente und mögliche Risikofaktoren für die Narkose oder den Eingriff."] },
+      { title: "Was muss ich zum Termin mitbringen?", body: ["Bitte bringen Sie möglichst mit:"], bullets: ["die Überweisung oder Anforderung des Operateurs bzw. der Klinik", "vorhandene Unterlagen zur Operation", "Ihren Medikamentenplan", "relevante Vorbefunde"] },
+      { title: "Warum Unterlagen wichtig sind", body: ["Das erleichtert die Einschätzung und verhindert unnötige Doppeluntersuchungen."] },
       { title: "Kostenübernahme", body: ["Präoperative Untersuchungen mit entsprechender Überweisung vor einem geplanten Eingriff werden in der Regel von den gesetzlichen Krankenkassen übernommen."] },
-      { title: "Warum ist die Untersuchung wichtig?", body: ["Die präoperative Untersuchung hilft, mögliche Risiken frühzeitig zu erkennen, bestehende Erkrankungen optimal einzustellen und die Sicherheit während Operation und Narkose zu verbessern. So kann der Eingriff möglichst sicher und komplikationsarm durchgeführt werden."] },
+      { title: "Warum ist die Untersuchung wichtig?", body: ["Die präoperative Untersuchung hilft dabei:"], bullets: ["mögliche Risiken frühzeitig zu erkennen", "bestehende Erkrankungen optimal einzustellen", "die Sicherheit während der Operation und Narkose zu verbessern"] },
+      { title: "Ziel der präoperativen Untersuchung", body: ["So kann der Eingriff möglichst sicher und komplikationsarm durchgeführt werden."] },
     ],
     related: [
       { title: "EKG", href: "/hausaerztliche-leistungen/ekg", description: "Ruhe-EKG oder Belastungs-EKG nach Bedarf." },
@@ -370,7 +384,7 @@ export const internalMedicineLandingPages = {
   },
   preoperativeInternalEn: {
     locale: "en",
-    title: "Preoperative Examination in Berlin-Mitte",
+    title: "Preoperative Examination Before Surgery",
     eyebrow: "Before surgery",
     description: "Preoperative primary-care examination in Berlin-Mitte before outpatient or inpatient surgery, with history, examination, ECG and lab testing when needed.",
     canonical: "/en/general-medicine/preoperative-examination",
@@ -386,10 +400,14 @@ export const internalMedicineLandingPages = {
       { label: "Cost", value: "usually covered with referral" },
     ],
     sections: [
-      { title: "What does the preoperative examination include?", body: ["Depending on the planned operation and pre-existing conditions, the examination includes medical history, physical examination, blood pressure check, resting ECG, lab testing and, if needed, further diagnostics such as lung function testing. We also review existing conditions, medication and risk factors for anesthesia or surgery."] },
-      { title: "What should I bring to the appointment?", body: ["Please bring the referral or request from the surgeon or clinic, available surgery documents, your medication plan and relevant previous findings. This supports assessment and helps avoid unnecessary duplicate testing."] },
+      { title: "Common procedures", body: ["Common procedures include, for example:"], bullets: ["cataract surgery", "knee or hip surgery", "arthroscopy", "hernia surgery", "minor surgical procedures", "outpatient surgery under general anesthesia or sedation"] },
+      { title: "What does the preoperative examination include?", body: ["Depending on the planned operation and pre-existing conditions, the examination includes, among other things:"], bullets: ["detailed medical history", "physical examination", "blood pressure check", "resting ECG", "lab testing", "if needed, further examinations such as lung function testing or additional diagnostics"] },
+      { title: "Conditions, medication and risk factors", body: ["We also review existing conditions, medication and possible risk factors for anesthesia or the procedure."] },
+      { title: "What should I bring to the appointment?", body: ["Please bring, if possible:"], bullets: ["the referral or request from the surgeon or clinic", "available documents about the operation", "your medication plan", "relevant previous findings"] },
+      { title: "Why documents are important", body: ["This supports assessment and helps avoid unnecessary duplicate testing."] },
       { title: "Cost coverage", body: ["Preoperative examinations with a corresponding referral before a planned procedure are usually covered by public health insurance."] },
-      { title: "Why is the examination important?", body: ["The preoperative examination helps identify risks early, optimize existing conditions and improve safety during surgery and anesthesia. This supports the safest possible procedure with fewer complications."] },
+      { title: "Why is the examination important?", body: ["The preoperative examination helps to:"], bullets: ["identify possible risks early", "optimize existing conditions", "improve safety during surgery and anesthesia"] },
+      { title: "Goal of the preoperative examination", body: ["This supports the safest possible procedure with fewer complications."] },
     ],
     related: [
       { title: "ECG", href: "/en/general-medicine/ecg", description: "Resting ECG or exercise ECG when needed." },
@@ -405,7 +423,7 @@ export const internalMedicineLandingPages = {
 
   ultrasoundInternalDe: {
     locale: "de",
-    title: "Ultraschalluntersuchung in Berlin-Mitte",
+    title: "Ultraschalluntersuchung (Sonographie)",
     eyebrow: "Sonographie",
     description: "Ultraschalluntersuchung in Berlin-Mitte: schmerzfreie und strahlenfreie Sonographie von Bauchorganen, Schilddrüse, Bauchaorta und ausgewählten Gefäßen.",
     canonical: "/hausaerztliche-leistungen/ultraschalluntersuchung",
@@ -413,7 +431,7 @@ export const internalMedicineLandingPages = {
     cta: "Termin buchen",
     secondaryCta: "Preise ansehen",
     secondaryHref: "/hausaerztliche-leistungen/preise",
-    intro: "Die Ultraschalluntersuchung ist ein schonendes, schmerzfreies und strahlenfreies Verfahren zur Darstellung innerer Organe. Sie ermöglicht eine schnelle Beurteilung vieler Beschwerden direkt in der Praxis.",
+    intro: "Die Ultraschalluntersuchung ist ein schonendes, schmerzfreies und strahlenfreies Verfahren zur Darstellung innerer Organe. Sie ermöglicht eine schnelle und zuverlässige Beurteilung vieler Beschwerden direkt in der Praxis, ganz ohne Belastung durch Röntgenstrahlen.",
     facts: [
       { label: "Verfahren", value: "schmerzfrei und strahlenfrei" },
       { label: "Dauer", value: "meist nur wenige Minuten" },
@@ -421,10 +439,14 @@ export const internalMedicineLandingPages = {
       { label: "Einsatz", value: "Organe und Gefäße" },
     ],
     sections: [
-      { title: "Wann wird eine Ultraschalluntersuchung durchgeführt?", body: ["Eine Sonographie erfolgt bei medizinischer Notwendigkeit, zum Beispiel bei Beschwerden, auffälligen Laborwerten oder zur Kontrolle bekannter Befunde. Auch Vorsorgeuntersuchungen ohne akute Beschwerden können sinnvoll sein und erfolgen dann meist als individuelle Gesundheitsleistung."], bullets: ["Bauchschmerzen, Übelkeit oder Verdauungsbeschwerden", "Verdacht auf Veränderungen an Leber, Gallenblase, Nieren, Milz oder Bauchspeicheldrüse", "Abklärung von Schilddrüsenveränderungen", "Kontrolle bekannter Befunde wie Zysten, Steine oder Organvergrößerungen", "Nachsorge nach Erkrankungen oder Operationen"] },
-      { title: "Welche Vorteile bietet die Sonographie?", body: ["Ultraschall ist direkt in der Praxis durchführbar, gut verträglich und beliebig wiederholbar. Die Untersuchung hilft zu entscheiden, ob weitere Diagnostik notwendig ist."], bullets: ["keine Strahlenbelastung", "schmerzfrei", "Ergebnisse sofort sichtbar", "keine besondere Vorbereitung in den meisten Fällen"] },
-      { title: "Wie läuft die Untersuchung ab?", body: ["Die Untersuchung findet im Liegen statt. Ein spezielles Gel wird auf die Haut aufgetragen, anschließend werden die Organe mit einem Ultraschallkopf in Echtzeit dargestellt und direkt beurteilt."] },
-      { title: "Ultraschall der Bauchschlagader", body: ["Ein Bauchaortenaneurysma ist eine Erweiterung der Hauptschlagader im Bauchraum und verursacht oft lange keine Beschwerden. Gesetzlich versicherte Männer ab 65 Jahren haben einmalig Anspruch auf eine Ultraschalluntersuchung der Bauchaorta zur Früherkennung. Für Frauen kann die Untersuchung auf Wunsch als individuelle Gesundheitsleistung durchgeführt werden."] },
+      { title: "In unserer Praxis bieten wir unter anderem an", body: ["In unserer Praxis bieten wir unter anderem folgende Ultraschalluntersuchungen an:"], bullets: ["Bauchultraschall", "Schilddrüsenultraschall", "Ultraschall der Bauchschlagader (Bauchaorta)", "Ultraschall der Halsschlagadern (für Privatversicherte oder als individuelle Gesundheitsleistung möglich)", "Herzultraschall (Echokardiographie) (für Privatversicherte oder als individuelle Gesundheitsleistung möglich)"] },
+      { title: "Wann wird eine Ultraschalluntersuchung durchgeführt?", body: ["Eine Sonographie erfolgt bei medizinischer Notwendigkeit, zum Beispiel bei Beschwerden, auffälligen Laborwerten oder zur Kontrolle bekannter Befunde.", "Häufige Gründe sind:"], bullets: ["Bauchschmerzen, Übelkeit oder Verdauungsbeschwerden", "Verdacht auf Veränderungen an Leber, Gallenblase, Nieren, Milz oder Bauchspeicheldrüse", "Abklärung von Schilddrüsenveränderungen", "Kontrolle bekannter Befunde wie Zysten, Steine oder Organvergrößerungen", "Nachsorge nach Erkrankungen oder Operationen"] },
+      { title: "Vorsorgeuntersuchungen", body: ["Auch Vorsorgeuntersuchungen ohne akute Beschwerden können sinnvoll sein. Diese erfolgen in der Regel als individuelle Gesundheitsleistung (IGeL)."] },
+      { title: "Welche Vorteile bietet die Sonographie?", body: [], bullets: ["Schonendes Verfahren ohne Strahlenbelastung", "Schmerzfrei und gut verträglich", "Direkt in der Praxis durchführbar", "Ergebnisse sofort sichtbar", "Beliebig wiederholbar", "Hilfreich zur Entscheidung, ob weitere Diagnostik notwendig ist"] },
+      { title: "Wie läuft die Untersuchung ab?", body: ["Die Untersuchung findet im Liegen statt und dauert meist nur wenige Minuten.", "Dabei:"], bullets: ["wird ein spezielles Gel auf die Haut aufgetragen", "werden die Organe mit einem Ultraschallkopf in Echtzeit dargestellt", "werden die Bilder direkt beurteilt"] },
+      { title: "Vorbereitung und Verträglichkeit", body: ["Die Untersuchung ist vollkommen schmerzfrei und erfordert in den meisten Fällen keine besondere Vorbereitung."] },
+      { title: "Ultraschall der Bauchschlagader (Bauchaorta)", body: ["Ein Bauchaortenaneurysma ist eine Erweiterung der Hauptschlagader im Bauchraum.", "Da diese Veränderung oft lange keine Beschwerden verursacht, bleibt sie häufig unbemerkt. Wird sie früh erkannt, kann eine gefährliche Komplikation verhindert werden."] },
+      { title: "Wer hat Anspruch auf die Untersuchung?", body: ["Gesetzlich versicherte Männer ab dem 65. Lebensjahr haben einmalig Anspruch auf eine Ultraschalluntersuchung der Bauchaorta zur Früherkennung eines Aneurysmas.", "Die Untersuchung wird von den gesetzlichen Krankenkassen übernommen.", "Für Frauen gehört diese Untersuchung derzeit nicht zur regulären Kassenleistung. Sie kann jedoch auf Wunsch als individuelle Gesundheitsleistung (IGeL) durchgeführt werden."] },
     ],
     related: [
       { title: "Schilddrüse", href: "/schwerpunkte/schilddruese", description: "Schilddrüsendiagnostik mit Labor und Ultraschall." },
@@ -439,7 +461,7 @@ export const internalMedicineLandingPages = {
   },
   ultrasoundInternalEn: {
     locale: "en",
-    title: "Ultrasound Examination in Berlin-Mitte",
+    title: "Ultrasound Examination (Sonography)",
     eyebrow: "Sonography",
     description: "Ultrasound examination in Berlin-Mitte: painless and radiation-free sonography of abdominal organs, thyroid, abdominal aorta and selected vessels.",
     canonical: "/en/general-medicine/ultrasound-examination",
@@ -447,7 +469,7 @@ export const internalMedicineLandingPages = {
     cta: "Book appointment",
     secondaryCta: "View prices",
     secondaryHref: "/en/general-medicine/prices",
-    intro: "Ultrasound is a gentle, painless and radiation-free method for visualizing internal organs. It enables quick assessment of many symptoms directly in the practice.",
+    intro: "Ultrasound is a gentle, painless and radiation-free method for visualizing internal organs. It enables quick and reliable assessment of many symptoms directly in the practice, without exposure to X-rays.",
     facts: [
       { label: "Method", value: "painless and radiation-free" },
       { label: "Duration", value: "usually only a few minutes" },
@@ -455,10 +477,14 @@ export const internalMedicineLandingPages = {
       { label: "Use", value: "organs and vessels" },
     ],
     sections: [
-      { title: "When is ultrasound performed?", body: ["Sonography is performed when medically indicated, for example for symptoms, abnormal lab values or follow-up of known findings. Preventive examinations without acute symptoms may also be useful and are usually individual self-pay services."], bullets: ["abdominal pain, nausea or digestive symptoms", "suspected changes in liver, gallbladder, kidneys, spleen or pancreas", "assessment of thyroid changes", "follow-up of known findings such as cysts, stones or organ enlargement", "follow-up after illness or surgery"] },
-      { title: "What are the advantages of sonography?", body: ["Ultrasound can be performed directly in the practice, is well tolerated and can be repeated as needed. It helps decide whether further diagnostics are necessary."], bullets: ["no radiation exposure", "painless", "results visible immediately", "usually no special preparation required"] },
-      { title: "How does the examination work?", body: ["The examination is performed while lying down. A special gel is applied to the skin, then the organs are displayed in real time with an ultrasound probe and assessed directly."] },
-      { title: "Ultrasound of the abdominal aorta", body: ["An abdominal aortic aneurysm is an enlargement of the main artery in the abdomen and often causes no symptoms for a long time. Publicly insured men aged 65 and older are entitled to a one-time ultrasound screening of the abdominal aorta. For women, the examination can be performed on request as an individual self-pay service."] },
+      { title: "In our practice, we offer, among other things", body: ["In our practice, we offer the following ultrasound examinations, among others:"], bullets: ["abdominal ultrasound", "thyroid ultrasound", "ultrasound of the abdominal aorta", "ultrasound of the carotid arteries (possible for privately insured patients or as an individual self-pay service)", "cardiac ultrasound / echocardiography (possible for privately insured patients or as an individual self-pay service)"] },
+      { title: "When is ultrasound performed?", body: ["Sonography is performed when medically indicated, for example for symptoms, abnormal lab values or follow-up of known findings.", "Common reasons include:"], bullets: ["abdominal pain, nausea or digestive symptoms", "suspected changes in liver, gallbladder, kidneys, spleen or pancreas", "assessment of thyroid changes", "follow-up of known findings such as cysts, stones or organ enlargement", "follow-up after illness or surgery"] },
+      { title: "Preventive examinations", body: ["Preventive examinations without acute symptoms can also be useful. These are usually individual self-pay services."] },
+      { title: "What are the advantages of sonography?", body: [], bullets: ["gentle method without radiation exposure", "painless and well tolerated", "can be performed directly in the practice", "results visible immediately", "can be repeated as needed", "helpful for deciding whether further diagnostics are necessary"] },
+      { title: "How does the examination work?", body: ["The examination is performed while lying down and usually takes only a few minutes.", "During the examination:"], bullets: ["a special gel is applied to the skin", "the organs are displayed in real time with an ultrasound probe", "the images are assessed directly"] },
+      { title: "Preparation and tolerability", body: ["The examination is completely painless and, in most cases, requires no special preparation."] },
+      { title: "Ultrasound of the abdominal aorta", body: ["An abdominal aortic aneurysm is an enlargement of the main artery in the abdomen.", "Because this change often causes no symptoms for a long time, it often remains unnoticed. If detected early, a dangerous complication can be prevented."] },
+      { title: "Who is entitled to the examination?", body: ["Publicly insured men aged 65 and older are entitled to a one-time ultrasound examination of the abdominal aorta for early detection of an aneurysm.", "The examination is covered by public health insurance.", "For women, this examination is currently not part of regular public insurance coverage. It can be performed on request as an individual self-pay service."] },
     ],
     related: [
       { title: "Thyroid diagnostics", href: "/en/focus-areas/thyroid-gland", description: "Thyroid assessment with lab testing and ultrasound." },
@@ -473,7 +499,7 @@ export const internalMedicineLandingPages = {
   },
   checkupInternalDe: {
     locale: "de",
-    title: "Gesundheitsuntersuchung Check-up in Berlin-Mitte",
+    title: "Gesundheitsuntersuchung (Check-up)",
     eyebrow: "Vorsorgeuntersuchung",
     description: "Gesetzlicher Check-up in Berlin-Mitte zur Früherkennung von Bluthochdruck, Diabetes, Fettstoffwechselstörungen und Nierenerkrankungen.",
     canonical: "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up",
@@ -481,7 +507,7 @@ export const internalMedicineLandingPages = {
     cta: "Check-up buchen",
     secondaryCta: "Preise ansehen",
     secondaryHref: "/hausaerztliche-leistungen/preise",
-    intro: "Der Check-up ist eine Vorsorgeuntersuchung der gesetzlichen Krankenkassen zur Früherkennung häufiger Erkrankungen. Ziel ist es, gesundheitliche Risiken frühzeitig zu erkennen, bevor Beschwerden entstehen.",
+    intro: "Der Check-up ist eine Vorsorgeuntersuchung der gesetzlichen Krankenkassen zur Früherkennung häufiger Erkrankungen wie Bluthochdruck, Diabetes, Fettstoffwechselstörungen oder Nierenerkrankungen. Ziel ist es, gesundheitliche Risiken frühzeitig zu erkennen, bevor Beschwerden entstehen. Gleichzeitig besprechen wir persönliche Risikofaktoren und mögliche Maßnahmen für Ihre langfristige Gesundheit.",
     facts: [
       { label: "Anspruch", value: "18-34 einmalig, ab 35 alle 3 Jahre" },
       { label: "Kosten", value: "gesetzliche Kassenleistung nach Anspruch" },
@@ -489,10 +515,17 @@ export const internalMedicineLandingPages = {
       { label: "Ergänzungen", value: "IGeL nach Wunsch und Befund" },
     ],
     sections: [
-      { title: "Wer hat Anspruch auf den Check-up?", body: ["Zwischen 18 und 34 Jahren besteht einmalig Anspruch auf den Check-up. Ab 35 Jahren kann die Gesundheitsuntersuchung alle drei Jahre durchgeführt werden. Die Kosten werden nach den gesetzlichen Vorgaben von den Krankenkassen übernommen."] },
-      { title: "Was beinhaltet die Untersuchung?", body: ["Wir sprechen über Ihre persönliche Krankengeschichte, familiäre Risiken, Allergien, Vorbefunde, Krankenhausaufenthalte, frühere Untersuchungen und Lebensstilfaktoren. Je nach Situation folgen körperliche Untersuchung, Blutdruckmessung, Herz- und Lungenuntersuchung sowie die gemeinsame Auswertung."] },
-      { title: "Laboruntersuchungen", body: ["Zwischen 18 und 34 Jahren erfolgen Laboruntersuchungen bei medizinischer Notwendigkeit nach ärztlicher Einschätzung. Ab 35 Jahren sind unter anderem Nüchternblutzucker, Cholesterinwerte, ein einmaliges Hepatitis-B- und Hepatitis-C-Screening sowie eine Urinuntersuchung vorgesehen."] },
-      { title: "Erweiterte Vorsorge und zusätzliche Untersuchungen", body: ["Auf Wunsch können ergänzend weitere Laborwerte oder diagnostische Untersuchungen durchgeführt werden, zum Beispiel differenziertes Blutbild, Leberwerte, Nierenwerte, Schilddrüsenwerte, Vitamin- und Mineralstoffanalysen, erweitertes Lipidprofil, Ultraschall, EKG, Lungenfunktionstest oder Langzeit-Blutdruckmessung. Diese Leistungen erfolgen in der Regel als individuelle Gesundheitsleistungen."] },
+      { title: "Wer hat Anspruch auf den Check-up?", body: ["Die Kosten werden von den gesetzlichen Krankenkassen übernommen."], bullets: ["Zwischen 18 und 34 Jahren: einmalig", "Ab 35 Jahren: alle 3 Jahre"] },
+      { title: "Ärztliches Gespräch (Anamnese)", body: ["Wir sprechen unter anderem über:"], bullets: ["Ihre persönliche Krankengeschichte", "Erkrankungen in der Familie, z. B. Herz-Kreislauf-Erkrankungen, Diabetes oder Krebs", "Allergien und Unverträglichkeiten", "Vorbefunde, Krankenhausaufenthalte oder frühere Untersuchungen", "Lebensstilfaktoren wie Ernährung, Bewegung, Rauchen oder Alkoholkonsum"] },
+      { title: "Warum frühere Befunde wichtig sind", body: ["Gerade frühere Befunde helfen dabei, Veränderungen im Verlauf besser beurteilen zu können."] },
+      { title: "Körperliche Untersuchung", body: ["Je nach Situation umfasst die Untersuchung unter anderem:"], bullets: ["Blutdruckmessung", "Herz- und Lungenuntersuchung", "Gewicht und Körpermaße", "Allgemeine körperliche Untersuchung"] },
+      { title: "Laboruntersuchungen zwischen 18 und 34 Jahren", body: ["Laboruntersuchungen erfolgen bei medizinischer Notwendigkeit nach ärztlicher Einschätzung."] },
+      { title: "Laboruntersuchungen ab 35 Jahren", body: ["Folgende Untersuchungen sind gesetzlich vorgesehen:"], bullets: ["Nüchternblutzucker", "Cholesterinwerte (Gesamtcholesterin, LDL, HDL)", "Hep B und C Screening einmal im Leben ab 35 Jahre alt", "Urinuntersuchung auf Zucker, Eiweiß sowie rote und weiße Blutkörperchen"] },
+      { title: "Abschlussgespräch", body: ["Im Anschluss besprechen wir gemeinsam die Ergebnisse und klären, ob weitere Untersuchungen, Vorsorgemaßnahmen oder Behandlungen sinnvoll sind."] },
+      { title: "Erweiterte Vorsorge & zusätzliche Untersuchungen", body: ["Auf Wunsch können ergänzend weitere Laborwerte oder diagnostische Untersuchungen durchgeführt werden. Diese Leistungen erfolgen in der Regel als individuelle Gesundheitsleistungen (IGeL).", "Mögliche Zusatzuntersuchungen sind zum Beispiel:"] },
+      { title: "Erweiterte Blutuntersuchungen", body: [], bullets: ["Differenziertes Blutbild", "Leberwerte (GOT, GPT, Gamma-GT)", "Nierenwerte (Kreatinin, Harnsäure, Elektrolyte)", "Schilddrüsenwerte (TSH, fT3, fT4)", "Vitamin- und Mineralstoffanalysen, z. B. Vitamin D, Vitamin B12, Eisen, Magnesium oder Zink", "Erweitertes Lipidprofil, z. B. Triglyzeride, Lipoprotein(a), Apolipoprotein B", "Mikronährstoffanalysen"] },
+      { title: "Apparative Diagnostik", body: [], bullets: ["Ultraschalluntersuchungen", "EKG", "Lungenfunktionstest", "Langzeit-Blutdruckmessung"] },
+      { title: "Umfassenderes Gesundheitsbild", body: ["So kann ein noch umfassenderes Bild Ihrer Gesundheit und möglicher Risikofaktoren entstehen."] },
     ],
     related: [
       { title: "Langzeit-Blutdruckmessung", href: "/hausaerztliche-leistungen/langzeit-blutdruckmessung", description: "Blutdruck im Alltag beurteilen." },
@@ -507,7 +540,7 @@ export const internalMedicineLandingPages = {
   },
   checkupInternalEn: {
     locale: "en",
-    title: "Preventive Health Check-up in Berlin-Mitte",
+    title: "Preventive Health Check-up",
     eyebrow: "Public-insurance preventive care",
     description: "Public-insurance health check-up in Berlin-Mitte for early detection of hypertension, diabetes, lipid disorders and kidney disease.",
     canonical: "/en/general-medicine/preventive-check-up",
@@ -515,7 +548,7 @@ export const internalMedicineLandingPages = {
     cta: "Book check-up",
     secondaryCta: "View prices",
     secondaryHref: "/en/general-medicine/prices",
-    intro: "The health check-up is a preventive examination covered by public insurers according to eligibility. The goal is to detect health risks early, before symptoms develop.",
+    intro: "The check-up is a preventive examination covered by public health insurers for early detection of common conditions such as high blood pressure, diabetes, lipid disorders or kidney disease. The goal is to detect health risks early, before symptoms develop. At the same time, we discuss personal risk factors and possible steps for your long-term health.",
     facts: [
       { label: "Eligibility", value: "18-34 once, from 35 every 3 years" },
       { label: "Cost", value: "public insurance service when eligible" },
@@ -523,10 +556,17 @@ export const internalMedicineLandingPages = {
       { label: "Add-ons", value: "self-pay services by request and findings" },
     ],
     sections: [
-      { title: "Who is eligible for the check-up?", body: ["Between ages 18 and 34, the check-up can be used once. From age 35, it can be performed every three years. Costs are covered by public insurers according to statutory rules."] },
-      { title: "What does the examination include?", body: ["We discuss your personal medical history, family risks, allergies, previous findings, hospital stays, earlier examinations and lifestyle factors. Depending on the situation, this is followed by physical examination, blood pressure measurement, heart and lung examination and joint review of results."] },
-      { title: "Lab testing", body: ["Between ages 18 and 34, lab tests are performed when medically indicated after physician assessment. From age 35, statutory testing includes fasting blood glucose, cholesterol values, one-time hepatitis B and C screening and urine testing."] },
-      { title: "Extended prevention and additional diagnostics", body: ["Additional lab values or diagnostics can be added on request, for example differential blood count, liver values, kidney values, thyroid values, vitamin and mineral analysis, extended lipid profile, ultrasound, ECG, lung function testing or 24-hour blood pressure monitoring. These are usually individual self-pay services."] },
+      { title: "Who is eligible for the check-up?", body: ["Costs are covered by public health insurers according to eligibility."], bullets: ["Between ages 18 and 34: once", "From age 35: every 3 years"] },
+      { title: "Medical consultation (history)", body: ["We discuss, among other things:"], bullets: ["your personal medical history", "conditions in the family, e.g. cardiovascular disease, diabetes or cancer", "allergies and intolerances", "previous findings, hospital stays or earlier examinations", "lifestyle factors such as nutrition, exercise, smoking or alcohol consumption"] },
+      { title: "Why previous findings are important", body: ["Earlier findings help us better assess changes over time."] },
+      { title: "Physical examination", body: ["Depending on the situation, the examination includes, among other things:"], bullets: ["blood pressure measurement", "heart and lung examination", "weight and body measurements", "general physical examination"] },
+      { title: "Lab testing between ages 18 and 34", body: ["Lab tests are performed when medically indicated after physician assessment."] },
+      { title: "Lab testing from age 35", body: ["The following examinations are provided by statutory rules:"], bullets: ["fasting blood glucose", "cholesterol values (total cholesterol, LDL, HDL)", "hepatitis B and C screening once in life from age 35", "urine testing for sugar, protein and red and white blood cells"] },
+      { title: "Final consultation", body: ["Afterwards, we discuss the results together and clarify whether further examinations, preventive measures or treatments are useful."] },
+      { title: "Extended prevention & additional examinations", body: ["On request, further lab values or diagnostic examinations can be added. These services are usually individual self-pay services.", "Possible additional examinations include, for example:"] },
+      { title: "Extended blood tests", body: [], bullets: ["differential blood count", "liver values (GOT, GPT, Gamma-GT)", "kidney values (creatinine, uric acid, electrolytes)", "thyroid values (TSH, fT3, fT4)", "vitamin and mineral analyses, e.g. vitamin D, vitamin B12, iron, magnesium or zinc", "extended lipid profile, e.g. triglycerides, lipoprotein(a), apolipoprotein B", "micronutrient analyses"] },
+      { title: "Technical diagnostics", body: [], bullets: ["ultrasound examinations", "ECG", "lung function test", "24-hour blood pressure monitoring"] },
+      { title: "More comprehensive health picture", body: ["This can create a more comprehensive picture of your health and possible risk factors."] },
     ],
     related: [
       { title: "24-hour blood pressure monitoring", href: "/en/general-medicine/24-hour-blood-pressure-monitoring", description: "Assess blood pressure in daily life." },
