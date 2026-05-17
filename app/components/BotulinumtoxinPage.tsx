@@ -2,11 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Constants } from "app/Constants";
 import {
-  botulinumtoxinCommonSections,
-  botulinumtoxinFaq,
-  botulinumtoxinIntro,
-  botulinumtoxinOverview,
-  botulinumtoxinServices,
+  botulinumtoxinContentDe,
+  botulinumtoxinContentEn,
+  type BotulinumtoxinPageContent,
   type BotulinumtoxinService,
 } from "app/content/botulinumtoxin";
 import { MotionCard, MotionSection } from "./Motion";
@@ -76,7 +74,7 @@ function ServiceBody({ service }: { service: BotulinumtoxinService }) {
   );
 }
 
-function Ctas() {
+function Ctas({ content }: { content: BotulinumtoxinPageContent }) {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <Link
@@ -85,23 +83,23 @@ function Ctas() {
         rel="noopener noreferrer"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
-        Termin buchen
+        {content.labels.book}
       </Link>
       <Link
-        href="/botox-preise"
+        href={content.locale === "en" ? "/en/botox-prices" : "/botox-preise"}
         className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"
       >
-        Preise ansehen
+        {content.labels.prices}
       </Link>
     </div>
   );
 }
 
-function CommonSections() {
+function CommonSections({ content }: { content: BotulinumtoxinPageContent }) {
   return (
     <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
-        {botulinumtoxinCommonSections.map((section) => (
+        {content.commonSections.map((section) => (
           <MotionCard key={section.title} className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-primary/10">
             <h2 className="font-serif text-2xl font-semibold text-primary">{section.title}</h2>
             <div className="mt-5">
@@ -114,12 +112,12 @@ function CommonSections() {
   );
 }
 
-function FaqSection() {
+function FaqSection({ content }: { content: BotulinumtoxinPageContent }) {
   return (
     <MotionSection className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-      <h2 className="font-serif text-3xl font-semibold text-primary">Häufige Fragen zur Botulinumtoxin-Behandlung</h2>
+      <h2 className="font-serif text-3xl font-semibold text-primary">{content.labels.faqTitle}</h2>
       <div className="mt-8 space-y-4">
-        {botulinumtoxinFaq.map((item) => (
+        {content.faq.map((item) => (
           <details key={item.question} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
             <summary className="cursor-pointer font-serif text-lg font-semibold text-primary">{item.question}</summary>
             <div className="mt-4">
@@ -132,20 +130,21 @@ function FaqSection() {
   );
 }
 
-export function BotulinumtoxinMainPage() {
+export function BotulinumtoxinMainPage({ locale = "de" }: { locale?: "de" | "en" }) {
+  const content = locale === "en" ? botulinumtoxinContentEn : botulinumtoxinContentDe;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Praxis Jona", item: Constants.baseUrl },
-      { "@type": "ListItem", position: 2, name: botulinumtoxinIntro.title, item: `${Constants.baseUrl}${botulinumtoxinIntro.canonical}` },
+      { "@type": "ListItem", position: 2, name: content.intro.title, item: `${Constants.baseUrl}${content.intro.canonical}` },
     ],
   };
 
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: botulinumtoxinFaq.map((item) => ({
+    mainEntity: content.faq.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: { "@type": "Answer", text: item.answer },
@@ -155,11 +154,11 @@ export function BotulinumtoxinMainPage() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    itemListElement: botulinumtoxinServices.map((service, index) => ({
+    itemListElement: content.services.map((service, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: service.title,
-      url: `${Constants.baseUrl}/botox-behandlung/${service.slug}`,
+      url: `${Constants.baseUrl}${content.intro.canonical}/${service.slug}`,
     })),
   };
 
@@ -171,35 +170,35 @@ export function BotulinumtoxinMainPage() {
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8 lg:py-24">
           <div>
-            <p className={eyebrowClassName}>Botulinumtoxin Behandlung</p>
-            <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{botulinumtoxinIntro.title}</h1>
-            <p className="mt-5 font-serif text-2xl text-primary">{botulinumtoxinIntro.subtitle}</p>
+            <p className={eyebrowClassName}>{content.labels.treatmentEyebrow}</p>
+            <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.intro.title}</h1>
+            <p className="mt-5 font-serif text-2xl text-primary">{content.intro.subtitle}</p>
             <div className="mt-6 space-y-5 text-lg leading-8 text-primaryLighter">
-              <p>{botulinumtoxinIntro.description}</p>
-              <p>{botulinumtoxinIntro.secondaryDescription}</p>
+              <p>{content.intro.description}</p>
+              <p>{content.intro.secondaryDescription}</p>
             </div>
-            <Ctas />
+            <Ctas content={content} />
           </div>
-          <ServiceImage service={botulinumtoxinServices[0]} priority />
+          <ServiceImage service={content.services[0]} priority />
         </MotionSection>
 
         <MotionSection className="mx-auto max-w-5xl px-4 pb-14 sm:px-6 lg:px-8">
-          <p className={eyebrowClassName}>Grundlagen</p>
-          <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{botulinumtoxinOverview.title}</h2>
+          <p className={eyebrowClassName}>{content.labels.basicsEyebrow}</p>
+          <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{content.overview.title}</h2>
           <div className="mt-6">
-            <Paragraphs paragraphs={botulinumtoxinOverview.paragraphs} />
+            <Paragraphs paragraphs={content.overview.paragraphs} />
           </div>
         </MotionSection>
 
         <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-3xl">
-              <p className={eyebrowClassName}>Behandlungsbereiche</p>
-              <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">Behandlungsbereiche mit Botulinumtoxin</h2>
+              <p className={eyebrowClassName}>{content.labels.areasEyebrow}</p>
+              <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{content.labels.areasTitle}</h2>
             </div>
             <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {botulinumtoxinServices.map((service, index) => (
-                <Link key={service.slug} href={`/botox-behandlung/${service.slug}`} className="block h-full">
+              {content.services.map((service, index) => (
+                <Link key={service.slug} href={`${content.intro.canonical}/${service.slug}`} className="block h-full">
                   <MotionCard
                     delay={Math.min(index * 0.03, 0.24)}
                     className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-primary/10 transition hover:shadow-lg"
@@ -208,7 +207,7 @@ export function BotulinumtoxinMainPage() {
                     <div className="flex flex-1 flex-col p-6">
                       <h3 className="font-serif text-2xl font-semibold text-primary">{service.title}</h3>
                       <p className="mt-4 flex-1 text-base leading-7 text-primaryLighter">{service.paragraphs[0]}</p>
-                      <span className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+                      <span className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">{content.labels.learnMore}</span>
                     </div>
                   </MotionCard>
                 </Link>
@@ -217,21 +216,22 @@ export function BotulinumtoxinMainPage() {
           </div>
         </MotionSection>
 
-        <CommonSections />
-        <FaqSection />
+        <CommonSections content={content} />
+        <FaqSection content={content} />
       </div>
     </>
   );
 }
 
-export function BotulinumtoxinServicePage({ service }: { service: BotulinumtoxinService }) {
+export function BotulinumtoxinServicePage({ service, locale = "de" }: { service: BotulinumtoxinService; locale?: "de" | "en" }) {
+  const content = locale === "en" ? botulinumtoxinContentEn : botulinumtoxinContentDe;
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Praxis Jona", item: Constants.baseUrl },
-      { "@type": "ListItem", position: 2, name: botulinumtoxinIntro.title, item: `${Constants.baseUrl}${botulinumtoxinIntro.canonical}` },
-      { "@type": "ListItem", position: 3, name: service.title, item: `${Constants.baseUrl}/botox-behandlung/${service.slug}` },
+      { "@type": "ListItem", position: 2, name: content.intro.title, item: `${Constants.baseUrl}${content.intro.canonical}` },
+      { "@type": "ListItem", position: 3, name: service.title, item: `${Constants.baseUrl}${content.intro.canonical}/${service.slug}` },
     ],
   };
 
@@ -240,7 +240,7 @@ export function BotulinumtoxinServicePage({ service }: { service: Botulinumtoxin
     "@type": "MedicalProcedure",
     name: service.title,
     description: service.paragraphs.join(" "),
-    url: `${Constants.baseUrl}/botox-behandlung/${service.slug}`,
+    url: `${Constants.baseUrl}${content.intro.canonical}/${service.slug}`,
     provider: {
       "@type": "MedicalClinic",
       "@id": `${Constants.baseUrl}/#organization`,
@@ -255,31 +255,31 @@ export function BotulinumtoxinServicePage({ service }: { service: Botulinumtoxin
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8 lg:py-24">
           <div>
-            <p className={eyebrowClassName}>Botulinumtoxin-Behandlung</p>
+            <p className={eyebrowClassName}>{content.labels.treatmentEyebrow}</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{service.title}</h1>
             <div className="mt-6">
               <ServiceBody service={service} />
             </div>
-            <Ctas />
+            <Ctas content={content} />
           </div>
           <ServiceImage service={service} priority />
         </MotionSection>
 
-        <CommonSections />
-        <FaqSection />
+        <CommonSections content={content} />
+        <FaqSection content={content} />
 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
-            <h2 className="font-serif text-3xl font-semibold text-primary">Weitere Behandlungsbereiche</h2>
+            <h2 className="font-serif text-3xl font-semibold text-primary">{content.labels.moreAreas}</h2>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {botulinumtoxinServices
+              {content.services
                 .filter((item) => item.slug !== service.slug)
                 .slice(0, 6)
                 .map((item) => (
-                  <Link key={item.slug} href={`/botox-behandlung/${item.slug}`} className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-primary/10 transition hover:shadow-md">
+                  <Link key={item.slug} href={`${content.intro.canonical}/${item.slug}`} className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-primary/10 transition hover:shadow-md">
                     <h3 className="font-serif text-xl font-semibold text-primary">{item.title}</h3>
                     <p className="mt-3 text-sm leading-6 text-primaryLighter">{item.paragraphs[0]}</p>
-                    <span className="mt-5 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+                    <span className="mt-5 block text-sm font-semibold text-primary underline underline-offset-4">{content.labels.learnMore}</span>
                   </Link>
                 ))}
             </div>

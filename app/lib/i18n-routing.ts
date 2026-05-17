@@ -1,5 +1,20 @@
 export type Locale = "de" | "en";
 
+const botulinumtoxinSlugPairs = [
+  { de: "zornesfalte", en: "frown-lines-glabella" },
+  { de: "stirnfalten", en: "forehead-lines" },
+  { de: "kraehenfuesse", en: "crows-feet" },
+  { de: "brow-lift-augenbrauenlifting", en: "brow-lift" },
+  { de: "bunny-lines", en: "bunny-lines" },
+  { de: "gummy-smile", en: "gummy-smile" },
+  { de: "lip-flip", en: "lip-flip" },
+  { de: "mundwinkel-anheben", en: "mouth-corners" },
+  { de: "hyperhidrose-starkes-schwitzen", en: "hyperhidrosis-excessive-sweating" },
+  { de: "masseter-zaehneknirschen-bruxismus", en: "masseter-bruxism" },
+  { de: "trapezmuskel-barbie-botox", en: "trapezius-barbie-botox" },
+  { de: "chronische-migraene", en: "chronic-migraine" },
+];
+
 const deToEnRouteMap: Record<string, string> = {
   "/": "/en",
   "/apps": "/en/apps",
@@ -106,9 +121,17 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
       return normalizedPathname;
     }
     if (normalizedPathname.startsWith("/botox-behandlung/")) {
-      return "/en/botox-treatment";
+      const slug = normalizedPathname.replace("/botox-behandlung/", "");
+      const enSlug = botulinumtoxinSlugPairs.find((pair) => pair.de === slug)?.en;
+      return enSlug ? `/en/botox-treatment/${enSlug}` : "/en/botox-treatment";
     }
     return deToEnRouteMap[normalizedPathname] ?? "/en";
+  }
+
+  if (normalizedPathname.startsWith("/en/botox-treatment/")) {
+    const slug = normalizedPathname.replace("/en/botox-treatment/", "");
+    const deSlug = botulinumtoxinSlugPairs.find((pair) => pair.en === slug)?.de;
+    return deSlug ? `/botox-behandlung/${deSlug}` : "/botox-behandlung";
   }
 
   const dePathname = enToDeRouteMap[normalizedPathname] ?? dePathnameFromEnglish(normalizedPathname);

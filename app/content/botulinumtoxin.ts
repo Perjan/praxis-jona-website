@@ -10,6 +10,36 @@ export type BotulinumtoxinService = {
   bullets?: string[];
 };
 
+export type BotulinumtoxinPageContent = {
+  locale: "de" | "en";
+  intro: {
+    title: string;
+    subtitle: string;
+    description: string;
+    secondaryDescription: string;
+    canonical: string;
+    alternate: string;
+  };
+  overview: {
+    title: string;
+    paragraphs: string[];
+  };
+  services: BotulinumtoxinService[];
+  commonSections: { title: string; paragraphs: string[] }[];
+  faq: { question: string; answer: string }[];
+  labels: {
+    treatmentEyebrow: string;
+    basicsEyebrow: string;
+    areasEyebrow: string;
+    areasTitle: string;
+    book: string;
+    prices: string;
+    learnMore: string;
+    faqTitle: string;
+    moreAreas: string;
+  };
+};
+
 export const botulinumtoxinIntro = {
   title: "Botulinumtoxin-Behandlung in Berlin-Mitte",
   subtitle: "Natürliche Ergebnisse durch präzise ästhetische Medizin",
@@ -267,4 +297,268 @@ export const botulinumtoxinFaq = [
 
 export function getBotulinumtoxinService(slug: string) {
   return botulinumtoxinServices.find((service) => service.slug === slug);
+}
+
+export const botulinumtoxinIntroEn = {
+  title: "Botulinum toxin treatment in Berlin-Mitte",
+  subtitle: "Natural results through precise aesthetic medicine",
+  description:
+    "At Praxis Jona near Rosenthaler Platz, we use botulinum toxin (“Botox”) individually and with medical precision, aiming to gently relax expression lines while preserving natural radiance.",
+  secondaryDescription:
+    "We do not treat according to fixed standard protocols. We plan around anatomy, muscle activity, skin quality and your personal goals.",
+  canonical: "/en/botox-treatment",
+  alternate: "/botox-behandlung",
+};
+
+export const botulinumtoxinOverviewEn = {
+  title: "What is botulinum toxin?",
+  paragraphs: [
+    "Botulinum toxin is a medication that has been established for many years in aesthetic and medical treatment.",
+    "It selectively reduces the activity of specific muscles and can therefore smooth expression lines or help prevent them from becoming deeper.",
+    "Our focus is on natural-looking results, not stiff facial features or overcorrected expression. Most people today want to look fresher, not “different”. That is an important distinction that surprisingly many treatments ignore.",
+  ],
+};
+
+export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
+  {
+    slug: "frown-lines-glabella",
+    title: "Frown lines (glabella)",
+    image: { src: placeholderImages[0], alt: "Placeholder for botulinum toxin treatment of frown lines" },
+    paragraphs: [
+      "Frown lines develop through repeated activity of the muscles between the eyebrows and can create a tense or tired expression.",
+      "Targeted injections with botulinum toxin can reduce muscle activity and visibly relax the line without completely changing natural facial expression.",
+    ],
+  },
+  {
+    slug: "forehead-lines",
+    title: "Forehead lines",
+    image: { src: placeholderImages[1], alt: "Placeholder for botulinum toxin treatment of forehead lines" },
+    paragraphs: [
+      "Horizontal forehead lines often develop through pronounced facial expression and repeated lifting of the eyebrows.",
+      "The goal of treatment is natural-looking smoothing of the forehead while preserving expressiveness and harmonious movement.",
+      "This is one of the areas where poor treatments immediately look artificial. That is exactly why anatomy matters more than “selling units”.",
+    ],
+  },
+  {
+    slug: "crows-feet",
+    title: "Crow’s feet",
+    image: { src: placeholderImages[2], alt: "Placeholder for botulinum toxin treatment of crow’s feet" },
+    paragraphs: [
+      "Small lines around the eyes often appear when laughing or squinting.",
+      "Targeted treatment can make the skin around the eyes look calmer and fresher without losing natural expression.",
+    ],
+  },
+  {
+    slug: "brow-lift",
+    title: "Brow lift / eyebrow lift",
+    image: { src: placeholderImages[3], alt: "Placeholder for brow lift with botulinum toxin" },
+    paragraphs: [
+      "Targeted relaxation of specific muscle groups can slightly lift the brow region and make the eyes appear more open.",
+      "Treatment is individually adapted to anatomy and facial movement.",
+    ],
+  },
+  {
+    slug: "bunny-lines",
+    title: "Bunny lines",
+    image: { src: placeholderImages[0], alt: "Placeholder for bunny lines treatment with botulinum toxin" },
+    paragraphs: [
+      "Fine lines at the sides of the nose often appear when laughing or contracting facial muscles.",
+      "A subtle treatment can make the region appear more harmonious.",
+    ],
+  },
+  {
+    slug: "gummy-smile",
+    title: "Gummy smile",
+    image: { src: placeholderImages[1], alt: "Placeholder for gummy smile treatment with botulinum toxin" },
+    paragraphs: [
+      "If a lot of gum is visible when smiling, botulinum toxin can help gently relax the upper lip muscles.",
+      "The goal is a more natural and harmonious smile.",
+    ],
+  },
+  {
+    slug: "lip-flip",
+    title: "Lip flip",
+    image: { src: placeholderImages[2], alt: "Placeholder for lip flip with botulinum toxin" },
+    paragraphs: [
+      "In a so-called lip flip, the upper lip muscle is selectively relaxed, which can allow the lip to turn slightly outward when smiling.",
+      "The treatment is suitable for subtle changes without adding volume.",
+    ],
+  },
+  {
+    slug: "mouth-corners",
+    title: "Lifting the corners of the mouth",
+    image: { src: placeholderImages[3], alt: "Placeholder for lifting mouth corners with botulinum toxin" },
+    paragraphs: [
+      "With increasing muscle activity or age-related changes, the corners of the mouth can appear pulled downward and give the face a tired or tense expression.",
+      "Targeted treatment of specific muscle groups with botulinum toxin can gently relieve the corners of the mouth and make facial features appear more harmonious.",
+      "The goal is a natural, relaxed expression without artificial changes to facial movement.",
+    ],
+  },
+  {
+    slug: "hyperhidrosis-excessive-sweating",
+    title: "Hyperhidrosis (excessive sweating)",
+    image: { src: placeholderImages[0], alt: "Placeholder for hyperhidrosis treatment with botulinum toxin" },
+    paragraphs: [
+      "In cases of excessive sweating, botulinum toxin can be used to selectively reduce sweat gland activity.",
+      "Commonly treated areas are:",
+      "Treatment can significantly improve quality of life in pronounced sweating.",
+    ],
+    bullets: ["armpits", "hands", "forehead"],
+  },
+  {
+    slug: "masseter-bruxism",
+    title: "Masseter treatment / teeth grinding (bruxism)",
+    image: { src: placeholderImages[1], alt: "Placeholder for masseter treatment with botulinum toxin" },
+    paragraphs: [
+      "Overactive chewing muscles can cause teeth grinding, tension or a pronounced jaw area.",
+      "Botulinum toxin can reduce muscle activity and thereby relieve symptoms as well as harmonize the jaw contour.",
+    ],
+  },
+  {
+    slug: "trapezius-barbie-botox",
+    title: "Trapezius treatment with botulinum toxin (“Barbie Botox”)",
+    image: { src: placeholderImages[2], alt: "Placeholder for trapezius treatment with botulinum toxin" },
+    paragraphs: [
+      "Pronounced muscle tension in the shoulder and neck area can lead to symptoms such as tightness, pressure or muscular overactivity. In some cases, the shoulder area also appears very broad or permanently tense.",
+      "Targeted treatment of the trapezius muscle with botulinum toxin can reduce muscle activity and relieve the shoulder and neck region.",
+      "The treatment may help to:",
+      "Before every treatment, an individual medical examination and assessment of anatomy and muscular activity is carried out.",
+    ],
+    bullets: [
+      "reduce muscular tension,",
+      "relieve symptoms in the shoulder and neck area,",
+      "and make the shoulder contour appear more harmonious.",
+    ],
+  },
+  {
+    slug: "chronic-migraine",
+    title: "Botulinum toxin for chronic migraine",
+    image: { src: placeholderImages[3], alt: "Placeholder for botulinum toxin for chronic migraine" },
+    paragraphs: [
+      "Botulinum toxin can be used supportively in selected cases for the treatment of chronic migraine.",
+      "The medication is injected into defined muscle and trigger points in the area of the forehead, temples, back of the head, neck and shoulders.",
+      "The treatment can help to:",
+      "Whether treatment is useful depends on the type, frequency and history of the symptoms and is assessed individually by a physician.",
+    ],
+    bullets: [
+      "reduce the frequency of migraine attacks,",
+      "reduce muscular tension,",
+      "and improve quality of life in chronic migraine.",
+    ],
+  },
+];
+
+export const botulinumtoxinCommonSectionsEn = [
+  {
+    title: "How does the treatment work?",
+    paragraphs: [
+      "Before every treatment, there is a detailed medical consultation and analysis of your facial expression as well as the affected muscle areas.",
+      "The treatment itself usually takes about 30 minutes and is performed as an outpatient procedure in our practice in Berlin-Mitte.",
+      "The botulinum toxin is injected into the relevant muscle groups with very fine needles. The treatment is usually well tolerated and generally requires no downtime.",
+    ],
+  },
+  {
+    title: "When does the effect start?",
+    paragraphs: [
+      "The effect usually begins after a few days and develops fully after about 14 days.",
+      "How long the effect lasts varies individually and depends, among other things, on metabolism, muscle activity and the treated region.",
+    ],
+  },
+  {
+    title: "What should I keep in mind after treatment?",
+    paragraphs: [
+      "Immediately after treatment, intensive physical activity, sauna, solarium or strong pressure massage in the treated area should be avoided for several hours.",
+      "In everyday life, you are usually socially presentable again immediately.",
+    ],
+  },
+  {
+    title: "What does botulinum toxin treatment cost?",
+    paragraphs: [
+      "Costs start from €199, depending on treatment area, muscle activity and individual effort.",
+      "During a personal consultation, we transparently discuss the expected costs and the suitable treatment concept.",
+    ],
+  },
+  {
+    title: "Individual aesthetic medicine instead of standard protocols",
+    paragraphs: [
+      "Every face is different. That is why we develop individual treatment concepts at Praxis Jona instead of standardized “one-size-fits-all” treatments.",
+      "Our approach combines aesthetic medicine with anatomical understanding, modern diagnostics and a natural view of aesthetics and skin aging.",
+    ],
+  },
+];
+
+export const botulinumtoxinFaqEn = [
+  { question: "At what age does treatment make sense?", answer: "This depends less on age than on skin quality, facial expression and individual muscle activity. In some people, expression lines appear early, while others consider treatment later." },
+  { question: "Will I look unnatural after treatment?", answer: "Our goal is natural results with preserved facial expression. Treatment is adapted individually to anatomy, muscle activity and facial expression." },
+  { question: "How long does the effect of botulinum toxin last?", answer: "The effect usually lasts about 3 to 4 months. Duration and intensity can vary individually." },
+  { question: "When should I wait before exercising after treatment?", answer: "Intensive physical activity, sauna or solarium should be avoided for 24 hours after treatment." },
+  { question: "Is the treatment painful?", answer: "Treatment is performed with very fine needles and is usually well tolerated. Most patients experience the injections only as a brief, light pinch. For sensitive areas or on request, a local anesthetic cream can be applied before treatment." },
+  { question: "Can botulinum toxin be used preventively?", answer: "Yes. In selected cases, early treatment can help reduce deep expression lines over the long term and make the skin appear more even." },
+  { question: "What is the difference between botulinum toxin and hyaluronic acid?", answer: "Botulinum toxin selectively relaxes specific muscles and thereby reduces expression lines. Hyaluronic acid is mainly used for volume restoration or supporting skin hydration." },
+  { question: "How often does treatment need to be repeated?", answer: "Treatment is usually repeated every 3 to 6 months, depending on muscle activity, metabolism and desired result." },
+  { question: "Can I work or go out directly after treatment?", answer: "Yes. In general, you are socially presentable again directly after treatment." },
+  { question: "Are there side effects?", answer: "Temporary mild redness, small swellings or rarely small bruises at the injection sites can occur. Serious side effects are rare when treatment is performed professionally." },
+  { question: "Is treatment individually adapted?", answer: "Yes. Every treatment is based on anatomy, muscle activity, skin quality and personal goals. In the practice, we do not work with standardized “unit schemes”." },
+  {
+    question: "Can botulinum toxin be combined with other treatments?",
+    answer:
+      "Yes. We often combine botulinum toxin with regenerative procedures such as PRP, medical microneedling, skin boosters or polynucleotides to additionally support skin quality, skin texture and natural results.\n\nCombinations of botulinum toxin and medical microneedling can also be useful because different levels of skin aging and muscle activity are treated.\n\nWhich combination is suitable depends on skin findings, anatomy, symptoms and individual goals and is decided individually during medical consultation.",
+  },
+];
+
+export const botulinumtoxinContentDe: BotulinumtoxinPageContent = {
+  locale: "de",
+  intro: botulinumtoxinIntro,
+  overview: botulinumtoxinOverview,
+  services: botulinumtoxinServices,
+  commonSections: botulinumtoxinCommonSections,
+  faq: botulinumtoxinFaq,
+  labels: {
+    treatmentEyebrow: "Botulinumtoxin Behandlung",
+    basicsEyebrow: "Grundlagen",
+    areasEyebrow: "Behandlungsbereiche",
+    areasTitle: "Behandlungsbereiche mit Botulinumtoxin",
+    book: "Termin buchen",
+    prices: "Preise ansehen",
+    learnMore: "Mehr erfahren",
+    faqTitle: "Häufige Fragen zur Botulinumtoxin-Behandlung",
+    moreAreas: "Weitere Behandlungsbereiche",
+  },
+};
+
+export const botulinumtoxinContentEn: BotulinumtoxinPageContent = {
+  locale: "en",
+  intro: botulinumtoxinIntroEn,
+  overview: botulinumtoxinOverviewEn,
+  services: botulinumtoxinServicesEn,
+  commonSections: botulinumtoxinCommonSectionsEn,
+  faq: botulinumtoxinFaqEn,
+  labels: {
+    treatmentEyebrow: "Botulinum toxin treatment",
+    basicsEyebrow: "Basics",
+    areasEyebrow: "Treatment areas",
+    areasTitle: "Treatment areas with botulinum toxin",
+    book: "Book appointment",
+    prices: "View prices",
+    learnMore: "Learn more",
+    faqTitle: "Frequently asked questions about botulinum toxin treatment",
+    moreAreas: "More treatment areas",
+  },
+};
+
+export const botulinumtoxinSlugPairs = botulinumtoxinServices.map((service, index) => ({
+  de: service.slug,
+  en: botulinumtoxinServicesEn[index].slug,
+}));
+
+export function getBotulinumtoxinServiceEn(slug: string) {
+  return botulinumtoxinServicesEn.find((service) => service.slug === slug);
+}
+
+export function englishBotulinumtoxinSlugForGerman(slug: string) {
+  return botulinumtoxinSlugPairs.find((pair) => pair.de === slug)?.en;
+}
+
+export function germanBotulinumtoxinSlugForEnglish(slug: string) {
+  return botulinumtoxinSlugPairs.find((pair) => pair.en === slug)?.de;
 }

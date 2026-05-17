@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 import { BotulinumtoxinMainPage } from "app/components/BotulinumtoxinPage";
 import { buildMetadata } from "app/components/pageMetadata";
-import { botulinumtoxinIntro } from "app/content/botulinumtoxin";
+import { botulinumtoxinContentDe } from "app/content/botulinumtoxin";
 
 export const metadata: Metadata = buildMetadata({
-  title: botulinumtoxinIntro.title,
-  description: `${botulinumtoxinIntro.subtitle}. ${botulinumtoxinIntro.description}`,
-  canonical: botulinumtoxinIntro.canonical,
-  alternate: botulinumtoxinIntro.alternate,
+  title: botulinumtoxinContentDe.intro.title,
+  description: `${botulinumtoxinContentDe.intro.subtitle}. ${botulinumtoxinContentDe.intro.description}`,
+  canonical: botulinumtoxinContentDe.intro.canonical,
+  alternate: botulinumtoxinContentDe.intro.alternate,
   locale: "de",
 });
 
 export default function Page() {
-  return <BotulinumtoxinMainPage />;
+  return <BotulinumtoxinMainPage locale="de" />;
 }
