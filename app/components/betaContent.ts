@@ -55,7 +55,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     title: "Innere Medizin in Berlin-Mitte",
     eyebrow: "INNERE MEDIZIN & Hausärztliche Leistungen",
     preserveEyebrowCase: true,
-    description: "Strukturierte hausärztliche Versorgung, akute Abklärung, Vorsorge und Diagnostik in der Praxis Jona am Rosenthaler Platz.",
+    description: "Praxis Jona am Rosenthaler Platz, hausärztliche Versorgung, Schilddrüsendiagnostik, Vorsorgeuntersuchungen, Akuttermine und moderne internistische Diagnostik in Berlin-Mitte.",
     cta: "Termin buchen",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "Kontakt aufnehmen",
