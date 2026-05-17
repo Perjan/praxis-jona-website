@@ -55,7 +55,7 @@ export function DownloadButton({ url, locale }) {
             href={Constants.appointmentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif font-bold leading-7 text-white hover:bg-primaryDarker"
+            className="block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif font-semibold leading-7 text-white hover:bg-primaryDarker"
             data-umami-event="button-in-header"
         >{bookAppointmentTitle(locale)}
         </Link>
