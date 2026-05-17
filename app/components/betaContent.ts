@@ -82,7 +82,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     locale: "en",
     title: "Internal Medicine in Berlin-Mitte",
     eyebrow: "General & Internal Medicine",
-    description: "Structured primary care, acute assessment, preventive care and diagnostics at Praxis Jona near Rosenthaler Platz.",
+    description: "Praxis Jona near Rosenthaler Platz: primary care, thyroid diagnostics, preventive check-ups, acute appointments and modern internal medicine diagnostics in Berlin-Mitte.",
     cta: "Book appointment",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "Contact",
