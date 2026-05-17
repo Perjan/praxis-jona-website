@@ -9,7 +9,7 @@ export function CategoryVignetteBackground({ src }: { src: string }) {
   return (
     <motion.div
       aria-hidden="true"
-      className="pointer-events-none fixed right-0 top-28 z-0 hidden h-[calc(78vh-7rem)] w-[min(62vw,1100px)] animate-kenburns-subtle bg-cover bg-left bg-no-repeat mix-blend-multiply lg:block"
+      className="pointer-events-none fixed right-0 top-28 z-0 hidden h-[calc(64vh-7rem)] w-[min(48vw,820px)] animate-kenburns-subtle bg-cover bg-left bg-no-repeat mix-blend-multiply lg:block"
       style={{
         opacity,
         backgroundImage: `linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.72) 34%, rgba(255,255,255,0.2) 72%, rgba(255,255,255,0.06) 100%), url(${src})`,
