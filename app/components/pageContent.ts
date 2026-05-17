@@ -38,6 +38,11 @@ export type LandingContent = {
   title: string;
   description: string;
   eyebrow: string;
+  heroImage?: {
+    src: string;
+    alt: string;
+    objectPositionClass?: string;
+  };
   canonical: string;
   alternate: string;
   cta: string;
@@ -54,9 +59,9 @@ export const categoryContent: Record<string, CategoryContent> = {
   ...internalMedicineCategoryContent,
   aestheticDe: {
     locale: "de",
-    title: "Ästhetische Medizin in Berlin-Mitte",
-    eyebrow: "Ärztliche Ästhetik",
-    description: "Botulinumtoxin, PRP, Microneedling und Polynukleotide in der Praxis Jona am Rosenthaler Platz. Natürlich wirkende Ergebnisse beginnen mit einer guten ärztlichen Einschätzung.",
+    title: "Moderne ästhetische & regenerative Medizin in Berlin-Mitte",
+    eyebrow: "Ästhetik",
+    description: "In der Praxis Jona kombinieren wir medizinische Hautbehandlungen, regenerative Therapien und individuelle ästhetische Konzepte für natürlich wirkende Ergebnisse: Botulinumtoxin, PRP, medizinisches Microneedling und Skinbooster wie Polynukleotide.",
     heroImage: {
       src: "/images/clinic/clinic-philo-2025.jpg",
       alt: "Behandlungsstuhl für ästhetische Medizin in der Praxis Jona in Berlin-Mitte",
@@ -68,26 +73,25 @@ export const categoryContent: Record<string, CategoryContent> = {
     secondaryHref: "/aesthetik/preise",
     sections: [
       {
-        title: "Ästhetische Behandlungen mit medizinischer Einordnung",
-        intro: "Wir behandeln nicht nach Schema, sondern nach Anatomie, Hautbild, Mimik und Zielsetzung. In der Beratung klären wir, welches Verfahren zu Ihrem Anliegen passt und wo die Grenzen liegen.",
+        title: "Regenerative Ästhetik mit individuellem Blick auf Haut und Gesicht",
+        intro: "Wir behandeln nicht nach Trends oder Standardprotokollen, sondern entwickeln individuelle Konzepte auf Basis von Hautbild, Problemen, Mimik, Anatomie und medizinischer Einschätzung.",
         services: [
-          { title: "Botulinumtoxin", href: "/botox-behandlung", eyebrow: "Mimik & Falten", description: "Für Patientinnen und Patienten, die mimische Falten wie Zornesfalte, Stirn oder Krähenfüße gezielt behandeln lassen möchten." },
-          { title: "PRP Gesicht & Haut", href: "/aesthetik/prp-behandlung", eyebrow: "Regeneration", description: "Eigenblutbasiertes Verfahren, das je nach Befund Hautqualität, Frische und Regeneration unterstützen kann." },
-          { title: "PRP bei Haarausfall", href: "/leistungen/prp-haarausfall", eyebrow: "Haarkonzept", description: "PRP der Kopfhaut als möglicher Bestandteil eines ärztlichen Behandlungskonzepts bei Haarausfall." },
-          { title: "Microneedling", href: "/aesthetik/microneedling", eyebrow: "Struktur", description: "Für Hautstruktur, Porenbild, feine Linien und ausgewählte Narbenbilder nach individueller Hautanalyse." },
-          { title: "Polynukleotide", href: "/aesthetik/polynukleotide", eyebrow: "Skin Quality", description: "Regenerative Behandlung für Hautqualität, Spannkraft und sensible Areale wie die Augenpartie." },
-          { title: "Hautbild & Regeneration", href: "/aesthetik/hautbild-verbessern", eyebrow: "Vergleich", description: "Vergleichen Sie PRP, Microneedling und Polynukleotide nach Ziel, Hautbild und Behandlungslogik." },
+          { title: "Botulinumtoxin-Behandlungen", href: "/botox-behandlung", eyebrow: "Mimik & Linien", description: "Ärztlich geplante Behandlung mimischer Falten, häufig als Botox-Behandlung gesucht, mit Fokus auf natürliche Mimik." },
+          { title: "PRP / Eigenbluttherapie", href: "/aesthetik/prp-behandlung", eyebrow: "Regeneration", description: "PRP für Gesicht, Augenpartie, Hals und Dekolleté sowie Vampire Lifting in Kombination mit Microneedling." },
+          { title: "Medizinisches Microneedling", href: "/aesthetik/microneedling", eyebrow: "Struktur", description: "Medizinische Hautbehandlung für Struktur, Porenbild, feine Linien und ausgewählte Narbenbilder." },
+          { title: "Haartherapie bei Haarausfall", href: "/leistungen/haarausfall-berlin-mitte", eyebrow: "Haar & Kopfhaut", description: "Ärztliche Abklärung von Haarausfall mit PRP, Labor und Mikronährstoffdiagnostik nach Befund." },
+          { title: "Skinbooster & regenerative Hauttherapien", href: "/aesthetik/polynukleotide", eyebrow: "Skin Quality", description: "Polynukleotide, NCT 145 HA und Profhilo als regenerative Optionen für Hautqualität und Feuchtigkeit." },
         ],
       },
       {
         title: "Welche Behandlung passt zu welchem Ziel?",
         intro: "Viele Patientinnen und Patienten wissen bereits, was sie stört, aber nicht, welches Verfahren sinnvoll ist. Diese Orientierung ersetzt keine Beratung, hilft aber bei der ersten Einordnung.",
         services: [
-          { title: "Mimikfalten gezielt behandeln", href: "/botox-behandlung", description: "Botulinumtoxin kann geeignet sein, wenn dynamische Falten durch Muskelaktivität im Vordergrund stehen." },
-          { title: "Hautqualität regenerativ unterstützen", href: "/aesthetik/prp-behandlung", description: "PRP kann infrage kommen, wenn Hautfrische, Regeneration und ein eigenblutbasiertes Verfahren gewünscht sind." },
-          { title: "Haarausfall ärztlich einordnen", href: "/leistungen/prp-haarausfall", description: "PRP der Kopfhaut kann je nach Ursache und Befund Teil eines individuellen Haarkonzepts sein." },
-          { title: "Struktur und Porenbild verbessern", href: "/aesthetik/microneedling", description: "Microneedling kann bei unruhiger Hautstruktur, Porenbild, feinen Linien und ausgewählten Narbenbildern besprochen werden." },
-          { title: "Spannkraft und Augenpartie", href: "/aesthetik/polynukleotide", description: "Polynukleotide können je nach Befund für Hautqualität, Elastizität und sensible Areale interessant sein." },
+          { title: "Mimik und Muskelaktivität", href: "/botox-behandlung", description: "Botulinumtoxin kann geeignet sein, wenn dynamische Linien durch Muskelaktivität im Vordergrund stehen." },
+          { title: "Regeneration mit Eigenblut", href: "/aesthetik/prp-behandlung", description: "PRP kann bei müdem Hautbild, Augenringen, Gesicht, Hals, Dekolleté oder als Vampire Lifting besprochen werden." },
+          { title: "Hautstruktur verbessern", href: "/aesthetik/microneedling", description: "Microneedling kann bei unruhiger Hautstruktur, Poren, feinen Linien und ausgewählten Narbenbildern passen." },
+          { title: "Haarausfall behandeln", href: "/leistungen/haarausfall-berlin-mitte", description: "Haartherapie beginnt mit Diagnostik; PRP kann je nach Ursache ein Baustein des Konzepts sein." },
+          { title: "Feuchtigkeit und Skin Quality", href: "/aesthetik/polynukleotide", description: "Skinbooster wie Polynukleotide, NCT 145 HA oder Profhilo werden nach Hautbefund und Ziel ausgewählt." },
         ],
       },
       {
@@ -110,8 +114,8 @@ export const categoryContent: Record<string, CategoryContent> = {
       },
     ],
     faq: [
-      { question: "Welche ästhetischen Behandlungen bietet Praxis Jona an?", answer: "Wir bieten Botulinumtoxin, PRP für Gesicht und Haut, PRP bei Haarausfall, Microneedling, Polynukleotide und individuelle Konzepte zur Verbesserung der Hautqualität an." },
-      { question: "Was ist der Unterschied zwischen Botulinumtoxin, PRP, Microneedling und Polynukleotiden?", answer: "Botulinumtoxin zielt auf mimische Muskelaktivität. PRP ist ein Eigenblutverfahren zur Unterstützung der Regeneration. Microneedling adressiert Struktur und Porenbild. Polynukleotide werden zur Unterstützung der Hautqualität und Spannkraft eingesetzt." },
+      { question: "Welche ästhetischen Behandlungen bietet Praxis Jona an?", answer: "Wir bieten Botulinumtoxin-Behandlungen, PRP / Eigenbluttherapie, medizinisches Microneedling, Haartherapie bei Haarausfall sowie Skinbooster und regenerative Hauttherapien an." },
+      { question: "Was ist der Unterschied zwischen Botulinumtoxin, PRP, Microneedling und Skinboostern?", answer: "Botulinumtoxin zielt auf mimische Muskelaktivität. PRP ist ein Eigenblutverfahren zur Unterstützung der Regeneration. Microneedling adressiert Struktur und Porenbild. Skinbooster wie Polynukleotide, NCT 145 HA oder Profhilo zielen stärker auf Hautqualität und Feuchtigkeit." },
       { question: "Welche Behandlung passt zu mir?", answer: "Das hängt von Hautbild, Mimik, Zielsetzung und Befund ab. In der Beratung klären wir, welches Verfahren sinnvoll sein kann." },
       { question: "Sind natürliche Ergebnisse möglich?", answer: "Der Fokus liegt auf einer zurückhaltenden ärztlichen Planung. Ergebnisse und Dauer können individuell variieren." },
       { question: "Wie läuft ein ästhetischer Beratungstermin ab?", answer: "Wir besprechen Ihr Anliegen, prüfen Hautbild, Mimik und medizinische Faktoren und erklären geeignete Optionen, Grenzen, Ablauf und Kosten." },
@@ -122,9 +126,9 @@ export const categoryContent: Record<string, CategoryContent> = {
   },
   aestheticEn: {
     locale: "en",
-    title: "Aesthetic Medicine in Berlin-Mitte",
-    eyebrow: "Physician-led aesthetics",
-    description: "Botulinum toxin, PRP, microneedling and polynucleotides at Praxis Jona near Rosenthaler Platz. Natural-looking results begin with careful medical assessment.",
+    title: "Modern Aesthetic & Regenerative Medicine in Berlin-Mitte",
+    eyebrow: "Aesthetics",
+    description: "At Praxis Jona, we combine medical skin treatments, regenerative therapies and individual aesthetic concepts for natural-looking results: botulinum toxin, PRP, medical microneedling and skin boosters such as polynucleotides.",
     heroImage: {
       src: "/images/clinic/clinic-philo-2025.jpg",
       alt: "Treatment chair for aesthetic medicine at Praxis Jona in Berlin-Mitte",
@@ -136,26 +140,25 @@ export const categoryContent: Record<string, CategoryContent> = {
     secondaryHref: "/en/aesthetics/prices",
     sections: [
       {
-        title: "Aesthetic treatments with medical assessment",
-        intro: "We do not treat by template. We plan around anatomy, skin quality, facial expression and your goals. During consultation, we clarify which treatment may fit your concern and where the limits are.",
+        title: "Regenerative aesthetics with an individual view of skin and face",
+        intro: "We do not treat by trends or standard protocols. We develop individual concepts based on skin quality, concerns, facial expression, anatomy and medical assessment.",
         services: [
-          { title: "Botulinum toxin", href: "/en/botox-treatment", eyebrow: "Expression & lines", description: "For patients who want targeted treatment of expression lines such as frown lines, forehead lines or crow's feet." },
-          { title: "PRP face & skin", href: "/en/aesthetics/prp-treatment", eyebrow: "Regeneration", description: "An autologous blood-based procedure that may support skin quality, freshness and regeneration depending on findings." },
-          { title: "PRP for hair loss", href: "/en/services/prp-hair-loss", eyebrow: "Hair concept", description: "Scalp PRP as a possible part of a physician-led treatment concept for hair loss." },
-          { title: "Microneedling", href: "/en/aesthetics/microneedling", eyebrow: "Texture", description: "For skin texture, pore appearance, fine lines and selected scar patterns after individual skin assessment." },
-          { title: "Polynucleotides", href: "/en/aesthetics/polynucleotides", eyebrow: "Skin quality", description: "Regenerative treatment for skin quality, firmness and delicate areas such as the eye area." },
-          { title: "Skin quality & regeneration", href: "/en/aesthetics/improve-skin-quality", eyebrow: "Compare", description: "Compare PRP, microneedling and polynucleotides by goal, skin findings and treatment logic." },
+          { title: "Botulinum toxin treatments", href: "/en/botox-treatment", eyebrow: "Expression & lines", description: "Physician-planned treatment for expression lines, often searched for as Botox treatment, with focus on natural movement." },
+          { title: "PRP / autologous blood therapy", href: "/en/aesthetics/prp-treatment", eyebrow: "Regeneration", description: "PRP for face, under-eye area, neck and decollete, plus vampire lifting combined with microneedling." },
+          { title: "Medical microneedling", href: "/en/aesthetics/microneedling", eyebrow: "Texture", description: "Medical skin treatment for texture, pore appearance, fine lines and selected scar patterns." },
+          { title: "Hair therapy for hair loss", href: "/en/services/hair-loss-berlin-mitte", eyebrow: "Hair & scalp", description: "Medical hair-loss assessment with PRP, lab testing and micronutrient diagnostics depending on findings." },
+          { title: "Skin boosters & regenerative skin therapies", href: "/en/aesthetics/polynucleotides", eyebrow: "Skin quality", description: "Polynucleotides, NCT 145 HA and Profhilo as regenerative options for skin quality and hydration." },
         ],
       },
       {
         title: "Which treatment fits which goal?",
         intro: "Many patients know what bothers them, but not which procedure makes sense. This overview helps with orientation and does not replace consultation.",
         services: [
-          { title: "Treat expression lines", href: "/en/botox-treatment", description: "Botulinum toxin may be suitable when dynamic lines caused by muscle activity are the main concern." },
-          { title: "Support skin regeneration", href: "/en/aesthetics/prp-treatment", description: "PRP may be considered when skin freshness, regeneration and an autologous procedure are desired." },
-          { title: "Assess hair loss medically", href: "/en/services/prp-hair-loss", description: "Scalp PRP may be part of an individual hair concept depending on cause and findings." },
-          { title: "Improve texture and pore appearance", href: "/en/aesthetics/microneedling", description: "Microneedling can be discussed for uneven texture, pore appearance, fine lines and selected scars." },
-          { title: "Firmness and eye area", href: "/en/aesthetics/polynucleotides", description: "Polynucleotides may be of interest for skin quality, elasticity and delicate areas depending on findings." },
+          { title: "Expression and muscle activity", href: "/en/botox-treatment", description: "Botulinum toxin may be suitable when dynamic lines caused by muscle activity are the main concern." },
+          { title: "Regeneration with PRP", href: "/en/aesthetics/prp-treatment", description: "PRP can be discussed for tired-looking skin, under-eye circles, face, neck, decollete or vampire lifting." },
+          { title: "Improve skin texture", href: "/en/aesthetics/microneedling", description: "Microneedling may fit uneven texture, pores, fine lines and selected scar patterns." },
+          { title: "Treat hair loss", href: "/en/services/hair-loss-berlin-mitte", description: "Hair therapy starts with diagnostics; PRP may be one part of the concept depending on cause." },
+          { title: "Hydration and skin quality", href: "/en/aesthetics/polynucleotides", description: "Skin boosters such as polynucleotides, NCT 145 HA or Profhilo are selected according to findings and goals." },
         ],
       },
       {
@@ -178,8 +181,8 @@ export const categoryContent: Record<string, CategoryContent> = {
       },
     ],
     faq: [
-      { question: "Which aesthetic treatments does Praxis Jona offer?", answer: "We offer botulinum toxin, PRP for face and skin, PRP for hair loss, microneedling, polynucleotides and individual concepts for improving skin quality." },
-      { question: "What is the difference between botulinum toxin, PRP, microneedling and polynucleotides?", answer: "Botulinum toxin targets facial muscle activity. PRP is an autologous blood-based procedure to support regeneration. Microneedling addresses texture and pore appearance. Polynucleotides are used to support skin quality and firmness." },
+      { question: "Which aesthetic treatments does Praxis Jona offer?", answer: "We offer botulinum toxin treatments, PRP / autologous blood therapy, medical microneedling, hair therapy for hair loss, and skin boosters or regenerative skin therapies." },
+      { question: "What is the difference between botulinum toxin, PRP, microneedling and skin boosters?", answer: "Botulinum toxin targets facial muscle activity. PRP is an autologous blood-based procedure to support regeneration. Microneedling addresses texture and pore appearance. Skin boosters such as polynucleotides, NCT 145 HA or Profhilo focus more on skin quality and hydration." },
       { question: "Which treatment is right for me?", answer: "That depends on your skin, facial expression, goals and medical findings. During consultation, we clarify which procedure may be suitable." },
       { question: "Are natural-looking results possible?", answer: "The focus is on careful physician-led planning. Results and duration can vary individually." },
       { question: "How does an aesthetic consultation work?", answer: "We discuss your concern, assess skin, facial expression and medical factors, and explain suitable options, limits, process and cost." },
@@ -333,15 +336,20 @@ export const categoryContent: Record<string, CategoryContent> = {
 export const landingPages: Record<string, LandingContent> = {
   prpAestheticDe: {
     locale: "de",
-    title: "PRP Behandlung in Berlin-Mitte",
-    eyebrow: "Eigenblutverfahren für Hautqualität",
-    description: "PRP für Gesicht und Haut in Berlin-Mitte: ärztliche Beratung, Eigenblutverfahren und individuelle Einschätzung in der Praxis Jona.",
+    title: "PRP / Eigenbluttherapie in Berlin-Mitte",
+    eyebrow: "Regenerative Eigenbluttherapie",
+    description: "PRP / Eigenbluttherapie in Berlin-Mitte für Gesicht, Augenpartie, Hals, Dekolleté und Vampire Lifting in Kombination mit Microneedling.",
+    heroImage: {
+      src: "/images/clinic/clinic-newA.jpg",
+      alt: "Behandlungsraum der Praxis Jona für regenerative Ästhetik und PRP in Berlin-Mitte",
+      objectPositionClass: "object-[22%_50%]",
+    },
     canonical: "/aesthetik/prp-behandlung",
     alternate: "/en/aesthetics/prp-treatment",
     cta: "PRP-Beratung buchen",
     secondaryCta: "Hautbild-Übersicht",
     secondaryHref: "/aesthetik/hautbild-verbessern",
-    intro: "PRP ist ein Eigenblutverfahren, bei dem plättchenreiches Plasma aus einer kleinen Blutprobe gewonnen und in ausgewählte Hautareale eingebracht wird. Ob PRP sinnvoll ist, klären wir individuell.",
+    intro: "PRP ist ein Eigenblutverfahren, bei dem plättchenreiches Plasma aus einer kleinen Blutprobe gewonnen und in ausgewählte Hautareale eingebracht wird. Wir planen PRP nicht pauschal, sondern nach Hautbild, Areal und Zielsetzung.",
     facts: [
       { label: "Behandlungsart", value: "Eigenblutverfahren mit PRP" },
       { label: "Ablauf", value: "Beratung, Blutentnahme, Aufbereitung, Behandlung" },
@@ -351,11 +359,11 @@ export const landingPages: Record<string, LandingContent> = {
       { label: "Wichtig", value: "Ergebnisse können individuell variieren" },
     ],
     sections: [
-      { title: "Was ist PRP?", body: ["PRP steht für plättchenreiches Plasma. Es wird aus einer kleinen Blutprobe gewonnen und anschließend in ausgewählte Hautareale eingebracht.", "Das Verfahren wird eingesetzt, um regenerative Prozesse und Hautqualität nach ärztlicher Einschätzung zu unterstützen."] },
-      { title: "Für wen PRP infrage kommen kann", body: ["PRP kann für Patientinnen und Patienten interessant sein, die ihre Hautqualität ärztlich begleitet unterstützen möchten."], bullets: ["müde wirkendes Hautbild", "feine Linien", "Regenerationswunsch", "Kombination mit Microneedling nach Einschätzung"] },
-      { title: "So läuft die Behandlung ab", body: ["Nach der ärztlichen Einschätzung wird Blut entnommen, aufbereitet und das plättchenreiche Plasma gezielt in die Haut eingebracht. Vorab besprechen wir Grenzen, Risiken und realistische Erwartungen."] },
-      { title: "Wann Ergebnisse sichtbar werden können", body: ["PRP ist nicht auf einen Soforteffekt ausgelegt. Veränderungen werden individuell wahrgenommen und hängen unter anderem von Hautbild, Behandlungsziel und Verlauf ab."] },
-      { title: "Medizinische Einordnung", body: ["PRP ist kein Sofort-Lifting und kein garantiertes Anti-Aging-Verfahren. Es kann je nach Befund Teil eines individuellen Behandlungskonzepts sein."] },
+      { title: "PRP Gesicht", body: ["PRP im Gesicht kann besprochen werden, wenn Hautqualität, Frische und Regeneration im Vordergrund stehen.", "Die Behandlung wird individuell nach Hautbild, Arealen und Erwartung geplant."], bullets: ["müde wirkendes Hautbild", "feine Linien", "Regenerationswunsch", "natürliche Hautqualität statt Volumenaufbau"] },
+      { title: "PRP Augen gegen dunklere Augenringe", body: ["Die Augenpartie ist sensibel und muss differenziert beurteilt werden. PRP kann je nach Befund interessant sein, wenn dunklere Augenringe, müde wirkende Haut oder feine Linien im Vordergrund stehen."], bullets: ["ärztliche Einschätzung der Ursache", "keine pauschale Behandlung jeder Augenring-Form", "vorsichtige Planung bei sensiblen Arealen"] },
+      { title: "PRP Gesicht, Hals und Dekolleté", body: ["PRP kann auch über das Gesicht hinaus geplant werden, zum Beispiel für Hals und Dekolleté, wenn Hautqualität und Regeneration im Vordergrund stehen.", "Areal, Sitzungszahl und Kombinationen werden individuell festgelegt."] },
+      { title: "Vampire Lifting / PRP kombiniert mit Microneedling", body: ["Beim Vampire Lifting wird PRP mit medizinischem Microneedling kombiniert. Die Mikrokanäle des Microneedlings und das Eigenblutverfahren werden als gemeinsames regeneratives Konzept eingesetzt."], bullets: ["für Hautstruktur und Regeneration", "Kombination nur nach Hautbefund", "Nachpflege und Ausfallzeit werden vorab besprochen"] },
+      { title: "Medizinische Einordnung", body: ["PRP ist kein Sofort-Lifting und kein garantiertes Anti-Aging-Verfahren. Es kann je nach Befund Teil eines individuellen Behandlungskonzepts sein. Ergebnisse können individuell variieren."] },
     ],
     related: [
       { title: "Microneedling", href: "/aesthetik/microneedling", description: "Struktur und Porenbild verbessern." },
@@ -363,7 +371,7 @@ export const landingPages: Record<string, LandingContent> = {
     ],
     faq: [
       { question: "Ist PRP für jeden geeignet?", answer: "Nein. Ob PRP geeignet ist, hängt von Befund, Zielsetzung und medizinischer Situation ab." },
-      { question: "Kann PRP mit Microneedling kombiniert werden?", answer: "Eine Kombination kann je nach Hautbild sinnvoll sein und wird individuell besprochen." },
+      { question: "Kann PRP mit Microneedling kombiniert werden?", answer: "Ja, eine Kombination wird häufig als Vampire Lifting gesucht. Ob sie sinnvoll ist, hängt vom Hautbild und Ziel ab." },
       { question: "Wann sieht man Ergebnisse?", answer: "Die Wahrnehmung ist individuell. PRP ist auf Regeneration ausgelegt und nicht auf einen sofortigen Volumeneffekt." },
       { question: "Wie viele PRP-Behandlungen sind sinnvoll?", answer: "Das hängt von Ausgangsbefund, Ziel und Verlauf ab. Eine Serie kann sinnvoll sein, wird aber individuell geplant." },
       { question: "Welche Nebenwirkungen sind möglich?", answer: "Möglich sind vorübergehende Rötungen, Schwellungen, kleine Blutergüsse oder ein Spannungsgefühl. Individuelle Risiken werden vorab besprochen." },
@@ -371,15 +379,20 @@ export const landingPages: Record<string, LandingContent> = {
   },
   prpAestheticEn: {
     locale: "en",
-    title: "PRP Treatment in Berlin-Mitte",
-    eyebrow: "Autologous treatment for skin quality",
-    description: "PRP for face and skin in Berlin-Mitte: medical consultation, autologous blood-based treatment and individual assessment at Praxis Jona.",
+    title: "PRP / Autologous Blood Therapy in Berlin-Mitte",
+    eyebrow: "Regenerative autologous therapy",
+    description: "PRP / autologous blood therapy in Berlin-Mitte for face, under-eye area, neck, decollete and vampire lifting combined with microneedling.",
+    heroImage: {
+      src: "/images/clinic/clinic-newA.jpg",
+      alt: "Treatment room at Praxis Jona for regenerative aesthetics and PRP in Berlin-Mitte",
+      objectPositionClass: "object-[22%_50%]",
+    },
     canonical: "/en/aesthetics/prp-treatment",
     alternate: "/aesthetik/prp-behandlung",
     cta: "Book PRP consultation",
     secondaryCta: "Skin quality overview",
     secondaryHref: "/en/aesthetics/improve-skin-quality",
-    intro: "PRP is an autologous procedure in which platelet-rich plasma is prepared from a small blood sample and applied to selected skin areas. We assess individually whether PRP is suitable.",
+    intro: "PRP is an autologous procedure in which platelet-rich plasma is prepared from a small blood sample and applied to selected skin areas. We plan PRP individually according to skin findings, area and treatment goal.",
     facts: [
       { label: "Treatment type", value: "Autologous PRP procedure" },
       { label: "Process", value: "Consultation, blood draw, preparation, treatment" },
@@ -389,11 +402,11 @@ export const landingPages: Record<string, LandingContent> = {
       { label: "Important", value: "Results can vary individually" },
     ],
     sections: [
-      { title: "What is PRP?", body: ["PRP means platelet-rich plasma. It is prepared from a small blood sample and applied to selected skin areas.", "The procedure is used to support regenerative processes and skin quality after medical assessment."] },
-      { title: "Who PRP may be suitable for", body: ["PRP may be of interest for patients who want physician-led support for skin quality."], bullets: ["tired-looking skin", "fine lines", "regeneration goals", "combination with microneedling after assessment"] },
-      { title: "How treatment works", body: ["After medical assessment, blood is drawn, prepared and the platelet-rich plasma is applied to the skin. We discuss limits, risks and realistic expectations beforehand."] },
-      { title: "When results may be visible", body: ["PRP is not designed as an immediate effect treatment. Perceived changes vary and depend on skin findings, treatment goals and course."] },
-      { title: "Medical positioning", body: ["PRP is not an instant lifting procedure and does not guarantee anti-aging results. Depending on findings, it may be part of an individual treatment concept."] },
+      { title: "PRP face", body: ["Facial PRP can be discussed when skin quality, freshness and regeneration are the main goals.", "Treatment is planned according to skin findings, areas and expectations."], bullets: ["tired-looking skin", "fine lines", "regeneration goals", "natural skin quality rather than volume"] },
+      { title: "PRP under-eye area for darker circles", body: ["The under-eye area is delicate and needs differentiated assessment. PRP may be of interest when darker circles, tired-looking skin or fine lines are the concern."], bullets: ["medical assessment of the cause", "not every form of under-eye darkness is suitable", "careful planning for delicate areas"] },
+      { title: "PRP face, neck and decollete", body: ["PRP can also be planned beyond the face, for example for the neck and decollete when skin quality and regeneration are the focus.", "Area, number of sessions and combinations are planned individually."] },
+      { title: "Vampire lifting / PRP combined with microneedling", body: ["Vampire lifting combines PRP with medical microneedling. The microchannels created by microneedling and the autologous blood procedure are used as one regenerative concept."], bullets: ["for texture and regeneration", "combination only after skin assessment", "aftercare and downtime are discussed in advance"] },
+      { title: "Medical positioning", body: ["PRP is not an instant lift and does not guarantee anti-aging results. Depending on findings, it may be part of an individual treatment concept. Results can vary individually."] },
     ],
     related: [
       { title: "Microneedling", href: "/en/aesthetics/microneedling", description: "Improve skin texture and pore appearance." },
@@ -401,7 +414,7 @@ export const landingPages: Record<string, LandingContent> = {
     ],
     faq: [
       { question: "Is PRP suitable for everyone?", answer: "No. Suitability depends on findings, goals and medical situation." },
-      { question: "Can PRP be combined with microneedling?", answer: "A combination may be useful depending on skin findings and is discussed individually." },
+      { question: "Can PRP be combined with microneedling?", answer: "Yes, this combination is often searched for as vampire lifting. Whether it is suitable depends on skin findings and goals." },
       { question: "When are results visible?", answer: "Perception varies individually. PRP is aimed at regeneration, not an immediate volume effect." },
       { question: "How many PRP treatments are useful?", answer: "This depends on baseline findings, goals and course. A series can be useful but is planned individually." },
       { question: "What side effects are possible?", answer: "Temporary redness, swelling, small bruises or tightness can occur. Individual risks are discussed beforehand." },
@@ -418,6 +431,7 @@ function treatmentPage(input: Omit<LandingContent, "facts" | "sections" | "relat
   cost?: string;
   suitable: string[];
   limits: string;
+  sections?: LandingContent["sections"];
   related: ServiceLink[];
   faq: { question: string; answer: string }[];
 }): LandingContent {
@@ -435,7 +449,7 @@ function treatmentPage(input: Omit<LandingContent, "facts" | "sections" | "relat
   return {
     ...input,
     facts,
-    sections: [
+    sections: input.sections ?? [
       {
         title: isEn ? `What is ${input.title.split(" in ")[0]}?` : `Was ist ${input.title.split(" in ")[0]}?`,
         body: [input.description, input.intro],
@@ -462,9 +476,9 @@ function treatmentPage(input: Omit<LandingContent, "facts" | "sections" | "relat
 Object.assign(landingPages, {
   microneedlingDe: treatmentPage({
     locale: "de",
-    title: "Microneedling in Berlin-Mitte",
+    title: "Medizinisches Microneedling in Berlin-Mitte",
     eyebrow: "Hautstruktur & Porenbild",
-    description: "Microneedling in Berlin-Mitte zur ärztlich begleiteten Verbesserung von Hautstruktur, Porenbild, feinen Linien und ausgewählten Narbenbildern.",
+    description: "Medizinisches Microneedling in Berlin-Mitte zur ärztlich begleiteten Verbesserung von Hautstruktur, Porenbild, feinen Linien und ausgewählten Narbenbildern.",
     canonical: "/aesthetik/microneedling",
     alternate: "/en/aesthetics/microneedling",
     cta: "Microneedling-Beratung buchen",
@@ -492,9 +506,9 @@ Object.assign(landingPages, {
   }),
   microneedlingEn: treatmentPage({
     locale: "en",
-    title: "Microneedling in Berlin-Mitte",
+    title: "Medical Microneedling in Berlin-Mitte",
     eyebrow: "Skin texture & pores",
-    description: "Microneedling in Berlin-Mitte to support skin texture, pore appearance, fine lines and selected scar patterns under medical guidance.",
+    description: "Medical microneedling in Berlin-Mitte to support skin texture, pore appearance, fine lines and selected scar patterns under medical guidance.",
     canonical: "/en/aesthetics/microneedling",
     alternate: "/aesthetik/microneedling",
     cta: "Book microneedling consultation",
@@ -522,61 +536,85 @@ Object.assign(landingPages, {
   }),
   polynucleotidesDe: treatmentPage({
     locale: "de",
-    title: "Polynukleotide in Berlin-Mitte",
-    eyebrow: "Regenerative Skin Booster",
-    description: "Polynukleotide in Berlin-Mitte für Hautqualität, Spannkraft und sensible Areale nach individueller ärztlicher Beratung.",
+    title: "Skinbooster & regenerative Hauttherapien in Berlin-Mitte",
+    eyebrow: "Skinbooster & regenerative Hauttherapien",
+    description: "Skinbooster und regenerative Hauttherapien in Berlin-Mitte mit Polynukleotiden (Philart), NCT 145 HA und Profhilo nach individueller ärztlicher Beratung.",
+    heroImage: {
+      src: "/images/clinic/clinic-philo-2025.jpg",
+      alt: "Behandlungsstuhl der Praxis Jona für Skinbooster und regenerative Hauttherapien in Berlin-Mitte",
+      objectPositionClass: "object-[28%_68%]",
+    },
     canonical: "/aesthetik/polynukleotide",
     alternate: "/en/aesthetics/polynucleotides",
-    cta: "Beratung buchen",
+    cta: "Skinbooster-Beratung buchen",
     secondaryCta: "Hautbild-Übersicht",
     secondaryHref: "/aesthetik/hautbild-verbessern",
-    intro: "Polynukleotide werden als regenerative Behandlung zur Unterstützung der Hautqualität eingesetzt. Ob sie zu Ihrem Befund passen, klären wir im persönlichen Gespräch.",
-    focus: "Hautqualität, Spannkraft, Augenpartie",
-    process: "Beratung, Befund, Behandlungsplan",
-    duration: "wenige Minuten bis kurz, je nach Areal",
+    intro: "Skinbooster und regenerative Hauttherapien wählen wir nach Hautqualität, Feuchtigkeit, Elastizität, Areal und Zielsetzung aus. Polynukleotide, NCT 145 HA und Profhilo werden nicht pauschal eingesetzt, sondern nach medizinischer Einschätzung geplant.",
+    focus: "Feuchtigkeit, Elastizität, Skin Quality",
+    process: "Beratung, Hautbefund, Wirkstoffauswahl, Behandlungsplan",
+    duration: "kurz bis mittel, je nach Areal",
     downtime: "mögliche Rötung oder Schwellung",
     sessions: "individuell, oft als Konzept geplant",
     limits: "Keine Behandlung ersetzt eine ärztliche Einschätzung; Ergebnisse können variieren.",
     suitable: ["feine Linien", "trockene oder beanspruchte Haut", "Augenpartie nach Befund", "regenerationsbedürftige Haut"],
+    sections: [
+      { title: "Polynukleotide (Philart)", body: ["Polynukleotide wie Philart werden als regenerative Hauttherapie besprochen, wenn Hautqualität, Elastizität und sensible Areale im Vordergrund stehen.", "Ob Polynukleotide passen, hängt von Hautbefund, Areal und Erwartung ab."], bullets: ["Skin Quality und Elastizität", "Augenpartie nach ärztlicher Einschätzung", "regenerative Behandlungslogik", "keine Volumenbehandlung"] },
+      { title: "NCT 145 HA", body: ["NCT 145 HA kann als Skinbooster-Konzept besprochen werden, wenn Feuchtigkeit, Hautfrische und eine feinere Hautqualität gewünscht sind.", "Die Auswahl erfolgt nach Hautzustand, Areal und Behandlungsziel."], bullets: ["Feuchtigkeit und Hautfrische", "müde oder beanspruchte Haut", "individuelle Wirkstoffauswahl"] },
+      { title: "Profhilo", body: ["Profhilo wird als Skinbooster eingesetzt, wenn Hautqualität, Feuchtigkeit und Spannkraft im Fokus stehen.", "Wir klären im Termin, ob Profhilo, Polynukleotide, NCT 145 HA oder ein anderes Konzept besser zum Befund passt."] },
+      { title: "Wie wir Skinbooster auswählen", body: ["Wir behandeln nicht nach Produktnamen, sondern nach Befund. Entscheidend sind Hautqualität, Hautdicke, Feuchtigkeit, Elastizität, empfindliche Areale und realistische Ziele.", "Manchmal ist ein Skinbooster sinnvoll, manchmal passen PRP, Microneedling oder eine Kombination besser."] },
+    ],
     related: [
       { title: "PRP Gesicht & Haut", href: "/aesthetik/prp-behandlung", description: "Eigenblutverfahren für Hautqualität." },
       { title: "Microneedling", href: "/aesthetik/microneedling", description: "Hautstruktur und Porenbild verbessern." },
     ],
     faq: [
-      { question: "Was sind Polynukleotide?", answer: "Polynukleotide werden in der ästhetischen Medizin zur Unterstützung regenerativer Prozesse der Haut eingesetzt." },
-      { question: "Für welche Areale sind sie interessant?", answer: "Je nach Befund können Gesicht, Hals oder sensible Areale wie die Augenpartie besprochen werden." },
-      { question: "Ist das ein Ersatz für Botulinumtoxin?", answer: "Nein. Polynukleotide und Botulinumtoxin haben unterschiedliche Zielsetzungen." },
-      { question: "Wann sieht man Ergebnisse?", answer: "Das ist individuell unterschiedlich. Polynukleotide sind auf Hautqualität und Regeneration ausgelegt, nicht auf einen sofortigen Volumeneffekt." },
+      { question: "Was sind Skinbooster?", answer: "Skinbooster sind ästhetische Behandlungen, die je nach Produkt und Konzept Hautqualität, Feuchtigkeit, Elastizität oder regenerative Prozesse unterstützen können." },
+      { question: "Was ist der Unterschied zwischen Polynukleotiden, NCT 145 HA und Profhilo?", answer: "Die Produkte verfolgen unterschiedliche Behandlungslogiken. Welche Option passt, hängt von Hautbefund, Areal und Ziel ab." },
+      { question: "Für welche Areale sind Skinbooster interessant?", answer: "Je nach Befund können Gesicht, Hals, Dekolleté oder sensible Areale wie die Augenpartie besprochen werden." },
+      { question: "Ist das ein Ersatz für Botulinumtoxin?", answer: "Nein. Skinbooster und Botulinumtoxin haben unterschiedliche Zielsetzungen. Botulinumtoxin adressiert Muskelaktivität, Skinbooster eher Hautqualität." },
+      { question: "Wann sieht man Ergebnisse?", answer: "Das ist individuell unterschiedlich. Skinbooster sind auf Hautqualität und Regeneration ausgelegt, nicht auf einen sofortigen Volumeneffekt." },
       { question: "Welche Nebenwirkungen sind möglich?", answer: "Vorübergehende Rötungen, Schwellungen oder kleine Blutergüsse können auftreten. Individuelle Risiken werden ärztlich besprochen." },
     ],
   }),
   polynucleotidesEn: treatmentPage({
     locale: "en",
-    title: "Polynucleotides in Berlin-Mitte",
-    eyebrow: "Regenerative skin booster",
-    description: "Polynucleotides in Berlin-Mitte for skin quality, firmness and delicate areas after individual medical consultation.",
+    title: "Skin Boosters & Regenerative Skin Therapies in Berlin-Mitte",
+    eyebrow: "Skin boosters & regenerative skin therapies",
+    description: "Skin boosters and regenerative skin therapies in Berlin-Mitte with polynucleotides (Philart), NCT 145 HA and Profhilo after individual medical consultation.",
+    heroImage: {
+      src: "/images/clinic/clinic-philo-2025.jpg",
+      alt: "Treatment chair at Praxis Jona for skin boosters and regenerative skin therapies in Berlin-Mitte",
+      objectPositionClass: "object-[28%_68%]",
+    },
     canonical: "/en/aesthetics/polynucleotides",
     alternate: "/aesthetik/polynukleotide",
-    cta: "Book consultation",
+    cta: "Book skin booster consultation",
     secondaryCta: "Skin quality overview",
     secondaryHref: "/en/aesthetics/improve-skin-quality",
-    intro: "Polynucleotides are used as a regenerative treatment to support skin quality. We clarify whether they fit your findings in a personal consultation.",
-    focus: "Skin quality, firmness, eye area",
-    process: "Consultation, findings, treatment plan",
-    duration: "short, depending on area",
+    intro: "We select skin boosters and regenerative skin therapies according to skin quality, hydration, elasticity, area and treatment goal. Polynucleotides, NCT 145 HA and Profhilo are not used by template, but planned after medical assessment.",
+    focus: "Hydration, elasticity, skin quality",
+    process: "Consultation, skin findings, product selection, treatment plan",
+    duration: "short to medium, depending on area",
     downtime: "possible redness or swelling",
     sessions: "individual, often planned as a concept",
     limits: "No treatment replaces medical assessment; results can vary.",
     suitable: ["fine lines", "dry or stressed skin", "eye area depending on findings", "skin needing regenerative support"],
+    sections: [
+      { title: "Polynucleotides (Philart)", body: ["Polynucleotides such as Philart can be discussed as regenerative skin therapy when skin quality, elasticity and delicate areas are the focus.", "Suitability depends on skin findings, area and expectations."], bullets: ["skin quality and elasticity", "under-eye area after medical assessment", "regenerative treatment logic", "not a volume treatment"] },
+      { title: "NCT 145 HA", body: ["NCT 145 HA can be discussed as a skin booster concept when hydration, freshness and refined skin quality are desired.", "Selection depends on skin condition, area and treatment goal."], bullets: ["hydration and freshness", "tired or stressed skin", "individual product selection"] },
+      { title: "Profhilo", body: ["Profhilo is used as a skin booster when skin quality, hydration and firmness are the focus.", "During consultation we clarify whether Profhilo, polynucleotides, NCT 145 HA or another concept best fits the findings."] },
+      { title: "How we select skin boosters", body: ["We do not treat by product names alone. Skin quality, thickness, hydration, elasticity, delicate areas and realistic goals matter most.", "Sometimes a skin booster is suitable; sometimes PRP, microneedling or a combination fits better."] },
+    ],
     related: [
       { title: "PRP face & skin", href: "/en/aesthetics/prp-treatment", description: "Autologous procedure for skin quality." },
       { title: "Microneedling", href: "/en/aesthetics/microneedling", description: "Improve texture and pore appearance." },
     ],
     faq: [
-      { question: "What are polynucleotides?", answer: "Polynucleotides are used in aesthetic medicine to support regenerative processes in the skin." },
-      { question: "Which areas can be discussed?", answer: "Depending on findings, the face, neck or delicate areas such as the eye area can be discussed." },
-      { question: "Is this a replacement for botulinum toxin?", answer: "No. Polynucleotides and botulinum toxin have different treatment goals." },
-      { question: "When are results visible?", answer: "This varies individually. Polynucleotides focus on skin quality and regeneration, not an immediate volume effect." },
+      { question: "What are skin boosters?", answer: "Skin boosters are aesthetic treatments that may support skin quality, hydration, elasticity or regenerative processes depending on product and concept." },
+      { question: "What is the difference between polynucleotides, NCT 145 HA and Profhilo?", answer: "The products follow different treatment logics. The suitable option depends on skin findings, area and goal." },
+      { question: "Which areas can be discussed?", answer: "Depending on findings, the face, neck, decollete or delicate areas such as the under-eye area can be discussed." },
+      { question: "Is this a replacement for botulinum toxin?", answer: "No. Skin boosters and botulinum toxin have different treatment goals. Botulinum toxin addresses muscle activity; skin boosters focus more on skin quality." },
+      { question: "When are results visible?", answer: "This varies individually. Skin boosters focus on skin quality and regeneration, not an immediate volume effect." },
       { question: "What side effects are possible?", answer: "Temporary redness, swelling or small bruises can occur. Individual risks are discussed medically." },
     ],
   }),

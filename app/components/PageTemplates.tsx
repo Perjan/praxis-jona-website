@@ -267,24 +267,40 @@ export function LandingPage({ content }: { content: LandingContent }) {
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.intro}</p>
               <CtaButtons primary={content.cta} primaryHref={bookingHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
             </div>
-            <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
-              <dl className="space-y-8">
-                {content.facts.map((fact) => {
-                  const FactIcon = iconForFact(fact.label, fact.value);
+            <div className="space-y-5">
+              {content.heroImage && (
+                <div className="relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10">
+                  <Image
+                    src={content.heroImage.src}
+                    alt={content.heroImage.alt}
+                    width={900}
+                    height={720}
+                    priority
+                    sizes="(min-width: 1024px) 36vw, 92vw"
+                    className={`h-64 w-full object-cover sm:h-80 lg:h-72 ${content.heroImage.objectPositionClass ?? "object-center"}`}
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/20" />
+                </div>
+              )}
+              <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
+                <dl className="space-y-8">
+                  {content.facts.map((fact) => {
+                    const FactIcon = iconForFact(fact.label, fact.value);
 
-                  return (
-                    <div key={fact.label} className="flex gap-4">
-                      <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
-                        <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
+                    return (
+                      <div key={fact.label} className="flex gap-4">
+                        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
+                          <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
+                        </div>
+                        <div>
+                          <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
+                          <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
+                        </div>
                       </div>
-                      <div>
-                        <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
-                        <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
-                      </div>
-                    </div>
-                  );
-                })}
-              </dl>
+                    );
+                  })}
+                </dl>
+              </div>
             </div>
           </div>
         </MotionSection>
