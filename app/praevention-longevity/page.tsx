@@ -3,17 +3,17 @@ import { LongevityMarkdownHub } from "app/components/LongevityMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
 import { getLongevitySectionDescription, getLongevitySectionTitle } from "app/content/longevitySource";
 
-const title = getLongevitySectionTitle("hub", "en");
-const description = getLongevitySectionDescription("hub", "en");
+const title = getLongevitySectionTitle("hub", "de");
+const description = getLongevitySectionDescription("hub", "de");
 
 export const metadata: Metadata = buildMetadata({
   title,
   description,
-  canonical: "/en/health-longevity",
-  alternate: "/health-longevity",
-  locale: "en",
+  canonical: "/praevention-longevity",
+  alternate: "/en/prevention-longevity",
+  locale: "de",
 });
 
 export default function Page() {
-  return <LongevityMarkdownHub locale="en" />;
+  return <LongevityMarkdownHub locale="de" />;
 }

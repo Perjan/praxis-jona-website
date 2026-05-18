@@ -30,7 +30,7 @@ const serviceCardsContent = {
                     "Gesund alt werden – das ist kein Zufall, sondern eine Entscheidung.",
                     "Ich begleite Sie dabei, Ihre Gesundheit aktiv zu gestalten, bevor Krankheit entsteht. Mit moderner Medizin, ganzheitlichen Konzepten und evidenzbasierten Longevity-Strategien stärken wir gemeinsam Ihre Vitalität."
                 ],
-                href: "/health-longevity",
+                href: "/praevention-longevity",
             }
         ],
     },
@@ -58,7 +58,7 @@ const serviceCardsContent = {
                     "Growing old healthily is not a coincidence, but a decision.",
                     "I support you in actively shaping your health before illness occurs. With modern medicine, holistic concepts, and evidence-based longevity strategies, we will jointly strengthen your vitality."
                 ],
-                href: "/en/health-longevity",
+                href: "/en/prevention-longevity",
             }
         ],
     },

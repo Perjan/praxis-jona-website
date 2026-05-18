@@ -88,7 +88,7 @@ export default function Features() {
 
             <QuoteSection
                 quote='"Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern."'
-                buttonLink="/health-longevity"
+                buttonLink="/praevention-longevity"
                 buttonText="Health / Longevity"
             />
 

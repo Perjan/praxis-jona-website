@@ -14,7 +14,7 @@ const navigationGerman = {
   company: [
     { name: 'Innere Medizin', href: '/hausaerztliche-leistungen' },
     { name: 'Ästhetik', href: '/aesthetik' },
-    { name: 'Health / Longevity', href: '/health-longevity' },
+    { name: 'Health / Longevity', href: '/praevention-longevity' },
     { name: 'Preise', href: '/preise' },
     { name: 'Leistungen', href: '/leistungen' },
     { name: 'Team', href: '/team' },
@@ -31,7 +31,7 @@ const navigationEnglish = {
   company: [
     { name: 'Internal Medicine', href: '/en/general-medicine' },
     { name: 'Aesthetics', href: '/en/aesthetics' },
-    { name: 'Health / Longevity', href: '/en/health-longevity' },
+    { name: 'Health / Longevity', href: '/en/prevention-longevity' },
     { name: 'Prices', href: '/en/prices' },
     { name: 'Services', href: '/en/services' },
     { name: 'Team', href: '/en/team' },

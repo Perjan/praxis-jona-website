@@ -204,7 +204,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     cta: "Termin zur Abklärung buchen",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "Preise ansehen",
-    secondaryHref: "/health-longevity/preise",
+    secondaryHref: "/praevention-longevity/preise",
     sections: [
       {
         title: "Medizinisch geführte Gesundheitsoptimierung",
@@ -274,7 +274,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     cta: "Book assessment",
     ctaHref: Constants.appointmentUrl,
     secondaryCta: "View prices",
-    secondaryHref: "/en/health-longevity/prices",
+    secondaryHref: "/en/prevention-longevity/prices",
     sections: [
       {
         title: "Physician-led health optimization",

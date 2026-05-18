@@ -318,8 +318,8 @@ const pageCopy: Record<PricingPageKey, {
     description: { de: "Preise für Prävention, Check-ups, Ernährung, Mikronährstoffe, Eiseninfusion und medizinische Gewichtsreduktion.", en: "Prices for prevention, check-ups, nutrition, micronutrients, iron infusion and medical weight management." },
     eyebrow: { de: "Health / Longevity Preise", en: "Health / longevity prices" },
     intro: { de: "Health / Longevity-Leistungen werden individuell geplant. Die Tabellen zeigen die aktuell transparent benennbaren Start- und Paketpreise.", en: "Health / longevity services are planned individually. The tables show currently transparent starting and package prices." },
-    canonical: { de: "/health-longevity/preise", en: "/en/health-longevity/prices" },
-    alternate: { de: "/en/health-longevity/prices", en: "/health-longevity/preise" },
+    canonical: { de: "/praevention-longevity/preise", en: "/en/prevention-longevity/prices" },
+    alternate: { de: "/en/prevention-longevity/prices", en: "/praevention-longevity/preise" },
   },
   internalMedicine: {
     title: { de: "Innere Medizin Preise und Kosten", en: "Internal medicine prices and costs" },
@@ -334,12 +334,12 @@ const pageCopy: Record<PricingPageKey, {
 const pillarLinks: Record<PricingLocale, PricingPageConfig["pillarLinks"]> = {
   de: [
     { label: "Ästhetik Preise", href: "/aesthetik/preise", description: "Botulinumtoxin und weitere ästhetische Leistungen." },
-    { label: "Health / Longevity Preise", href: "/health-longevity/preise", description: "Check-ups, Prävention, Ernährung und Infusionen." },
+    { label: "Health / Longevity Preise", href: "/praevention-longevity/preise", description: "Check-ups, Prävention, Ernährung und Infusionen." },
     { label: "Innere Medizin Preise", href: "/hausaerztliche-leistungen/preise", description: "Kassenleistungen, Selbstzahlerleistungen und Diagnostik." },
   ],
   en: [
     { label: "Aesthetics prices", href: "/en/aesthetics/prices", description: "Botulinum toxin and other aesthetic services." },
-    { label: "Health / longevity prices", href: "/en/health-longevity/prices", description: "Check-ups, prevention, nutrition and infusions." },
+    { label: "Health / longevity prices", href: "/en/prevention-longevity/prices", description: "Check-ups, prevention, nutrition and infusions." },
     { label: "Internal medicine prices", href: "/en/general-medicine/prices", description: "Public insurance care, self-pay services and diagnostics." },
   ],
 };

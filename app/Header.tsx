@@ -19,7 +19,7 @@ import { LanguagePicker } from './LanguagePicker'
 const navigationItemsGerman = [
     { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
     { title: "Ästhetik", href: "/aesthetik" },
-    { title: "Health / Longevity", href: "/health-longevity" },
+    { title: "Prävention / Longevity", href: "/praevention-longevity" },
     { title: "Team", href: "/team" },
     { title: "Kontakt", href: "/kontakt" }
 ]
@@ -27,7 +27,7 @@ const navigationItemsGerman = [
 const navigationItemsEnglish = [
     { title: "Internal Medicine", href: "/en/general-medicine" },
     { title: "Aesthetics", href: "/en/aesthetics" },
-    { title: "Health / Longevity", href: "/en/health-longevity" },
+    { title: "Prevention / Longevity", href: "/en/prevention-longevity" },
     { title: "Team", href: "/en/team" },
     { title: "Contact", href: "/en/contact" }
 ]

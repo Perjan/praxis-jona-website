@@ -12,7 +12,7 @@ const content: LandingContent = {
   alternate: "/leistungen/reiseimpfungen",
   cta: "Book travel consultation",
   secondaryCta: "Health / Longevity",
-  secondaryHref: "/en/health-longevity",
+  secondaryHref: "/en/prevention-longevity",
   intro: "Travel vaccination needs depend on destination, travel style, duration, previous vaccination status and individual health risks. We review these factors and plan the next steps.",
   facts: [
     { label: "Focus", value: "Destination, risk, vaccination status" },
@@ -29,7 +29,7 @@ const content: LandingContent = {
   ],
   related: [
     { title: "Internal medicine", href: "/en/general-medicine", description: "Primary care and vaccination status review." },
-    { title: "Health / Longevity", href: "/en/health-longevity", description: "Preventive and self-pay health services." },
+    { title: "Health / Longevity", href: "/en/prevention-longevity", description: "Preventive and self-pay health services." },
   ],
   faq: [
     { question: "Should I bring my vaccination record?", answer: "Yes. Please bring any available vaccination documentation." },

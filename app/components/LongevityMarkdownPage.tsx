@@ -79,14 +79,14 @@ const detailConfig: Record<
       alternate: "/en/services/micronutrient-analysis",
       eyebrow: "Mikronährstoffe & Labordiagnostik",
       secondaryCta: "Health / Longevity",
-      secondaryHref: "/health-longevity",
+      secondaryHref: "/praevention-longevity",
     },
     en: {
       canonical: "/en/services/micronutrient-analysis",
       alternate: "/leistungen/mikronahrstoffanalyse",
       eyebrow: "Micronutrients & lab diagnostics",
       secondaryCta: "Health / Longevity",
-      secondaryHref: "/en/health-longevity",
+      secondaryHref: "/en/prevention-longevity",
     },
     facts: {
       de: [
@@ -640,7 +640,7 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
   const subpageIndex = nodes.findIndex((node) => (node.type === "h1" || node.type === "h2") && /^(Subpages|Unterseiten)/.test(node.text ?? ""));
   const introNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
   const title = getLongevitySectionTitle("hub", locale);
-  const canonical = locale === "en" ? "/en/health-longevity" : "/health-longevity";
+  const canonical = locale === "en" ? "/en/prevention-longevity" : "/praevention-longevity";
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -666,7 +666,7 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
             <div className="mt-8 lg:hidden">
               <HeroImage sectionKey="hub" locale={locale} />
             </div>
-            <CtaButtons locale={locale} secondaryCta={locale === "en" ? "View prices" : "Preise ansehen"} secondaryHref={locale === "en" ? "/en/health-longevity/prices" : "/health-longevity/preise"} />
+            <CtaButtons locale={locale} secondaryCta={locale === "en" ? "View prices" : "Preise ansehen"} secondaryHref={locale === "en" ? "/en/prevention-longevity/prices" : "/praevention-longevity/preise"} />
           </div>
           <div className="hidden lg:block">
             <HeroImage sectionKey="hub" locale={locale} />
