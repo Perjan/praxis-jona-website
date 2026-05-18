@@ -40,3 +40,4 @@ next-env.d.ts
 /.contentlayer
 /public/sitemap-0.xml
 .env
+/.playwright-mcp
