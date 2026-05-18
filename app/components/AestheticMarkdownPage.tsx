@@ -484,7 +484,7 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <SparklesIcon className="h-6 w-6" aria-hidden="true" />
               </div>
-              <h2 className="font-serif text-3xl font-semibold text-primary">Subpages</h2>
+              <h2 className="font-serif text-3xl font-semibold text-primary">Weitere ästhetische Behandlungen</h2>
             </div>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {subpages
@@ -519,7 +519,7 @@ export function AestheticMarkdownHub() {
     <div className="overflow-hidden bg-white">
       <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-center lg:px-8 lg:py-24">
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Ästhetik</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Haut, Mimik & Regeneration</p>
           <RenderNodes nodes={introNodes} />
           <CtaButtons />
         </div>
@@ -528,7 +528,7 @@ export function AestheticMarkdownHub() {
 
       <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <h2 className="font-serif text-3xl font-semibold text-primary">Subpages</h2>
+          <h2 className="font-serif text-3xl font-semibold text-primary">Ästhetische Behandlungen</h2>
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {subpages.map((item, index) => (
               <Link key={item.href} href={item.href} className="block h-full">
