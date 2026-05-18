@@ -49,6 +49,7 @@ const deToEnRouteMap: Record<string, string> = {
   "/aesthetik/preise": "/en/aesthetics/prices",
   "/aesthetik/prp-behandlung": "/en/aesthetics/prp-treatment",
   "/aesthetik/microneedling": "/en/aesthetics/microneedling",
+  "/aesthetik/haarausfall": "/en/services/hair-loss-berlin-mitte",
   "/aesthetik/polynukleotide": "/en/aesthetics/polynucleotides",
   "/aesthetik/hautbild-verbessern": "/en/aesthetics/improve-skin-quality",
   "/health-longevity": "/en/health-longevity",

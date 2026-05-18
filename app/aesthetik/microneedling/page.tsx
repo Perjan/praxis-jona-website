@@ -1,18 +1,19 @@
 import { Metadata } from "next";
-import { LandingPage } from "app/components/PageTemplates";
-import { landingPages } from "app/components/pageContent";
+import { AestheticMarkdownPage } from "app/components/AestheticMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
+import { getAestheticSectionDescription, getAestheticSectionTitle } from "app/content/aesthetikSource";
 
-const content = landingPages.microneedlingDe;
+const title = getAestheticSectionTitle("microneedling");
+const description = getAestheticSectionDescription("microneedling");
 
 export const metadata: Metadata = buildMetadata({
-  title: content.title,
-  description: content.description,
-  canonical: content.canonical,
-  alternate: content.alternate,
-  locale: content.locale,
+  title,
+  description,
+  canonical: "/aesthetik/microneedling",
+  alternate: "/en/aesthetics/microneedling",
+  locale: "de",
 });
 
 export default function Page() {
-  return <LandingPage content={content} />;
+  return <AestheticMarkdownPage sectionKey="microneedling" canonical="/aesthetik/microneedling" />;
 }

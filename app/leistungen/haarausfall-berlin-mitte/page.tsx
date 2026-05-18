@@ -1,18 +1,19 @@
 import { Metadata } from "next";
-import { LandingPage } from "app/components/PageTemplates";
-import { landingPages } from "app/components/pageContent";
+import { AestheticMarkdownPage } from "app/components/AestheticMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
+import { getAestheticSectionDescription, getAestheticSectionTitle } from "app/content/aesthetikSource";
 
-const content = landingPages.hairLossDe;
+const title = getAestheticSectionTitle("hair");
+const description = getAestheticSectionDescription("hair");
 
 export const metadata: Metadata = buildMetadata({
-  title: content.title,
-  description: content.description,
-  canonical: content.canonical,
-  alternate: content.alternate,
-  locale: content.locale,
+  title,
+  description,
+  canonical: "/leistungen/haarausfall-berlin-mitte",
+  alternate: "/en/services/hair-loss-berlin-mitte",
+  locale: "de",
 });
 
 export default function Page() {
-  return <LandingPage content={content} />;
+  return <AestheticMarkdownPage sectionKey="hair" canonical="/leistungen/haarausfall-berlin-mitte" />;
 }

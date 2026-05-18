@@ -1,18 +1,19 @@
 import { Metadata } from "next";
-import { CategoryHub } from "app/components/PageTemplates";
-import { categoryContent } from "app/components/pageContent";
+import { AestheticMarkdownHub } from "app/components/AestheticMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
+import { getAestheticSectionDescription, getAestheticSectionTitle } from "app/content/aesthetikSource";
 
-const content = categoryContent.aestheticDe;
+const title = getAestheticSectionTitle("hub");
+const description = getAestheticSectionDescription("hub");
 
 export const metadata: Metadata = buildMetadata({
-  title: content.title,
-  description: content.description,
+  title,
+  description,
   canonical: "/aesthetik",
   alternate: "/en/aesthetics",
-  locale: content.locale,
+  locale: "de",
 });
 
 export default function Page() {
-  return <CategoryHub content={content} canonical="/aesthetik" alternate="/en/aesthetics" />;
+  return <AestheticMarkdownHub />;
 }

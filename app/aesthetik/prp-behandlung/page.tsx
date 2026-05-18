@@ -1,18 +1,19 @@
 import { Metadata } from "next";
-import { LandingPage } from "app/components/PageTemplates";
-import { landingPages } from "app/components/pageContent";
+import { AestheticMarkdownPage } from "app/components/AestheticMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
+import { getAestheticSectionDescription, getAestheticSectionTitle } from "app/content/aesthetikSource";
 
-const content = landingPages.prpAestheticDe;
+const title = getAestheticSectionTitle("prp");
+const description = getAestheticSectionDescription("prp");
 
 export const metadata: Metadata = buildMetadata({
-  title: content.title,
-  description: content.description,
-  canonical: content.canonical,
-  alternate: content.alternate,
-  locale: content.locale,
+  title,
+  description,
+  canonical: "/aesthetik/prp-behandlung",
+  alternate: "/en/aesthetics/prp-treatment",
+  locale: "de",
 });
 
 export default function Page() {
-  return <LandingPage content={content} />;
+  return <AestheticMarkdownPage sectionKey="prp" canonical="/aesthetik/prp-behandlung" />;
 }
