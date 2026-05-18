@@ -339,6 +339,11 @@ export const botulinumtoxinIntroEn = {
     "We do not treat according to fixed standard protocols. We plan around anatomy, muscle activity, skin quality and your personal goals.",
   canonical: "/en/botox-treatment",
   alternate: "/botox-behandlung",
+  image: {
+    src: "/images/botulinumtoxin/botox-hero-founder.webp",
+    alt: "Satisfied woman in her forties with a natural result in a minimalist elegant look",
+    objectPositionClass: "object-[52%_38%]",
+  },
 };
 
 export const botulinumtoxinOverviewEn = {

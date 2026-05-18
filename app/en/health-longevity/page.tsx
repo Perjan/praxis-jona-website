@@ -1,18 +1,19 @@
 import { Metadata } from "next";
-import { CategoryHub } from "app/components/PageTemplates";
-import { categoryContent } from "app/components/pageContent";
+import { LongevityMarkdownHub } from "app/components/LongevityMarkdownPage";
 import { buildMetadata } from "app/components/pageMetadata";
+import { getLongevitySectionDescription, getLongevitySectionTitle } from "app/content/longevitySource";
 
-const content = categoryContent.longevityEn;
+const title = getLongevitySectionTitle("hub", "en");
+const description = getLongevitySectionDescription("hub", "en");
 
 export const metadata: Metadata = buildMetadata({
-  title: content.title,
-  description: content.description,
+  title,
+  description,
   canonical: "/en/health-longevity",
   alternate: "/health-longevity",
-  locale: content.locale,
+  locale: "en",
 });
 
 export default function Page() {
-  return <CategoryHub content={content} canonical="/en/health-longevity" alternate="/health-longevity" />;
+  return <LongevityMarkdownHub locale="en" />;
 }
