@@ -332,7 +332,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
       continue;
     }
 
-    if (node.type === "h2" && node.text?.startsWith("Häufige Fragen")) {
+    if (node.type === "h2" && node.text && /^(Häufige Fragen|Frequently asked questions)/.test(node.text)) {
       const faqs: { question: string; answer: MarkdownNode[] }[] = [];
       index += 1;
 
@@ -380,6 +380,18 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
     }
 
     if (node.type === "h3" && node.text) {
+      const nextContentNode = nodes.slice(index + 1).find((item) => item.type !== "rule");
+
+      if (nextContentNode?.type === "h3") {
+        sections.push(
+          <MotionSection key={`heading-${sections.length}`} className="mx-auto max-w-5xl px-4 pt-14 sm:px-6 lg:px-8">
+            <h2 className="font-serif text-3xl font-semibold text-primary">{node.text}</h2>
+          </MotionSection>,
+        );
+        index += 1;
+        continue;
+      }
+
       const result = takeUntilHeading(nodes, index + 1);
       sections.push(
         <MotionCard key={`card-${sections.length}`} className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm">

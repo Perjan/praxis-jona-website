@@ -78,6 +78,23 @@ function ServiceImage({ service, priority = false, compact = false }: { service:
   );
 }
 
+function HeroImage({ content }: { content: BotulinumtoxinPageContent }) {
+  return (
+    <div className="relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10">
+      <Image
+        src={content.intro.image.src}
+        alt={content.intro.image.alt}
+        width={1774}
+        height={887}
+        priority
+        sizes="(min-width: 1024px) 34vw, 92vw"
+        className={`h-56 w-full object-cover sm:h-72 ${content.intro.image.objectPositionClass ?? "object-center"}`}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/15 via-white/10 to-lightBeige/20" />
+    </div>
+  );
+}
+
 function ServiceBody({ service }: { service: BotulinumtoxinService }) {
   const bulletLeadIndex = service.paragraphs.findIndex((paragraph) => /(?:sind|beitragen|helfen):$/.test(paragraph));
   const paragraphsBeforeBullets = bulletLeadIndex >= 0 ? service.paragraphs.slice(0, bulletLeadIndex + 1) : service.paragraphs;
@@ -283,13 +300,18 @@ export function BotulinumtoxinMainPage({ locale = "de" }: { locale?: "de" | "en"
             <p className={eyebrowClassName}>{content.labels.treatmentEyebrow}</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.intro.title}</h1>
             <p className="mt-5 font-serif text-2xl text-primary">{content.intro.subtitle}</p>
+            <div className="mt-8 lg:hidden">
+              <HeroImage content={content} />
+            </div>
             <div className="mt-6 space-y-5 text-lg leading-8 text-primaryLighter">
               <p>{content.intro.description}</p>
               <p>{content.intro.secondaryDescription}</p>
             </div>
             <Ctas content={content} />
           </div>
-          <ServiceImage service={content.services[0]} priority />
+          <div className="hidden lg:block">
+            <HeroImage content={content} />
+          </div>
         </MotionSection>
 
         <MotionSection className="mx-auto max-w-5xl px-4 pb-14 sm:px-6 lg:px-8">
@@ -379,12 +401,17 @@ export function BotulinumtoxinServicePage({ service, locale = "de" }: { service:
           <div>
             <p className={eyebrowClassName}>{content.labels.treatmentEyebrow}</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{service.title}</h1>
+            <div className="mt-8 lg:hidden">
+              <ServiceImage service={service} priority />
+            </div>
             <div className="mt-6">
               <ServiceBody service={service} />
             </div>
             <Ctas content={content} />
           </div>
-          <ServiceImage service={service} priority />
+          <div className="hidden lg:block">
+            <ServiceImage service={service} priority />
+          </div>
         </MotionSection>
 
         <ServiceFacts service={service} locale={content.locale} />

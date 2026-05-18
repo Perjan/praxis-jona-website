@@ -20,6 +20,11 @@ export type BotulinumtoxinPageContent = {
     secondaryDescription: string;
     canonical: string;
     alternate: string;
+    image: {
+      src: string;
+      alt: string;
+      objectPositionClass?: string;
+    };
   };
   overview: {
     title: string;
@@ -50,6 +55,11 @@ export const botulinumtoxinIntro = {
     "Wir behandeln nicht nach festen Standardschemata, sondern orientieren uns an Anatomie, Muskelaktivität, Hautqualität und Ihren persönlichen Zielen.",
   canonical: "/botox-behandlung",
   alternate: "/en/botox-treatment",
+  image: {
+    src: "/images/botulinumtoxin/botox-hero-founder.webp",
+    alt: "Zufriedene Frau in ihren Vierzigern mit natürlichem Ergebnis in minimalistisch-elegantem Look",
+    objectPositionClass: "object-[52%_38%]",
+  },
 };
 
 export const botulinumtoxinOverview = {

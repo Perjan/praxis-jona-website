@@ -1125,7 +1125,7 @@ Da Haarwachstum und Regeneration langsam verlaufen, entwickeln sich Veränderung
   
 ⸻  
   
-**Medizinisches Microneedling der Kopfhaut bei Haarausfall**  
+### Medizinisches Microneedling der Kopfhaut bei Haarausfall  
   
 **Regenerative Kopfhautbehandlungen mit Dermapen®**  
   
@@ -1163,7 +1163,7 @@ Für optimale Ergebnisse empfehlen wir meist:
   
 ⸻  
   
-**Exosome & regenerative Wirkstoffkomplexe**  
+### Exosome & regenerative Wirkstoffkomplexe  
   
 **Regenerative Unterstützung der Kopfhaut**  
   
@@ -1182,7 +1182,7 @@ Die Formulierungen enthalten unter anderem:
   
 ⸻  
   
-**Polynukleotide / PhilArt Hair®**  
+### Polynukleotide / PhilArt Hair®  
   
 **Regenerative Behandlung der Kopfhaut**  
   
@@ -1245,7 +1245,7 @@ Unser Fokus liegt auf einer medizinisch fundierten und ganzheitlichen Betrachtun
   
 ⸻  
   
-**Häufige Fragen zur Haartherapie bei Haarausfall**  
+### Häufige Fragen zur Haartherapie bei Haarausfall  
   
 **Kann PRP bei erblich bedingtem Haarausfall sinnvoll sein?**  
   
