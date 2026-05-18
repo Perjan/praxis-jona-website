@@ -208,12 +208,12 @@ function FactStrip({ sectionKey }: { sectionKey: AestheticSectionKey }) {
 
               return (
                 <div key={fact.title} className="flex min-h-[112px] items-start gap-4 p-5 sm:p-6 lg:min-h-[132px] lg:p-7">
-                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-16 sm:w-16">
-                    <Icon className="h-8 w-8 stroke-[2.2] text-white sm:h-9 sm:w-9" aria-hidden="true" />
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-[52px] sm:w-[52px]">
+                    <Icon className="h-6 w-6 stroke-[2.2] text-white sm:h-7 sm:w-7" aria-hidden="true" />
                   </div>
                   <div className="min-w-0">
-                    <h2 className="font-sans text-xl font-semibold leading-tight text-white sm:text-2xl">{fact.title}</h2>
-                    <p className="mt-2 font-serif text-xl leading-7 text-white/75 sm:text-2xl">{fact.value}</p>
+                    <h2 className="font-sans text-base font-semibold leading-tight text-white sm:text-lg">{fact.title}</h2>
+                    <p className="mt-2 text-base leading-7 text-white/75 sm:text-lg">{fact.value}</p>
                   </div>
                 </div>
               );
@@ -411,7 +411,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
     if (pendingCards.length > 0) {
       groupedSections.push(
         <MotionSection key={`grid-${groupedSections.length}`} className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="grid gap-6 md:grid-cols-2">{pendingCards}</div>
+          <div className="grid gap-6 lg:grid-cols-2">{pendingCards}</div>
         </MotionSection>,
       );
       pendingCards = [];
