@@ -71,7 +71,7 @@ function ServiceImage({ service, priority = false, compact = false }: { service:
         height={560}
         priority={priority}
         sizes="(min-width: 1024px) 34vw, 92vw"
-        className={`${compact ? "h-56 sm:h-36" : "h-56 sm:h-72"} w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${service.image.objectPositionClass ?? "object-center"}`}
+        className={`${compact ? "h-[180px]" : "h-56 sm:h-72"} w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${service.image.objectPositionClass ?? "object-center"}`}
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-white/10 to-lightBeige/30" />
     </div>
@@ -306,7 +306,7 @@ export function BotulinumtoxinMainPage({ locale = "de" }: { locale?: "de" | "en"
               <p className={eyebrowClassName}>{content.labels.areasEyebrow}</p>
               <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{content.labels.areasTitle}</h2>
             </div>
-            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               {content.services.map((service, index) => (
                 <Link key={service.slug} href={`${content.intro.canonical}/${service.slug}`} className="block h-full">
                   <MotionCard

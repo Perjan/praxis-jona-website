@@ -61,19 +61,27 @@ export const botulinumtoxinOverview = {
   ],
 };
 
-const placeholderImages = [
-  "/images/clinic/clinic-philo-2025.jpg",
-  "/images/clinic/clinic-newA.jpg",
-  "/images/clinic/clinic-newA-new2.jpg",
-  "/images/clinic/clinic-hero-2025.jpg",
-];
+const botulinumtoxinImages = {
+  zornesfalte: "/images/botulinumtoxin/zornesfalte-glabella.webp",
+  stirnfalten: "/images/botulinumtoxin/stirnfalten.webp",
+  kraehenfuesse: "/images/botulinumtoxin/kraehenfuesse.webp",
+  browLift: "/images/botulinumtoxin/brow-lift-augenbrauenlifting.webp",
+  bunnyLines: "/images/botulinumtoxin/bunny-lines.webp",
+  gummySmile: "/images/botulinumtoxin/gummy-smile.webp",
+  lipFlip: "/images/botulinumtoxin/lip-flip.webp",
+  mundwinkel: "/images/botulinumtoxin/mundwinkel-anheben.webp",
+  hyperhidrose: "/images/botulinumtoxin/hyperhidrose-starkes-schwitzen.webp",
+  masseter: "/images/botulinumtoxin/masseter-bruxismus.webp",
+  trapezmuskel: "/images/botulinumtoxin/trapezmuskel-barbie-botox.webp",
+  migraene: "/images/botulinumtoxin/chronische-migraene.webp",
+} as const;
 
 export const botulinumtoxinServices: BotulinumtoxinService[] = [
   {
     slug: "zornesfalte",
     pricingSlug: "zornesfalte",
     title: "Zornesfalte (Glabella)",
-    image: { src: placeholderImages[0], alt: "Placeholder für Botulinumtoxin-Behandlung der Zornesfalte" },
+    image: { src: botulinumtoxinImages.zornesfalte, alt: "Modell mit Fokus auf die Zornesfalte zwischen den Augenbrauen" },
     paragraphs: [
       "Die Zornesfalte entsteht durch wiederholte Aktivität der Muskulatur zwischen den Augenbrauen und kann zu einem angespannten oder müden Ausdruck führen.",
       "Durch gezielte Injektionen mit Botulinumtoxin kann die Muskelaktivität reduziert und die Falte sichtbar entspannt werden, ohne die natürliche Mimik vollständig zu verändern.",
@@ -83,7 +91,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "stirnfalten",
     pricingSlug: "stirnfalten",
     title: "Stirnfalten",
-    image: { src: placeholderImages[1], alt: "Placeholder für Botulinumtoxin-Behandlung von Stirnfalten" },
+    image: { src: botulinumtoxinImages.stirnfalten, alt: "Modell mit Fokus auf horizontale Stirnfalten" },
     paragraphs: [
       "Horizontale Stirnfalten entstehen häufig durch ausgeprägte Mimik und wiederholtes Anheben der Augenbrauen.",
       "Ziel der Behandlung ist eine natürlich wirkende Glättung der Stirn bei erhaltener Ausdrucksfähigkeit und harmonischer Bewegung.",
@@ -94,7 +102,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "kraehenfuesse",
     pricingSlug: "kraehenfuesse",
     title: "Krähenfüße",
-    image: { src: placeholderImages[2], alt: "Placeholder für Botulinumtoxin-Behandlung von Krähenfüßen" },
+    image: { src: botulinumtoxinImages.kraehenfuesse, alt: "Modell mit Fokus auf Krähenfüße im äußeren Augenbereich" },
     paragraphs: [
       "Kleine Fältchen im Bereich der Augen entstehen oft beim Lachen oder Zusammenkneifen der Augen.",
       "Eine gezielte Behandlung kann die Haut um die Augen ruhiger und frischer wirken lassen, ohne den natürlichen Ausdruck zu verlieren.",
@@ -104,7 +112,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "brow-lift-augenbrauenlifting",
     pricingSlug: "browlift",
     title: "Brow Lift / Augenbrauenlifting",
-    image: { src: placeholderImages[3], alt: "Placeholder für Brow Lift mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.browLift, alt: "Modell mit Fokus auf Augenbrauen und Brow-Lift-Bereich" },
     paragraphs: [
       "Durch eine gezielte Entspannung bestimmter Muskelgruppen kann die Augenbrauenregion leicht angehoben und der Blick offener wirken.",
       "Die Behandlung erfolgt individuell angepasst an Anatomie und Mimik.",
@@ -114,7 +122,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "bunny-lines",
     pricingSlug: "bunny-lines",
     title: "Bunny Lines",
-    image: { src: placeholderImages[0], alt: "Placeholder für Bunny Lines Behandlung mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.bunnyLines, alt: "Modell mit Fokus auf Bunny Lines seitlich der Nase" },
     paragraphs: [
       "Feine Falten seitlich der Nase entstehen häufig beim Lachen oder Zusammenziehen der Gesichtsmuskulatur.",
       "Eine dezente Behandlung kann die Region harmonischer wirken lassen.",
@@ -124,7 +132,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "gummy-smile",
     pricingSlug: "gummy-smile",
     title: "Gummy Smile",
-    image: { src: placeholderImages[1], alt: "Placeholder für Gummy Smile Behandlung mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.gummySmile, alt: "Modell mit Fokus auf Oberlippe und Gummy-Smile-Bereich" },
     paragraphs: [
       "Wenn beim Lächeln besonders viel Zahnfleisch sichtbar wird, kann Botulinumtoxin helfen, die Oberlippenmuskulatur sanft zu entspannen.",
       "Das Ziel ist ein natürlicheres und harmonischeres Lächeln.",
@@ -134,7 +142,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "lip-flip",
     pricingSlug: "lip-flip",
     title: "Lip Flip",
-    image: { src: placeholderImages[2], alt: "Placeholder für Lip Flip mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.lipFlip, alt: "Modell mit Fokus auf die Oberlippe für Lip Flip" },
     paragraphs: [
       "Beim sogenannten Lip Flip wird die Muskulatur der Oberlippe gezielt entspannt, wodurch die Lippe beim Lächeln leicht nach außen kippen kann.",
       "Die Behandlung eignet sich für dezente Veränderungen ohne zusätzliches Volumen.",
@@ -144,7 +152,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "mundwinkel-anheben",
     pricingSlug: "mundwinkel",
     title: "Mundwinkel anheben",
-    image: { src: placeholderImages[3], alt: "Placeholder für Mundwinkel anheben mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.mundwinkel, alt: "Modell mit Fokus auf Mundwinkel und unteres Gesicht" },
     paragraphs: [
       "Mit zunehmender Muskelaktivität oder altersbedingten Veränderungen können die Mundwinkel nach unten gezogen wirken und dem Gesicht einen müden oder angespannten Ausdruck verleihen.",
       "Durch die gezielte Behandlung bestimmter Muskelgruppen mit Botulinumtoxin können die Mundwinkel sanft entlastet und die Gesichtszüge harmonischer wirken.",
@@ -155,7 +163,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "hyperhidrose-starkes-schwitzen",
     pricingSlug: "hyperhidrose",
     title: "Hyperhidrose (starkes Schwitzen)",
-    image: { src: placeholderImages[0], alt: "Placeholder für Hyperhidrose-Behandlung mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.hyperhidrose, alt: "Modell mit Fokus auf Achselbereich bei Hyperhidrose" },
     paragraphs: [
       "Bei übermäßigem Schwitzen kann Botulinumtoxin eingesetzt werden, um die Aktivität der Schweißdrüsen gezielt zu reduzieren.",
       "Häufig behandelte Regionen sind:",
@@ -167,7 +175,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "masseter-zaehneknirschen-bruxismus",
     pricingSlug: "bruxismus",
     title: "Masseter-Behandlung / Zähneknirschen (Bruxismus)",
-    image: { src: placeholderImages[1], alt: "Placeholder für Masseter-Behandlung mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.masseter, alt: "Modell mit Fokus auf Kiefer und Masseter-Muskel" },
     paragraphs: [
       "Eine überaktive Kaumuskulatur kann zu Zähneknirschen, Verspannungen oder einer ausgeprägten Kieferpartie führen.",
       "Botulinumtoxin kann die Muskelaktivität reduzieren und dadurch Beschwerden lindern sowie die Kieferkontur harmonisieren.",
@@ -177,7 +185,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "trapezmuskel-barbie-botox",
     pricingSlug: "trapezmuskel",
     title: "Trapezmuskel-Behandlung mit Botulinumtoxin (“Barbie-Botox”)",
-    image: { src: placeholderImages[2], alt: "Placeholder für Trapezmuskel-Behandlung mit Botulinumtoxin" },
+    image: { src: botulinumtoxinImages.trapezmuskel, alt: "Modell mit Fokus auf Nacken, Schultern und Trapezmuskel" },
     paragraphs: [
       "Eine ausgeprägte Muskelspannung im Schulter- und Nackenbereich kann zu Beschwerden wie Verspannungen, Druckgefühl oder muskulärer Überaktivität führen. In manchen Fällen wirkt die Schulterpartie zusätzlich sehr breit oder dauerhaft angespannt.",
       "Durch die gezielte Behandlung des Trapezmuskels mit Botulinumtoxin kann die Muskelaktivität reduziert und die Schulter-Nacken-Region entlastet werden.",
@@ -194,7 +202,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
     slug: "chronische-migraene",
     pricingSlug: "migraene",
     title: "Botulinumtoxin bei chronischer Migräne",
-    image: { src: placeholderImages[3], alt: "Placeholder für Botulinumtoxin bei chronischer Migräne" },
+    image: { src: botulinumtoxinImages.migraene, alt: "Modell mit Fokus auf Schläfenbereich bei chronischer Migräne" },
     paragraphs: [
       "Botulinumtoxin kann in bestimmten Fällen unterstützend zur Behandlung chronischer Migräne eingesetzt werden.",
       "Dabei wird das Medikament gezielt in definierte Muskel- und Triggerpunkte im Bereich von Stirn, Schläfen, Hinterkopf, Nacken und Schultern injiziert.",
@@ -337,7 +345,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "frown-lines-glabella",
     pricingSlug: "zornesfalte",
     title: "Frown lines (glabella)",
-    image: { src: placeholderImages[0], alt: "Placeholder for botulinum toxin treatment of frown lines" },
+    image: { src: botulinumtoxinImages.zornesfalte, alt: "Model with focus on frown lines between the eyebrows" },
     paragraphs: [
       "Frown lines develop through repeated activity of the muscles between the eyebrows and can create a tense or tired expression.",
       "Targeted injections with botulinum toxin can reduce muscle activity and visibly relax the line without completely changing natural facial expression.",
@@ -347,7 +355,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "forehead-lines",
     pricingSlug: "stirnfalten",
     title: "Forehead lines",
-    image: { src: placeholderImages[1], alt: "Placeholder for botulinum toxin treatment of forehead lines" },
+    image: { src: botulinumtoxinImages.stirnfalten, alt: "Model with focus on horizontal forehead lines" },
     paragraphs: [
       "Horizontal forehead lines often develop through pronounced facial expression and repeated lifting of the eyebrows.",
       "The goal of treatment is natural-looking smoothing of the forehead while preserving expressiveness and harmonious movement.",
@@ -358,7 +366,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "crows-feet",
     pricingSlug: "kraehenfuesse",
     title: "Crow’s feet",
-    image: { src: placeholderImages[2], alt: "Placeholder for botulinum toxin treatment of crow’s feet" },
+    image: { src: botulinumtoxinImages.kraehenfuesse, alt: "Model with focus on crow's feet around the outer eye" },
     paragraphs: [
       "Small lines around the eyes often appear when laughing or squinting.",
       "Targeted treatment can make the skin around the eyes look calmer and fresher without losing natural expression.",
@@ -368,7 +376,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "brow-lift",
     pricingSlug: "browlift",
     title: "Brow lift / eyebrow lift",
-    image: { src: placeholderImages[3], alt: "Placeholder for brow lift with botulinum toxin" },
+    image: { src: botulinumtoxinImages.browLift, alt: "Model with focus on eyebrows and brow lift area" },
     paragraphs: [
       "Targeted relaxation of specific muscle groups can slightly lift the brow region and make the eyes appear more open.",
       "Treatment is individually adapted to anatomy and facial movement.",
@@ -378,7 +386,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "bunny-lines",
     pricingSlug: "bunny-lines",
     title: "Bunny lines",
-    image: { src: placeholderImages[0], alt: "Placeholder for bunny lines treatment with botulinum toxin" },
+    image: { src: botulinumtoxinImages.bunnyLines, alt: "Model with focus on bunny lines beside the nose" },
     paragraphs: [
       "Fine lines at the sides of the nose often appear when laughing or contracting facial muscles.",
       "A subtle treatment can make the region appear more harmonious.",
@@ -388,7 +396,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "gummy-smile",
     pricingSlug: "gummy-smile",
     title: "Gummy smile",
-    image: { src: placeholderImages[1], alt: "Placeholder for gummy smile treatment with botulinum toxin" },
+    image: { src: botulinumtoxinImages.gummySmile, alt: "Model with focus on upper lip and gummy smile area" },
     paragraphs: [
       "If a lot of gum is visible when smiling, botulinum toxin can help gently relax the upper lip muscles.",
       "The goal is a more natural and harmonious smile.",
@@ -398,7 +406,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "lip-flip",
     pricingSlug: "lip-flip",
     title: "Lip flip",
-    image: { src: placeholderImages[2], alt: "Placeholder for lip flip with botulinum toxin" },
+    image: { src: botulinumtoxinImages.lipFlip, alt: "Model with focus on the upper lip for lip flip" },
     paragraphs: [
       "In a so-called lip flip, the upper lip muscle is selectively relaxed, which can allow the lip to turn slightly outward when smiling.",
       "The treatment is suitable for subtle changes without adding volume.",
@@ -408,7 +416,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "mouth-corners",
     pricingSlug: "mundwinkel",
     title: "Lifting the corners of the mouth",
-    image: { src: placeholderImages[3], alt: "Placeholder for lifting mouth corners with botulinum toxin" },
+    image: { src: botulinumtoxinImages.mundwinkel, alt: "Model with focus on mouth corners and lower face" },
     paragraphs: [
       "With increasing muscle activity or age-related changes, the corners of the mouth can appear pulled downward and give the face a tired or tense expression.",
       "Targeted treatment of specific muscle groups with botulinum toxin can gently relieve the corners of the mouth and make facial features appear more harmonious.",
@@ -419,7 +427,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "hyperhidrosis-excessive-sweating",
     pricingSlug: "hyperhidrose",
     title: "Hyperhidrosis (excessive sweating)",
-    image: { src: placeholderImages[0], alt: "Placeholder for hyperhidrosis treatment with botulinum toxin" },
+    image: { src: botulinumtoxinImages.hyperhidrose, alt: "Model with focus on the underarm area for hyperhidrosis" },
     paragraphs: [
       "In cases of excessive sweating, botulinum toxin can be used to selectively reduce sweat gland activity.",
       "Commonly treated areas are:",
@@ -431,7 +439,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "masseter-bruxism",
     pricingSlug: "bruxismus",
     title: "Masseter treatment / teeth grinding (bruxism)",
-    image: { src: placeholderImages[1], alt: "Placeholder for masseter treatment with botulinum toxin" },
+    image: { src: botulinumtoxinImages.masseter, alt: "Model with focus on jaw and masseter muscle" },
     paragraphs: [
       "Overactive chewing muscles can cause teeth grinding, tension or a pronounced jaw area.",
       "Botulinum toxin can reduce muscle activity and thereby relieve symptoms as well as harmonize the jaw contour.",
@@ -441,7 +449,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "trapezius-barbie-botox",
     pricingSlug: "trapezmuskel",
     title: "Trapezius treatment with botulinum toxin (“Barbie Botox”)",
-    image: { src: placeholderImages[2], alt: "Placeholder for trapezius treatment with botulinum toxin" },
+    image: { src: botulinumtoxinImages.trapezmuskel, alt: "Model with focus on neck, shoulders and trapezius muscle" },
     paragraphs: [
       "Pronounced muscle tension in the shoulder and neck area can lead to symptoms such as tightness, pressure or muscular overactivity. In some cases, the shoulder area also appears very broad or permanently tense.",
       "Targeted treatment of the trapezius muscle with botulinum toxin can reduce muscle activity and relieve the shoulder and neck region.",
@@ -458,7 +466,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     slug: "chronic-migraine",
     pricingSlug: "migraene",
     title: "Botulinum toxin for chronic migraine",
-    image: { src: placeholderImages[3], alt: "Placeholder for botulinum toxin for chronic migraine" },
+    image: { src: botulinumtoxinImages.migraene, alt: "Model with focus on temple area for chronic migraine" },
     paragraphs: [
       "Botulinum toxin can be used supportively in selected cases for the treatment of chronic migraine.",
       "The medication is injected into defined muscle and trigger points in the area of the forehead, temples, back of the head, neck and shoulders.",
