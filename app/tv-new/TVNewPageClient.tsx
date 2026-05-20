@@ -1,26 +1,80 @@
 'use client';
 
 import Image from 'next/image';
+import QRCode from 'qrcode';
 import { ReactNode, useEffect, useMemo, useState } from 'react';
-import { FaCheckCircle, FaStar } from 'react-icons/fa';
+import { FaCheckCircle, FaInstagram, FaQrcode, FaStar } from 'react-icons/fa';
 import { useSearchParams } from 'next/navigation';
-import { TV_NEW_CONTENT as C } from './content';
+import { TV_NEW_SLIDES, type TVSlide } from './content';
 
 const SLIDE_DURATION = 30000;
 const ANIMATION_DURATION = 4000;
 
-type SlideProps = {
-  bg: string;
-  children: ReactNode;
-  overlay?: string;
+const qrCache = new Map<string, string>();
+const qrPending = new Map<string, Promise<string>>();
+
+type TVNewPageClientProps = {
+  forcedSlideId?: string;
 };
 
-function BackgroundSlide({ bg, children, overlay = 'bg-black/45' }: SlideProps) {
+function useGeneratedQr(url: string): string | null {
+  const [qrSvgUrl, setQrSvgUrl] = useState(() => qrCache.get(url) ?? null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const cached = qrCache.get(url);
+
+    if (cached) {
+      setQrSvgUrl(cached);
+      return;
+    }
+
+    const pending =
+      qrPending.get(url) ??
+      QRCode.toString(url, {
+        type: 'svg',
+        errorCorrectionLevel: 'M',
+        margin: 1,
+        width: 240,
+        color: {
+          dark: '#0D322B',
+          light: '#FFFFFF',
+        },
+      }).then((svg) => {
+        const dataUrl = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+        qrCache.set(url, dataUrl);
+        qrPending.delete(url);
+        return dataUrl;
+      });
+
+    qrPending.set(url, pending);
+    pending.then((dataUrl) => {
+      if (!cancelled) {
+        setQrSvgUrl(dataUrl);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [url]);
+
+  return qrSvgUrl;
+}
+
+function BackgroundSlide({ slide, children }: { slide: TVSlide; children: ReactNode }) {
   return (
-    <section className="relative h-full w-full overflow-hidden text-white">
-      <Image src={bg} alt="Slide background" fill className="object-cover" priority />
-      <div className={`absolute inset-0 ${overlay}`} />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/35 to-transparent" />
+    <section className="relative h-full w-full overflow-hidden bg-[#081F1A] text-white">
+      <Image
+        src={slide.image}
+        alt={slide.imageAlt}
+        fill
+        className="object-cover"
+        priority
+        sizes="100vw"
+      />
+      <div className={`absolute inset-0 ${slide.overlay ?? 'bg-[#0D322B]/62'}`} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_28%,rgba(211,224,214,0.24),transparent_24%),linear-gradient(90deg,rgba(8,31,26,0.92)_0%,rgba(8,31,26,0.72)_45%,rgba(8,31,26,0.34)_100%)]" />
       <div className="absolute inset-0">{children}</div>
     </section>
   );
@@ -28,398 +82,318 @@ function BackgroundSlide({ bg, children, overlay = 'bg-black/45' }: SlideProps) 
 
 function BrandTop() {
   return (
-    <div className="inline-flex items-center gap-3 rounded-xl bg-white/90 px-4 py-2 text-[#123932] backdrop-blur-sm">
-      <Image src="/images/praxis-jona-web-logo.png" alt="Praxis Jona" width={190} height={48} className="h-8 w-auto" />
+    <div className="inline-flex h-[58px] w-fit items-center rounded-[8px] bg-white/92 px-5 shadow-[0_18px_45px_-26px_rgba(0,0,0,0.9)] backdrop-blur-sm">
+      <Image src="/images/praxis-jona-web-logo.png" alt="Praxis Jona" width={230} height={58} className="h-10 w-auto" />
     </div>
   );
 }
 
-function Headline({
-  kicker,
-  title,
-  subtitle,
-}: {
-  kicker?: string;
-  title: string;
-  subtitle?: string;
-}) {
+function Kicker({ children }: { children?: ReactNode }) {
+  if (!children) return null;
+
   return (
-    <div className="max-w-[980px]">
-      {kicker && <p className="text-[24px] font-medium tracking-[0.18em] text-[#d6e3dc] uppercase">{kicker}</p>}
-      <h1 className="mt-2 font-serif text-[88px] font-semibold leading-[0.95]">{title}</h1>
-      {subtitle && <p className="mt-4 text-[34px] text-[#e5eeea]">{subtitle}</p>}
+    <p className="text-[24px] font-semibold uppercase tracking-[0.16em] text-[#D3E0D6]">
+      {children}
+    </p>
+  );
+}
+
+function Headline({ slide, compact = false }: { slide: TVSlide; compact?: boolean }) {
+  return (
+    <div className="max-w-[1050px]">
+      <Kicker>{slide.kicker}</Kicker>
+      {slide.eyebrow && <p className="mt-3 text-[30px] font-semibold text-[#F9EDDF]">{slide.eyebrow}</p>}
+      <h1 className={`mt-3 whitespace-pre-line font-serif font-semibold leading-[0.98] text-white ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
+        {slide.title}
+      </h1>
+      {slide.subtitle && <p className="mt-5 max-w-[940px] text-[31px] leading-[1.18] text-[#EAF1EE]">{slide.subtitle}</p>}
     </div>
   );
 }
 
 function GlassPanel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-2xl border border-white/20 bg-[#0f2e28]/60 p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)] backdrop-blur-sm ${className}`}>
+    <div className={`rounded-[8px] border border-white/18 bg-[#0D322B]/72 shadow-[0_26px_80px_-36px_rgba(0,0,0,0.92)] backdrop-blur-sm ${className}`}>
       {children}
     </div>
   );
 }
 
-function QrBlock({ src = '/tv-new/qr/qr-main.png', label = 'Mehr erfahren' }: { src?: string; label?: string }) {
+function QrBlock({ url, label, displayUrl }: { url: string; label: string; displayUrl?: string }) {
+  const qrSvgUrl = useGeneratedQr(url);
+
   return (
-    <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/20 bg-[#0f2e28]/65 p-4 backdrop-blur-sm">
-      <Image src={src} alt="QR" width={170} height={170} className="h-[170px] w-[170px] rounded-xl bg-white p-2" />
-      <p className="text-[20px] font-semibold text-[#dce9e3]">{label}</p>
+    <div className="flex w-[250px] flex-col items-center rounded-[8px] border border-white/20 bg-[#F9EDDF]/95 p-4 text-[#0D322B] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.95)]">
+      <div className="flex h-[198px] w-[198px] items-center justify-center rounded-[6px] bg-white">
+        {qrSvgUrl ? (
+          <Image src={qrSvgUrl} alt={`QR Code: ${label}`} width={186} height={186} unoptimized className="h-[186px] w-[186px]" />
+        ) : (
+          <FaQrcode className="text-[88px] text-[#0D322B]/35" />
+        )}
+      </div>
+      <p className="mt-3 text-center text-[22px] font-bold leading-tight">{label}</p>
+      {displayUrl && <p className="mt-1 max-w-full truncate text-[15px] font-semibold text-[#144D42]">{displayUrl}</p>}
     </div>
   );
 }
 
 function Bullet({ children }: { children: ReactNode }) {
   return (
-    <li className="flex items-start gap-3 text-[28px] leading-[1.25] text-[#e9f1ed]">
-      <FaCheckCircle className="mt-1 text-[18px] text-[#9dd1c3]" />
+    <li className="flex items-start gap-3 text-[27px] leading-[1.18] text-[#EEF5F1]">
+      <FaCheckCircle className="mt-[6px] shrink-0 text-[20px] text-[#D3E0D6]" />
       <span>{children}</span>
     </li>
   );
 }
 
-function Slide1() {
+function SlideShell({ slide, children, compactHeadline = false }: { slide: TVSlide; children?: ReactNode; compactHeadline?: boolean }) {
   return (
-    <BackgroundSlide bg={C.slide1.bg} overlay={C.slide1.overlay}>
-      <div className="flex h-full flex-col justify-center px-14">
-        <BrandTop />
-        <Headline title={C.slide1.title} subtitle={C.slide1.subtitle} />
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide2() {
-  return (
-    <BackgroundSlide bg={C.slide2.bg} overlay={C.slide2.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-between">
+    <BackgroundSlide slide={slide}>
+      <div className="grid h-full grid-cols-[minmax(0,1fr)_300px] gap-10 px-16 py-12">
+        <div className="flex min-w-0 flex-col justify-between">
           <div>
             <BrandTop />
-            <Headline kicker={C.slide2.kicker} title={C.slide2.title} subtitle={C.slide2.subtitle} />
-            <GlassPanel className="mt-6 max-w-[860px]">
-              <div className="grid grid-cols-2 gap-6">
-                <div>
-                  <p className="font-serif text-[34px]">Medizinisch</p>
-                  <ul className="mt-3 space-y-2">
-                    {C.slide2.sections.medical.map((item) => (
-                      <Bullet key={item}>{item}</Bullet>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <p className="font-serif text-[34px]">Ästhetisch</p>
-                  <ul className="mt-3 space-y-2">
-                    {C.slide2.sections.aesthetics.map((item) => (
-                      <Bullet key={item}>{item}</Bullet>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </GlassPanel>
-          </div>
-          <p className="text-[24px] text-[#d8e6df]">{C.slide2.infoUrl}</p>
-        </div>
-        <div className="flex items-end justify-end pb-8">
-          <QrBlock src={C.slide2.qr} label={C.slide2.qrLabel} />
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide3() {
-  return (
-    <BackgroundSlide bg={C.slide3.bg} overlay={C.slide3.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-10 px-14 py-12">
-        <GlassPanel className="max-w-[820px] text-center">
-          <BrandTop />
-          <p className="mt-5 font-serif text-[64px]">{C.slide3.title}</p>
-          <p className="mt-2 text-[52px] font-semibold">{C.slide3.handle}</p>
-        </GlassPanel>
-        <div className="flex justify-end">
-          <QrBlock src={C.slide3.qr} label={C.slide3.qrLabel} />
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide4() {
-  return (
-    <BackgroundSlide bg={C.slide4.bg} overlay={C.slide4.overlay}>
-      <div className="grid h-full grid-cols-[1.15fr_0.85fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-between">
-          <div>
-            <BrandTop />
-            <Headline kicker={C.slide4.kicker} title={C.slide4.title} subtitle={C.slide4.subtitle} />
-            <div className="mt-6 grid max-w-[920px] grid-cols-2 gap-3">
-              {C.slide4.items.map((item) => (
-                <GlassPanel key={item} className="py-4">
-                  <p className="text-[28px] font-semibold text-[#e8f0ec]">{item}</p>
-                </GlassPanel>
-              ))}
+            <div className="mt-10">
+              <Headline slide={slide} compact={compactHeadline} />
             </div>
+            {children}
           </div>
-          <p className="text-[24px] text-[#d8e6df]">{C.slide4.infoUrl}</p>
+          {slide.bullets && (
+            <ul className="mb-3 grid max-w-[1040px] grid-cols-3 gap-3">
+              {slide.bullets.slice(0, 6).map((bullet) => (
+                <li key={bullet} className="rounded-[8px] border border-white/16 bg-white/10 px-4 py-3 text-[24px] font-semibold leading-tight text-[#F4F8F6] backdrop-blur-sm">
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        <div className="flex items-end justify-end pb-8">
-          <QrBlock src={C.slide4.qr} label={C.slide4.qrLabel} />
+        <div className="flex items-end justify-end pb-7">
+          <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
         </div>
       </div>
     </BackgroundSlide>
   );
 }
 
-function Slide5() {
+function HeroSlide({ slide }: { slide: TVSlide }) {
   return (
-    <BackgroundSlide bg={C.slide5.bg} overlay={C.slide5.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-10 px-14 py-12">
-        <GlassPanel className="max-w-[840px] text-center">
-          <BrandTop />
-          <div className="mt-4 flex justify-center gap-3 text-[40px] text-yellow-400">
-            {Array.from({ length: 5 }).map((_, idx) => (
-              <FaStar key={idx} />
+    <SlideShell slide={slide}>
+      <GlassPanel className="mt-9 max-w-[940px] p-6">
+        <ul className="grid grid-cols-3 gap-4">
+          {slide.bullets?.map((bullet) => (
+            <Bullet key={bullet}>{bullet}</Bullet>
+          ))}
+        </ul>
+      </GlassPanel>
+    </SlideShell>
+  );
+}
+
+function ServicePriceSlide({ slide }: { slide: TVSlide }) {
+  return (
+    <SlideShell slide={slide} compactHeadline>
+      <div className="mt-8 grid max-w-[1060px] grid-cols-[1fr_0.78fr] gap-5">
+        <GlassPanel className="p-5">
+          <p className="text-[24px] font-semibold uppercase tracking-[0.1em] text-[#D3E0D6]">Aktuelle Orientierung</p>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            {slide.prices?.map((item) => (
+              <div key={`${item.label}-${item.price}`} className="min-h-[128px] rounded-[8px] bg-white/12 p-4">
+                <p className="text-[25px] font-semibold leading-tight text-white">{item.label}</p>
+                <p className="mt-2 font-serif text-[42px] leading-none text-[#F9EDDF]">{item.price}</p>
+                {item.note && <p className="mt-2 text-[17px] leading-tight text-[#D3E0D6]">{item.note}</p>}
+              </div>
             ))}
           </div>
-          <p className="mt-5 font-serif text-[64px] leading-[1.02]">{C.slide5.title}</p>
         </GlassPanel>
-        <div className="flex justify-end">
-          <QrBlock src={C.slide5.qr} label={C.slide5.qrLabel} />
-        </div>
+        <GlassPanel className="p-5">
+          <p className="text-[24px] font-semibold uppercase tracking-[0.1em] text-[#D3E0D6]">Geeignet für</p>
+          <ul className="mt-4 space-y-3">
+            {slide.bullets?.slice(0, 4).map((bullet) => (
+              <Bullet key={bullet}>{bullet}</Bullet>
+            ))}
+          </ul>
+        </GlassPanel>
       </div>
-    </BackgroundSlide>
+    </SlideShell>
   );
 }
 
-function Slide6() {
+function FeatureGridSlide({ slide }: { slide: TVSlide }) {
   return (
-    <BackgroundSlide bg={C.slide6.bg} overlay={C.slide6.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-between">
-          <div>
-            <BrandTop />
-            <Headline kicker={C.slide6.kicker} title={C.slide6.title} subtitle={C.slide6.subtitle} />
-            <GlassPanel className="mt-6 max-w-[860px]">
-              <ul className="space-y-3">
-                {C.slide6.bullets.map((item) => (
-                  <Bullet key={item}>{item}</Bullet>
-                ))}
-              </ul>
-            </GlassPanel>
-          </div>
-          <p className="text-[24px] text-[#d8e6df]">{C.slide6.infoUrl}</p>
-        </div>
-        <div className="flex items-end justify-end pb-8">
-          <QrBlock src={C.slide6.qr} label={C.slide6.qrLabel} />
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide7() {
-  return (
-    <BackgroundSlide bg={C.slide7.bg} overlay={C.slide7.overlay}>
-      <div className="grid h-full grid-cols-[1fr_1fr] gap-10 px-14 py-12">
-        <div>
-          <BrandTop />
-          <Headline kicker={C.slide7.kicker} title={C.slide7.title} subtitle={C.slide7.subtitle} />
-          <p className="mt-5 max-w-[760px] text-[28px] leading-[1.3] text-[#e2ece8]">{C.slide7.note}</p>
-        </div>
-        <div className="relative">
-          <GlassPanel className="absolute left-0 top-28 right-0">
-            <div className="flex items-end justify-center gap-4">
-              <Image src="/tv-new/assets/phone-1.png" alt="App 1" width={160} height={430} className="h-[430px] w-[160px]" />
-              <Image src="/tv-new/assets/phone-2.png" alt="App 2" width={180} height={470} className="h-[470px] w-[180px]" />
-              <Image src="/tv-new/assets/phone-3.png" alt="App 3" width={180} height={470} className="h-[470px] w-[180px]" />
-            </div>
-          </GlassPanel>
-          <div className="absolute bottom-8 right-0 flex flex-col items-end gap-3">
-            <QrBlock src={C.slide7.qr} label={C.slide7.qrLabel} />
-            <Image src="/tv-new/assets/appstore-badge.png" alt="App Store" width={210} height={64} className="h-[64px] w-[210px]" />
-          </div>
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide8() {
-  return (
-    <BackgroundSlide bg={C.slide8.bg} overlay={C.slide8.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-between">
-          <div>
-            <BrandTop />
-            <Headline kicker={C.slide8.kicker} title={C.slide8.title} subtitle={C.slide8.subtitle} />
-            <GlassPanel className="mt-6 max-w-[860px]">
-              <div className="grid grid-cols-2 gap-6">
-                <ul className="space-y-3">
-                  {C.slide8.left.map((item) => (
-                    <Bullet key={item}>{item}</Bullet>
-                  ))}
-                </ul>
-                <ul className="space-y-3">
-                  {C.slide8.right.map((item) => (
-                    <Bullet key={item}>{item}</Bullet>
-                  ))}
-                </ul>
-              </div>
-            </GlassPanel>
-          </div>
-          <p className="text-[24px] text-[#d8e6df]">{C.slide8.infoUrl}</p>
-        </div>
-        <div className="flex items-end justify-end pb-8">
-          <QrBlock src={C.slide8.qr} label={C.slide8.qrLabel} />
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide9() {
-  return (
-    <BackgroundSlide bg={C.slide9.bg} overlay={C.slide9.overlay}>
-      <div className="grid h-full grid-cols-[1.1fr_0.9fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-between">
-          <div>
-            <BrandTop />
-            <Headline kicker={C.slide9.kicker} title={C.slide9.title} subtitle={C.slide9.subtitle} />
-            <GlassPanel className="mt-6 max-w-[860px]">
-              <ul className="space-y-3">
-                {C.slide9.bullets.map((item) => (
-                  <Bullet key={item}>{item}</Bullet>
-                ))}
-              </ul>
-            </GlassPanel>
-          </div>
-          <p className="text-[24px] text-[#d8e6df]">{C.slide9.infoUrl}</p>
-        </div>
-        <div className="flex items-end justify-end pb-8">
-          <QrBlock src={C.slide9.qr} label={C.slide9.qrLabel} />
-        </div>
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide10() {
-  return (
-    <BackgroundSlide bg={C.slide10.bg} overlay={C.slide10.overlay}>
-      <div className="flex h-full flex-col justify-center px-14">
-        <BrandTop />
-        <Headline kicker={C.slide10.kicker} title={C.slide10.title} subtitle={C.slide10.subtitle} />
-      </div>
-      <div className="absolute bottom-10 right-14">
-        <QrBlock src={C.slide10.qr} label={C.slide10.qrLabel} />
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide11() {
-  return (
-    <BackgroundSlide bg={C.slide11.bg} overlay={C.slide11.overlay}>
-      <div className="grid h-full grid-cols-[1fr_1fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-center">
-          <BrandTop />
-          <Headline kicker={C.slide11.kicker} title={C.slide11.title} subtitle={C.slide11.subtitle} />
-        </div>
-        <div className="flex flex-col justify-center gap-4">
-          {C.slide11.cards.map(([title, text]) => (
-            <GlassPanel key={title}>
-              <p className="font-serif text-[48px] leading-none">{title}</p>
-              <p className="mt-2 text-[30px] text-[#d9e6e0]">{text}</p>
-            </GlassPanel>
-          ))}
-        </div>
-      </div>
-      <div className="absolute bottom-10 right-14">
-        <QrBlock src={C.slide11.qr} label={C.slide11.qrLabel} />
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide12() {
-  return (
-    <BackgroundSlide bg={C.slide12.bg} overlay={C.slide12.overlay}>
-      <div className="grid h-full grid-cols-[1fr_1fr] gap-10 px-14 py-12">
-        <div className="flex flex-col justify-center">
-          <BrandTop />
-          <Headline kicker={C.slide12.kicker} title={C.slide12.title} subtitle={C.slide12.subtitle} />
-        </div>
-        <div className="flex flex-col justify-center gap-4">
-          {C.slide12.steps.map(([num, title, text]) => (
-            <GlassPanel key={title} className="flex items-start gap-4">
-              <div className="mt-1 flex h-11 w-11 items-center justify-center rounded-full bg-[#d1e2db] text-[20px] font-bold text-[#123932]">{num}</div>
-              <div>
-                <p className="font-serif text-[44px] leading-none">{title}</p>
-                <p className="mt-2 text-[29px] text-[#d9e6e0]">{text}</p>
-              </div>
-            </GlassPanel>
-          ))}
-        </div>
-      </div>
-      <div className="absolute bottom-10 right-14">
-        <QrBlock src={C.slide12.qr} label={C.slide12.qrLabel} />
-      </div>
-    </BackgroundSlide>
-  );
-}
-
-function Slide13() {
-  return (
-    <BackgroundSlide bg={C.slide13.bg} overlay={C.slide13.overlay}>
-      <div className="px-14 py-12">
-        <BrandTop />
-        <Headline kicker={C.slide13.kicker} title={C.slide13.title} subtitle={C.slide13.subtitle} />
-      </div>
-      <div className="absolute bottom-10 left-14 right-14 grid grid-cols-3 gap-5">
-        {C.slide13.team.map((member) => (
-          <GlassPanel key={member.name} className="flex items-center gap-4">
-            <div className="h-[108px] w-[108px] overflow-hidden rounded-full border border-white/20">
-              <Image src={member.image} alt={member.name} width={108} height={108} className="h-full w-full object-cover" />
-            </div>
-            <div>
-              <p className="font-serif text-[33px] leading-none">{member.name}</p>
-              <p className="mt-2 text-[24px] text-[#d8e5df]">{member.role}</p>
-            </div>
+    <SlideShell slide={slide} compactHeadline>
+      <div className="mt-8 grid max-w-[1060px] grid-cols-3 gap-4">
+        {slide.features?.map((feature) => (
+          <GlassPanel key={feature.title} className="min-h-[142px] p-5">
+            <p className="font-serif text-[34px] leading-none text-white">{feature.title}</p>
+            {feature.text && <p className="mt-3 text-[22px] font-semibold leading-tight text-[#D3E0D6]">{feature.text}</p>}
           </GlassPanel>
         ))}
       </div>
+    </SlideShell>
+  );
+}
+
+function AppSlide({ slide }: { slide: TVSlide }) {
+  return (
+    <BackgroundSlide slide={slide}>
+      <div className="grid h-full grid-cols-[minmax(0,0.95fr)_minmax(560px,1fr)] gap-10 px-16 py-12">
+        <div className="flex min-w-0 flex-col justify-between">
+          <div>
+            <BrandTop />
+            <div className="mt-10">
+              <Headline slide={slide} compact />
+            </div>
+            <GlassPanel className="mt-8 max-w-[820px] p-6">
+              <ul className="space-y-3">
+                {slide.bullets?.slice(0, 4).map((bullet) => (
+                  <Bullet key={bullet}>{bullet}</Bullet>
+                ))}
+              </ul>
+            </GlassPanel>
+          </div>
+        </div>
+        <div className="relative min-h-0">
+          <div className="absolute left-0 right-0 top-10">
+            <div className="flex h-[620px] items-end justify-center gap-5">
+              {slide.appImages?.map((src, index) => {
+                const width = index === 0 ? 225 : 260;
+                const height = index === 0 ? 590 : 600;
+
+                return (
+                  <Image
+                    key={src}
+                    src={src}
+                    alt={`Velto App Screenshot ${index + 1}`}
+                    width={width}
+                    height={height}
+                    className="object-contain drop-shadow-[0_28px_42px_rgba(0,0,0,0.45)]"
+                  />
+                );
+              })}
+            </div>
+          </div>
+          <div className="absolute bottom-8 right-0 flex items-end gap-5">
+            {slide.badgeImage && <Image src={slide.badgeImage} alt="App Store" width={220} height={67} className="mb-2 h-[67px] w-[220px]" />}
+            <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
+          </div>
+        </div>
+      </div>
     </BackgroundSlide>
   );
 }
 
-const slides = [
-  { id: 'slide-1', component: Slide1 },
-  { id: 'slide-2', component: Slide2 },
-  { id: 'slide-3', component: Slide3 },
-  { id: 'slide-4', component: Slide4 },
-  { id: 'slide-5', component: Slide5 },
-  { id: 'slide-6', component: Slide6 },
-  { id: 'slide-7', component: Slide7 },
-  { id: 'slide-8', component: Slide8 },
-  { id: 'slide-9', component: Slide9 },
-  { id: 'slide-10', component: Slide10 },
-  { id: 'slide-11', component: Slide11 },
-  { id: 'slide-12', component: Slide12 },
-  { id: 'slide-13', component: Slide13 },
-];
+function SocialSlide({ slide }: { slide: TVSlide }) {
+  return (
+    <BackgroundSlide slide={slide}>
+      <div className="grid h-full grid-cols-[1fr_330px] items-center gap-10 px-16 py-12">
+        <GlassPanel className="max-w-[980px] p-9 text-center">
+          <div className="flex justify-center">
+            <BrandTop />
+          </div>
+          <FaInstagram className="mx-auto mt-9 text-[86px] text-[#F9EDDF]" />
+          <Headline slide={slide} />
+          {slide.handle && <p className="mt-7 text-[58px] font-bold leading-none text-[#D3E0D6]">{slide.handle}</p>}
+        </GlassPanel>
+        <div className="flex justify-end">
+          <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
+        </div>
+      </div>
+    </BackgroundSlide>
+  );
+}
 
-export default function TVNewPageClient() {
+function ReviewSlide({ slide }: { slide: TVSlide }) {
+  return (
+    <BackgroundSlide slide={slide}>
+      <div className="grid h-full grid-cols-[1fr_330px] items-center gap-10 px-16 py-12">
+        <GlassPanel className="max-w-[980px] p-10 text-center">
+          <div className="flex justify-center">
+            <BrandTop />
+          </div>
+          <div className="mt-9 flex justify-center gap-4 text-[54px] text-[#F9C74F]">
+            {Array.from({ length: slide.reviewStars ?? 5 }).map((_, index) => (
+              <FaStar key={index} />
+            ))}
+          </div>
+          <Headline slide={slide} />
+        </GlassPanel>
+        <div className="flex justify-end">
+          <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
+        </div>
+      </div>
+    </BackgroundSlide>
+  );
+}
+
+function TeamSlide({ slide }: { slide: TVSlide }) {
+  return (
+    <BackgroundSlide slide={slide}>
+      <div className="flex h-full flex-col px-16 py-12">
+        <BrandTop />
+        <div className="mt-9 grid grid-cols-[minmax(0,0.9fr)_300px] gap-10">
+          <Headline slide={slide} compact />
+          <div className="flex justify-end">
+            <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
+          </div>
+        </div>
+        <div className="mt-auto grid grid-cols-3 gap-5 pb-6">
+          {slide.team?.map((member) => (
+            <GlassPanel key={member.name} className="flex min-h-[168px] items-center gap-5 p-5">
+              <div className="h-[118px] w-[118px] shrink-0 overflow-hidden rounded-full border border-white/25">
+                <Image src={member.image} alt={member.name} width={118} height={118} className="h-full w-full object-cover" />
+              </div>
+              <div className="min-w-0">
+                <p className="font-serif text-[34px] leading-none text-white">{member.name}</p>
+                <p className="mt-3 text-[23px] font-semibold leading-tight text-[#D3E0D6]">{member.role}</p>
+              </div>
+            </GlassPanel>
+          ))}
+        </div>
+      </div>
+    </BackgroundSlide>
+  );
+}
+
+function RenderSlide({ slide }: { slide: TVSlide }) {
+  switch (slide.kind) {
+    case 'hero':
+      return <HeroSlide slide={slide} />;
+    case 'service-price':
+      return <ServicePriceSlide slide={slide} />;
+    case 'feature-grid':
+      return <FeatureGridSlide slide={slide} />;
+    case 'app':
+      return <AppSlide slide={slide} />;
+    case 'social':
+      return <SocialSlide slide={slide} />;
+    case 'review':
+      return <ReviewSlide slide={slide} />;
+    case 'team':
+      return <TeamSlide slide={slide} />;
+    default:
+      return <HeroSlide slide={slide} />;
+  }
+}
+
+export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps) {
   const searchParams = useSearchParams();
-  const forcedSlideIndex = useMemo(() => {
+  const routeForcedSlideIndex = useMemo(() => {
+    if (!forcedSlideId) return null;
+    const index = TV_NEW_SLIDES.findIndex((slide) => slide.id === forcedSlideId);
+    return index >= 0 ? index : null;
+  }, [forcedSlideId]);
+
+  const queryForcedSlideIndex = useMemo(() => {
     const raw = searchParams.get('slide');
     if (!raw) return null;
     const parsed = Number.parseInt(raw, 10);
-    if (!Number.isFinite(parsed) || parsed < 1 || parsed > slides.length) return null;
+    if (!Number.isFinite(parsed) || parsed < 1 || parsed > TV_NEW_SLIDES.length) return null;
     return parsed - 1;
   }, [searchParams]);
 
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const forcedSlideIndex = routeForcedSlideIndex ?? queryForcedSlideIndex;
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(forcedSlideIndex ?? 0);
   const [previousSlideIndex, setPreviousSlideIndex] = useState<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -448,7 +422,7 @@ export default function TVNewPageClient() {
 
     const timer = setTimeout(() => {
       setPreviousSlideIndex(currentSlideIndex);
-      setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+      setCurrentSlideIndex((prev) => (prev + 1) % TV_NEW_SLIDES.length);
       const fadeTimer = setTimeout(() => setPreviousSlideIndex(null), ANIMATION_DURATION);
       return () => clearTimeout(fadeTimer);
     }, SLIDE_DURATION);
@@ -482,10 +456,9 @@ export default function TVNewPageClient() {
   return (
     <main className="fixed inset-0 h-screen w-screen bg-black">
       <div className="relative h-full w-full overflow-hidden">
-        {slides.map((slide, index) => {
+        {TV_NEW_SLIDES.map((slide, index) => {
           const isActive = index === currentSlideIndex;
           const isExiting = index === previousSlideIndex;
-          const SlideComponent = slide.component;
 
           return (
             <div
@@ -501,7 +474,7 @@ export default function TVNewPageClient() {
                 className={`h-full w-full ${forcedSlideIndex === null && (isActive || isExiting) ? 'ken-burns' : ''}`}
                 style={{ animationDuration: `${SLIDE_DURATION + ANIMATION_DURATION}ms` }}
               >
-                <SlideComponent />
+                <RenderSlide slide={slide} />
               </div>
             </div>
           );
@@ -517,7 +490,7 @@ export default function TVNewPageClient() {
               transform: scale(1);
             }
             100% {
-              transform: scale(1.04);
+              transform: scale(1.035);
             }
           }
         `}</style>
@@ -526,7 +499,7 @@ export default function TVNewPageClient() {
           <div className="absolute bottom-4 right-4 z-20">
             <button
               onClick={toggleFullscreen}
-              className="rounded-lg bg-black/45 px-4 py-2 text-sm text-white transition hover:bg-black/65"
+              className="rounded-[8px] bg-black/45 px-4 py-2 text-sm text-white transition hover:bg-black/65"
             >
               Enter Fullscreen
             </button>
@@ -535,7 +508,7 @@ export default function TVNewPageClient() {
 
         <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
           <div className="flex gap-1">
-            {slides.map((slide, index) => (
+            {TV_NEW_SLIDES.map((slide, index) => (
               <div
                 key={slide.id}
                 className={`h-2 w-2 rounded-full transition-all ${index === currentSlideIndex ? 'scale-125 bg-white' : 'bg-white/45'}`}

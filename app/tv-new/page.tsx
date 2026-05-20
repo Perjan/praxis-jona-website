@@ -1,5 +1,10 @@
+import { Suspense } from 'react';
 import TVNewPageClient from './TVNewPageClient';
 
 export default function TVNewPage() {
-  return <TVNewPageClient />;
+  return (
+    <Suspense fallback={null}>
+      <TVNewPageClient />
+    </Suspense>
+  );
 }
