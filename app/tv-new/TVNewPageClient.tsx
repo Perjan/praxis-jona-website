@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import QRCode from 'qrcode';
-import { ReactNode, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, ReactNode, useEffect, useMemo, useState } from 'react';
 import { FaCheckCircle, FaInstagram, FaQrcode, FaStar } from 'react-icons/fa';
 import { useSearchParams } from 'next/navigation';
 import { TV_NEW_SLIDES, type TVSlide } from './content';
@@ -16,6 +16,26 @@ const qrPending = new Map<string, Promise<string>>();
 type TVNewPageClientProps = {
   forcedSlideId?: string;
 };
+
+type TVStyle = CSSProperties & {
+  '--tv-scale'?: number;
+};
+
+function useTVScale() {
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const updateScale = () => {
+      setScale(Math.min(window.innerWidth / 1920, window.innerHeight / 1080, 1));
+    };
+
+    updateScale();
+    window.addEventListener('resize', updateScale);
+    return () => window.removeEventListener('resize', updateScale);
+  }, []);
+
+  return scale;
+}
 
 function useGeneratedQr(url: string): string | null {
   const [qrSvgUrl, setQrSvgUrl] = useState(() => qrCache.get(url) ?? null);
@@ -75,15 +95,20 @@ function BackgroundSlide({ slide, children }: { slide: TVSlide; children: ReactN
       />
       <div className={`absolute inset-0 ${slide.overlay ?? 'bg-[#0D322B]/62'}`} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_28%,rgba(211,224,214,0.24),transparent_24%),linear-gradient(90deg,rgba(8,31,26,0.92)_0%,rgba(8,31,26,0.72)_45%,rgba(8,31,26,0.34)_100%)]" />
-      <div className="absolute inset-0">{children}</div>
+      <div
+        className="absolute left-1/2 top-1/2 h-[1080px] w-[1920px] origin-center"
+        style={{ transform: 'translate(-50%, -50%) scale(var(--tv-scale, 1))' }}
+      >
+        {children}
+      </div>
     </section>
   );
 }
 
 function BrandTop() {
   return (
-    <div className="inline-flex h-[58px] w-fit items-center rounded-[8px] bg-white/92 px-5 shadow-[0_18px_45px_-26px_rgba(0,0,0,0.9)] backdrop-blur-sm">
-      <Image src="/images/praxis-jona-web-logo.png" alt="Praxis Jona" width={230} height={58} className="h-10 w-auto" />
+    <div className="inline-flex h-[76px] w-fit items-center rounded-[8px] bg-white px-7 shadow-[0_18px_45px_-26px_rgba(0,0,0,0.9)]">
+      <Image src="/images/praxis-jona-web-logo.png" alt="Praxis Jona" width={310} height={76} className="h-12 w-auto" />
     </div>
   );
 }
@@ -150,7 +175,7 @@ function SlideShell({ slide, children, compactHeadline = false }: { slide: TVSli
   return (
     <BackgroundSlide slide={slide}>
       <div className="grid h-full grid-cols-[minmax(0,1fr)_300px] gap-10 px-16 py-12">
-        <div className="flex min-w-0 flex-col justify-between">
+        <div className="flex min-w-0 flex-col">
           <div>
             <BrandTop />
             <div className="mt-10">
@@ -158,15 +183,6 @@ function SlideShell({ slide, children, compactHeadline = false }: { slide: TVSli
             </div>
             {children}
           </div>
-          {slide.bullets && (
-            <ul className="mb-3 grid max-w-[1040px] grid-cols-3 gap-3">
-              {slide.bullets.slice(0, 6).map((bullet) => (
-                <li key={bullet} className="rounded-[8px] border border-white/16 bg-white/10 px-4 py-3 text-[24px] font-semibold leading-tight text-[#F4F8F6] backdrop-blur-sm">
-                  {bullet}
-                </li>
-              ))}
-            </ul>
-          )}
         </div>
         <div className="flex items-end justify-end pb-7">
           <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
@@ -273,7 +289,7 @@ function AppSlide({ slide }: { slide: TVSlide }) {
               })}
             </div>
           </div>
-          <div className="absolute bottom-8 right-0 flex items-end gap-5">
+          <div className="absolute bottom-16 right-0 flex items-end gap-5">
             {slide.badgeImage && <Image src={slide.badgeImage} alt="App Store" width={220} height={67} className="mb-2 h-[67px] w-[220px]" />}
             <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
           </div>
@@ -378,6 +394,7 @@ function RenderSlide({ slide }: { slide: TVSlide }) {
 
 export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps) {
   const searchParams = useSearchParams();
+  const tvScale = useTVScale();
   const routeForcedSlideIndex = useMemo(() => {
     if (!forcedSlideId) return null;
     const index = TV_NEW_SLIDES.findIndex((slide) => slide.id === forcedSlideId);
@@ -454,7 +471,7 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
   }, []);
 
   return (
-    <main className="fixed inset-0 h-screen w-screen bg-black">
+    <main className="fixed inset-0 h-screen w-screen bg-black" style={{ '--tv-scale': tvScale } as TVStyle}>
       <div className="relative h-full w-full overflow-hidden">
         {TV_NEW_SLIDES.map((slide, index) => {
           const isActive = index === currentSlideIndex;
@@ -470,33 +487,15 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
                 zIndex: isActive ? 10 : isExiting ? 5 : 0,
               }}
             >
-              <div
-                className={`h-full w-full ${forcedSlideIndex === null && (isActive || isExiting) ? 'ken-burns' : ''}`}
-                style={{ animationDuration: `${SLIDE_DURATION + ANIMATION_DURATION}ms` }}
-              >
+              <div className="h-full w-full">
                 <RenderSlide slide={slide} />
               </div>
             </div>
           );
         })}
 
-        <style jsx>{`
-          .ken-burns {
-            animation: kenburns linear forwards;
-            transform-origin: center center;
-          }
-          @keyframes kenburns {
-            0% {
-              transform: scale(1);
-            }
-            100% {
-              transform: scale(1.035);
-            }
-          }
-        `}</style>
-
         {!isFullscreen && (
-          <div className="absolute bottom-4 right-4 z-20">
+          <div className="absolute right-4 top-4 z-20">
             <button
               onClick={toggleFullscreen}
               className="rounded-[8px] bg-black/45 px-4 py-2 text-sm text-white transition hover:bg-black/65"
