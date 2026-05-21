@@ -29,7 +29,7 @@ function buildOffers(section: PricingSection, row: PricingRow, locale: PricingLo
 
   const offerName = section.slug === "botox" ? `${section.title[locale]}: ${row.label[locale]}` : row.label[locale];
 
-  return {
+  const baseOffer = {
     "@type": "Offer",
     name: offerName,
     price: row.price.amount,
@@ -38,6 +38,27 @@ function buildOffers(section: PricingSection, row: PricingRow, locale: PricingLo
     url: rowUrl(section, row, locale),
     seller: clinic,
   };
+
+  if (typeof row.packageOffer?.price.amount !== "number") {
+    return baseOffer;
+  }
+
+  return [
+    baseOffer,
+    {
+      "@type": "Offer",
+      name: `${offerName}: ${row.packageOffer.label[locale]}`,
+      price: row.packageOffer.price.amount,
+      priceCurrency: row.packageOffer.price.currency,
+      availability: "https://schema.org/InStock",
+      url: rowUrl(section, row, locale),
+      seller: clinic,
+      eligibleQuantity: {
+        "@type": "QuantitativeValue",
+        value: row.packageOffer.quantity,
+      },
+    },
+  ];
 }
 
 function buildService(section: PricingSection, row: PricingRow, locale: PricingLocale) {

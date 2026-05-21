@@ -14,11 +14,19 @@ export type PriceValue = {
   displayOverride?: LocalizedText;
 };
 
+export type PackageOffer = {
+  quantity: number;
+  price: PriceValue;
+  label: LocalizedText;
+  badge?: LocalizedText;
+};
+
 export type PricingRow = {
   slug: string;
   label: LocalizedText;
   description?: LocalizedText;
   price?: PriceValue;
+  packageOffer?: PackageOffer;
   detailHref?: LocalizedText;
   bookingHref?: LocalizedText;
   note?: LocalizedText;
@@ -63,6 +71,7 @@ const appointmentHref: LocalizedText = {
   de: Constants.appointmentUrl,
   en: Constants.appointmentUrl,
 };
+const threeTreatmentBadge: LocalizedText = { de: "3er Paket", en: "3-treatment package" };
 
 export const pricingSections = {
   botox: {
@@ -85,21 +94,89 @@ export const pricingSections = {
       { slug: "beratung", label: { de: "Beratung ohne Behandlung", en: "Consultation without treatment" }, price: { amount: 49, currency: "EUR", prefix: fromPrefix } },
       { slug: "zornesfalte", label: { de: "Zornesfalte", en: "Frown lines" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
       { slug: "stirnfalten", label: { de: "Stirnfalten", en: "Forehead wrinkles" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
-      { slug: "browlift", label: { de: "Browlift", en: "Brow lift" }, price: { amount: 159, currency: "EUR", prefix: fromPrefix } },
+      { slug: "browlift", label: { de: "Browlift", en: "Brow lift" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
       { slug: "kraehenfuesse", label: { de: "Krähenfüße", en: "Crow's feet" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
-      { slug: "bunny-lines", label: { de: "Bunny Lines", en: "Bunny lines" }, price: { amount: 159, currency: "EUR", prefix: fromPrefix } },
+      { slug: "bunny-lines", label: { de: "Bunny Lines", en: "Bunny lines" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
       { slug: "gummy-smile", label: { de: "Gummy Smile", en: "Gummy smile" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
       { slug: "lip-flip", label: { de: "Lip Flip", en: "Lip flip" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
       { slug: "mundwinkel", label: { de: "Mundwinkel anheben", en: "Lifting the corners of the mouth" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
-      { slug: "2-zonen", label: { de: "2-Zonen", en: "2 zones" }, price: { amount: 349, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
-      { slug: "3-zonen", label: { de: "3-Zonen", en: "3 zones" }, price: { amount: 449, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "2-zonen", label: { de: "2-Zonen", en: "2 zones" }, price: { amount: 299, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "3-zonen", label: { de: "3-Zonen", en: "3 zones" }, price: { amount: 349, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
       { slug: "4-zonen", label: { de: "4-Zonen", en: "4 zones" }, price: { amount: 499, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
       { slug: "erdbeerkinn", label: { de: "Erdbeerkinn", en: "Strawberry chin" }, price: { amount: 199, currency: "EUR", prefix: fromPrefix } },
-      { slug: "platysma", label: { de: "Platysma", en: "Platysma" }, price: { amount: 349, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "platysma", label: { de: "Platysma (Nefertiti Lift)", en: "Platysma (Nefertiti lift)" }, price: { amount: 314, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
       { slug: "bruxismus", label: { de: "Bruxismus oder Faceslimming", en: "Bruxism or face slimming" }, price: { amount: 349, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
-      { slug: "trapezmuskel", label: { de: "Trapezmuskel-Behandlung", en: "Trapezius treatment" }, price: { amount: 399, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
-      { slug: "hyperhidrose", label: { de: "Schweißdrüsenbehandlung (Hyperhidrose)", en: "Sweat gland treatment (hyperhidrosis)" }, price: { amount: 549, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
-      { slug: "migraene", label: { de: "Chronische Migräne", en: "Chronic migraine" }, price: { amount: 399, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "trapezmuskel", label: { de: "Barbie Botox / Trapezmuskel-Behandlung", en: "Barbie Botox / trapezius treatment" }, price: { amount: 399, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "hyperhidrose", label: { de: "Schweißdrüsenbehandlung (Hyperhidrose)", en: "Sweat gland treatment (hyperhidrosis)" }, price: { amount: 449, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+      { slug: "migraene", label: { de: "Chronische Migräne", en: "Chronic migraine" }, price: { amount: 449, currency: "EUR", prefix: fromPrefix }, discountEligible: true },
+    ],
+  },
+  prp: {
+    slug: "prp",
+    pillar: "aesthetics",
+    title: { de: "PRP / Eigenbluttherapie", en: "PRP / autologous blood therapy" },
+    description: {
+      de: "PRP-Behandlungen für Gesicht, Augenpartie, Hals, Dekolleté und Vampire Lifting nach ärztlicher Einschätzung.",
+      en: "PRP treatments for face, under-eye area, neck, decollete and vampire lifting after medical assessment.",
+    },
+    detailHref: { de: "/aesthetik/prp-behandlung", en: "/en/aesthetics/prp-treatment" },
+    bookingHref: appointmentHref,
+    rows: [
+      { slug: "prp-gesicht", label: { de: "PRP Gesicht", en: "PRP face" }, price: { amount: 199, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 549, currency: "EUR" } } },
+      { slug: "prp-augen", label: { de: "PRP Augen", en: "PRP under-eye area" }, price: { amount: 199, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 549, currency: "EUR" } } },
+      { slug: "prp-gesicht-hals", label: { de: "PRP Gesicht + Hals", en: "PRP face + neck" }, price: { amount: 249, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
+      { slug: "prp-gesicht-hals-dekollete", label: { de: "PRP Gesicht + Hals + Dekolleté", en: "PRP face + neck + decollete" }, price: { amount: 299, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
+      { slug: "vampire-lifting", label: { de: "Vampire Lifting", en: "Vampire lifting" }, price: { amount: 349, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 999, currency: "EUR" } } },
+    ],
+  },
+  microneedling: {
+    slug: "microneedling",
+    pillar: "aesthetics",
+    title: { de: "Medizinisches Microneedling", en: "Medical microneedling" },
+    description: {
+      de: "Medizinisches Microneedling mit Dermapen® für Gesicht, Hals und Dekolleté; Exosome bleiben diesem Bereich zugeordnet.",
+      en: "Medical microneedling with Dermapen® for face, neck and decollete; exosomes are grouped with this treatment area.",
+    },
+    detailHref: { de: "/aesthetik/microneedling", en: "/en/aesthetics/microneedling" },
+    bookingHref: appointmentHref,
+    rows: [
+      { slug: "microneedling-gesicht", label: { de: "Microneedling Gesicht", en: "Microneedling face" }, price: { amount: 249, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
+      { slug: "microneedling-gesicht-hals", label: { de: "Microneedling Gesicht + Hals", en: "Microneedling face + neck" }, price: { amount: 299, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
+      { slug: "microneedling-gesicht-hals-dekollete", label: { de: "Microneedling Gesicht + Hals + Dekolleté", en: "Microneedling face + neck + decollete" }, price: { amount: 379, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 999, currency: "EUR" } } },
+      { slug: "microneedling-gesicht-exosome", label: { de: "Microneedling Gesicht Exosome", en: "Microneedling face exosomes" }, price: { amount: 299, currency: "EUR" } },
+    ],
+  },
+  skinbooster: {
+    slug: "skinbooster",
+    pillar: "aesthetics",
+    title: { de: "Skinbooster & regenerative Hauttherapien", en: "Skin boosters & regenerative skin therapies" },
+    description: {
+      de: "NCTF® HA und PhilArt® Skinbooster für Hautqualität, Feuchtigkeit und regenerative Behandlungsziele.",
+      en: "NCTF® HA and PhilArt® skin boosters for skin quality, hydration and regenerative treatment goals.",
+    },
+    detailHref: { de: "/aesthetik/polynukleotide", en: "/en/aesthetics/polynucleotides" },
+    bookingHref: appointmentHref,
+    rows: [
+      { slug: "nctf-ha-gesicht", label: { de: "NCTF HA Gesicht", en: "NCTF HA face" }, price: { amount: 249, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
+      { slug: "nctf-ha-gesicht-hals", label: { de: "NCTF HA Gesicht + Hals", en: "NCTF HA face + neck" }, price: { amount: 299, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
+      { slug: "nctf-ha-gesicht-hals-dekollete", label: { de: "NCTF HA Gesicht + Hals + Dekolleté", en: "NCTF HA face + neck + decollete" }, price: { amount: 379, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 999, currency: "EUR" } } },
+      { slug: "philart-gesicht", label: { de: "PhilArt Gesicht", en: "PhilArt face" }, price: { amount: 299, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
+      { slug: "philart-auge", label: { de: "PhilArt Auge", en: "PhilArt eye" }, price: { amount: 299, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
+    ],
+  },
+  hairTherapy: {
+    slug: "haarausfall",
+    pillar: "aesthetics",
+    title: { de: "Haartherapie bei Haarausfall", en: "Hair therapy for hair loss" },
+    description: {
+      de: "Regenerative Kopfhautbehandlungen bei Haarausfall, inklusive PRP und Microneedling nach Befund.",
+      en: "Regenerative scalp treatments for hair loss, including PRP and microneedling depending on findings.",
+    },
+    detailHref: { de: "/leistungen/haarausfall-berlin-mitte", en: "/en/services/hair-loss-berlin-mitte" },
+    bookingHref: appointmentHref,
+    rows: [
+      { slug: "microneedling-haare", label: { de: "Microneedling Haare", en: "Microneedling hair/scalp" }, price: { amount: 249, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
+      { slug: "prp-haare", label: { de: "PRP Haare", en: "PRP hair/scalp" }, price: { amount: 249, currency: "EUR" }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
     ],
   },
   nutrition: {
@@ -268,6 +345,10 @@ export const pricingSections = {
 const pageSections: Record<PricingPageKey, PricingSection[]> = {
   global: [
     pricingSections.botox,
+    pricingSections.prp,
+    pricingSections.microneedling,
+    pricingSections.skinbooster,
+    pricingSections.hairTherapy,
     pricingSections.nutrition,
     pricingSections.micronutrients,
     pricingSections.glp1,
@@ -277,7 +358,13 @@ const pageSections: Record<PricingPageKey, PricingSection[]> = {
     pricingSections.ultrasound,
     pricingSections.statutoryCare,
   ],
-  aesthetics: [pricingSections.botox],
+  aesthetics: [
+    pricingSections.botox,
+    pricingSections.prp,
+    pricingSections.microneedling,
+    pricingSections.skinbooster,
+    pricingSections.hairTherapy,
+  ],
   healthLongevity: [
     pricingSections.nutrition,
     pricingSections.micronutrients,
@@ -381,6 +468,14 @@ export function formatPrice(price: PriceValue | undefined, locale: PricingLocale
   }).format(price.amount);
   const prefix = price.prefix?.[locale];
   return [prefix, value].filter(Boolean).join(" ");
+}
+
+export function formatPackageOffer(offer: PackageOffer | undefined, locale: PricingLocale): string | undefined {
+  if (!offer) {
+    return undefined;
+  }
+
+  return `${offer.label[locale]} ${formatPrice(offer.price, locale)}`;
 }
 
 export function getLocalizedText(text: LocalizedText | undefined, locale: PricingLocale): string | undefined {

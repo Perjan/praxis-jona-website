@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { PricingLocale, PricingSection } from "./pricingData";
-import { formatPrice, getLocalizedText } from "./pricingData";
+import { formatPrice } from "./pricingData";
 
 export default function PricingTableSection({
   section,
@@ -11,9 +11,10 @@ export default function PricingTableSection({
 }) {
   const treatmentLabel = locale === "de" ? "Leistung" : "Service";
   const priceLabel = locale === "de" ? "Preis" : "Price";
-  const noteLabel = locale === "de" ? "Hinweis" : "Note";
+  const packageLabel = locale === "de" ? "3er Paket" : "3-treatment package";
   const detailsLabel = locale === "de" ? "Details" : "Details";
   const bookingLabel = locale === "de" ? "Termin buchen" : "Book appointment";
+  const hasPackageOffers = section.rows.some((row) => row.packageOffer);
 
   return (
     <section id={section.slug} className="scroll-mt-28 rounded-xl border border-[#d8e0df] bg-white/95 p-6 shadow-sm md:p-8">
@@ -47,12 +48,12 @@ export default function PricingTableSection({
       </div>
 
       <div className="mt-6 overflow-x-auto">
-        <table className="w-full min-w-[680px] border-collapse text-left">
+        <table className={`w-full border-collapse text-left ${hasPackageOffers ? "min-w-[680px]" : "min-w-[520px]"}`}>
           <thead>
             <tr className="border-b border-primaryLighter/25 text-sm uppercase tracking-[0.08em] text-primaryLighter/70">
               <th className="py-3 pr-5 font-semibold">{treatmentLabel}</th>
-              <th className="py-3 pr-5 font-semibold">{priceLabel}</th>
-              <th className="py-3 font-semibold">{noteLabel}</th>
+              <th className="py-3 pr-5 text-right font-semibold">{priceLabel}</th>
+              {hasPackageOffers && <th className="py-3 text-right font-semibold">{packageLabel}</th>}
             </tr>
           </thead>
           <tbody>
@@ -64,14 +65,14 @@ export default function PricingTableSection({
                     <div className="mt-1 text-sm leading-6 text-primaryLighter/70">{row.description[locale]}</div>
                   )}
                 </td>
-                <td className="whitespace-nowrap py-4 pr-5 align-top font-semibold text-primaryLighter">
+                <td className="whitespace-nowrap py-4 pr-5 text-right align-top font-semibold text-primaryLighter">
                   {formatPrice(row.price, locale)}
                 </td>
-                <td className="py-4 align-top text-sm leading-6 text-primaryLighter/75">
-                  {[getLocalizedText(row.price?.billingNote, locale), getLocalizedText(row.note, locale)]
-                    .filter(Boolean)
-                    .join(" · ") || "-"}
-                </td>
+                {hasPackageOffers && (
+                  <td className="whitespace-nowrap py-4 text-right align-top font-semibold text-primaryLighter">
+                    {row.packageOffer ? formatPrice(row.packageOffer.price, locale) : "-"}
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

@@ -20,6 +20,7 @@ import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
 import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
 import { MotionCard, MotionSection } from "./Motion";
+import TreatmentPricingBlock from "./pricing/TreatmentPricingBlock";
 import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
 
 function JsonLd({ data }: { data: object }) {
@@ -304,6 +305,8 @@ export function LandingPage({ content }: { content: LandingContent }) {
             </div>
           </div>
         </MotionSection>
+
+        <TreatmentPricingBlock canonical={content.canonical} locale={content.locale} />
 
         <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2">

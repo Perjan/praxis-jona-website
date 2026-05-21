@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CalendarDaysIcon, ClockIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
 import { MotionCard, MotionSection } from "app/components/Motion";
+import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
 import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSectionKey } from "app/content/aesthetikSource";
 
 type MarkdownNode =
@@ -488,6 +489,7 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
         </MotionSection>
 
         <FactStrip sectionKey={sectionKey} />
+        <TreatmentPricingBlock canonical={canonical} locale="de" />
         <StructuredBody nodes={bodyNodes} />
 
         <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
