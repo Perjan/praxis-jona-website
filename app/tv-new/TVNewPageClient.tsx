@@ -117,7 +117,7 @@ function Kicker({ children }: { children?: ReactNode }) {
   if (!children) return null;
 
   return (
-    <p className="text-[24px] font-bold uppercase tracking-[0.16em] text-[#144D42]">
+    <p className="text-[24px] font-bold uppercase leading-none tracking-[0.16em] text-[#144D42]">
       {children}
     </p>
   );
@@ -127,11 +127,11 @@ function Headline({ slide, compact = false }: { slide: TVSlide; compact?: boolea
   return (
     <div className="max-w-[1050px]">
       <Kicker>{slide.kicker}</Kicker>
-      {slide.eyebrow && <p className="mt-3 text-[30px] font-semibold text-[#7A5F48]">{slide.eyebrow}</p>}
-      <h1 className={`mt-3 whitespace-pre-line font-serif font-semibold leading-[0.98] text-[#0D322B] ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
+      {slide.eyebrow && <p className="mt-6 text-[30px] font-semibold leading-tight text-[#7A5F48]">{slide.eyebrow}</p>}
+      <h1 className={`mt-5 whitespace-pre-line font-serif font-semibold leading-[1.02] text-[#0D322B] ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
         {slide.title}
       </h1>
-      {slide.subtitle && <p className="mt-5 max-w-[940px] text-[31px] font-medium leading-[1.18] text-[#144D42]">{slide.subtitle}</p>}
+      {slide.subtitle && <p className="mt-7 max-w-[940px] text-[31px] font-medium leading-[1.22] text-[#144D42]">{slide.subtitle}</p>}
     </div>
   );
 }
@@ -361,15 +361,15 @@ function TeamSlide({ slide }: { slide: TVSlide }) {
             <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
           </div>
         </div>
-        <div className="tv-enter tv-enter-3 mt-auto grid grid-cols-3 gap-5 pb-6">
+        <div className="tv-enter tv-enter-3 mt-auto grid grid-cols-4 gap-4 pb-6">
           {slide.team?.map((member) => (
-            <GlassPanel key={member.name} className="flex min-h-[168px] items-center gap-5 p-5">
-              <div className="h-[118px] w-[118px] shrink-0 overflow-hidden rounded-full border border-[#0D322B]/18">
-                <Image src={member.image} alt={member.name} width={118} height={118} className="h-full w-full object-cover" />
+            <GlassPanel key={member.name} className="flex min-h-[196px] flex-col justify-start p-5">
+              <div className="h-[108px] w-[108px] shrink-0 overflow-hidden rounded-full border border-[#0D322B]/18">
+                <Image src={member.image} alt={member.name} width={108} height={108} className="h-full w-full object-cover" />
               </div>
-              <div className="min-w-0">
-                <p className="font-serif text-[34px] leading-none text-[#0D322B]">{member.name}</p>
-                <p className="mt-3 text-[23px] font-semibold leading-tight text-[#45665E]">{member.role}</p>
+              <div className="mt-4 min-w-0">
+                <p className="font-serif text-[30px] leading-[0.98] text-[#0D322B]">{member.name}</p>
+                <p className="mt-3 text-[18px] font-semibold leading-tight text-[#45665E]">{member.role}</p>
               </div>
             </GlassPanel>
           ))}
