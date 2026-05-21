@@ -47,7 +47,7 @@ const subpages = [
   { title: "Botulinumtoxin-Behandlungen", href: "/botox-behandlung", eyebrow: "Mimik & Linien" },
   { title: "PRP / Eigenbluttherapie", href: "/aesthetik/prp-behandlung", eyebrow: "Regeneration" },
   { title: "Medizinisches Microneedling", href: "/aesthetik/microneedling", eyebrow: "Struktur" },
-  { title: "Haartherapie bei Haarausfall", href: "/aesthetik/haarausfall", eyebrow: "Haar & Kopfhaut" },
+  { title: "Haartherapie bei Haarausfall", href: "/leistungen/haarausfall-berlin-mitte", eyebrow: "Haar & Kopfhaut" },
   { title: "Skinbooster & regenerative Hauttherapien", href: "/aesthetik/polynukleotide", eyebrow: "Skin Quality" },
 ];
 
@@ -154,7 +154,18 @@ function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }
 
-function CtaButtons() {
+const priceAnchorBySection: Partial<Record<AestheticSectionKey, string>> = {
+  botulinumtoxin: "botox",
+  prp: "prp",
+  microneedling: "microneedling",
+  hair: "haarausfall",
+  skinbooster: "skinbooster",
+};
+
+function CtaButtons({ sectionKey }: { sectionKey: AestheticSectionKey }) {
+  const priceAnchor = priceAnchorBySection[sectionKey];
+  const priceHref = priceAnchor ? `/aesthetik/preise#${priceAnchor}` : "/aesthetik/preise";
+
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <Link
@@ -166,7 +177,7 @@ function CtaButtons() {
         Termin buchen
       </Link>
       <Link
-        href="/aesthetik/preise"
+        href={priceHref}
         className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"
       >
         Preise ansehen
@@ -483,7 +494,7 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
             <div className="mt-6">
               <RenderNodes nodes={heroNodes} />
             </div>
-            <CtaButtons />
+            <CtaButtons sectionKey={sectionKey} />
           </div>
           <HeroImage sectionKey={sectionKey} />
         </MotionSection>
@@ -535,7 +546,7 @@ export function AestheticMarkdownHub() {
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Haut, Mimik & Regeneration</p>
           <RenderNodes nodes={introNodes} />
-          <CtaButtons />
+          <CtaButtons sectionKey="hub" />
         </div>
         <HeroImage sectionKey="hub" />
       </MotionSection>
