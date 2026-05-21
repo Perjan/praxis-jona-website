@@ -84,7 +84,7 @@ function useGeneratedQr(url: string): string | null {
 
 function BackgroundSlide({ slide, children }: { slide: TVSlide; children: ReactNode }) {
   return (
-    <section className="relative h-full w-full overflow-hidden bg-[#081F1A] text-white">
+    <section className="relative h-full w-full overflow-hidden bg-[#F8EFE4] text-[#0D322B]">
       <Image
         src={slide.image}
         alt={slide.imageAlt}
@@ -93,8 +93,8 @@ function BackgroundSlide({ slide, children }: { slide: TVSlide; children: ReactN
         priority
         sizes="100vw"
       />
-      <div className={`absolute inset-0 ${slide.overlay ?? 'bg-[#0D322B]/62'}`} />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_28%,rgba(211,224,214,0.24),transparent_24%),linear-gradient(90deg,rgba(8,31,26,0.92)_0%,rgba(8,31,26,0.72)_45%,rgba(8,31,26,0.34)_100%)]" />
+      <div className={`absolute inset-0 ${slide.overlay ?? 'bg-[#FBF6EE]/70'}`} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_28%,rgba(13,50,43,0.11),transparent_28%),linear-gradient(90deg,rgba(251,246,238,0.96)_0%,rgba(251,246,238,0.88)_48%,rgba(211,224,214,0.64)_100%)]" />
       <div
         className="absolute left-1/2 top-1/2 h-[1080px] w-[1920px] origin-center"
         style={{ transform: 'translate(-50%, -50%) scale(var(--tv-scale, 1))' }}
@@ -107,7 +107,7 @@ function BackgroundSlide({ slide, children }: { slide: TVSlide; children: ReactN
 
 function BrandTop() {
   return (
-    <div className="inline-flex h-[76px] w-fit items-center rounded-[8px] bg-white px-7 shadow-[0_18px_45px_-26px_rgba(0,0,0,0.9)]">
+    <div className="inline-flex h-[76px] w-fit items-center rounded-[8px] border border-[#0D322B]/10 bg-[#FFFDF8] px-7 shadow-[0_18px_45px_-30px_rgba(13,50,43,0.42)]">
       <Image src="/images/praxis-jona-web-logo.png" alt="Praxis Jona" width={310} height={76} className="h-12 w-auto" />
     </div>
   );
@@ -117,7 +117,7 @@ function Kicker({ children }: { children?: ReactNode }) {
   if (!children) return null;
 
   return (
-    <p className="text-[24px] font-semibold uppercase tracking-[0.16em] text-[#D3E0D6]">
+    <p className="text-[24px] font-bold uppercase tracking-[0.16em] text-[#144D42]">
       {children}
     </p>
   );
@@ -127,18 +127,18 @@ function Headline({ slide, compact = false }: { slide: TVSlide; compact?: boolea
   return (
     <div className="max-w-[1050px]">
       <Kicker>{slide.kicker}</Kicker>
-      {slide.eyebrow && <p className="mt-3 text-[30px] font-semibold text-[#F9EDDF]">{slide.eyebrow}</p>}
-      <h1 className={`mt-3 whitespace-pre-line font-serif font-semibold leading-[0.98] text-white ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
+      {slide.eyebrow && <p className="mt-3 text-[30px] font-semibold text-[#7A5F48]">{slide.eyebrow}</p>}
+      <h1 className={`mt-3 whitespace-pre-line font-serif font-semibold leading-[0.98] text-[#0D322B] ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
         {slide.title}
       </h1>
-      {slide.subtitle && <p className="mt-5 max-w-[940px] text-[31px] leading-[1.18] text-[#EAF1EE]">{slide.subtitle}</p>}
+      {slide.subtitle && <p className="mt-5 max-w-[940px] text-[31px] font-medium leading-[1.18] text-[#144D42]">{slide.subtitle}</p>}
     </div>
   );
 }
 
 function GlassPanel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-[8px] border border-white/18 bg-[#0D322B]/72 shadow-[0_26px_80px_-36px_rgba(0,0,0,0.92)] backdrop-blur-sm ${className}`}>
+    <div className={`rounded-[8px] border border-[#0D322B]/14 bg-[#FFF8EF]/88 shadow-[0_26px_80px_-44px_rgba(13,50,43,0.44)] backdrop-blur-sm ${className}`}>
       {children}
     </div>
   );
@@ -148,8 +148,8 @@ function QrBlock({ url, label, displayUrl }: { url: string; label: string; displ
   const qrSvgUrl = useGeneratedQr(url);
 
   return (
-    <div className="flex w-[250px] flex-col items-center rounded-[8px] border border-white/20 bg-[#F9EDDF]/95 p-4 text-[#0D322B] shadow-[0_24px_70px_-34px_rgba(0,0,0,0.95)]">
-      <div className="flex h-[198px] w-[198px] items-center justify-center rounded-[6px] bg-white">
+    <div className="flex w-[250px] flex-col items-center rounded-[8px] border border-[#0D322B]/16 bg-[#FFFDF8] p-4 text-[#0D322B] shadow-[0_24px_70px_-38px_rgba(13,50,43,0.56)]">
+      <div className="flex h-[198px] w-[198px] items-center justify-center rounded-[6px] border border-[#0D322B]/8 bg-white">
         {qrSvgUrl ? (
           <Image src={qrSvgUrl} alt={`QR Code: ${label}`} width={186} height={186} unoptimized className="h-[186px] w-[186px]" />
         ) : (
@@ -164,8 +164,8 @@ function QrBlock({ url, label, displayUrl }: { url: string; label: string; displ
 
 function Bullet({ children }: { children: ReactNode }) {
   return (
-    <li className="flex items-start gap-3 text-[27px] leading-[1.18] text-[#EEF5F1]">
-      <FaCheckCircle className="mt-[6px] shrink-0 text-[20px] text-[#D3E0D6]" />
+    <li className="flex items-start gap-3 text-[27px] font-semibold leading-[1.18] text-[#123932]">
+      <FaCheckCircle className="mt-[6px] shrink-0 text-[20px] text-[#0D322B]" />
       <span>{children}</span>
     </li>
   );
@@ -177,14 +177,16 @@ function SlideShell({ slide, children, compactHeadline = false }: { slide: TVSli
       <div className="grid h-full grid-cols-[minmax(0,1fr)_300px] gap-10 px-16 py-12">
         <div className="flex min-w-0 flex-col">
           <div>
-            <BrandTop />
-            <div className="mt-10">
+            <div className="tv-enter tv-enter-1">
+              <BrandTop />
+            </div>
+            <div className="tv-enter tv-enter-2 mt-10">
               <Headline slide={slide} compact={compactHeadline} />
             </div>
-            {children}
+            {children && <div className="tv-enter tv-enter-3">{children}</div>}
           </div>
         </div>
-        <div className="flex items-end justify-end pb-7">
+        <div className="tv-enter tv-enter-4 flex items-end justify-end pb-7">
           <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
         </div>
       </div>
@@ -211,19 +213,19 @@ function ServicePriceSlide({ slide }: { slide: TVSlide }) {
     <SlideShell slide={slide} compactHeadline>
       <div className="mt-8 grid max-w-[1060px] grid-cols-[1fr_0.78fr] gap-5">
         <GlassPanel className="p-5">
-          <p className="text-[24px] font-semibold uppercase tracking-[0.1em] text-[#D3E0D6]">Aktuelle Orientierung</p>
+          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">Aktuelle Orientierung</p>
           <div className="mt-4 grid grid-cols-2 gap-3">
             {slide.prices?.map((item) => (
-              <div key={`${item.label}-${item.price}`} className="min-h-[128px] rounded-[8px] bg-white/12 p-4">
-                <p className="text-[25px] font-semibold leading-tight text-white">{item.label}</p>
-                <p className="mt-2 font-serif text-[42px] leading-none text-[#F9EDDF]">{item.price}</p>
-                {item.note && <p className="mt-2 text-[17px] leading-tight text-[#D3E0D6]">{item.note}</p>}
+              <div key={`${item.label}-${item.price}`} className="min-h-[128px] rounded-[8px] border border-[#0D322B]/10 bg-white/72 p-4">
+                <p className="hyphens-auto break-words text-[23px] font-semibold leading-[1.08] text-[#0D322B]">{item.label}</p>
+                <p className="mt-2 font-serif text-[42px] leading-none text-[#144D42]">{item.price}</p>
+                {item.note && <p className="mt-2 text-[17px] font-medium leading-tight text-[#5D6F66]">{item.note}</p>}
               </div>
             ))}
           </div>
         </GlassPanel>
         <GlassPanel className="p-5">
-          <p className="text-[24px] font-semibold uppercase tracking-[0.1em] text-[#D3E0D6]">Geeignet für</p>
+          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">Geeignet für</p>
           <ul className="mt-4 space-y-3">
             {slide.bullets?.slice(0, 4).map((bullet) => (
               <Bullet key={bullet}>{bullet}</Bullet>
@@ -241,8 +243,8 @@ function FeatureGridSlide({ slide }: { slide: TVSlide }) {
       <div className="mt-8 grid max-w-[1060px] grid-cols-3 gap-4">
         {slide.features?.map((feature) => (
           <GlassPanel key={feature.title} className="min-h-[142px] p-5">
-            <p className="font-serif text-[34px] leading-none text-white">{feature.title}</p>
-            {feature.text && <p className="mt-3 text-[22px] font-semibold leading-tight text-[#D3E0D6]">{feature.text}</p>}
+            <p className="font-serif text-[34px] leading-none text-[#0D322B]">{feature.title}</p>
+            {feature.text && <p className="mt-3 text-[22px] font-semibold leading-tight text-[#45665E]">{feature.text}</p>}
           </GlassPanel>
         ))}
       </div>
@@ -256,11 +258,13 @@ function AppSlide({ slide }: { slide: TVSlide }) {
       <div className="grid h-full grid-cols-[minmax(0,0.95fr)_minmax(560px,1fr)] gap-10 px-16 py-12">
         <div className="flex min-w-0 flex-col justify-between">
           <div>
-            <BrandTop />
-            <div className="mt-10">
+            <div className="tv-enter tv-enter-1">
+              <BrandTop />
+            </div>
+            <div className="tv-enter tv-enter-2 mt-10">
               <Headline slide={slide} compact />
             </div>
-            <GlassPanel className="mt-8 max-w-[820px] p-6">
+            <GlassPanel className="tv-enter tv-enter-3 mt-8 max-w-[820px] p-6">
               <ul className="space-y-3">
                 {slide.bullets?.slice(0, 4).map((bullet) => (
                   <Bullet key={bullet}>{bullet}</Bullet>
@@ -270,7 +274,7 @@ function AppSlide({ slide }: { slide: TVSlide }) {
           </div>
         </div>
         <div className="relative min-h-0">
-          <div className="absolute left-0 right-0 top-10">
+          <div className="tv-enter tv-enter-3 absolute left-0 right-0 top-10">
             <div className="flex h-[620px] items-end justify-center gap-5">
               {slide.appImages?.map((src, index) => {
                 const width = index === 0 ? 225 : 260;
@@ -289,7 +293,7 @@ function AppSlide({ slide }: { slide: TVSlide }) {
               })}
             </div>
           </div>
-          <div className="absolute bottom-16 right-0 flex items-end gap-5">
+          <div className="tv-enter tv-enter-4 absolute bottom-16 right-0 flex items-end gap-5">
             {slide.badgeImage && <Image src={slide.badgeImage} alt="App Store" width={220} height={67} className="mb-2 h-[67px] w-[220px]" />}
             <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
           </div>
@@ -303,15 +307,15 @@ function SocialSlide({ slide }: { slide: TVSlide }) {
   return (
     <BackgroundSlide slide={slide}>
       <div className="grid h-full grid-cols-[1fr_330px] items-center gap-10 px-16 py-12">
-        <GlassPanel className="max-w-[980px] p-9 text-center">
+        <GlassPanel className="tv-enter tv-enter-2 max-w-[980px] p-9 text-center">
           <div className="flex justify-center">
             <BrandTop />
           </div>
-          <FaInstagram className="mx-auto mt-9 text-[86px] text-[#F9EDDF]" />
+          <FaInstagram className="mx-auto mt-9 text-[86px] text-[#0D322B]" />
           <Headline slide={slide} />
-          {slide.handle && <p className="mt-7 text-[58px] font-bold leading-none text-[#D3E0D6]">{slide.handle}</p>}
+          {slide.handle && <p className="mt-7 text-[58px] font-bold leading-none text-[#144D42]">{slide.handle}</p>}
         </GlassPanel>
-        <div className="flex justify-end">
+        <div className="tv-enter tv-enter-4 flex justify-end">
           <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
         </div>
       </div>
@@ -323,7 +327,7 @@ function ReviewSlide({ slide }: { slide: TVSlide }) {
   return (
     <BackgroundSlide slide={slide}>
       <div className="grid h-full grid-cols-[1fr_330px] items-center gap-10 px-16 py-12">
-        <GlassPanel className="max-w-[980px] p-10 text-center">
+        <GlassPanel className="tv-enter tv-enter-2 max-w-[980px] p-10 text-center">
           <div className="flex justify-center">
             <BrandTop />
           </div>
@@ -334,7 +338,7 @@ function ReviewSlide({ slide }: { slide: TVSlide }) {
           </div>
           <Headline slide={slide} />
         </GlassPanel>
-        <div className="flex justify-end">
+        <div className="tv-enter tv-enter-4 flex justify-end">
           <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
         </div>
       </div>
@@ -346,22 +350,26 @@ function TeamSlide({ slide }: { slide: TVSlide }) {
   return (
     <BackgroundSlide slide={slide}>
       <div className="flex h-full flex-col px-16 py-12">
-        <BrandTop />
+        <div className="tv-enter tv-enter-1">
+          <BrandTop />
+        </div>
         <div className="mt-9 grid grid-cols-[minmax(0,0.9fr)_300px] gap-10">
-          <Headline slide={slide} compact />
-          <div className="flex justify-end">
+          <div className="tv-enter tv-enter-2">
+            <Headline slide={slide} compact />
+          </div>
+          <div className="tv-enter tv-enter-4 flex justify-end">
             <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
           </div>
         </div>
-        <div className="mt-auto grid grid-cols-3 gap-5 pb-6">
+        <div className="tv-enter tv-enter-3 mt-auto grid grid-cols-3 gap-5 pb-6">
           {slide.team?.map((member) => (
             <GlassPanel key={member.name} className="flex min-h-[168px] items-center gap-5 p-5">
-              <div className="h-[118px] w-[118px] shrink-0 overflow-hidden rounded-full border border-white/25">
+              <div className="h-[118px] w-[118px] shrink-0 overflow-hidden rounded-full border border-[#0D322B]/18">
                 <Image src={member.image} alt={member.name} width={118} height={118} className="h-full w-full object-cover" />
               </div>
               <div className="min-w-0">
-                <p className="font-serif text-[34px] leading-none text-white">{member.name}</p>
-                <p className="mt-3 text-[23px] font-semibold leading-tight text-[#D3E0D6]">{member.role}</p>
+                <p className="font-serif text-[34px] leading-none text-[#0D322B]">{member.name}</p>
+                <p className="mt-3 text-[23px] font-semibold leading-tight text-[#45665E]">{member.role}</p>
               </div>
             </GlassPanel>
           ))}
@@ -409,11 +417,25 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
     return parsed - 1;
   }, [searchParams]);
 
-  const forcedSlideIndex = routeForcedSlideIndex ?? queryForcedSlideIndex;
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(forcedSlideIndex ?? 0);
+  const forcedSlideIndex = routeForcedSlideIndex;
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(routeForcedSlideIndex ?? queryForcedSlideIndex ?? 0);
   const [previousSlideIndex, setPreviousSlideIndex] = useState<number | null>(null);
   const [progress, setProgress] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const goToSlide = (index: number) => {
+    if (index === currentSlideIndex) return;
+
+    const outgoingSlideIndex = currentSlideIndex;
+    setPreviousSlideIndex(outgoingSlideIndex);
+    setCurrentSlideIndex(index);
+    setProgress(forcedSlideIndex !== null ? 100 : 0);
+    window.history.replaceState(null, '', `/tv-new?slide=${index + 1}`);
+
+    window.setTimeout(() => {
+      setPreviousSlideIndex((previousIndex) => (previousIndex === outgoingSlideIndex ? null : previousIndex));
+    }, ANIMATION_DURATION);
+  };
 
   const toggleFullscreen = async () => {
     try {
@@ -480,7 +502,7 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
           return (
             <div
               key={slide.id}
-              className="absolute inset-0 transition-opacity ease-in-out"
+              className={`absolute inset-0 transition-opacity ease-in-out ${isActive ? 'tv-slide-active' : ''}`}
               style={{
                 opacity: isActive ? 1 : 0,
                 transitionDuration: forcedSlideIndex !== null ? '0ms' : `${ANIMATION_DURATION}ms`,
@@ -508,16 +530,61 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
         <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
           <div className="flex gap-1">
             {TV_NEW_SLIDES.map((slide, index) => (
-              <div
+              <button
                 key={slide.id}
-                className={`h-2 w-2 rounded-full transition-all ${index === currentSlideIndex ? 'scale-125 bg-white' : 'bg-white/45'}`}
-              />
+                type="button"
+                aria-label={`Slide ${index + 1}: ${slide.title}`}
+                aria-current={index === currentSlideIndex ? 'true' : undefined}
+                onClick={() => goToSlide(index)}
+                className={`flex h-5 w-5 items-center justify-center rounded-full transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-[#0D322B]/50 ${index === currentSlideIndex ? 'scale-110' : ''}`}
+              >
+                <span className={`block h-2 w-2 rounded-full transition-all ${index === currentSlideIndex ? 'bg-[#0D322B]' : 'bg-[#0D322B]/35'}`} />
+              </button>
             ))}
           </div>
-          <div className="h-1 w-32 overflow-hidden rounded-full bg-white/20">
-            <div className="h-full bg-white transition-all duration-100 ease-linear" style={{ width: `${progress}%` }} />
+          <div className="h-1 w-32 overflow-hidden rounded-full bg-[#0D322B]/18">
+            <div className="h-full bg-[#0D322B] transition-all duration-100 ease-linear" style={{ width: `${progress}%` }} />
           </div>
         </div>
+
+        <style jsx global>{`
+          .tv-slide-active .tv-enter {
+            animation: tvContentEnter 680ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
+          }
+
+          .tv-slide-active .tv-enter-1 {
+            animation-delay: 90ms;
+          }
+
+          .tv-slide-active .tv-enter-2 {
+            animation-delay: 190ms;
+          }
+
+          .tv-slide-active .tv-enter-3 {
+            animation-delay: 300ms;
+          }
+
+          .tv-slide-active .tv-enter-4 {
+            animation-delay: 410ms;
+          }
+
+          @keyframes tvContentEnter {
+            from {
+              opacity: 0;
+              transform: translate3d(0, 18px, 0);
+            }
+            to {
+              opacity: 1;
+              transform: translate3d(0, 0, 0);
+            }
+          }
+
+          @media (prefers-reduced-motion: reduce) {
+            .tv-slide-active .tv-enter {
+              animation: none;
+            }
+          }
+        `}</style>
       </div>
     </main>
   );
