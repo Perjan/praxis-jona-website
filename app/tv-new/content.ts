@@ -251,7 +251,7 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     imageAlt: "Branded social TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Instagram",
-    title: "Folgen Sie Dr. Jonida",
+    title: "Mir folgen",
     subtitle: "Einblicke in Prävention, moderne Medizin und Praxisalltag.",
     qrUrl: "https://www.instagram.com/doc.jona/",
     qrLabel: "Instagram öffnen",

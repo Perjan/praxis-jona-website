@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation';
 import { TV_NEW_SLIDES, type TVSlide } from './content';
 
 const SLIDE_DURATION = 30000;
-const ANIMATION_DURATION = 4000;
+const ANIMATION_DURATION = 900;
 
 const qrCache = new Map<string, string>();
 const qrPending = new Map<string, Promise<string>>();
@@ -549,23 +549,23 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
 
         <style jsx global>{`
           .tv-slide-active .tv-enter {
-            animation: tvContentEnter 680ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
+            animation: tvContentEnter 520ms cubic-bezier(0.2, 0.72, 0.2, 1) both;
           }
 
           .tv-slide-active .tv-enter-1 {
-            animation-delay: 90ms;
+            animation-delay: 50ms;
           }
 
           .tv-slide-active .tv-enter-2 {
-            animation-delay: 190ms;
+            animation-delay: 110ms;
           }
 
           .tv-slide-active .tv-enter-3 {
-            animation-delay: 300ms;
+            animation-delay: 170ms;
           }
 
           .tv-slide-active .tv-enter-4 {
-            animation-delay: 410ms;
+            animation-delay: 230ms;
           }
 
           @keyframes tvContentEnter {
