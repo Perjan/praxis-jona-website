@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
 import { pricingSections } from "app/components/pricing/pricingData";
+import AppointmentBookingButton, { defaultAppointmentBookingCopy } from "./AppointmentBookingButton";
 
 export type Treatment = {
     nameDE: string;
@@ -27,32 +27,7 @@ const treatments: Treatment[] = pricingSections.botox.rows
     }));
 
 export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTableProps) {
-    const [showInsuranceDialog, setShowInsuranceDialog] = useState(false);
-    const [isClosing, setIsClosing] = useState(false);
-    const privatePatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=private&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
-    const publicPatientBookingUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking/motives?specialityId=1302&telehealth=false&placeId=practice-612560&insuranceSectorEnabled=true&insuranceSector=public&isNewPatient=true&isNewPatientBlocked=false&motiveCategoryIds%5B%5D=384956&pid=practice-612560&bookingFunnelSource=profile";
-
-    const handleBookingClick = (e: React.MouseEvent) => {
-        e.preventDefault();
-        setShowInsuranceDialog(true);
-        setIsClosing(false);
-    };
-
-    const handleClose = () => {
-        setIsClosing(true);
-        setTimeout(() => {
-            setShowInsuranceDialog(false);
-            setIsClosing(false);
-        }, 200);
-    };
-
-    const handleInsuranceSelect = (isPrivate: boolean) => {
-        const url = isPrivate ? privatePatientBookingUrl : publicPatientBookingUrl;
-        handleClose();
-        setTimeout(() => {
-            window.open(url, '_blank', 'noopener noreferrer');
-        }, 100);
-    };
+    const bookingCopy = defaultAppointmentBookingCopy(isEnglish ? "en" : "de");
 
     const calculateDiscountedPrice = (price: number) => {
         return Math.round(price * (1 - DISCOUNT_PERCENTAGE / 100));
@@ -92,13 +67,18 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     }}
                 >
                     {/* Booking button */}
-                    <a 
-                        href="#"
-                        onClick={handleBookingClick}
+                    <AppointmentBookingButton
+                        locale={isEnglish ? "en" : "de"}
+                        copy={{
+                            ...bookingCopy,
+                            description: isEnglish
+                                ? "Please note: botulinum toxin treatments are private self-pay services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib."
+                                : "Bitte beachten Sie: Botulinumtoxin-Behandlungen sind private Selbstzahlerleistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib.",
+                        }}
                         className="hidden lg:block absolute top-8 right-8 bg-primaryLighter hover:bg-tealColorDark text-white px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                     >
                         {isEnglish ? "Book botulinum toxin appointment" : "Botulinumtoxin-Termin buchen"}
-                    </a>
+                    </AppointmentBookingButton>
 
                     {/* Content section */}
                     <div className="mx-auto max-w-7xl text-leading py-4 px-6 lg:px-8">
@@ -164,66 +144,19 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
 
             {/* Mobile booking button - outside the main container to avoid overflow issues */}
             <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 z-50">
-                <a 
-                    href="#"
-                    onClick={handleBookingClick}
+                <AppointmentBookingButton
+                    locale={isEnglish ? "en" : "de"}
+                    copy={{
+                        ...bookingCopy,
+                        description: isEnglish
+                            ? "Please note: botulinum toxin treatments are private self-pay services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib."
+                            : "Bitte beachten Sie: Botulinumtoxin-Behandlungen sind private Selbstzahlerleistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib.",
+                    }}
                     className="block w-full bg-primaryLighter hover:bg-tealColorDark text-white text-center px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
                 >
                     {isEnglish ? "Book botulinum toxin appointment" : "Botulinumtoxin-Termin buchen"}
-                </a>
+                </AppointmentBookingButton>
             </div>
-
-            {/* Insurance Selection Dialog */}
-            {showInsuranceDialog && (
-                <div 
-                    className={`fixed inset-0 bg-black flex items-center justify-center z-50 ${isClosing ? 'animate-fadeOut bg-opacity-50' : 'animate-fadeIn bg-opacity-50'}`}
-                    onClick={handleClose}
-                >
-                    <div 
-                        className={`bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4 ${isClosing ? 'animate-popOut' : 'animate-popIn'}`}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-xl font-medium text-primaryLighter">
-                                {isEnglish ? "Select Insurance Type" : "Versicherungsart auswählen"}
-                            </h3>
-                            <button 
-                                onClick={handleClose}
-                                className="text-gray-600 hover:text-gray-700 transition-colors"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <p className="text-gray-600 mb-4 text-sm">
-                            {isEnglish 
-                                ? "Please note: botulinum toxin treatments are private self-pay services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib." 
-                                : "Bitte beachten Sie: Botulinumtoxin-Behandlungen sind private Selbstzahlerleistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib."}
-                        </p>
-                        <div className="space-y-3">
-                            <button
-                                onClick={() => handleInsuranceSelect(true)}
-                                className="w-full bg-primaryLighter hover:bg-tealColorDark text-white px-4 py-2 rounded transition-colors duration-200"
-                            >
-                                {isEnglish ? "Private Insurance" : "Privatversichert"}
-                            </button>
-                            <button
-                                onClick={() => handleInsuranceSelect(false)}
-                                className="w-full bg-primaryLighter hover:bg-tealColorDark text-white px-4 py-2 rounded transition-colors duration-200"
-                            >
-                                {isEnglish ? "Public Insurance" : "Gesetzlich versichert"}
-                            </button>
-                            <button
-                                onClick={handleClose}
-                                className="w-full border border-gray-300 text-gray-600 hover:bg-gray-100 px-4 py-2 rounded transition-colors duration-200"
-                            >
-                                {isEnglish ? "Cancel" : "Abbrechen"}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             {/* Media query for larger screens */}
             <style jsx>{`

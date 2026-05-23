@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Constants } from "app/Constants";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import PricingTableSection from "./PricingTableSection";
 import type { PricingPageConfig } from "./pricingData";
 import { buildPricingJsonLd } from "./pricingSchema";
@@ -90,12 +91,21 @@ export default function PricePageLayout({ config }: { config: PricingPageConfig 
           <section className="mt-10 rounded-xl bg-primaryLighter p-6 text-white md:p-8">
             <h2 className="font-serif text-3xl font-semibold">{ctaTitle}</h2>
             <p className="mt-3 max-w-3xl text-base leading-7 text-white/80">{ctaText}</p>
-            <Link
-              href={Constants.appointmentUrl}
-              className="mt-6 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primaryLighter transition hover:bg-tealColor"
-            >
-              {ctaButton}
-            </Link>
+            {config.key === "aesthetics" ? (
+              <AppointmentBookingButton
+                locale={config.locale}
+                className="mt-6 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primaryLighter transition hover:bg-tealColor"
+              >
+                {ctaButton}
+              </AppointmentBookingButton>
+            ) : (
+              <Link
+                href={Constants.appointmentUrl}
+                className="mt-6 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primaryLighter transition hover:bg-tealColor"
+              >
+                {ctaButton}
+              </Link>
+            )}
           </section>
         </div>
       </section>

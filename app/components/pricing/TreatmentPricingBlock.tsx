@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionSection } from "app/components/Motion";
 import {
   formatPackageOffer,
@@ -23,11 +24,13 @@ const treatmentPricingSectionsByCanonical: Record<string, PricingSection[]> = {
 
 function getCardActions(section: PricingSection, row: PricingRow, locale: PricingLocale, canonical: string) {
   const bookingHref = row.bookingHref?.[locale] ?? section.bookingHref?.[locale];
+  const bookingUrls = row.bookingUrls ?? section.bookingUrls;
   const detailHref = row.detailHref?.[locale] ?? section.detailHref?.[locale];
   const learnHref = detailHref === canonical ? `${canonical}#behandlungsdetails` : detailHref;
 
   return {
     bookingHref,
+    bookingUrls,
     learnHref,
     bookingLabel: locale === "en" ? "Book appointment" : "Termin buchen",
     learnLabel: locale === "en" ? "Learn more" : "Mehr erfahren",
@@ -80,15 +83,20 @@ function TreatmentPricingCard({
             <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
           </Link>
         )}
-        {actions.bookingHref && (
-          <Link
-            href={actions.bookingHref}
-            aria-label={`${row.label[locale]} ${actions.bookingLabel}`}
+        {actions.bookingUrls ? (
+          <AppointmentBookingButton
+            locale={locale}
+            urls={actions.bookingUrls}
+            ariaLabel={`${row.label[locale]} ${actions.bookingLabel}`}
             className="inline-flex items-center justify-center rounded-lg bg-primaryLighter px-4 py-2 text-white transition hover:bg-tealColorDark"
           >
             {actions.bookingLabel}
+          </AppointmentBookingButton>
+        ) : actions.bookingHref ? (
+          <Link href={actions.bookingHref} aria-label={`${row.label[locale]} ${actions.bookingLabel}`} className="inline-flex items-center justify-center rounded-lg bg-primaryLighter px-4 py-2 text-white transition hover:bg-tealColorDark">
+            {actions.bookingLabel}
           </Link>
-        )}
+        ) : null}
       </div>
     </div>
   );

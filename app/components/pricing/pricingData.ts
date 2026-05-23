@@ -21,6 +21,11 @@ export type PackageOffer = {
   badge?: LocalizedText;
 };
 
+export type BookingUrls = {
+  private: string;
+  public: string;
+};
+
 export type PricingRow = {
   slug: string;
   label: LocalizedText;
@@ -29,6 +34,7 @@ export type PricingRow = {
   packageOffer?: PackageOffer;
   detailHref?: LocalizedText;
   bookingHref?: LocalizedText;
+  bookingUrls?: BookingUrls;
   note?: LocalizedText;
   discountEligible?: boolean;
 };
@@ -42,6 +48,7 @@ export type PricingSection = {
   notes?: LocalizedText[];
   detailHref?: LocalizedText;
   bookingHref?: LocalizedText;
+  bookingUrls?: BookingUrls;
 };
 
 export type PricingPageKey = "global" | PricingPillar;
@@ -71,6 +78,7 @@ const appointmentHref: LocalizedText = {
   de: Constants.appointmentUrl,
   en: Constants.appointmentUrl,
 };
+const appointmentBookingUrls: BookingUrls = Constants.appointmentUrls;
 const threeTreatmentBadge: LocalizedText = { de: "3er Paket", en: "3-treatment package" };
 const prpAestheticHref = { de: "/aesthetik/prp-behandlung", en: "/en/aesthetics/prp-treatment" } satisfies LocalizedText;
 const microneedlingHref = { de: "/aesthetik/microneedling", en: "/en/aesthetics/microneedling" } satisfies LocalizedText;
@@ -89,6 +97,7 @@ export const pricingSections = {
     },
     detailHref: { de: "/botox-preise", en: "/en/botox-prices" },
     bookingHref: appointmentHref,
+    bookingUrls: appointmentBookingUrls,
     notes: [
       {
         de: "Wenn nach der Beratung eine Behandlung geplant wird, ist die Beratung kostenlos.",
@@ -126,6 +135,7 @@ export const pricingSections = {
     },
     detailHref: prpAestheticHref,
     bookingHref: appointmentHref,
+    bookingUrls: appointmentBookingUrls,
     rows: [
       { slug: "prp-gesicht", label: { de: "PRP Gesicht", en: "PRP face" }, price: { amount: 199, currency: "EUR" }, detailHref: { de: `${prpAestheticHref.de}#prp-gesicht`, en: `${prpAestheticHref.en}#prp-face` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 549, currency: "EUR" } } },
       { slug: "prp-augen", label: { de: "PRP Augen", en: "PRP under-eye area" }, price: { amount: 199, currency: "EUR" }, detailHref: { de: `${prpAestheticHref.de}#prp-augenregion-bei-dunklen-augenringen`, en: `${prpAestheticHref.en}#prp-under-eye-area-for-darker-circles` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 549, currency: "EUR" } } },
@@ -144,6 +154,7 @@ export const pricingSections = {
     },
     detailHref: microneedlingHref,
     bookingHref: appointmentHref,
+    bookingUrls: appointmentBookingUrls,
     rows: [
       { slug: "microneedling-gesicht", label: { de: "Microneedling Gesicht", en: "Microneedling face" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${microneedlingHref.de}#was-ist-medizinisches-microneedling`, en: `${microneedlingHref.en}#what-is-medical-microneedling` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
       { slug: "microneedling-gesicht-hals", label: { de: "Microneedling Gesicht + Hals", en: "Microneedling face + neck" }, price: { amount: 299, currency: "EUR" }, detailHref: { de: `${microneedlingHref.de}#welche-regionen-koennen-behandelt-werden`, en: `${microneedlingHref.en}#when-this-may-be-suitable` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
@@ -161,6 +172,7 @@ export const pricingSections = {
     },
     detailHref: skinboosterHref,
     bookingHref: appointmentHref,
+    bookingUrls: appointmentBookingUrls,
     rows: [
       { slug: "nctf-ha-gesicht", label: { de: "NCTF HA Gesicht", en: "NCTF HA face" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${skinboosterHref.de}#nct-145-ha`, en: `${skinboosterHref.en}#nct-145-ha` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
       { slug: "nctf-ha-gesicht-hals", label: { de: "NCTF HA Gesicht + Hals", en: "NCTF HA face + neck" }, price: { amount: 299, currency: "EUR" }, detailHref: { de: `${skinboosterHref.de}#nct-145-ha`, en: `${skinboosterHref.en}#nct-145-ha` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 799, currency: "EUR" } } },
@@ -179,6 +191,7 @@ export const pricingSections = {
     },
     detailHref: hairTherapyHref,
     bookingHref: appointmentHref,
+    bookingUrls: appointmentBookingUrls,
     rows: [
       { slug: "microneedling-haare", label: { de: "Microneedling Haare", en: "Microneedling hair/scalp" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${hairTherapyHref.de}#medizinisches-microneedling-der-kopfhaut-bei-haarausfall`, en: `${hairTherapyHref.en}#when-this-may-be-suitable` }, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
       { slug: "prp-haare", label: { de: "PRP Haare", en: "PRP hair/scalp" }, price: { amount: 249, currency: "EUR" }, detailHref: prpHairHref, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },

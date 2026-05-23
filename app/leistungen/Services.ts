@@ -1,3 +1,5 @@
+import { Constants } from "app/Constants";
+
 export const Services = [{
       id: 1,
       name: 'Akutsprechstunde',
@@ -52,6 +54,7 @@ export const Services = [{
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Botulinumtoxin wird in der Praxis Jona nach individueller ärztlicher Beratung eingesetzt. Im Vordergrund stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein natürlich wirkender Behandlungsplan. Details und Preise finden Sie auf den eigenen Botulinumtoxin-Seiten."
     },
     {
@@ -92,6 +95,7 @@ export const Services = [{
       href: '#14',
       imageSrc: '/images/leistungen/lab.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "PRP ist ein Eigenblutverfahren zur Unterstützung von Hautqualität und Regeneration nach ärztlicher Einschätzung."
     },
     {
@@ -100,6 +104,7 @@ export const Services = [{
       href: '#15',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Microneedling kann zur Verbesserung von Hautstruktur, Porenbild, feinen Linien und ausgewählten Narbenbildern eingesetzt werden."
     },
     {
@@ -108,6 +113,7 @@ export const Services = [{
       href: '#16',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Polynukleotide können Hautqualität, Spannkraft und regenerative Prozesse unterstützen. Ob die Behandlung passt, wird ärztlich besprochen."
     },
     {
@@ -116,6 +122,7 @@ export const Services = [{
       href: '#17',
       imageSrc: '/images/leistungen/lab.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Ärztliche Haarausfall-Abklärung mit Diagnostik, PRP als möglicher Therapieoption und Mikronährstofftherapie nach Befund."
     }]
 
@@ -173,6 +180,7 @@ export const Services = [{
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Botulinum toxin is used at Praxis Jona after individual medical consultation. The focus is careful assessment, realistic information and a natural-looking treatment plan."
     },
     {
@@ -213,6 +221,7 @@ export const Services = [{
       href: '#14',
       imageSrc: '/images/leistungen/lab.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "PRP is an autologous treatment to support skin quality and regeneration after medical assessment."
     },
     {
@@ -221,6 +230,7 @@ export const Services = [{
       href: '#15',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Microneedling can support skin texture, pore appearance, fine lines and selected scar patterns."
     },
     {
@@ -229,6 +239,7 @@ export const Services = [{
       href: '#16',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Polynucleotides can support skin quality, firmness and regenerative processes. Suitability is discussed medically."
     },
     {
@@ -237,6 +248,7 @@ export const Services = [{
       href: '#17',
       imageSrc: '/images/leistungen/lab.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrls,
       description: "Medical hair-loss assessment with diagnostics, PRP as a possible option and micronutrient therapy depending on findings."
     }
   ] 

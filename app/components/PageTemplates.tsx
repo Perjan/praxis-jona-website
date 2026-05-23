@@ -18,6 +18,7 @@ import {
 } from "@heroicons/react/24/outline";
 import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
 import { MotionCard, MotionSection } from "./Motion";
 import TreatmentPricingBlock from "./pricing/TreatmentPricingBlock";
@@ -70,22 +71,35 @@ function CtaButtons({
   primaryHref,
   secondary,
   secondaryHref,
+  locale = "de",
+  useBookingModal = false,
 }: {
   primary: string;
   primaryHref: string;
   secondary?: string;
   secondaryHref?: string;
+  locale?: "de" | "en";
+  useBookingModal?: boolean;
 }) {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-      <Link
-        href={primaryHref}
-        target={primaryHref.startsWith("http") ? "_blank" : undefined}
-        rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
-        className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
-      >
-        {primary}
-      </Link>
+      {useBookingModal ? (
+        <AppointmentBookingButton
+          locale={locale}
+          className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
+        >
+          {primary}
+        </AppointmentBookingButton>
+      ) : (
+        <Link
+          href={primaryHref}
+          target={primaryHref.startsWith("http") ? "_blank" : undefined}
+          rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+          className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
+        >
+          {primary}
+        </Link>
+      )}
       {secondary && secondaryHref && (
         <Link
           href={secondaryHref}
@@ -242,6 +256,13 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
 
 export function LandingPage({ content }: { content: LandingContent }) {
   const bookingHref = Constants.appointmentUrl;
+  const usesAestheticBookingModal =
+    content.canonical.startsWith("/aesthetik") ||
+    content.canonical.startsWith("/en/aesthetics") ||
+    content.canonical === "/leistungen/haarausfall-berlin-mitte" ||
+    content.canonical === "/en/services/hair-loss-berlin-mitte" ||
+    content.canonical === "/leistungen/prp-haarausfall" ||
+    content.canonical === "/en/services/prp-hair-loss";
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -280,7 +301,14 @@ export function LandingPage({ content }: { content: LandingContent }) {
               <p className={heroEyebrowClassName}>{content.eyebrow}</p>
               <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.intro}</p>
-              <CtaButtons primary={content.cta} primaryHref={bookingHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
+              <CtaButtons
+                primary={content.cta}
+                primaryHref={bookingHref}
+                secondary={content.secondaryCta}
+                secondaryHref={content.secondaryHref}
+                locale={content.locale}
+                useBookingModal={usesAestheticBookingModal}
+              />
             </div>
             <div className="space-y-5">
               {content.heroImage && (

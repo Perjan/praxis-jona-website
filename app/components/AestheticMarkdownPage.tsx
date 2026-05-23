@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarDaysIcon, ClockIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
 import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSectionKey } from "app/content/aesthetikSource";
@@ -186,14 +187,12 @@ function CtaButtons({ sectionKey }: { sectionKey: AestheticSectionKey }) {
 
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-      <Link
-        href={Constants.appointmentUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+      <AppointmentBookingButton
+        locale="de"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         Termin buchen
-      </Link>
+      </AppointmentBookingButton>
       <Link
         href={priceHref}
         className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"
