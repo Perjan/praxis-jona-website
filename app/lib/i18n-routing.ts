@@ -128,6 +128,9 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
       const enSlug = botulinumtoxinSlugPairs.find((pair) => pair.de === slug)?.en;
       return enSlug ? `/en/botox-treatment/${enSlug}` : "/en/botox-treatment";
     }
+    if (normalizedPathname.startsWith("/aesthetik/prp-behandlung/")) {
+      return "/en/aesthetics/prp-treatment";
+    }
     return deToEnRouteMap[normalizedPathname] ?? "/en";
   }
 

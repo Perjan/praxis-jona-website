@@ -1,15 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CalendarDaysIcon, ClockIcon, SparklesIcon } from "@heroicons/react/24/outline";
+import { CalendarDaysIcon, ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
+import { pricingSections } from "app/components/pricing/pricingData";
 import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSectionKey } from "app/content/aesthetikSource";
 
 type MarkdownNode =
   | { type: "h1" | "h2" | "h3" | "p" | "rule"; text?: string }
   | { type: "list"; items: string[] };
+
+type AestheticDetailPage = {
+  sectionKey: AestheticSectionKey;
+  slug: string;
+  title: string;
+  href: string;
+};
+
+const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> = {
+  prp: [
+    { sectionKey: "prp", slug: "prp-gesicht", title: "PRP Gesicht", href: "/aesthetik/prp-behandlung/prp-gesicht" },
+    { sectionKey: "prp", slug: "prp-augenregion-bei-dunklen-augenringen", title: "PRP Augenregion bei dunklen Augenringen", href: "/aesthetik/prp-behandlung/prp-augenregion-bei-dunklen-augenringen" },
+    { sectionKey: "prp", slug: "prp-gesicht-hals-und-dekollete", title: "PRP Gesicht, Hals & Dekolleté", href: "/aesthetik/prp-behandlung/prp-gesicht-hals-und-dekollete" },
+    { sectionKey: "prp", slug: "vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling", title: "Vampire Lifting / PRP kombiniert mit medizinischem Microneedling", href: "/aesthetik/prp-behandlung/vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling" },
+  ],
+};
 
 const heroImages: Record<AestheticSectionKey, { src: string; alt: string; objectPositionClass?: string }> = {
   hub: {
@@ -75,6 +92,16 @@ const sectionFacts: Record<Exclude<AestheticSectionKey, "hub" | "botulinumtoxin"
   ],
 };
 
+const prpCommonSectionTitles = [
+  "Wie läuft die Behandlung ab?",
+  "Wie oft sind PRP- oder Vampire-Lifting-Behandlungen sinnvoll?",
+  "Was sollte ich nach der Behandlung beachten?",
+  "Wann sind Ergebnisse sichtbar?",
+  "Individuelle regenerative Behandlungskonzepte",
+];
+
+const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
+
 function hasText(node: MarkdownNode): node is Extract<MarkdownNode, { text?: string }> & { text: string } {
   return "text" in node && typeof node.text === "string";
 }
@@ -99,6 +126,14 @@ function sectionId(text: string | undefined) {
     .replace(/&/g, "und")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
+}
+
+export function getAestheticDetailPages(sectionKey: AestheticSectionKey) {
+  return detailPages[sectionKey] ?? [];
+}
+
+export function getAestheticDetailPage(sectionKey: AestheticSectionKey, slug: string) {
+  return getAestheticDetailPages(sectionKey).find((page) => page.slug === slug);
 }
 
 function parseMarkdown(markdown: string): MarkdownNode[] {
@@ -335,6 +370,10 @@ function renderCompactNodes(nodes: MarkdownNode[]) {
   });
 }
 
+function ParagraphNodes({ nodes }: { nodes: MarkdownNode[] }) {
+  return <div className="space-y-5 text-lg leading-8 text-primaryLighter">{renderCompactNodes(nodes)}</div>;
+}
+
 function takeUntilHeading(nodes: MarkdownNode[], start: number) {
   const children: MarkdownNode[] = [];
   let cursor = start;
@@ -349,8 +388,187 @@ function takeUntilHeading(nodes: MarkdownNode[], start: number) {
   return { children, cursor };
 }
 
-function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
+function takeUntilRule(nodes: MarkdownNode[], start: number) {
+  const children: MarkdownNode[] = [];
+  let cursor = start;
+
+  while (cursor < nodes.length && nodes[cursor].type !== "rule") {
+    children.push(nodes[cursor]);
+    cursor += 1;
+  }
+
+  if (cursor < nodes.length && nodes[cursor].type === "rule") {
+    cursor += 1;
+  }
+
+  return { children, cursor };
+}
+
+function getDetailHrefByTitle(sectionKey: AestheticSectionKey) {
+  return Object.fromEntries(getAestheticDetailPages(sectionKey).map((page) => [page.title, page.href]));
+}
+
+function extractTitledSection(nodes: MarkdownNode[], title: string) {
+  const index = nodes.findIndex((node) => node.type === "h3" && node.text === title);
+
+  if (index < 0) {
+    return [];
+  }
+
+  return takeUntilHeading(nodes, index + 1).children;
+}
+
+function extractDetailNodes(nodes: MarkdownNode[], title: string) {
+  const index = nodes.findIndex((node) => node.type === "h3" && node.text === title);
+
+  if (index < 0) {
+    return [];
+  }
+
+  return takeUntilRule(nodes, index + 1).children;
+}
+
+function detailSummary(nodes: MarkdownNode[], title: string) {
+  return extractDetailNodes(nodes, title).find(hasText)?.text ?? "";
+}
+
+function extractFaqs(nodes: MarkdownNode[]) {
+  const faqIndex = nodes.findIndex((node) => node.type === "h2" && node.text && /^Häufige Fragen/.test(node.text));
+
+  if (faqIndex < 0) {
+    return { title: "Häufige Fragen", items: [] as { question: string; answer: MarkdownNode[] }[] };
+  }
+
+  const faqNode = nodes[faqIndex];
+  const title = hasText(faqNode) ? faqNode.text : "Häufige Fragen";
+  const items: { question: string; answer: MarkdownNode[] }[] = [];
+  let index = faqIndex + 1;
+
+  while (index < nodes.length && nodes[index].type !== "h2") {
+    const node = nodes[index];
+
+    if (node.type === "h3" && node.text) {
+      const answer = takeUntilHeading(nodes, index + 1);
+      items.push({ question: node.text, answer: answer.children });
+      index = answer.cursor;
+      continue;
+    }
+
+    index += 1;
+  }
+
+  return { title, items };
+}
+
+function formatPrpDetailPrice(slug: string) {
+  const row = pricingSections.prp.rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
+  const amount = row?.price?.amount;
+
+  return amount ? `ab ${amount} €` : "ab 199 €";
+}
+
+function PrpDetailFacts({ slug }: { slug: string }) {
+  const facts = [
+    {
+      title: "Dauer",
+      icon: ClockIcon,
+      body: (
+        <>
+          Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
+        </>
+      ),
+    },
+    {
+      title: "Serie",
+      icon: SparklesIcon,
+      body: (
+        <>
+          Häufig zunächst <strong>3–4 Behandlungen</strong> im Abstand von etwa 3–4 Wochen.
+        </>
+      ),
+    },
+    {
+      title: "Preis",
+      icon: CreditCardIcon,
+      body: <strong>{formatPrpDetailPrice(slug)}</strong>,
+    },
+  ];
+
+  return (
+    <MotionSection className="relative z-20 -mt-[50px] px-4 pb-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="overflow-hidden rounded-[2rem] bg-primary shadow-2xl shadow-primary/20 ring-1 ring-white/10">
+          <div className="grid grid-cols-1 divide-y divide-white/15 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+            {facts.map((fact) => {
+              const Icon = fact.icon;
+
+              return (
+                <div key={fact.title} className="flex min-h-[112px] items-start gap-4 p-5 sm:p-6 lg:min-h-[132px] lg:p-7">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-16 sm:w-16">
+                    <Icon className="h-8 w-8 stroke-[2.2] text-white sm:h-9 sm:w-9" aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0">
+                    <h2 className="font-sans text-xl font-semibold leading-tight text-white sm:text-2xl">{fact.title}</h2>
+                    <p className="mt-2 text-base leading-7 text-white/70 sm:text-lg [&_strong]:font-semibold [&_strong]:text-white/70">{fact.body}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </MotionSection>
+  );
+}
+
+function PrpCommonSections({ nodes }: { nodes: MarkdownNode[] }) {
+  const sections = prpCommonSectionTitles
+    .map((title) => ({ title, nodes: extractTitledSection(nodes, title) }))
+    .filter((section) => section.nodes.length > 0);
+
+  return (
+    <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-2">
+        {sections.map((section) => (
+          <MotionCard key={section.title} className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-primary/10">
+            <h2 className="font-serif text-2xl font-semibold text-primary">{section.title}</h2>
+            <div className="mt-5">
+              <ParagraphNodes nodes={section.nodes} />
+            </div>
+          </MotionCard>
+        ))}
+      </div>
+    </MotionSection>
+  );
+}
+
+function PrpFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
+  const faq = extractFaqs(nodes);
+
+  if (faq.items.length === 0) {
+    return null;
+  }
+
+  return (
+    <MotionSection className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
+      <h2 className="font-serif text-3xl font-semibold text-primary">{faq.title}</h2>
+      <div className="mt-8 space-y-4">
+        {faq.items.map((item) => (
+          <details key={item.question} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
+            <summary className="cursor-pointer font-serif text-lg font-semibold text-primary">{item.question}</summary>
+            <div className="mt-4">
+              <ParagraphNodes nodes={item.answer} />
+            </div>
+          </details>
+        ))}
+      </div>
+    </MotionSection>
+  );
+}
+
+function StructuredBody({ nodes, sectionKey }: { nodes: MarkdownNode[]; sectionKey: AestheticSectionKey }) {
   const sections: JSX.Element[] = [];
+  const detailHrefByTitle = getDetailHrefByTitle(sectionKey);
   let index = 0;
 
   while (index < nodes.length) {
@@ -409,6 +627,27 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
     }
 
     if (node.type === "h3" && node.text) {
+      const detailHref = detailHrefByTitle[node.text];
+
+      if (detailHref) {
+        const result = takeUntilRule(nodes, index + 1);
+        const card = (
+          <MotionCard className="h-full rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg">
+            <h2 className="font-serif text-2xl font-semibold text-primary">{node.text}</h2>
+            <div className="mt-5 space-y-3">{renderCompactNodes(result.children)}</div>
+            <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+          </MotionCard>
+        );
+
+        sections.push(
+          <Link id={sectionId(node.text)} key={`card-${sections.length}`} href={detailHref} className="block h-full scroll-mt-28">
+            {card}
+          </Link>,
+        );
+        index = result.cursor;
+        continue;
+      }
+
       const nextContentNode = nodes.slice(index + 1).find((item) => item.type !== "rule");
 
       if (nextContentNode?.type === "h3") {
@@ -460,7 +699,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
   };
 
   sections.forEach((section) => {
-    if (section.key?.toString().startsWith("card-")) {
+    if (section.key?.toString().includes("card-")) {
       pendingCards.push(section);
       return;
     }
@@ -519,7 +758,7 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
         <FactStrip sectionKey={sectionKey} />
         <TreatmentPricingBlock canonical={canonical} locale="de" />
         <div id="behandlungsdetails" className="scroll-mt-28">
-          <StructuredBody nodes={bodyNodes} />
+          <StructuredBody nodes={bodyNodes} sectionKey={sectionKey} />
         </div>
 
         <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
@@ -545,6 +784,85 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
                     </MotionCard>
                   </Link>
                 ))}
+            </div>
+          </div>
+        </MotionSection>
+      </div>
+    </>
+  );
+}
+
+export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical }: { sectionKey: AestheticSectionKey; slug: string; parentCanonical: string }) {
+  const detailPage = getAestheticDetailPage(sectionKey, slug);
+
+  if (!detailPage) {
+    return null;
+  }
+
+  const markdown = getAestheticSectionMarkdown(sectionKey);
+  const nodes = parseMarkdown(markdown);
+  const parentTitle = getAestheticSectionTitle(sectionKey);
+  const detailNodes = extractDetailNodes(nodes, detailPage.title);
+  const descriptionNode = detailNodes.find(hasText);
+  const description = descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
+  const siblings = getAestheticDetailPages(sectionKey).filter((page) => page.slug !== slug);
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Praxis Jona", item: Constants.baseUrl },
+      { "@type": "ListItem", position: 2, name: parentTitle, item: `${Constants.baseUrl}${parentCanonical}` },
+      { "@type": "ListItem", position: 3, name: detailPage.title, item: `${Constants.baseUrl}${detailPage.href}` },
+    ],
+  };
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: detailPage.title,
+    description,
+    provider: { "@id": `${Constants.baseUrl}/#organization`, name: "Praxis Jona" },
+    areaServed: "Berlin-Mitte",
+  };
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={serviceSchema} />
+      <div className="overflow-hidden bg-white">
+        <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8 lg:py-24">
+          <div>
+            <p className={eyebrowClassName}>{parentTitle}</p>
+            <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{detailPage.title}</h1>
+            <div className="mt-8 lg:hidden">
+              <HeroImage sectionKey={sectionKey} />
+            </div>
+            <div className="mt-6">
+              <ParagraphNodes nodes={detailNodes} />
+            </div>
+            <CtaButtons sectionKey={sectionKey} />
+          </div>
+          <div className="hidden lg:block">
+            <HeroImage sectionKey={sectionKey} />
+          </div>
+        </MotionSection>
+
+        <PrpDetailFacts slug={slug} />
+        <PrpCommonSections nodes={nodes} />
+        <PrpFaqSection nodes={nodes} />
+
+        <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="rounded-lg bg-lightBeige p-8">
+            <h2 className="font-serif text-3xl font-semibold text-primary">Weitere PRP-Behandlungen</h2>
+            <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {siblings.map((item, index) => (
+                <Link key={item.href} href={item.href} className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-primary/10 transition hover:shadow-md">
+                  <MotionCard delay={Math.min(index * 0.04, 0.2)} className="h-full">
+                    <h3 className="font-serif text-xl font-semibold text-primary">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-primaryLighter">{detailSummary(nodes, item.title)}</p>
+                    <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+                  </MotionCard>
+                </Link>
+              ))}
             </div>
           </div>
         </MotionSection>
