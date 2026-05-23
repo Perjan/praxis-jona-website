@@ -1,5 +1,14 @@
+import Link from "next/link";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { MotionSection } from "app/components/Motion";
-import { formatPackageOffer, formatPrice, pricingSections, type PricingLocale, type PricingSection } from "./pricingData";
+import {
+  formatPackageOffer,
+  formatPrice,
+  pricingSections,
+  type PricingLocale,
+  type PricingRow,
+  type PricingSection,
+} from "./pricingData";
 
 const treatmentPricingSectionsByCanonical: Record<string, PricingSection[]> = {
   "/aesthetik/prp-behandlung": [pricingSections.prp],
@@ -11,6 +20,79 @@ const treatmentPricingSectionsByCanonical: Record<string, PricingSection[]> = {
   "/leistungen/haarausfall-berlin-mitte": [pricingSections.hairTherapy],
   "/en/services/hair-loss-berlin-mitte": [pricingSections.hairTherapy],
 };
+
+function getCardActions(section: PricingSection, row: PricingRow, locale: PricingLocale, canonical: string) {
+  const bookingHref = row.bookingHref?.[locale] ?? section.bookingHref?.[locale];
+  const detailHref = row.detailHref?.[locale] ?? section.detailHref?.[locale];
+  const learnHref = detailHref === canonical ? `${canonical}#behandlungsdetails` : detailHref;
+
+  return {
+    bookingHref,
+    learnHref,
+    bookingLabel: locale === "en" ? "Book appointment" : "Termin buchen",
+    learnLabel: locale === "en" ? "Learn more" : "Mehr erfahren",
+  };
+}
+
+function TreatmentPricingCard({
+  section,
+  row,
+  locale,
+  canonical,
+}: {
+  section: PricingSection;
+  row: PricingRow;
+  locale: PricingLocale;
+  canonical: string;
+}) {
+  const actions = getCardActions(section, row, locale, canonical);
+  const className = "rounded-lg border border-primary/10 bg-white p-5 shadow-sm";
+
+  return (
+    <div className={className}>
+      <div className="flex min-h-[72px] flex-col justify-between gap-3">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primaryLighter/70">{section.title[locale]}</p>
+          <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
+        </div>
+        <p className="text-2xl font-semibold text-primaryLighter">{formatPrice(row.price, locale)}</p>
+      </div>
+
+      {row.packageOffer && (
+        <div className="mt-5 rounded-lg border border-tealColorDark/20 bg-tealColor/25 p-4">
+          <div className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-tealColorDark">
+            {row.packageOffer.badge?.[locale] ?? row.packageOffer.label[locale]}
+          </div>
+          <p className="mt-3 text-lg font-semibold text-primaryLighter">
+            {formatPackageOffer(row.packageOffer, locale)}
+          </p>
+        </div>
+      )}
+
+      <div className="mt-5 flex flex-col gap-3 border-t border-primary/10 pt-4 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between">
+        {actions.learnHref && (
+          <Link
+            href={actions.learnHref}
+            aria-label={`${row.label[locale]} ${actions.learnLabel}`}
+            className="inline-flex items-center gap-2 text-primaryLighter underline decoration-primaryLighter/25 underline-offset-4 transition hover:decoration-primaryLighter"
+          >
+            {actions.learnLabel}
+            <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        )}
+        {actions.bookingHref && (
+          <Link
+            href={actions.bookingHref}
+            aria-label={`${row.label[locale]} ${actions.bookingLabel}`}
+            className="inline-flex items-center justify-center rounded-lg bg-primaryLighter px-4 py-2 text-white transition hover:bg-tealColorDark"
+          >
+            {actions.bookingLabel}
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function TreatmentPricingBlock({
   canonical,
@@ -45,26 +127,7 @@ export default function TreatmentPricingBlock({
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
           {sections.flatMap((section) =>
             section.rows.map((row) => (
-              <div key={`${section.slug}-${row.slug}`} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
-                <div className="flex min-h-[72px] flex-col justify-between gap-3">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primaryLighter/70">{section.title[locale]}</p>
-                    <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
-                  </div>
-                  <p className="text-2xl font-semibold text-primaryLighter">{formatPrice(row.price, locale)}</p>
-                </div>
-
-                {row.packageOffer && (
-                  <div className="mt-5 rounded-lg border border-tealColorDark/20 bg-tealColor/25 p-4">
-                    <div className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-tealColorDark">
-                      {row.packageOffer.badge?.[locale] ?? row.packageOffer.label[locale]}
-                    </div>
-                    <p className="mt-3 text-lg font-semibold text-primaryLighter">
-                      {formatPackageOffer(row.packageOffer, locale)}
-                    </p>
-                  </div>
-                )}
-              </div>
+              <TreatmentPricingCard key={`${section.slug}-${row.slug}`} section={section} row={row} locale={locale} canonical={canonical} />
             )),
           )}
         </div>

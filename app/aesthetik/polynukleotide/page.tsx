@@ -1,19 +1,18 @@
 import { Metadata } from "next";
-import { AestheticMarkdownPage } from "app/components/AestheticMarkdownPage";
+import { LandingPage } from "app/components/PageTemplates";
+import { landingPages } from "app/components/pageContent";
 import { buildMetadata } from "app/components/pageMetadata";
-import { getAestheticSectionDescription, getAestheticSectionTitle } from "app/content/aesthetikSource";
 
-const title = getAestheticSectionTitle("skinbooster");
-const description = getAestheticSectionDescription("skinbooster");
+const content = landingPages.polynucleotidesDe;
 
 export const metadata: Metadata = buildMetadata({
-  title,
-  description,
-  canonical: "/aesthetik/polynukleotide",
-  alternate: "/en/aesthetics/polynucleotides",
-  locale: "de",
+  title: content.title,
+  description: content.description,
+  canonical: content.canonical,
+  alternate: content.alternate,
+  locale: content.locale,
 });
 
 export default function Page() {
-  return <AestheticMarkdownPage sectionKey="skinbooster" canonical="/aesthetik/polynukleotide" />;
+  return <LandingPage content={content} />;
 }

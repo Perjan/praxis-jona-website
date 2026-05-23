@@ -82,6 +82,24 @@ function stripBold(text: string) {
   return text.replace(/^\*\*(.*)\*\*$/, "$1");
 }
 
+function sectionId(text: string | undefined) {
+  if (!text) {
+    return undefined;
+  }
+
+  return text
+    .toLowerCase()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, "und")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 function parseMarkdown(markdown: string): MarkdownNode[] {
   const nodes: MarkdownNode[] = [];
   const lines = markdown.split("\n");
@@ -370,7 +388,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
           <h2 className="font-serif text-3xl font-semibold text-primary">{node.text}</h2>
           <div className="mt-8 space-y-4">
             {faqs.map((faq) => (
-              <details key={faq.question} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
+              <details id={sectionId(faq.question)} key={faq.question} className="scroll-mt-28 rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
                 <summary className="cursor-pointer font-serif text-lg font-semibold text-primary">{faq.question}</summary>
                 <div className="mt-4 space-y-3">{renderCompactNodes(faq.answer)}</div>
               </details>
@@ -383,7 +401,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
 
     if (node.type === "h2") {
       sections.push(
-        <MotionSection key={`heading-${sections.length}`} className="mx-auto max-w-5xl px-4 pt-14 sm:px-6 lg:px-8">
+        <MotionSection id={sectionId(node.text)} key={`heading-${sections.length}`} className="mx-auto max-w-5xl scroll-mt-28 px-4 pt-14 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl font-semibold text-primary">{node.text}</h2>
         </MotionSection>,
       );
@@ -396,7 +414,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
 
       if (nextContentNode?.type === "h3") {
         sections.push(
-          <MotionSection key={`heading-${sections.length}`} className="mx-auto max-w-5xl px-4 pt-14 sm:px-6 lg:px-8">
+          <MotionSection id={sectionId(node.text)} key={`heading-${sections.length}`} className="mx-auto max-w-5xl scroll-mt-28 px-4 pt-14 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl font-semibold text-primary">{node.text}</h2>
           </MotionSection>,
         );
@@ -406,7 +424,7 @@ function StructuredBody({ nodes }: { nodes: MarkdownNode[] }) {
 
       const result = takeUntilHeading(nodes, index + 1);
       sections.push(
-        <MotionCard key={`card-${sections.length}`} className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
+        <MotionCard id={sectionId(node.text)} key={`card-${sections.length}`} className="scroll-mt-28 rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
           <h2 className="font-serif text-2xl font-semibold text-primary">{node.text}</h2>
           <div className="mt-5 space-y-3">{renderCompactNodes(result.children)}</div>
         </MotionCard>,
@@ -501,7 +519,9 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
 
         <FactStrip sectionKey={sectionKey} />
         <TreatmentPricingBlock canonical={canonical} locale="de" />
-        <StructuredBody nodes={bodyNodes} />
+        <div id="behandlungsdetails" className="scroll-mt-28">
+          <StructuredBody nodes={bodyNodes} />
+        </div>
 
         <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl">

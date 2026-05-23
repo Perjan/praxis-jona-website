@@ -27,6 +27,20 @@ function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
+function sectionId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 const heroEyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
 type FactIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -308,10 +322,10 @@ export function LandingPage({ content }: { content: LandingContent }) {
 
         <TreatmentPricingBlock canonical={content.canonical} locale={content.locale} />
 
-        <div className="mx-auto max-w-7xl px-4 pb-8 sm:px-6 lg:px-8">
+        <div id="behandlungsdetails" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-8 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2">
             {content.sections.map((section, index) => (
-              <MotionCard key={section.title} delay={Math.min(index * 0.05, 0.16)} className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
+              <MotionCard id={sectionId(section.title)} key={section.title} delay={Math.min(index * 0.05, 0.16)} className="scroll-mt-28 rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
                 <h2 className="font-serif text-2xl font-semibold text-primary">{section.title}</h2>
                 <div className="mt-4 space-y-3">
                   {section.body.map((paragraph) => (

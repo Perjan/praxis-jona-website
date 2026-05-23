@@ -1,19 +1,19 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
-type MotionProps = {
+type MotionProps = HTMLAttributes<HTMLElement> & {
   children: ReactNode;
-  className?: string;
   delay?: number;
 };
 
-export function MotionSection({ children, className = "", delay = 0 }: MotionProps) {
+export function MotionSection({ children, className = "", delay = 0, ...props }: MotionProps) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.section
+      {...props}
       className={className}
       initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
@@ -25,11 +25,12 @@ export function MotionSection({ children, className = "", delay = 0 }: MotionPro
   );
 }
 
-export function MotionCard({ children, className = "", delay = 0 }: MotionProps) {
+export function MotionCard({ children, className = "", delay = 0, ...props }: MotionProps) {
   const reduceMotion = useReducedMotion();
 
   return (
     <motion.div
+      {...props}
       className={className}
       initial={reduceMotion ? false : { opacity: 0, y: 14 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
