@@ -26,6 +26,12 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
     { sectionKey: "prp", slug: "prp-gesicht-hals-und-dekollete", title: "PRP Gesicht, Hals & Dekolleté", href: "/aesthetik/prp-behandlung/prp-gesicht-hals-und-dekollete" },
     { sectionKey: "prp", slug: "vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling", title: "Vampire Lifting / PRP kombiniert mit medizinischem Microneedling", href: "/aesthetik/prp-behandlung/vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling" },
   ],
+  microneedling: [
+    { sectionKey: "microneedling", slug: "microneedling-gesicht", title: "Microneedling Gesicht", href: "/aesthetik/microneedling/microneedling-gesicht" },
+    { sectionKey: "microneedling", slug: "microneedling-gesicht-hals", title: "Microneedling Gesicht + Hals", href: "/aesthetik/microneedling/microneedling-gesicht-hals" },
+    { sectionKey: "microneedling", slug: "microneedling-gesicht-hals-dekollete", title: "Microneedling Gesicht + Hals + Dekolleté", href: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete" },
+    { sectionKey: "microneedling", slug: "microneedling-gesicht-exosome", title: "Microneedling Gesicht Exosome", href: "/aesthetik/microneedling/microneedling-gesicht-exosome" },
+  ],
 };
 
 const heroImages: Record<AestheticSectionKey, { src: string; alt: string; objectPositionClass?: string }> = {
@@ -98,6 +104,15 @@ const prpCommonSectionTitles = [
   "Was sollte ich nach der Behandlung beachten?",
   "Wann sind Ergebnisse sichtbar?",
   "Individuelle regenerative Behandlungskonzepte",
+];
+
+const microneedlingCommonSectionTitles = [
+  "Wie läuft die Behandlung ab?",
+  "Wie viele Sitzungen sind sinnvoll?",
+  "Optionale regenerative Wirkstoffkombinationen",
+  "Wann können zusätzliche regenerative Wirkstoffe sinnvoll sein?",
+  "Was sollte ich nach der Behandlung beachten?",
+  "Wann sind Ergebnisse sichtbar?",
 ];
 
 const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
@@ -428,8 +443,78 @@ function extractDetailNodes(nodes: MarkdownNode[], title: string) {
   return takeUntilRule(nodes, index + 1).children;
 }
 
-function detailSummary(nodes: MarkdownNode[], title: string) {
-  return extractDetailNodes(nodes, title).find(hasText)?.text ?? "";
+function extractSections(nodes: MarkdownNode[], titles: string[]) {
+  return titles.flatMap((title) => {
+    const section = extractTitledSection(nodes, title);
+
+    return section.length > 0 ? [{ type: "h3", text: title } as MarkdownNode, ...section] : [];
+  });
+}
+
+function pickListItems(nodes: MarkdownNode[], allowedItems: string[]) {
+  return nodes.map((node) => {
+    if (node.type !== "list") {
+      return node;
+    }
+
+    return { ...node, items: node.items.filter((item) => allowedItems.includes(item)) };
+  }).filter((node) => node.type !== "list" || node.items.length > 0);
+}
+
+function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
+  const introNodes = nodes.filter((node, index) => {
+    if (index === 0 || node.type === "h1") {
+      return false;
+    }
+
+    return index < nodes.findIndex((item) => item.type === "h3" && item.text === "Was ist medizinisches Microneedling?");
+  });
+  const basicSections = extractSections(nodes, [
+    "Was ist medizinisches Microneedling?",
+    "Für welche Hautprobleme kann Microneedling sinnvoll sein?",
+  ]);
+
+  if (slug === "microneedling-gesicht-exosome") {
+    return [
+      ...introNodes,
+      ...extractSections(nodes, [
+        "Was sind Exosome?",
+        "Welche Exosome verwenden wir?",
+        "Wann können Exosome sinnvoll sein?",
+        "Können Exosome mit anderen Behandlungen kombiniert werden?",
+      ]),
+    ];
+  }
+
+  const regionItemsBySlug: Record<string, string[]> = {
+    "microneedling-gesicht": ["Gesicht"],
+    "microneedling-gesicht-hals": ["Gesicht", "Hals"],
+    "microneedling-gesicht-hals-dekollete": ["Gesicht", "Hals", "Dekolleté"],
+  };
+  const regionNodes = pickListItems(
+    extractSections(nodes, ["Welche Regionen können behandelt werden?"]),
+    regionItemsBySlug[slug] ?? [],
+  );
+
+  return [...introNodes, ...basicSections, ...regionNodes];
+}
+
+function getDetailNodes(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], detailPage: AestheticDetailPage) {
+  if (sectionKey === "microneedling") {
+    return getMicroneedlingDetailNodes(nodes, detailPage.slug);
+  }
+
+  return extractDetailNodes(nodes, detailPage.title);
+}
+
+function detailSummary(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], detailPage: AestheticDetailPage) {
+  for (const node of getDetailNodes(sectionKey, nodes, detailPage)) {
+    if (hasText(node)) {
+      return node.text;
+    }
+  }
+
+  return "";
 }
 
 function extractFaqs(nodes: MarkdownNode[]) {
@@ -460,39 +545,67 @@ function extractFaqs(nodes: MarkdownNode[]) {
   return { title, items };
 }
 
-function formatPrpDetailPrice(slug: string) {
-  const row = pricingSections.prp.rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
+function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
+  const section = sectionKey === "microneedling" ? pricingSections.microneedling : pricingSections.prp;
+  const row = section.rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
   const amount = row?.price?.amount;
 
-  return amount ? `ab ${amount} €` : "ab 199 €";
+  return amount ? `ab ${amount} €` : sectionKey === "microneedling" ? "ab 249 €" : "ab 199 €";
 }
 
-function PrpDetailFacts({ slug }: { slug: string }) {
-  const facts = [
-    {
-      title: "Dauer",
-      icon: ClockIcon,
-      body: (
-        <>
-          Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
-        </>
-      ),
-    },
-    {
-      title: "Serie",
-      icon: SparklesIcon,
-      body: (
-        <>
-          Häufig zunächst <strong>3–4 Behandlungen</strong> im Abstand von etwa 3–4 Wochen.
-        </>
-      ),
-    },
-    {
-      title: "Preis",
-      icon: CreditCardIcon,
-      body: <strong>{formatPrpDetailPrice(slug)}</strong>,
-    },
-  ];
+function AestheticDetailFacts({ sectionKey, slug }: { sectionKey: AestheticSectionKey; slug: string }) {
+  const facts =
+    sectionKey === "microneedling"
+      ? [
+          {
+            title: "Dauer",
+            icon: ClockIcon,
+            body: (
+              <>
+                Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Sitzungen",
+            icon: SparklesIcon,
+            body: (
+              <>
+                Meist <strong>3–5 Sitzungen</strong> im Abstand von etwa 4–6 Wochen.
+              </>
+            ),
+          },
+          {
+            title: "Preis",
+            icon: CreditCardIcon,
+            body: <strong>{formatDetailPrice(sectionKey, slug)}</strong>,
+          },
+        ]
+      : [
+          {
+            title: "Dauer",
+            icon: ClockIcon,
+            body: (
+              <>
+                Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
+              </>
+            ),
+          },
+          {
+            title: "Serie",
+            icon: SparklesIcon,
+            body: (
+              <>
+                Häufig zunächst <strong>3–4 Behandlungen</strong> im Abstand von etwa 3–4 Wochen.
+              </>
+            ),
+          },
+          {
+            title: "Preis",
+            icon: CreditCardIcon,
+            body: <strong>{formatDetailPrice(sectionKey, slug)}</strong>,
+          },
+        ];
 
   return (
     <MotionSection className="relative z-20 -mt-[50px] px-4 pb-10 sm:px-6 lg:px-8">
@@ -521,8 +634,9 @@ function PrpDetailFacts({ slug }: { slug: string }) {
   );
 }
 
-function PrpCommonSections({ nodes }: { nodes: MarkdownNode[] }) {
-  const sections = prpCommonSectionTitles
+function AestheticCommonSections({ sectionKey, nodes }: { sectionKey: AestheticSectionKey; nodes: MarkdownNode[] }) {
+  const commonSectionTitles = sectionKey === "microneedling" ? microneedlingCommonSectionTitles : prpCommonSectionTitles;
+  const sections = commonSectionTitles
     .map((title) => ({ title, nodes: extractTitledSection(nodes, title) }))
     .filter((section) => section.nodes.length > 0);
 
@@ -542,7 +656,7 @@ function PrpCommonSections({ nodes }: { nodes: MarkdownNode[] }) {
   );
 }
 
-function PrpFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
+function AestheticFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
   const faq = extractFaqs(nodes);
 
   if (faq.items.length === 0) {
@@ -568,7 +682,7 @@ function PrpFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
 
 function StructuredBody({ nodes, sectionKey }: { nodes: MarkdownNode[]; sectionKey: AestheticSectionKey }) {
   const sections: JSX.Element[] = [];
-  const detailHrefByTitle = getDetailHrefByTitle(sectionKey);
+  const detailHrefByTitle = sectionKey === "prp" ? getDetailHrefByTitle(sectionKey) : {};
   let index = 0;
 
   while (index < nodes.length) {
@@ -802,7 +916,7 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
   const markdown = getAestheticSectionMarkdown(sectionKey);
   const nodes = parseMarkdown(markdown);
   const parentTitle = getAestheticSectionTitle(sectionKey);
-  const detailNodes = extractDetailNodes(nodes, detailPage.title);
+  const detailNodes = getDetailNodes(sectionKey, nodes, detailPage);
   const descriptionNode = detailNodes.find(hasText);
   const description = descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
   const siblings = getAestheticDetailPages(sectionKey).filter((page) => page.slug !== slug);
@@ -846,19 +960,21 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
           </div>
         </MotionSection>
 
-        <PrpDetailFacts slug={slug} />
-        <PrpCommonSections nodes={nodes} />
-        <PrpFaqSection nodes={nodes} />
+        <AestheticDetailFacts sectionKey={sectionKey} slug={slug} />
+        <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />
+        <AestheticFaqSection nodes={nodes} />
 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
-            <h2 className="font-serif text-3xl font-semibold text-primary">Weitere PRP-Behandlungen</h2>
+            <h2 className="font-serif text-3xl font-semibold text-primary">
+              {sectionKey === "microneedling" ? "Weitere Microneedling-Themen" : "Weitere PRP-Behandlungen"}
+            </h2>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {siblings.map((item, index) => (
                 <Link key={item.href} href={item.href} className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-primary/10 transition hover:shadow-md">
                   <MotionCard delay={Math.min(index * 0.04, 0.2)} className="h-full">
                     <h3 className="font-serif text-xl font-semibold text-primary">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-primaryLighter">{detailSummary(nodes, item.title)}</p>
+                    <p className="mt-3 text-sm leading-6 text-primaryLighter">{detailSummary(sectionKey, nodes, item)}</p>
                     <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
                   </MotionCard>
                 </Link>

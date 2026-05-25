@@ -131,6 +131,9 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
     if (normalizedPathname.startsWith("/aesthetik/prp-behandlung/")) {
       return "/en/aesthetics/prp-treatment";
     }
+    if (normalizedPathname.startsWith("/aesthetik/microneedling/")) {
+      return "/en/aesthetics/microneedling";
+    }
     return deToEnRouteMap[normalizedPathname] ?? "/en";
   }
 
