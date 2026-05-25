@@ -160,6 +160,23 @@ function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["hero
   );
 }
 
+function LandingHeroImage({ image, className = "" }: { image: NonNullable<LandingContent["heroImage"]>; className?: string }) {
+  return (
+    <div className={`relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10 ${className}`}>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={900}
+        height={720}
+        priority
+        sizes="(min-width: 1024px) 36vw, 92vw"
+        className={`h-64 w-full object-cover sm:h-80 lg:h-72 ${image.objectPositionClass ?? "object-center"}`}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/20" />
+    </div>
+  );
+}
+
 export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
   const hasVignetteHero = content.heroImage?.presentation === "vignette";
 
@@ -301,6 +318,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
               <p className={heroEyebrowClassName}>{content.eyebrow}</p>
               <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
               <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.intro}</p>
+              {content.heroImage && <LandingHeroImage image={content.heroImage} className="mt-8 lg:hidden" />}
               <CtaButtons
                 primary={content.cta}
                 primaryHref={bookingHref}
@@ -311,20 +329,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
               />
             </div>
             <div className="space-y-5">
-              {content.heroImage && (
-                <div className="relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10">
-                  <Image
-                    src={content.heroImage.src}
-                    alt={content.heroImage.alt}
-                    width={900}
-                    height={720}
-                    priority
-                    sizes="(min-width: 1024px) 36vw, 92vw"
-                    className={`h-64 w-full object-cover sm:h-80 lg:h-72 ${content.heroImage.objectPositionClass ?? "object-center"}`}
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/20" />
-                </div>
-              )}
+              {content.heroImage && <LandingHeroImage image={content.heroImage} className="hidden lg:block" />}
               <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
                 <dl className="space-y-8">
                   {content.facts.map((fact) => {

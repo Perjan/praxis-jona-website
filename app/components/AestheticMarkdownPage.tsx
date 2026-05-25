@@ -253,11 +253,11 @@ function CtaButtons({ sectionKey }: { sectionKey: AestheticSectionKey }) {
   );
 }
 
-function HeroImage({ sectionKey }: { sectionKey: AestheticSectionKey }) {
+function HeroImage({ sectionKey, className = "" }: { sectionKey: AestheticSectionKey; className?: string }) {
   const image = heroImages[sectionKey];
 
   return (
-    <div className="relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10">
+    <div className={`relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10 ${className}`}>
       <Image
         src={image.src}
         alt={image.alt}
@@ -832,6 +832,8 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
   const nodes = parseMarkdown(markdown);
   const title = getAestheticSectionTitle(sectionKey);
   const heroNodes = nodes.filter((node) => node.type !== "h1").slice(0, 2);
+  const mobileHeroLeadNodes = heroNodes.slice(0, 1);
+  const mobileHeroBodyNodes = heroNodes.slice(1);
   const bodyNodes = nodes.filter((node) => node.type !== "h1").slice(2);
   const descriptionNode = nodes.filter(hasText).find((node) => node.type === "h3" || node.type === "p");
   const description = descriptionNode?.text ?? title;
@@ -861,12 +863,19 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Ästhetik</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{title}</h1>
-            <div className="mt-6">
+            <div className="mt-6 hidden lg:block">
               <RenderNodes nodes={heroNodes} />
+            </div>
+            <div className="mt-6 lg:hidden">
+              <RenderNodes nodes={mobileHeroLeadNodes} />
+              <HeroImage sectionKey={sectionKey} className="mt-8" />
+              <div className="mt-8">
+                <RenderNodes nodes={mobileHeroBodyNodes} />
+              </div>
             </div>
             <CtaButtons sectionKey={sectionKey} />
           </div>
-          <HeroImage sectionKey={sectionKey} />
+          <HeroImage sectionKey={sectionKey} className="hidden lg:block" />
         </MotionSection>
 
         <FactStrip sectionKey={sectionKey} />
@@ -992,16 +1001,27 @@ export function AestheticMarkdownHub() {
   const nodes = parseMarkdown(markdown);
   const subpageIndex = nodes.findIndex((node) => node.type === "h2" && node.text === "Subpages");
   const introNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  const mobileLeadNodes = introNodes.slice(0, 2);
+  const mobileBodyNodes = introNodes.slice(2);
 
   return (
     <div className="overflow-hidden bg-white">
       <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-center lg:px-8 lg:py-24">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Haut, Mimik & Regeneration</p>
-          <RenderNodes nodes={introNodes} />
+          <div className="hidden lg:block">
+            <RenderNodes nodes={introNodes} />
+          </div>
+          <div className="lg:hidden">
+            <RenderNodes nodes={mobileLeadNodes} />
+            <HeroImage sectionKey="hub" className="mt-8" />
+            <div className="mt-8">
+              <RenderNodes nodes={mobileBodyNodes} />
+            </div>
+          </div>
           <CtaButtons sectionKey="hub" />
         </div>
-        <HeroImage sectionKey="hub" />
+        <HeroImage sectionKey="hub" className="hidden lg:block" />
       </MotionSection>
 
       <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
