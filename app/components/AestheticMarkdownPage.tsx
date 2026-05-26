@@ -36,7 +36,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/vampirelift-medizinisches-microneedling-gesicht",
       description: [
         "Bei dieser Behandlung wird medizinisches Microneedling im Gesicht mit PRP / Eigenblut kombiniert, um die Hautregeneration intensiver zu unterstützen.",
-        "Sie zahlen für eine kombinierte regenerative Gesichtsbehandlung: zuerst werden feine Mikrokanäle gesetzt, anschließend wird aufbereitetes Eigenblut in die Haut eingearbeitet.",
+        "Die Kombination verbindet die strukturverbessernde Wirkung der Mikrokanäle mit den regenerativen Bestandteilen des Eigenbluts und eignet sich besonders, wenn die Haut frischer, gleichmäßiger und erholter wirken soll.",
       ],
     },
     {
@@ -46,7 +46,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/microneedling-gesicht",
       description: [
         "Medizinisches Microneedling im Gesicht unterstützt die Hauterneuerung und kann bei Poren, feinen Linien, fahlem Hautbild oder ausgewählten Narben sinnvoll sein.",
-        "Sie buchen eine Behandlung des Gesichts mit Dermapen®-Technologie, bei der kontrollierte Mikrokanäle die natürlichen Reparaturprozesse der Haut anregen sollen.",
+        "Ziel ist ein feineres, glatteres Hautbild mit mehr Frische, ohne die natürliche Mimik oder Gesichtszüge zu verändern.",
       ],
     },
     {
@@ -56,7 +56,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/microneedling-gesicht-hals",
       description: [
         "Diese Behandlung umfasst Gesicht und Hals, wenn Hautstruktur, Elastizität und Hautqualität in beiden Bereichen gemeinsam verbessert werden sollen.",
-        "Sie zahlen für ein erweitertes Areal: Neben dem Gesicht wird auch der Hals behandelt, damit der Übergang zwischen Gesicht und Hals harmonischer wirkt.",
+        "Das ist sinnvoll, wenn nicht nur das Gesicht, sondern auch der Hals Zeichen von Trockenheit, feinen Linien oder nachlassender Spannkraft zeigt.",
       ],
     },
     {
@@ -66,7 +66,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete",
       description: [
         "Diese größere Microneedling-Behandlung umfasst Gesicht, Hals und Dekolleté für ein einheitlicheres Hautbild in den häufig sichtbaren Hautarealen.",
-        "Sie buchen die umfangreichste Flächenbehandlung in dieser Gruppe, wenn nicht nur das Gesicht, sondern auch Hals und Ausschnitt mitbehandelt werden sollen.",
+        "So können die drei sichtbaren Hautzonen gemeinsam behandelt werden, damit Hautstruktur, Frische und Übergänge harmonischer zusammenpassen.",
       ],
     },
     {
@@ -76,7 +76,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/microneedling-face-nctf",
       description: [
         "Bei Microneedling FACE + NCTF wird das Gesicht behandelt und zusätzlich ein regenerativer NCTF®-Wirkstoffkomplex in die Haut eingebracht.",
-        "Sie zahlen für eine Microneedling-Gesichtsbehandlung mit zusätzlichem Wirkstoff-Boost, der vor allem Hautfeuchtigkeit, Frische und Hautqualität unterstützen soll.",
+        "Diese Kombination passt besonders zu feuchtigkeitsarmer, müder oder gestresster Haut, wenn neben Struktur auch Glow und Hautqualität unterstützt werden sollen.",
       ],
     },
     {
@@ -86,7 +86,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       href: "/aesthetik/microneedling/microneedling-gesicht-exosome",
       description: [
         "Bei dieser Behandlung wird medizinisches Microneedling im Gesicht mit Exosomen kombiniert, um die Regeneration und Hautqualität zusätzlich zu unterstützen.",
-        "Sie buchen eine Gesichtsbehandlung mit Dermapen® und ergänzenden Exosomen, die über die Mikrokanäle in die Haut eingebracht werden.",
+        "Der Fokus liegt auf intensiver Regeneration: Die Exosomen ergänzen das Microneedling, wenn die Haut mehr Unterstützung bei Erholung, Elastizität und ebenmäßigerer Struktur braucht.",
       ],
     },
   ],
@@ -583,14 +583,19 @@ const microneedlingVampireliftNodes: MarkdownNode[] = [
   },
 ];
 
-function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
-  const introNodes = nodes.filter((node, index) => {
+function getMicroneedlingIntroNodes(nodes: MarkdownNode[]) {
+  const firstSectionIndex = nodes.findIndex((item) => item.type === "h3" && item.text === "Was ist medizinisches Microneedling?");
+
+  return nodes.filter((node, index) => {
     if (index === 0 || node.type === "h1") {
       return false;
     }
 
-    return index < nodes.findIndex((item) => item.type === "h3" && item.text === "Was ist medizinisches Microneedling?");
+    return firstSectionIndex < 0 ? true : index < firstSectionIndex;
   });
+}
+
+function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
   const basicSections = extractSections(nodes, [
     "Was ist medizinisches Microneedling?",
     "Für welche Hautprobleme kann Microneedling sinnvoll sein?",
@@ -598,7 +603,6 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
 
   if (slug === "vampirelift-medizinisches-microneedling-gesicht") {
     return [
-      ...introNodes,
       ...microneedlingVampireliftNodes,
       ...basicSections,
       ...extractSections(nodes, ["Wie läuft die Behandlung ab?", "Wie viele Sitzungen sind sinnvoll?", "Was sollte ich nach der Behandlung beachten?"]),
@@ -607,7 +611,6 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
 
   if (slug === "microneedling-face-nctf") {
     return [
-      ...introNodes,
       ...microneedlingNctfNodes,
       ...basicSections,
       ...extractSections(nodes, [
@@ -620,7 +623,6 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
 
   if (slug === "microneedling-gesicht-exosome") {
     return [
-      ...introNodes,
       ...extractSections(nodes, [
         "Was sind Exosome?",
         "Welche Exosome verwenden wir?",
@@ -640,7 +642,7 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
     regionItemsBySlug[slug] ?? [],
   );
 
-  return [...introNodes, ...basicSections, ...regionNodes];
+  return [...basicSections, ...regionNodes];
 }
 
 function getDetailNodes(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], detailPage: AestheticDetailPage) {
@@ -776,6 +778,16 @@ function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = 
       </div>
     </MotionSection>
   );
+}
+
+function MicroneedlingIntroBlock({ nodes }: { nodes: MarkdownNode[] }) {
+  const introNodes = getMicroneedlingIntroNodes(nodes);
+
+  if (introNodes.length === 0) {
+    return null;
+  }
+
+  return <ParagraphNodes nodes={introNodes} />;
 }
 
 function AestheticCommonSections({ sectionKey, nodes }: { sectionKey: AestheticSectionKey; nodes: MarkdownNode[] }) {
@@ -1124,9 +1136,11 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
               )}
               <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 px-0 pb-8 sm:px-0 lg:hidden" overlapHero={false} />
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
+              {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
               <ParagraphNodes nodes={detailNodes} />
             </div>
             <div className="mt-6 hidden lg:block">
+              {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
               <ParagraphNodes nodes={detailNodes} />
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
             </div>
