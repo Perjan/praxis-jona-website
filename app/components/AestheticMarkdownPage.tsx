@@ -787,7 +787,25 @@ function MicroneedlingIntroBlock({ nodes }: { nodes: MarkdownNode[] }) {
     return null;
   }
 
-  return <ParagraphNodes nodes={introNodes} />;
+  const heading = introNodes.find((node) => node.type === "h3" || node.type === "h2");
+  const paragraphs = introNodes.filter((node) => node.type === "p");
+
+  return (
+    <MotionSection className="bg-tealColor px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.4fr] lg:items-start lg:gap-16">
+        {heading && (
+          <h2 className="font-serif text-3xl font-semibold leading-tight text-primaryLighter sm:text-4xl lg:max-w-xl">
+            {heading.text}
+          </h2>
+        )}
+        <div className="max-w-3xl space-y-5 text-lg leading-8 text-primaryLighter">
+          {paragraphs.map((paragraph) => (
+            <p key={paragraph.text}>{paragraph.text}</p>
+          ))}
+        </div>
+      </div>
+    </MotionSection>
+  );
 }
 
 function AestheticCommonSections({ sectionKey, nodes }: { sectionKey: AestheticSectionKey; nodes: MarkdownNode[] }) {
@@ -1136,12 +1154,10 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
               )}
               <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 px-0 pb-8 sm:px-0 lg:hidden" overlapHero={false} />
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
-              {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
-              <ParagraphNodes nodes={detailNodes} />
+              {sectionKey !== "microneedling" && <ParagraphNodes nodes={detailNodes} />}
             </div>
             <div className="mt-6 hidden lg:block">
-              {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
-              <ParagraphNodes nodes={detailNodes} />
+              {sectionKey !== "microneedling" && <ParagraphNodes nodes={detailNodes} />}
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
             </div>
           </div>
@@ -1151,6 +1167,12 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
         </MotionSection>
 
         <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="hidden lg:block" />
+        {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
+        {sectionKey === "microneedling" && (
+          <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+            <ParagraphNodes nodes={detailNodes} />
+          </MotionSection>
+        )}
         <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />
         <AestheticFaqSection nodes={nodes} />
 
