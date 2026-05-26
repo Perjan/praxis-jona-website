@@ -787,8 +787,9 @@ function MicroneedlingIntroBlock({ nodes }: { nodes: MarkdownNode[] }) {
     return null;
   }
 
-  const heading = introNodes.find((node) => node.type === "h3" || node.type === "h2");
-  const paragraphs = introNodes.filter((node) => node.type === "p");
+  const textNodes = introNodes.filter(hasText);
+  const heading = textNodes.find((node) => node.type === "h3" || node.type === "h2");
+  const paragraphs = textNodes.filter((node) => node.type === "p");
 
   return (
     <MotionSection className="bg-tealColor px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
