@@ -28,9 +28,11 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
     { sectionKey: "prp", slug: "vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling", title: "Vampire Lifting / PRP kombiniert mit medizinischem Microneedling", href: "/aesthetik/prp-behandlung/vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling" },
   ],
   microneedling: [
+    { sectionKey: "microneedling", slug: "vampirelift-medizinisches-microneedling-gesicht", title: "Vampirelift + med. Microneedling Gesicht", href: "/aesthetik/microneedling/vampirelift-medizinisches-microneedling-gesicht" },
     { sectionKey: "microneedling", slug: "microneedling-gesicht", title: "Microneedling Gesicht", href: "/aesthetik/microneedling/microneedling-gesicht" },
     { sectionKey: "microneedling", slug: "microneedling-gesicht-hals", title: "Microneedling Gesicht + Hals", href: "/aesthetik/microneedling/microneedling-gesicht-hals" },
     { sectionKey: "microneedling", slug: "microneedling-gesicht-hals-dekollete", title: "Microneedling Gesicht + Hals + Dekolleté", href: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete" },
+    { sectionKey: "microneedling", slug: "microneedling-face-nctf", title: "Microneedling FACE + NCTF", href: "/aesthetik/microneedling/microneedling-face-nctf" },
     { sectionKey: "microneedling", slug: "microneedling-gesicht-exosome", title: "Microneedling Gesicht Exosome", href: "/aesthetik/microneedling/microneedling-gesicht-exosome" },
   ],
 };
@@ -494,6 +496,38 @@ function pickListItems(nodes: MarkdownNode[], allowedItems: string[]) {
   }).filter((node) => node.type !== "list" || node.items.length > 0);
 }
 
+const microneedlingNctfNodes: MarkdownNode[] = [
+  { type: "h3", text: "Microneedling FACE + NCTF" },
+  {
+    type: "p",
+    text: "Bei dieser Behandlung wird medizinisches Microneedling im Gesicht mit NCTF® 135 HA kombiniert. Die Mikrokanäle des Microneedlings ermöglichen das gezielte Einbringen des regenerativen Wirkstoffkomplexes in die Haut.",
+  },
+  {
+    type: "list",
+    items: ["feuchtigkeitsarme oder gestresste Haut", "fahler Teint", "feine Linien", "ungleichmäßiges Hautbild", "Wunsch nach intensiverer Hautqualität"],
+  },
+  {
+    type: "p",
+    text: "NCTF® 135 HA kombiniert Hyaluronsäure mit Vitaminen, Aminosäuren, Coenzymen und Antioxidantien. Ob die Kombination sinnvoll ist, wird nach Hautbild und Behandlungsziel individuell festgelegt.",
+  },
+];
+
+const microneedlingVampireliftNodes: MarkdownNode[] = [
+  { type: "h3", text: "Vampirelift + med. Microneedling Gesicht" },
+  {
+    type: "p",
+    text: "Beim Vampirelift wird PRP / Eigenbluttherapie mit medizinischem Microneedling im Gesicht kombiniert. Das PRP wird dabei während der Behandlung gleichmäßig in die Haut eingearbeitet.",
+  },
+  {
+    type: "p",
+    text: "Die Kombination kann sinnvoll sein, wenn neben Hautstruktur und Kollagenaufbau auch regenerative Eigenblutbestandteile gezielt genutzt werden sollen.",
+  },
+  {
+    type: "list",
+    items: ["müder oder fahler Haut", "feinen Linien", "unruhigem Hautbild", "Aknenarben oder anderen Narben", "Wunsch nach intensiver Regeneration"],
+  },
+];
+
 function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
   const introNodes = nodes.filter((node, index) => {
     if (index === 0 || node.type === "h1") {
@@ -506,6 +540,28 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
     "Was ist medizinisches Microneedling?",
     "Für welche Hautprobleme kann Microneedling sinnvoll sein?",
   ]);
+
+  if (slug === "vampirelift-medizinisches-microneedling-gesicht") {
+    return [
+      ...introNodes,
+      ...microneedlingVampireliftNodes,
+      ...basicSections,
+      ...extractSections(nodes, ["Wie läuft die Behandlung ab?", "Wie viele Sitzungen sind sinnvoll?", "Was sollte ich nach der Behandlung beachten?"]),
+    ];
+  }
+
+  if (slug === "microneedling-face-nctf") {
+    return [
+      ...introNodes,
+      ...microneedlingNctfNodes,
+      ...basicSections,
+      ...extractSections(nodes, [
+        "Optionale regenerative Wirkstoffkombinationen",
+        "Wann können zusätzliche regenerative Wirkstoffe sinnvoll sein?",
+        "Was sollte ich nach der Behandlung beachten?",
+      ]),
+    ];
+  }
 
   if (slug === "microneedling-gesicht-exosome") {
     return [

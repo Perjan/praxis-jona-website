@@ -44,7 +44,7 @@ function buildDoctolibBookingUrl(insuranceSector: AppointmentInsuranceSector, ta
     params.append("speciality_ids[]", "1302");
 
     if (target.motiveCategoryId) {
-        params.append("motiveCategoryIds[]", target.motiveCategoryId);
+        params.append("visit_motive_category_ids[]", target.motiveCategoryId);
     }
 
     if (target.motiveId) {
@@ -81,10 +81,12 @@ const appointmentMotiveIds = {
     vampireLifting: "16017755",
     hairMicroneedling: "",
     hairPrp: "",
-    microneedlingFace: "",
-    microneedlingFaceNeck: "",
-    microneedlingFaceNeckDecollete: "",
-    microneedlingFaceExosomes: "",
+    microneedlingVampirelift: "16017774",
+    microneedlingFace: "16017767",
+    microneedlingFaceNeck: "16017768",
+    microneedlingFaceNeckDecollete: "16017769",
+    microneedlingFaceNctf: "16017773",
+    microneedlingFaceExosomes: "16017771",
     botulinumtoxinConsultation: "",
     botulinumtoxinFrownLines: "",
     botulinumtoxinForehead: "",
@@ -136,9 +138,11 @@ export const Constants = {
         hairMicroneedling: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.hairTherapy, motiveId: appointmentMotiveIds.hairMicroneedling, selfPay: true }),
         hairPrp: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.hairTherapy, motiveId: appointmentMotiveIds.hairPrp, selfPay: true }),
         microneedling: buildAppointmentUrls(appointmentCategoryIds.microneedling, true),
+        microneedlingVampirelift: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingVampirelift, selfPay: true }),
         microneedlingFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFace, selfPay: true }),
         microneedlingFaceNeck: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNeck, selfPay: true }),
         microneedlingFaceNeckDecollete: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNeckDecollete, selfPay: true }),
+        microneedlingFaceNctf: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNctf, selfPay: true }),
         microneedlingFaceExosomes: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceExosomes, selfPay: true }),
         botulinumtoxin: buildAppointmentUrls(appointmentCategoryIds.botulinumtoxin, true),
         botulinumtoxinConsultation: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinConsultation, selfPay: true }),
