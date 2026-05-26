@@ -90,6 +90,28 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       ],
     },
   ],
+  hair: [
+    {
+      sectionKey: "hair",
+      slug: "microneedling-haare",
+      title: "Microneedling Haare",
+      href: "/leistungen/haarausfall-berlin-mitte/microneedling-haare",
+      description: [
+        "Medizinisches Microneedling der Kopfhaut erzeugt kontrollierte Mikrokanäle, um regenerative Prozesse der Kopfhaut zu unterstützen.",
+        "Die Behandlung kann sinnvoll sein, wenn die Kopfhaut gestärkt, die Haarqualität unterstützt oder regenerative Wirkstoffkomplexe gezielt eingebracht werden sollen.",
+      ],
+    },
+    {
+      sectionKey: "hair",
+      slug: "prp-haare",
+      title: "PRP Haare",
+      href: "/leistungen/haarausfall-berlin-mitte/prp-haare",
+      description: [
+        "Bei PRP Haare wird körpereigenes plättchenreiches Plasma gezielt in die Kopfhaut eingebracht.",
+        "Die enthaltenen Wachstumsfaktoren können regenerative Prozesse der Haarfollikel unterstützen und die Kopfhaut stimulieren.",
+      ],
+    },
+  ],
 };
 
 const heroImages: Record<AestheticSectionKey, { src: string; alt: string; objectPositionClass?: string }> = {
@@ -493,6 +515,7 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
   const detailHrefBySection = {
     prp: "/aesthetik/prp-behandlung",
     microneedling: "/aesthetik/microneedling",
+    hair: "/leistungen/haarausfall-berlin-mitte",
   } satisfies Partial<Record<AestheticSectionKey, string>>;
   const detailHrefPrefix = detailHrefBySection[sectionKey];
 
@@ -503,6 +526,7 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
   const sectionsByKey: Partial<Record<AestheticSectionKey, PricingSection>> = {
     prp: pricingSections.prp,
     microneedling: pricingSections.microneedling,
+    hair: pricingSections.hairTherapy,
   };
 
   const detailHref = `${detailHrefPrefix}/${detailPage.slug}`;
@@ -514,7 +538,7 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
 }
 
 function extractTitledSection(nodes: MarkdownNode[], title: string) {
-  const index = nodes.findIndex((node) => node.type === "h3" && node.text === title);
+  const index = nodes.findIndex((node) => (node.type === "h2" || node.type === "h3") && node.text === title);
 
   if (index < 0) {
     return [];
@@ -524,7 +548,7 @@ function extractTitledSection(nodes: MarkdownNode[], title: string) {
 }
 
 function extractDetailNodes(nodes: MarkdownNode[], title: string) {
-  const index = nodes.findIndex((node) => node.type === "h3" && node.text === title);
+  const index = nodes.findIndex((node) => (node.type === "h2" || node.type === "h3") && node.text === title);
 
   if (index < 0) {
     return [];
@@ -645,9 +669,45 @@ function getMicroneedlingDetailNodes(nodes: MarkdownNode[], slug: string) {
   return [...basicSections, ...regionNodes];
 }
 
+function getHairDetailNodes(nodes: MarkdownNode[], slug: string) {
+  if (slug === "prp-haare") {
+    return [
+      { type: "h3", text: "PRP bei Haarausfall / Eigenbluttherapie der Kopfhaut" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "PRP bei Haarausfall / Eigenbluttherapie der Kopfhaut"),
+      ...extractSections(nodes, [
+        "Wie läuft die PRP-Haartherapie ab?",
+        "Wie viele PRP-Behandlungen sind sinnvoll?",
+        "PRP nach Haartransplantationen",
+        "Medizinische Diagnostik bei Haarausfall",
+        "Mikronährstofftherapie & Infusionstherapie",
+      ]),
+    ];
+  }
+
+  if (slug === "microneedling-haare") {
+    return [
+      { type: "h3", text: "Medizinisches Microneedling der Kopfhaut bei Haarausfall" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "Medizinisches Microneedling der Kopfhaut bei Haarausfall"),
+      ...extractSections(nodes, [
+        "Microneedling nach Haartransplantation",
+        "Exosome & regenerative Wirkstoffkomplexe",
+        "Polynukleotide / PhilArt Hair®",
+        "Medizinische Diagnostik bei Haarausfall",
+        "Mikronährstofftherapie & Infusionstherapie",
+      ]),
+    ];
+  }
+
+  return [];
+}
+
 function getDetailNodes(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], detailPage: AestheticDetailPage) {
   if (sectionKey === "microneedling") {
     return getMicroneedlingDetailNodes(nodes, detailPage.slug);
+  }
+
+  if (sectionKey === "hair") {
+    return getHairDetailNodes(nodes, detailPage.slug);
   }
 
   return extractDetailNodes(nodes, detailPage.title);
@@ -692,16 +752,21 @@ function extractFaqs(nodes: MarkdownNode[]) {
 }
 
 function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
-  const section = sectionKey === "microneedling" ? pricingSections.microneedling : pricingSections.prp;
-  const row = section.rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
+  const sectionsByKey: Partial<Record<AestheticSectionKey, PricingSection>> = {
+    prp: pricingSections.prp,
+    microneedling: pricingSections.microneedling,
+    hair: pricingSections.hairTherapy,
+  };
+  const rows = ((sectionsByKey[sectionKey] ?? pricingSections.prp) as PricingSection).rows;
+  const row = rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
   const amount = row?.price?.amount;
 
-  return amount ? `ab ${amount} €` : sectionKey === "microneedling" ? "ab 249 €" : "ab 199 €";
+  return amount ? `ab ${amount} €` : sectionKey === "prp" ? "ab 199 €" : "ab 249 €";
 }
 
 function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = true }: { sectionKey: AestheticSectionKey; slug: string; className?: string; overlapHero?: boolean }) {
   const facts =
-    sectionKey === "microneedling"
+    sectionKey === "microneedling" || sectionKey === "hair"
       ? [
           {
             title: "Dauer",
@@ -717,7 +782,7 @@ function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = 
             icon: SparklesIcon,
             body: (
               <>
-                Meist <strong>3–5 Sitzungen</strong> im Abstand von etwa 4–6 Wochen.
+                Meist <strong>{sectionKey === "hair" && slug === "microneedling-haare" ? "4–6 Sitzungen" : sectionKey === "hair" ? "3–4 Sitzungen" : "3–5 Sitzungen"}</strong> im Abstand von etwa 4–6 Wochen.
               </>
             ),
           },
