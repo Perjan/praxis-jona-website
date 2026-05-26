@@ -63,6 +63,34 @@ function isAestheticBookingPath(pathname: string) {
     )
 }
 
+function bookingUrlsForPath(pathname: string) {
+    if (pathname.startsWith("/botox-behandlung") || pathname.startsWith("/en/botox-treatment")) {
+        return Constants.appointmentUrlsByService.botulinumtoxin
+    }
+
+    if (pathname.startsWith("/aesthetik/prp-behandlung") || pathname.startsWith("/en/aesthetics/prp-treatment")) {
+        return Constants.appointmentUrlsByService.prp
+    }
+
+    if (pathname.startsWith("/aesthetik/microneedling") || pathname.startsWith("/en/aesthetics/microneedling")) {
+        return Constants.appointmentUrlsByService.microneedling
+    }
+
+    if (pathname.startsWith("/leistungen/haarausfall-berlin-mitte") || pathname.startsWith("/en/services/hair-loss-berlin-mitte") || pathname.startsWith("/leistungen/prp-haarausfall") || pathname.startsWith("/en/services/prp-hair-loss")) {
+        return Constants.appointmentUrlsByService.hairTherapy
+    }
+
+    if (pathname.startsWith("/aesthetik/polynukleotide") || pathname.startsWith("/en/aesthetics/polynucleotides") || pathname.startsWith("/aesthetik/hautbild-verbessern") || pathname.startsWith("/en/aesthetics/improve-skin-quality")) {
+        return Constants.appointmentUrlsByService.skinbooster
+    }
+
+    if (pathname.startsWith("/aesthetik") || pathname.startsWith("/en/aesthetics")) {
+        return Constants.appointmentUrls
+    }
+
+    return undefined
+}
+
 export function DownloadButton({ url, locale, pathname }) {
     const className = "block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif font-semibold leading-7 text-white hover:bg-primaryDarker"
 
@@ -70,6 +98,7 @@ export function DownloadButton({ url, locale, pathname }) {
         return (
             <AppointmentBookingButton
                 locale={locale === "en" ? "en" : "de"}
+                urls={bookingUrlsForPath(pathname)}
                 className={className}
                 ariaLabel={bookAppointmentTitle(locale)}
             >

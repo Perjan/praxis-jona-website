@@ -3,11 +3,7 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
 import { Constants } from "app/Constants";
-
-type AppointmentBookingUrls = {
-  private: string;
-  public: string;
-};
+import type { AppointmentBookingUrls } from "app/Constants";
 
 export type AppointmentBookingCopy = {
   title: string;

@@ -1,5 +1,6 @@
 "use client";
 
+import { Constants } from "app/Constants";
 import { pricingSections } from "app/components/pricing/pricingData";
 import AppointmentBookingButton, { defaultAppointmentBookingCopy } from "./AppointmentBookingButton";
 
@@ -69,6 +70,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     {/* Booking button */}
                     <AppointmentBookingButton
                         locale={isEnglish ? "en" : "de"}
+                        urls={Constants.appointmentUrlsByService.botulinumtoxin}
                         copy={{
                             ...bookingCopy,
                             description: isEnglish
@@ -146,6 +148,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
             <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 z-50">
                 <AppointmentBookingButton
                     locale={isEnglish ? "en" : "de"}
+                    urls={Constants.appointmentUrlsByService.botulinumtoxin}
                     copy={{
                         ...bookingCopy,
                         description: isEnglish

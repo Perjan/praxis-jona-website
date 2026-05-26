@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { pricingSections, type PricingLocale } from "app/components/pricing/pricingData";
 import {
   botulinumtoxinContentDe,
@@ -11,7 +12,6 @@ import {
 } from "app/content/botulinumtoxin";
 import { MotionCard, MotionSection } from "./Motion";
 
-const bookingHref = Constants.appointmentUrl;
 const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
 
 function formatBotulinumtoxinPrice(service: BotulinumtoxinService, locale: PricingLocale) {
@@ -121,14 +121,13 @@ function ServiceBody({ service }: { service: BotulinumtoxinService }) {
 function Ctas({ content }: { content: BotulinumtoxinPageContent }) {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-      <Link
-        href={bookingHref}
-        target="_blank"
-        rel="noopener noreferrer"
+      <AppointmentBookingButton
+        locale={content.locale}
+        urls={Constants.appointmentUrlsByService.botulinumtoxin}
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         {content.labels.book}
-      </Link>
+      </AppointmentBookingButton>
       <Link
         href={content.locale === "en" ? "/en/botox-prices" : "/botox-preise"}
         className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"

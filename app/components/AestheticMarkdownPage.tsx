@@ -2,10 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarDaysIcon, ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
+import type { AppointmentBookingUrls } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
-import { pricingSections } from "app/components/pricing/pricingData";
+import { pricingSections, type PricingSection } from "app/components/pricing/pricingData";
 import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSectionKey } from "app/content/aesthetikSource";
 
 type MarkdownNode =
@@ -231,14 +232,22 @@ const priceAnchorBySection: Partial<Record<AestheticSectionKey, string>> = {
   skinbooster: "skinbooster",
 };
 
-function CtaButtons({ sectionKey }: { sectionKey: AestheticSectionKey }) {
+function CtaButtons({ sectionKey, bookingUrls }: { sectionKey: AestheticSectionKey; bookingUrls?: AppointmentBookingUrls }) {
   const priceAnchor = priceAnchorBySection[sectionKey];
   const priceHref = priceAnchor ? `/aesthetik/preise#${priceAnchor}` : "/aesthetik/preise";
+  const bookingUrlsBySection: Partial<Record<AestheticSectionKey, typeof Constants.appointmentUrls>> = {
+    botulinumtoxin: Constants.appointmentUrlsByService.botulinumtoxin,
+    prp: Constants.appointmentUrlsByService.prp,
+    microneedling: Constants.appointmentUrlsByService.microneedling,
+    hair: Constants.appointmentUrlsByService.hairTherapy,
+    skinbooster: Constants.appointmentUrlsByService.skinbooster,
+  };
 
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <AppointmentBookingButton
         locale="de"
+        urls={bookingUrls ?? bookingUrlsBySection[sectionKey]}
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         Termin buchen
@@ -421,6 +430,30 @@ function takeUntilRule(nodes: MarkdownNode[], start: number) {
 
 function getDetailHrefByTitle(sectionKey: AestheticSectionKey) {
   return Object.fromEntries(getAestheticDetailPages(sectionKey).map((page) => [page.title, page.href]));
+}
+
+function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: AestheticDetailPage) {
+  const detailHrefBySection = {
+    prp: "/aesthetik/prp-behandlung",
+    microneedling: "/aesthetik/microneedling",
+  } satisfies Partial<Record<AestheticSectionKey, string>>;
+  const detailHrefPrefix = detailHrefBySection[sectionKey];
+
+  if (!detailHrefPrefix) {
+    return undefined;
+  }
+
+  const sectionsByKey: Partial<Record<AestheticSectionKey, PricingSection>> = {
+    prp: pricingSections.prp,
+    microneedling: pricingSections.microneedling,
+  };
+
+  const detailHref = `${detailHrefPrefix}/${detailPage.slug}`;
+  const rows = sectionsByKey[sectionKey]?.rows.filter((row) => row.detailHref?.de === detailHref) ?? [];
+  const normalizedTitle = detailPage.title.replace(/,/g, "").replace(/&/g, "+");
+  const matchingLabelRow = rows.find((row) => row.label.de.replace(/,/g, "").replace(/&/g, "+") === normalizedTitle);
+
+  return (matchingLabelRow ?? rows[0])?.bookingUrls;
 }
 
 function extractTitledSection(nodes: MarkdownNode[], title: string) {
@@ -928,6 +961,7 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
   const detailNodes = getDetailNodes(sectionKey, nodes, detailPage);
   const descriptionNode = detailNodes.find(hasText);
   const description = descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
+  const bookingUrls = getDetailBookingUrls(sectionKey, detailPage);
   const siblings = getAestheticDetailPages(sectionKey).filter((page) => page.slug !== slug);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -962,7 +996,7 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
             <div className="mt-6">
               <ParagraphNodes nodes={detailNodes} />
             </div>
-            <CtaButtons sectionKey={sectionKey} />
+            <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
           </div>
           <div className="hidden lg:block">
             <HeroImage sectionKey={sectionKey} />

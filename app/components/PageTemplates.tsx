@@ -18,6 +18,7 @@ import {
 } from "@heroicons/react/24/outline";
 import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
+import type { AppointmentBookingUrls } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
 import { MotionCard, MotionSection } from "./Motion";
@@ -44,6 +45,21 @@ function sectionId(title: string) {
 
 const heroEyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
 type FactIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
+const bookingUrlsByCanonical: Record<string, AppointmentBookingUrls> = {
+  "/aesthetik/prp-behandlung": Constants.appointmentUrlsByService.prp,
+  "/en/aesthetics/prp-treatment": Constants.appointmentUrlsByService.prp,
+  "/aesthetik/microneedling": Constants.appointmentUrlsByService.microneedling,
+  "/en/aesthetics/microneedling": Constants.appointmentUrlsByService.microneedling,
+  "/aesthetik/polynukleotide": Constants.appointmentUrlsByService.skinbooster,
+  "/en/aesthetics/polynucleotides": Constants.appointmentUrlsByService.skinbooster,
+  "/aesthetik/hautbild-verbessern": Constants.appointmentUrlsByService.skinbooster,
+  "/en/aesthetics/improve-skin-quality": Constants.appointmentUrlsByService.skinbooster,
+  "/leistungen/haarausfall-berlin-mitte": Constants.appointmentUrlsByService.hairTherapy,
+  "/en/services/hair-loss-berlin-mitte": Constants.appointmentUrlsByService.hairTherapy,
+  "/leistungen/prp-haarausfall": Constants.appointmentUrlsByService.hairTherapy,
+  "/en/services/prp-hair-loss": Constants.appointmentUrlsByService.hairTherapy,
+};
 
 function iconForFact(label: string, value: string): FactIconComponent {
   const text = `${label} ${value}`.toLowerCase();
@@ -73,6 +89,7 @@ function CtaButtons({
   secondaryHref,
   locale = "de",
   useBookingModal = false,
+  bookingUrls,
 }: {
   primary: string;
   primaryHref: string;
@@ -80,12 +97,14 @@ function CtaButtons({
   secondaryHref?: string;
   locale?: "de" | "en";
   useBookingModal?: boolean;
+  bookingUrls?: AppointmentBookingUrls;
 }) {
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       {useBookingModal ? (
         <AppointmentBookingButton
           locale={locale}
+          urls={bookingUrls}
           className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
         >
           {primary}
@@ -273,6 +292,7 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
 
 export function LandingPage({ content }: { content: LandingContent }) {
   const bookingHref = Constants.appointmentUrl;
+  const bookingUrls = bookingUrlsByCanonical[content.canonical];
   const usesAestheticBookingModal =
     content.canonical.startsWith("/aesthetik") ||
     content.canonical.startsWith("/en/aesthetics") ||
@@ -326,6 +346,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
                 secondaryHref={content.secondaryHref}
                 locale={content.locale}
                 useBookingModal={usesAestheticBookingModal}
+                bookingUrls={bookingUrls}
               />
             </div>
             <div className="space-y-5">
