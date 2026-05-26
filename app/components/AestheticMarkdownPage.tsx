@@ -18,6 +18,7 @@ type AestheticDetailPage = {
   slug: string;
   title: string;
   href: string;
+  description?: string[];
 };
 
 const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> = {
@@ -28,12 +29,66 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
     { sectionKey: "prp", slug: "vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling", title: "Vampire Lifting / PRP kombiniert mit medizinischem Microneedling", href: "/aesthetik/prp-behandlung/vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling" },
   ],
   microneedling: [
-    { sectionKey: "microneedling", slug: "vampirelift-medizinisches-microneedling-gesicht", title: "Vampirelift + med. Microneedling Gesicht", href: "/aesthetik/microneedling/vampirelift-medizinisches-microneedling-gesicht" },
-    { sectionKey: "microneedling", slug: "microneedling-gesicht", title: "Microneedling Gesicht", href: "/aesthetik/microneedling/microneedling-gesicht" },
-    { sectionKey: "microneedling", slug: "microneedling-gesicht-hals", title: "Microneedling Gesicht + Hals", href: "/aesthetik/microneedling/microneedling-gesicht-hals" },
-    { sectionKey: "microneedling", slug: "microneedling-gesicht-hals-dekollete", title: "Microneedling Gesicht + Hals + Dekolleté", href: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete" },
-    { sectionKey: "microneedling", slug: "microneedling-face-nctf", title: "Microneedling FACE + NCTF", href: "/aesthetik/microneedling/microneedling-face-nctf" },
-    { sectionKey: "microneedling", slug: "microneedling-gesicht-exosome", title: "Microneedling Gesicht Exosome", href: "/aesthetik/microneedling/microneedling-gesicht-exosome" },
+    {
+      sectionKey: "microneedling",
+      slug: "vampirelift-medizinisches-microneedling-gesicht",
+      title: "Vampirelift + med. Microneedling Gesicht",
+      href: "/aesthetik/microneedling/vampirelift-medizinisches-microneedling-gesicht",
+      description: [
+        "Bei dieser Behandlung wird medizinisches Microneedling im Gesicht mit PRP / Eigenblut kombiniert, um die Hautregeneration intensiver zu unterstützen.",
+        "Sie zahlen für eine kombinierte regenerative Gesichtsbehandlung: zuerst werden feine Mikrokanäle gesetzt, anschließend wird aufbereitetes Eigenblut in die Haut eingearbeitet.",
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-gesicht",
+      title: "Microneedling Gesicht",
+      href: "/aesthetik/microneedling/microneedling-gesicht",
+      description: [
+        "Medizinisches Microneedling im Gesicht unterstützt die Hauterneuerung und kann bei Poren, feinen Linien, fahlem Hautbild oder ausgewählten Narben sinnvoll sein.",
+        "Sie buchen eine Behandlung des Gesichts mit Dermapen®-Technologie, bei der kontrollierte Mikrokanäle die natürlichen Reparaturprozesse der Haut anregen sollen.",
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-gesicht-hals",
+      title: "Microneedling Gesicht + Hals",
+      href: "/aesthetik/microneedling/microneedling-gesicht-hals",
+      description: [
+        "Diese Behandlung umfasst Gesicht und Hals, wenn Hautstruktur, Elastizität und Hautqualität in beiden Bereichen gemeinsam verbessert werden sollen.",
+        "Sie zahlen für ein erweitertes Areal: Neben dem Gesicht wird auch der Hals behandelt, damit der Übergang zwischen Gesicht und Hals harmonischer wirkt.",
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-gesicht-hals-dekollete",
+      title: "Microneedling Gesicht + Hals + Dekolleté",
+      href: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete",
+      description: [
+        "Diese größere Microneedling-Behandlung umfasst Gesicht, Hals und Dekolleté für ein einheitlicheres Hautbild in den häufig sichtbaren Hautarealen.",
+        "Sie buchen die umfangreichste Flächenbehandlung in dieser Gruppe, wenn nicht nur das Gesicht, sondern auch Hals und Ausschnitt mitbehandelt werden sollen.",
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face-nctf",
+      title: "Microneedling FACE + NCTF",
+      href: "/aesthetik/microneedling/microneedling-face-nctf",
+      description: [
+        "Bei Microneedling FACE + NCTF wird das Gesicht behandelt und zusätzlich ein regenerativer NCTF®-Wirkstoffkomplex in die Haut eingebracht.",
+        "Sie zahlen für eine Microneedling-Gesichtsbehandlung mit zusätzlichem Wirkstoff-Boost, der vor allem Hautfeuchtigkeit, Frische und Hautqualität unterstützen soll.",
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-gesicht-exosome",
+      title: "Microneedling Gesicht Exosome",
+      href: "/aesthetik/microneedling/microneedling-gesicht-exosome",
+      description: [
+        "Bei dieser Behandlung wird medizinisches Microneedling im Gesicht mit Exosomen kombiniert, um die Regeneration und Hautqualität zusätzlich zu unterstützen.",
+        "Sie buchen eine Gesichtsbehandlung mit Dermapen® und ergänzenden Exosomen, die über die Mikrokanäle in die Haut eingebracht werden.",
+      ],
+    },
   ],
 };
 
@@ -642,7 +697,7 @@ function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
   return amount ? `ab ${amount} €` : sectionKey === "microneedling" ? "ab 249 €" : "ab 199 €";
 }
 
-function AestheticDetailFacts({ sectionKey, slug }: { sectionKey: AestheticSectionKey; slug: string }) {
+function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = true }: { sectionKey: AestheticSectionKey; slug: string; className?: string; overlapHero?: boolean }) {
   const facts =
     sectionKey === "microneedling"
       ? [
@@ -697,7 +752,7 @@ function AestheticDetailFacts({ sectionKey, slug }: { sectionKey: AestheticSecti
         ];
 
   return (
-    <MotionSection className="relative z-20 -mt-[50px] px-4 pb-10 sm:px-6 lg:px-8">
+    <MotionSection className={`relative z-20 ${overlapHero ? "-mt-[50px]" : ""} px-4 pb-10 sm:px-6 lg:px-8 ${className}`}>
       <div className="mx-auto max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] bg-primary shadow-2xl shadow-primary/20 ring-1 ring-white/10">
           <div className="grid grid-cols-1 divide-y divide-white/15 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
@@ -1016,7 +1071,9 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
   const parentTitle = getAestheticSectionTitle(sectionKey);
   const detailNodes = getDetailNodes(sectionKey, nodes, detailPage);
   const descriptionNode = detailNodes.find(hasText);
-  const description = descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
+  const leadDescription = detailPage.description ?? [];
+  const [mobileLeadDescription, ...mobileFollowupDescription] = leadDescription;
+  const description = leadDescription.length > 0 ? leadDescription.join(" ") : descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
   const bookingUrls = getDetailBookingUrls(sectionKey, detailPage);
   const siblings = getAestheticDetailPages(sectionKey).filter((page) => page.slug !== slug);
   const breadcrumbSchema = {
@@ -1046,20 +1103,40 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
           <div>
             <p className={eyebrowClassName}>{parentTitle}</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{detailPage.title}</h1>
+            {leadDescription.length > 0 && (
+              <div className="mt-6 hidden space-y-4 text-lg leading-8 text-primaryLighter lg:block">
+                {leadDescription.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            )}
+            {mobileLeadDescription && <p className="mt-6 text-lg leading-8 text-primaryLighter lg:hidden">{mobileLeadDescription}</p>}
             <div className="mt-8 lg:hidden">
               <HeroImage sectionKey={sectionKey} />
             </div>
-            <div className="mt-6">
+            <div className="mt-6 lg:hidden">
+              {mobileFollowupDescription.length > 0 && (
+                <div className="mb-6 space-y-4 text-lg leading-8 text-primaryLighter">
+                  {mobileFollowupDescription.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              )}
+              <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 px-0 pb-8 sm:px-0 lg:hidden" overlapHero={false} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
               <ParagraphNodes nodes={detailNodes} />
             </div>
-            <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
+            <div className="mt-6 hidden lg:block">
+              <ParagraphNodes nodes={detailNodes} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
+            </div>
           </div>
           <div className="hidden lg:block">
             <HeroImage sectionKey={sectionKey} />
           </div>
         </MotionSection>
 
-        <AestheticDetailFacts sectionKey={sectionKey} slug={slug} />
+        <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="hidden lg:block" />
         <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />
         <AestheticFaqSection nodes={nodes} />
 

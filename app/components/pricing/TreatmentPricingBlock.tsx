@@ -55,8 +55,7 @@ function TreatmentPricingCard({
     <div className={className}>
       <div className="flex min-h-[72px] flex-col justify-between gap-3">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primaryLighter/70">{section.title[locale]}</p>
-          <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
+          <h3 className="font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
         </div>
         <p className="text-2xl font-semibold text-primaryLighter">{formatPrice(row.price, locale)}</p>
       </div>
