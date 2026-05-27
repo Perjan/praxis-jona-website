@@ -333,7 +333,7 @@ export function LandingPage({ content }: { content: LandingContent }) {
       <JsonLd data={serviceSchema} />
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
             <div>
               <p className={heroEyebrowClassName}>{content.eyebrow}</p>
               <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>

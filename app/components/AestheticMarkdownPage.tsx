@@ -122,6 +122,68 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
       ],
     },
   ],
+  skinbooster: [
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-gesicht",
+      title: "NCTF HA Gesicht",
+      href: "/aesthetik/polynukleotide/nctf-ha-gesicht",
+      description: [
+        "NCTF HA Gesicht ist eine regenerative Skinbooster-Behandlung für Hautfeuchtigkeit, Hautfrische und feinere Hautqualität im Gesicht.",
+        "Die Behandlung kann sinnvoll sein, wenn fahle, müde oder feuchtigkeitsarme Haut gezielt unterstützt werden soll.",
+      ],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-gesicht-hals",
+      title: "NCTF HA Gesicht + Hals",
+      href: "/aesthetik/polynukleotide/nctf-ha-gesicht-hals",
+      description: [
+        "NCTF HA Gesicht + Hals erweitert die Skinbooster-Behandlung auf zwei sichtbare Areale mit häufig gemeinsamem Behandlungsziel.",
+        "Der Fokus liegt auf Hautfeuchtigkeit, Hautvitalität und einer gleichmäßigeren Hautqualität in Gesicht und Hals.",
+      ],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-gesicht-hals-dekollete",
+      title: "NCTF HA Gesicht + Hals + Dekolleté",
+      href: "/aesthetik/polynukleotide/nctf-ha-gesicht-hals-dekollete",
+      description: [
+        "Diese NCTF HA Behandlung umfasst Gesicht, Hals und Dekolleté, wenn Hautqualität und Feuchtigkeit in den sichtbaren Arealen gemeinsam unterstützt werden sollen.",
+        "Die Planung erfolgt nach Hautbefund, Areal und realistischem Behandlungsziel.",
+      ],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "philart-gesicht",
+      title: "PhilArt Gesicht",
+      href: "/aesthetik/polynukleotide/philart-gesicht",
+      description: [
+        "PhilArt Gesicht wird als regenerative Polynukleotid-Behandlung eingesetzt, wenn Hautqualität, Elastizität und natürliche Regeneration im Vordergrund stehen.",
+        "Im Fokus steht nicht Volumenaufbau, sondern die Unterstützung biologischer Reparatur- und Regenerationsprozesse der Haut.",
+      ],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "philart-auge",
+      title: "PhilArt Auge",
+      href: "/aesthetik/polynukleotide/philart-auge",
+      description: [
+        "PhilArt Auge ist auf die empfindliche Augenregion ausgerichtet, etwa bei dünner Haut, feinen Linien oder dunklen Schatten.",
+        "Ziel ist eine natürlich frischere und ruhigere Hautqualität ohne künstliche Veränderung der Augenregion.",
+      ],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "profhilo",
+      title: "Profhilo",
+      href: "/aesthetik/polynukleotide/profhilo",
+      description: [
+        "Profhilo ist ein Skinbooster zur Unterstützung von Hautqualität, Feuchtigkeit, Elastizität und Spannkraft.",
+        "Die Behandlung wird nach Hautbefund geplant, wenn Bioremodellierung und Hautspannung stärker im Fokus stehen.",
+      ],
+    },
+  ],
 };
 
 const heroImages: Record<AestheticSectionKey, { src: string; alt: string; objectPositionClass?: string }> = {
@@ -203,6 +265,12 @@ const microneedlingCommonSectionTitles = [
   "Wann können zusätzliche regenerative Wirkstoffe sinnvoll sein?",
   "Was sollte ich nach der Behandlung beachten?",
   "Wann sind Ergebnisse sichtbar?",
+];
+
+const skinboosterCommonSectionTitles = [
+  "Wie laufen Skinbooster-Behandlungen ab?",
+  "Wie viele Sitzungen sind bei Skinboostern sinnvoll?",
+  "Kombination mit anderen regenerativen Behandlungen",
 ];
 
 const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
@@ -570,6 +638,7 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
     prp: "/aesthetik/prp-behandlung",
     microneedling: "/aesthetik/microneedling",
     hair: "/leistungen/haarausfall-berlin-mitte",
+    skinbooster: "/aesthetik/polynukleotide",
   } satisfies Partial<Record<AestheticSectionKey, string>>;
   const detailHrefPrefix = detailHrefBySection[sectionKey];
 
@@ -581,6 +650,7 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
     prp: pricingSections.prp,
     microneedling: pricingSections.microneedling,
     hair: pricingSections.hairTherapy,
+    skinbooster: pricingSections.skinbooster,
   };
 
   const detailHref = `${detailHrefPrefix}/${detailPage.slug}`;
@@ -766,6 +836,54 @@ function getHairDetailNodes(nodes: MarkdownNode[], slug: string) {
   return [];
 }
 
+function getSkinboosterDetailNodes(nodes: MarkdownNode[], slug: string) {
+  const nctfSection = [
+    { type: "h3", text: "NCTF® 135 HA" } as MarkdownNode,
+    ...extractDetailNodes(nodes, "NCTF® 135 HA"),
+  ];
+  const regionNodesBySlug: Record<string, MarkdownNode[]> = {
+    "nctf-ha-gesicht": [
+      { type: "h3", text: "Behandlungsareal Gesicht" },
+      { type: "p", text: "Diese Variante konzentriert sich auf das Gesicht, wenn Hautfeuchtigkeit, Hautfrische und ein gleichmäßigeres Hautbild im Vordergrund stehen." },
+    ],
+    "nctf-ha-gesicht-hals": [
+      { type: "h3", text: "Behandlungsareale Gesicht und Hals" },
+      { type: "p", text: "Diese Variante umfasst Gesicht und Hals, wenn beide Areale gemeinsam mit einem regenerativen Skinbooster-Konzept unterstützt werden sollen." },
+    ],
+    "nctf-ha-gesicht-hals-dekollete": [
+      { type: "h3", text: "Behandlungsareale Gesicht, Hals und Dekolleté" },
+      { type: "p", text: "Diese Variante umfasst Gesicht, Hals und Dekolleté für ein zusammenhängendes Behandlungskonzept der sichtbaren Hautareale." },
+    ],
+  };
+
+  if (slug.startsWith("nctf-ha-")) {
+    return [...nctfSection, ...(regionNodesBySlug[slug] ?? [])];
+  }
+
+  if (slug === "philart-auge") {
+    return [
+      { type: "h3", text: "Polynukleotide für die Augenregion & dunkle Augenringe" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "Polynukleotide für die Augenregion & dunkle Augenringe"),
+    ];
+  }
+
+  if (slug === "philart-gesicht") {
+    return [
+      { type: "h3", text: "Was sind Polynukleotide?" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "Was sind Polynukleotide?"),
+    ];
+  }
+
+  if (slug === "profhilo") {
+    return [
+      { type: "h3", text: "Profhilo®" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "Profhilo®"),
+    ];
+  }
+
+  return [];
+}
+
 function getDetailNodes(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], detailPage: AestheticDetailPage) {
   if (sectionKey === "microneedling") {
     return getMicroneedlingDetailNodes(nodes, detailPage.slug);
@@ -773,6 +891,10 @@ function getDetailNodes(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], 
 
   if (sectionKey === "hair") {
     return getHairDetailNodes(nodes, detailPage.slug);
+  }
+
+  if (sectionKey === "skinbooster") {
+    return getSkinboosterDetailNodes(nodes, detailPage.slug);
   }
 
   return extractDetailNodes(nodes, detailPage.title);
@@ -821,12 +943,21 @@ function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
     prp: pricingSections.prp,
     microneedling: pricingSections.microneedling,
     hair: pricingSections.hairTherapy,
+    skinbooster: pricingSections.skinbooster,
   };
   const rows = ((sectionsByKey[sectionKey] ?? pricingSections.prp) as PricingSection).rows;
   const row = rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
   const amount = row?.price?.amount;
 
-  return amount ? `ab ${amount} €` : sectionKey === "prp" ? "ab 199 €" : "ab 249 €";
+  if (amount) {
+    return `ab ${amount} €`;
+  }
+
+  if (row?.price?.displayOverride?.de) {
+    return row.price.displayOverride.de;
+  }
+
+  return sectionKey === "prp" ? "ab 199 €" : "ab 249 €";
 }
 
 function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = true }: { sectionKey: AestheticSectionKey; slug: string; className?: string; overlapHero?: boolean }) {
@@ -863,7 +994,7 @@ function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = 
             icon: ClockIcon,
             body: (
               <>
-                Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
+                Die Behandlung dauert in der Regel <strong>{sectionKey === "skinbooster" ? "30 bis 45 Minuten" : "45 bis 60 Minuten"}</strong>.
               </>
             ),
           },
@@ -940,7 +1071,12 @@ function MicroneedlingIntroBlock({ nodes }: { nodes: MarkdownNode[] }) {
 }
 
 function AestheticCommonSections({ sectionKey, nodes }: { sectionKey: AestheticSectionKey; nodes: MarkdownNode[] }) {
-  const commonSectionTitles = sectionKey === "microneedling" ? microneedlingCommonSectionTitles : prpCommonSectionTitles;
+  const commonSectionTitles =
+    sectionKey === "microneedling"
+      ? microneedlingCommonSectionTitles
+      : sectionKey === "skinbooster"
+        ? skinboosterCommonSectionTitles
+        : prpCommonSectionTitles;
   const sections = commonSectionTitles
     .map((title) => ({ title, nodes: extractTitledSection(nodes, title) }))
     .filter((section) => section.nodes.length > 0);
@@ -1338,7 +1474,13 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
             <h2 className="font-serif text-3xl font-semibold text-primary">
-              {sectionKey === "microneedling" ? "Weitere Microneedling-Themen" : sectionKey === "hair" ? "Weitere Haartherapien" : "Weitere PRP-Behandlungen"}
+              {sectionKey === "microneedling"
+                ? "Weitere Microneedling-Themen"
+                : sectionKey === "hair"
+                  ? "Weitere Haartherapien"
+                  : sectionKey === "skinbooster"
+                    ? "Weitere Skinbooster"
+                    : "Weitere PRP-Behandlungen"}
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {siblings.map((item, index) => (

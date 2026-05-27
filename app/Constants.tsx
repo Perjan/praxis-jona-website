@@ -106,11 +106,12 @@ const appointmentMotiveIds = {
     botulinumtoxinTrapezius: "",
     botulinumtoxinHyperhidrosis: "",
     botulinumtoxinMigraine: "",
-    skinboosterNctfFace: "",
-    skinboosterNctfFaceNeck: "",
-    skinboosterNctfFaceNeckDecollete: "",
+    skinboosterNctfFace: "16017777",
+    skinboosterNctfFaceNeck: "16017778",
+    skinboosterNctfFaceNeckDecollete: "16017779",
     skinboosterPhilartFace: "",
     skinboosterPhilartEye: "",
+    skinboosterProfhilo: "16017780",
     polynucleotidesConsultation: "",
 } as const;
 
@@ -171,6 +172,7 @@ export const Constants = {
         skinboosterNctfFaceNeckDecollete: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterNctfFaceNeckDecollete, selfPay: true }),
         skinboosterPhilartFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterPhilartFace, selfPay: true }),
         skinboosterPhilartEye: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterPhilartEye, selfPay: true }),
+        skinboosterProfhilo: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterProfhilo, selfPay: true }),
         polynucleotides: buildAppointmentUrls(appointmentCategoryIds.polynucleotides, true),
         polynucleotidesConsultation: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.polynucleotides, motiveId: appointmentMotiveIds.polynucleotidesConsultation, selfPay: true }),
         micronutrients: buildAppointmentUrls(appointmentCategoryIds.micronutrients, true),

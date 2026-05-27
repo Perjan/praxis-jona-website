@@ -25,7 +25,7 @@ export function getAestheticSectionMarkdown(key: AestheticSectionKey) {
     throw new Error(`Missing aesthetic source section: ${title}`);
   }
 
-  const next = aestheticSource.indexOf("\n# ", start + heading.length);
+  const next = key === "skinbooster" ? -1 : aestheticSource.indexOf("\n# ", start + heading.length);
   return aestheticSource.slice(start, next < 0 ? aestheticSource.length : next).trim();
 }
 
