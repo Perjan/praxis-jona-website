@@ -63,7 +63,10 @@ function buildAppointmentUrls(targetOrCategoryId?: AppointmentBookingTarget | st
 
 const appointmentCategoryIds = {
     consultation: "364966",
+    checkups: "364967",
     ironInfusion: "518414",
+    weightLossInjection: "406205",
+    nutrition: "406201",
     prp: "554440",
     hairTherapy: "554441",
     microneedling: "554442",
@@ -112,6 +115,13 @@ const appointmentMotiveIds = {
     skinboosterPhilartFace: "",
     skinboosterPhilartEye: "",
     skinboosterProfhilo: "16017780",
+    ironInfusion: "15427609",
+    checkup35: "12702791",
+    checkup18To34: "12702801",
+    weightLossInjection: "13607485",
+    nutritionInitial15: "13607443",
+    nutrition30: "14004730",
+    micronutrientsConsultation: "16017787",
     polynucleotidesConsultation: "",
 } as const;
 
@@ -129,7 +139,14 @@ export const Constants = {
     appointmentMotiveIds,
     appointmentUrlsByService: {
         consultation: buildAppointmentUrls(appointmentCategoryIds.consultation),
-        ironInfusion: buildAppointmentUrls(appointmentCategoryIds.ironInfusion, true),
+        checkups: buildAppointmentUrls(appointmentCategoryIds.checkups),
+        checkup35: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.checkups, motiveId: appointmentMotiveIds.checkup35 }),
+        checkup18To34: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.checkups, motiveId: appointmentMotiveIds.checkup18To34 }),
+        ironInfusion: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.ironInfusion, motiveId: appointmentMotiveIds.ironInfusion, selfPay: true }),
+        weightLossInjection: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.weightLossInjection, motiveId: appointmentMotiveIds.weightLossInjection, selfPay: true }),
+        nutrition: buildAppointmentUrls(appointmentCategoryIds.nutrition, true),
+        nutritionInitial15: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.nutrition, motiveId: appointmentMotiveIds.nutritionInitial15, selfPay: true }),
+        nutrition30: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.nutrition, motiveId: appointmentMotiveIds.nutrition30, selfPay: true }),
         prp: buildAppointmentUrls(appointmentCategoryIds.prp, true),
         prpFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpFace, selfPay: true }),
         prpUnderEye: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpUnderEye, selfPay: true }),
@@ -175,7 +192,7 @@ export const Constants = {
         skinboosterProfhilo: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterProfhilo, selfPay: true }),
         polynucleotides: buildAppointmentUrls(appointmentCategoryIds.polynucleotides, true),
         polynucleotidesConsultation: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.polynucleotides, motiveId: appointmentMotiveIds.polynucleotidesConsultation, selfPay: true }),
-        micronutrients: buildAppointmentUrls(appointmentCategoryIds.micronutrients, true),
+        micronutrients: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.micronutrients, motiveId: appointmentMotiveIds.micronutrientsConsultation, selfPay: true }),
     },
     contact: {
         phone: "+49 30 40054273",

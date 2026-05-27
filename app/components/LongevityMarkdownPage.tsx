@@ -9,7 +9,7 @@ import {
   ShieldCheckIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
-import { Constants } from "app/Constants";
+import { Constants, type AppointmentBookingUrls } from "app/Constants";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import {
   getLongevitySectionMarkdown,
@@ -187,6 +187,12 @@ const detailConfig: Record<
   },
 };
 
+const bookingUrlsBySection: Partial<Record<LongevitySectionKey, AppointmentBookingUrls>> = {
+  micronutrients: Constants.appointmentUrlsByService.micronutrients,
+  ironInfusion: Constants.appointmentUrlsByService.ironInfusion,
+  weightLoss: Constants.appointmentUrlsByService.weightLossInjection,
+};
+
 const hubSubpages: Record<LongevityLocale, { title: string; href?: string; eyebrow: string; description: string }[]> = {
   de: [
     { title: "Mikronährstoffberatung", href: "/leistungen/mikronahrstoffanalyse", eyebrow: "Laborbasiert", description: "Ärztlich geführte Mikronährstoffanalyse und Beratung." },
@@ -196,7 +202,7 @@ const hubSubpages: Record<LongevityLocale, { title: string; href?: string; eyebr
     { title: "Ernährungsberatung", href: "/leistungen/ernaehrungsmedizin", eyebrow: "Ernährung", description: "Medizinische Ernährungsempfehlungen für Alltag, Stoffwechsel und Gewicht." },
     { title: "Erweiterte Check-ups & Prävention", href: "/leistungen/private-check-up", eyebrow: "Check-up", description: "Erweiterte Vorsorge und Prävention über Standardleistungen hinaus." },
     { title: "Reiseimpfungen", href: "/leistungen/reiseimpfungen", eyebrow: "Reisemedizin", description: "Reiseimpfberatung und Impfungen nach Ziel, Risiko und Impfstatus." },
-    { title: "HER – Prävention & Longevity für Frauen", eyebrow: "Frauen", description: "Ein geplanter Schwerpunkt für weibliche Prävention und Longevity." },
+    { title: "HER – Prävention & Longevity für Frauen", href: "/praevention", eyebrow: "Frauen", description: "Ein geplanter Schwerpunkt für weibliche Prävention und Longevity." },
   ],
   en: [
     { title: "Micronutrient consultation", href: "/en/services/micronutrient-analysis", eyebrow: "Lab-based", description: "Physician-led micronutrient analysis and consultation." },
@@ -206,7 +212,7 @@ const hubSubpages: Record<LongevityLocale, { title: string; href?: string; eyebr
     { title: "Nutrition counseling", href: "/en/services/nutritional-medicine", eyebrow: "Nutrition", description: "Medical nutrition recommendations for everyday life, metabolism and weight." },
     { title: "Extended check-ups & prevention", href: "/en/services/private-insurance-check-up", eyebrow: "Check-up", description: "Extended prevention beyond standard services." },
     { title: "Travel vaccinations", href: "/en/services/travel-vaccinations", eyebrow: "Travel medicine", description: "Travel vaccination counseling and vaccinations by destination, risk and records." },
-    { title: "HER – prevention & longevity for women", eyebrow: "Women", description: "A planned focus area for female prevention and longevity." },
+    { title: "HER – prevention & longevity for women", href: "/en/prevention", eyebrow: "Women", description: "A planned focus area for female prevention and longevity." },
   ],
 };
 
@@ -283,15 +289,19 @@ function CtaButtons({
   locale,
   secondaryCta,
   secondaryHref,
+  bookingUrls,
 }: {
   locale: LongevityLocale;
   secondaryCta?: string;
   secondaryHref?: string;
+  bookingUrls?: AppointmentBookingUrls;
 }) {
+  const appointmentHref = bookingUrls?.private ?? Constants.appointmentUrl;
+
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <Link
-        href={Constants.appointmentUrl}
+        href={appointmentHref}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
@@ -406,8 +416,30 @@ function takeUntilHeading(nodes: MarkdownNode[], start: number) {
   return { children, cursor };
 }
 
-function StructuredBody({ nodes, locale }: { nodes: MarkdownNode[]; locale: LongevityLocale }) {
+const sectionHeadingTitles: Partial<Record<LongevitySectionKey, Record<LongevityLocale, string[]>>> = {
+  vitaminInfusion: {
+    de: [
+      "Hochdosis-Vitamin-C-Infusion",
+      "B-Vitamin-Infusionen",
+      "Zink-Infusionen & Mikronährstoffkombinationen",
+      "Wie läuft die Infusionstherapie ab?",
+      "Wann können Infusionen sinnvoller sein als Tabletten?",
+      "Transparente Kostenstruktur",
+    ],
+    en: [
+      "High-dose vitamin C infusion",
+      "B vitamin infusions",
+      "Zinc infusions & micronutrient combinations",
+      "How does infusion therapy work?",
+      "When can infusions be more useful than tablets?",
+      "Transparent cost structure",
+    ],
+  },
+};
+
+function StructuredBody({ nodes, locale, sectionKey }: { nodes: MarkdownNode[]; locale: LongevityLocale; sectionKey: LongevitySectionKey }) {
   const sections: JSX.Element[] = [];
+  const headingTitles = sectionHeadingTitles[sectionKey]?.[locale] ?? [];
   let index = 0;
 
   while (index < nodes.length) {
@@ -462,6 +494,19 @@ function StructuredBody({ nodes, locale }: { nodes: MarkdownNode[]; locale: Long
         </MotionSection>,
       );
       index += 1;
+      continue;
+    }
+
+    if (node.type === "h3" && node.text && headingTitles.includes(node.text)) {
+      const result = takeUntilHeading(nodes, index + 1);
+
+      sections.push(
+        <MotionSection key={`section-${sections.length}`} className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+          <h2 className="break-words font-serif text-3xl font-semibold text-primary">{node.text}</h2>
+          <div className="mt-5 space-y-5 text-lg leading-8 text-primaryLighter">{renderCompactNodes(result.children)}</div>
+        </MotionSection>,
+      );
+      index = result.cursor;
       continue;
     }
 
@@ -527,17 +572,28 @@ function RelatedServices({ sectionKey, locale }: { sectionKey: LongevitySectionK
 
     return item.href && item.href !== detailConfig[sectionKey].de.canonical && item.href !== detailConfig[sectionKey].en.canonical;
   });
-  const title = locale === "en" ? "More prevention and longevity services" : "Weitere Präventions- und Longevity-Leistungen";
+  const title =
+    sectionKey === "hub"
+      ? locale === "en"
+        ? "Prevention & longevity services"
+        : "Präventions- und Longevity-Leistungen"
+      : locale === "en"
+        ? "More prevention and longevity services"
+        : "Weitere Präventions- und Longevity-Leistungen";
 
   return (
     <MotionSection className="bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="flex max-w-3xl items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
-            <SparklesIcon className="h-6 w-6" aria-hidden="true" />
-          </div>
+        {sectionKey === "hub" ? (
           <h2 className="font-serif text-3xl font-semibold text-primary">{title}</h2>
-        </div>
+        ) : (
+          <div className="flex max-w-3xl items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+              <SparklesIcon className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h2 className="font-serif text-3xl font-semibold text-primary">{title}</h2>
+          </div>
+        )}
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((item, index) => {
             const card = (
@@ -619,7 +675,7 @@ export function LongevityMarkdownPage({ sectionKey, locale }: { sectionKey: Excl
             <div className="mt-8 lg:hidden">
               <HeroImage sectionKey={sectionKey} locale={locale} />
             </div>
-            <CtaButtons locale={locale} secondaryCta={config.secondaryCta} secondaryHref={config.secondaryHref} />
+            <CtaButtons locale={locale} secondaryCta={config.secondaryCta} secondaryHref={config.secondaryHref} bookingUrls={bookingUrlsBySection[sectionKey]} />
           </div>
           <div className="hidden lg:block">
             <HeroImage sectionKey={sectionKey} locale={locale} />
@@ -627,7 +683,7 @@ export function LongevityMarkdownPage({ sectionKey, locale }: { sectionKey: Excl
         </MotionSection>
 
         <FactStrip sectionKey={sectionKey} locale={locale} />
-        <StructuredBody nodes={bodyNodes} locale={locale} />
+        <StructuredBody nodes={bodyNodes} locale={locale} sectionKey={sectionKey} />
         <RelatedServices sectionKey={sectionKey} locale={locale} />
       </div>
     </>
@@ -639,6 +695,8 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
   const nodes = parseMarkdown(markdown);
   const subpageIndex = nodes.findIndex((node) => (node.type === "h1" || node.type === "h2") && /^(Subpages|Unterseiten)/.test(node.text ?? ""));
   const introNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  const mobileLeadNodes = introNodes.slice(0, 2);
+  const mobileBodyNodes = introNodes.slice(2);
   const title = getLongevitySectionTitle("hub", locale);
   const canonical = locale === "en" ? "/en/prevention-longevity" : "/praevention-longevity";
 
@@ -660,11 +718,17 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">
               {locale === "en" ? "Prevention, energy & healthy aging" : "Prävention, Energie & Healthy Aging"}
             </p>
-            <div className="space-y-5">
+            <div className="hidden space-y-5 lg:block">
               {renderCompactNodes(introNodes)}
+            </div>
+            <div className="space-y-5 lg:hidden">
+              {renderCompactNodes(mobileLeadNodes)}
             </div>
             <div className="mt-8 lg:hidden">
               <HeroImage sectionKey="hub" locale={locale} />
+            </div>
+            <div className="mt-8 space-y-5 lg:hidden">
+              {renderCompactNodes(mobileBodyNodes)}
             </div>
             <CtaButtons locale={locale} secondaryCta={locale === "en" ? "View prices" : "Preise ansehen"} secondaryHref={locale === "en" ? "/en/prevention-longevity/prices" : "/praevention-longevity/preise"} />
           </div>

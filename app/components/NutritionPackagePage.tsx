@@ -313,6 +313,7 @@ export default function NutritionPackagePage({
 }) {
   const packageContent = content[locale][packageKey];
   const ctaLabel = locale === "de" ? "Termin buchen" : "Book appointment";
+  const appointmentHref = Constants.appointmentUrlsByService.nutrition30.private;
 
   return (
     <div className="overflow-hidden bg-white relative isolate">
@@ -363,7 +364,7 @@ export default function NutritionPackagePage({
           </div>
           <div className="mt-8">
             <a
-              href={Constants.appointmentUrl}
+              href={appointmentHref}
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"

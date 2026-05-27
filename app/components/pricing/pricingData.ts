@@ -206,12 +206,14 @@ export const pricingSections = {
     },
     detailHref: { de: "/leistungen/ernaehrungsmedizin", en: "/en/services/nutritional-medicine" },
     bookingHref: appointmentHref,
+    bookingUrls: Constants.appointmentUrlsByService.nutrition,
     rows: [
       {
         slug: "beratung",
         label: { de: "Ernährungsberatung", en: "Nutrition consultation" },
         description: { de: "ca. 30 Minuten", en: "approx. 30 minutes" },
         price: { amount: 124, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.nutrition30,
       },
       {
         slug: "basis",
@@ -244,6 +246,7 @@ export const pricingSections = {
         label: { de: "Nährstofftherapie", en: "Micronutrient therapy" },
         description: { de: "Einmalig", en: "One-time" },
         price: { amount: 299, currency: "EUR" },
+        bookingUrls: Constants.appointmentUrlsByService.micronutrients,
       },
     ],
   },
@@ -257,21 +260,24 @@ export const pricingSections = {
     },
     detailHref: { de: "/leistungen/abnehmspritze", en: "/en/services/weight-loss-injection" },
     bookingHref: appointmentHref,
+    bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
     rows: [
       {
         slug: "beratung-start",
         label: { de: "GLP-1 Beratung", en: "GLP-1 consultation" },
         description: { de: "ca. 30 Minuten", en: "approx. 30 minutes" },
         price: { amount: 124, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       },
       {
         slug: "erhaltungsphase",
         label: { de: "Erhaltungsphase", en: "Maintenance phase" },
         description: { de: "ca. 15 Minuten", en: "approx. 15 minutes" },
         price: { amount: 50, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       },
-      { slug: "abnehmspritze-paket", label: { de: "Abnehmspritze", en: "Weight-loss injection package" }, price: { amount: 499, currency: "EUR" } },
-      { slug: "rundum-sorglos", label: { de: "Abnehmspritze Rundum-Sorglos", en: "All-inclusive weight-loss injection" }, price: { amount: 1499, currency: "EUR" } },
+      { slug: "abnehmspritze-paket", label: { de: "Abnehmspritze", en: "Weight-loss injection package" }, price: { amount: 499, currency: "EUR" }, bookingUrls: Constants.appointmentUrlsByService.weightLossInjection },
+      { slug: "rundum-sorglos", label: { de: "Abnehmspritze Rundum-Sorglos", en: "All-inclusive weight-loss injection" }, price: { amount: 1499, currency: "EUR" }, bookingUrls: Constants.appointmentUrlsByService.weightLossInjection },
     ],
   },
   privateCheckup: {
@@ -355,7 +361,7 @@ export const pricingSections = {
     ],
     rows: [
       { slug: "akutsprechstunde", label: { de: "Akutsprechstunde", en: "Acute consultation" }, price: { currency: "EUR", displayOverride: byConsultation } },
-      { slug: "gesetzlicher-check-up", label: { de: "Gesundheitsuntersuchung (Check-up)", en: "Preventive health check-up" }, price: { currency: "EUR", displayOverride: { de: "Kassenleistung nach Anspruch", en: "covered according to eligibility" } }, detailHref: { de: "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up", en: "/en/general-medicine/preventive-check-up" } },
+      { slug: "gesetzlicher-check-up", label: { de: "Gesundheitsuntersuchung (Check-up)", en: "Preventive health check-up" }, price: { currency: "EUR", displayOverride: { de: "Kassenleistung nach Anspruch", en: "covered according to eligibility" } }, detailHref: { de: "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up", en: "/en/general-medicine/preventive-check-up" }, bookingUrls: Constants.appointmentUrlsByService.checkups },
       { slug: "reiseimpfungen", label: { de: "Reiseimpfungen", en: "Travel vaccinations" }, price: { currency: "EUR", displayOverride: byConsultation }, detailHref: { de: "/leistungen/reiseimpfungen", en: "/en/services/travel-vaccinations" } },
     ],
   },

@@ -59,6 +59,8 @@ const bookingUrlsByCanonical: Record<string, AppointmentBookingUrls> = {
   "/en/services/hair-loss-berlin-mitte": Constants.appointmentUrlsByService.hairTherapy,
   "/leistungen/prp-haarausfall": Constants.appointmentUrlsByService.hairTherapy,
   "/en/services/prp-hair-loss": Constants.appointmentUrlsByService.hairTherapy,
+  "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up": Constants.appointmentUrlsByService.checkups,
+  "/en/general-medicine/preventive-check-up": Constants.appointmentUrlsByService.checkups,
 };
 
 function iconForFact(label: string, value: string): FactIconComponent {
@@ -291,8 +293,8 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
 }
 
 export function LandingPage({ content }: { content: LandingContent }) {
-  const bookingHref = Constants.appointmentUrl;
   const bookingUrls = bookingUrlsByCanonical[content.canonical];
+  const bookingHref = bookingUrls?.private ?? Constants.appointmentUrl;
   const usesAestheticBookingModal =
     content.canonical.startsWith("/aesthetik") ||
     content.canonical.startsWith("/en/aesthetics") ||

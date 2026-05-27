@@ -14,6 +14,7 @@ export const Services = [{
       href: '#2',
       imageSrc: '/images/leistungen/checkup.png',
       type: 'gesetzliche',
+      bookingUrls: Constants.appointmentUrlsByService.checkups,
       description: "Ab 35 Jahre besteht die Möglichkeit alle 3 Jahre eine Vorsorgeuntersuchung durchführen zu lassen. Zusätzlich gibt es jetzt die Möglichkeit, dass Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen können.\n\n\nVon der gesetzlichen Krankenkasse wird übernommen:\n\n- Anamnese\n\n- körperliche Untersuchung\n\n- Ruhe-EKG\n\n- Beratung 15 Minuten\n\n- Labor (Blutbild, Eisen, Cholesterinwert, Leber-, Schilddrüsen- und Nierenwerte, Nüchtern Blutzucker, HbA1C, UrinStix)\n\n- Männer ab 50 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Frauen ab 55 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Ab 65 Jahren einmalig Ultraschall der Bauchaorta zur Früherkennung der Bauchaortenaneurysma\n\n\n\n**Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ)**\n\n- Spurenelemente, Vitamin D, sowie Hormonspiegel\n\n- Parameter des Immunsystems, Blutgruppe\n\n- Auswertung der Befunde und Beratung bezüglich Nahrungsergänzungsmittel.\n\n\nSprechen Sie uns an und wir beraten Sie gerne dazu."
     },
     {
@@ -38,6 +39,7 @@ export const Services = [{
       href: '#11',
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
       description: "Unsere Infusionstherapie umfasst Eisen-, Vitamin-B12-, Folsäure- und ausgewählte Vitamininfusionen nach ärztlicher Einschätzung. Grundlage sind Beschwerden, Vorgeschichte und relevante Laborwerte. Die Eiseninfusion kostet als Festpreis 150,95 €."
     },
     {
@@ -46,6 +48,7 @@ export const Services = [{
       href: '#13',
       imageSrc: '/images/leistungen/glp1-syringe.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       description: "Die Abnehmspritze (GLP-1-Analoga wie Ozempic®, Wegovy®, Mounjaro®) ist eine moderne medizinische Behandlungsmethode zur Gewichtsreduktion. Diese Medikamente wirken durch die Nachahmung des natürlichen Hormons GLP-1, das den Appetit reduziert, das Sättigungsgefühl verstärkt und die Magenentleerung verlangsamt. Die Behandlung erfolgt unter ärztlicher Aufsicht und wird individuell auf Ihre Bedürfnisse abgestimmt. Die Kosten für das Medikament sind nicht im Preis enthalten und werden derzeit nicht von den gesetzlichen Krankenkassen übernommen."
     },
     {
@@ -63,6 +66,7 @@ export const Services = [{
       href: '#10',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.micronutrients,
       description: "Unsere Nährstofftherapie bietet eine gezielte Ergänzung, um Mangelzustände zu beheben oder spezifische Gesundheitsbedürfnisse zu unterstützen. Basierend auf umfassender Diagnostik erstellen wir personalisierte Nährstoffpläne, die Vitamine, Mineralstoffe, Antioxidantien und andere essenzielle Nährstoffe enthalten können. Dieser Ansatz kann Patienten mit chronischen Erkrankungen, Personen in der Genesungsphase oder Menschen, die ihre allgemeine Gesundheit und ihr Wohlbefinden optimieren möchten, zugutekommen."
     },
     {
@@ -71,6 +75,7 @@ export const Services = [{
       href: '#8',
       imageSrc: '/images/leistungen/nutrition.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.nutrition,
       description: "In unserer Praxis führen wir neben Anamnese und körperlicher Untersuchung falls notwendig auch ein breites Spektrum an Laboruntersuchungen durch. Dies umfasst Standardtests für akute und chronische Erkrankungen sowie spezielle Blutanalysen, wie Mikronährstoff- und Vitaminbestimmungen, Darmmikrobiomanalyse. Wir beraten Sie gerne ausführlich dazu."
     },
     {
@@ -140,6 +145,7 @@ export const Services = [{
       href: '#2',
       imageSrc: '/images/leistungen/checkup.png',
       type: 'gesetzliche',
+      bookingUrls: Constants.appointmentUrlsByService.checkups,
       description: "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday. \n\n\nThe statutory health insurance fund covers:\n\n\n- Medical history\n\n- Physical examination\n\n- Resting ECG\n\n- Consultation 15 minutes\n\n- Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)\n\n- Men aged 50 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- Women aged 55 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm\n\n\n\n**Additional laboratory (for self-payers or private insurance, charged according to GOÄ)**\n\n- Trace elements, vitamin D, and hormone levels\n\n- Parameters of the immune system, blood group\n\n- Evaluation of the findings and advice on dietary supplements. \n\n\nContact us and we will be happy to advise you."
     },
     {
@@ -164,6 +170,7 @@ export const Services = [{
       href: '#11',
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
       description: "Our infusion therapy includes iron, vitamin B12, folic acid and selected vitamin infusions after medical assessment. The iron infusion has a fixed price of €150.95."
     },
     {
@@ -172,6 +179,7 @@ export const Services = [{
       href: '#13',
       imageSrc: '/images/leistungen/glp1-syringe.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       description: "Weight loss injections (GLP-1 such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs. The costs for the medication are not included in the price and are currently not covered by statutory health insurance."
     },
     {
@@ -189,6 +197,7 @@ export const Services = [{
       href: '#10',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.micronutrients,
       description: "Our micronutrient therapy offers targeted supplementation to address deficiencies or support specific health needs. Based on comprehensive diagnostics, we create personalized nutrient plans that may include vitamins, minerals, antioxidants, and other essential nutrients. This approach can benefit patients with chronic conditions, those recovering from illness, or individuals seeking to optimize their overall health and wellness."
     },
     {
@@ -197,6 +206,7 @@ export const Services = [{
       href: '#6',
       imageSrc: '/images/leistungen/nutrition.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.nutrition,
       description: "In our practice, we carry out a wide range of laboratory tests in addition to a medical history and physical examination if necessary. This includes standard tests for acute and chronic illnesses as well as special blood analyses, such as micronutrient and vitamin determinations and intestinal microbiome analysis. We will be happy to advise you in detail."
     },
     {
