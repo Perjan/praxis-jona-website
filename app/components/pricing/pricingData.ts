@@ -192,6 +192,7 @@ export const pricingSections = {
     rows: [
       { slug: "microneedling-haare", label: { de: "Microneedling Haare", en: "Microneedling hair/scalp" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${hairTherapyHref.de}/microneedling-haare`, en: `${hairTherapyHref.en}#when-this-may-be-suitable` }, bookingUrls: Constants.appointmentUrlsByService.hairMicroneedling, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
       { slug: "prp-haare", label: { de: "PRP Haare", en: "PRP hair/scalp" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${hairTherapyHref.de}/prp-haare`, en: prpHairHref.en }, bookingUrls: Constants.appointmentUrlsByService.hairPrp, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
+      { slug: "polynukleotide-haare", label: { de: "Polynukleotide Haare", en: "Polynucleotides hair/scalp" }, price: { amount: 249, currency: "EUR" }, detailHref: { de: `${hairTherapyHref.de}/polynukleotide-haare`, en: `${hairTherapyHref.en}#polynucleotides-hair` }, bookingUrls: Constants.appointmentUrlsByService.hairPolynucleotides, packageOffer: { quantity: 3, label: threeTreatmentBadge, badge: threeTreatmentBadge, price: { amount: 669, currency: "EUR" } } },
     ],
   },
   nutrition: {

@@ -111,6 +111,16 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
         "Die enthaltenen Wachstumsfaktoren können regenerative Prozesse der Haarfollikel unterstützen und die Kopfhaut stimulieren.",
       ],
     },
+    {
+      sectionKey: "hair",
+      slug: "polynukleotide-haare",
+      title: "Polynukleotide Haare",
+      href: "/leistungen/haarausfall-berlin-mitte/polynukleotide-haare",
+      description: [
+        "Polynukleotide (PhilArt Hair®) werden zur Unterstützung regenerativer Prozesse der Kopfhaut eingesetzt.",
+        "Die Behandlung kann sinnvoll sein, wenn Kopfhautqualität, Haarfollikel und Regeneration gezielt unterstützt werden sollen.",
+      ],
+    },
   ],
 };
 
@@ -507,8 +517,52 @@ function takeUntilRule(nodes: MarkdownNode[], start: number) {
   return { children, cursor };
 }
 
+function takeUntilHeadingTitle(nodes: MarkdownNode[], start: number, stopTitles: string[]) {
+  const children: MarkdownNode[] = [];
+  let cursor = start;
+
+  while (cursor < nodes.length) {
+    const node = nodes[cursor];
+
+    if ((node.type === "h2" || node.type === "h3") && node.text && stopTitles.includes(node.text)) {
+      break;
+    }
+
+    children.push(node);
+    cursor += 1;
+  }
+
+  return { children, cursor };
+}
+
 function getDetailHrefByTitle(sectionKey: AestheticSectionKey) {
-  return Object.fromEntries(getAestheticDetailPages(sectionKey).map((page) => [page.title, page.href]));
+  const hrefByTitle = Object.fromEntries(getAestheticDetailPages(sectionKey).map((page) => [page.title, page.href]));
+
+  if (sectionKey === "hair") {
+    return {
+      ...hrefByTitle,
+      "PRP bei Haarausfall / Eigenbluttherapie der Kopfhaut": "/leistungen/haarausfall-berlin-mitte/prp-haare",
+      "Medizinisches Microneedling der Kopfhaut bei Haarausfall": "/leistungen/haarausfall-berlin-mitte/microneedling-haare",
+      "Polynukleotide / PhilArt Hair®": "/leistungen/haarausfall-berlin-mitte/polynukleotide-haare",
+    };
+  }
+
+  return hrefByTitle;
+}
+
+function getDetailPageByHref(sectionKey: AestheticSectionKey, href: string) {
+  return getAestheticDetailPages(sectionKey).find((page) => page.href === href);
+}
+
+function takeHairDetailCardSection(nodes: MarkdownNode[], title: string, start: number) {
+  const nextDetailTitlesByTitle: Record<string, string[]> = {
+    "PRP bei Haarausfall / Eigenbluttherapie der Kopfhaut": ["Medizinisches Microneedling der Kopfhaut bei Haarausfall"],
+    "Medizinisches Microneedling der Kopfhaut bei Haarausfall": ["Polynukleotide / PhilArt Hair®"],
+    "Polynukleotide / PhilArt Hair®": ["Medizinische Diagnostik bei Haarausfall"],
+  };
+  const stopTitles = nextDetailTitlesByTitle[title];
+
+  return stopTitles ? takeUntilHeadingTitle(nodes, start, stopTitles) : takeUntilRule(nodes, start);
 }
 
 function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: AestheticDetailPage) {
@@ -678,6 +732,17 @@ function getHairDetailNodes(nodes: MarkdownNode[], slug: string) {
         "Wie läuft die PRP-Haartherapie ab?",
         "Wie viele PRP-Behandlungen sind sinnvoll?",
         "PRP nach Haartransplantationen",
+        "Medizinische Diagnostik bei Haarausfall",
+        "Mikronährstofftherapie & Infusionstherapie",
+      ]),
+    ];
+  }
+
+  if (slug === "polynukleotide-haare") {
+    return [
+      { type: "h3", text: "Polynukleotide / PhilArt Hair®" } as MarkdownNode,
+      ...extractDetailNodes(nodes, "Polynukleotide / PhilArt Hair®"),
+      ...extractSections(nodes, [
         "Medizinische Diagnostik bei Haarausfall",
         "Mikronährstofftherapie & Infusionstherapie",
       ]),
@@ -920,10 +985,41 @@ function AestheticFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
   );
 }
 
+function AestheticDetailContentSection({ nodes }: { nodes: MarkdownNode[] }) {
+  return (
+    <MotionSection className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
+      <ParagraphNodes nodes={nodes} />
+    </MotionSection>
+  );
+}
+
 function StructuredBody({ nodes, sectionKey }: { nodes: MarkdownNode[]; sectionKey: AestheticSectionKey }) {
   const sections: JSX.Element[] = [];
-  const detailHrefByTitle = sectionKey === "prp" ? getDetailHrefByTitle(sectionKey) : {};
+  const detailHrefByTitle = sectionKey === "prp" || sectionKey === "hair" ? getDetailHrefByTitle(sectionKey) : {};
   let index = 0;
+
+  const createDetailCard = (node: MarkdownNode & { text: string }, detailHref: string, start: number) => {
+    const result = sectionKey === "hair" ? takeHairDetailCardSection(nodes, node.text, start) : takeUntilRule(nodes, start);
+    const detailPage = getDetailPageByHref(sectionKey, detailHref);
+    const cardNodes = sectionKey === "hair" && detailPage?.description
+      ? detailPage.description.map((text) => ({ type: "p", text }) as MarkdownNode)
+      : result.children;
+    const card = (
+      <MotionCard className="h-full rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg">
+        <h2 className="font-serif text-2xl font-semibold text-primary">{node.text}</h2>
+        <div className="mt-5 space-y-3">{renderCompactNodes(cardNodes)}</div>
+        <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+      </MotionCard>
+    );
+
+    sections.push(
+      <Link id={sectionId(node.text)} key={`card-${sections.length}`} href={detailHref} className="block h-full scroll-mt-28">
+        {card}
+      </Link>,
+    );
+
+    return result.cursor;
+  };
 
   while (index < nodes.length) {
     const node = nodes[index];
@@ -971,6 +1067,18 @@ function StructuredBody({ nodes, sectionKey }: { nodes: MarkdownNode[]; sectionK
     }
 
     if (node.type === "h2") {
+      const detailHref = node.text ? detailHrefByTitle[node.text] : undefined;
+
+      if (node.text && detailHref) {
+        if (sectionKey === "hair") {
+          index = takeHairDetailCardSection(nodes, node.text, index + 1).cursor;
+          continue;
+        }
+
+        index = createDetailCard({ ...node, text: node.text }, detailHref, index + 1);
+        continue;
+      }
+
       sections.push(
         <MotionSection id={sectionId(node.text)} key={`heading-${sections.length}`} className="mx-auto max-w-5xl scroll-mt-28 px-4 pt-14 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl font-semibold text-primary">{node.text}</h2>
@@ -984,21 +1092,12 @@ function StructuredBody({ nodes, sectionKey }: { nodes: MarkdownNode[]; sectionK
       const detailHref = detailHrefByTitle[node.text];
 
       if (detailHref) {
-        const result = takeUntilRule(nodes, index + 1);
-        const card = (
-          <MotionCard className="h-full rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg">
-            <h2 className="font-serif text-2xl font-semibold text-primary">{node.text}</h2>
-            <div className="mt-5 space-y-3">{renderCompactNodes(result.children)}</div>
-            <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
-          </MotionCard>
-        );
+        if (sectionKey === "hair") {
+          index = takeHairDetailCardSection(nodes, node.text, index + 1).cursor;
+          continue;
+        }
 
-        sections.push(
-          <Link id={sectionId(node.text)} key={`card-${sections.length}`} href={detailHref} className="block h-full scroll-mt-28">
-            {card}
-          </Link>,
-        );
-        index = result.cursor;
+        index = createDetailCard({ ...node, text: node.text }, detailHref, index + 1);
         continue;
       }
 
@@ -1218,12 +1317,10 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
                   ))}
                 </div>
               )}
-              <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 px-0 pb-8 sm:px-0 lg:hidden" overlapHero={false} />
+              <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 !px-0 pb-8 sm:!px-0 md:!px-0 lg:hidden" overlapHero={false} />
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
-              {sectionKey !== "microneedling" && <ParagraphNodes nodes={detailNodes} />}
             </div>
             <div className="mt-6 hidden lg:block">
-              {sectionKey !== "microneedling" && <ParagraphNodes nodes={detailNodes} />}
               <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
             </div>
           </div>
@@ -1234,18 +1331,14 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
 
         <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="hidden lg:block" />
         {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
-        {sectionKey === "microneedling" && (
-          <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-            <ParagraphNodes nodes={detailNodes} />
-          </MotionSection>
-        )}
+        <AestheticDetailContentSection nodes={detailNodes} />
         <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />
         <AestheticFaqSection nodes={nodes} />
 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
             <h2 className="font-serif text-3xl font-semibold text-primary">
-              {sectionKey === "microneedling" ? "Weitere Microneedling-Themen" : "Weitere PRP-Behandlungen"}
+              {sectionKey === "microneedling" ? "Weitere Microneedling-Themen" : sectionKey === "hair" ? "Weitere Haartherapien" : "Weitere PRP-Behandlungen"}
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {siblings.map((item, index) => (

@@ -1032,6 +1032,8 @@ Das ist übrigens SEO-technisch genau richtig für euch:
   
 In der Praxis Jona am Rosenthaler Platz kombinieren wir moderne regenerative Haartherapien mit internistischer Diagnostik und individueller medizinischer Abklärung.  
   
+## Medizinische Ursachen von Haarausfall  
+  
 Haarausfall kann viele Ursachen haben und sollte nicht nur oberflächlich behandelt werden. Neben genetischen Faktoren spielen häufig auch:  
   
 * Eisenmangel,  
