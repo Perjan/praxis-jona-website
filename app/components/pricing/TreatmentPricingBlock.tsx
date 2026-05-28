@@ -1,5 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowRightIcon, ClockIcon } from "@heroicons/react/24/outline";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionSection } from "app/components/Motion";
 import {
@@ -21,6 +22,129 @@ const treatmentPricingSectionsByCanonical: Record<string, PricingSection[]> = {
   "/en/services/hair-loss-berlin-mitte": [pricingSections.hairTherapy],
 };
 
+const treatmentCardImages: Record<
+  string,
+  {
+    src: string;
+    alt: Record<PricingLocale, string>;
+    objectPositionClass?: string;
+  }
+> = {
+  prp: {
+    src: "/images/aesthetik/prp-model.jpg",
+    alt: {
+      de: "Weiße Frau mit Fokus auf Gesicht und Augenpartie für PRP Eigenbluttherapie",
+      en: "White female model with focus on face and under-eye area for PRP treatment",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  microneedling: {
+    src: "/images/aesthetik/microneedling-model.jpg",
+    alt: {
+      de: "Weiße Frau mit Fokus auf Hautstruktur und Gesicht für medizinisches Microneedling",
+      en: "White female model with focus on facial skin texture for medical microneedling",
+    },
+    objectPositionClass: "object-[50%_40%]",
+  },
+  skinbooster: {
+    src: "/images/aesthetik/skinbooster-model.jpg",
+    alt: {
+      de: "Weiße Frau mit Fokus auf Feuchtigkeit und Hautqualität für Skinbooster",
+      en: "White female model with focus on hydration and skin quality for skin boosters",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  haarausfall: {
+    src: "/images/aesthetik/hair-therapy-male-model.jpg",
+    alt: {
+      de: "Weißer Mann mit Fokus auf Haarlinie und Kopfhaut für Haartherapie",
+      en: "White male model with focus on hairline and scalp for hair therapy",
+    },
+    objectPositionClass: "object-[50%_34%]",
+  },
+};
+
+const treatmentCardImagesByRow: Record<
+  string,
+  {
+    src: string;
+    alt: Record<PricingLocale, string>;
+    objectPositionClass?: string;
+  }
+> = {
+  "prp-gesicht": {
+    src: "/images/aesthetik/prp-face-model.jpg",
+    alt: {
+      de: "Weiße Frau mit frontaler Ansicht und Fokus auf Gesicht für PRP Gesicht",
+      en: "White female model front-facing with focus on face for PRP face treatment",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "prp-augen": {
+    src: "/images/aesthetik/prp-under-eye-model.jpg",
+    alt: {
+      de: "Weißer Mann in Dreiviertelansicht mit Fokus auf Augenpartie für PRP Augen",
+      en: "White male model in three-quarter view with focus on under-eye area for PRP",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
+  "prp-gesicht-hals": {
+    src: "/images/aesthetik/prp-face-neck-model.jpg",
+    alt: {
+      de: "Weiße Frau in seitlicher Dreiviertelpose mit Fokus auf Gesicht und Hals für PRP",
+      en: "White female model in side three-quarter pose with focus on face and neck for PRP",
+    },
+    objectPositionClass: "object-[50%_34%]",
+  },
+  "prp-gesicht-hals-dekollete": {
+    src: "/images/aesthetik/prp-face-neck-decollete-model.jpg",
+    alt: {
+      de: "Weiße Frau mit sichtbarem Dekolleté und Fokus auf Gesicht, Hals und Dekolleté für PRP",
+      en: "White female model with visible decollete and focus on face, neck and decollete for PRP",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "vampire-lifting": {
+    src: "/images/aesthetik/prp-vampire-lifting-model.jpg",
+    alt: {
+      de: "Weiße Frau mit dunklem Haar in Dreiviertelpose für Vampire Lifting PRP",
+      en: "White female model with dark hair in three-quarter pose for vampire lifting PRP",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "microneedling-haare": {
+    src: "/images/aesthetik/hair-microneedling-male-model.jpg",
+    alt: {
+      de: "Weißer Mann mit Fokus auf Haarlinie und Kopfhaut für Microneedling Haare",
+      en: "White male model with focus on hairline and scalp for hair microneedling",
+    },
+    objectPositionClass: "object-[50%_34%]",
+  },
+  "prp-haare": {
+    src: "/images/aesthetik/hair-prp-male-model.jpg",
+    alt: {
+      de: "Weißer Mann mit Fokus auf Haarlinie und Kopfhaut für PRP Haare",
+      en: "White male model with focus on hairline and scalp for PRP hair therapy",
+    },
+    objectPositionClass: "object-[50%_34%]",
+  },
+  "polynukleotide-haare": {
+    src: "/images/aesthetik/hair-polynucleotides-male-model.jpg",
+    alt: {
+      de: "Weißer Mann mit Fokus auf Haarlinie und Kopfhaut für Polynukleotide Haare",
+      en: "White male model with focus on hairline and scalp for polynucleotide hair therapy",
+    },
+    objectPositionClass: "object-[50%_34%]",
+  },
+};
+
+const treatmentDurations: Record<string, Record<PricingLocale, string>> = {
+  prp: { de: "45-60 Min.", en: "45-60 min" },
+  microneedling: { de: "45-60 Min.", en: "45-60 min" },
+  skinbooster: { de: "30-45 Min.", en: "30-45 min" },
+  haarausfall: { de: "45-60 Min.", en: "45-60 min" },
+};
+
 function getCardActions(section: PricingSection, row: PricingRow, locale: PricingLocale, canonical: string) {
   const bookingHref = row.bookingHref?.[locale] ?? section.bookingHref?.[locale];
   const bookingUrls = row.bookingUrls ?? section.bookingUrls;
@@ -36,6 +160,16 @@ function getCardActions(section: PricingSection, row: PricingRow, locale: Pricin
   };
 }
 
+function formatTreatmentCardPrice(row: PricingRow, locale: PricingLocale) {
+  const formattedPrice = formatPrice(row.price, locale);
+
+  if (typeof row.price?.amount !== "number") {
+    return formattedPrice;
+  }
+
+  return `${locale === "en" ? "from" : "ab"} ${formattedPrice}`;
+}
+
 function TreatmentPricingCard({
   section,
   row,
@@ -48,21 +182,43 @@ function TreatmentPricingCard({
   canonical: string;
 }) {
   const actions = getCardActions(section, row, locale, canonical);
-  const className = "rounded-lg border border-primary/10 bg-white p-5 shadow-sm";
-  const pricePrefix = locale === "en" ? "from" : "ab";
+  const image = treatmentCardImagesByRow[row.slug] ?? treatmentCardImages[section.slug];
+  const duration = treatmentDurations[section.slug]?.[locale];
 
   return (
-    <div className={className}>
-      <div className="flex min-h-[72px] flex-col justify-between gap-3">
-        <div>
-          <h3 className="font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
+    <div className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-primary/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:ring-primary/20">
+      {image && (
+        <div className="relative overflow-hidden bg-lightBeige">
+          <Image
+            src={image.src}
+            alt={image.alt[locale]}
+            width={720}
+            height={560}
+            sizes="(min-width: 1280px) 25vw, (min-width: 768px) 45vw, 92vw"
+            className={`h-[180px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${image.objectPositionClass ?? "object-center"}`}
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-white/10 to-lightBeige/25" />
         </div>
-        <p className="text-2xl font-semibold text-primaryLighter">
-          {pricePrefix} {formatPrice(row.price, locale)}
-        </p>
+      )}
+
+      <div className="flex flex-1 flex-col p-5 sm:p-4">
+        <h3 className="font-serif text-[1.45rem] font-semibold leading-[1.08] text-primary sm:text-xl md:min-h-[4.5rem] md:text-[1.05rem] lg:min-h-[4rem] lg:text-lg xl:text-xl">
+          {row.label[locale]}
+        </h3>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-primary/10 pt-4">
+          <p className="font-serif text-[1.65rem] font-semibold leading-none text-primary tabular-nums md:text-xl xl:text-2xl">
+            {formatTreatmentCardPrice(row, locale)}
+          </p>
+          {duration && (
+            <div className="inline-flex min-h-9 items-center gap-2 rounded-full bg-lightBeige px-3 py-1.5 text-sm font-semibold text-primary ring-1 ring-primary/10">
+              <ClockIcon className="h-4 w-4 stroke-[3]" aria-hidden="true" />
+              <span>{duration}</span>
+            </div>
+          )}
+        </div>
       </div>
 
-      <div className="mt-5 flex flex-col gap-3 border-t border-primary/10 pt-4 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-auto flex flex-col gap-3 px-5 pb-5 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between sm:px-4 sm:pb-4">
         {actions.learnHref && (
           <Link
             href={actions.learnHref}
