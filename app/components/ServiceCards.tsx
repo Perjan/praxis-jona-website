@@ -12,23 +12,24 @@ const serviceCardsContent = {
             {
                 title: "INNERE MEDIZIN",
                 paragraphs: [
-                    "Als Ihre Hausärztin begleite ich Sie nicht nur bei akuten Erkrankungen, sondern unterstütze Sie auch dabei, Ihre Gesundheit langfristig zu erhalten und zu stärken.",
-                    "Mein Ansatz orientiert sich am Konzept der Longevity-Medizin: moderne Prävention, individuelle Gesundheitsstrategien und eine ganzheitliche Betreuung, die auf wissenschaftlichen Erkenntnissen basiert."
+                    "Als internistische Hausarztpraxis begleiten wir Sie bei akuten Beschwerden, Vorsorge und chronischen Gesundheitsthemen.",
+                    "Mit ärztlicher Diagnostik, klarer Einordnung und persönlicher Betreuung schaffen wir Orientierung für die nächsten Schritte."
                 ],
                 href: "/hausaerztliche-leistungen",
             },
             {
                 title: "ÄSTHETIK",
                 paragraphs: [
-                    "Ästhetische Medizin ist mehr als Kosmetik: Sie ist ein Baustein für Ihr Wohlbefinden. Mit medizinischem Fachwissen und einem Blick für das Natürliche begleite ich Sie dabei."
+                    "Ästhetische Medizin soll nicht verändern, sondern Ihre natürliche Ausstrahlung unterstützen.",
+                    "Mit medizinischer Erfahrung, präziser Planung und einem Blick für harmonische Ergebnisse behandeln wir dezent und individuell."
                 ],
                 href: "/aesthetik",
             },
             {
                 title: "HEALTH & LONGEVITY",
                 paragraphs: [
-                    "Gesund alt werden – das ist kein Zufall, sondern eine Entscheidung.",
-                    "Ich begleite Sie dabei, Ihre Gesundheit aktiv zu gestalten, bevor Krankheit entsteht. Mit moderner Medizin, ganzheitlichen Konzepten und evidenzbasierten Longevity-Strategien stärken wir gemeinsam Ihre Vitalität."
+                    "Prävention beginnt, bevor Beschwerden entstehen.",
+                    "Wir verbinden moderne Diagnostik, Laborwerte und persönliche Ziele zu einem klaren Plan für Energie, Stoffwechsel und langfristige Gesundheit."
                 ],
                 href: "/praevention-longevity",
             }
@@ -40,23 +41,24 @@ const serviceCardsContent = {
             {
                 title: "INTERNAL MEDICINE",
                 paragraphs: [
-                    "As your general practitioner, I not only support you in acute illnesses, but also help you to maintain and strengthen your health in the long term.",
-                    "My approach is based on the concept of longevity medicine: modern prevention, personalized health strategies, and holistic care grounded in scientific findings."
+                    "As an internal medicine practice, we support you with acute concerns, preventive care, and chronic health topics.",
+                    "With medical diagnostics, clear assessment, and personal care, we create orientation for the next steps."
                 ],
                 href: "/en/general-medicine",
             },
             {
                 title: "AESTHETICS",
                 paragraphs: [
-                    "Aesthetic medicine is more than cosmetics: it is a building block for your well-being. With medical expertise and an eye for the natural, I will guide you along the way."
+                    "Aesthetic medicine should not change who you are, but support your natural expression.",
+                    "With medical experience, precise planning, and an eye for harmonious results, we treat discreetly and individually."
                 ],
                 href: "/en/aesthetics",
             },
             {
                 title: "HEALTH & LONGEVITY",
                 paragraphs: [
-                    "Growing old healthily is not a coincidence, but a decision.",
-                    "I support you in actively shaping your health before illness occurs. With modern medicine, holistic concepts, and evidence-based longevity strategies, we will jointly strengthen your vitality."
+                    "Prevention starts before symptoms appear.",
+                    "We connect modern diagnostics, lab values, and personal goals into a clear plan for energy, metabolism, and long-term health."
                 ],
                 href: "/en/prevention-longevity",
             }

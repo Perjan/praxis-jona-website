@@ -3,7 +3,6 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionSection } from "app/components/Motion";
 import {
-  formatPackageOffer,
   formatPrice,
   pricingSections,
   type PricingLocale,
@@ -50,6 +49,7 @@ function TreatmentPricingCard({
 }) {
   const actions = getCardActions(section, row, locale, canonical);
   const className = "rounded-lg border border-primary/10 bg-white p-5 shadow-sm";
+  const pricePrefix = locale === "en" ? "from" : "ab";
 
   return (
     <div className={className}>
@@ -57,19 +57,10 @@ function TreatmentPricingCard({
         <div>
           <h3 className="font-serif text-xl font-semibold text-primary">{row.label[locale]}</h3>
         </div>
-        <p className="text-2xl font-semibold text-primaryLighter">{formatPrice(row.price, locale)}</p>
+        <p className="text-2xl font-semibold text-primaryLighter">
+          {pricePrefix} {formatPrice(row.price, locale)}
+        </p>
       </div>
-
-      {row.packageOffer && (
-        <div className="mt-5 rounded-lg border border-tealColorDark/20 bg-tealColor/25 p-4">
-          <div className="inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-tealColorDark">
-            {row.packageOffer.badge?.[locale] ?? row.packageOffer.label[locale]}
-          </div>
-          <p className="mt-3 text-lg font-semibold text-primaryLighter">
-            {formatPackageOffer(row.packageOffer, locale)}
-          </p>
-        </div>
-      )}
 
       <div className="mt-5 flex flex-col gap-3 border-t border-primary/10 pt-4 text-sm font-semibold sm:flex-row sm:items-center sm:justify-between">
         {actions.learnHref && (

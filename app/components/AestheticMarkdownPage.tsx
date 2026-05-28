@@ -241,7 +241,7 @@ const sectionFacts: Record<Exclude<AestheticSectionKey, "hub" | "botulinumtoxin"
   hair: [
     { title: "Dauer", value: "45 bis 60 Minuten", icon: ClockIcon },
     { title: "Sitzungen", value: "3–4 Sitzungen", icon: CalendarDaysIcon },
-    { title: "Diagnostik", value: "Laboruntersuchungen", icon: SparklesIcon },
+    { title: "Preis", value: "ab 249 €", icon: SparklesIcon },
   ],
   skinbooster: [
     { title: "Dauer", value: "30 bis 45 Minuten", icon: ClockIcon },

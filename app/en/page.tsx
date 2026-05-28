@@ -88,8 +88,8 @@ export default function Features() {
 
             <QuoteSection
                 quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
-                buttonLink="/en/prevention-longevity"
-                buttonText="Health / Longevity"
+                buttonLink="/en/team"
+                buttonText="Meet the team"
                 role="Specialist for Internal Medicine"
             />
 

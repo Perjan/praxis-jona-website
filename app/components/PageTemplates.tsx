@@ -198,6 +198,50 @@ function LandingHeroImage({ image, className = "" }: { image: NonNullable<Landin
   );
 }
 
+function FactCardGrid({ facts }: { facts: LandingContent["facts"] }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {facts.map((fact, index) => {
+        const FactIcon = iconForFact(fact.label, fact.value);
+
+        return (
+          <MotionCard
+            key={fact.label}
+            delay={Math.min(index * 0.04, 0.2)}
+            className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm"
+          >
+            <div className="flex gap-4">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
+                <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
+              </div>
+              <div>
+                <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
+                <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
+              </div>
+            </div>
+          </MotionCard>
+        );
+      })}
+    </div>
+  );
+}
+
+function LandingFactSection({ facts }: { facts: LandingContent["facts"] }) {
+  if (!facts.length) {
+    return null;
+  }
+
+  return (
+    <MotionSection className="bg-lightBeige/70 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <dl>
+          <FactCardGrid facts={facts} />
+        </dl>
+      </div>
+    </MotionSection>
+  );
+}
+
 export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
   const hasVignetteHero = content.heroImage?.presentation === "vignette";
 
@@ -351,34 +395,17 @@ export function LandingPage({ content }: { content: LandingContent }) {
                 bookingUrls={bookingUrls}
               />
             </div>
-            <div className="space-y-5">
+            <div>
               {content.heroImage && <LandingHeroImage image={content.heroImage} className="hidden lg:block" />}
-              <div className="rounded-lg bg-lightBeige p-6 shadow-sm">
-                <dl className="space-y-8">
-                  {content.facts.map((fact) => {
-                    const FactIcon = iconForFact(fact.label, fact.value);
-
-                    return (
-                      <div key={fact.label} className="flex gap-4">
-                        <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
-                          <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
-                        </div>
-                        <div>
-                          <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
-                          <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </dl>
-              </div>
             </div>
           </div>
         </MotionSection>
 
+        <LandingFactSection facts={content.facts} />
+
         <TreatmentPricingBlock canonical={content.canonical} locale={content.locale} />
 
-        <div id="behandlungsdetails" className="mx-auto max-w-7xl scroll-mt-28 px-4 pb-8 sm:px-6 lg:px-8">
+        <div id="behandlungsdetails" className="mx-auto mt-12 max-w-7xl scroll-mt-28 px-4 pb-8 sm:px-6 lg:mt-16 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2">
             {content.sections.map((section, index) => (
               <MotionCard id={sectionId(section.title)} key={section.title} delay={Math.min(index * 0.05, 0.16)} className="scroll-mt-28 rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
