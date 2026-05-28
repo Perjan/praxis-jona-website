@@ -112,6 +112,102 @@ const treatmentCardImagesByRow: Record<
     },
     objectPositionClass: "object-[50%_38%]",
   },
+  "vampirelift-medizinisches-microneedling-gesicht": {
+    src: "/images/aesthetik/microneedling-vampirelift-model.jpg",
+    alt: {
+      de: "Weiße Frau mit dunklem lockigem Haar in Dreiviertelpose für Vampirelift mit Microneedling",
+      en: "White female model with dark curly hair in three-quarter pose for vampire lift microneedling",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "microneedling-gesicht": {
+    src: "/images/aesthetik/microneedling-face-model.jpg",
+    alt: {
+      de: "Weißer Mann mit blondem Haar in frontaler Ansicht für Microneedling Gesicht",
+      en: "White male model with blond hair front-facing for microneedling face",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
+  "microneedling-gesicht-hals": {
+    src: "/images/aesthetik/microneedling-face-neck-model.jpg",
+    alt: {
+      de: "Weiße Frau mit auburn Bob in seitlicher Pose für Microneedling Gesicht und Hals",
+      en: "White female model with auburn bob in side pose for microneedling face and neck",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
+  "microneedling-gesicht-hals-dekollete": {
+    src: "/images/aesthetik/microneedling-face-neck-decollete-model.jpg",
+    alt: {
+      de: "Weiße Frau mit silberblondem Haar und sichtbarem Dekolleté für Microneedling Gesicht Hals Dekolleté",
+      en: "White female model with silver-blonde hair and visible decollete for microneedling face neck decollete",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "microneedling-face-nctf": {
+    src: "/images/aesthetik/microneedling-nctf-model.jpg",
+    alt: {
+      de: "Weiße Frau mit dunklem Pixie-Haarschnitt für Microneedling Face plus NCTF",
+      en: "White female model with dark pixie haircut for microneedling face plus NCTF",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "microneedling-gesicht-exosome": {
+    src: "/images/aesthetik/microneedling-exosome-model.jpg",
+    alt: {
+      de: "Weißer Mann mit Bart in seitlicher Pose für Microneedling Gesicht Exosome",
+      en: "White male model with beard in side pose for microneedling face exosomes",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
+  "nctf-ha-gesicht": {
+    src: "/images/aesthetik/skinbooster-nctf-face-model.jpg",
+    alt: {
+      de: "Weiße Frau mit braunem schulterlangem Haar in frontaler Ansicht für NCTF HA Gesicht",
+      en: "White female model with shoulder-length brown hair front-facing for NCTF HA face",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "nctf-ha-gesicht-hals": {
+    src: "/images/aesthetik/skinbooster-nctf-face-neck-model.jpg",
+    alt: {
+      de: "Weißer Mann mit blondem Haar in Profilpose für NCTF HA Gesicht und Hals",
+      en: "White male model with blond hair in profile pose for NCTF HA face and neck",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
+  "nctf-ha-gesicht-hals-dekollete": {
+    src: "/images/aesthetik/skinbooster-nctf-face-neck-decollete-model.jpg",
+    alt: {
+      de: "Weiße Frau mit silbergrauem welligem Haar und sichtbarem Dekolleté für NCTF HA",
+      en: "White female model with silver-gray wavy hair and visible decollete for NCTF HA",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "philart-gesicht": {
+    src: "/images/aesthetik/skinbooster-philart-face-model.jpg",
+    alt: {
+      de: "Weiße Frau mit kupferrotem Haar in seitlicher Pose für PhilArt Gesicht",
+      en: "White female model with copper-red hair in side pose for PhilArt face",
+    },
+    objectPositionClass: "object-[50%_38%]",
+  },
+  "philart-auge": {
+    src: "/images/aesthetik/skinbooster-philart-eye-model.jpg",
+    alt: {
+      de: "Weiße Frau mit schwarzem Pony in Nahaufnahme für PhilArt Auge",
+      en: "White female model with black fringe in close-up for PhilArt eye treatment",
+    },
+    objectPositionClass: "object-[50%_40%]",
+  },
+  profhilo: {
+    src: "/images/aesthetik/skinbooster-profhilo-model.jpg",
+    alt: {
+      de: "Weißer Mann mit sehr kurzem Haar in leicht gedrehter Frontalansicht für Profhilo",
+      en: "White male model with very short hair in slight front turn for Profhilo",
+    },
+    objectPositionClass: "object-[50%_36%]",
+  },
   "microneedling-haare": {
     src: "/images/aesthetik/hair-microneedling-male-model.jpg",
     alt: {
