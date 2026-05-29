@@ -101,6 +101,34 @@ const backgrounds = {
   social: "/tv-new/backgrounds/bg-social.svg",
 } as const;
 
+const internalMedicineDiagnosticsFeatures: FeatureItem[] = [
+  { title: "Schilddrüse", text: "Labor, Ultraschall und medizinische Einordnung" },
+  { title: "Ultraschall", text: "Bauchorgane, Schilddrüse und ausgewählte Gefäße" },
+  { title: "EKG", text: "Ruhe-EKG und Belastungs-EKG" },
+  { title: "Langzeit-Blutdruck", text: "24-Stunden-Messung im Alltag" },
+];
+
+const internalMedicineCareFeatures: FeatureItem[] = [
+  { title: "Akutsprechstunde", text: "Einschätzung akuter Beschwerden" },
+  { title: "Check-up", text: "Vorsorge und Früherkennung" },
+  { title: "Impfungen", text: "Impfstatus, Auffrischung und Beratung" },
+  { title: "OP-Begleitung", text: "Vorbereitung und Nachsorge" },
+];
+
+const internalMedicineDiagnosticsFeaturesEn: FeatureItem[] = [
+  { title: "Thyroid", text: "Lab work, ultrasound and medical context" },
+  { title: "Ultrasound", text: "Abdomen, thyroid and selected vessels" },
+  { title: "ECG", text: "Resting and exercise ECG" },
+  { title: "24h blood pressure", text: "Real-life blood pressure monitoring" },
+];
+
+const internalMedicineCareFeaturesEn: FeatureItem[] = [
+  { title: "Acute consultation", text: "Assessment of acute symptoms" },
+  { title: "Check-up", text: "Prevention and early detection" },
+  { title: "Vaccinations", text: "Vaccination status and advice" },
+  { title: "Surgery support", text: "Pre-op review and follow-up care" },
+];
+
 export const TV_NEW_SLIDES: TVSlide[] = [
   {
     id: "welcome",
@@ -115,6 +143,34 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrLabel: "Leistungen öffnen",
     displayUrl: displayUrl(localUrl("/leistungen")),
     bullets: ["Ärztlich geführt", "Zentral am Rosenthaler Platz", "Persönlich und strukturiert"],
+  },
+  {
+    id: "internal-medicine-diagnostics",
+    kind: "feature-grid",
+    image: backgrounds.diagnostics,
+    imageAlt: "Branded internal medicine diagnostics TV background",
+    overlay: "bg-[#FBF6EE]/72",
+    kicker: "Innere Medizin",
+    title: "Diagnostik direkt in der Praxis",
+    subtitle: "Untersuchungen, die Beschwerden und Risiken medizinisch einordnen.",
+    qrUrl: localUrl("/hausaerztliche-leistungen"),
+    qrLabel: "Innere Medizin öffnen",
+    displayUrl: displayUrl(localUrl("/hausaerztliche-leistungen")),
+    features: internalMedicineDiagnosticsFeatures,
+  },
+  {
+    id: "primary-care-prevention",
+    kind: "feature-grid",
+    image: backgrounds.brand,
+    imageAlt: "Branded primary care and prevention TV background",
+    overlay: "bg-[#FBF6EE]/74",
+    kicker: "Hausärztliche Leistungen",
+    title: "Akut, Vorsorge und langfristige Begleitung",
+    subtitle: "Von akuten Beschwerden bis zu Check-ups, Impfungen und Betreuung rund um Operationen.",
+    qrUrl: localUrl("/hausaerztliche-leistungen"),
+    qrLabel: "Leistungen öffnen",
+    displayUrl: displayUrl(localUrl("/hausaerztliche-leistungen")),
+    features: internalMedicineCareFeatures,
   },
   {
     id: "botulinumtoxin",
@@ -339,6 +395,28 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
           rowPriceEn(findRow(botoxRows, "hyperhidrose")),
         ],
         bullets: ["Wrinkle treatment", "Bruxism", "Hyperhidrosis", "Chronic migraine"],
+      };
+    case "internal-medicine-diagnostics":
+      return {
+        ...slide,
+        kicker: "Internal medicine",
+        title: "Diagnostics directly in the practice",
+        subtitle: "Examinations that help classify symptoms and risks medically.",
+        qrUrl: localUrl("/en/general-medicine"),
+        qrLabel: "Open internal medicine",
+        displayUrl: displayUrl(localUrl("/en/general-medicine")),
+        features: internalMedicineDiagnosticsFeaturesEn,
+      };
+    case "primary-care-prevention":
+      return {
+        ...slide,
+        kicker: "General medicine",
+        title: "Acute care, prevention and long-term support",
+        subtitle: "From acute symptoms to check-ups, vaccinations and care around surgery.",
+        qrUrl: localUrl("/en/general-medicine"),
+        qrLabel: "Open services",
+        displayUrl: displayUrl(localUrl("/en/general-medicine")),
+        features: internalMedicineCareFeaturesEn,
       };
     case "private-medicine":
       return {
