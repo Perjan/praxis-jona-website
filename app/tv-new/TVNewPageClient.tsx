@@ -6,6 +6,7 @@ import { TV_NEW_SLIDES, type TVSlide } from './content';
 import {
   OverviewNavigationTemplate,
   ServiceExplainerTemplate,
+  ServiceTreatmentTemplate,
   TrustSocialProofTemplate,
 } from './templates';
 
@@ -44,6 +45,8 @@ function RenderSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' })
       return <OverviewNavigationTemplate slide={slide} />;
     case 'service-price':
       return <ServiceExplainerTemplate slide={slide} locale={locale} />;
+    case 'service-treatment':
+      return <ServiceTreatmentTemplate slide={slide} />;
     case 'feature-grid':
       return <OverviewNavigationTemplate slide={slide} />;
     case 'app':

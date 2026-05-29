@@ -11,7 +11,7 @@ export function BackgroundSlide({ slide, children }: { slide: TVSlide; children:
     <section className="relative h-full w-full overflow-hidden bg-[#F8EFE4] text-[#0D322B]">
       <Image
         src={slide.image}
-        alt={slide.imageAlt}
+        alt=""
         fill
         className="object-cover"
         priority

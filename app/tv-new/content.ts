@@ -2,8 +2,13 @@ import { Constants } from "app/Constants";
 import { appsByLocale } from "app/data/apps";
 import { categoryContent } from "app/components/pageContent";
 import { absoluteUrl, formatPrice, pricingSections, type PricingRow } from "app/components/pricing/pricingData";
+import {
+  botulinumtoxinServices,
+  botulinumtoxinServicesEn,
+  type BotulinumtoxinService,
+} from "app/content/botulinumtoxin";
 
-type SlideKind = "hero" | "service-price" | "feature-grid" | "app" | "social" | "review" | "team";
+type SlideKind = "hero" | "service-price" | "service-treatment" | "feature-grid" | "app" | "social" | "review" | "team";
 
 type PriceHighlight = {
   label: string;
@@ -28,7 +33,7 @@ export type TVSlide = {
   id: string;
   kind: SlideKind;
   image: string;
-  imageAlt: string;
+  visualImage?: string;
   overlay?: string;
   kicker?: string;
   title: string;
@@ -129,12 +134,71 @@ const internalMedicineCareFeaturesEn: FeatureItem[] = [
   { title: "Surgery support", text: "Pre-op review and follow-up care" },
 ];
 
+const topBotoxTreatmentSlugs = ["zornesfalte", "stirnfalten", "kraehenfuesse"] as const;
+
+function botoxService(slug: (typeof topBotoxTreatmentSlugs)[number], services: BotulinumtoxinService[]) {
+  const service = services.find((item) => item.pricingSlug === slug);
+  if (!service) {
+    throw new Error(`Missing botulinumtoxin service for TV slide: ${slug}`);
+  }
+  return service;
+}
+
+const botoxTreatmentSlides: TVSlide[] = topBotoxTreatmentSlugs.map((slug) => {
+  const service = botoxService(slug, botulinumtoxinServices);
+  const price = rowPrice(findRow(botoxRows, slug));
+
+  return {
+    id: `botulinumtoxin-${slug}`,
+    kind: "service-treatment",
+    image: backgrounds.clinical,
+    visualImage: service.image.src,
+    overlay: "bg-[#FBF6EE]/70",
+    kicker: "Botulinumtoxin",
+    eyebrow: price.price,
+    title: service.title,
+    subtitle: service.paragraphs[1] ?? service.paragraphs[0],
+    qrUrl: localUrl(`/botox-behandlung/${service.slug}`),
+    qrLabel: "Behandlung öffnen",
+    displayUrl: displayUrl(localUrl(`/botox-behandlung/${service.slug}`)),
+    features: [
+      { title: "Dauer", text: "ca. 30 Minuten" },
+      { title: "Wirkung", text: "nach wenigen Tagen" },
+      { title: "Ziel", text: "natürliche Mimik bewahren" },
+    ],
+  };
+});
+
+const botoxTreatmentSlidesEn: TVSlide[] = topBotoxTreatmentSlugs.map((slug) => {
+  const service = botoxService(slug, botulinumtoxinServicesEn);
+  const price = rowPriceEn(findRow(botoxRows, slug));
+
+  return {
+    id: `botulinumtoxin-${slug}`,
+    kind: "service-treatment",
+    image: backgrounds.clinical,
+    visualImage: service.image.src,
+    overlay: "bg-[#FBF6EE]/70",
+    kicker: "Botulinum toxin",
+    eyebrow: price.price,
+    title: service.title,
+    subtitle: service.paragraphs[1] ?? service.paragraphs[0],
+    qrUrl: localUrl(`/en/botox-treatment/${service.slug}`),
+    qrLabel: "Open treatment",
+    displayUrl: displayUrl(localUrl(`/en/botox-treatment/${service.slug}`)),
+    features: [
+      { title: "Duration", text: "about 30 minutes" },
+      { title: "Effect", text: "after a few days" },
+      { title: "Goal", text: "preserve natural expression" },
+    ],
+  };
+});
+
 export const TV_NEW_SLIDES: TVSlide[] = [
   {
     id: "welcome",
     kind: "hero",
     image: backgrounds.brand,
-    imageAlt: "Branded Praxis Jona TV background",
     overlay: "bg-[#FBF6EE]/74",
     kicker: "Praxis Jona",
     title: "Ganzheitliche Betreuung für ein gesundes Leben",
@@ -148,7 +212,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "internal-medicine-diagnostics",
     kind: "feature-grid",
     image: backgrounds.diagnostics,
-    imageAlt: "Branded internal medicine diagnostics TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Innere Medizin",
     title: "Diagnostik direkt in der Praxis",
@@ -162,7 +225,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "primary-care-prevention",
     kind: "feature-grid",
     image: backgrounds.brand,
-    imageAlt: "Branded primary care and prevention TV background",
     overlay: "bg-[#FBF6EE]/74",
     kicker: "Hausärztliche Leistungen",
     title: "Akut, Vorsorge und langfristige Begleitung",
@@ -174,30 +236,28 @@ export const TV_NEW_SLIDES: TVSlide[] = [
   },
   {
     id: "botulinumtoxin",
-    kind: "service-price",
+    kind: "feature-grid",
     image: backgrounds.clinical,
-    imageAlt: "Branded clinical TV background",
     overlay: "bg-[#FBF6EE]/70",
     kicker: pricingSections.botox.title.de,
     eyebrow: "Medizinisch präzise. Natürlich im Ergebnis.",
     title: "Mimik entspannen, Ausdruck bewahren",
     subtitle: pricingSections.botox.description.de,
-    qrUrl: localUrl(pricingSections.botox.detailHref!.de),
-    qrLabel: "Preise ansehen",
-    displayUrl: displayUrl(localUrl(pricingSections.botox.detailHref!.de)),
-    prices: [
-      rowPrice(findRow(botoxRows, "browlift")),
-      rowPrice(findRow(botoxRows, "zornesfalte")),
-      rowPrice(findRow(botoxRows, "bruxismus")),
-      rowPrice(findRow(botoxRows, "hyperhidrose")),
+    qrUrl: localUrl("/botox-behandlung"),
+    qrLabel: "Botox öffnen",
+    displayUrl: displayUrl(localUrl("/botox-behandlung")),
+    features: [
+      { title: "Planung", text: "nach Anatomie und Mimik" },
+      { title: "Ergebnis", text: "frischer, nicht anders" },
+      { title: "Preis", text: "ab 199 €" },
+      { title: "Termin", text: "Beratung und Behandlung möglich" },
     ],
-    bullets: ["Faltenbehandlung", "Bruxismus", "Hyperhidrose", "Chronische Migräne"],
   },
+  ...botoxTreatmentSlides,
   {
     id: "private-medicine",
     kind: "feature-grid",
     image: backgrounds.brand,
-    imageAlt: "Branded Praxis Jona service background",
     overlay: "bg-[#FBF6EE]/74",
     kicker: "Private Medizin",
     title: "Strukturierte Leistungen mit klarer Einordnung",
@@ -214,7 +274,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "glp1",
     kind: "service-price",
     image: backgrounds.clinical,
-    imageAlt: "Branded clinical TV background",
     overlay: "bg-[#FBF6EE]/70",
     kicker: pricingSections.glp1.title.de,
     eyebrow: "Gewicht und Stoffwechsel",
@@ -234,7 +293,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "micronutrients",
     kind: "service-price",
     image: backgrounds.diagnostics,
-    imageAlt: "Branded diagnostics TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: pricingSections.micronutrients.title.de,
     eyebrow: "Laborbasiert",
@@ -250,7 +308,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "infusion-iron",
     kind: "service-price",
     image: backgrounds.diagnostics,
-    imageAlt: "Branded diagnostics TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Infusionstherapie",
     eyebrow: pricingSections.ironInfusion.title.de,
@@ -266,7 +323,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "prevention",
     kind: "service-price",
     image: backgrounds.brand,
-    imageAlt: "Branded prevention TV background",
     overlay: "bg-[#FBF6EE]/74",
     kicker: pricingSections.prevention.title.de,
     eyebrow: "Gesundheit ist kein Zufall",
@@ -282,7 +338,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "ultrasound",
     kind: "service-price",
     image: backgrounds.diagnostics,
-    imageAlt: "Branded diagnostics TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: pricingSections.ultrasound.title.de,
     eyebrow: "Innere Medizin",
@@ -302,7 +357,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "velto",
     kind: "app",
     image: backgrounds.clinical,
-    imageAlt: "Branded app TV background",
     overlay: "bg-[#FBF6EE]/70",
     kicker: "App",
     title: veltoApp.name,
@@ -318,7 +372,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "instagram",
     kind: "social",
     image: backgrounds.brand,
-    imageAlt: "Branded social TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Instagram",
     title: "Mir folgen",
@@ -333,7 +386,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "google-review",
     kind: "review",
     image: backgrounds.brand,
-    imageAlt: "Branded review TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Feedback",
     title: "Ihre Bewertung hilft anderen Patienten",
@@ -348,7 +400,6 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     id: "team",
     kind: "team",
     image: backgrounds.brand,
-    imageAlt: "Branded Praxis Jona team background",
     overlay: "bg-[#FBF6EE]/74",
     kicker: "Team",
     title: "Unser Praxisteam",
@@ -367,6 +418,11 @@ export const TV_NEW_SLIDES: TVSlide[] = [
 ];
 
 export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
+  const botoxTreatmentSlide = botoxTreatmentSlidesEn.find((item) => item.id === slide.id);
+  if (botoxTreatmentSlide) {
+    return botoxTreatmentSlide;
+  }
+
   switch (slide.id) {
     case "welcome":
       return {
@@ -385,16 +441,15 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
         eyebrow: "Medically precise. Natural-looking results.",
         title: "Relax expression, preserve character",
         subtitle: pricingSections.botox.description.en,
-        qrUrl: localUrl(pricingSections.botox.detailHref!.en),
-        qrLabel: "View prices",
-        displayUrl: displayUrl(localUrl(pricingSections.botox.detailHref!.en)),
-        prices: [
-          rowPriceEn(findRow(botoxRows, "browlift")),
-          rowPriceEn(findRow(botoxRows, "zornesfalte")),
-          rowPriceEn(findRow(botoxRows, "bruxismus")),
-          rowPriceEn(findRow(botoxRows, "hyperhidrose")),
+        qrUrl: localUrl("/en/botox-treatment"),
+        qrLabel: "Open Botox",
+        displayUrl: displayUrl(localUrl("/en/botox-treatment")),
+        features: [
+          { title: "Planning", text: "based on anatomy and expression" },
+          { title: "Result", text: "fresher, not different" },
+          { title: "Price", text: "from €199" },
+          { title: "Visit", text: "consultation and treatment possible" },
         ],
-        bullets: ["Wrinkle treatment", "Bruxism", "Hyperhidrosis", "Chronic migraine"],
       };
     case "internal-medicine-diagnostics":
       return {
