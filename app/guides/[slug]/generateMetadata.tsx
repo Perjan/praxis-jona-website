@@ -106,9 +106,13 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
 
 function postUrl(post: Post, language: string) {
   if (post.categories?.includes("legal")) {
-    return baseUrl + "/" + slugForLanguage(post, language);
+    return language === "en"
+      ? baseUrl + "/en/legal/" + slugForLanguage(post, language).replace(/^en\//, '')
+      : baseUrl + "/legal/" + slugForLanguage(post, language);
   } else if (post.categories?.includes("guide")) {
     return baseUrl + "/guides/" + slugForLanguage(post, language);
   }
-  return baseUrl + "/blog/" + slugForLanguage(post, language);
+  return language === "en"
+    ? baseUrl + "/en/blog/" + slugForLanguage(post, language).replace(/^en\//, '')
+    : baseUrl + "/blog/" + slugForLanguage(post, language);
 }

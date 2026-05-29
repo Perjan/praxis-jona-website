@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import {
   AestheticMarkdownDetailPage,
+  englishAestheticSlugForGerman,
   getAestheticDetailPage,
   getAestheticDetailPages,
 } from "app/components/AestheticMarkdownPage";
@@ -25,7 +26,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: page.title,
     description: `${page.title} in Berlin-Mitte: ärztliche Beratung, individuelle Planung und transparente PRP-Behandlung in der Praxis Jona.`,
     canonical: page.href,
-    alternate: "/en/aesthetics/prp-treatment",
+    alternate: `/en/aesthetics/prp-treatment/${englishAestheticSlugForGerman(sectionKey, params.slug) ?? ""}`,
     locale: "de",
   });
 }

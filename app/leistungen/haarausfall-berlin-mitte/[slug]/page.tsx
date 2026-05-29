@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   AestheticMarkdownDetailPage,
+  englishAestheticSlugForGerman,
   getAestheticDetailPage,
   getAestheticDetailPages,
 } from "app/components/AestheticMarkdownPage";
@@ -25,7 +26,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: page.title,
     description: `${page.title} in Berlin-Mitte: regenerative Kopfhautbehandlung bei Haarausfall in der Praxis Jona.`,
     canonical: page.href,
-    alternate: "/en/services/hair-loss-berlin-mitte",
+    alternate: `/en/services/hair-loss-berlin-mitte/${englishAestheticSlugForGerman(sectionKey, params.slug) ?? ""}`,
     locale: "de",
   });
 }

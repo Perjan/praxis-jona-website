@@ -323,8 +323,8 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                                     )}
                                     {/* Add Blog link at the bottom of the mobile menu */}
                                     <Link
-                                        href="/blog"
-                                        className={cn(pathname === "/blog" ? "text-green-700" : "text-gray-900", menuItemClassName)}
+                                        href={locale === "en" ? "/en/blog" : "/blog"}
+                                        className={cn(pathname === (locale === "en" ? "/en/blog" : "/blog") ? "text-green-700" : "text-gray-900", menuItemClassName)}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Blog

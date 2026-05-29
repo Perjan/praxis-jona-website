@@ -6,7 +6,7 @@ import type { AppointmentBookingUrls } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
-import { pricingSections, type PricingSection } from "app/components/pricing/pricingData";
+import { pricingSections, type PricingLocale, type PricingSection } from "app/components/pricing/pricingData";
 import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSectionKey } from "app/content/aesthetikSource";
 
 type MarkdownNode =
@@ -16,9 +16,12 @@ type MarkdownNode =
 type AestheticDetailPage = {
   sectionKey: AestheticSectionKey;
   slug: string;
+  deSlug?: string;
   title: string;
   href: string;
+  alternate?: string;
   description?: string[];
+  content?: MarkdownNode[];
 };
 
 const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> = {
@@ -186,6 +189,268 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
   ],
 };
 
+const englishDetailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> = {
+  prp: [
+    {
+      sectionKey: "prp",
+      slug: "prp-face",
+      deSlug: "prp-gesicht",
+      title: "PRP Face",
+      href: "/en/aesthetics/prp-treatment/prp-face",
+      alternate: "/aesthetik/prp-behandlung/prp-gesicht",
+      description: [
+        "PRP for the face uses platelet-rich plasma from your own blood to support skin regeneration and skin quality.",
+        "The treatment may be suitable when the goal is fresher, smoother-looking skin without changing facial expression or volume.",
+      ],
+      content: [
+        { type: "h3", text: "When this may be suitable" },
+        { type: "p", text: "PRP face treatment can be discussed for tired-looking skin, fine lines, uneven texture or a wish to support natural regeneration." },
+        { type: "list", items: ["medical consultation before treatment", "autologous blood preparation in the practice", "individual planning by skin findings and goals"] },
+        { type: "h3", text: "Treatment approach" },
+        { type: "p", text: "A small blood sample is processed to concentrate platelet-rich plasma. The PRP is then applied by injection or combined with suitable regenerative techniques depending on the indication." },
+      ],
+    },
+    {
+      sectionKey: "prp",
+      slug: "prp-under-eye-area-dark-circles",
+      deSlug: "prp-augenregion-bei-dunklen-augenringen",
+      title: "PRP Under-Eye Area for Dark Circles",
+      href: "/en/aesthetics/prp-treatment/prp-under-eye-area-dark-circles",
+      alternate: "/aesthetik/prp-behandlung/prp-augenregion-bei-dunklen-augenringen",
+      description: [
+        "PRP for the under-eye area is a regenerative option for selected patients with tired-looking skin, thin skin or dark under-eye shadows.",
+        "The area is delicate, so suitability, limits and realistic expectations are assessed carefully before treatment.",
+      ],
+      content: [
+        { type: "h3", text: "Focus of the treatment" },
+        { type: "p", text: "The goal is to support skin quality and regeneration in the under-eye region. PRP is not a filler and does not replace volume correction when volume loss is the main cause." },
+        { type: "h3", text: "Medical assessment" },
+        { type: "p", text: "We assess skin thickness, vascular shadows, pigmentation, anatomy and possible contraindications before recommending treatment." },
+      ],
+    },
+    {
+      sectionKey: "prp",
+      slug: "prp-face-neck-decollete",
+      deSlug: "prp-gesicht-hals-und-dekollete",
+      title: "PRP Face, Neck and Decollete",
+      href: "/en/aesthetics/prp-treatment/prp-face-neck-decollete",
+      alternate: "/aesthetik/prp-behandlung/prp-gesicht-hals-und-dekollete",
+      description: [
+        "This PRP treatment extends the regenerative concept from the face to the neck and decollete.",
+        "It can be useful when visible skin areas should be treated together for a more coherent skin-quality plan.",
+      ],
+      content: [
+        { type: "h3", text: "Treatment areas" },
+        { type: "p", text: "Face, neck and decollete often show texture, dryness or fine lines together. Treating them as one plan can make the result appear more balanced." },
+        { type: "h3", text: "Planning" },
+        { type: "p", text: "The exact areas, session count and combination options are chosen after assessing skin quality, healing capacity and treatment goals." },
+      ],
+    },
+    {
+      sectionKey: "prp",
+      slug: "vampire-lifting-prp-microneedling",
+      deSlug: "vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling",
+      title: "Vampire Lifting / PRP Combined with Medical Microneedling",
+      href: "/en/aesthetics/prp-treatment/vampire-lifting-prp-microneedling",
+      alternate: "/aesthetik/prp-behandlung/vampire-lifting-prp-kombiniert-mit-medizinischem-microneedling",
+      description: [
+        "Vampire lifting combines PRP with medical microneedling to support skin texture and regeneration in one appointment.",
+        "The combination may be considered for dull skin, uneven texture, fine lines or selected scar patterns.",
+      ],
+      content: [
+        { type: "h3", text: "How the combination works" },
+        { type: "p", text: "Microneedling creates controlled microchannels in the skin while PRP provides autologous regenerative components from your own blood." },
+        { type: "list", items: ["medical microneedling with regenerative PRP", "often planned as a treatment series", "aftercare and downtime are discussed before treatment"] },
+      ],
+    },
+  ],
+  microneedling: [
+    {
+      sectionKey: "microneedling",
+      slug: "vampire-lift-medical-microneedling-face",
+      deSlug: "vampirelift-medizinisches-microneedling-gesicht",
+      title: "Vampire Lift + Medical Microneedling Face",
+      href: "/en/aesthetics/microneedling/vampire-lift-medical-microneedling-face",
+      alternate: "/aesthetik/microneedling/vampirelift-medizinisches-microneedling-gesicht",
+      description: ["Medical facial microneedling can be combined with PRP when stronger regenerative support is desired."],
+      content: [
+        { type: "h3", text: "When this may be suitable" },
+        { type: "p", text: "This option may fit dull skin, fine lines, uneven texture or selected acne-scar patterns when PRP is medically suitable." },
+        { type: "h3", text: "Treatment concept" },
+        { type: "p", text: "The microneedling component supports controlled skin renewal, while PRP adds autologous regenerative components prepared from your own blood." },
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face",
+      deSlug: "microneedling-gesicht",
+      title: "Microneedling Face",
+      href: "/en/aesthetics/microneedling/microneedling-face",
+      alternate: "/aesthetik/microneedling/microneedling-gesicht",
+      description: ["Medical facial microneedling supports skin renewal and can be discussed for pores, fine lines, dull skin or selected scars."],
+      content: [
+        { type: "h3", text: "Focus" },
+        { type: "p", text: "The goal is smoother, fresher-looking skin quality while preserving natural facial expression and features." },
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face-neck",
+      deSlug: "microneedling-gesicht-hals",
+      title: "Microneedling Face + Neck",
+      href: "/en/aesthetics/microneedling/microneedling-face-neck",
+      alternate: "/aesthetik/microneedling/microneedling-gesicht-hals",
+      description: ["This treatment includes face and neck when skin texture, elasticity and skin quality should be addressed together."],
+      content: [
+        { type: "h3", text: "Treatment areas" },
+        { type: "p", text: "Face and neck are planned together when both areas show dryness, fine lines or reduced firmness." },
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face-neck-decollete",
+      deSlug: "microneedling-gesicht-hals-dekollete",
+      title: "Microneedling Face + Neck + Decollete",
+      href: "/en/aesthetics/microneedling/microneedling-face-neck-decollete",
+      alternate: "/aesthetik/microneedling/microneedling-gesicht-hals-dekollete",
+      description: ["A larger microneedling treatment for visible skin areas across face, neck and decollete."],
+      content: [
+        { type: "h3", text: "Treatment concept" },
+        { type: "p", text: "The three areas are treated as one coherent skin-quality plan, especially when texture and freshness should align across visible zones." },
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face-nctf",
+      deSlug: "microneedling-face-nctf",
+      title: "Microneedling FACE + NCTF",
+      href: "/en/aesthetics/microneedling/microneedling-face-nctf",
+      alternate: "/aesthetik/microneedling/microneedling-face-nctf",
+      description: ["Medical microneedling can be combined with NCTF® when hydration, glow and skin quality are part of the treatment goal."],
+      content: [
+        { type: "h3", text: "About NCTF" },
+        { type: "p", text: "NCTF® combines hyaluronic acid with vitamins, amino acids, coenzymes and antioxidants. Suitability is decided after assessing the skin and treatment goal." },
+      ],
+    },
+    {
+      sectionKey: "microneedling",
+      slug: "microneedling-face-exosomes",
+      deSlug: "microneedling-gesicht-exosome",
+      title: "Microneedling Face Exosomes",
+      href: "/en/aesthetics/microneedling/microneedling-face-exosomes",
+      alternate: "/aesthetik/microneedling/microneedling-gesicht-exosome",
+      description: ["Medical facial microneedling may be combined with exosomes to support regeneration and skin quality."],
+      content: [
+        { type: "h3", text: "Regenerative support" },
+        { type: "p", text: "Exosome combinations are considered when the skin needs additional support for recovery, elasticity and a more even texture." },
+      ],
+    },
+  ],
+  hair: [
+    {
+      sectionKey: "hair",
+      slug: "scalp-microneedling",
+      deSlug: "microneedling-haare",
+      title: "Scalp Microneedling",
+      href: "/en/services/hair-loss-berlin-mitte/scalp-microneedling",
+      alternate: "/leistungen/haarausfall-berlin-mitte/microneedling-haare",
+      description: ["Medical scalp microneedling creates controlled microchannels to support regenerative scalp processes."],
+      content: [
+        { type: "h3", text: "When this may be suitable" },
+        { type: "p", text: "Scalp microneedling may be discussed when scalp quality, hair quality or targeted regenerative ingredient delivery should be supported." },
+      ],
+    },
+    {
+      sectionKey: "hair",
+      slug: "prp-hair",
+      deSlug: "prp-haare",
+      title: "PRP Hair / Scalp",
+      href: "/en/services/hair-loss-berlin-mitte/prp-hair",
+      alternate: "/leistungen/haarausfall-berlin-mitte/prp-haare",
+      description: ["PRP hair treatment uses platelet-rich plasma from your own blood and applies it to the scalp after medical assessment."],
+      content: [
+        { type: "h3", text: "Treatment concept" },
+        { type: "p", text: "Growth-factor-rich plasma can support regenerative processes around the hair follicles and scalp. The indication depends on diagnosis and findings." },
+      ],
+    },
+    {
+      sectionKey: "hair",
+      slug: "hair-polynucleotides",
+      deSlug: "polynukleotide-haare",
+      title: "Hair Polynucleotides",
+      href: "/en/services/hair-loss-berlin-mitte/hair-polynucleotides",
+      alternate: "/leistungen/haarausfall-berlin-mitte/polynukleotide-haare",
+      description: ["Polynucleotides such as PhilArt Hair® may be used to support regenerative scalp processes."],
+      content: [
+        { type: "h3", text: "Medical positioning" },
+        { type: "p", text: "The treatment can be considered when scalp quality, follicles and regeneration should be supported as part of a broader hair-loss concept." },
+      ],
+    },
+  ],
+  skinbooster: [
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-face",
+      deSlug: "nctf-ha-gesicht",
+      title: "NCTF HA Face",
+      href: "/en/aesthetics/polynucleotides/nctf-ha-face",
+      alternate: "/aesthetik/polynukleotide/nctf-ha-gesicht",
+      description: ["NCTF HA face is a regenerative skin-booster treatment for hydration, freshness and refined skin quality."],
+      content: [{ type: "p", text: "This option focuses on the face when dehydrated, dull or tired-looking skin should be supported." }],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-face-neck",
+      deSlug: "nctf-ha-gesicht-hals",
+      title: "NCTF HA Face + Neck",
+      href: "/en/aesthetics/polynucleotides/nctf-ha-face-neck",
+      alternate: "/aesthetik/polynukleotide/nctf-ha-gesicht-hals",
+      description: ["NCTF HA face + neck extends the skin-booster concept to two visible treatment areas."],
+      content: [{ type: "p", text: "The focus is hydration, vitality and more even skin quality across face and neck." }],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "nctf-ha-face-neck-decollete",
+      deSlug: "nctf-ha-gesicht-hals-dekollete",
+      title: "NCTF HA Face + Neck + Decollete",
+      href: "/en/aesthetics/polynucleotides/nctf-ha-face-neck-decollete",
+      alternate: "/aesthetik/polynukleotide/nctf-ha-gesicht-hals-dekollete",
+      description: ["This NCTF HA treatment covers face, neck and decollete for a connected skin-quality plan."],
+      content: [{ type: "p", text: "Planning depends on skin findings, treatment area and a realistic regenerative goal." }],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "philart-face",
+      deSlug: "philart-gesicht",
+      title: "PhilArt Face",
+      href: "/en/aesthetics/polynucleotides/philart-face",
+      alternate: "/aesthetik/polynukleotide/philart-gesicht",
+      description: ["PhilArt face is a regenerative polynucleotide treatment focused on skin quality, elasticity and natural regeneration."],
+      content: [{ type: "p", text: "The goal is not volume replacement, but support for biological repair and regenerative processes in the skin." }],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "philart-eye",
+      deSlug: "philart-auge",
+      title: "PhilArt Eye",
+      href: "/en/aesthetics/polynucleotides/philart-eye",
+      alternate: "/aesthetik/polynukleotide/philart-auge",
+      description: ["PhilArt eye is planned for the delicate eye area, for example with thin skin, fine lines or dark shadows."],
+      content: [{ type: "p", text: "The aim is naturally fresher-looking skin quality without an artificial change to the eye area." }],
+    },
+    {
+      sectionKey: "skinbooster",
+      slug: "profhilo",
+      deSlug: "profhilo",
+      title: "Profhilo",
+      href: "/en/aesthetics/polynucleotides/profhilo",
+      alternate: "/aesthetik/polynukleotide/profhilo",
+      description: ["Profhilo is a skin-booster treatment for skin quality, hydration, elasticity and firmness."],
+      content: [{ type: "p", text: "The treatment is planned after skin assessment when bioremodelling and skin firmness are key goals." }],
+    },
+  ],
+};
+
 const heroImages: Record<AestheticSectionKey, { src: string; alt: string; objectPositionClass?: string }> = {
   hub: {
     src: "/images/clinic/clinic-philo-2025.jpg",
@@ -301,12 +566,20 @@ function sectionId(text: string | undefined) {
     .replace(/^-|-$/g, "");
 }
 
-export function getAestheticDetailPages(sectionKey: AestheticSectionKey) {
-  return detailPages[sectionKey] ?? [];
+export function getAestheticDetailPages(sectionKey: AestheticSectionKey, locale: PricingLocale = "de") {
+  return (locale === "en" ? englishDetailPages : detailPages)[sectionKey] ?? [];
 }
 
-export function getAestheticDetailPage(sectionKey: AestheticSectionKey, slug: string) {
-  return getAestheticDetailPages(sectionKey).find((page) => page.slug === slug);
+export function getAestheticDetailPage(sectionKey: AestheticSectionKey, slug: string, locale: PricingLocale = "de") {
+  return getAestheticDetailPages(sectionKey, locale).find((page) => page.slug === slug);
+}
+
+export function englishAestheticSlugForGerman(sectionKey: AestheticSectionKey, slug: string) {
+  return getAestheticDetailPages(sectionKey, "en").find((page) => page.deSlug === slug)?.slug;
+}
+
+export function germanAestheticSlugForEnglish(sectionKey: AestheticSectionKey, slug: string) {
+  return getAestheticDetailPage(sectionKey, slug, "en")?.deSlug;
 }
 
 function parseMarkdown(markdown: string): MarkdownNode[] {
@@ -389,9 +662,10 @@ const priceAnchorBySection: Partial<Record<AestheticSectionKey, string>> = {
   skinbooster: "skinbooster",
 };
 
-function CtaButtons({ sectionKey, bookingUrls }: { sectionKey: AestheticSectionKey; bookingUrls?: AppointmentBookingUrls }) {
+function CtaButtons({ sectionKey, bookingUrls, locale = "de" }: { sectionKey: AestheticSectionKey; bookingUrls?: AppointmentBookingUrls; locale?: PricingLocale }) {
   const priceAnchor = priceAnchorBySection[sectionKey];
-  const priceHref = priceAnchor ? `/aesthetik/preise#${priceAnchor}` : "/aesthetik/preise";
+  const priceBaseHref = locale === "en" ? "/en/aesthetics/prices" : "/aesthetik/preise";
+  const priceHref = priceAnchor ? `${priceBaseHref}#${priceAnchor}` : priceBaseHref;
   const bookingUrlsBySection: Partial<Record<AestheticSectionKey, typeof Constants.appointmentUrls>> = {
     botulinumtoxin: Constants.appointmentUrlsByService.botulinumtoxin,
     prp: Constants.appointmentUrlsByService.prp,
@@ -403,17 +677,17 @@ function CtaButtons({ sectionKey, bookingUrls }: { sectionKey: AestheticSectionK
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
       <AppointmentBookingButton
-        locale="de"
+        locale={locale}
         urls={bookingUrls ?? bookingUrlsBySection[sectionKey]}
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
-        Termin buchen
+        {locale === "en" ? "Book appointment" : "Termin buchen"}
       </AppointmentBookingButton>
       <Link
         href={priceHref}
         className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"
       >
-        Preise ansehen
+        {locale === "en" ? "View prices" : "Preise ansehen"}
       </Link>
     </div>
   );
@@ -653,9 +927,10 @@ function getDetailBookingUrls(sectionKey: AestheticSectionKey, detailPage: Aesth
     skinbooster: pricingSections.skinbooster,
   };
 
-  const detailHref = `${detailHrefPrefix}/${detailPage.slug}`;
+  const detailHref = `${detailHrefPrefix}/${detailPage.deSlug ?? detailPage.slug}`;
   const rows = sectionsByKey[sectionKey]?.rows.filter((row) => row.detailHref?.de === detailHref) ?? [];
-  const normalizedTitle = detailPage.title.replace(/,/g, "").replace(/&/g, "+");
+  const germanDetailPage = detailPage.deSlug ? getAestheticDetailPage(sectionKey, detailPage.deSlug, "de") : detailPage;
+  const normalizedTitle = (germanDetailPage?.title ?? detailPage.title).replace(/,/g, "").replace(/&/g, "+");
   const matchingLabelRow = rows.find((row) => row.label.de.replace(/,/g, "").replace(/&/g, "+") === normalizedTitle);
 
   return (matchingLabelRow ?? rows[0])?.bookingUrls;
@@ -938,7 +1213,7 @@ function extractFaqs(nodes: MarkdownNode[]) {
   return { title, items };
 }
 
-function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
+function formatDetailPrice(sectionKey: AestheticSectionKey, detailPage: AestheticDetailPage, locale: PricingLocale) {
   const sectionsByKey: Partial<Record<AestheticSectionKey, PricingSection>> = {
     prp: pricingSections.prp,
     microneedling: pricingSections.microneedling,
@@ -946,71 +1221,74 @@ function formatDetailPrice(sectionKey: AestheticSectionKey, slug: string) {
     skinbooster: pricingSections.skinbooster,
   };
   const rows = ((sectionsByKey[sectionKey] ?? pricingSections.prp) as PricingSection).rows;
-  const row = rows.find((item) => item.detailHref?.de?.endsWith(`/${slug}`));
+  const row = rows.find((item) => item.detailHref?.de?.endsWith(`/${detailPage.deSlug ?? detailPage.slug}`));
   const amount = row?.price?.amount;
 
   if (amount) {
-    return `ab ${amount} €`;
+    return locale === "en" ? `from €${amount}` : `ab ${amount} €`;
   }
 
-  if (row?.price?.displayOverride?.de) {
-    return row.price.displayOverride.de;
+  if (row?.price?.displayOverride?.[locale]) {
+    return row.price.displayOverride[locale];
   }
 
-  return sectionKey === "prp" ? "ab 199 €" : "ab 249 €";
+  return locale === "en" ? (sectionKey === "prp" ? "from €199" : "from €249") : sectionKey === "prp" ? "ab 199 €" : "ab 249 €";
 }
 
-function AestheticDetailFacts({ sectionKey, slug, className = "", overlapHero = true }: { sectionKey: AestheticSectionKey; slug: string; className?: string; overlapHero?: boolean }) {
+function AestheticDetailFacts({ sectionKey, detailPage, className = "", overlapHero = true, locale = "de" }: { sectionKey: AestheticSectionKey; detailPage: AestheticDetailPage; className?: string; overlapHero?: boolean; locale?: PricingLocale }) {
+  const slug = detailPage.deSlug ?? detailPage.slug;
   const facts =
     sectionKey === "microneedling" || sectionKey === "hair"
       ? [
           {
-            title: "Dauer",
+            title: locale === "en" ? "Duration" : "Dauer",
             icon: ClockIcon,
             body: (
               <>
-                Die Behandlung dauert in der Regel <strong>45 bis 60 Minuten</strong>.
+                {locale === "en" ? "Treatment usually takes " : "Die Behandlung dauert in der Regel "}<strong>45 bis 60 Minuten</strong>.
               </>
             ),
           },
           {
-            title: "Sitzungen",
+            title: locale === "en" ? "Sessions" : "Sitzungen",
             icon: SparklesIcon,
             body: (
               <>
-                Meist <strong>{sectionKey === "hair" && slug === "microneedling-haare" ? "4–6 Sitzungen" : sectionKey === "hair" ? "3–4 Sitzungen" : "3–5 Sitzungen"}</strong> im Abstand von etwa 4–6 Wochen.
+                {locale === "en" ? "Usually " : "Meist "}
+                <strong>{sectionKey === "hair" && slug === "microneedling-haare" ? (locale === "en" ? "4-6 sessions" : "4–6 Sitzungen") : sectionKey === "hair" ? (locale === "en" ? "3-4 sessions" : "3–4 Sitzungen") : (locale === "en" ? "3-5 sessions" : "3–5 Sitzungen")}</strong>
+                {locale === "en" ? " spaced about 4-6 weeks apart." : " im Abstand von etwa 4–6 Wochen."}
               </>
             ),
           },
           {
-            title: "Preis",
+            title: locale === "en" ? "Price" : "Preis",
             icon: CreditCardIcon,
-            body: <strong>{formatDetailPrice(sectionKey, slug)}</strong>,
+            body: <strong>{formatDetailPrice(sectionKey, detailPage, locale)}</strong>,
           },
         ]
       : [
           {
-            title: "Dauer",
+            title: locale === "en" ? "Duration" : "Dauer",
             icon: ClockIcon,
             body: (
               <>
-                Die Behandlung dauert in der Regel <strong>{sectionKey === "skinbooster" ? "30 bis 45 Minuten" : "45 bis 60 Minuten"}</strong>.
+                {locale === "en" ? "Treatment usually takes " : "Die Behandlung dauert in der Regel "}<strong>{sectionKey === "skinbooster" ? "30 bis 45 Minuten" : "45 bis 60 Minuten"}</strong>.
               </>
             ),
           },
           {
-            title: "Serie",
+            title: locale === "en" ? "Series" : "Serie",
             icon: SparklesIcon,
             body: (
               <>
-                Häufig zunächst <strong>3–4 Behandlungen</strong> im Abstand von etwa 3–4 Wochen.
+                {locale === "en" ? "Often initially " : "Häufig zunächst "}<strong>{locale === "en" ? "3-4 treatments" : "3–4 Behandlungen"}</strong>{locale === "en" ? " spaced about 3-4 weeks apart." : " im Abstand von etwa 3–4 Wochen."}
               </>
             ),
           },
           {
-            title: "Preis",
+            title: locale === "en" ? "Price" : "Preis",
             icon: CreditCardIcon,
-            body: <strong>{formatDetailPrice(sectionKey, slug)}</strong>,
+            body: <strong>{formatDetailPrice(sectionKey, detailPage, locale)}</strong>,
           },
         ];
 
@@ -1390,8 +1668,8 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
   );
 }
 
-export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical }: { sectionKey: AestheticSectionKey; slug: string; parentCanonical: string }) {
-  const detailPage = getAestheticDetailPage(sectionKey, slug);
+export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical, locale = "de" }: { sectionKey: AestheticSectionKey; slug: string; parentCanonical: string; locale?: PricingLocale }) {
+  const detailPage = getAestheticDetailPage(sectionKey, slug, locale);
 
   if (!detailPage) {
     return null;
@@ -1399,14 +1677,30 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
 
   const markdown = getAestheticSectionMarkdown(sectionKey);
   const nodes = parseMarkdown(markdown);
-  const parentTitle = getAestheticSectionTitle(sectionKey);
-  const detailNodes = getDetailNodes(sectionKey, nodes, detailPage);
+  const parentTitle = locale === "en" ? pricingSections[sectionKey === "hair" ? "hairTherapy" : sectionKey].title.en : getAestheticSectionTitle(sectionKey);
+  const detailNodes = locale === "en" ? detailPage.content ?? [] : getDetailNodes(sectionKey, nodes, detailPage);
   const descriptionNode = detailNodes.find(hasText);
   const leadDescription = detailPage.description ?? [];
   const [mobileLeadDescription, ...mobileFollowupDescription] = leadDescription;
-  const description = leadDescription.length > 0 ? leadDescription.join(" ") : descriptionNode?.text ?? `${detailPage.title} in der Praxis Jona Berlin-Mitte.`;
+  const description = leadDescription.length > 0 ? leadDescription.join(" ") : descriptionNode?.text ?? `${detailPage.title} ${locale === "en" ? "at Praxis Jona Berlin-Mitte." : "in der Praxis Jona Berlin-Mitte."}`;
   const bookingUrls = getDetailBookingUrls(sectionKey, detailPage);
-  const siblings = getAestheticDetailPages(sectionKey).filter((page) => page.slug !== slug);
+  const siblings = getAestheticDetailPages(sectionKey, locale).filter((page) => page.slug !== slug);
+  const relatedHeading =
+    locale === "en"
+      ? sectionKey === "microneedling"
+        ? "More microneedling topics"
+        : sectionKey === "hair"
+          ? "More hair therapies"
+          : sectionKey === "skinbooster"
+            ? "More skin boosters"
+            : "More PRP treatments"
+      : sectionKey === "microneedling"
+        ? "Weitere Microneedling-Themen"
+        : sectionKey === "hair"
+          ? "Weitere Haartherapien"
+          : sectionKey === "skinbooster"
+            ? "Weitere Skinbooster"
+            : "Weitere PRP-Behandlungen";
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -1453,11 +1747,11 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
                   ))}
                 </div>
               )}
-              <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="mt-8 !px-0 pb-8 sm:!px-0 md:!px-0 lg:hidden" overlapHero={false} />
-              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
+              <AestheticDetailFacts sectionKey={sectionKey} detailPage={detailPage} locale={locale} className="mt-8 !px-0 pb-8 sm:!px-0 md:!px-0 lg:hidden" overlapHero={false} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} />
             </div>
             <div className="mt-6 hidden lg:block">
-              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} />
             </div>
           </div>
           <div className="hidden lg:block">
@@ -1465,30 +1759,24 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical 
           </div>
         </MotionSection>
 
-        <AestheticDetailFacts sectionKey={sectionKey} slug={slug} className="hidden lg:block" />
-        {sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
+        <AestheticDetailFacts sectionKey={sectionKey} detailPage={detailPage} locale={locale} className="hidden lg:block" />
+        {locale === "de" && sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
         <AestheticDetailContentSection nodes={detailNodes} />
-        <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />
-        <AestheticFaqSection nodes={nodes} />
+        {locale === "de" && <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />}
+        {locale === "de" && <AestheticFaqSection nodes={nodes} />}
 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
             <h2 className="font-serif text-3xl font-semibold text-primary">
-              {sectionKey === "microneedling"
-                ? "Weitere Microneedling-Themen"
-                : sectionKey === "hair"
-                  ? "Weitere Haartherapien"
-                  : sectionKey === "skinbooster"
-                    ? "Weitere Skinbooster"
-                    : "Weitere PRP-Behandlungen"}
+              {relatedHeading}
             </h2>
             <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
               {siblings.map((item, index) => (
                 <Link key={item.href} href={item.href} className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-primary/10 transition hover:shadow-md">
                   <MotionCard delay={Math.min(index * 0.04, 0.2)} className="h-full">
                     <h3 className="font-serif text-xl font-semibold text-primary">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-primaryLighter">{detailSummary(sectionKey, nodes, item)}</p>
-                    <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">Mehr erfahren</span>
+                    <p className="mt-3 text-sm leading-6 text-primaryLighter">{locale === "en" ? item.description?.[0] ?? "" : detailSummary(sectionKey, nodes, item)}</p>
+                    <span className="mt-6 block text-sm font-semibold text-primary underline underline-offset-4">{locale === "en" ? "Learn more" : "Mehr erfahren"}</span>
                   </MotionCard>
                 </Link>
               ))}

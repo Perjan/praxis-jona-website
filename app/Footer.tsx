@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear(); // Get the current year
 const navigationGerman = {
   copyright: `© ${currentYear} Praxis Jona. Alle Rechte vorbehalten.`,
   imprint: "Impressum und Datenschutz",
-  imprintUrl: "/impressum-datenschutz",
+  imprintUrl: "/legal/impressum-datenschutz",
   company: [
     { name: 'Innere Medizin', href: '/hausaerztliche-leistungen' },
     { name: 'Ästhetik', href: '/aesthetik' },
@@ -27,7 +27,7 @@ const navigationGerman = {
 const navigationEnglish = {
   copyright: `© ${currentYear} Praxis Jona. All rights reserved.`,
   imprint: "Imprint and Privacy",
-  imprintUrl: "/imprint-privacy",
+  imprintUrl: "/en/legal/imprint-privacy",
   company: [
     { name: 'Internal Medicine', href: '/en/general-medicine' },
     { name: 'Aesthetics', href: '/en/aesthetics' },
@@ -36,7 +36,7 @@ const navigationEnglish = {
     { name: 'Services', href: '/en/services' },
     { name: 'Team', href: '/en/team' },
     { name: 'Latest News', href: '/en/latest-news' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Blog', href: '/en/blog' },
     { name: 'Jobs', href: '/en/jobs' },
   ],
 }

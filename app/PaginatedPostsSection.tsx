@@ -51,7 +51,7 @@ function categoryFromString(category: string) {
 }
 
 
-export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
+export default function PaginatedPostsSection({ posts, locale = "de" }: { posts: Post[]; locale?: "de" | "en" }) {
 
     function handleSave(activePill: Category) {
         if (typeof window !== "undefined" && window.localStorage) {
@@ -103,7 +103,7 @@ export default function PaginatedPostsSection({ posts }: { posts: Post[] }) {
 
             <button className='bg-white mb-10 hover:bg-gray-100 text-gray-800 font-semibold mt-10 py-2 px-4 border border-gray-400 rounded shadow'
                 onClick={() => setpageIndex(pageIndex + 1)}
-            >Mehr laden</button>
+            >{locale === "en" ? "Load more" : "Mehr laden"}</button>
 
         </>
     )
@@ -179,6 +179,8 @@ function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Elem
 
 function emojiFlag(language: string | undefined) {
     switch (language) {
+        case "en":
+            return "EN"
         case "it":
             return "🇮🇹"
         case "de":

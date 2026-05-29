@@ -15,6 +15,8 @@ const qrPending = new Map<string, Promise<string>>();
 
 type TVNewPageClientProps = {
   forcedSlideId?: string;
+  slides?: TVSlide[];
+  locale?: 'de' | 'en';
 };
 
 type TVStyle = CSSProperties & {
@@ -208,12 +210,12 @@ function HeroSlide({ slide }: { slide: TVSlide }) {
   );
 }
 
-function ServicePriceSlide({ slide }: { slide: TVSlide }) {
+function ServicePriceSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' }) {
   return (
     <SlideShell slide={slide} compactHeadline>
       <div className="mt-8 grid max-w-[1060px] grid-cols-[1fr_0.78fr] gap-5">
         <GlassPanel className="p-5">
-          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">Aktuelle Orientierung</p>
+          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">{locale === 'en' ? 'Current guide' : 'Aktuelle Orientierung'}</p>
           <div className="mt-4 grid grid-cols-2 gap-3">
             {slide.prices?.map((item) => (
               <div key={`${item.label}-${item.price}`} className="min-h-[128px] rounded-[8px] border border-[#0D322B]/10 bg-white/72 p-4">
@@ -225,7 +227,7 @@ function ServicePriceSlide({ slide }: { slide: TVSlide }) {
           </div>
         </GlassPanel>
         <GlassPanel className="p-5">
-          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">Geeignet für</p>
+          <p className="text-[24px] font-bold uppercase tracking-[0.1em] text-[#144D42]">{locale === 'en' ? 'Suitable for' : 'Geeignet für'}</p>
           <ul className="mt-4 space-y-3">
             {slide.bullets?.slice(0, 4).map((bullet) => (
               <Bullet key={bullet}>{bullet}</Bullet>
@@ -379,12 +381,12 @@ function TeamSlide({ slide }: { slide: TVSlide }) {
   );
 }
 
-function RenderSlide({ slide }: { slide: TVSlide }) {
+function RenderSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' }) {
   switch (slide.kind) {
     case 'hero':
       return <HeroSlide slide={slide} />;
     case 'service-price':
-      return <ServicePriceSlide slide={slide} />;
+      return <ServicePriceSlide slide={slide} locale={locale} />;
     case 'feature-grid':
       return <FeatureGridSlide slide={slide} />;
     case 'app':
@@ -400,22 +402,22 @@ function RenderSlide({ slide }: { slide: TVSlide }) {
   }
 }
 
-export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps) {
+export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES, locale = 'de' }: TVNewPageClientProps) {
   const searchParams = useSearchParams();
   const tvScale = useTVScale();
   const routeForcedSlideIndex = useMemo(() => {
     if (!forcedSlideId) return null;
-    const index = TV_NEW_SLIDES.findIndex((slide) => slide.id === forcedSlideId);
+    const index = slides.findIndex((slide) => slide.id === forcedSlideId);
     return index >= 0 ? index : null;
-  }, [forcedSlideId]);
+  }, [forcedSlideId, slides]);
 
   const queryForcedSlideIndex = useMemo(() => {
     const raw = searchParams.get('slide');
     if (!raw) return null;
     const parsed = Number.parseInt(raw, 10);
-    if (!Number.isFinite(parsed) || parsed < 1 || parsed > TV_NEW_SLIDES.length) return null;
+    if (!Number.isFinite(parsed) || parsed < 1 || parsed > slides.length) return null;
     return parsed - 1;
-  }, [searchParams]);
+  }, [searchParams, slides.length]);
 
   const forcedSlideIndex = routeForcedSlideIndex;
   const [currentSlideIndex, setCurrentSlideIndex] = useState(routeForcedSlideIndex ?? queryForcedSlideIndex ?? 0);
@@ -461,13 +463,13 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
 
     const timer = setTimeout(() => {
       setPreviousSlideIndex(currentSlideIndex);
-      setCurrentSlideIndex((prev) => (prev + 1) % TV_NEW_SLIDES.length);
+      setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
       const fadeTimer = setTimeout(() => setPreviousSlideIndex(null), ANIMATION_DURATION);
       return () => clearTimeout(fadeTimer);
     }, SLIDE_DURATION);
 
     return () => clearTimeout(timer);
-  }, [currentSlideIndex, forcedSlideIndex]);
+  }, [currentSlideIndex, forcedSlideIndex, slides.length]);
 
   useEffect(() => {
     if (forcedSlideIndex !== null) {
@@ -495,7 +497,7 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
   return (
     <main className="fixed inset-0 h-screen w-screen bg-black" style={{ '--tv-scale': tvScale } as TVStyle}>
       <div className="relative h-full w-full overflow-hidden">
-        {TV_NEW_SLIDES.map((slide, index) => {
+        {slides.map((slide, index) => {
           const isActive = index === currentSlideIndex;
           const isExiting = index === previousSlideIndex;
 
@@ -510,7 +512,7 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
               }}
             >
               <div className="h-full w-full">
-                <RenderSlide slide={slide} />
+                <RenderSlide slide={slide} locale={locale} />
               </div>
             </div>
           );
@@ -522,14 +524,14 @@ export default function TVNewPageClient({ forcedSlideId }: TVNewPageClientProps)
               onClick={toggleFullscreen}
               className="rounded-[8px] bg-black/45 px-4 py-2 text-sm text-white transition hover:bg-black/65"
             >
-              Enter Fullscreen
+              {locale === 'en' ? 'Enter Fullscreen' : 'Vollbild starten'}
             </button>
           </div>
         )}
 
         <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
           <div className="flex gap-1">
-            {TV_NEW_SLIDES.map((slide, index) => (
+            {slides.map((slide, index) => (
               <button
                 key={slide.id}
                 type="button"

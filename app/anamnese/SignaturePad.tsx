@@ -6,6 +6,7 @@ import SignaturePadLib from 'signature_pad';
 interface SignaturePadProps {
   value: string;
   onChange: (dataUrl: string) => void;
+  clearLabel?: string;
 }
 
 export interface SignaturePadHandle {
@@ -19,7 +20,7 @@ const EXPORT_QUALITY = 0.85;
 const exportSignature = (signaturePad: SignaturePadLib) =>
   signaturePad.toDataURL(EXPORT_MIME_TYPE, EXPORT_QUALITY);
 
-const SignaturePad = ({ value, onChange }: SignaturePadProps, ref: React.Ref<SignaturePadHandle>) => {
+const SignaturePad = ({ value, onChange, clearLabel = 'Unterschrift löschen' }: SignaturePadProps, ref: React.Ref<SignaturePadHandle>) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const signaturePadRef = useRef<SignaturePadLib | null>(null);
   const valueRef = useRef(value);
@@ -164,7 +165,7 @@ const SignaturePad = ({ value, onChange }: SignaturePadProps, ref: React.Ref<Sig
           onClick={handleClear}
           className="text-sm text-primary hover:text-primary/80 font-semibold"
         >
-          Unterschrift löschen
+          {clearLabel}
         </button>
       </div>
     </div>

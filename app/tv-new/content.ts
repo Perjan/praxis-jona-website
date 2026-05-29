@@ -49,6 +49,9 @@ const locale = "de" as const;
 const longevity = categoryContent.longevityDe;
 const aesthetics = categoryContent.aestheticDe;
 const veltoApp = appsByLocale.de[0];
+const longevityEn = categoryContent.longevityEn;
+const aestheticsEn = categoryContent.aestheticEn;
+const veltoAppEn = appsByLocale.en[0];
 
 function localUrl(path: string): string {
   return absoluteUrl(path);
@@ -63,6 +66,14 @@ function rowPrice(row: PricingRow, note?: string): PriceHighlight {
     label: row.label[locale],
     price: formatPrice(row.price, locale),
     note: note ?? row.description?.[locale],
+  };
+}
+
+function rowPriceEn(row: PricingRow, note?: string): PriceHighlight {
+  return {
+    label: row.label.en,
+    price: formatPrice(row.price, "en"),
+    note: note ?? row.description?.en,
   };
 }
 
@@ -294,6 +305,174 @@ export const TV_NEW_SLIDES: TVSlide[] = [
   },
 ];
 
+export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
+  switch (slide.id) {
+    case "welcome":
+      return {
+        ...slide,
+        title: "Holistic care for a healthy life",
+        subtitle: "Internal medicine, prevention and modern aesthetic medicine in Berlin-Mitte.",
+        qrUrl: localUrl("/en/services"),
+        qrLabel: "Open services",
+        displayUrl: displayUrl(localUrl("/en/services")),
+        bullets: ["Physician-led", "Central at Rosenthaler Platz", "Personal and structured"],
+      };
+    case "botulinumtoxin":
+      return {
+        ...slide,
+        kicker: pricingSections.botox.title.en,
+        eyebrow: "Medically precise. Natural-looking results.",
+        title: "Relax expression, preserve character",
+        subtitle: pricingSections.botox.description.en,
+        qrUrl: localUrl(pricingSections.botox.detailHref!.en),
+        qrLabel: "View prices",
+        displayUrl: displayUrl(localUrl(pricingSections.botox.detailHref!.en)),
+        prices: [
+          rowPriceEn(findRow(botoxRows, "browlift")),
+          rowPriceEn(findRow(botoxRows, "zornesfalte")),
+          rowPriceEn(findRow(botoxRows, "bruxismus")),
+          rowPriceEn(findRow(botoxRows, "hyperhidrose")),
+        ],
+        bullets: ["Wrinkle treatment", "Bruxism", "Hyperhidrosis", "Chronic migraine"],
+      };
+    case "private-medicine":
+      return {
+        ...slide,
+        kicker: "Private medicine",
+        title: "Structured services with clear medical context",
+        subtitle: "For symptoms, prevention, diagnostics and individual health goals.",
+        qrUrl: localUrl("/en/services"),
+        qrLabel: "Open overview",
+        displayUrl: displayUrl(localUrl("/en/services")),
+        features: longevityEn.sections[0].services.slice(0, 6).map((service) => ({
+          title: service.title,
+          text: service.eyebrow,
+        })),
+      };
+    case "glp1":
+      return {
+        ...slide,
+        kicker: pricingSections.glp1.title.en,
+        eyebrow: "Weight and metabolism",
+        title: "Medical support for weight loss",
+        subtitle: pricingSections.glp1.description.en,
+        qrUrl: localUrl(pricingSections.glp1.detailHref!.en),
+        qrLabel: "Learn more",
+        displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.en)),
+        prices: [
+          rowPriceEn(findRow(glp1Rows, "beratung-start")),
+          rowPriceEn(findRow(glp1Rows, "abnehmspritze-paket")),
+          rowPriceEn(findRow(glp1Rows, "rundum-sorglos")),
+        ],
+        bullets: ["Check medical suitability", "Structure progress", "App support available"],
+      };
+    case "micronutrients":
+      return {
+        ...slide,
+        kicker: pricingSections.micronutrients.title.en,
+        eyebrow: "Lab-based",
+        title: "Clarity instead of guesswork",
+        subtitle: pricingSections.micronutrients.description.en,
+        qrUrl: localUrl(pricingSections.micronutrients.detailHref!.en),
+        qrLabel: "Open analysis",
+        displayUrl: displayUrl(localUrl(pricingSections.micronutrients.detailHref!.en)),
+        prices: [rowPriceEn(micronutrientRow)],
+        bullets: ["Fatigue", "Hair loss", "Frequent infections", "Targeted treatment planning"],
+      };
+    case "infusion-iron":
+      return {
+        ...slide,
+        kicker: "Infusion therapy",
+        eyebrow: pricingSections.ironInfusion.title.en,
+        title: "Make nutrients directly available",
+        subtitle: "Infusions are considered after medical assessment and with a suitable indication.",
+        qrUrl: localUrl(pricingSections.ironInfusion.detailHref!.en),
+        qrLabel: "View costs",
+        displayUrl: displayUrl(localUrl(pricingSections.ironInfusion.detailHref!.en)),
+        prices: [rowPriceEn(ironInfusionRow, "Fixed price with suitable indication")],
+        bullets: ["For relevant deficiency", "Medically supervised", "Individually planned"],
+      };
+    case "prevention":
+      return {
+        ...slide,
+        kicker: pricingSections.prevention.title.en,
+        eyebrow: "Health is not accidental",
+        title: "Make prevention measurable",
+        subtitle: pricingSections.prevention.description.en,
+        qrUrl: localUrl(pricingSections.prevention.detailHref!.en),
+        qrLabel: "Open packages",
+        displayUrl: displayUrl(localUrl(pricingSections.prevention.detailHref!.en)),
+        prices: preventionRows.map((row) => rowPriceEn(row)),
+        bullets: ["Diagnostics", "Interpretation", "Concrete plan"],
+      };
+    case "ultrasound":
+      return {
+        ...slide,
+        kicker: pricingSections.ultrasound.title.en,
+        eyebrow: "Internal medicine",
+        title: "Diagnostics directly in the practice",
+        subtitle: pricingSections.ultrasound.description.en,
+        qrUrl: localUrl(pricingSections.ultrasound.detailHref!.en),
+        qrLabel: "Open diagnostics",
+        displayUrl: displayUrl(localUrl(pricingSections.ultrasound.detailHref!.en)),
+        prices: [
+          rowPriceEn(findRow(ultrasoundRows, "schilddruese")),
+          rowPriceEn(findRow(ultrasoundRows, "bauchorgane")),
+          rowPriceEn(findRow(ultrasoundRows, "carotisduplex")),
+        ],
+        bullets: ["Thyroid", "Abdominal organs", "Vessels"],
+      };
+    case "velto":
+      return {
+        ...slide,
+        title: veltoAppEn.name,
+        subtitle: "Progress, side effects and motivation in one place.",
+        qrUrl: veltoAppEn.downloadLink.ios ?? veltoAppEn.downloadLink.website!,
+        qrLabel: "Download app",
+        displayUrl: displayUrl(veltoAppEn.downloadLink.website!),
+        bullets: veltoAppEn.benefits.slice(0, 4),
+      };
+    case "instagram":
+      return {
+        ...slide,
+        title: "Follow me",
+        subtitle: "Insights into prevention, modern medicine and everyday practice life.",
+        qrLabel: "Open Instagram",
+      };
+    case "google-review":
+      return {
+        ...slide,
+        kicker: "Feedback",
+        title: "Your review helps other patients",
+        subtitle: "If you are satisfied, we appreciate your Google review.",
+        qrLabel: "Review on Google",
+        displayUrl: "Google review",
+      };
+    case "team":
+      return {
+        ...slide,
+        title: "Our practice team",
+        subtitle: "Personal care, experience and clear processes in Berlin-Mitte.",
+        qrUrl: localUrl("/en/team"),
+        qrLabel: "View team",
+        displayUrl: displayUrl(localUrl("/en/team")),
+        team: [
+          { image: "/images/team/avatar.jpeg", name: "Constanze C. Buhrman", role: "Specialist in internal medicine, sports medicine, naturopathy, chirotherapy, acupuncture/TCM" },
+          { image: "/images/team/anja-garlin.jpeg", name: "Anja Garlin", role: "Practice manager" },
+          { image: "/images/team/heike-avatar.jpeg", name: "Heike Schmeiche", role: "Medical assistant, working in the practice since 2011" },
+          { image: "/images/team/kerstin-avatar.jpeg", name: "Kerstin Wawrzyniak", role: "Medical assistant, working in the practice since 2002" },
+        ],
+        features: aestheticsEn.sections[2].services.map((service) => ({ title: service.title, text: service.description })),
+      };
+    default:
+      return slide;
+  }
+});
+
 export function getTVSlideById(slideId: string): TVSlide | undefined {
   return TV_NEW_SLIDES.find((slide) => slide.id === slideId);
+}
+
+export function getTVSlideByIdEn(slideId: string): TVSlide | undefined {
+  return TV_NEW_SLIDES_EN.find((slide) => slide.id === slideId);
 }

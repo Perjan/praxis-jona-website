@@ -10,7 +10,9 @@ import { generateMetadataForPost } from "app/guides/[slug]/generateMetadata";
 const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
 
 export async function generateStaticParams() {
-  return legalPosts.map((post) => ({ slug: post.slug }));
+  return legalPosts
+    .filter((post) => post._raw.flattenedPath === "impressum-datenschutz")
+    .map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({
@@ -45,7 +47,7 @@ const components = {
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+export const LegalPostLayout = ({ params }: { params: { slug: string } }) => {
   const post = legalPosts.find((post) => post._raw.flattenedPath === params.slug)
 
   const Content = getMDXComponent(post.body.code)
@@ -82,4 +84,4 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   )
 }
 
-export default PostLayout
+export default LegalPostLayout
