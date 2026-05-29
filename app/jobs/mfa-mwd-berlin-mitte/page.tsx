@@ -132,7 +132,7 @@ export default function Page() {
                         <p>
                             Unsere Praxis ist modern, digitalisiert und bestens ausgestattet mit EKG, LuFu, 24h-RR, u.v.m.
                             Neben der klassischen hausärztlichen Versorgung bieten wir auch Schilddrüsendiagnostik,
-                            Ernährungsmedizin, Infusionstherapien und ästhetische Behandlungen (z. B. Botox) an.
+                            Ernährungsmedizin, Infusionstherapien und ästhetische Behandlungen (z. B. Botulinumtoxin) an.
                         </p>
                     </div>
 

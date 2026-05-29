@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   description,
   alternates: {
     canonical: url,
+    languages: {
+      de: "/anamnese",
+      en: "/en/anamnese",
+    },
   },
   openGraph: {
     title,

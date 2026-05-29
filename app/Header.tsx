@@ -15,26 +15,26 @@ import { localeFromPathname } from './lib/i18n-routing'
 import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
 import { LanguagePicker } from './LanguagePicker'
+import AppointmentBookingButton from './components/AppointmentBookingButton'
 
 const navigationItemsGerman = [
-    { title: "Schwerpunkte", href: "/schwerpunkte" },
-    { title: "Leistungen", href: "/leistungen" },
-    { title: "Prävention", href: "/praevention" },
+    { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
+    { title: "Ästhetik", href: "/aesthetik" },
+    { title: "Prävention / Longevity", href: "/praevention-longevity" },
     { title: "Team", href: "/team" },
-    { title: "Aktuelles", href: "/aktuelles" },
     { title: "Kontakt", href: "/kontakt" }
 ]
 
 const navigationItemsEnglish = [
-    { title: "Specialty Areas", href: "/en/focus-areas" },
-    { title: "Services", href: "/en/services" },
-    { title: "Prevention", href: "/en/prevention" },
+    { title: "Internal Medicine", href: "/en/general-medicine" },
+    { title: "Aesthetics", href: "/en/aesthetics" },
+    { title: "Prevention / Longevity", href: "/en/prevention-longevity" },
     { title: "Team", href: "/en/team" },
-    { title: "Latest News", href: "/en/latest-news" },
     { title: "Contact", href: "/en/contact" }
 ]
 
 const menuItemClassName = "-mx-3 block rounded-lg py-2 px-3 font-semibold leading-7 hover:bg-slate-200"
+const desktopNavItemClassName = "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600"
 
 const downloadUrl = Constants.downloadUrl
 
@@ -50,13 +50,69 @@ function bookAppointmentTitle(locale: string) {
     }
 }
 
-export function DownloadButton({ url, locale }) {
+function isAestheticBookingPath(pathname: string) {
+    return (
+        pathname.startsWith("/aesthetik") ||
+        pathname.startsWith("/en/aesthetics") ||
+        pathname.startsWith("/botox") ||
+        pathname.startsWith("/en/botox") ||
+        pathname === "/leistungen/haarausfall-berlin-mitte" ||
+        pathname === "/en/services/hair-loss-berlin-mitte" ||
+        pathname === "/leistungen/prp-haarausfall" ||
+        pathname === "/en/services/prp-hair-loss"
+    )
+}
+
+function bookingUrlsForPath(pathname: string) {
+    if (pathname.startsWith("/botox-behandlung") || pathname.startsWith("/en/botox-treatment")) {
+        return Constants.appointmentUrlsByService.botulinumtoxin
+    }
+
+    if (pathname.startsWith("/aesthetik/prp-behandlung") || pathname.startsWith("/en/aesthetics/prp-treatment")) {
+        return Constants.appointmentUrlsByService.prp
+    }
+
+    if (pathname.startsWith("/aesthetik/microneedling") || pathname.startsWith("/en/aesthetics/microneedling")) {
+        return Constants.appointmentUrlsByService.microneedling
+    }
+
+    if (pathname.startsWith("/leistungen/haarausfall-berlin-mitte") || pathname.startsWith("/en/services/hair-loss-berlin-mitte") || pathname.startsWith("/leistungen/prp-haarausfall") || pathname.startsWith("/en/services/prp-hair-loss")) {
+        return Constants.appointmentUrlsByService.hairTherapy
+    }
+
+    if (pathname.startsWith("/aesthetik/polynukleotide") || pathname.startsWith("/en/aesthetics/polynucleotides") || pathname.startsWith("/aesthetik/hautbild-verbessern") || pathname.startsWith("/en/aesthetics/improve-skin-quality")) {
+        return Constants.appointmentUrlsByService.skinbooster
+    }
+
+    if (pathname.startsWith("/aesthetik") || pathname.startsWith("/en/aesthetics")) {
+        return Constants.appointmentUrls
+    }
+
+    return undefined
+}
+
+export function DownloadButton({ url, locale, pathname }) {
+    const className = "block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif font-semibold leading-7 text-white hover:bg-primaryDarker"
+
+    if (isAestheticBookingPath(pathname)) {
+        return (
+            <AppointmentBookingButton
+                locale={locale === "en" ? "en" : "de"}
+                urls={bookingUrlsForPath(pathname)}
+                className={className}
+                ariaLabel={bookAppointmentTitle(locale)}
+            >
+                {bookAppointmentTitle(locale)}
+            </AppointmentBookingButton>
+        )
+    }
+
     return (
         <Link
             href={Constants.appointmentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-xl bg-primary py-2.5 px-4 lg:px-6 text-base font-serif leading-7 text-white hover:bg-primaryDarker"
+            className={className}
             data-umami-event="button-in-header"
         >{bookAppointmentTitle(locale)}
         </Link>
@@ -70,6 +126,7 @@ export default function Header() {
     const scrollPosition = useScrollPosition()
 
     const locale = localeFromPathname(pathname)
+    const isHomepage = pathname === "/" || pathname === "/en"
 
     var navigationItems = []
 
@@ -94,7 +151,8 @@ export default function Header() {
         <header
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                'sticky top-0 z-20 transition-shadow backdrop-blur-md bg-white/30',
+                isHomepage ? 'bg-white/30' : 'border-b border-primary/10 bg-white/95',
+                'sticky top-0 z-20 transition-shadow backdrop-blur-md',
             )}
         >
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -146,17 +204,22 @@ export default function Header() {
                                 scroll={true}
                                 className={
                                     cn(pathname === item.href ? "text-green-700" : "text-gray-900",
-                                        "text-md tracking-wide font-medium font-serif leading-6 hover:text-green-600")
+                                        desktopNavItemClassName)
                                 }
                             >{item.title}
                             </Link>
 
                         )}
                     </Popover.Group>
-                    <DownloadButton url={downloadUrl} locale={locale} />
+                    <DownloadButton url={downloadUrl} locale={locale} pathname={pathname} />
                 </div>
-                <div className="hidden mt-0 pl-4 space-x-1 leading-5 text-gray-500 md:order-1 lg:flex items-center">
-                    <LanguagePicker locale={locale} pathname={pathname} />
+                <div className="hidden mt-0 pl-4 space-x-1 md:order-1 lg:flex items-center">
+                    <LanguagePicker
+                        locale={locale}
+                        pathname={pathname}
+                        linkClassName={desktopNavItemClassName}
+                        separatorClassName={desktopNavItemClassName}
+                    />
                 </div>
             </nav>
             <MobileMenuDialog
@@ -164,7 +227,6 @@ export default function Header() {
                 setMobileMenuOpen={setMobileMenuOpen}
                 navigationItemsMobile={navigationItemsMobile}
                 pathname={pathname}
-                downloadUrl={downloadUrl}
                 locale={locale}
                 languageLabel={languageLabel}
             />
@@ -205,7 +267,7 @@ const CustomCloseIcon = () => (
     </svg>
 )
 
-function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMobile, pathname, downloadUrl, locale, languageLabel }) {
+function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMobile, pathname, locale, languageLabel }) {
     return (
         <Transition show={mobileMenuOpen} as={Fragment}>
             <Dialog as="div" className="lg:hidden" static open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
@@ -244,7 +306,7 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                         <div className="mt-6 flow-root">
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="py-6">
-                                    <DownloadButton url={downloadUrl} locale={locale} />
+                                    <DownloadButton url={downloadUrl} locale={locale} pathname={pathname} />
                                 </div>
                                 <div className="space-y-2 py-6">
                                     {navigationItemsMobile.map((item) =>
@@ -261,8 +323,8 @@ function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMo
                                     )}
                                     {/* Add Blog link at the bottom of the mobile menu */}
                                     <Link
-                                        href="/blog"
-                                        className={cn(pathname === "/blog" ? "text-green-700" : "text-gray-900", menuItemClassName)}
+                                        href={locale === "en" ? "/en/blog" : "/blog"}
+                                        className={cn(pathname === (locale === "en" ? "/en/blog" : "/blog") ? "text-green-700" : "text-gray-900", menuItemClassName)}
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Blog

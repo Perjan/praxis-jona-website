@@ -1,0 +1,458 @@
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowsRightLeftIcon,
+  BeakerIcon,
+  CalendarDaysIcon,
+  CheckBadgeIcon,
+  CheckCircleIcon,
+  ClipboardDocumentCheckIcon,
+  ClockIcon,
+  CurrencyEuroIcon,
+  ExclamationTriangleIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  MoonIcon,
+  ShieldCheckIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
+import type { ComponentType, SVGProps } from "react";
+import { Constants } from "app/Constants";
+import type { AppointmentBookingUrls } from "app/Constants";
+import AppointmentBookingButton from "app/components/AppointmentBookingButton";
+import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
+import { MotionCard, MotionSection } from "./Motion";
+import TreatmentPricingBlock from "./pricing/TreatmentPricingBlock";
+import type { CategoryContent, LandingContent, ServiceLink } from "./pageContent";
+
+function JsonLd({ data }: { data: object }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
+}
+
+function sectionId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+const heroEyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
+type FactIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
+const bookingUrlsByCanonical: Record<string, AppointmentBookingUrls> = {
+  "/aesthetik/prp-behandlung": Constants.appointmentUrlsByService.prp,
+  "/en/aesthetics/prp-treatment": Constants.appointmentUrlsByService.prp,
+  "/aesthetik/microneedling": Constants.appointmentUrlsByService.microneedling,
+  "/en/aesthetics/microneedling": Constants.appointmentUrlsByService.microneedling,
+  "/aesthetik/polynukleotide": Constants.appointmentUrlsByService.skinbooster,
+  "/en/aesthetics/polynucleotides": Constants.appointmentUrlsByService.skinbooster,
+  "/aesthetik/hautbild-verbessern": Constants.appointmentUrlsByService.skinbooster,
+  "/en/aesthetics/improve-skin-quality": Constants.appointmentUrlsByService.skinbooster,
+  "/leistungen/haarausfall-berlin-mitte": Constants.appointmentUrlsByService.hairTherapy,
+  "/en/services/hair-loss-berlin-mitte": Constants.appointmentUrlsByService.hairTherapy,
+  "/leistungen/prp-haarausfall": Constants.appointmentUrlsByService.hairTherapy,
+  "/en/services/prp-hair-loss": Constants.appointmentUrlsByService.hairTherapy,
+  "/hausaerztliche-leistungen/gesundheitsuntersuchung-check-up": Constants.appointmentUrlsByService.checkups,
+  "/en/general-medicine/preventive-check-up": Constants.appointmentUrlsByService.checkups,
+};
+
+function iconForFact(label: string, value: string): FactIconComponent {
+  const text = `${label} ${value}`.toLowerCase();
+
+  if (/(kosten|cost|price|preis|€|euro)/.test(text)) return CurrencyEuroIcon;
+  if (/(nachts|night|sleep|schlaf)/.test(text)) return MoonIcon;
+  if (/(messintervall|interval)/.test(text)) return ArrowsRightLeftIcon;
+  if (/(dauer|duration|time|timing|wirkungsdauer|behandlungsdauer|ausfallzeit|downtime|onset|wirkungseintritt)/.test(text)) return ClockIcon;
+  if (/(termin|appointment|serie|series|alle 3 jahre|every 3 years|once|einmalig|plan early)/.test(text)) return CalendarDaysIcon;
+  if (/(herz|heart|ekg|ecg|rhythm|belastbarkeit|exercise capacity)/.test(text)) return HeartIcon;
+  if (/(labor|lab|werte|values|diagnostics|diagnostik|befund|findings|testing)/.test(text)) return BeakerIcon;
+  if (/(impf|vaccin|infekt|infection|fieber|fever|schutz|protection)/.test(text)) return ShieldCheckIcon;
+  if (/(wichtig|important|bring|mitbringen|record|documentation)/.test(text)) return ExclamationTriangleIcon;
+  if (/(anspruch|eligibility|covered|kassenleistung|public insurance)/.test(text)) return CheckBadgeIcon;
+  if (/(verfahren|method|procedure|durchführung|process|ablauf|behandlungsart|treatment type|consultation|beratung)/.test(text)) return ClipboardDocumentCheckIcon;
+  if (/(fokus|focus|anliegen|concern|einsatz|use|useful|indication|indikation|grundlage|basis)/.test(text)) return MagnifyingGlassIcon;
+  if (/(kombination|combination|ergänzung|add-on|add-ons|skin|haut|ästhet|aesthetic|prp|microneedling)/.test(text)) return SparklesIcon;
+  if (/(ziel|goal|target|early risk|risiken|risk|recommendation|empfehlung)/.test(text)) return CheckCircleIcon;
+
+  return CheckCircleIcon;
+}
+
+function CtaButtons({
+  primary,
+  primaryHref,
+  secondary,
+  secondaryHref,
+  locale = "de",
+  useBookingModal = false,
+  bookingUrls,
+}: {
+  primary: string;
+  primaryHref: string;
+  secondary?: string;
+  secondaryHref?: string;
+  locale?: "de" | "en";
+  useBookingModal?: boolean;
+  bookingUrls?: AppointmentBookingUrls;
+}) {
+  return (
+    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+      {useBookingModal ? (
+        <AppointmentBookingButton
+          locale={locale}
+          urls={bookingUrls}
+          className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
+        >
+          {primary}
+        </AppointmentBookingButton>
+      ) : (
+        <Link
+          href={primaryHref}
+          target={primaryHref.startsWith("http") ? "_blank" : undefined}
+          rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
+          className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
+        >
+          {primary}
+        </Link>
+      )}
+      {secondary && secondaryHref && (
+        <Link
+          href={secondaryHref}
+          className="inline-flex justify-center rounded-xl border border-primary/20 bg-white px-6 py-3 text-base font-serif font-medium text-primary transition hover:border-primary/40 hover:bg-stone-50"
+        >
+          {secondary}
+        </Link>
+      )}
+    </div>
+  );
+}
+
+function ServiceGrid({
+  services,
+  locale = "de",
+  maxColumns = 3,
+}: {
+  services: ServiceLink[];
+  locale?: "de" | "en";
+  maxColumns?: 2 | 3;
+}) {
+  return (
+    <div className={`mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 ${maxColumns === 3 ? "lg:grid-cols-3" : ""}`}>
+      {services.map((service, index) => (
+        <Link key={`${service.href}-${service.title}`} href={service.href} className="block h-full">
+          <MotionCard
+            delay={Math.min(index * 0.04, 0.2)}
+            className="group flex h-full flex-col justify-between rounded-lg border border-primary/10 bg-white p-6 shadow-sm transition hover:shadow-lg"
+          >
+            <div>
+              {service.eyebrow && <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primaryLighter">{service.eyebrow}</p>}
+              <h3 className="mt-2 font-serif text-xl font-semibold text-primary">{service.title}</h3>
+              <p className="mt-3 text-base leading-7 text-primaryLighter">{service.description}</p>
+            </div>
+            <span className="mt-6 text-sm font-semibold text-primary underline underline-offset-4">
+              {locale === "en" ? "Learn more" : "Mehr erfahren"}
+            </span>
+          </MotionCard>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+function CategoryHeroImage({ image }: { image: NonNullable<CategoryContent["heroImage"]> }) {
+  return (
+    <div className="relative overflow-hidden rounded-xl bg-lightBeige shadow-xl ring-1 ring-primary/10">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={900}
+        height={1125}
+        priority
+        sizes="(min-width: 1024px) 38vw, 92vw"
+        className={`h-72 w-full object-cover sm:h-96 lg:h-auto lg:aspect-[4/5] ${image.objectPositionClass ?? "object-center"}`}
+      />
+    </div>
+  );
+}
+
+function LandingHeroImage({ image, className = "" }: { image: NonNullable<LandingContent["heroImage"]>; className?: string }) {
+  return (
+    <div className={`relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10 ${className}`}>
+      <Image
+        src={image.src}
+        alt={image.alt}
+        width={900}
+        height={720}
+        priority
+        sizes="(min-width: 1024px) 36vw, 92vw"
+        className={`h-64 w-full object-cover sm:h-80 lg:h-72 ${image.objectPositionClass ?? "object-center"}`}
+      />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-white/20" />
+    </div>
+  );
+}
+
+function FactCardGrid({ facts }: { facts: LandingContent["facts"] }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {facts.map((fact, index) => {
+        const FactIcon = iconForFact(fact.label, fact.value);
+
+        return (
+          <MotionCard
+            key={fact.label}
+            delay={Math.min(index * 0.04, 0.2)}
+            className="rounded-lg border border-primary/10 bg-white p-6 shadow-sm"
+          >
+            <div className="flex gap-4">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary/70">
+                <FactIcon className="h-5 w-5 stroke-[2.5]" aria-hidden="true" />
+              </div>
+              <div>
+                <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-primary/70">{fact.label}</dt>
+                <dd className="mt-1 font-serif text-xl text-primary">{fact.value}</dd>
+              </div>
+            </div>
+          </MotionCard>
+        );
+      })}
+    </div>
+  );
+}
+
+function LandingFactSection({ facts }: { facts: LandingContent["facts"] }) {
+  if (!facts.length) {
+    return null;
+  }
+
+  return (
+    <MotionSection className="bg-lightBeige/70 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <dl>
+          <FactCardGrid facts={facts} />
+        </dl>
+      </div>
+    </MotionSection>
+  );
+}
+
+export function CategoryHub({ content, canonical, alternate }: { content: CategoryContent; canonical: string; alternate: string }) {
+  const hasVignetteHero = content.heroImage?.presentation === "vignette";
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Praxis Jona", item: Constants.baseUrl },
+      { "@type": "ListItem", position: 2, name: content.title, item: `${Constants.baseUrl}${canonical}` },
+    ],
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "@id": `${Constants.baseUrl}/#organization`,
+    name: "Praxis Jona",
+    url: `${Constants.baseUrl}${canonical}`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Torstraße 125",
+      postalCode: "10119",
+      addressLocality: "Berlin",
+      addressCountry: "DE",
+    },
+    telephone: Constants.contact.phone,
+  };
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={serviceSchema} />
+      <div className="relative overflow-hidden bg-white">
+        {hasVignetteHero && <CategoryVignetteBackground src={content.heroImage.src} />}
+        <MotionSection className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className={content.heroImage && !hasVignetteHero ? "grid gap-10 lg:grid-cols-[1fr_0.72fr] lg:items-center" : "max-w-4xl"}>
+            <div className="max-w-4xl">
+              <p className={heroEyebrowClassName}>{content.eyebrow}</p>
+              <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
+              <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.description}</p>
+              <CtaButtons primary={content.cta} primaryHref={content.ctaHref} secondary={content.secondaryCta} secondaryHref={content.secondaryHref} />
+            </div>
+            {content.heroImage && !hasVignetteHero && <CategoryHeroImage image={content.heroImage} />}
+          </div>
+        </MotionSection>
+
+        {content.sections.map((section) => (
+          <MotionSection key={section.title} className="relative z-10 bg-lightBeige/70 px-4 py-14 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl">
+              <div className="max-w-3xl">
+                <h2 className="font-serif text-3xl font-semibold text-primary">{section.title}</h2>
+                <p className="mt-4 text-lg leading-8 text-primaryLighter">{section.intro}</p>
+              </div>
+              <ServiceGrid services={section.services} locale={content.locale} />
+            </div>
+          </MotionSection>
+        ))}
+
+        <MotionSection className="relative z-10 mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.7fr_1fr]">
+            <div>
+              <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "Common questions" : "Häufige Fragen"}</h2>
+              <p className="mt-4 text-primaryLighter">
+                {content.locale === "en"
+                  ? "Short answers for patients comparing services and booking options."
+                  : "Kurze Antworten für Patientinnen und Patienten, die Leistungen und Buchungswege vergleichen."}
+              </p>
+            </div>
+            <div className="space-y-4">
+              {content.faq.map((item) => (
+                <details key={item.question} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
+                  <summary className="cursor-pointer font-serif text-lg font-semibold text-primary">{item.question}</summary>
+                  <p className="mt-3 leading-7 text-primaryLighter">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </MotionSection>
+      </div>
+    </>
+  );
+}
+
+export function LandingPage({ content }: { content: LandingContent }) {
+  const bookingUrls = bookingUrlsByCanonical[content.canonical];
+  const bookingHref = bookingUrls?.private ?? Constants.appointmentUrl;
+  const usesAestheticBookingModal =
+    content.canonical.startsWith("/aesthetik") ||
+    content.canonical.startsWith("/en/aesthetics") ||
+    content.canonical === "/leistungen/haarausfall-berlin-mitte" ||
+    content.canonical === "/en/services/hair-loss-berlin-mitte" ||
+    content.canonical === "/leistungen/prp-haarausfall" ||
+    content.canonical === "/en/services/prp-hair-loss";
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Praxis Jona", item: Constants.baseUrl },
+      { "@type": "ListItem", position: 2, name: content.title, item: `${Constants.baseUrl}${content.canonical}` },
+    ],
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: content.faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  };
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: content.title,
+    description: content.description,
+    provider: { "@id": `${Constants.baseUrl}/#organization`, name: "Praxis Jona" },
+    areaServed: "Berlin-Mitte",
+  };
+
+  return (
+    <>
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
+      <JsonLd data={serviceSchema} />
+      <div className="overflow-hidden bg-white">
+        <MotionSection className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-start">
+            <div>
+              <p className={heroEyebrowClassName}>{content.eyebrow}</p>
+              <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{content.title}</h1>
+              <p className="mt-6 text-lg leading-8 text-primaryLighter">{content.intro}</p>
+              {content.heroImage && <LandingHeroImage image={content.heroImage} className="mt-8 lg:hidden" />}
+              <CtaButtons
+                primary={content.cta}
+                primaryHref={bookingHref}
+                secondary={content.secondaryCta}
+                secondaryHref={content.secondaryHref}
+                locale={content.locale}
+                useBookingModal={usesAestheticBookingModal}
+                bookingUrls={bookingUrls}
+              />
+            </div>
+            <div>
+              {content.heroImage && <LandingHeroImage image={content.heroImage} className="hidden lg:block" />}
+            </div>
+          </div>
+        </MotionSection>
+
+        <LandingFactSection facts={content.facts} />
+
+        <TreatmentPricingBlock canonical={content.canonical} locale={content.locale} />
+
+        <div id="behandlungsdetails" className="mx-auto mt-12 max-w-7xl scroll-mt-28 px-4 pb-8 sm:px-6 lg:mt-16 lg:px-8">
+          <div className="grid gap-6 md:grid-cols-2">
+            {content.sections.map((section, index) => (
+              <MotionCard id={sectionId(section.title)} key={section.title} delay={Math.min(index * 0.05, 0.16)} className="scroll-mt-28 rounded-lg border border-primary/10 bg-white p-6 shadow-sm">
+                <h2 className="font-serif text-2xl font-semibold text-primary">{section.title}</h2>
+                <div className="mt-4 space-y-3">
+                  {section.body.map((paragraph) => (
+                    <p key={paragraph} className="leading-7 text-primaryLighter">{paragraph}</p>
+                  ))}
+                </div>
+                {section.bullets && (
+                  <ul className="mt-5 list-disc space-y-2 pl-5 text-primaryLighter">
+                    {section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+                  </ul>
+                )}
+              </MotionCard>
+            ))}
+          </div>
+        </div>
+
+        <MotionSection className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+          <div className="rounded-lg bg-lightBeige px-6 py-10 lg:px-10">
+            <div className="max-w-3xl">
+              <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "Related treatments" : "Verwandte Behandlungen"}</h2>
+              <p className="mt-4 text-primaryLighter">
+                {content.locale === "en"
+                  ? "Nearby topics that are often considered during consultation."
+                  : "Naheliegende Themen, die häufig in der Beratung mitbesprochen werden."}
+              </p>
+            </div>
+            <div className="mt-8">
+              <ServiceGrid services={content.related} locale={content.locale} maxColumns={2} />
+            </div>
+          </div>
+        </MotionSection>
+
+        <MotionSection className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
+          <h2 className="font-serif text-3xl font-semibold text-primary">{content.locale === "en" ? "FAQ" : "Häufige Fragen"}</h2>
+          <div className="mt-8 space-y-4">
+            {content.faq.map((item) => (
+              <details key={item.question} className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm">
+                <summary className="cursor-pointer font-serif text-lg font-semibold text-primary">{item.question}</summary>
+                <p className="mt-3 leading-7 text-primaryLighter">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </MotionSection>
+      </div>
+    </>
+  );
+}

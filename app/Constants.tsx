@@ -1,3 +1,130 @@
+export type AppointmentInsuranceSector = "private" | "public";
+
+export type AppointmentBookingUrls = Record<AppointmentInsuranceSector, string>;
+
+type AppointmentBookingTarget = {
+    motiveCategoryId?: string;
+    motiveId?: string;
+    selfPay?: boolean;
+};
+
+const doctolibBookingBaseUrl = "https://www.doctolib.de/internist/berlin/gjolli-jonida/booking";
+const doctolibProfileUrl =
+    "https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_content=option-8&utm_term=gjolli-jonida";
+
+function normalizeAppointmentTarget(targetOrCategoryId?: AppointmentBookingTarget | string, selfPay = false): AppointmentBookingTarget {
+    if (typeof targetOrCategoryId === "string") {
+        return {
+            motiveCategoryId: targetOrCategoryId,
+            selfPay,
+        };
+    }
+
+    return targetOrCategoryId ?? {};
+}
+
+function buildDoctolibBookingUrl(insuranceSector: AppointmentInsuranceSector, targetOrCategoryId?: AppointmentBookingTarget | string, selfPay = false) {
+    const target = normalizeAppointmentTarget(targetOrCategoryId, selfPay);
+    const isPublicSelfPay = insuranceSector === "public" && target.selfPay;
+    const path = target.motiveId && !isPublicSelfPay ? "availabilities" : target.motiveCategoryId ? (isPublicSelfPay ? "error" : "motives") : "motive-categories";
+    const params = new URLSearchParams({
+        specialityId: "1302",
+        telehealth: "false",
+        placeId: "practice-612560",
+        insuranceSectorEnabled: "true",
+        insuranceSector,
+        isNewPatient: "true",
+        isNewPatientBlocked: "false",
+        new_patient: "true",
+        pid: "practice-612560",
+        insurance_sector: insuranceSector,
+        source: "profile",
+    });
+
+    params.append("speciality_ids[]", "1302");
+
+    if (target.motiveCategoryId) {
+        params.append("visit_motive_category_ids[]", target.motiveCategoryId);
+    }
+
+    if (target.motiveId) {
+        params.append("motiveIds[]", target.motiveId);
+    }
+
+    return `${doctolibBookingBaseUrl}/${path}?${params.toString()}`;
+}
+
+function buildAppointmentUrls(targetOrCategoryId?: AppointmentBookingTarget | string, selfPay = false): AppointmentBookingUrls {
+    return {
+        private: buildDoctolibBookingUrl("private", targetOrCategoryId, selfPay),
+        public: buildDoctolibBookingUrl("public", targetOrCategoryId, selfPay),
+    };
+}
+
+const appointmentCategoryIds = {
+    consultation: "364966",
+    checkups: "364967",
+    ironInfusion: "518414",
+    weightLossInjection: "406205",
+    nutrition: "406201",
+    prp: "554440",
+    hairTherapy: "554441",
+    microneedling: "554442",
+    botulinumtoxin: "384956",
+    skinbooster: "554443",
+    polynucleotides: "554449",
+    micronutrients: "554454",
+} as const;
+
+const appointmentMotiveIds = {
+    prpFace: "16017756",
+    prpUnderEye: "16017762",
+    prpFaceNeck: "16017763",
+    prpFaceNeckDecollete: "16017764",
+    vampireLifting: "16017755",
+    hairMicroneedling: "16017765",
+    hairPrp: "16017766",
+    hairPolynucleotides: "16017776",
+    microneedlingVampirelift: "16017774",
+    microneedlingFace: "16017767",
+    microneedlingFaceNeck: "16017768",
+    microneedlingFaceNeckDecollete: "16017769",
+    microneedlingFaceNctf: "16017773",
+    microneedlingFaceExosomes: "16017771",
+    botulinumtoxinConsultation: "",
+    botulinumtoxinFrownLines: "",
+    botulinumtoxinForehead: "",
+    botulinumtoxinBrowLift: "",
+    botulinumtoxinCrowsFeet: "",
+    botulinumtoxinBunnyLines: "",
+    botulinumtoxinGummySmile: "",
+    botulinumtoxinLipFlip: "",
+    botulinumtoxinMouthCorners: "",
+    botulinumtoxinTwoZones: "",
+    botulinumtoxinThreeZones: "",
+    botulinumtoxinFourZones: "",
+    botulinumtoxinChin: "",
+    botulinumtoxinPlatysma: "",
+    botulinumtoxinBruxism: "",
+    botulinumtoxinTrapezius: "",
+    botulinumtoxinHyperhidrosis: "",
+    botulinumtoxinMigraine: "",
+    skinboosterNctfFace: "16017777",
+    skinboosterNctfFaceNeck: "16017778",
+    skinboosterNctfFaceNeckDecollete: "16017779",
+    skinboosterPhilartFace: "",
+    skinboosterPhilartEye: "",
+    skinboosterProfhilo: "16017780",
+    ironInfusion: "15427609",
+    checkup35: "12702791",
+    checkup18To34: "12702801",
+    weightLossInjection: "13607485",
+    nutritionInitial15: "13607443",
+    nutrition30: "14004730",
+    micronutrientsConsultation: "16017787",
+    polynucleotidesConsultation: "",
+} as const;
+
 export const Constants = {
     appName: "Praxis Jona",
     baseUrl: "https://praxisjona.de",
@@ -6,7 +133,67 @@ export const Constants = {
     umamiId: "cc9a5b16-c893-492f-af55-e6b79a844358",
     dataDomain: "praxisjona.de",
     address: "Torstraße 125\n10119, Berlin",
-    appointmentUrl: "https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_content=option-8&utm_term=gjolli-jonida",
+    appointmentUrl: doctolibProfileUrl,
+    appointmentUrls: buildAppointmentUrls(),
+    appointmentCategoryIds,
+    appointmentMotiveIds,
+    appointmentUrlsByService: {
+        consultation: buildAppointmentUrls(appointmentCategoryIds.consultation),
+        checkups: buildAppointmentUrls(appointmentCategoryIds.checkups),
+        checkup35: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.checkups, motiveId: appointmentMotiveIds.checkup35 }),
+        checkup18To34: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.checkups, motiveId: appointmentMotiveIds.checkup18To34 }),
+        ironInfusion: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.ironInfusion, motiveId: appointmentMotiveIds.ironInfusion, selfPay: true }),
+        weightLossInjection: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.weightLossInjection, motiveId: appointmentMotiveIds.weightLossInjection, selfPay: true }),
+        nutrition: buildAppointmentUrls(appointmentCategoryIds.nutrition, true),
+        nutritionInitial15: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.nutrition, motiveId: appointmentMotiveIds.nutritionInitial15, selfPay: true }),
+        nutrition30: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.nutrition, motiveId: appointmentMotiveIds.nutrition30, selfPay: true }),
+        prp: buildAppointmentUrls(appointmentCategoryIds.prp, true),
+        prpFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpFace, selfPay: true }),
+        prpUnderEye: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpUnderEye, selfPay: true }),
+        prpFaceNeck: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpFaceNeck, selfPay: true }),
+        prpFaceNeckDecollete: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.prpFaceNeckDecollete, selfPay: true }),
+        vampireLifting: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.prp, motiveId: appointmentMotiveIds.vampireLifting, selfPay: true }),
+        hairTherapy: buildAppointmentUrls(appointmentCategoryIds.hairTherapy, true),
+        hairMicroneedling: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.hairTherapy, motiveId: appointmentMotiveIds.hairMicroneedling, selfPay: true }),
+        hairPrp: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.hairTherapy, motiveId: appointmentMotiveIds.hairPrp, selfPay: true }),
+        hairPolynucleotides: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.hairTherapy, motiveId: appointmentMotiveIds.hairPolynucleotides, selfPay: true }),
+        microneedling: buildAppointmentUrls(appointmentCategoryIds.microneedling, true),
+        microneedlingVampirelift: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingVampirelift, selfPay: true }),
+        microneedlingFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFace, selfPay: true }),
+        microneedlingFaceNeck: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNeck, selfPay: true }),
+        microneedlingFaceNeckDecollete: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNeckDecollete, selfPay: true }),
+        microneedlingFaceNctf: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceNctf, selfPay: true }),
+        microneedlingFaceExosomes: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.microneedling, motiveId: appointmentMotiveIds.microneedlingFaceExosomes, selfPay: true }),
+        botulinumtoxin: buildAppointmentUrls(appointmentCategoryIds.botulinumtoxin, true),
+        botulinumtoxinConsultation: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinConsultation, selfPay: true }),
+        botulinumtoxinFrownLines: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinFrownLines, selfPay: true }),
+        botulinumtoxinForehead: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinForehead, selfPay: true }),
+        botulinumtoxinBrowLift: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinBrowLift, selfPay: true }),
+        botulinumtoxinCrowsFeet: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinCrowsFeet, selfPay: true }),
+        botulinumtoxinBunnyLines: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinBunnyLines, selfPay: true }),
+        botulinumtoxinGummySmile: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinGummySmile, selfPay: true }),
+        botulinumtoxinLipFlip: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinLipFlip, selfPay: true }),
+        botulinumtoxinMouthCorners: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinMouthCorners, selfPay: true }),
+        botulinumtoxinTwoZones: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinTwoZones, selfPay: true }),
+        botulinumtoxinThreeZones: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinThreeZones, selfPay: true }),
+        botulinumtoxinFourZones: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinFourZones, selfPay: true }),
+        botulinumtoxinChin: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinChin, selfPay: true }),
+        botulinumtoxinPlatysma: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinPlatysma, selfPay: true }),
+        botulinumtoxinBruxism: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinBruxism, selfPay: true }),
+        botulinumtoxinTrapezius: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinTrapezius, selfPay: true }),
+        botulinumtoxinHyperhidrosis: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinHyperhidrosis, selfPay: true }),
+        botulinumtoxinMigraine: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.botulinumtoxin, motiveId: appointmentMotiveIds.botulinumtoxinMigraine, selfPay: true }),
+        skinbooster: buildAppointmentUrls(appointmentCategoryIds.skinbooster, true),
+        skinboosterNctfFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterNctfFace, selfPay: true }),
+        skinboosterNctfFaceNeck: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterNctfFaceNeck, selfPay: true }),
+        skinboosterNctfFaceNeckDecollete: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterNctfFaceNeckDecollete, selfPay: true }),
+        skinboosterPhilartFace: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterPhilartFace, selfPay: true }),
+        skinboosterPhilartEye: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterPhilartEye, selfPay: true }),
+        skinboosterProfhilo: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.skinbooster, motiveId: appointmentMotiveIds.skinboosterProfhilo, selfPay: true }),
+        polynucleotides: buildAppointmentUrls(appointmentCategoryIds.polynucleotides, true),
+        polynucleotidesConsultation: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.polynucleotides, motiveId: appointmentMotiveIds.polynucleotidesConsultation, selfPay: true }),
+        micronutrients: buildAppointmentUrls({ motiveCategoryId: appointmentCategoryIds.micronutrients, motiveId: appointmentMotiveIds.micronutrientsConsultation, selfPay: true }),
+    },
     contact: {
         phone: "+49 30 40054273",
         phoneUrl: "tel:+493040054273",

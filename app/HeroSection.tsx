@@ -9,7 +9,12 @@ export default function HeroSection( { title, description } ) {
   }, []);
 
   return (
-    <div className="pt-4 bg-center md:bg-fixed bg-cover z-4" style={{ backgroundImage: 'url("/images/clinic/clinic-hero-2025.jpg")' }}>
+    <div className="relative pt-4 z-4">
+      {/* Background container - fixed to achieve parallax on all devices including iOS */}
+      <div 
+        className="home-hero-fixed-bg fixed inset-0 z-[-1]" 
+        style={{ backgroundImage: 'url("/images/clinic/clinic-hero-2025.jpg")' }}
+      ></div>
       <div className="mx-auto max-w-4xl py-32 sm:py-48 lg:py-56">
         <div className="text-center drop-shadow-xl relative z-10">
           <h1 className="text-5xl font-regular text-shadow-xl shadow-black tracking-tight font-serif text-white sm:text-6xl animate-slide-fade uppercase">

@@ -1,6 +1,5 @@
 import { Metadata } from "next";
-import Image from 'next/image';
-import { appsEN } from 'app/data/appsEN';
+import { appsByLocale } from 'app/data/apps';
 import AppsPageBody from 'app/components/AppsPageComponents';
 const title = "Our Apps"
 const description = "Discover our curated health and wellness apps designed to support your journey to better health with practical daily guidance."
@@ -41,6 +40,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <AppsPageBody title={title} description={description} apps={appsEN} />
+    <AppsPageBody title={title} description={description} apps={appsByLocale.en} />
   )
 }

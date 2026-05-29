@@ -6,6 +6,189 @@ import { z } from 'zod';
 import Logo from '/public/images/praxis-jona-web-logo.png';
 import SignaturePadField, { SignaturePadHandle } from './SignaturePad';
 
+type Locale = 'de' | 'en';
+
+const copy = {
+  de: {
+    validation: {
+      name: 'Name muss mindestens 2 Zeichen lang sein',
+      birthdate: 'Geburtsdatum kann nicht in der Zukunft liegen',
+      height: 'Größe muss zwischen 50 und 250 cm liegen',
+      weight: 'Gewicht muss zwischen 20 und 300 kg liegen',
+      occupation: 'Beruf ist erforderlich',
+      email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
+      signature: 'Bitte unterschreiben Sie den Bogen',
+    },
+    title: 'Anamnesebogen',
+    intro: 'Bitte füllen Sie diesen Bogen möglichst vollständig aus. Die Angaben helfen uns, Ihr Gesundheitsprofil ganzheitlich zu verstehen und Ihre Behandlung individuell zu gestalten.',
+    personal: 'Persönliche Angaben',
+    birthdate: 'Geburtsdatum',
+    age: 'Alter',
+    years: 'Jahre',
+    weight: 'Gewicht (kg)',
+    height: 'Größe (cm)',
+    occupation: 'Beruf',
+    email: 'Kontakt / E-Mail',
+    complaintsGoals: 'Beschwerden & Ziele',
+    complaintsQuestion: 'Haben Sie aktuell gesundheitliche Beschwerden? Wenn ja, welche?',
+    goalsQuestion: 'Was sind Ihre Ziele? (z. B. mehr Energie, Prävention, Muskelaufbau, Leistungsfähigkeit)',
+    history: 'Vorerkrankungen & Operationen',
+    diseasesQuestion: 'Wurden bei Ihnen relevante Erkrankungen diagnostiziert (z. B. Herz, Stoffwechsel, Autoimmun)?',
+    operationsQuestion: 'Haben Sie Operationen hinter sich?',
+    familyHistory: 'Familienanamnese',
+    familyIntro: 'Gab es in Ihrer Familie (Eltern/Großeltern) Erkrankungen wie:',
+    heartStroke: 'Herzinfarkt / Schlaganfall',
+    cancer: 'Krebs (Art?)',
+    dementia: 'Demenz / Alzheimer',
+    diabetes: 'Diabetes / Stoffwechselstörungen',
+    medicationsSupplements: 'Medikamente & Nahrungsergänzung',
+    medicationsQuestion: 'Nehmen Sie regelmäßig Medikamente ein? Wenn ja, welche?',
+    supplementsQuestion: 'Nehmen Sie Nahrungsergänzungsmittel ein? Wenn ja, welche?',
+    lifestyle: 'Lebensstil',
+    exerciseQuestion: 'Bewegung: Wie oft pro Woche trainieren Sie?',
+    sleep: 'Schlaf',
+    diet: 'Ernährung',
+    smoking: 'Rauchen',
+    smokingNo: 'nein',
+    smokingYes: 'ja, wie viel:',
+    alcohol: 'Alkohol',
+    stress: 'Stressbelastung',
+    genderSpecific: 'Geschlechtsspezifische Angaben',
+    gender: 'Geschlecht',
+    female: 'Weiblich',
+    male: 'Männlich',
+    diverse: 'Divers',
+    forWomen: 'Für Frauen:',
+    cycleRegular: 'Zyklus regelmäßig?',
+    libidoEnergy: 'Libido / Energie',
+    pregnancies: 'Schwangerschaften',
+    children: 'Kinder',
+    hormonal: 'Hormonelle Verhütung oder Therapie',
+    ifYesWhich: 'Falls ja, welche:',
+    forMen: 'Für Männer:',
+    testosteroneMeasured: 'Testosteronwerte jemals gemessen?',
+    testosteroneSubstitution: 'Falls Mangel, ist eine Substitution erfolgt?',
+    signature: 'Unterschrift',
+    signatureConfirm: 'Bitte bestätigen Sie mit Ihrer Unterschrift, dass die gemachten Angaben der Wahrheit entsprechen.',
+    clearSignature: 'Unterschrift löschen',
+    submit: 'Absenden',
+    submitting: 'Wird übermittelt...',
+    thanks: 'Vielen Dank!',
+    returnDevice: 'Bitte geben Sie das Gerät an der Rezeption zurück.',
+    newPatient: 'Neuer Patient',
+    error: 'Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.',
+    checkFields: 'Bitte überprüfen Sie die markierten Felder.',
+    options: {
+      gut: 'gut',
+      mittelmaessig: 'mittelmäßig',
+      schlecht: 'schlecht',
+      mischkoestlich: 'mischköstlich',
+      vegetarisch: 'vegetarisch',
+      vegan: 'vegan',
+      lowCarb: 'low carb',
+      mediterran: 'mediterran',
+      nein: 'nein',
+      ja: 'ja',
+      gelegentlich: 'gelegentlich',
+      regelmaessig: 'regelmäßig',
+      niedrig: 'niedrig',
+      mittel: 'mittel',
+      hoch: 'hoch',
+      normal: 'normal',
+      vermindert: 'vermindert',
+    },
+  },
+  en: {
+    validation: {
+      name: 'Name must be at least 2 characters long',
+      birthdate: 'Date of birth cannot be in the future',
+      height: 'Height must be between 50 and 250 cm',
+      weight: 'Weight must be between 20 and 300 kg',
+      occupation: 'Occupation is required',
+      email: 'Please enter a valid email address',
+      signature: 'Please sign the form',
+    },
+    title: 'Medical History Form',
+    intro: 'Please complete this form as fully as possible. Your answers help us understand your health profile and prepare your care individually.',
+    personal: 'Personal Information',
+    birthdate: 'Date of birth',
+    age: 'Age',
+    years: 'years',
+    weight: 'Weight (kg)',
+    height: 'Height (cm)',
+    occupation: 'Occupation',
+    email: 'Contact / Email',
+    complaintsGoals: 'Current Concerns & Goals',
+    complaintsQuestion: 'Do you currently have any health concerns? If yes, which ones?',
+    goalsQuestion: 'What are your goals? (e.g. more energy, prevention, muscle building, performance)',
+    history: 'Previous Conditions & Operations',
+    diseasesQuestion: 'Have you been diagnosed with relevant conditions (e.g. heart, metabolism, autoimmune)?',
+    operationsQuestion: 'Have you had any operations?',
+    familyHistory: 'Family History',
+    familyIntro: 'Have any of the following occurred in your family (parents/grandparents):',
+    heartStroke: 'Heart attack / stroke',
+    cancer: 'Cancer (type?)',
+    dementia: 'Dementia / Alzheimer’s',
+    diabetes: 'Diabetes / metabolic disorders',
+    medicationsSupplements: 'Medication & Supplements',
+    medicationsQuestion: 'Do you regularly take medication? If yes, which?',
+    supplementsQuestion: 'Do you take supplements? If yes, which?',
+    lifestyle: 'Lifestyle',
+    exerciseQuestion: 'Exercise: how often do you train per week?',
+    sleep: 'Sleep',
+    diet: 'Diet',
+    smoking: 'Smoking',
+    smokingNo: 'no',
+    smokingYes: 'yes, how much:',
+    alcohol: 'Alcohol',
+    stress: 'Stress level',
+    genderSpecific: 'Sex-Specific Information',
+    gender: 'Sex',
+    female: 'Female',
+    male: 'Male',
+    diverse: 'Diverse',
+    forWomen: 'For women:',
+    cycleRegular: 'Regular cycle?',
+    libidoEnergy: 'Libido / energy',
+    pregnancies: 'Pregnancies',
+    children: 'Children',
+    hormonal: 'Hormonal contraception or therapy',
+    ifYesWhich: 'If yes, which:',
+    forMen: 'For men:',
+    testosteroneMeasured: 'Have testosterone levels ever been measured?',
+    testosteroneSubstitution: 'If deficient, has substitution been started?',
+    signature: 'Signature',
+    signatureConfirm: 'Please confirm with your signature that the information provided is true.',
+    clearSignature: 'Clear signature',
+    submit: 'Submit',
+    submitting: 'Submitting...',
+    thanks: 'Thank you!',
+    returnDevice: 'Please return the device to reception.',
+    newPatient: 'New patient',
+    error: 'An error occurred. Please try again later.',
+    checkFields: 'Please check the marked fields.',
+    options: {
+      gut: 'good',
+      mittelmaessig: 'moderate',
+      schlecht: 'poor',
+      mischkoestlich: 'mixed diet',
+      vegetarisch: 'vegetarian',
+      vegan: 'vegan',
+      lowCarb: 'low carb',
+      mediterran: 'Mediterranean',
+      nein: 'no',
+      ja: 'yes',
+      gelegentlich: 'occasionally',
+      regelmaessig: 'regularly',
+      niedrig: 'low',
+      mittel: 'medium',
+      hoch: 'high',
+      normal: 'normal',
+      vermindert: 'reduced',
+    },
+  },
+} as const;
+
 interface FormData {
   // Persoenliche Angaben
   name: string;
@@ -62,25 +245,28 @@ interface FormData {
 }
 
 // Zod validation schema
-const anamneseSchema = z.object({
+function anamneseSchema(locale: Locale) {
+  const t = copy[locale].validation;
+
+  return z.object({
   // Personal information - all required
-  name: z.string().min(2, 'Name muss mindestens 2 Zeichen lang sein'),
+  name: z.string().min(2, t.name),
   birthdate: z.string().refine((date) => {
     const birthDate = new Date(date);
     const today = new Date();
     return birthDate <= today;
-  }, 'Geburtsdatum kann nicht in der Zukunft liegen'),
+  }, t.birthdate),
   age: z.string().optional(),
   height: z.string().refine((val) => {
     const num = parseInt(val);
     return num >= 50 && num <= 250;
-  }, 'Größe muss zwischen 50 und 250 cm liegen'),
+  }, t.height),
   weight: z.string().refine((val) => {
     const num = parseInt(val);
     return num >= 20 && num <= 300;
-  }, 'Gewicht muss zwischen 20 und 300 kg liegen'),
-  occupation: z.string().min(1, 'Beruf ist erforderlich'),
-  email: z.string().email('Bitte geben Sie eine gültige E-Mail-Adresse ein'),
+  }, t.weight),
+  occupation: z.string().min(1, t.occupation),
+  email: z.string().email(t.email),
 
   // Optional medical history fields
   currentComplaints: z.string().optional(),
@@ -110,8 +296,9 @@ const anamneseSchema = z.object({
   maleLibidoEnergy: z.string().optional(),
   testosteroneMeasured: z.string().optional(),
   testosteroneSubstitution: z.string().optional(),
-  signature: z.string().min(1, 'Bitte unterschreiben Sie den Bogen'),
-});
+  signature: z.string().min(1, t.signature),
+  });
+}
 
 // Helper component for error display
 const ErrorMessage = ({ error }: { error?: string }) => {
@@ -136,7 +323,8 @@ const calculateAgeFromBirthdate = (dateStr: string) => {
   return age >= 0 ? String(age) : '';
 };
 
-export default function AnamnesePage() {
+export default function AnamnesePage({ locale = 'de' }: { locale?: Locale } = {}) {
+  const t = copy[locale];
   const [formData, setFormData] = useState<FormData>({
     name: '',
     birthdate: '',
@@ -245,7 +433,7 @@ export default function AnamnesePage() {
       }
 
       // Validate form data with Zod
-      const validatedData = anamneseSchema.parse(dataToValidate);
+      const validatedData = anamneseSchema(locale).parse(dataToValidate);
 
       const response = await fetch('/api/anamnese', {
         method: 'POST',
@@ -258,7 +446,7 @@ export default function AnamnesePage() {
       if (response.ok) {
         setIsSubmitted(true);
       } else {
-        setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+        setSubmitMessage(t.error);
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -270,10 +458,10 @@ export default function AnamnesePage() {
           }
         });
         setValidationErrors(errors);
-        setSubmitMessage('Bitte überprüfen Sie die markierten Felder.');
+        setSubmitMessage(t.checkFields);
       } else {
         console.error('Form submission error:', error);
-        setSubmitMessage('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+        setSubmitMessage(t.error);
       }
     } finally {
       setIsSubmitting(false);
@@ -344,15 +532,15 @@ export default function AnamnesePage() {
               />
             </svg>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Vielen Dank!</h1>
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{t.thanks}</h1>
           <p className="text-2xl md:text-3xl text-white mb-12">
-            Bitte geben Sie das Gerät an der Rezeption zurück.
+            {t.returnDevice}
           </p>
           <button
             onClick={handleNewPatient}
             className="bg-white text-primary px-8 py-4 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-colors"
           >
-            Neuer Patient
+            {t.newPatient}
           </button>
         </div>
       </div>
@@ -372,15 +560,15 @@ export default function AnamnesePage() {
           />
         </div>
 
-        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">Anamnesebogen</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">{t.title}</h1>
         <p className="text-gray-600 mb-8 text-center">
-          Bitte füllen Sie diesen Bogen möglichst vollständig aus. Die Angaben helfen uns, Ihr Gesundheitsprofil ganzheitlich zu verstehen und Ihre Behandlung individuell zu gestalten.
+          {t.intro}
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {/* Persönliche Angaben */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Persönliche Angaben</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.personal}</h2>
             <div className="flex flex-wrap gap-4">
               <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -399,7 +587,7 @@ export default function AnamnesePage() {
               </div>
               <div className="w-full md:w-[calc(50%-0.5rem)]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Geburtsdatum <span className="text-red-600">*</span>
+                  {t.birthdate} <span className="text-red-600">*</span>
                 </label>
                 <div className="flex items-center gap-4">
                   <input
@@ -413,7 +601,7 @@ export default function AnamnesePage() {
                   />
                   {formData.age && (
                     <span className="text-sm text-gray-600 whitespace-nowrap">
-                      Alter: <span className="font-semibold">{formData.age}</span> Jahre
+                      {t.age}: <span className="font-semibold">{formData.age}</span> {t.years}
                     </span>
                   )}
                 </div>
@@ -421,7 +609,7 @@ export default function AnamnesePage() {
               </div>
               <div className="w-full md:w-[calc(50%-0.5rem)]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Gewicht (kg) <span className="text-red-600">*</span>
+                  {t.weight} <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="number"
@@ -436,7 +624,7 @@ export default function AnamnesePage() {
               </div>
               <div className="w-full md:w-[calc(50%-0.5rem)]">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Größe (cm) <span className="text-red-600">*</span>
+                  {t.height} <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="number"
@@ -451,7 +639,7 @@ export default function AnamnesePage() {
               </div>
               <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Beruf <span className="text-red-600">*</span>
+                  {t.occupation} <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="text"
@@ -466,7 +654,7 @@ export default function AnamnesePage() {
               </div>
               <div className="w-full">
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Kontakt / E-Mail <span className="text-red-600">*</span>
+                  {t.email} <span className="text-red-600">*</span>
                 </label>
                 <input
                   type="email"
@@ -484,11 +672,11 @@ export default function AnamnesePage() {
 
           {/* Beschwerden & Ziele */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Beschwerden & Ziele</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.complaintsGoals}</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Haben Sie aktuell gesundheitliche Beschwerden? Wenn ja, welche?
+                  {t.complaintsQuestion}
                 </label>
                 <textarea
                   rows={3}
@@ -499,7 +687,7 @@ export default function AnamnesePage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Was sind Ihre Ziele? (z. B. mehr Energie, Prävention, Muskelaufbau, Leistungsfähigkeit)
+                  {t.goalsQuestion}
                 </label>
                 <textarea
                   rows={3}
@@ -513,11 +701,11 @@ export default function AnamnesePage() {
 
           {/* Vorerkrankungen & Operationen */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Vorerkrankungen & Operationen</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.history}</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Wurden bei Ihnen relevante Erkrankungen diagnostiziert (z. B. Herz, Stoffwechsel, Autoimmun)?
+                  {t.diseasesQuestion}
                 </label>
                 <textarea
                   rows={3}
@@ -528,7 +716,7 @@ export default function AnamnesePage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Haben Sie Operationen hinter sich?
+                  {t.operationsQuestion}
                 </label>
                 <textarea
                   rows={3}
@@ -542,11 +730,11 @@ export default function AnamnesePage() {
 
           {/* Familienanamnese */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Familienanamnese</h2>
-            <p className="text-sm text-gray-600 mb-4">Gab es in Ihrer Familie (Eltern/Großeltern) Erkrankungen wie:</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.familyHistory}</h2>
+            <p className="text-sm text-gray-600 mb-4">{t.familyIntro}</p>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Herzinfarkt / Schlaganfall</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t.heartStroke}</label>
                 <input
                   type="text"
                   id="familyHeartStroke" name="familyHeartStroke" aria-label="familyHeartStroke" value={formData.familyHeartStroke}
@@ -555,7 +743,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Krebs (Art?)</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t.cancer}</label>
                 <input
                   type="text"
                   id="familyCancer" name="familyCancer" aria-label="familyCancer" value={formData.familyCancer}
@@ -564,7 +752,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Demenz / Alzheimer</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t.dementia}</label>
                 <input
                   type="text"
                   id="familyDementia" name="familyDementia" aria-label="familyDementia" value={formData.familyDementia}
@@ -573,7 +761,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Diabetes / Stoffwechselstörungen</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">{t.diabetes}</label>
                 <input
                   type="text"
                   id="familyDiabetes" name="familyDiabetes" aria-label="familyDiabetes" value={formData.familyDiabetes}
@@ -586,11 +774,11 @@ export default function AnamnesePage() {
 
           {/* Medikamente & Nahrungsergänzung */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Medikamente & Nahrungsergänzung</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.medicationsSupplements}</h2>
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nehmen Sie regelmäßig Medikamente ein? Wenn ja, welche?
+                  {t.medicationsQuestion}
                 </label>
                 <textarea
                   rows={4}
@@ -601,7 +789,7 @@ export default function AnamnesePage() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nehmen Sie Nahrungsergänzungsmittel ein? Wenn ja, welche?
+                  {t.supplementsQuestion}
                 </label>
                 <textarea
                   rows={4}
@@ -615,11 +803,11 @@ export default function AnamnesePage() {
 
           {/* Lebensstil */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Lebensstil</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.lifestyle}</h2>
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Bewegung: Wie oft pro Woche trainieren Sie?
+                  {t.exerciseQuestion}
                 </label>
                 <input
                   type="text"
@@ -629,7 +817,7 @@ export default function AnamnesePage() {
                 />
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-800 mb-2">Schlaf</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">{t.sleep}</label>
                 <div className="flex gap-4">
                   {(['gut', 'mittelmäßig', 'schlecht'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -640,13 +828,13 @@ export default function AnamnesePage() {
                         onChange={(e) => handleInputChange('sleepQuality', e.target.value)}
                         className="mr-2"
                       />
-                      {option}
+                      {option === 'gut' ? t.options.gut : option === 'mittelmäßig' ? t.options.mittelmaessig : t.options.schlecht}
                     </label>
                   ))}
                 </div>
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-800 mb-2">Ernährung</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">{t.diet}</label>
                 <div className="flex flex-wrap gap-4">
                   {(['mischköstlich', 'vegetarisch', 'vegan', 'low carb', 'mediterran'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -657,13 +845,13 @@ export default function AnamnesePage() {
                         onChange={(e) => handleInputChange('diet', e.target.value)}
                         className="mr-2"
                       />
-                      {option}
+                      {option === 'mischköstlich' ? t.options.mischkoestlich : option === 'vegetarisch' ? t.options.vegetarisch : option === 'vegan' ? t.options.vegan : option === 'low carb' ? t.options.lowCarb : t.options.mediterran}
                     </label>
                   ))}
                 </div>
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-800 mb-2">Rauchen</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">{t.smoking}</label>
                 <div className="flex gap-4 items-center">
                   <label className="flex items-center">
                     <input
@@ -673,7 +861,7 @@ export default function AnamnesePage() {
                       onChange={(e) => handleInputChange('smoking', e.target.value)}
                       className="mr-2"
                     />
-                    nein
+                    {t.smokingNo}
                   </label>
                   <label className="flex items-center">
                     <input
@@ -683,7 +871,7 @@ export default function AnamnesePage() {
                       onChange={(e) => handleInputChange('smoking', e.target.value)}
                       className="mr-2"
                     />
-                    ja, wie viel:
+                    {t.smokingYes}
                   </label>
                   <input
                     type="text"
@@ -695,7 +883,7 @@ export default function AnamnesePage() {
                 </div>
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-800 mb-2">Alkohol</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">{t.alcohol}</label>
                 <div className="flex gap-4">
                   {(['nein', 'gelegentlich', 'regelmäßig'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -706,13 +894,13 @@ export default function AnamnesePage() {
                         onChange={(e) => handleInputChange('alcohol', e.target.value)}
                         className="mr-2"
                       />
-                      {option}
+                      {option === 'nein' ? t.options.nein : option === 'gelegentlich' ? t.options.gelegentlich : t.options.regelmaessig}
                     </label>
                   ))}
                 </div>
               </div>
               <div>
-                <label className="block text-lg font-semibold text-gray-800 mb-2">Stressbelastung</label>
+                <label className="block text-lg font-semibold text-gray-800 mb-2">{t.stress}</label>
                 <div className="flex gap-4">
                   {(['niedrig', 'mittel', 'hoch'] as const).map((option) => (
                     <label key={option} className="flex items-center">
@@ -723,7 +911,7 @@ export default function AnamnesePage() {
                         onChange={(e) => handleInputChange('stressLevel', e.target.value)}
                         className="mr-2"
                       />
-                      {option}
+                      {option === 'niedrig' ? t.options.niedrig : option === 'mittel' ? t.options.mittel : t.options.hoch}
                     </label>
                   ))}
                 </div>
@@ -733,9 +921,9 @@ export default function AnamnesePage() {
 
           {/* Geschlechtsspezifische Fragen */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Geschlechtsspezifische Angaben</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">{t.genderSpecific}</h2>
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">Geschlecht</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">{t.gender}</label>
               <div className="flex gap-4">
                 <label className="flex items-center">
                   <input
@@ -745,7 +933,7 @@ export default function AnamnesePage() {
                     onChange={(e) => handleInputChange('gender', e.target.value)}
                     className="mr-2"
                   />
-                  Weiblich
+                  {t.female}
                 </label>
                 <label className="flex items-center">
                   <input
@@ -755,7 +943,7 @@ export default function AnamnesePage() {
                     onChange={(e) => handleInputChange('gender', e.target.value)}
                     className="mr-2"
                   />
-                  Männlich
+                  {t.male}
                 </label>
                 <label className="flex items-center">
                   <input
@@ -765,7 +953,7 @@ export default function AnamnesePage() {
                     onChange={(e) => handleInputChange('gender', e.target.value)}
                     className="mr-2"
                   />
-                  Divers
+                  {t.diverse}
                 </label>
               </div>
             </div>
@@ -773,9 +961,9 @@ export default function AnamnesePage() {
             {/* Fuer Frauen */}
             {formData.gender === 'female' && (
               <div className="space-y-4 bg-pink-50 p-4 rounded-md">
-                <h3 className="font-semibold text-gray-800">Für Frauen:</h3>
+                <h3 className="font-semibold text-gray-800">{t.forWomen}</h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Zyklus regelmäßig?</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.cycleRegular}</label>
                   <div className="flex gap-4">
                     {(['ja', 'nein'] as const).map((option) => (
                       <label key={option} className="flex items-center">
@@ -786,13 +974,13 @@ export default function AnamnesePage() {
                           onChange={(e) => handleInputChange('cycleRegular', e.target.value)}
                           className="mr-2"
                         />
-                        {option}
+                        {option === 'ja' ? t.options.ja : t.options.nein}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Libido / Energie</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.libidoEnergy}</label>
                   <div className="flex gap-4">
                     {(['normal', 'vermindert'] as const).map((option) => (
                       <label key={option} className="flex items-center">
@@ -803,14 +991,14 @@ export default function AnamnesePage() {
                           onChange={(e) => handleInputChange('femaleLibidoEnergy', e.target.value)}
                           className="mr-2"
                         />
-                        {option}
+                        {option === 'normal' ? t.options.normal : t.options.vermindert}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Schwangerschaften</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t.pregnancies}</label>
                     <input
                       type="text"
                       id="pregnancies" name="pregnancies" aria-label="pregnancies" value={formData.pregnancies}
@@ -819,7 +1007,7 @@ export default function AnamnesePage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Kinder</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">{t.children}</label>
                     <input
                       type="text"
                       id="children" name="children" aria-label="children" value={formData.children}
@@ -830,7 +1018,7 @@ export default function AnamnesePage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Hormonelle Verhütung oder Therapie
+                    {t.hormonal}
                   </label>
                   <div className="flex gap-4 mb-2">
                     {(['ja', 'nein'] as const).map((option) => (
@@ -842,13 +1030,13 @@ export default function AnamnesePage() {
                           onChange={(e) => handleInputChange('hormonalContraception', e.target.value)}
                           className="mr-2"
                         />
-                        {option}
+                        {option === 'ja' ? t.options.ja : t.options.nein}
                       </label>
                     ))}
                   </div>
                   {formData.hormonalContraception === 'ja' && (
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Falls ja, welche:</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">{t.ifYesWhich}</label>
                       <input
                         type="text"
                         id="hormonalContraceptionDetails" name="hormonalContraceptionDetails" aria-label="hormonalContraceptionDetails" value={formData.hormonalContraceptionDetails}
@@ -864,9 +1052,9 @@ export default function AnamnesePage() {
             {/* Für Männer */}
             {formData.gender === 'male' && (
               <div className="space-y-4 bg-blue-50 p-4 rounded-md">
-                <h3 className="font-semibold text-gray-800">Für Männer:</h3>
+                <h3 className="font-semibold text-gray-800">{t.forMen}</h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Libido / Energie</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">{t.libidoEnergy}</label>
                   <div className="flex gap-4">
                     {(['normal', 'vermindert'] as const).map((option) => (
                       <label key={option} className="flex items-center">
@@ -877,14 +1065,14 @@ export default function AnamnesePage() {
                           onChange={(e) => handleInputChange('maleLibidoEnergy', e.target.value)}
                           className="mr-2"
                         />
-                        {option}
+                        {option === 'normal' ? t.options.normal : t.options.vermindert}
                       </label>
                     ))}
                   </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Testosteronwerte jemals gemessen?
+                    {t.testosteroneMeasured}
                   </label>
                   <div className="flex gap-4">
                     {(['ja', 'nein'] as const).map((option) => (
@@ -896,7 +1084,7 @@ export default function AnamnesePage() {
                           onChange={(e) => handleInputChange('testosteroneMeasured', e.target.value)}
                           className="mr-2"
                         />
-                        {option}
+                        {option === 'ja' ? t.options.ja : t.options.nein}
                       </label>
                     ))}
                   </div>
@@ -904,7 +1092,7 @@ export default function AnamnesePage() {
                 {formData.testosteroneMeasured === 'ja' && (
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Falls Mangel, ist eine Substitution erfolgt?
+                      {t.testosteroneSubstitution}
                     </label>
                     <div className="flex gap-4">
                       {(['ja', 'nein'] as const).map((option) => (
@@ -916,7 +1104,7 @@ export default function AnamnesePage() {
                             onChange={(e) => handleInputChange('testosteroneSubstitution', e.target.value)}
                             className="mr-2"
                           />
-                          {option}
+                          {option === 'ja' ? t.options.ja : t.options.nein}
                         </label>
                       ))}
                     </div>
@@ -928,14 +1116,15 @@ export default function AnamnesePage() {
 
           {/* Unterschrift */}
           <section>
-            <h2 className="text-3xl font-bold text-gray-900 mb-3">Unterschrift</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">{t.signature}</h2>
             <p className="text-gray-600 mb-4">
-              Bitte bestätigen Sie mit Ihrer Unterschrift, dass die gemachten Angaben der Wahrheit entsprechen.
+              {t.signatureConfirm}
             </p>
             <SignaturePadField
               ref={signaturePadRef}
               value={formData.signature}
               onChange={(dataUrl) => handleInputChange('signature', dataUrl)}
+              clearLabel={t.clearSignature}
             />
             <ErrorMessage error={validationErrors.signature} />
           </section>
@@ -947,10 +1136,10 @@ export default function AnamnesePage() {
               disabled={isSubmitting}
               className="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-primary/90 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             >
-              {isSubmitting ? 'Wird übermittelt...' : 'Absenden'}
+              {isSubmitting ? t.submitting : t.submit}
             </button>
             {submitMessage && (
-              <p className={`text-sm ${submitMessage.includes('Fehler') ? 'text-red-600' : 'text-green-600'}`}>
+              <p className={`text-sm ${submitMessage === t.error ? 'text-red-600' : 'text-green-600'}`}>
                 {submitMessage}
               </p>
             )}

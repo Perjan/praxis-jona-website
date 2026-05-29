@@ -70,7 +70,9 @@ export const Post = defineDocumentType(() => ({
     },
     url: {
       type: 'string',
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      resolve: (post) => post.language === 'en'
+        ? `/en/blog/${post._raw.flattenedPath.replace(/^en\//, '')}`
+        : `/blog/${post._raw.flattenedPath}`,
     },
     guideUrl: {
       type: 'string',

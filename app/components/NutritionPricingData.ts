@@ -1,5 +1,9 @@
 import { Constants } from "app/Constants";
 
+const nutritionBookingLink = Constants.appointmentUrlsByService.nutrition30.private;
+const micronutrientsBookingLink = Constants.appointmentUrlsByService.micronutrients.private;
+const weightLossBookingLink = Constants.appointmentUrlsByService.weightLossInjection.private;
+
 export const nutritionConsultationPackage = {
     title: {
         de: 'Ernährungsberatung',
@@ -42,8 +46,8 @@ export const nutritionConsultationPackage = {
         en: 'Book appointment'
     },
     link: {
-        de: Constants.appointmentUrl,
-        en: Constants.appointmentUrl
+        de: nutritionBookingLink,
+        en: nutritionBookingLink
     },
     color: 'bg-gradient-to-br from-[#f0f9ff] to-[#e0f2fe] backdrop-blur-sm bg-opacity-50'
 };
@@ -93,8 +97,8 @@ export const nutritionPricingPlans = [
             en: 'Book appointment'
         },
         link: {
-            de: Constants.appointmentUrl,
-            en: Constants.appointmentUrl
+            de: nutritionBookingLink,
+            en: nutritionBookingLink
         },
         color: 'bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50'
     },
@@ -142,8 +146,8 @@ export const nutritionPricingPlans = [
         en: 'Book appointment'
         },
         link: {
-            de: Constants.appointmentUrl,
-            en: Constants.appointmentUrl
+            de: nutritionBookingLink,
+            en: nutritionBookingLink
         },
         color: 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50'
     },
@@ -183,8 +187,8 @@ export const nutritionPricingPlans = [
         en: 'Book appointment'
     },
     link: {
-        de: Constants.appointmentUrl,
-        en: Constants.appointmentUrl
+        de: micronutrientsBookingLink,
+        en: micronutrientsBookingLink
     },
     color: 'bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50'
 }
@@ -226,8 +230,8 @@ export const nutrientTherapyPackage = {
         en: 'Book appointment'
     },
     link: {
-        de: Constants.appointmentUrl,
-        en: Constants.appointmentUrl
+        de: micronutrientsBookingLink,
+        en: micronutrientsBookingLink
     },
     color: 'bg-gradient-to-br from-[#fdf1ec] to-[#f7e6e0] backdrop-blur-sm bg-opacity-50'
 };
@@ -288,8 +292,8 @@ export const glp1TherapyPackage = {
         en: 'Book appointment'
     },
     link: {
-        de: Constants.appointmentUrl,
-        en: Constants.appointmentUrl
+        de: weightLossBookingLink,
+        en: weightLossBookingLink
     },
     color: 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50'
 };
@@ -335,8 +339,8 @@ export const ozempicPackages = [
             en: 'Book appointment'
         },
         link: {
-            de: Constants.appointmentUrl,
-            en: Constants.appointmentUrl
+            de: weightLossBookingLink,
+            en: weightLossBookingLink
         },
         color: 'bg-gradient-to-br from-[#f5f5f7] to-[#e5e7eb] backdrop-blur-sm bg-opacity-50'
     },
@@ -376,8 +380,8 @@ export const ozempicPackages = [
             en: 'Book appointment'
         },
         link: {
-            de: Constants.appointmentUrl,
-            en: Constants.appointmentUrl
+            de: weightLossBookingLink,
+            en: weightLossBookingLink
         },
         color: 'bg-gradient-to-br from-[#fff9e6] to-[#fff3cc] backdrop-blur-sm bg-opacity-50'
     }

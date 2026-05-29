@@ -19,6 +19,13 @@ export const dynamic = 'force-static';
 const filteredBlogPosts =
   allPosts
     .filter((post) => !post.categories?.includes('legal') ?? false)
+    .filter((post) => post.language !== "en")
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? [];
+
+const englishBlogPosts =
+  allPosts
+    .filter((post) => !post.categories?.includes('legal') ?? false)
+    .filter((post) => post.language === "en")
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? [];
 
 export async function generateStaticParams() {
@@ -115,10 +122,9 @@ const components = {
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
-const PostLayout = async ({ params }: { params: { slug: string } }) => {
-  const post = filteredBlogPosts.find(
-    (post) => post._raw.flattenedPath === params.slug
-  );
+export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flattenedPath: string; locale?: "de" | "en" }) => {
+  const posts = locale === "en" ? englishBlogPosts : filteredBlogPosts;
+  const post = posts.find((post) => post._raw.flattenedPath === flattenedPath);
 
   if (post == null) {
     return notFound();
@@ -129,14 +135,12 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   );
 
   // find the index of the post in the array
-  const postIndex = filteredBlogPosts.findIndex(
-    (post) => post._raw.flattenedPath === params.slug
-  );
+  const postIndex = posts.findIndex((post) => post._raw.flattenedPath === flattenedPath);
   // check if the array contains an element for the previous post
-  const previousPost = filteredBlogPosts[postIndex + 1];
+  const previousPost = posts[postIndex + 1];
 
   // 5 related articles
-  const relatedArticles = filteredBlogPosts.slice(postIndex + 1, postIndex + 6);
+  const relatedArticles = posts.slice(postIndex + 1, postIndex + 6);
 
   const Content = getMDXComponent(post.body.code);
   const structuredData = {
@@ -165,8 +169,8 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
               <time dateTime={post.date} className='text-gray-500'>
                 {format(parseISO(post.date), 'dd.MM.yyyy')}
               </time>
-              <span className='text-gray-500'> • geschrieben von </span>
-              <Link href={author.url} className='hover:text-teal-500'>
+              <span className='text-gray-500'> {locale === "en" ? "• written by " : "• geschrieben von "} </span>
+              <Link href={locale === "en" ? "/en/blog/authors/jonida-gjolli" : author.url} className='hover:text-teal-500'>
                 {author.name}
               </Link>
             </div>
@@ -203,12 +207,12 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
                       aria-hidden='true'
                     />
                     <Link
-                      href='/blog'
+                      href={locale === "en" ? "/en/blog" : "/blog"}
                       rel='follow'
                       className='group inline-flex items-center space-x-6'
                     >
                       <span className=' hover:text-slate-900'>
-                        Back to Blog
+                        {locale === "en" ? "Back to Blog" : "Zurueck zum Blog"}
                       </span>
                     </Link>
                   </div>
@@ -231,4 +235,6 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
   );
 };
 
-export default PostLayout;
+export default async function PostLayout({ params }: { params: { slug: string } }) {
+  return BlogPostLayout({ flattenedPath: params.slug, locale: "de" });
+}

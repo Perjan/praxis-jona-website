@@ -1,3 +1,5 @@
+import { Constants } from "app/Constants";
+
 export const Services = [{
       id: 1,
       name: 'Akutsprechstunde',
@@ -12,6 +14,7 @@ export const Services = [{
       href: '#2',
       imageSrc: '/images/leistungen/checkup.png',
       type: 'gesetzliche',
+      bookingUrls: Constants.appointmentUrlsByService.checkups,
       description: "Ab 35 Jahre besteht die Möglichkeit alle 3 Jahre eine Vorsorgeuntersuchung durchführen zu lassen. Zusätzlich gibt es jetzt die Möglichkeit, dass Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen können.\n\n\nVon der gesetzlichen Krankenkasse wird übernommen:\n\n- Anamnese\n\n- körperliche Untersuchung\n\n- Ruhe-EKG\n\n- Beratung 15 Minuten\n\n- Labor (Blutbild, Eisen, Cholesterinwert, Leber-, Schilddrüsen- und Nierenwerte, Nüchtern Blutzucker, HbA1C, UrinStix)\n\n- Männer ab 50 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Frauen ab 55 Jahren: Zwei Darmspiegelungen im Abstand von 10 Jahren, Test auf verborgenes Blut alle zwei Jahre\n\n- Ab 65 Jahren einmalig Ultraschall der Bauchaorta zur Früherkennung der Bauchaortenaneurysma\n\n\n\n**Zusätzliches Labor (für Selbstzahler, Berechnung nach der GOÄ)**\n\n- Spurenelemente, Vitamin D, sowie Hormonspiegel\n\n- Parameter des Immunsystems, Blutgruppe\n\n- Auswertung der Befunde und Beratung bezüglich Nahrungsergänzungsmittel.\n\n\nSprechen Sie uns an und wir beraten Sie gerne dazu."
     },
     {
@@ -24,7 +27,7 @@ export const Services = [{
     },
     {
       id: 4,
-      name: 'Hausärztliche Versorgung',
+      name: 'Innere Medizin',
       href: '#4',
       imageSrc: '/images/leistungen/medpack.png',
       type: 'gesetzliche',
@@ -32,11 +35,12 @@ export const Services = [{
     },
     {
       id: 11,
-      name: 'Infusionsterapie',
+      name: 'Infusionstherapie',
       href: '#11',
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
-      description: "Unsere Infusionstherapie liefert lebenswichtige Nährstoffe, Medikamente oder Hydratation direkt in den Blutkreislauf und gewährleistet so eine maximale Bioverfügbarkeit. Diese Methode umgeht das Verdauungssystem und ist daher ideal für Patienten mit Absorptionsproblemen oder solche, die eine schnelle Intervention benötigen. Wir bieten verschiedene Infusionsprotokolle an, die auf spezifische Gesundheitsprobleme zugeschnitten sind, darunter Vitamininfusionen, Immununterstützung und Hydrationstherapie."
+      bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
+      description: "Unsere Infusionstherapie umfasst Eisen-, Vitamin-B12-, Folsäure- und ausgewählte Vitamininfusionen nach ärztlicher Einschätzung. Grundlage sind Beschwerden, Vorgeschichte und relevante Laborwerte. Die Eiseninfusion kostet als Festpreis 150,95 €."
     },
     {
       id: 13,
@@ -44,6 +48,7 @@ export const Services = [{
       href: '#13',
       imageSrc: '/images/leistungen/glp1-syringe.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       description: "Die Abnehmspritze (GLP-1-Analoga wie Ozempic®, Wegovy®, Mounjaro®) ist eine moderne medizinische Behandlungsmethode zur Gewichtsreduktion. Diese Medikamente wirken durch die Nachahmung des natürlichen Hormons GLP-1, das den Appetit reduziert, das Sättigungsgefühl verstärkt und die Magenentleerung verlangsamt. Die Behandlung erfolgt unter ärztlicher Aufsicht und wird individuell auf Ihre Bedürfnisse abgestimmt. Die Kosten für das Medikament sind nicht im Preis enthalten und werden derzeit nicht von den gesetzlichen Krankenkassen übernommen."
     },
     {
@@ -52,7 +57,8 @@ export const Services = [{
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
-      description: "**Botulinum toxin (Botox)**\n ist ein vom Bakterium Clostridium botulinum produziertes Neurotoxin. Bei Injektion in einen Muskel führt es zu dessen vorübergehender Lähmung und verhindert Muskelkontraktionen. Dies kann sowohl ästhetische als auch medizinische Vorteile bieten, indem es die Haut glättet oder bestimmte medizinische Symptome lindert. Da die Wirkung temporär ist, sind regelmäßige Behandlungen erforderlich, um die gewünschten Ergebnisse zu erhalten.\n### Medizinische Anwendungen:\n1. **Hyperhidrose (übermäßiges Schwitzen):** Botulinum toxin wird in die Haut von Bereichen wie Achselhöhlen, Händen und Füßen injiziert, um die Schweißproduktion deutlich zu reduzieren. Dies bietet eine wirksame Behandlung für Patienten, die unter starker Hyperhidrose leiden, die nicht auf herkömmliche Antiperspirantien anspricht.\n2. **Migränebehandlung:** Bei Patienten mit chronischer Migräne kann Botulinum toxin dazu beitragen, die Anzahl und Schwere der Kopfschmerzattacken zu reduzieren. Es wird in bestimmte Muskeln rund um Kopf und Nacken injiziert und reduziert die Muskelspannung, die oft zu Migräneattacken beiträgt.\n3. **Bruxismus (Zähneknirschen):** Bei Patienten, die unwillkürlich mit den Zähnen knirschen, kann Botulinum toxin in die Kaumuskulatur injiziert werden, um diese zu entspannen und so das Zähneknirschen und damit verbundene Beschwerden zu reduzieren.\n### Ästhetische Anwendungen:\n1. **Faltenbehandlung:** In der ästhetischen Medizin wird Botox am häufigsten zur Glättung von Ausdrucksfalten wie Zornesfalten, Stirnfalten und Krähenfüßen eingesetzt. Durch die Reduzierung der Muskelaktivität in diesen Bereichen erscheint die Haut glatter und jugendlicher.\n2. **Gesichtsstraffung:** Botulinum toxin kann auch in andere Gesichtsbereiche injiziert werden, um bestimmte Muskeln selektiv zu entspannen und ein jüngeres Erscheinungsbild zu erzielen.\n## Nach der Behandlung:\n* Nach der Injektion von Botulinum toxin sollten Patienten körperliche Aktivitäten wie Sport, Schwimmen und Saunabesuche für etwa 3-4 Tage vermeiden.\n* Die Injektionsstellen sollten nicht massiert oder unter Druck gesetzt werden, um eine unerwünschte Verteilung des Toxins zu verhindern.\n## Preise:\n * Beratung ohne Behandlung **49€**\n* Bruxismus (Zähneknirschen) oder Gesichtsschlankung **ab 349€**\n* Schweißdrüsenbehandlung (Hyperhidrose) **ab 549€**\n* Zornesfalte **ab 199€**\n* Stirnfalten **ab 199€**\n* 2 Zonen **ab 349€**\n* 3 Zonen **ab 449€**\n* 4 Zonen **ab 499€**\n* Brauenlifting **ab 159€**\n* Krähenfüße **ab 199€**\n* Bunny lines **ab 159€**\n* Erdbeerkin **ab 199€**\n* Platysma **ab 349€**"
+      bookingUrls: Constants.appointmentUrlsByService.botulinumtoxin,
+      description: "Botulinumtoxin wird in der Praxis Jona nach individueller ärztlicher Beratung eingesetzt. Im Vordergrund stehen eine sorgfältige Einschätzung, realistische Aufklärung und ein natürlich wirkender Behandlungsplan. Details und Preise finden Sie auf den eigenen Botulinumtoxin-Seiten."
     },
     {
       id: 10,
@@ -60,6 +66,7 @@ export const Services = [{
       href: '#10',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.micronutrients,
       description: "Unsere Nährstofftherapie bietet eine gezielte Ergänzung, um Mangelzustände zu beheben oder spezifische Gesundheitsbedürfnisse zu unterstützen. Basierend auf umfassender Diagnostik erstellen wir personalisierte Nährstoffpläne, die Vitamine, Mineralstoffe, Antioxidantien und andere essenzielle Nährstoffe enthalten können. Dieser Ansatz kann Patienten mit chronischen Erkrankungen, Personen in der Genesungsphase oder Menschen, die ihre allgemeine Gesundheit und ihr Wohlbefinden optimieren möchten, zugutekommen."
     },
     {
@@ -68,6 +75,7 @@ export const Services = [{
       href: '#8',
       imageSrc: '/images/leistungen/nutrition.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.nutrition,
       description: "In unserer Praxis führen wir neben Anamnese und körperlicher Untersuchung falls notwendig auch ein breites Spektrum an Laboruntersuchungen durch. Dies umfasst Standardtests für akute und chronische Erkrankungen sowie spezielle Blutanalysen, wie Mikronährstoff- und Vitaminbestimmungen, Darmmikrobiomanalyse. Wir beraten Sie gerne ausführlich dazu."
     },
     {
@@ -85,6 +93,42 @@ export const Services = [{
       imageSrc: '/images/leistungen/reiseImpfung.png',
       type: 'private',
       description: "Wir bieten umfassende Reiseimpfungen an, um sicherzustellen, dass Sie während Ihrer Reisen ins Ausland gesund bleiben. Je nach Reiseziel können unterschiedliche Impfungen erforderlich sein. Wir beraten Sie individuell basierend auf Ihren Reiseplänen und Ihrer Krankengeschichte und führen alle erforderlichen Impfungen gemäß den internationalen Reisegesundheitsrichtlinien durch. Diese Leistung steht Selbstzahlern oder Privatversicherten zur Verfügung."
+    },
+    {
+      id: 14,
+      name: 'PRP Gesicht & Haut',
+      href: '#14',
+      imageSrc: '/images/leistungen/lab.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.prp,
+      description: "PRP ist ein Eigenblutverfahren zur Unterstützung von Hautqualität und Regeneration nach ärztlicher Einschätzung."
+    },
+    {
+      id: 15,
+      name: 'Microneedling',
+      href: '#15',
+      imageSrc: '/images/leistungen/nutritionTherapy.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.microneedling,
+      description: "Microneedling kann zur Verbesserung von Hautstruktur, Porenbild, feinen Linien und ausgewählten Narbenbildern eingesetzt werden."
+    },
+    {
+      id: 16,
+      name: 'Polynukleotide',
+      href: '#16',
+      imageSrc: '/images/leistungen/botox.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.polynucleotides,
+      description: "Polynukleotide können Hautqualität, Spannkraft und regenerative Prozesse unterstützen. Ob die Behandlung passt, wird ärztlich besprochen."
+    },
+    {
+      id: 17,
+      name: 'Haarausfall-Abklärung',
+      href: '#17',
+      imageSrc: '/images/leistungen/lab.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.hairTherapy,
+      description: "Ärztliche Haarausfall-Abklärung mit Diagnostik, PRP als möglicher Therapieoption und Mikronährstofftherapie nach Befund."
     }]
 
   export const ServicesEN = [{
@@ -101,6 +145,7 @@ export const Services = [{
       href: '#2',
       imageSrc: '/images/leistungen/checkup.png',
       type: 'gesetzliche',
+      bookingUrls: Constants.appointmentUrlsByService.checkups,
       description: "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday. \n\n\nThe statutory health insurance fund covers:\n\n\n- Medical history\n\n- Physical examination\n\n- Resting ECG\n\n- Consultation 15 minutes\n\n- Laboratory (blood count, iron, cholesterol level, liver, thyroid and kidney values, fasting blood sugar, HbA1C, urine stix)\n\n- Men aged 50 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- Women aged 55 and over: Two colonoscopies every 10 years, screening for occult blood every two years\n\n- From 65 years of age, one ultrasound of the abdominal aorta for early detection of abdominal aortic aneurysm\n\n\n\n**Additional laboratory (for self-payers or private insurance, charged according to GOÄ)**\n\n- Trace elements, vitamin D, and hormone levels\n\n- Parameters of the immune system, blood group\n\n- Evaluation of the findings and advice on dietary supplements. \n\n\nContact us and we will be happy to advise you."
     },
     {
@@ -113,7 +158,7 @@ export const Services = [{
     },
     {
       id: 4,
-      name: 'General Medical Care',
+      name: 'Internal Medicine',
       href: '#4',
       imageSrc: '/images/leistungen/medpack.png',
       type: 'gesetzliche',
@@ -125,7 +170,8 @@ export const Services = [{
       href: '#11',
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
-      description: "Our infusion therapy delivers vital nutrients, medications, or hydration directly into the bloodstream, ensuring maximum bioavailability. This method bypasses the digestive system, making it ideal for patients with absorption issues or those requiring rapid intervention. We offer various infusion protocols tailored to specific health concerns, including vitamin infusions, immune support, and hydration therapy."
+      bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
+      description: "Our infusion therapy includes iron, vitamin B12, folic acid and selected vitamin infusions after medical assessment. The iron infusion has a fixed price of €150.95."
     },
     {
       id: 13,
@@ -133,15 +179,17 @@ export const Services = [{
       href: '#13',
       imageSrc: '/images/leistungen/glp1-syringe.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       description: "Weight loss injections (GLP-1 such as Ozempic®, Wegovy®, Mounjaro®) are a modern medical treatment method for weight reduction. These medications work by mimicking the natural hormone GLP-1, which reduces appetite, enhances the feeling of satiety, and slows gastric emptying. Treatment is provided under medical supervision and is individually tailored to your needs. The costs for the medication are not included in the price and are currently not covered by statutory health insurance."
     },
     {
       id: 5,
-      name: 'Botox',
+      name: 'Botulinum toxin',
       href: '#5',
       imageSrc: '/images/leistungen/botox.png',
       type: 'private',
-      description: "**Botulinum toxin (Botox)**\n is a neurotoxin produced by the bacterium Clostridium botulinum. When injected into a muscle, it leads to temporary paralysis of that muscle, preventing muscle contractions. This can offer aesthetic and medical benefits by smoothing the skin or alleviating specific medical symptoms. As the effect is temporary, regular treatments are necessary to maintain the desired results.\n### Medical Applications:\n1. **Hyperhidrosis (excessive sweating):** Botulinum toxin is injected into the skin of areas such as armpits, hands, and feet to significantly reduce sweat production. This provides an effective treatment for patients suffering from severe hyperhidrosis that does not respond to conventional antiperspirants.\n2. **Migraine treatment:** For patients with chronic migraines, botulinum toxin can help reduce the number and severity of headache attacks. It is injected into specific muscles around the head and neck, reducing muscle tension that often contributes to migraine attacks.\n3. **Bruxism (teeth grinding):** For patients who involuntarily grind their teeth, botulinum toxin can be injected into the masticatory muscles to relax them, thus reducing teeth grinding and associated discomfort.\n### Aesthetic Applications:\n1. **Wrinkle treatment:** In aesthetic medicine, Botox is most commonly used to smooth expression lines such as frown lines, forehead wrinkles, and crow's feet. By reducing muscle activity in these areas, the skin appears smoother and more youthful.\n2. **Facial tightening:** Botulinum toxin can also be injected into other facial areas to selectively relax certain muscles and achieve a younger appearance.\n## After Treatment:\n* After the injection of botulinum toxin, patients should avoid physical activities such as sports, swimming, and sauna visits for about 3-4 days.\n* The injection sites should not be massaged or subjected to pressure to prevent unwanted distribution of the toxin.\n## Prices:\n * Consultation without treatment **49€**\n* Bruxism (teeth grinding) or face slimming **from 349€**\n* Sweat gland treatment (hyperhidrosis) **from 549€**\n* Frown lines **from 199€**\n* Forehead wrinkles **from 199€**\n* 2 zones **from 349€**\n* 3 zones **from 449€**\n* 4 zones **from 499€**\n* Brow lift **from 159€**\n* Crow's feet **from 199€**\n* Bunny lines **from 159€**\n* Strawberry chin **from 199€**\n* Platysma **from 349€**"
+      bookingUrls: Constants.appointmentUrlsByService.botulinumtoxin,
+      description: "Botulinum toxin is used at Praxis Jona after individual medical consultation. The focus is careful assessment, realistic information and a natural-looking treatment plan."
     },
     {
       id: 10,
@@ -149,6 +197,7 @@ export const Services = [{
       href: '#10',
       imageSrc: '/images/leistungen/nutritionTherapy.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.micronutrients,
       description: "Our micronutrient therapy offers targeted supplementation to address deficiencies or support specific health needs. Based on comprehensive diagnostics, we create personalized nutrient plans that may include vitamins, minerals, antioxidants, and other essential nutrients. This approach can benefit patients with chronic conditions, those recovering from illness, or individuals seeking to optimize their overall health and wellness."
     },
     {
@@ -157,6 +206,7 @@ export const Services = [{
       href: '#6',
       imageSrc: '/images/leistungen/nutrition.png',
       type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.nutrition,
       description: "In our practice, we carry out a wide range of laboratory tests in addition to a medical history and physical examination if necessary. This includes standard tests for acute and chronic illnesses as well as special blood analyses, such as micronutrient and vitamin determinations and intestinal microbiome analysis. We will be happy to advise you in detail."
     },
     {
@@ -174,5 +224,41 @@ export const Services = [{
       imageSrc: '/images/leistungen/reiseImpfung.png',
       type: 'private',
       description: "We offer comprehensive travel vaccination services to ensure you stay healthy during your journeys abroad. Depending on your destination, different vaccinations may be necessary. We provide personalized advice based on your travel plans and medical history, administering all required vaccinations according to international travel health guidelines. This service is available for self-payers or those with private insurance."
+    },
+    {
+      id: 14,
+      name: 'PRP Face & Skin',
+      href: '#14',
+      imageSrc: '/images/leistungen/lab.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.prp,
+      description: "PRP is an autologous treatment to support skin quality and regeneration after medical assessment."
+    },
+    {
+      id: 15,
+      name: 'Microneedling',
+      href: '#15',
+      imageSrc: '/images/leistungen/nutritionTherapy.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.microneedling,
+      description: "Microneedling can support skin texture, pore appearance, fine lines and selected scar patterns."
+    },
+    {
+      id: 16,
+      name: 'Polynucleotides',
+      href: '#16',
+      imageSrc: '/images/leistungen/botox.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.polynucleotides,
+      description: "Polynucleotides can support skin quality, firmness and regenerative processes. Suitability is discussed medically."
+    },
+    {
+      id: 17,
+      name: 'Hair-loss Assessment',
+      href: '#17',
+      imageSrc: '/images/leistungen/lab.png',
+      type: 'private',
+      bookingUrls: Constants.appointmentUrlsByService.hairTherapy,
+      description: "Medical hair-loss assessment with diagnostics, PRP as a possible option and micronutrient therapy depending on findings."
     }
-  ]
+  ] 
