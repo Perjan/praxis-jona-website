@@ -22,7 +22,7 @@ export function defaultAppointmentBookingCopy(locale: AppointmentBookingLocale):
     return {
       title: "Select Insurance Type",
       description:
-        "Please note: aesthetic treatments are private self-pay services that must be paid for by the patient directly in our clinic, regardless of insurance type. Payment is required at the time of treatment. Your selection here only affects the booking process on Doctolib.",
+        "Please select your insurance type so we can open the matching Doctolib booking flow.",
       privateLabel: "Private Insurance",
       publicLabel: "Public Insurance",
       cancelLabel: "Cancel",
@@ -32,7 +32,7 @@ export function defaultAppointmentBookingCopy(locale: AppointmentBookingLocale):
   return {
     title: "Versicherungsart auswählen",
     description:
-      "Bitte beachten Sie: Ästhetische Behandlungen sind private Selbstzahlerleistungen, die vom Patienten direkt in unserer Praxis zu zahlen sind, unabhängig von der Versicherungsart. Die Zahlung erfolgt zum Zeitpunkt der Behandlung. Ihre Auswahl hier beeinflusst nur den Buchungsprozess auf Doctolib.",
+      "Bitte wählen Sie Ihre Versicherungsart aus, damit wir den passenden Doctolib-Buchungsprozess öffnen können.",
     privateLabel: "Privatversichert",
     publicLabel: "Gesetzlich versichert",
     cancelLabel: "Abbrechen",
