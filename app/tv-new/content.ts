@@ -22,6 +22,8 @@ type TeamMember = {
   role: string;
 };
 
+type BackgroundIcon = "google" | "instagram";
+
 export type TVSlide = {
   id: string;
   kind: SlideKind;
@@ -43,6 +45,7 @@ export type TVSlide = {
   badgeImage?: string;
   handle?: string;
   reviewStars?: number;
+  backgroundIcon?: BackgroundIcon;
 };
 
 const locale = "de" as const;
@@ -258,7 +261,7 @@ export const TV_NEW_SLIDES: TVSlide[] = [
   {
     id: "instagram",
     kind: "social",
-    image: backgrounds.social,
+    image: backgrounds.brand,
     imageAlt: "Branded social TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Instagram",
@@ -268,11 +271,12 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrLabel: "Instagram öffnen",
     displayUrl: "instagram.com/doc.jona",
     handle: "@doc.jona",
+    backgroundIcon: "instagram",
   },
   {
     id: "google-review",
     kind: "review",
-    image: backgrounds.social,
+    image: backgrounds.brand,
     imageAlt: "Branded review TV background",
     overlay: "bg-[#FBF6EE]/72",
     kicker: "Feedback",
@@ -282,6 +286,7 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrLabel: "Google bewerten",
     displayUrl: "Google Bewertung",
     reviewStars: 5,
+    backgroundIcon: "google",
   },
   {
     id: "team",
