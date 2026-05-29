@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { FaGoogle, FaInstagram, FaStar } from 'react-icons/fa';
 import type { TVSlide } from '../content';
-import { BackgroundSlide, BrandTop, Bullet, GlassPanel, Headline, Kicker, QrBlock } from './shared';
+import { BackgroundSlide, Bullet, GlassPanel, Headline, Kicker, QrBlock } from './shared';
 
 export function TrustSocialProofTemplate({ slide }: { slide: TVSlide }) {
   if (slide.kind === 'team') {
@@ -20,18 +20,18 @@ export function TrustSocialProofTemplate({ slide }: { slide: TVSlide }) {
 function CenteredTrustSlide({ slide }: { slide: TVSlide }) {
   return (
     <BackgroundSlide slide={slide}>
-      <div className="relative h-full px-16 py-12">
+      <div className="relative h-full px-16 py-14">
         <DynamicBackgroundIcon slide={slide} />
-        <div className="tv-enter tv-enter-2 flex h-full items-center justify-center pb-20">
+        <div className="tv-enter tv-enter-2 flex h-full items-center justify-center pb-24">
           <div className="max-w-[1240px] text-center">
             {slide.kind === 'review' ? (
-              <div className="mb-7 flex justify-center gap-4 text-[58px] text-[#F9C74F]">
+              <div className="mb-9 flex justify-center gap-5 text-[68px] text-[#F9C74F]">
                 {Array.from({ length: slide.reviewStars ?? 5 }).map((_, index) => (
                   <FaStar key={index} />
                 ))}
               </div>
             ) : (
-              <div className="mb-7 flex justify-center text-[86px] text-[#0D322B]">
+              <div className="mb-9 flex justify-center text-[96px] text-[#0D322B]">
                 <FaInstagram />
               </div>
             )}
@@ -39,8 +39,8 @@ function CenteredTrustSlide({ slide }: { slide: TVSlide }) {
             <h1 className="mx-auto mt-5 max-w-[1180px] whitespace-pre-line font-serif text-[82px] font-semibold leading-[1.02] text-[#0D322B]">
               {slide.title}
             </h1>
-            {slide.subtitle && <p className="mx-auto mt-7 max-w-[980px] text-[31px] font-medium leading-[1.22] text-[#144D42]">{slide.subtitle}</p>}
-            {slide.handle && <p className="mt-7 text-[58px] font-bold leading-none text-[#144D42]">{slide.handle}</p>}
+            {slide.subtitle && <p className="mx-auto mt-8 max-w-[1080px] text-[40px] font-medium leading-[1.14] text-[#144D42]">{slide.subtitle}</p>}
+            {slide.handle && <p className="mt-8 text-[68px] font-bold leading-none text-[#144D42]">{slide.handle}</p>}
           </div>
         </div>
         <div className="tv-enter tv-enter-4 absolute bottom-16 right-16">
@@ -61,7 +61,7 @@ function DynamicBackgroundIcon({ slide }: { slide: TVSlide }) {
   return (
     <Icon
       aria-hidden="true"
-      className="pointer-events-none absolute right-[230px] top-[160px] text-[460px] text-[#0D322B]/[0.055]"
+      className="pointer-events-none absolute right-[230px] top-[150px] text-[500px] text-[#0D322B]/[0.05]"
     />
   );
 }
@@ -73,13 +73,10 @@ function AppTrustSlide({ slide }: { slide: TVSlide }) {
         <div className="flex min-w-0 flex-col justify-between">
           <div>
             <div className="tv-enter tv-enter-1">
-              <BrandTop />
-            </div>
-            <div className="tv-enter tv-enter-2 mt-10">
               <Headline slide={slide} compact />
             </div>
-            <GlassPanel className="tv-enter tv-enter-3 mt-8 max-w-[820px] p-6">
-              <ul className="space-y-3">
+            <GlassPanel className="tv-enter tv-enter-2 mt-9 max-w-[930px] p-7">
+              <ul className="space-y-5">
                 {slide.bullets?.slice(0, 4).map((bullet) => (
                   <Bullet key={bullet}>{bullet}</Bullet>
                 ))}
@@ -120,27 +117,24 @@ function AppTrustSlide({ slide }: { slide: TVSlide }) {
 function TeamTrustSlide({ slide }: { slide: TVSlide }) {
   return (
     <BackgroundSlide slide={slide}>
-      <div className="flex h-full flex-col px-16 py-12">
-        <div className="tv-enter tv-enter-1">
-          <BrandTop />
-        </div>
-        <div className="mt-9 grid grid-cols-[minmax(0,0.9fr)_360px] gap-10">
+      <div className="relative flex h-full flex-col px-16 py-14">
+        <div className="grid grid-cols-[minmax(0,0.9fr)_360px] gap-10">
           <div className="tv-enter tv-enter-2">
             <Headline slide={slide} compact />
           </div>
-          <div className="tv-enter tv-enter-4 flex justify-end">
+          <div className="tv-enter tv-enter-4 absolute bottom-16 right-16">
             <QrBlock url={slide.qrUrl} label={slide.qrLabel} displayUrl={slide.displayUrl} />
           </div>
         </div>
-        <div className="tv-enter tv-enter-3 mt-auto grid grid-cols-4 gap-4 pb-6">
+        <div className="tv-enter tv-enter-3 mt-auto grid grid-cols-4 gap-5 pb-6">
           {slide.team?.map((member) => (
-            <GlassPanel key={member.name} className="flex min-h-[196px] flex-col justify-start p-5">
-              <div className="h-[108px] w-[108px] shrink-0 overflow-hidden rounded-full border border-[#0D322B]/18">
-                <Image src={member.image} alt={member.name} width={108} height={108} className="h-full w-full object-cover" />
+            <GlassPanel key={member.name} className="flex min-h-[250px] flex-col justify-start p-6">
+              <div className="h-[126px] w-[126px] shrink-0 overflow-hidden rounded-full border border-[#0D322B]/18">
+                <Image src={member.image} alt={member.name} width={126} height={126} className="h-full w-full object-cover" />
               </div>
-              <div className="mt-4 min-w-0">
-                <p className="font-serif text-[30px] leading-[0.98] text-[#0D322B]">{member.name}</p>
-                <p className="mt-3 text-[18px] font-semibold leading-tight text-[#45665E]">{member.role}</p>
+              <div className="mt-5 min-w-0">
+                <p className="font-serif text-[36px] leading-[0.98] text-[#0D322B]">{member.name}</p>
+                <p className="mt-4 text-[24px] font-semibold leading-[1.08] text-[#45665E]">{member.role}</p>
               </div>
             </GlassPanel>
           ))}

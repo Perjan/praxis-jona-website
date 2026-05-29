@@ -41,7 +41,7 @@ export function Kicker({ children }: { children?: ReactNode }) {
   if (!children) return null;
 
   return (
-    <p className="text-[24px] font-bold uppercase leading-none tracking-[0.16em] text-[#144D42]">
+    <p className="text-[28px] font-bold uppercase leading-none tracking-[0.14em] text-[#144D42]">
       {children}
     </p>
   );
@@ -51,11 +51,11 @@ export function Headline({ slide, compact = false }: { slide: TVSlide; compact?:
   return (
     <div className="max-w-[1280px]">
       <Kicker>{slide.kicker}</Kicker>
-      {slide.eyebrow && <p className="mt-6 text-[30px] font-semibold leading-tight text-[#7A5F48]">{slide.eyebrow}</p>}
+      {slide.eyebrow && <p className="mt-6 text-[36px] font-semibold leading-tight text-[#7A5F48]">{slide.eyebrow}</p>}
       <h1 className={`mt-5 whitespace-pre-line font-serif font-semibold leading-[1.02] text-[#0D322B] ${compact ? 'text-[66px]' : 'text-[82px]'}`}>
         {slide.title}
       </h1>
-      {slide.subtitle && <p className="mt-7 max-w-[1120px] text-[31px] font-medium leading-[1.22] text-[#144D42]">{slide.subtitle}</p>}
+      {slide.subtitle && <p className="mt-7 max-w-[1120px] text-[36px] font-medium leading-[1.18] text-[#144D42]">{slide.subtitle}</p>}
     </div>
   );
 }
@@ -74,8 +74,8 @@ export function QrBlock({ url, label }: { url: string; label: string; displayUrl
 
 export function Bullet({ children }: { children: ReactNode }) {
   return (
-    <li className="flex items-start gap-3 text-[27px] font-semibold leading-[1.18] text-[#123932]">
-      <FaCheckCircle className="mt-[6px] shrink-0 text-[20px] text-[#0D322B]" />
+    <li className="flex items-start gap-4 text-[36px] font-semibold leading-[1.12] text-[#123932]">
+      <FaCheckCircle className="mt-[8px] shrink-0 text-[27px] text-[#0D322B]" />
       <span>{children}</span>
     </li>
   );
@@ -92,7 +92,7 @@ export function TwoColumnSlideShell({
 }) {
   return (
     <BackgroundSlide slide={slide}>
-      <div className="grid h-full grid-cols-[minmax(0,1fr)_360px] gap-10 px-16 py-12">
+      <div className="grid h-full grid-cols-[minmax(0,1fr)_360px] gap-10 px-16 py-14">
         <div className="flex min-w-0 flex-col">
           <div>
             <div className="tv-enter tv-enter-1">
