@@ -16,9 +16,14 @@ function slugForLanguage(post: Post, language: string) {
   }
 }
 
+function metadataLanguageForPost(post: Post) {
+  return post.language === "en" || post.language === "it" ? post.language : "de";
+}
+
 function generateAlternatesIfNeeded(post: Post) {
+  const language = metadataLanguageForPost(post);
   var alternates = {
-    canonical: postUrl(post, 'en'),
+    canonical: postUrl(post, language),
     languages: {}
   }
 
@@ -70,6 +75,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     ? `${title.slice(0, 59).trimEnd()}...`
     : title;
   const ogImage = image ?? baseUrl + '/images/og-image.png';
+  const metadataLanguage = metadataLanguageForPost(post);
 
   return {
     title: seoTitle,
@@ -87,7 +93,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
       siteName: Constants.appName,
       type: 'article',
       publishedTime,
-      url: postUrl(post, 'en'),
+      url: postUrl(post, metadataLanguage),
       images: [
         {
           url: ogImage,

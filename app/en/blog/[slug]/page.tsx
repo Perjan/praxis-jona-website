@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { allPosts } from 'contentlayer/generated';
 import { generateMetadataForPost } from 'app/guides/[slug]/generateMetadata';
-import { BlogPostLayout } from 'app/blog/[slug]/page';
+import { BlogPostLayout } from 'app/blog/[slug]/BlogPostLayout';
 
 export const dynamic = 'force-static';
 

@@ -26,6 +26,7 @@ const blogSlugPairs = [
   { de: "uebernahme-praxis-constanze-c-buhrmann", en: "practice-takeover-constanze-buhrman" },
   { de: "uebernahme-praxis-dr-thomas-roessner", en: "practice-takeover-dr-thomas-roessner" },
   { de: "vorsorge-hilft-menschen-gesunder-und-langer-zu-leben", en: "prevention-helps-people-live-healthier-longer" },
+  { de: "eiseninfusion-frauen-eisenmangel-vorteile", en: "iron-infusion-women-iron-deficiency-benefits" },
 ];
 
 const aestheticDetailSlugPairs = {
