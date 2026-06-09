@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 160 65% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 65% 10%;
+    --secondary: 36 74% 94%;
+    --secondary-foreground: 160 65% 10%;
+    --muted: 36 40% 95%;
+    --muted-foreground: 160 18% 36%;
+    --accent: 140 17% 90%;
+    --accent-foreground: 160 65% 10%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 160 15% 84%;
+    --input: 160 15% 84%;
+    --ring: 160 65% 10%;
+  }
+}
+
 .home-hero-fixed-bg {
   background-repeat: no-repeat;
   background-position: 12% top;

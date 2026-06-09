@@ -108,7 +108,15 @@ const SignaturePad = ({ value, onChange, clearLabel = 'Unterschrift löschen' }:
       }
     };
 
+    const handleTestSignature = (event: Event) => {
+      const dataUrl = (event as CustomEvent<string>).detail;
+      if (!dataUrl) return;
+      valueRef.current = dataUrl;
+      onChange(dataUrl);
+    };
+
     signaturePad.addEventListener('endStroke', handleEnd);
+    canvas.addEventListener('signature-pad:test-signature', handleTestSignature);
 
     if (value) {
       valueRef.current = value;
@@ -122,6 +130,7 @@ const SignaturePad = ({ value, onChange, clearLabel = 'Unterschrift löschen' }:
       window.removeEventListener('resize', handleResize);
       signaturePad.off();
       signaturePad.removeEventListener('endStroke', handleEnd);
+      canvas.removeEventListener('signature-pad:test-signature', handleTestSignature);
       signaturePadRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
