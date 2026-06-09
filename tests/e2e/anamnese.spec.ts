@@ -139,4 +139,19 @@ test.describe("digital anamnese", () => {
     await expect(page.getByText("Name muss mindestens 2 Zeichen lang sein")).toBeVisible();
     await expect(page.getByLabel(/Name/)).toHaveAttribute("aria-invalid", "true");
   });
+
+  test("Nelly-style shell keeps navigation and bottom action fixed", async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium", "Shell layout smoke coverage on Chromium");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto("/en/anamnese");
+
+    await expect(page.getByRole("button", { name: "Back" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Personal Information" })).toBeVisible();
+
+    const toolbar = page.getByTestId("anamnese-bottom-toolbar");
+    await expect(toolbar).toBeVisible();
+    await expect(toolbar.getByRole("button")).toHaveCount(1);
+    await expect(toolbar.getByRole("button", { name: /Next/ })).toBeVisible();
+    await expect(page.getByTestId("anamnese-scroll-indicator")).toBeVisible();
+  });
 });

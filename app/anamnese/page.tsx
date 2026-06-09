@@ -1,20 +1,18 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { Controller, FieldPath, Resolver, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckIcon } from "lucide-react";
+import { ArrowDownIcon, ArrowRightIcon, CheckIcon, ChevronLeftIcon } from "lucide-react";
 
 import Logo from "/public/images/praxis-jona-web-logo.png";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import {
   AnamnesePayload,
@@ -108,6 +106,8 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const signaturePadRef = useRef<SignaturePadHandle | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false);
 
   const form = useForm<AnamnesePayload>({
     resolver: zodResolver(schema) as Resolver<AnamnesePayload>,
@@ -133,9 +133,18 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
   const hormonalContraception = watch("sexSpecific.hormonalContraception");
   const values = watch();
 
+  const updateScrollIndicator = useCallback(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const hasOverflow = container.scrollHeight - container.clientHeight > 8;
+    const isAtBottom = container.scrollTop + container.clientHeight >= container.scrollHeight - 16;
+    setShowScrollIndicator(hasOverflow && !isAtBottom);
+  }, []);
+
   useEffect(() => {
-    const header = document.querySelector("header");
-    const footer = document.querySelector("footer");
+    const header = document.querySelector("body > header");
+    const footer = document.querySelector("body > footer");
 
     if (header) (header as HTMLElement).style.display = "none";
     if (footer) (footer as HTMLElement).style.display = "none";
@@ -145,6 +154,33 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
       if (footer) (footer as HTMLElement).style.display = "";
     };
   }, []);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => updateScrollIndicator();
+    container.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, [updateScrollIndicator]);
+
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    if (typeof container.scrollTo === "function") {
+      container.scrollTo({ top: 0 });
+    } else {
+      container.scrollTop = 0;
+    }
+    const frame = requestAnimationFrame(updateScrollIndicator);
+    return () => cancelAnimationFrame(frame);
+  }, [currentStepIndex, gender, hormonalContraception, smoking, submitMessage, updateScrollIndicator]);
 
   const goNext = async () => {
     const isValid = await trigger(STEP_FIELDS[currentStep]);
@@ -287,32 +323,40 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
   }
 
   return (
-    <main className="min-h-screen bg-muted px-4 py-6 sm:px-6 lg:px-8">
-      <Card className="mx-auto max-w-4xl">
-        <CardHeader className="gap-5">
-          <div className="flex justify-center">
-            <Image src={Logo} alt="Praxis Jona Logo" className="h-16 w-auto object-contain" priority />
+    <main className="fixed inset-0 flex bg-background text-foreground">
+      <div className="mx-auto flex h-full w-full max-w-md flex-col overflow-hidden border-x border-border bg-background shadow-sm">
+        <header className="shrink-0 border-b border-border bg-background">
+          <nav aria-label="Anamnese navigation" className="grid h-14 grid-cols-[1fr_auto_1fr] items-center px-4">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={goBack}
+              disabled={currentStepIndex === 0 || isSubmitting}
+              className="justify-self-start gap-1 rounded-md px-3"
+            >
+              <ChevronLeftIcon className="size-4" aria-hidden="true" />
+              {t.back}
+            </Button>
+            <Image src={Logo} alt="Praxis Jona Logo" className="h-8 w-auto object-contain" priority />
+          </nav>
+          <div className="border-t border-border px-4 py-3">
+            <h1 className="text-lg font-semibold leading-none">{t.sections[currentStep]}</h1>
           </div>
-          <div className="text-center">
-            <CardTitle className="text-3xl">{t.title}</CardTitle>
-            <CardDescription className="mt-3 text-base">{t.intro}</CardDescription>
-          </div>
-          <div className="flex flex-col gap-2">
-            <div className="flex items-center justify-between text-sm text-muted-foreground">
-              <span>
-                {t.step} {currentStepIndex + 1} {t.of} {STEP_KEYS.length}
-              </span>
-              <span>{t.sections[currentStep]}</span>
-            </div>
-            <Progress value={progress} aria-label={`${t.step} ${currentStepIndex + 1}`} />
-          </div>
-        </CardHeader>
+          <Progress value={progress} aria-label={`${t.step} ${currentStepIndex + 1}`} className="h-1 rounded-none" />
+        </header>
 
-        <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-8" noValidate>
+        <div ref={scrollContainerRef} className="relative flex-1 overflow-y-auto px-4 py-5 pb-28">
+          <form id="anamnese-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6" noValidate>
+            {currentStepIndex === 0 && (
+              <div className="space-y-2">
+                <h2 className="text-2xl font-semibold leading-tight">{t.title}</h2>
+                <p className="text-base leading-6 text-muted-foreground">{t.intro}</p>
+              </div>
+            )}
+
             {currentStep === "personal" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.personal}</h2>
                 {textField("patient.name", t.fields.name, { required: true })}
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {textField("patient.birthdate", t.fields.birthdate, { required: true, type: "date" })}
@@ -326,7 +370,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "complaints" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.complaints}</h2>
                 {textareaField("medicalHistory.currentComplaints", t.fields.currentComplaints)}
                 {textareaField("medicalHistory.programGoals", t.fields.programGoals)}
               </FieldGroup>
@@ -334,7 +377,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "history" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.history}</h2>
                 {textareaField("medicalHistory.previousDiseases", t.fields.previousDiseases)}
                 {textareaField("medicalHistory.operations", t.fields.operations)}
               </FieldGroup>
@@ -342,7 +384,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "family" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.family}</h2>
                 <FieldDescription>{t.fields.familyIntro}</FieldDescription>
                 {textField("medicalHistory.familyHeartStroke", t.fields.familyHeartStroke)}
                 {textField("medicalHistory.familyCancer", t.fields.familyCancer)}
@@ -353,7 +394,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "medication" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.medication}</h2>
                 {textareaField("medicalHistory.medications", t.fields.medications)}
                 {textareaField("medicalHistory.supplements", t.fields.supplements)}
               </FieldGroup>
@@ -361,7 +401,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "lifestyle" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.lifestyle}</h2>
                 {textField("lifestyle.exerciseFrequency", t.fields.exerciseFrequency)}
                 {radioField("lifestyle.sleepQuality", t.fields.sleepQuality, optionValues.sleepQuality)}
                 {radioField("lifestyle.diet", t.fields.diet, optionValues.diet)}
@@ -374,7 +413,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "sexSpecific" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.sexSpecific}</h2>
                 {radioField("sexSpecific.gender", t.fields.gender, optionValues.gender)}
                 {gender === "female" && (
                   <div className="flex flex-col gap-5 rounded-md bg-accent p-4">
@@ -401,7 +439,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "consent" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.consent}</h2>
                 <Controller
                   control={control}
                   name="consent.accepted"
@@ -456,7 +493,6 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
 
             {currentStep === "review" && (
               <FieldGroup>
-                <h2 className="text-2xl font-semibold text-foreground">{t.sections.review}</h2>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <ReviewItem label={t.fields.name} value={values.patient.name} />
                   <ReviewItem label={t.fields.email} value={values.patient.email} />
@@ -469,25 +505,34 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
             )}
 
             {submitMessage && <p className="text-sm font-medium text-destructive" role="alert">{submitMessage}</p>}
-
-            <Separator />
-            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
-              <Button type="button" variant="outline" onClick={goBack} disabled={currentStepIndex === 0 || isSubmitting}>
-                {t.back}
-              </Button>
-              {currentStep === "review" ? (
-                <Button type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? t.submitting : t.submit}
-                </Button>
-              ) : (
-                <Button type="button" onClick={goNext} disabled={isSubmitting}>
-                  {t.next}
-                </Button>
-              )}
-            </div>
           </form>
-        </CardContent>
-      </Card>
+        </div>
+
+        {showScrollIndicator && (
+          <div
+            data-testid="anamnese-scroll-indicator"
+            className="pointer-events-none absolute inset-x-0 bottom-24 z-20 flex justify-center"
+          >
+            <div className="flex items-center gap-2 rounded-full border border-border bg-background/95 px-3 py-2 text-sm font-medium text-muted-foreground shadow-md">
+              <ArrowDownIcon className="size-4 animate-bounce" aria-hidden="true" />
+              {locale === "de" ? "Weiter nach unten" : "Scroll down"}
+            </div>
+          </div>
+        )}
+
+        <div data-testid="anamnese-bottom-toolbar" className="shrink-0 border-t border-border bg-background px-4 py-4">
+          {currentStep === "review" ? (
+            <Button type="submit" form="anamnese-form" disabled={isSubmitting} className="h-12 w-full rounded-md text-base">
+              {isSubmitting ? t.submitting : t.submit}
+            </Button>
+          ) : (
+            <Button type="button" onClick={goNext} disabled={isSubmitting} className="h-12 w-full rounded-md text-base">
+              {t.next}
+              <ArrowRightIcon className="ml-2 size-4" aria-hidden="true" />
+            </Button>
+          )}
+        </div>
+      </div>
     </main>
   );
 }
