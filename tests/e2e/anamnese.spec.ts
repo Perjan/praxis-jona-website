@@ -100,7 +100,7 @@ async function completeGermanHappyPath(page: any) {
 test.describe("digital anamnese", () => {
   test("German happy path submits and resets", async ({ page }) => {
     await mockAnamneseApi(page);
-    await page.goto("/anamnese");
+    await page.goto("/anamnese/medical-history");
 
     await completeGermanHappyPath(page);
     const submitButton = page.getByRole("button", { name: "Absenden" });
@@ -116,7 +116,7 @@ test.describe("digital anamnese", () => {
   test("English happy path renders English route", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "English desktop coverage only");
     await mockAnamneseApi(page);
-    await page.goto("/en/anamnese");
+    await page.goto("/en/anamnese/medical-history");
 
     await expect(page.getByRole("heading", { name: "Medical History Form" })).toBeVisible();
     await page.locator('input[name="patient.name"]').click();
@@ -132,7 +132,7 @@ test.describe("digital anamnese", () => {
 
   test("validation blocks missing required fields", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "Validation smoke coverage on Chromium");
-    await page.goto("/anamnese");
+    await page.goto("/anamnese/medical-history");
 
     await page.getByRole("button", { name: "Weiter" }).click();
 
@@ -143,7 +143,7 @@ test.describe("digital anamnese", () => {
   test("Nelly-style shell keeps navigation and bottom action fixed", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "Shell layout smoke coverage on Chromium");
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto("/en/anamnese");
+    await page.goto("/en/anamnese/medical-history");
 
     await expect(page.getByRole("button", { name: "Back" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Personal Information" })).toBeVisible();
@@ -153,5 +153,13 @@ test.describe("digital anamnese", () => {
     await expect(toolbar.getByRole("button")).toHaveCount(1);
     await expect(toolbar.getByRole("button", { name: /Next/ })).toBeVisible();
     await expect(page.getByTestId("anamnese-scroll-indicator")).toBeVisible();
+  });
+
+  test("entry screen links to all available forms", async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== "chromium", "Entry screen smoke coverage on Chromium");
+    await page.goto("/anamnese");
+
+    await expect(page.getByRole("link", { name: /Anamnesebogen/ })).toHaveAttribute("href", "/anamnese/medical-history");
+    await expect(page.getByRole("link", { name: /Impfaufklärung/ })).toHaveAttribute("href", "/anamnese/impfaufklaerung");
   });
 });

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-const title = "Anamnesebogen - Praxis Jona Berlin";
-const description = "Digitaler Anamnesebogen der Praxis Jona zur strukturierten Erfassung medizinischer Angaben vor dem Termin und für eine gezielte ärztliche Vorbereitung.";
+const title = "Digitale Formulare - Praxis Jona Berlin";
+const description = "Digitale Praxis-Jona-Formulare für Anamnese, Impfaufklärung, Einwilligung und Unterschrift vor dem Termin.";
 const url = "/anamnese";
 
 export const metadata: Metadata = {

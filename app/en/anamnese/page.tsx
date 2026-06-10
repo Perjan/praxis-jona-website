@@ -1,5 +1,5 @@
-import AnamnesePage from "app/anamnese/page";
+import FormsEntryPage from "app/anamnese/page";
 
 export default function Page() {
-  return <AnamnesePage locale="en" />;
+  return <FormsEntryPage locale="en" />;
 }

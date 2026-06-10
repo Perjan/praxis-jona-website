@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
-const title = "Medical History Form - Praxis Jona Berlin";
-const description = "Digital medical history form for Praxis Jona, used to collect medical information before the appointment and support focused physician preparation.";
+const title = "Digital Forms - Praxis Jona Berlin";
+const description = "Digital Praxis Jona forms for medical history, vaccination consent, screening, consent, and signature before the appointment.";
 const url = "/en/anamnese";
 
 export const metadata: Metadata = {
