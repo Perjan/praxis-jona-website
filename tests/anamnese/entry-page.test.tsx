@@ -9,5 +9,6 @@ describe("FormsEntryPage", () => {
 
     expect(screen.getByRole("link", { name: /Anamnesebogen/ })).toHaveAttribute("href", "/anamnese/medical-history");
     expect(screen.getByRole("link", { name: /Impfaufklärung/ })).toHaveAttribute("href", "/anamnese/impfaufklaerung");
+    expect(screen.getByRole("link", { name: /Eiseninfusion/ })).toHaveAttribute("href", "/anamnese/eiseninfusion");
   });
 });

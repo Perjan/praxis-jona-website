@@ -161,5 +161,6 @@ test.describe("digital anamnese", () => {
 
     await expect(page.getByRole("link", { name: /Anamnesebogen/ })).toHaveAttribute("href", "/anamnese/medical-history");
     await expect(page.getByRole("link", { name: /Impfaufklärung/ })).toHaveAttribute("href", "/anamnese/impfaufklaerung");
+    await expect(page.getByRole("link", { name: /Eiseninfusion/ })).toHaveAttribute("href", "/anamnese/eiseninfusion");
   });
 });

@@ -22,6 +22,11 @@ const formsCopy = {
         description: "Aufklärung und Screening-Fragen vor einer Schutzimpfung.",
         href: "/anamnese/impfaufklaerung",
       },
+      {
+        title: "Eiseninfusion",
+        description: "Einverständniserklärung und Behandlungsaufklärung vor einer Eiseninfusion.",
+        href: "/anamnese/eiseninfusion",
+      },
     ],
     open: "Öffnen",
   },
@@ -38,6 +43,11 @@ const formsCopy = {
         title: "Vaccination Consent",
         description: "Consent and screening questions before vaccination.",
         href: "/en/anamnese/impfaufklaerung",
+      },
+      {
+        title: "Iron Infusion Consent",
+        description: "Consent and treatment information before an iron infusion.",
+        href: "/en/anamnese/eiseninfusion",
       },
     ],
     open: "Open",
