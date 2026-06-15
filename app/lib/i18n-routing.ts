@@ -27,6 +27,7 @@ const blogSlugPairs = [
   { de: "uebernahme-praxis-dr-thomas-roessner", en: "practice-takeover-dr-thomas-roessner" },
   { de: "vorsorge-hilft-menschen-gesunder-und-langer-zu-leben", en: "prevention-helps-people-live-healthier-longer" },
   { de: "eiseninfusion-frauen-eisenmangel-vorteile", en: "iron-infusion-women-iron-deficiency-benefits" },
+  { de: "botulinumtoxin-medizinische-anwendungen", en: "botulinum-toxin-medical-uses" },
 ];
 
 const aestheticDetailSlugPairs = {
