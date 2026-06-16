@@ -56,6 +56,26 @@ const nextConfig = {
         source: "/aesthetik/haarausfall",
         destination: "/leistungen/haarausfall-berlin-mitte",
         permanent: true
+      },
+      {
+        source: "/tv-new",
+        destination: "/tv",
+        permanent: true
+      },
+      {
+        source: "/tv-new/:path*",
+        destination: "/tv/:path*",
+        permanent: true
+      },
+      {
+        source: "/en/tv-new",
+        destination: "/en/tv",
+        permanent: true
+      },
+      {
+        source: "/en/tv-new/:path*",
+        destination: "/en/tv/:path*",
+        permanent: true
       }
     ]
   },

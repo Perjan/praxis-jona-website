@@ -21,7 +21,7 @@ Design high-legibility, high-impact 16:9 TV slides for a waiting-room display, w
 4. Keep palette aligned with brand tones:
    - Deep green (`#123932` family)
    - Light mint / beige accents
-5. QR assets should live in `public/tv-new/qr/` and be referenced from `content.ts`.
+5. QR assets should live in `public/tv/qr/` and be referenced from `content.ts`.
 6. If adding slides, update both:
    - `content.ts`
    - `slides` list in `TVNewPageClient.tsx`
@@ -39,5 +39,5 @@ Each slide entry in `content.ts` can define:
 1. Edit `content.ts`.
 2. Run `npm run lint`.
 3. Preview with:
-   - `/tv-new` (normal slideshow)
-   - `/tv-new?slide=N` (single slide debug)
+   - `/tv` (normal slideshow)
+   - `/tv?slide=N` (single slide debug)

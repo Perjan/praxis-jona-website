@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import TVLayoutClient from '../tv-legacy/TVLayoutClient';
+import TVLayoutClient from './TVLayoutClient';
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: '/tv',
+    canonical: '/tv-legacy',
   },
   robots: {
     index: false,
@@ -15,10 +15,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TVNewLayout({
+export default function TVLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <TVLayoutClient>{children}</TVLayoutClient>;
+  return (
+    <TVLayoutClient>
+      {children}
+    </TVLayoutClient>
+  );
 }

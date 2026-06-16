@@ -1,11 +1,11 @@
 import { Metadata } from "next"
-import TVNewLayout from "app/tv/layout"
+import TVLayout from "app/tv-legacy/layout"
 
 export const metadata: Metadata = {
   title: "Praxis Jona Waiting Room TV",
   description: "English waiting-room TV slides for Praxis Jona in Berlin-Mitte.",
   alternates: {
-    canonical: "/en/tv",
+    canonical: "/en/tv-legacy",
   },
   robots: {
     index: false,
@@ -17,4 +17,4 @@ export const metadata: Metadata = {
   },
 }
 
-export default TVNewLayout
+export default TVLayout

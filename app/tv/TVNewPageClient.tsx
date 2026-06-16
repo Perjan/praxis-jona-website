@@ -89,7 +89,7 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
     setPreviousSlideIndex(outgoingSlideIndex);
     setCurrentSlideIndex(index);
     setProgress(forcedSlideIndex !== null ? 100 : 0);
-    window.history.replaceState(null, '', `${locale === 'en' ? '/en/tv-new' : '/tv-new'}?slide=${index + 1}`);
+    window.history.replaceState(null, '', `${locale === 'en' ? '/en/tv' : '/tv'}?slide=${index + 1}`);
 
     window.setTimeout(() => {
       setPreviousSlideIndex((previousIndex) => (previousIndex === outgoingSlideIndex ? null : previousIndex));

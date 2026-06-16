@@ -105,7 +105,7 @@ const deToEnRouteMap: Record<string, string> = {
   "/blog": "/en/blog",
   "/anamnese": "/en/anamnese",
   "/tv": "/en/tv",
-  "/tv-new": "/en/tv-new",
+  "/tv-legacy": "/en/tv-legacy",
   "/legal": "/en/legal",
   "/jobs/mfa-mwd-berlin-mitte": "/en/jobs/medical-assistant-berlin-mitte",
   "/leistungen": "/en/services",
@@ -190,7 +190,7 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
   const currentLocale = localeFromPathname(normalizedPathname);
   const isSharedRoute =
     sharedRoutes.has(normalizedPathname) ||
-    normalizedPathname.startsWith("/tv/");
+    normalizedPathname.startsWith("/tv-legacy/");
 
   if (currentLocale === targetLocale) {
     return normalizedPathname;
@@ -210,8 +210,11 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
       const enSlug = blogSlugPairs.find((pair) => pair.de === slug)?.en;
       return enSlug ? `/en/blog/${enSlug}` : "/en/blog";
     }
-    if (normalizedPathname.startsWith("/tv-new/")) {
-      return normalizedPathname.replace(/^\/tv-new/, "/en/tv-new");
+    if (normalizedPathname.startsWith("/tv/")) {
+      return normalizedPathname.replace(/^\/tv/, "/en/tv");
+    }
+    if (normalizedPathname.startsWith("/tv-legacy/")) {
+      return normalizedPathname.replace(/^\/tv-legacy/, "/en/tv-legacy");
     }
     if (normalizedPathname === "/legal/impressum-datenschutz") {
       return "/en/legal/imprint-privacy";
@@ -235,8 +238,12 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
     return deSlug ? `/blog/${deSlug}` : "/blog";
   }
 
-  if (normalizedPathname.startsWith("/en/tv-new/")) {
-    return normalizedPathname.replace(/^\/en\/tv-new/, "/tv-new");
+  if (normalizedPathname.startsWith("/en/tv/")) {
+    return normalizedPathname.replace(/^\/en\/tv/, "/tv");
+  }
+
+  if (normalizedPathname.startsWith("/en/tv-legacy/")) {
+    return normalizedPathname.replace(/^\/en\/tv-legacy/, "/tv-legacy");
   }
 
   if (normalizedPathname === "/en/legal/imprint-privacy") {
@@ -252,7 +259,8 @@ export function localizedPathForLocale(pathname: string, targetLocale: Locale): 
   if (
     sharedRoutes.has(dePathname) ||
     dePathname.startsWith("/legal/") ||
-    dePathname.startsWith("/tv/")
+    dePathname.startsWith("/tv/") ||
+    dePathname.startsWith("/tv-legacy/")
   ) {
     return dePathname;
   }

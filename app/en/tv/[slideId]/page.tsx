@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
-import TVNewPageClient from "app/tv-new/TVNewPageClient";
-import { getTVSlideByIdEn, TV_NEW_SLIDES_EN } from "app/tv-new/content";
+import TVNewPageClient from "app/tv/TVNewPageClient";
+import { getTVSlideByIdEn, TV_NEW_SLIDES_EN } from "app/tv/content";
 
 export function generateStaticParams() {
   return TV_NEW_SLIDES_EN.map((slide) => ({

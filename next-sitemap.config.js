@@ -6,7 +6,14 @@ module.exports = {
     "/legal",
     "/legal/impressum-datenschutz",
     "/legal/imprint-privacy",
-    "/tv"
+    "/tv",
+    "/tv/*",
+    "/en/tv",
+    "/en/tv/*",
+    "/tv-legacy",
+    "/tv-legacy/*",
+    "/en/tv-legacy",
+    "/en/tv-legacy/*",
   ],
 
   // ...other options

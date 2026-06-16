@@ -23,7 +23,7 @@ A full-screen slideshow application designed for smart TVs in medical office wai
 - Formats: PNG, JPG
 - Resolution: 4K (3840 x 2160)
 - Manual upload process through codebase
-- Storage location: `/public/tv/` directory
+- Storage location: `/public/tv-legacy/` directory
 
 ### Slideshow Configuration
 - Slide duration: 20 seconds per image

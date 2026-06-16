@@ -100,10 +100,10 @@ const ultrasoundRows = pricingSections.ultrasound.rows;
 const ironInfusionRow = pricingSections.ironInfusion.rows[0];
 const micronutrientRow = pricingSections.micronutrients.rows[0];
 const backgrounds = {
-  brand: "/tv-new/backgrounds/bg-brand.svg",
-  clinical: "/tv-new/backgrounds/bg-clinical.svg",
-  diagnostics: "/tv-new/backgrounds/bg-diagnostics.svg",
-  social: "/tv-new/backgrounds/bg-social.svg",
+  brand: "/tv/backgrounds/bg-brand.svg",
+  clinical: "/tv/backgrounds/bg-clinical.svg",
+  diagnostics: "/tv/backgrounds/bg-diagnostics.svg",
+  social: "/tv/backgrounds/bg-social.svg",
 } as const;
 
 const internalMedicineDiagnosticsFeatures: FeatureItem[] = [
@@ -365,8 +365,8 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrLabel: "App laden",
     displayUrl: displayUrl(veltoApp.downloadLink.website!),
     bullets: veltoApp.benefits.slice(0, 4),
-    appImages: ["/tv-new/assets/phone-1.png", "/tv-new/assets/phone-2.png", "/tv-new/assets/phone-3.png"],
-    badgeImage: "/tv-new/assets/appstore-badge.png",
+    appImages: ["/tv/assets/phone-1.png", "/tv/assets/phone-2.png", "/tv/assets/phone-3.png"],
+    badgeImage: "/tv/assets/appstore-badge.png",
   },
   {
     id: "instagram",
