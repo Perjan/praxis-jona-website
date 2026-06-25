@@ -42,7 +42,8 @@ const formatValue = (locale: Locale, value?: string) => {
 };
 
 export function createAnamneseFilename(data: AnamnesePayload, now = new Date()) {
-  return `Anamnesebogen_${sanitizeFilenamePart(data.patient.name)}_${now.toISOString().split("T")[0]}.pdf`;
+  const copy = anamneseCopy[data.locale];
+  return `${copy.pdf.filenamePrefix}_${sanitizeFilenamePart(data.patient.name)}_${now.toISOString().split("T")[0]}.pdf`;
 }
 
 export function generateAnamnesePDF(data: AnamnesePayload, now = new Date()): string {

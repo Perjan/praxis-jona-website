@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { createAnamneseSchema } from "@/app/anamnese/form-definition";
+import { anamneseCopy, createAnamneseSchema } from "@/app/anamnese/form-definition";
 import {
   createAnamneseFilename,
   dataUrlToBlob,
@@ -12,9 +12,13 @@ const shouldMockDelivery = () =>
   process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";
 
 export async function POST(request: NextRequest) {
+  let errorMessage: string = anamneseCopy.de.error;
+
   try {
     const rawFormData = await request.json();
     const locale = rawFormData?.locale === "en" ? "en" : "de";
+    const copy = anamneseCopy[locale];
+    errorMessage = copy.error;
     const formData = createAnamneseSchema(locale).parse(rawFormData);
 
     const pdfBase64 = generateAnamnesePDF(formData);
@@ -27,7 +31,7 @@ export async function POST(request: NextRequest) {
         patientName: formData.patient.name,
         locale: formData.locale,
       });
-      return NextResponse.json({ success: true, message: "Anamnesebogen lokal validiert" });
+      return NextResponse.json({ success: true, message: copy.api.mockMessage });
     }
 
     const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
@@ -72,12 +76,9 @@ export async function POST(request: NextRequest) {
       throw new Error(`N8N webhook failed with status: ${response.status}`);
     }
 
-    return NextResponse.json({ success: true, message: "Anamnesebogen erfolgreich gesendet" });
+    return NextResponse.json({ success: true, message: copy.api.successMessage });
   } catch (error) {
     console.error("Error processing anamnese form:", error);
-    return NextResponse.json(
-      { success: false, message: "Fehler beim Verarbeiten des Formulars" },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, message: errorMessage }, { status: 500 });
   }
 }

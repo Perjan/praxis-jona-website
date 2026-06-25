@@ -75,6 +75,7 @@ describe("AnamnesePage", () => {
 
     await user.type(screen.getByLabelText(/Name/), "Max Mustermann");
     await user.type(screen.getByLabelText(/Geburtsdatum/), "1985-04-12");
+    expect((screen.getByLabelText("Alter") as HTMLInputElement).value).toMatch(/^\d+$/);
     await user.type(screen.getByLabelText(/Gewicht/), "82");
     await user.type(screen.getByLabelText(/Größe/), "180");
     await user.type(screen.getByLabelText(/Beruf/), "Ingenieur");
@@ -94,7 +95,9 @@ describe("AnamnesePage", () => {
 
     expect(screen.queryByText("Zyklus regelmäßig?")).not.toBeInTheDocument();
     await user.click(screen.getByRole("button", { name: "Zurück" }));
+    expect(screen.getByText("Für Männer")).toBeInTheDocument();
     await user.click(screen.getByLabelText("Weiblich"));
+    expect(screen.getByText("Für Frauen:")).toBeInTheDocument();
     expect(screen.getByText("Zyklus regelmäßig?")).toBeInTheDocument();
     expect(screen.queryByText("Testosteronwerte jemals gemessen?")).not.toBeInTheDocument();
   });

@@ -66,4 +66,19 @@ describe("ImpfaufklaerungPage", () => {
     expect(screen.getByLabelText(/Name der Schutzimpfung/)).toHaveAttribute("aria-invalid", "true");
     expect(fetch).not.toHaveBeenCalled();
   });
+
+  it("renders English localized copy", async () => {
+    const user = userEvent.setup();
+    render(<ImpfaufklaerungPage locale="en" />);
+
+    expect(screen.getByRole("heading", { name: "Vaccination Consent" })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Name of vaccination/)).toBeInTheDocument();
+    expect(screen.getByLabelText("Female")).toBeInTheDocument();
+    expect(screen.getByText(/Has the person to be vaccinated had an acute illness/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Submit" }));
+
+    expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
+    expect(fetch).not.toHaveBeenCalled();
+  });
 });

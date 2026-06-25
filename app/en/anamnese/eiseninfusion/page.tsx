@@ -1,3 +1,5 @@
 import EiseninfusionPage from "app/anamnese/eiseninfusion/page";
 
-export default EiseninfusionPage;
+export default function Page() {
+  return <EiseninfusionPage locale="en" />;
+}

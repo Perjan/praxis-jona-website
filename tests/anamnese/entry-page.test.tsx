@@ -10,5 +10,30 @@ describe("FormsEntryPage", () => {
     expect(screen.getByRole("link", { name: /Anamnesebogen/ })).toHaveAttribute("href", "/anamnese/medical-history");
     expect(screen.getByRole("link", { name: /Impfaufklärung/ })).toHaveAttribute("href", "/anamnese/impfaufklaerung");
     expect(screen.getByRole("link", { name: /Eiseninfusion/ })).toHaveAttribute("href", "/anamnese/eiseninfusion");
+    expect(screen.getByRole("link", { name: /Schilddrüsen-Diagnostik/ })).toHaveAttribute(
+      "href",
+      "/anamnese/schilddruesen-diagnostik",
+    );
+  });
+
+  it("links to every English form from the English entry page", () => {
+    render(<FormsEntryPage locale="en" />);
+
+    expect(screen.getByRole("link", { name: /Medical History Form/ })).toHaveAttribute(
+      "href",
+      "/en/anamnese/medical-history",
+    );
+    expect(screen.getByRole("link", { name: /Vaccination Consent/ })).toHaveAttribute(
+      "href",
+      "/en/anamnese/impfaufklaerung",
+    );
+    expect(screen.getByRole("link", { name: /Iron Infusion Consent/ })).toHaveAttribute(
+      "href",
+      "/en/anamnese/eiseninfusion",
+    );
+    expect(screen.getByRole("link", { name: /Thyroid Diagnostics/ })).toHaveAttribute(
+      "href",
+      "/en/anamnese/thyroid-diagnostics",
+    );
   });
 });

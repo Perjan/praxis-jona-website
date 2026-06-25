@@ -64,6 +64,68 @@ describe("anamnese form definition", () => {
     expect(anamneseCopy.en.options.mediterran).toBe("Mediterranean");
   });
 
+  it("keeps German Longevity source wording", () => {
+    expect(anamneseCopy.de.intro).toContain("Ihr Longevity-Programm individuell zu gestalten");
+    expect(anamneseCopy.de.fields).toMatchObject({
+      name: "Name",
+      birthdate: "Geburtsdatum",
+      age: "Alter",
+      years: "Jahre",
+      height: "Größe (cm)",
+      weight: "Gewicht (kg)",
+      occupation: "Beruf",
+      email: "Kontakt / E-Mail",
+      currentComplaints: "Haben Sie aktuell gesundheitliche Beschwerden? Wenn ja, welche?",
+      programGoals: "Was sind Ihre Ziele mit diesem Programm? (z. B. mehr Energie, Prävention, Muskelaufbau, Leistungsfähigkeit)",
+      previousDiseases: "Wurden bei Ihnen relevante Erkrankungen diagnostiziert (z. B. Herz, Stoffwechsel, Autoimmun)?",
+      operations: "Haben Sie Operationen hinter sich?",
+      familyIntro: "Gab es in Ihrer Familie (Eltern/Großeltern) Erkrankungen wie:",
+      familyHeartStroke: "Herzinfarkt / Schlaganfall",
+      familyCancer: "Krebs (Art?)",
+      familyDementia: "Demenz / Alzheimer",
+      familyDiabetes: "Diabetes / Stoffwechselstörungen",
+      medications: "Nehmen Sie regelmäßig Medikamente ein? Wenn ja, welche?",
+      supplements: "Nehmen Sie Nahrungsergänzungsmittel ein? Wenn ja, welche?",
+      exerciseFrequency: "Bewegung: Wie oft pro Woche trainieren Sie?",
+      sleepQuality: "Schlaf",
+      diet: "Ernährung",
+      smoking: "Rauchen",
+      smokingAmount: "wie viel:",
+      alcohol: "Alkohol",
+      stressLevel: "Stressbelastung",
+      cycleRegular: "Zyklus regelmäßig?",
+      femaleLibidoEnergy: "Libido / Energie",
+      pregnancies: "Schwangerschaften",
+      children: "Kinder",
+      hormonalContraception: "Hormonelle Verhütung oder Therapie",
+      hormonalContraceptionDetails: "Falls ja, welche:",
+      forWomen: "Für Frauen:",
+      forMen: "Für Männer",
+      maleLibidoEnergy: "Libido / Energie",
+      testosteroneMeasured: "Testosteronwerte jemals gemessen?",
+      testosteroneSubstitution: "Falls Mangel, ist eine Substitution erfolgt?",
+    });
+    expect(anamneseCopy.de.options).toMatchObject({
+      gut: "gut",
+      "mittelmäßig": "mittelmäßig",
+      schlecht: "schlecht",
+      "mischköstlich": "mischköstlich",
+      vegetarisch: "vegetarisch",
+      vegan: "vegan",
+      "low carb": "low carb",
+      mediterran: "mediterran",
+      nein: "nein",
+      ja: "ja",
+      gelegentlich: "gelegentlich",
+      regelmäßig: "regelmäßig",
+      niedrig: "niedrig",
+      mittel: "mittel",
+      hoch: "hoch",
+      normal: "normal",
+      vermindert: "vermindert",
+    });
+  });
+
   it("returns visible conditional sex-specific fields", () => {
     expect(getVisibleSexSpecificFields("female")).toContain("sexSpecific.cycleRegular");
     expect(getVisibleSexSpecificFields("male")).toContain("sexSpecific.testosteroneMeasured");
