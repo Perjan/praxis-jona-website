@@ -6,6 +6,8 @@ import QuoteSection from "./QuoteSection";
 import ClinicSection from './ClinicSection'
 import Warning from "./components/Warning";
 import { Constants } from "./Constants";
+import { getPricingPageConfig } from "./components/pricing/pricingData";
+import { buildClinicOfferCatalogJsonLd } from "./components/pricing/pricingSchema";
 
 const title = "Praxis Jona Berlin - Allgemeinmedizin & Innere Medizin"
 const description = "Ganzheitliche medizinische Betreuung in Berlin-Mitte: Allgemeinmedizin, Innere Medizin, Prävention und individuelle Diagnostik bei Praxis Jona."
@@ -73,6 +75,7 @@ const organizationSchema = {
         "https://www.youtube.com/@doc.jonida",
         "https://www.tiktok.com/@doc.jonida",
     ],
+    hasOfferCatalog: buildClinicOfferCatalogJsonLd(getPricingPageConfig("global", "de")),
 };
 
 export default function Features() {

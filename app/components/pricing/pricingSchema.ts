@@ -76,6 +76,45 @@ function buildService(section: PricingSection, row: PricingRow, locale: PricingL
   };
 }
 
+function buildOfferCatalogItem(section: PricingSection, row: PricingRow, locale: PricingLocale) {
+  const service = buildService(section, row, locale);
+  const offerName = section.slug === "botox" ? `${section.title[locale]}: ${row.label[locale]}` : row.label[locale];
+  const offer = {
+    "@type": "Offer",
+    name: offerName,
+    url: rowUrl(section, row, locale),
+    seller: clinic,
+    itemOffered: service,
+  };
+
+  if (typeof row.price?.amount !== "number") {
+    return offer;
+  }
+
+  return {
+    ...offer,
+    priceSpecification: {
+      "@type": "UnitPriceSpecification",
+      price: row.price.amount,
+      priceCurrency: row.price.currency,
+    },
+  };
+}
+
+export function buildClinicOfferCatalogJsonLd(config: PricingPageConfig) {
+  return {
+    "@type": "OfferCatalog",
+    name: config.title,
+    itemListElement: config.sections.map((section) => ({
+      "@type": "OfferCatalog",
+      name: section.title[config.locale],
+      description: section.description[config.locale],
+      url: absoluteUrl(section.detailHref?.[config.locale] ?? section.bookingHref?.[config.locale] ?? config.canonical),
+      itemListElement: section.rows.map((row) => buildOfferCatalogItem(section, row, config.locale)),
+    })),
+  };
+}
+
 export function buildPricingJsonLd(config: PricingPageConfig) {
   const pageUrl = absoluteUrl(config.canonical);
   const services = config.sections.flatMap((section) =>
@@ -114,6 +153,17 @@ export function buildPricingJsonLd(config: PricingPageConfig) {
       "@id": `${pageUrl}#pricing-services`,
       name: config.title,
       itemListElement: services.map((service, index) => ({ ...service, position: index + 1 })),
+    },
+    {
+      "@context": "https://schema.org",
+      ...clinic,
+      areaServed: {
+        "@type": "City",
+        name: "Berlin",
+      },
+      currenciesAccepted: "EUR",
+      priceRange: "€€",
+      hasOfferCatalog: buildClinicOfferCatalogJsonLd(config),
     },
   ];
 

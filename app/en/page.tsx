@@ -6,6 +6,8 @@ import ServiceCards from "app/components/ServiceCards";
 import QuoteSection from "app/QuoteSection";
 import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
+import { getPricingPageConfig } from "app/components/pricing/pricingData";
+import { buildClinicOfferCatalogJsonLd } from "app/components/pricing/pricingSchema";
 
 const title = "Praxis Jona Berlin - Internal Medicine"
 const description = "Holistic medical care in Berlin-Mitte: internal medicine, preventive diagnostics, and personalized treatment at Praxis Jona."
@@ -73,6 +75,7 @@ const organizationSchemaEn = {
         "https://www.youtube.com/@doc.jonida",
         "https://www.tiktok.com/@doc.jonida",
     ],
+    hasOfferCatalog: buildClinicOfferCatalogJsonLd(getPricingPageConfig("global", "en")),
 };
 
 export default function Features() {
