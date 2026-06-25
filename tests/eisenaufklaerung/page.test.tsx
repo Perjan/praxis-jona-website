@@ -62,4 +62,18 @@ describe("EiseninfusionPage", () => {
     expect(screen.getByLabelText(/Patientenname/)).toHaveAttribute("aria-invalid", "true");
     expect(fetch).not.toHaveBeenCalled();
   });
+
+  it("renders English localized copy", async () => {
+    const user = userEvent.setup();
+    render(<EiseninfusionPage locale="en" />);
+
+    expect(screen.getByRole("heading", { name: "Iron Infusion" })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Patient name/)).toBeInTheDocument();
+    expect(screen.getByText(/Consent form for iron infusion/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: "Submit" }));
+
+    expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
+    expect(fetch).not.toHaveBeenCalled();
+  });
 });

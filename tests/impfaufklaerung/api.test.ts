@@ -70,7 +70,19 @@ describe("POST /api/impfaufklaerung", () => {
     const sentFormData = (vi.mocked(fetch).mock.calls[0][1] as RequestInit).body as FormData;
     expect(sentFormData.get("patientName")).toBe("Julia Gjolli");
     expect(JSON.parse(sentFormData.get("metadata") as string).vaccineName).toBe("FSME");
+    expect(JSON.parse(sentFormData.get("metadata") as string).locale).toBe("de");
     expect(sentFormData.get("file")).toBeInstanceOf(Blob);
+  });
+
+  it("accepts a valid English submission and sends localized metadata", async () => {
+    const response = await POST(createRequest(createValidPayload({ locale: "en" })));
+    const body = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(body.message).toBe("Vaccination consent sent successfully");
+
+    const sentFormData = (vi.mocked(fetch).mock.calls[0][1] as RequestInit).body as FormData;
+    expect(JSON.parse(sentFormData.get("metadata") as string).locale).toBe("en");
   });
 
   it("rejects missing consent and signature", async () => {
@@ -88,6 +100,17 @@ describe("POST /api/impfaufklaerung", () => {
     const response = await POST(createRequest(createValidPayload()));
 
     expect(response.status).toBe(500);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("returns a localized server error for English submissions", async () => {
+    delete process.env.N8N_WEBHOOK_URL;
+
+    const response = await POST(createRequest(createValidPayload({ locale: "en" })));
+    const body = await response.json();
+
+    expect(response.status).toBe(500);
+    expect(body.message).toBe("An error occurred. Please try again later.");
     expect(fetch).not.toHaveBeenCalled();
   });
 
@@ -113,6 +136,7 @@ describe("POST /api/impfaufklaerung", () => {
 
     expect(response.status).toBe(200);
     expect(body.success).toBe(true);
+    expect(body.message).toBe("Impfaufklärung lokal validiert");
     expect(fetch).not.toHaveBeenCalled();
   });
 });

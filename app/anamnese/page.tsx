@@ -27,6 +27,11 @@ const formsCopy = {
         description: "Einverständniserklärung und Behandlungsaufklärung vor einer Eiseninfusion.",
         href: "/anamnese/eiseninfusion",
       },
+      {
+        title: "Schilddrüsen-Diagnostik",
+        description: "Fragebogen zur Schilddrüsenuntersuchung und Einwilligung in die Datenweitergabe.",
+        href: "/anamnese/schilddruesen-diagnostik",
+      },
     ],
     open: "Öffnen",
   },
@@ -48,6 +53,11 @@ const formsCopy = {
         title: "Iron Infusion Consent",
         description: "Consent and treatment information before an iron infusion.",
         href: "/en/anamnese/eiseninfusion",
+      },
+      {
+        title: "Thyroid Diagnostics",
+        description: "Thyroid examination questionnaire and consent to data transfer.",
+        href: "/en/anamnese/thyroid-diagnostics",
       },
     ],
     open: "Open",

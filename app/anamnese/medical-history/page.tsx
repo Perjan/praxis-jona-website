@@ -19,6 +19,7 @@ import {
   CONSENT_TEXT_VERSION,
   Locale,
   anamneseCopy,
+  calculateAgeFromBirthdate,
   createAnamneseSchema,
   emptyFormValuesForUi,
   optionValues,
@@ -129,9 +130,11 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
   const currentStep = STEP_KEYS[currentStepIndex];
   const progress = ((currentStepIndex + 1) / STEP_KEYS.length) * 100;
   const gender = watch("sexSpecific.gender");
+  const birthdate = watch("patient.birthdate");
   const smoking = watch("lifestyle.smoking");
   const hormonalContraception = watch("sexSpecific.hormonalContraception");
   const values = watch();
+  const age = calculateAgeFromBirthdate(birthdate);
 
   const updateScrollIndicator = useCallback(() => {
     const container = scrollContainerRef.current;
@@ -360,8 +363,12 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
                 {textField("patient.name", t.fields.name, { required: true })}
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                   {textField("patient.birthdate", t.fields.birthdate, { required: true, type: "date" })}
-                  {textField("patient.weight", t.fields.weight, { required: true, type: "number" })}
+                  <Field>
+                    <FieldLabel htmlFor="patient.age">{t.fields.age}</FieldLabel>
+                    <Input id="patient.age" type="text" value={age} readOnly />
+                  </Field>
                   {textField("patient.height", t.fields.height, { required: true, type: "number" })}
+                  {textField("patient.weight", t.fields.weight, { required: true, type: "number" })}
                 </div>
                 {textField("patient.occupation", t.fields.occupation, { required: true })}
                 {textField("patient.email", t.fields.email, { required: true, type: "email" })}
@@ -416,6 +423,7 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
                 {radioField("sexSpecific.gender", t.fields.gender, optionValues.gender)}
                 {gender === "female" && (
                   <div className="flex flex-col gap-5 rounded-md bg-accent p-4">
+                    <h2 className="text-xl font-semibold leading-tight">{t.fields.forWomen}</h2>
                     {radioField("sexSpecific.cycleRegular", t.fields.cycleRegular, optionValues.yesNo)}
                     {radioField("sexSpecific.femaleLibidoEnergy", t.fields.femaleLibidoEnergy, optionValues.libidoEnergy)}
                     <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
@@ -429,6 +437,7 @@ export default function AnamnesePage({ locale = "de" }: { locale?: Locale } = {}
                 )}
                 {gender === "male" && (
                   <div className="flex flex-col gap-5 rounded-md bg-accent p-4">
+                    <h2 className="text-xl font-semibold leading-tight">{t.fields.forMen}</h2>
                     {radioField("sexSpecific.maleLibidoEnergy", t.fields.maleLibidoEnergy, optionValues.libidoEnergy)}
                     {radioField("sexSpecific.testosteroneMeasured", t.fields.testosteroneMeasured, optionValues.yesNo)}
                     {radioField("sexSpecific.testosteroneSubstitution", t.fields.testosteroneSubstitution, optionValues.yesNo)}

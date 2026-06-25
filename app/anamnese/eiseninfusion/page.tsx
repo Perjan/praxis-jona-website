@@ -16,10 +16,9 @@ import {
   EisenaufklaerungPayload,
   createDefaultEisenaufklaerungValues,
   createEisenaufklaerungSchema,
-  eisenaufklaerungConsentText,
-  eisenaufklaerungInformationSections,
-  eisenaufklaerungMonitoringWaiverText,
+  eisenaufklaerungCopy,
 } from "./form-definition";
+import { Locale } from "../form-definition";
 
 const getError = (errors: any, path: string) =>
   path.split(".").reduce((current, key) => current?.[key], errors)?.message as string | undefined;
@@ -28,8 +27,9 @@ function RequiredMark() {
   return <span className="text-destructive">*</span>;
 }
 
-export default function EiseninfusionPage() {
-  const schema = useMemo(() => createEisenaufklaerungSchema(), []);
+export default function EiseninfusionPage({ locale = "de" }: { locale?: Locale } = {}) {
+  const copy = eisenaufklaerungCopy[locale];
+  const schema = useMemo(() => createEisenaufklaerungSchema(locale), [locale]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitMessage, setSubmitMessage] = useState("");
   const [showScrollIndicator, setShowScrollIndicator] = useState(false);
@@ -38,7 +38,7 @@ export default function EiseninfusionPage() {
 
   const form = useForm<EisenaufklaerungPayload>({
     resolver: zodResolver(schema) as Resolver<EisenaufklaerungPayload>,
-    defaultValues: createDefaultEisenaufklaerungValues(),
+    defaultValues: createDefaultEisenaufklaerungValues(locale),
     mode: "onTouched",
   });
 
@@ -103,7 +103,7 @@ export default function EiseninfusionPage() {
     });
 
     if (!response.ok) {
-      setSubmitMessage("Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.");
+      setSubmitMessage(copy.error);
       return;
     }
 
@@ -166,20 +166,20 @@ export default function EiseninfusionPage() {
       <div className="fixed inset-0 flex h-screen w-screen items-center justify-center bg-primary px-4">
         <div className="text-center">
           <CheckIcon className="mx-auto mb-8 size-24 text-white" aria-hidden="true" />
-          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">Vielen Dank!</h1>
-          <p className="mb-12 text-2xl text-white md:text-3xl">Bitte geben Sie das Gerät an der Rezeption zurück.</p>
+          <h1 className="mb-6 text-4xl font-bold text-white md:text-6xl">{copy.thanks}</h1>
+          <p className="mb-12 text-2xl text-white md:text-3xl">{copy.returnDevice}</p>
           <Button
             type="button"
             variant="secondary"
             size="lg"
             onClick={() => {
-              reset(createDefaultEisenaufklaerungValues());
+              reset(createDefaultEisenaufklaerungValues(locale));
               signaturePadRef.current?.clear();
               setSubmitMessage("");
               setIsSubmitted(false);
             }}
           >
-            Neues Formular
+            {copy.newForm}
           </Button>
         </div>
       </div>
@@ -190,15 +190,15 @@ export default function EiseninfusionPage() {
     <main className="fixed inset-0 flex bg-background text-foreground">
       <div className="mx-auto flex h-full w-full max-w-md flex-col overflow-hidden border-x border-border bg-background shadow-sm">
         <header data-anamnese-shell className="shrink-0 border-b border-border bg-background">
-          <nav aria-label="Eiseninfusion Navigation" className="grid h-14 grid-cols-[1fr_auto_1fr] items-center px-4">
+          <nav aria-label={copy.navLabel} className="grid h-14 grid-cols-[1fr_auto_1fr] items-center px-4">
             <Button type="button" variant="outline" size="sm" className="justify-self-start gap-1 rounded-md px-3" disabled>
               <ChevronLeftIcon className="size-4" aria-hidden="true" />
-              Zurück
+              {copy.back}
             </Button>
             <Image src={Logo} alt="Praxis Jona Logo" className="h-8 w-auto object-contain" priority />
           </nav>
           <div className="border-t border-border px-4 py-3">
-            <h1 className="text-lg font-semibold leading-none">Eiseninfusion</h1>
+            <h1 className="text-lg font-semibold leading-none">{copy.title}</h1>
           </div>
         </header>
 
@@ -206,14 +206,12 @@ export default function EiseninfusionPage() {
           <form id="eisenaufklaerung-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-7" noValidate>
             <FieldGroup>
               <div className="space-y-2">
-                <h2 className="text-2xl font-semibold leading-tight">
-                  Einverständniserklärung zur Eiseninfusion mit Ferinject, Monofer, Venofer und Fermed
-                </h2>
+                <h2 className="text-2xl font-semibold leading-tight">{copy.heading}</h2>
               </div>
-              {textField("patientName", "Patientenname", { required: true })}
+              {textField("patientName", copy.fields[0].label, { required: true })}
             </FieldGroup>
 
-            {eisenaufklaerungInformationSections.map((section) => (
+            {copy.informationSections.map((section) => (
               <section key={section.title} className="space-y-3">
                 <h2 className="text-xl font-semibold leading-tight">{section.title}</h2>
                 {"paragraphs" in section &&
@@ -233,23 +231,21 @@ export default function EiseninfusionPage() {
             ))}
 
             <FieldGroup>
-              <h2 className="text-2xl font-semibold leading-tight">
-                Patienteneigene Verantwortung bei Verzicht auf Überwachungszeit nach der Infusion
-              </h2>
-              <FieldDescription>(Bitte nur ankreuzen, wenn Sie auf eigene Verantwortung auf die Überwachungszeit verzichten möchten)</FieldDescription>
-              {checkboxField("monitoringWaiverAccepted", "Patienteneigene Verantwortung", eisenaufklaerungMonitoringWaiverText)}
+              <h2 className="text-2xl font-semibold leading-tight">{copy.monitoringHeading}</h2>
+              <FieldDescription>{copy.monitoringIntro}</FieldDescription>
+              {checkboxField("monitoringWaiverAccepted", copy.fields[1].label, copy.monitoringWaiverText)}
             </FieldGroup>
 
             <FieldGroup>
-              <h2 className="text-2xl font-semibold leading-tight">Einverständniserklärung</h2>
-              {checkboxField("consentAccepted", "Einverständniserklärung", eisenaufklaerungConsentText, true)}
+              <h2 className="text-2xl font-semibold leading-tight">{copy.consentHeading}</h2>
+              {checkboxField("consentAccepted", copy.fields[2].label, copy.consentText, true)}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                {textField("doctorInitials", "Kürzel Arzt")}
-                {textField("date", "Datum", { required: true })}
+                {textField("doctorInitials", copy.fields[3].label)}
+                {textField("date", copy.fields[4].label, { required: true })}
               </div>
               <Field data-invalid={!!getError(errors, "signature")}>
                 <FieldLabel>
-                  Unterschrift Patient <RequiredMark />
+                  {copy.fields[5].label} <RequiredMark />
                 </FieldLabel>
                 <Controller
                   control={control}
@@ -259,7 +255,7 @@ export default function EiseninfusionPage() {
                       ref={signaturePadRef}
                       value={field.value}
                       onChange={(dataUrl) => field.onChange(dataUrl)}
-                      clearLabel="Unterschrift löschen"
+                      clearLabel={copy.clearSignature}
                     />
                   )}
                 />
@@ -282,14 +278,14 @@ export default function EiseninfusionPage() {
           >
             <div className="flex items-center gap-2 rounded-full border border-border bg-background/95 px-3 py-2 text-sm font-medium text-muted-foreground shadow-md">
               <ArrowDownIcon className="size-4 animate-bounce" aria-hidden="true" />
-              Weiter nach unten
+              {copy.scrollDown}
             </div>
           </div>
         )}
 
         <div data-testid="eisenaufklaerung-bottom-toolbar" className="shrink-0 border-t border-border bg-background px-4 py-4">
           <Button type="submit" form="eisenaufklaerung-form" disabled={isSubmitting} className="h-12 w-full rounded-md text-base">
-            {isSubmitting ? "Wird übermittelt..." : "Absenden"}
+            {isSubmitting ? copy.submitting : copy.submit}
           </Button>
         </div>
       </div>

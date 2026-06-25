@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jsPDF } from "jspdf";
 
-import { createImpfaufklaerungSchema, impfaufklaerungQuestions, impfaufklaerungTextFields } from "@/app/anamnese/impfaufklaerung/form-definition";
+import { createImpfaufklaerungSchema, impfaufklaerungCopy } from "@/app/anamnese/impfaufklaerung/form-definition";
 
 const shouldMockDelivery = () =>
   process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";
 
-const valueOrDash = (value?: string) => value || "-";
+const valueOrDash = (value: string | undefined, fallback: string) => value || fallback;
 
 function generateImpfaufklaerungPDF(data: any) {
+  const copy = impfaufklaerungCopy[data.locale === "en" ? "en" : "de"];
   const doc = new jsPDF();
   let y = 20;
   const margin = 20;
@@ -28,40 +29,48 @@ function generateImpfaufklaerungPDF(data: any) {
   };
 
   doc.setFontSize(16);
-  addText("Impfaufklärung", true);
+  addText(copy.pdf.title, true);
   doc.setFontSize(10);
   y += 4;
 
-  impfaufklaerungTextFields.forEach((field) => addText(`${field.label}: ${valueOrDash(data[field.name])}`));
-  addText(`Geschlecht: ${valueOrDash(data.gender)}`);
+  copy.fields.forEach((field) => addText(`${field.label}: ${valueOrDash(data[field.name], copy.pdf.noInformation)}`));
+  addText(`${copy.pdf.gender}: ${valueOrDash(data.gender, copy.pdf.noInformation)}`);
   y += 4;
 
-  impfaufklaerungQuestions.forEach((question) => {
-    addText(`${question.question} ${valueOrDash(data[question.id])}`, true);
-    addText(`${question.detailLabel}: ${valueOrDash(data[question.detailName])}`);
+  copy.questions.forEach((question) => {
+    addText(`${question.question} ${data[question.id] === "ja" ? copy.yes : copy.no}`, true);
+    addText(`${question.detailLabel}: ${valueOrDash(data[question.detailName], copy.pdf.noInformation)}`);
   });
 
   y += 4;
-  addText("Ich bin über die Impfung aufgeklärt worden und bin mit der Impfung einverstanden.", true);
-  addText(`Risikoaufklärung gelesen: ${data.riskInformationRead ? "Ja" : "Nein"}`);
-  addText(`Einverständnis: ${data.consentAccepted ? "Ja" : "Nein"}`);
-  addText(`Ort, Datum: ${valueOrDash(data.placeDate)}`);
-  addText(`Unterschrift: ${data.signature ? "vorhanden" : "-"}`);
+  addText(copy.consentDescription, true);
+  copy.riskInformation.paragraphs.forEach((paragraph) => addText(paragraph));
+  copy.riskInformation.bullets.forEach((bullet) => addText(`- ${bullet}`));
+  addText(`${copy.pdf.riskInformationRead}: ${data.riskInformationRead ? copy.yes : copy.no}`);
+  addText(`${copy.pdf.consentAccepted}: ${data.consentAccepted ? copy.yes : copy.no}`);
+  addText(`${copy.pdf.placeDate}: ${valueOrDash(data.placeDate, copy.pdf.noInformation)}`);
+  addText(`${copy.pdf.signature}: ${data.signature ? copy.pdf.signaturePresent : copy.pdf.noInformation}`);
 
   return doc.output("datauristring").split(",")[1];
 }
 
 export async function POST(request: NextRequest) {
+  let errorMessage: string = impfaufklaerungCopy.de.error;
+
   try {
     const rawData = await request.json();
-    const formData = createImpfaufklaerungSchema().parse(rawData);
+    const locale = rawData?.locale === "en" ? "en" : "de";
+    const copy = impfaufklaerungCopy[locale];
+    errorMessage = copy.error;
+    const formData = createImpfaufklaerungSchema(locale).parse(rawData);
     const pdfBase64 = generateImpfaufklaerungPDF(formData);
 
     if (shouldMockDelivery()) {
       console.info("Impfaufklärung validated; skipping n8n delivery in local mock mode.", {
         patientName: formData.patientName,
+        locale: formData.locale,
       });
-      return NextResponse.json({ success: true, message: "Impfaufklärung lokal validiert" });
+      return NextResponse.json({ success: true, message: copy.pdf.mockMessage });
     }
 
     const n8nWebhookUrl = process.env.N8N_WEBHOOK_URL;
@@ -73,7 +82,7 @@ export async function POST(request: NextRequest) {
     n8nFormData.append(
       "file",
       new Blob([Buffer.from(pdfBase64, "base64")], { type: "application/pdf" }),
-      `Impfaufklaerung_${formData.patientName.replace(/\s+/g, "_")}.pdf`
+      `${copy.pdf.filenamePrefix}_${formData.patientName.replace(/\s+/g, "_")}.pdf`
     );
     n8nFormData.append("patientName", formData.patientName);
     n8nFormData.append("submittedAt", new Date().toISOString());
@@ -88,9 +97,9 @@ export async function POST(request: NextRequest) {
       throw new Error(`N8N webhook failed with status: ${response.status}`);
     }
 
-    return NextResponse.json({ success: true, message: "Impfaufklärung erfolgreich gesendet" });
+    return NextResponse.json({ success: true, message: copy.pdf.successMessage });
   } catch (error) {
     console.error("Error processing impfaufklaerung form:", error);
-    return NextResponse.json({ success: false, message: "Fehler beim Verarbeiten des Formulars" }, { status: 500 });
+    return NextResponse.json({ success: false, message: errorMessage }, { status: 500 });
   }
 }

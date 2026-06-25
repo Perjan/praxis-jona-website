@@ -32,6 +32,14 @@ describe("anamnese pdf helpers", () => {
     );
   });
 
+  it("localizes the English filename prefix", () => {
+    const payload = createValidAnamnesePayload({ locale: "en" });
+
+    expect(createAnamneseFilename(payload, new Date("2026-06-09T00:00:00.000Z"))).toBe(
+      "Medical_History_Form_Max_Mustermann_2026-06-09.pdf"
+    );
+  });
+
   it("generates a base64 PDF string for German and English payloads", () => {
     const german = generateAnamnesePDF(createValidAnamnesePayload(), new Date("2026-06-09T00:00:00.000Z"));
     const english = generateAnamnesePDF(
