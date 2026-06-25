@@ -172,9 +172,10 @@ test.describe("digital anamnese", () => {
     test.skip(testInfo.project.name !== "chromium", "English consent smoke coverage on Chromium");
     await page.goto("/en/anamnese/impfaufklaerung");
 
-    await expect(page.getByRole("heading", { name: "Vaccination Consent" })).toBeVisible();
+    await expect(page.locator("h1", { hasText: "Personal details of the person to be vaccinated" })).toBeVisible();
     await expect(page.getByLabel(/Name of vaccination/)).toBeVisible();
-    await expect(page.getByRole("button", { name: "Submit" })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Next/ })).toBeVisible();
+    await expect(page.getByRole("progressbar", { name: "Step 1" })).toBeVisible();
   });
 
   test("English iron infusion page renders localized copy", async ({ page }, testInfo) => {
@@ -183,15 +184,17 @@ test.describe("digital anamnese", () => {
 
     await expect(page.getByRole("heading", { name: "Iron Infusion", exact: true })).toBeVisible();
     await expect(page.getByLabel(/Patient name/)).toBeVisible();
-    await expect(page.getByRole("button", { name: "Submit" })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Next/ })).toBeVisible();
+    await expect(page.getByRole("progressbar", { name: "Step 1" })).toBeVisible();
   });
 
   test("English thyroid diagnostics page renders localized copy", async ({ page }, testInfo) => {
     test.skip(testInfo.project.name !== "chromium", "English thyroid smoke coverage on Chromium");
     await page.goto("/en/anamnese/thyroid-diagnostics");
 
-    await expect(page.locator("h1", { hasText: "Thyroid Diagnostics Questionnaire" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Thyroid Diagnostics Questionnaire" })).toBeVisible();
     await expect(page.getByLabel(/Reason for thyroid examination/)).toBeVisible();
-    await expect(page.getByRole("button", { name: "Submit" })).toBeVisible();
+    await expect(page.getByRole("button", { name: /Next/ })).toBeVisible();
+    await expect(page.getByRole("progressbar", { name: "Step 1" })).toBeVisible();
   });
 });

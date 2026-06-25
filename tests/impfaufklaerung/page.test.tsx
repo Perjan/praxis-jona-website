@@ -41,7 +41,8 @@ describe("ImpfaufklaerungPage", () => {
     );
   });
 
-  it("renders the exact PDF-backed field labels", () => {
+  it("renders the exact PDF-backed field labels across wizard steps", async () => {
+    const user = userEvent.setup();
     render(<ImpfaufklaerungPage />);
 
     expect(screen.getByLabelText(/Name der Schutzimpfung/)).toBeInTheDocument();
@@ -51,16 +52,40 @@ describe("ImpfaufklaerungPage", () => {
     expect(screen.getByLabelText("Telefonnummer")).toBeInTheDocument();
     expect(screen.getByLabelText("E-Mail-Adresse")).toBeInTheDocument();
     expect(screen.getByLabelText("Ggf. Name der gesetzlichen Vertretung")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Weiter/ })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Absenden" })).not.toBeInTheDocument();
+
+    await user.type(screen.getByLabelText(/Name der Schutzimpfung/), "FSME");
+    await user.type(screen.getByLabelText(/Familienname, Vorname/), "Max Mustermann");
+    await user.type(screen.getByLabelText(/Geburtsdatum/), "01.01.1980");
+    await user.click(screen.getByLabelText("männlich"));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByText(/1. Leidet oder litt die zu impfende Person/)).toBeInTheDocument();
+
+    for (const label of screen.getAllByLabelText("Nein")) {
+      await user.click(label);
+    }
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByText(/11. Besteht eine Schwangerschaft/)).toBeInTheDocument();
+
+    for (const label of screen.getAllByLabelText("Nein")) {
+      await user.click(label);
+    }
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Impfkomplikationen und Risikoaufklärung/));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByLabelText(/Ort, Datum/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Absenden" })).toBeInTheDocument();
   });
 
-  it("blocks empty submission with field errors and invalid state", async () => {
+  it("blocks empty step navigation with field errors and invalid state", async () => {
     const user = userEvent.setup();
     render(<ImpfaufklaerungPage />);
 
-    await user.click(screen.getByRole("button", { name: "Absenden" }));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
 
     expect(await screen.findAllByText("Dieses Feld ist erforderlich")).not.toHaveLength(0);
     expect(screen.getByLabelText(/Name der Schutzimpfung/)).toHaveAttribute("aria-invalid", "true");
@@ -71,12 +96,12 @@ describe("ImpfaufklaerungPage", () => {
     const user = userEvent.setup();
     render(<ImpfaufklaerungPage locale="en" />);
 
-    expect(screen.getByRole("heading", { name: "Vaccination Consent" })).toBeInTheDocument();
+    expect(screen.getAllByRole("heading", { name: "Personal details of the person to be vaccinated" })).not.toHaveLength(0);
     expect(screen.getByLabelText(/Name of vaccination/)).toBeInTheDocument();
     expect(screen.getByLabelText("Female")).toBeInTheDocument();
-    expect(screen.getByText(/Has the person to be vaccinated had an acute illness/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Next/ })).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: "Submit" }));
+    await user.click(screen.getByRole("button", { name: /Next/ }));
 
     expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
     expect(fetch).not.toHaveBeenCalled();

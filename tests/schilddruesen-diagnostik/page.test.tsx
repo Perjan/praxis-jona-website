@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { forwardRef, useImperativeHandle } from "react";
 import { describe, expect, it, vi } from "vitest";
 
@@ -21,22 +22,41 @@ vi.mock("@/app/anamnese/SignaturePad", () => ({
 }));
 
 describe("ThyroidDiagnosticsPage", () => {
-  it("renders the German source-backed thyroid form", () => {
+  it("renders the German source-backed thyroid form across wizard steps", async () => {
+    const user = userEvent.setup();
     render(<ThyroidDiagnosticsPage />);
 
-    expect(screen.getAllByRole("heading", { name: "Fragebogen zur Schilddrüsen-Diagnostik" })).toHaveLength(2);
+    expect(screen.getByRole("heading", { name: "Fragebogen zur Schilddrüsen-Diagnostik" })).toBeVisible();
     expect(screen.getByLabelText(/Grund der Schilddrüsenuntersuchung/)).toBeVisible();
+    expect(screen.getByRole("button", { name: /Weiter/ })).toBeVisible();
+    expect(screen.queryByRole("button", { name: "Absenden" })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
     expect(screen.getByText("Haben Sie Beschwerden im Halsbereich?")).toBeVisible();
-    expect(screen.getByText(/Einwilligungserklärung in die Datenweitergabe/)).toBeVisible();
+
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    expect(screen.getByText("Sind Sie sehr nervös?")).toBeVisible();
+
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    expect(screen.getByText(/Haben Sie Herzjagen/)).toBeVisible();
+
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    expect(screen.getAllByText(/Einwilligungserklärung in die Datenweitergabe/)).not.toHaveLength(0);
+
+    await user.type(screen.getByLabelText(/Name/), "Max Mustermann");
+    await user.type(screen.getByLabelText(/Geboren am/), "01.01.1980");
+    await user.type(screen.getByLabelText(/Adresse/), "Torstr. 125");
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByRole("button", { name: "Absenden" })).toBeVisible();
   });
 
   it("renders English localized copy", () => {
     render(<ThyroidDiagnosticsPage locale="en" />);
 
-    expect(screen.getAllByRole("heading", { name: "Thyroid Diagnostics Questionnaire" })).toHaveLength(2);
+    expect(screen.getByRole("heading", { name: "Thyroid Diagnostics Questionnaire" })).toBeVisible();
     expect(screen.getByLabelText(/Reason for thyroid examination/)).toBeVisible();
-    expect(screen.getByText("Do you have symptoms in the throat/neck area?")).toBeVisible();
-    expect(screen.getByRole("button", { name: "Submit" })).toBeVisible();
+    expect(screen.getByRole("button", { name: /Next/ })).toBeVisible();
+    expect(screen.queryByRole("button", { name: "Submit" })).not.toBeInTheDocument();
   });
 });
