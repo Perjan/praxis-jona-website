@@ -216,9 +216,57 @@ export const Constants = {
 
 export const NewsMessages = {
     de: [
-        
+        {
+            title: "Sommeröffnungszeiten",
+            message: `Bitte beachten Sie unsere geänderten Sprechzeiten während der Sommermonate:
+
+29.06. & 30.06.2026
+Nachmittags keine Sprechstunde (Quartalsabrechnung)
+30.06.: Praxis ab 11:00 Uhr geschlossen
+
+06.07. bis 17.07.2026
+Die Sprechstunde bei Frau Buhrmann entfällt.
+Dienstagnachmittags findet keine Sprechstunde statt.
+
+13.07. bis 24.07.2026
+Vertretung: Dr. Thomas Rößner
+In diesem Zeitraum findet am Montag keine Nachmittagssprechstunde statt.
+
+27.07. bis 07.08.2026
+Die Sprechstunde bei Frau Dr. Gjolli entfällt.
+Montagnachmittags keine Akutsprechstunde
+Dienstagvormittags keine Akutsprechstunde
+
+Wir danken Ihnen für Ihr Verständnis und wünschen Ihnen einen schönen Sommer.
+
+Ihr Team der Praxis Jona`
+        },
     ],
     en: [
-        
+        {
+            title: "Summer Opening Hours",
+            message: `Please note our changed consultation hours during the summer months:
+
+29.06. & 30.06.2026
+No afternoon consultation hours (quarterly billing)
+30.06.: Practice closed from 11:00
+
+06.07. to 17.07.2026
+Consultation hours with Ms. Buhrmann are cancelled.
+There will be no consultation hours on Tuesday afternoons.
+
+13.07. to 24.07.2026
+Substitute doctor: Dr. Thomas Rößner
+During this period, there will be no Monday afternoon consultation hours.
+
+27.07. to 07.08.2026
+Consultation hours with Dr. Gjolli are cancelled.
+No acute consultation hours on Monday afternoons
+No acute consultation hours on Tuesday mornings
+
+Thank you for your understanding. We wish you a pleasant summer.
+
+Your Praxis Jona team`
+        },
     ]
 }
