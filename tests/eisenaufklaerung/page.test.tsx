@@ -41,22 +41,35 @@ describe("EiseninfusionPage", () => {
     );
   });
 
-  it("renders the exact Pages-backed field labels", () => {
+  it("renders the exact Pages-backed field labels across wizard steps", async () => {
+    const user = userEvent.setup();
     render(<EiseninfusionPage />);
 
     expect(screen.getByLabelText(/Patientenname/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Weiter/ })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Absenden" })).not.toBeInTheDocument();
+
+    await user.type(screen.getByLabelText(/Patientenname/), "Max Mustermann");
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
+    expect(screen.getByText("Nebenwirkungen und wichtige Hinweise")).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByLabelText(/Patienteneigene Verantwortung/)).toBeInTheDocument();
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+
     expect(screen.getByLabelText(/Einverständniserklärung/)).toBeInTheDocument();
     expect(screen.getByLabelText(/Kürzel Arzt/)).toBeInTheDocument();
     expect(screen.getByLabelText(/Datum/)).toBeInTheDocument();
     expect(screen.getByText("Unterschrift Patient")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Absenden" })).toBeInTheDocument();
   });
 
-  it("blocks empty submission with field errors and invalid state", async () => {
+  it("blocks empty step navigation with field errors and invalid state", async () => {
     const user = userEvent.setup();
     render(<EiseninfusionPage />);
 
-    await user.click(screen.getByRole("button", { name: "Absenden" }));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
 
     expect(await screen.findAllByText("Dieses Feld ist erforderlich")).not.toHaveLength(0);
     expect(screen.getByLabelText(/Patientenname/)).toHaveAttribute("aria-invalid", "true");
@@ -69,9 +82,9 @@ describe("EiseninfusionPage", () => {
 
     expect(screen.getByRole("heading", { name: "Iron Infusion" })).toBeInTheDocument();
     expect(screen.getByLabelText(/Patient name/)).toBeInTheDocument();
-    expect(screen.getByText(/Consent form for iron infusion/)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /Next/ })).toBeInTheDocument();
 
-    await user.click(screen.getByRole("button", { name: "Submit" }));
+    await user.click(screen.getByRole("button", { name: /Next/ }));
 
     expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
     expect(fetch).not.toHaveBeenCalled();
