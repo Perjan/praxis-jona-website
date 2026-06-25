@@ -14,6 +14,10 @@ describe("FormsEntryPage", () => {
       "href",
       "/anamnese/schilddruesen-diagnostik",
     );
+    expect(screen.getByText("Quelle: Longevity_Anamnesebogen")).toBeInTheDocument();
+    expect(screen.getByText("Quelle: Impfaufklärung J. Gjolli")).toBeInTheDocument();
+    expect(screen.getByText("Quelle: Aufklaerung_und_Behandlungsvertrag_Eisen")).toBeInTheDocument();
+    expect(screen.getByText("Quelle: AnamnesebogenSD_und_Datenschutz")).toBeInTheDocument();
   });
 
   it("links to every English form from the English entry page", () => {
@@ -35,5 +39,9 @@ describe("FormsEntryPage", () => {
       "href",
       "/en/anamnese/thyroid-diagnostics",
     );
+    expect(screen.getByText("Source: Longevity_Anamnesebogen")).toBeInTheDocument();
+    expect(screen.getByText("Source: Impfaufklärung J. Gjolli")).toBeInTheDocument();
+    expect(screen.getByText("Source: Aufklaerung_und_Behandlungsvertrag_Eisen")).toBeInTheDocument();
+    expect(screen.getByText("Source: AnamnesebogenSD_und_Datenschutz")).toBeInTheDocument();
   });
 });

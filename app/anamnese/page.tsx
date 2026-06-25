@@ -10,26 +10,30 @@ type Locale = "de" | "en";
 const formsCopy = {
   de: {
     title: "Formulare",
-    intro: "Bitte wählen Sie das Formular aus, das Sie ausfüllen möchten.",
+    intro: "Bitte wählen Sie das passende Praxisdokument aus.",
     forms: [
       {
-        title: "Anamnesebogen",
+        title: "Longevity-Anamnesebogen",
         description: "Medizinische Vorgeschichte, Lebensstil, Einwilligung und Unterschrift.",
+        source: "Quelle: Longevity_Anamnesebogen",
         href: "/anamnese/medical-history",
       },
       {
         title: "Impfaufklärung",
         description: "Aufklärung und Screening-Fragen vor einer Schutzimpfung.",
+        source: "Quelle: Impfaufklärung J. Gjolli",
         href: "/anamnese/impfaufklaerung",
       },
       {
-        title: "Eiseninfusion",
+        title: "Aufklärung Eiseninfusion",
         description: "Einverständniserklärung und Behandlungsaufklärung vor einer Eiseninfusion.",
+        source: "Quelle: Aufklaerung_und_Behandlungsvertrag_Eisen",
         href: "/anamnese/eiseninfusion",
       },
       {
-        title: "Schilddrüsen-Diagnostik",
+        title: "Schilddrüsen-Diagnostik & Datenschutz",
         description: "Fragebogen zur Schilddrüsenuntersuchung und Einwilligung in die Datenweitergabe.",
+        source: "Quelle: AnamnesebogenSD_und_Datenschutz",
         href: "/anamnese/schilddruesen-diagnostik",
       },
     ],
@@ -37,26 +41,30 @@ const formsCopy = {
   },
   en: {
     title: "Forms",
-    intro: "Please choose the form you would like to complete.",
+    intro: "Please choose the matching practice document.",
     forms: [
       {
-        title: "Medical History Form",
+        title: "Longevity Medical History Form",
         description: "Medical history, lifestyle, consent, and signature.",
+        source: "Source: Longevity_Anamnesebogen",
         href: "/en/anamnese/medical-history",
       },
       {
         title: "Vaccination Consent",
         description: "Consent and screening questions before vaccination.",
+        source: "Source: Impfaufklärung J. Gjolli",
         href: "/en/anamnese/impfaufklaerung",
       },
       {
         title: "Iron Infusion Consent",
         description: "Consent and treatment information before an iron infusion.",
+        source: "Source: Aufklaerung_und_Behandlungsvertrag_Eisen",
         href: "/en/anamnese/eiseninfusion",
       },
       {
-        title: "Thyroid Diagnostics",
+        title: "Thyroid Diagnostics & Data Consent",
         description: "Thyroid examination questionnaire and consent to data transfer.",
+        source: "Source: AnamnesebogenSD_und_Datenschutz",
         href: "/en/anamnese/thyroid-diagnostics",
       },
     ],
@@ -85,6 +93,7 @@ export default function FormsEntryPage({ locale = "de" }: { locale?: Locale } = 
                 <CardDescription>{form.description}</CardDescription>
               </CardHeader>
               <CardContent>
+                <p className="mb-4 text-sm text-muted-foreground">{form.source}</p>
                 <Button asChild className="w-full">
                   <Link href={form.href} aria-label={`${form.title} ${copy.open}`}>
                     {copy.open}
