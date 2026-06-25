@@ -1,7 +1,6 @@
 import Warning from "app/components/Warning";
 import { Constants, NewsMessages } from "app/Constants";
 import { Metadata } from "next";
-import Link from "next/link";
 
 const title = 'Aktuelles aus der Praxis Jona'
 const description = "Aktuelle Neuigkeiten, Stellenanzeigen und wichtige Hinweise aus der Praxis Jona in Berlin-Mitte für Patientinnen und Patienten."
@@ -76,18 +75,6 @@ export default function Page() {
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
                                     {/* <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." /> */}
-
-                                    <div className="max-w-3xl mx-auto items-center justify-center rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-1 border border-primary/20">
-                                        <h2 className="text-2xl justify-center text-center font-semibold font-serif leading-7 text-primary flex items-center">
-                                            Wir stellen ein: MFA (m/w/d)
-                                        </h2>
-                                        <div className="mt-4 text-center text-primaryLighter">
-                                            <p>Verstärke unser Team in Berlin-Mitte.</p>
-                                            <Link href="/jobs/mfa-mwd-berlin-mitte" className="inline-block mt-4 text-primary font-semibold underline">
-                                                Zur Stellenanzeige
-                                            </Link>
-                                        </div>
-                                    </div>
 
                                     {NewsMessages.de.map((item, index) => (
                                         <CardContent 
