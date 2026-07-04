@@ -72,7 +72,7 @@ export function ContactLatestNewsCard({ locale = "de" }: { locale?: "de" | "en" 
   return (
     <Link
       href={copy.latestNewsUrl}
-      className="mt-8 block max-w-3xl rounded-2xl bg-primary p-6 text-white shadow-lg shadow-stone-200/70 transition-colors hover:bg-primaryDarker sm:p-8"
+      className="block rounded-2xl bg-primary p-6 text-white shadow-lg shadow-stone-200/70 transition-colors hover:bg-primaryDarker sm:p-8"
     >
       <span className="text-sm font-semibold uppercase text-lightBeige">
         {copy.latestNewsTitle}
@@ -100,31 +100,35 @@ export default function ContactSection({ locale = "de" }: { locale?: "de" | "en"
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 <h2 className="text-3xl col-span-1 font-semibold font-serif tracking-tight text-primary">{copy.sectionTitle}</h2>
 
-                <div className="rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-3">
-                  <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
-                    <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> {copy.appointmentsTitle}
-                  </h3>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-1 lg:gap-8">
-                    <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                      <div className="flex flex-col justify-between h-full">
-                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                          <p>{copy.onlineBookingText}</p>
-                        </address>
-                        <div className='mt-8'>
-                          <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true}>{copy.onlineBookingButton}</PrimaryButton>
+                <div className="col-span-3 space-y-6">
+                  <ContactLatestNewsCard locale={locale} />
+
+                  <div className="rounded-2xl bg-lightBeige bg-opacity-40 p-10">
+                    <h3 className="text-2xl font-semibold font-serif leading-7 text-primary flex items-center">
+                      <CalendarDaysIcon className="h-8 w-8 mr-2" aria-hidden="true" /> {copy.appointmentsTitle}
+                    </h3>
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-1 lg:gap-8">
+                      <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                        <div className="flex flex-col justify-between h-full">
+                          <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                            <p>{copy.onlineBookingText}</p>
+                          </address>
+                          <div className='mt-8'>
+                            <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true}>{copy.onlineBookingButton}</PrimaryButton>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
-                      <div className="flex flex-col justify-between h-full">
-                        <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                          <p>{copy.phoneBookingText}</p>
-                          <p className='pt-4'>
-                            <a href={contact.phoneUrl} className='font-bold'>{contact.phone}</a>
-                          </p>
-                        </address>
-                        <div className='mt-8'>
-                          <PrimaryButton href={contact.phoneUrl} fullWidth={true}>{copy.phoneButton}</PrimaryButton>
+                      <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
+                        <div className="flex flex-col justify-between h-full">
+                          <address className="mt-3 space-y-1 text-md not-italic leading-6 text-primaryLighter">
+                            <p>{copy.phoneBookingText}</p>
+                            <p className='pt-4'>
+                              <a href={contact.phoneUrl} className='font-bold'>{contact.phone}</a>
+                            </p>
+                          </address>
+                          <div className='mt-8'>
+                            <PrimaryButton href={contact.phoneUrl} fullWidth={true}>{copy.phoneButton}</PrimaryButton>
+                          </div>
                         </div>
                       </div>
                     </div>
