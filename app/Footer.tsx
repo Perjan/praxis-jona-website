@@ -4,6 +4,7 @@ import { Constants } from "./Constants"
 import { usePathname } from "next/navigation";
 import { localeFromPathname } from "./lib/i18n-routing";
 import { LanguagePicker } from "./LanguagePicker";
+import { newJobOpeningCount } from "./data/jobs";
 
 const currentYear = new Date().getFullYear(); // Get the current year
 
@@ -20,7 +21,7 @@ const navigationGerman = {
     { name: 'Team', href: '/team' },
     { name: 'Aktuelles', href: '/aktuelles' },
     { name: 'Blog', href: '/blog' },
-    { name: 'Karriere', href: '/jobs' },
+    { name: 'Karriere', href: '/jobs', badge: newJobOpeningCount, badgeLabel: 'neue Stelle' },
   ],
 }
 
@@ -37,7 +38,7 @@ const navigationEnglish = {
     { name: 'Team', href: '/en/team' },
     { name: 'Latest News', href: '/en/latest-news' },
     { name: 'Blog', href: '/en/blog' },
-    { name: 'Jobs', href: '/en/jobs' },
+    { name: 'Jobs', href: '/en/jobs', badge: newJobOpeningCount, badgeLabel: 'new opening' },
   ],
 }
 
@@ -191,8 +192,18 @@ export default function Page() {
             <ul role="list" className="mt-2 space-y-2">
               {navigation.company.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="text-sm leading-6 text-primaryLighter hover:text-primary underline">
-                    {item.name}
+                  <a href={item.href} className="inline-flex items-center gap-1.5 text-sm leading-6 text-primaryLighter hover:text-primary">
+                    <span className="underline">{item.name}</span>
+                    {item.badge ? (
+                      <>
+                        <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-red-600 px-1.5 text-xs font-semibold leading-none text-white">
+                          {item.badge}
+                        </span>
+                        <span className="sr-only">
+                          {item.badge} {item.badgeLabel}
+                        </span>
+                      </>
+                    ) : null}
                   </a>
                 </li>
               ))}

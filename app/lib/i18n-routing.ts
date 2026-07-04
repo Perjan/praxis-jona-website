@@ -112,6 +112,7 @@ const deToEnRouteMap: Record<string, string> = {
   "/tv-legacy": "/en/tv-legacy",
   "/legal": "/en/legal",
   "/jobs/mfa-mwd-berlin-mitte": "/en/jobs/medical-assistant-berlin-mitte",
+  "/jobs/facharzt-allgemeinmedizin-innere-medizin-berlin-mitte": "/en/jobs/general-practitioner-internal-medicine-specialist-berlin-mitte",
   "/leistungen": "/en/services",
   "/leistungen/ernaehrungsmedizin": "/en/services/nutritional-medicine",
   "/leistungen/ernaehrungsmedizin/pakete/bronze": "/en/services/nutritional-medicine/packages/bronze",

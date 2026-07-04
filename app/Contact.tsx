@@ -1,4 +1,5 @@
 import PrimaryButton from './components/PrimaryButton';
+import Link from "next/link";
 
 import {
   CalendarDaysIcon,
@@ -29,6 +30,10 @@ const contactCopy = {
     subwayText: "U8 Haltestelle: Rosenthaler Platz",
     subwayWalkText: "Fußweg: ca. 20m",
     bvgButton: "BVG-Routenplaner",
+    latestNewsTitle: "Aktuelles",
+    latestNewsText: "Lesen Sie die neuesten Hinweise, Stellenanzeigen und Neuigkeiten aus der Praxis Jona.",
+    latestNewsButton: "Aktuelles ansehen",
+    latestNewsUrl: "/aktuelles",
   },
   en: {
     sectionTitle: "Contact",
@@ -47,6 +52,10 @@ const contactCopy = {
     subwayText: "U8 Bus stop: Rosenthaler Platz",
     subwayWalkText: "Footpath: approx. 20m",
     bvgButton: "BVG Route Planner",
+    latestNewsTitle: "Latest News",
+    latestNewsText: "Read the latest updates, job openings, and important notices from Praxis Jona.",
+    latestNewsButton: "View latest news",
+    latestNewsUrl: "/en/latest-news",
   },
 }
 
@@ -55,6 +64,27 @@ function localizedHours(item, locale: "de" | "en") {
     day: locale === "en" ? item.dayEn : item.day,
     hours: locale === "en" ? item.hours.replace("Geschlossen", "Closed") : item.hours,
   }
+}
+
+export function ContactLatestNewsCard({ locale = "de" }: { locale?: "de" | "en" }) {
+  const copy = contactCopy[locale]
+
+  return (
+    <Link
+      href={copy.latestNewsUrl}
+      className="mt-8 block max-w-3xl rounded-2xl bg-primary p-6 text-white shadow-lg shadow-stone-200/70 transition-colors hover:bg-primaryDarker sm:p-8"
+    >
+      <span className="text-sm font-semibold uppercase text-lightBeige">
+        {copy.latestNewsTitle}
+      </span>
+      <p className="mt-3 text-base leading-7 text-white/90">
+        {copy.latestNewsText}
+      </p>
+      <span className="mt-5 inline-flex rounded-xl bg-white px-5 py-2.5 font-serif text-primary">
+        {copy.latestNewsButton}
+      </span>
+    </Link>
+  )
 }
 
 export default function ContactSection({ locale = "de" }: { locale?: "de" | "en" }) {

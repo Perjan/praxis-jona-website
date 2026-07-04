@@ -1,4 +1,4 @@
-import Warning from "app/components/Warning";
+import { JobNewsCard } from "app/components/JobNewsCard";
 import { Constants, NewsMessages } from "app/Constants";
 import { Metadata } from "next";
 
@@ -74,7 +74,8 @@ export default function Page() {
                         <div className="bg-white py-16 sm:py-24">
                             <div className="mx-auto max-w-7xl">
                                 <div className="mx-auto items-center max-w-xl space-y-8 lg:mx-0 lg:max-w-none">
-                                {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}
+                                    <JobNewsCard locale="en" />
+
                                     {NewsMessages.en.map((item, index) => (
                                         <CardContent 
                                             key={index}
