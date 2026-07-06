@@ -1,0 +1,140 @@
+{
+  "site": "sc-domain:praxisjona.de",
+  "quotaProject": "",
+  "searchTypes": [
+    "web",
+    "image"
+  ],
+  "dimensions": [
+    "date",
+    "country",
+    "device",
+    "page",
+    "query"
+  ],
+  "rowLimit": 25000,
+  "defaultDays": 28,
+  "lagDays": 2,
+  "brandRegex": "\\b(praxis\\s*jona|praxisjona|doc\\.?\\s*jona|dr\\.?\\s*(jonida\\s*)?gjolli|jonida\\s*gjolli|gjolli\\s*jonida)\\b",
+  "nearWin": {
+    "minImpressions": 500,
+    "minPosition": 4,
+    "maxPosition": 15,
+    "maxPages": 50
+  },
+  "recommendationLimits": {
+    "maxTitleCandidates": 30,
+    "maxCandidatePages": 8,
+    "maxActiveProposals": 12
+  },
+  "queryInsights": {
+    "limit": 25,
+    "trendLimit": 25,
+    "minTopClicks": 1,
+    "minAbsoluteClickDelta": 1
+  },
+  "clusterOpportunities": {
+    "local_intent": [
+      "meta-description",
+      "internal-linking",
+      "geo-citation"
+    ],
+    "booking_pricing": [
+      "meta-description",
+      "internal-linking",
+      "content-structure"
+    ],
+    "how_to": [
+      "content-structure",
+      "faq-schema",
+      "geo-citation"
+    ],
+    "medical_services": [
+      "content-structure",
+      "faq-schema",
+      "internal-linking"
+    ],
+    "aesthetics": [
+      "meta-description",
+      "content-structure",
+      "internal-linking"
+    ],
+    "other": [
+      "content-structure",
+      "internal-linking",
+      "geo-citation"
+    ]
+  },
+  "clusters": [
+    {
+      "name": "brand",
+      "regex": "\\b(praxis\\s*jona|praxisjona|doc\\.?\\s*jona|dr\\.?\\s*(jonida\\s*)?gjolli|jonida\\s*gjolli|gjolli\\s*jonida)\\b"
+    },
+    {
+      "name": "local_intent",
+      "regex": "\\b(berlin|berlin\\s*mitte|mitte|rosenthaler\\s*platz|torstra(?:ss|ß)e|hausarzt\\s*berlin|internist\\s*berlin|arztpraxis|praxis\\s*berlin)\\b"
+    },
+    {
+      "name": "how_to",
+      "regex": "\\b(wie|was|wann|warum|ratgeber|leitfaden|hilfe|erkl(?:ae|ä)rung|ablauf|vorbereitung|nachsorge|how|what|when|why|guide)\\b"
+    },
+    {
+      "name": "booking_pricing",
+      "regex": "\\b(termin|buchen|online\\s*buchen|doctolib|kosten|preis|preise|privat|selbstzahler|rechnung|contact|kontakt|appointment|booking|price|cost)\\b"
+    },
+    {
+      "name": "general_medicine",
+      "regex": "\\b(hausarzt|allgemeinmedizin|innere\\s*medizin|internist|akutsprechstunde|ekg|ultraschall|sonographie|impfung|impfungen|reiseimpfung|reisemedizin|vaccination|general\\s*medicine|internal\\s*medicine)\\b"
+    },
+    {
+      "name": "prevention_longevity",
+      "regex": "\\b(vorsorge|check\\s*up|gesundheitsuntersuchung|praevention|prävention|longevity|private\\s*check\\s*up|preventive|prevention)\\b"
+    },
+    {
+      "name": "thyroid",
+      "regex": "\\b(schilddr(?:ue|ü)se|schilddruesen|hashimoto|tsh|thyroid)\\b"
+    },
+    {
+      "name": "cardiometabolic",
+      "regex": "\\b(bluthochdruck|hypertonie|fettstoffwechsel|cholesterin|cholesterol|lipid|lipidologie|diabetes|metabolisch)\\b"
+    },
+    {
+      "name": "nutrition_infusion",
+      "regex": "\\b(ern(?:ae|ä)hrung|ernaehrungsmedizin|abnehmspritze|gewicht|adipositas|mikron(?:ae|ä)hrstoff|infusion|eiseninfusion|eisenmangel|iron|nutrition)\\b"
+    },
+    {
+      "name": "aesthetics",
+      "regex": "\\b(botox|botulinum|falten|haarausfall|prp|microneedling|polynukleotid|polynucleotide|skin|aesthetic|aesthetik|ästhetik)\\b"
+    },
+    {
+      "name": "forms_patient",
+      "regex": "\\b(anamnese|formular|formulare|aufkl(?:ae|ä)rung|impfaufkl(?:ae|ä)rung|einwilligung|patienten|medical\\s*history|forms)\\b"
+    },
+    {
+      "name": "other",
+      "regex": ".*"
+    }
+  ],
+  "titleSuggestionRules": [
+    {
+      "regex": "\\b(berlin|mitte|rosenthaler|torstra(?:ss|ß)e)\\b",
+      "suggestion": "Test a local-intent title that leads with the service and Berlin-Mitte location."
+    },
+    {
+      "regex": "\\b(kosten|preise|preis|cost|price)\\b",
+      "suggestion": "Test a pricing title that states the treatment category, location, and pricing clarity."
+    },
+    {
+      "regex": "\\b(botox|botulinum|haarausfall|prp|microneedling|polynukleotid)\\b",
+      "suggestion": "Test a treatment-led title that names the indication, physician-led care, and Berlin-Mitte."
+    },
+    {
+      "regex": "\\b(check\\s*up|vorsorge|gesundheitsuntersuchung|longevity)\\b",
+      "suggestion": "Test a prevention title that leads with the check-up outcome and target patient intent."
+    },
+    {
+      "regex": "\\b(schilddr(?:ue|ü)se|hashimoto|bluthochdruck|hypertonie|fettstoffwechsel)\\b",
+      "suggestion": "Test a condition-led title that pairs the diagnosis with practical specialist care."
+    }
+  ]
+}

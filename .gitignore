@@ -41,3 +41,9 @@ next-env.d.ts
 /public/sitemap-0.xml
 .env
 /.playwright-mcp
+
+# local Google Search Console dashboard artifacts
+/data/gsc/**
+!/data/gsc/
+!/data/gsc/.gitkeep
+!/data/gsc/implementation-history.jsonl
