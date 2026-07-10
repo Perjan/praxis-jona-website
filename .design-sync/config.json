@@ -1,0 +1,11 @@
+{
+  "projectId": "8b215e51-c869-4cde-b38b-f595161fd112",
+  "shape": "package",
+  "pkg": "praxisjona-website",
+  "globalName": "PraxisJona",
+  "srcDir": "components",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": ".design-sync/.cache/ds.css",
+  "readmeHeader": ".design-sync/conventions.md",
+  "buildCmd": "npx tailwindcss -c .design-sync/tailwind.ds.js -i .design-sync/ds-tailwind.css -o .design-sync/.cache/ds.css --minify"
+}
