@@ -121,6 +121,19 @@ diet, yesNo). Keep previews in German — this is a Berlin practice.
   `app/components/` and are excluded because they depend on Next.js. If they are ever
   wanted in Claude Design, they need `next/link` + `next/image` shims — that is a
   deliberate scope decision, not an oversight.
+- **Any `app/` page change drifts the uploaded stylesheet.** `tailwind.ds.js` scans the
+  whole site, so adding a page adds utilities and changes `_ds_bundle.css` → the anchor's
+  `styleSha` no longer matches the project. Nothing fails loudly; designs built with the
+  DS are just missing the newer utilities. Observed for real: merging the jobs + GSC
+  dashboard pages into this branch added 9 classes (`truncate`, `border-slate-100`,
+  `text-emerald-700`, …), removed none. **Always re-run the driver after rebasing onto a
+  moved `main`**, even when `components/ui/` is untouched. The driver handles it well —
+  it reports `bundle: false`, `styling: true`, every component `unchanged`, so grades
+  carry forward and only the CSS re-uploads. That is the expected shape of this drift;
+  the delta should be a pure superset (`removed classes: 0`). A **removed** class means
+  a page deleted the last use of a utility a preview or design still depends on — look
+  at it before uploading.
+
 - Tokens live in `.design-sync/ds-tailwind.css` as a **copy** of the `:root` block in
   `app/globals.css`. If the palette changes in `globals.css`, this copy does not follow.
   Diff the two on re-sync.
