@@ -283,11 +283,11 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrLabel: "Mehr erfahren",
     displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.de)),
     prices: [
-      rowPrice(findRow(glp1Rows, "beratung-start")),
-      rowPrice(findRow(glp1Rows, "abnehmspritze-paket")),
-      rowPrice(findRow(glp1Rows, "rundum-sorglos")),
+      rowPrice(findRow(glp1Rows, "umfassender-ersttermin")),
+      rowPrice(findRow(glp1Rows, "digitaler-ersttermin")),
+      rowPrice(findRow(glp1Rows, "velto-premium")),
     ],
-    bullets: ["Medizinische Eignung prüfen", "Verlauf strukturieren", "Mit App-Begleitung möglich"],
+    bullets: ["Vor-Ort-Betreuung oder digital", "Rezept nur nach ärztlicher Prüfung", "Medikamentenkosten nicht enthalten"],
   },
   {
     id: "micronutrients",
@@ -498,11 +498,11 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
         qrLabel: "Learn more",
         displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.en)),
         prices: [
-          rowPriceEn(findRow(glp1Rows, "beratung-start")),
-          rowPriceEn(findRow(glp1Rows, "abnehmspritze-paket")),
-          rowPriceEn(findRow(glp1Rows, "rundum-sorglos")),
+          rowPriceEn(findRow(glp1Rows, "umfassender-ersttermin")),
+          rowPriceEn(findRow(glp1Rows, "digitaler-ersttermin")),
+          rowPriceEn(findRow(glp1Rows, "velto-premium")),
         ],
-        bullets: ["Check medical suitability", "Structure progress", "App support available"],
+        bullets: ["In-practice or digital care", "Prescription only after physician review", "Medication costs not included"],
       };
     case "micronutrients":
       return {

@@ -6,40 +6,56 @@ const weightLossBookingLink = Constants.appointmentUrlsByService.weightLossInjec
 
 export const nutritionConsultationPackage = {
     title: {
-        de: 'Ernährungsberatung',
-        en: 'Nutrition Consultation'
+        de: 'Ernährungsmedizinische Beratung',
+        en: 'Nutritional Medicine Consultation'
     },
     price: {
-        de: 'ab 124€ ',
-        en: 'from 124€ '
+        de: '240,26€',
+        en: '€240.26'
     },
     priceAppend: {
         de: '(nach GOÄ)',
-        en: '(after GOÄ)'
+        en: '(according to GOÄ)'
+    },
+    firstPriceLabel: {
+        de: '60-minütiges Erstgespräch',
+        en: '60-minute initial consultation'
+    },
+    secondPrice: {
+        de: '120,65€',
+        en: '€120.65'
+    },
+    secondPriceLabel: {
+        de: '30-minütiges Folgegespräch',
+        en: '30-minute follow-up consultation'
     },
     billingCycle: {
-        de: 'ca. 30 Minuten Ernährungsberatung',
-        en: 'approx. 30 minutes nutrition consultation'
+        de: 'Individuelle Ernährungsstrategie',
+        en: 'Individual nutrition strategy'
     },
     description: {
-        de: 'Die Ernährungsberatung erfolgt individuell, medizinisch fundiert und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet. Sie richtet sich an Personen, die ihre Ernährung gezielt zur Verbesserung ihres Wohlbefindens, zur Gewichtsregulation oder im Rahmen bestimmter Erkrankungen optimieren möchten.',
-        en: 'Nutrition consultation is provided individually, based on medical evidence, and is fully billed according to the German Medical Fee Schedule (GOÄ). It is aimed at people who want to optimize their nutrition specifically to improve their well-being, for weight regulation, or in the context of certain diseases.'
+        de: 'In der ernährungsmedizinischen Sprechstunde entwickeln wir gemeinsam eine individuelle Ernährungsstrategie, die zu Ihrer gesundheitlichen Situation, Ihren persönlichen Zielen und Ihrem Alltag passt.',
+        en: 'In the nutritional medicine consultation, we develop an individual nutrition strategy together that fits your health situation, personal goals and everyday life.'
     },
     details: {
         de: [
-            'BIA-Messung zur Bestimmung der Körperzusammensetzung',
-            'Auswertung eines 3-Tage-Ernährungsprotokolls',
-            'Erarbeitung individueller Ernährungsstrategien und praktischer Umsetzungsempfehlungen'
+            'Ausführliche Ernährungs- und Lebensstilanamnese',
+            'Analyse Ihres Ernährungstagebuchs',
+            'Ermittlung Ihres individuellen Kalorien- und Proteinbedarfs',
+            'Individuelle Ernährungsempfehlungen und persönlicher Ernährungsplan',
+            'Empfehlungen zu Bewegung und Lebensstil'
         ],
         en: [
-            'BIA measurement to determine body composition',
-            'Evaluation of a 3-day nutrition protocol',
-            'Development of individual nutrition strategies and practical implementation recommendations'
+            'Detailed nutrition and lifestyle history',
+            'Analysis of your nutrition diary',
+            'Calculation of your individual calorie and protein needs',
+            'Individual nutrition recommendations and personal nutrition plan',
+            'Recommendations for movement and lifestyle'
         ]
     },
     bottomText: {
-        de: 'Die Kosten der ernährungsmedizinischen Beratung sind Selbstzahlerleistungen und werden nicht von den gesetzlichen Krankenkassen übernommen. In Einzelfällen kann bei privat Versicherten eine Erstattung nach GOÄ erfolgen – abhängig vom jeweiligen Versicherungsvertrag.',
-        en: 'The costs of nutritional medicine consultation are self-pay services and are not covered by statutory health insurance. In individual cases, privately insured patients may receive reimbursement according to GOÄ – depending on the respective insurance contract.'
+        de: 'Eine vollständige oder teilweise Erstattung durch gesetzliche oder private Krankenversicherungen ist abhängig von der jeweiligen Krankenkasse beziehungsweise Ihrem individuellen Versicherungstarif und kann nicht garantiert werden.',
+        en: 'Full or partial reimbursement by statutory or private health insurance depends on the respective health insurer or your individual insurance tariff and cannot be guaranteed.'
     },
     buttonText: {
         de: 'Termin buchen',
@@ -55,42 +71,42 @@ export const nutritionConsultationPackage = {
 export const nutritionPricingPlans = [
     {
         title: {
-            de: 'Paket BASIS',
-            en: 'BASIC Package'
+            de: 'Erstgespräch',
+            en: 'Initial Consultation'
         },
         price: {
-            de: '249,51€ ',
-            en: '249,51€ '
+            de: '240,26€',
+            en: '€240.26'
         },
         priceAppend: {
             de: '(nach GOÄ)',
-            en: '(after GOÄ)'
+            en: '(according to GOÄ)'
         },
         billingCycle: {
-            de: '3 Termine, jeweils 30 Minuten',
-            en: '3 appointments of 30 minutes each'
+            de: '60 Minuten',
+            en: '60 minutes'
         },
         description: {
-            de: 'Ideal für den Einstieg oder gezielte Beratung bei klarer Fragestellung.',
-            en: 'Ideal for the first step or targeted advice in case of a clear question.'
+            de: 'Ausführliche Analyse Ihrer aktuellen Ernährung und Entwicklung eines individuellen Ernährungsplans.',
+            en: 'Detailed analysis of your current nutrition and development of an individual nutrition plan.'
         },
         details: {
             de: [
-                '3 persönliche Ernährungsberatungen (je 30 Min)',
-                'Zieldefinition & individuelle Ernährungsempfehlungen',
-                'Körperzusammensetzung mit BIA-Messung bei jedem Termin',
-                'Medizinische Einschätzung & praxisnahe Umsetzungstipps'
+                'Ausführliche Ernährungs- und Lebensstilanamnese',
+                'Analyse Ihres Ernährungstagebuchs',
+                'Ermittlung Ihres individuellen Kalorien- und Proteinbedarfs',
+                'Persönlicher Ernährungsplan und realistische Zielplanung'
             ],
             en: [
-                '3 personal nutrition consultations (30 min each)',
-                'Goal definition & individual nutrition recommendations',
-                'Body composition measurement with BIA at each appointment',
-                'Medical assessment & practical implementation tips'
+                'Detailed nutrition and lifestyle history',
+                'Analysis of your nutrition diary',
+                'Calculation of your individual calorie and protein needs',
+                'Personal nutrition plan and realistic goal planning'
             ]
         },
         bottomText: {
-            de: 'Auswertung eines detaillierten 3-Tage-Ernährungsprotokolls – Zusatzkosten je nach Umfang möglich (nach GOÄ).',
-            en: 'Evaluation of a detailed 3-day nutrition protocol – additional costs possible (after GOÄ).'
+            de: 'Vorhandene Laborwerte und bestehende Erkrankungen können berücksichtigt werden.',
+            en: 'Existing laboratory values and current medical conditions can be taken into account.'
         },
         buttonText: {
             de: 'Termin buchen',
@@ -104,42 +120,42 @@ export const nutritionPricingPlans = [
     },
     {
         title: {
-            de: 'Paket INTENSIV',
-            en: 'INTENSIVE Package'
+            de: 'Folgegespräch',
+            en: 'Follow-up Consultation'
         },
         price: {
-            de: '415,85€ ',
-            en: '415,85€ '
+            de: '120,65€',
+            en: '€120.65'
         },
         priceAppend: {
             de: '(nach GOÄ)',
-            en: '(after GOÄ)'
+            en: '(according to GOÄ)'
         },
         billingCycle: {
-            de: '5 Termine, jeweils 30 Minuten',
-            en: '5 appointments of 30 minutes each'
+            de: '30 Minuten',
+            en: '30 minutes'
         },
         description: {
-            de: 'Empfohlen für nachhaltige Umstellung, komplexe Themen oder begleitend zur Abnehmspritze..',
-            en: 'Recommended for long-term support and goal achievement.'
+            de: 'Überprüfung Ihrer Fortschritte und Anpassung der Ernährungsstrategie.',
+            en: 'Review of your progress and adjustment of the nutrition strategy.'
         },
         details: {
             de: [
-                '5 persönliche Ernährungsberatungen (je 30 Min)',
-                'Langfristige Zielplanung & stufenweise Anpassung',
-                'Körperzusammensetzung mit BIA-Messung bei jedem Termin',
-                'Regelmäßige Evaluation von Fortschritten & Hürden'
+                'Analyse Ihrer erreichten Ziele',
+                'Besprechung von Schwierigkeiten im Alltag',
+                'Analyse Ihres aktuellen Ernährungsprotokolls',
+                'Anpassung von Empfehlungen, Kalorien- und Proteinbedarf'
             ],
             en: [
-                '5 personal nutrition consultations (30 min each)',
-                'Long-term goal planning & gradual adjustment',
-                'Body composition measurement with BIA at each appointment',
-                'Regular evaluation of progress & obstacles'
+                'Analysis of your achieved goals',
+                'Discussion of everyday difficulties',
+                'Analysis of your current nutrition log',
+                'Adjustment of recommendations, calorie and protein needs'
             ]
         },
         bottomText: {
-            de: 'Auswertung eines detaillierten 3-Tage-Ernährungsprotokolls – Zusatzkosten je nach Aufwand möglich.',
-            en: 'Evaluation of a detailed 3-day nutrition protocol – additional costs possible.'
+            de: 'Für eine nachhaltige Ernährungsumstellung sind je nach Ausgangssituation in der Regel 3-5 Beratungen sinnvoll.',
+            en: 'For sustainable nutrition change, 3-5 consultations are usually useful depending on the starting situation.'
         },
         buttonText: {
             de: 'Termin buchen',
@@ -238,54 +254,54 @@ export const nutrientTherapyPackage = {
 
 export const glp1TherapyPackage = {
     title: {
-        de: 'Medizinische Begleitung bei der Therapie mit GLP-1-Analoga („Abnehmspritze")',
-        en: 'Medical Support for GLP-1 Therapy ("Weight Loss Injection")'
+        de: 'Medizinische Gewichtsreduktion & GLP-1-Therapie',
+        en: 'Medical Weight Loss & GLP-1 Therapy'
     },
     price: {
-        de: 'ab 124€',
-        en: 'from 124€'
+        de: 'ca. 289€',
+        en: 'approx. €289'
     },
     priceAppend: {
         de: '(nach GOÄ)',
-        en: '(after GOÄ)'
+        en: '(according to GOÄ)'
     },
     firstPriceLabel: {
-        de: 'ca. 30 Minuten Ernährungsberatung',
-        en: 'approx. 30 minutes nutrition consultation'
+        de: 'Umfassender Ersttermin vor Ort',
+        en: 'Comprehensive in-practice initial appointment'
     },
     secondPrice: {
-        de: 'ab 50€',
-        en: 'from 50€'
+        de: 'ca. 89€',
+        en: 'approx. €89'
     },
     secondPriceLabel: {
-        de: 'in der Erhaltungsphase, ca. 15 Minuten',
-        en: 'In maintenance phase, approx. 15 minutes'
+        de: 'Digitaler Ersttermin',
+        en: 'Digital initial appointment'
     },
     billingCycle: {
-        de: 'Ernährungsmedizinische Beratung',
-        en: 'Nutritional Medicine Consultation'
+        de: 'Vor Ort oder digital',
+        en: 'In practice or digital'
     },
     description: {
-        de: 'Die Behandlung erfolgt individuell nach ärztlicher Verordnung und wird vollständig gemäß der Gebührenordnung für Ärzte (GOÄ) abgerechnet.\n\nJede Beratung umfasst eine medizinisch fundierte Ernährungsanalyse, individuelle Zielanpassung sowie die kontinuierliche Kontrolle des Therapieverlaufs.',
-        en: 'Treatment is provided individually according to medical prescription and is fully billed according to the German Medical Fee Schedule (GOÄ).\n\nEach consultation includes a medically sound nutritional analysis, individual goal adjustment, and continuous monitoring of the therapy progress.'
+        de: 'Eine erfolgreiche Gewichtsreduktion ist mehr als die Verordnung einer Abnehmspritze. Wir bieten medizinische Begleitung von der umfassenden Betreuung in der Praxis bis zur digitalen GLP-1-Therapie.',
+        en: 'Successful weight loss is more than prescribing a weight-loss injection. We offer medical support from comprehensive in-practice care to digital GLP-1 therapy.'
     },
     details: {
         de: [
-            'BIA-Messung zur Bestimmung der Körperzusammensetzung',
-            'Besprechung der Laborwerte (sofern vorhanden)',
-            'Auswertung eines 3-Tage-Ernährungsprotokolls',
-            'Ernährungsanpassung entsprechend des aktuellen Therapieabschnitts'
+            'Umfassender Ersttermin mit Anamnese, Untersuchung, Ultraschall, Laborbeurteilung und Therapieauswahl',
+            'Folgegespräch: 20 Minuten, ca. 139€ nach GOÄ',
+            'Kurzer Therapie-Check telefonisch: bis ca. 10 Minuten, 69€',
+            'Velto Premium: digitale Begleitung und monatlicher Rezeptservice nach ärztlicher Prüfung, 20€ monatlich'
         ],
         en: [
-            'BIA measurement to determine body composition',
-            'Discussion of laboratory values (if available)',
-            'Evaluation of a 3-day nutrition protocol',
-            'Nutrition adjustment according to current therapy phase'
+            'Comprehensive initial appointment with history, examination, ultrasound, lab review and therapy selection',
+            'Follow-up consultation: 20 minutes, approx. €139 according to GOÄ',
+            'Short therapy check by telephone: up to approx. 10 minutes, €69',
+            'Velto Premium: digital support and monthly prescription service after physician review, €20 monthly'
         ]
     },
     bottomText: {
-        de: 'Die Kosten für das Medikament (GLP-1) sind nicht im Preis enthalten. Weder die Kosten für das Medikament noch die Kosten für die ärztliche Beratung und Begleitung werden derzeit von den gesetzlichen Krankenkassen übernommen.',
-        en: 'The costs for the medication (GLP-1) are not included in the price. Neither the costs for the medication nor the costs for medical consultation and support are currently covered by statutory health insurance.'
+        de: 'Die Kosten der Medikamente sind nicht enthalten. Eine Verordnung erfolgt ausschließlich nach ärztlicher Prüfung und bei bestehender medizinischer Indikation.',
+        en: 'Medication costs are not included. A prescription is issued only after physician review and when there is an existing medical indication.'
     },
     buttonText: {
         de: 'Termin buchen',
@@ -301,38 +317,38 @@ export const glp1TherapyPackage = {
 export const ozempicPackages = [
     {
         title: {
-            de: 'Abnehmspritze',
-            en: 'Weight Loss Injection'
+            de: 'Medizinische Gewichtssprechstunde',
+            en: 'Medical Weight Consultation'
         },
         price: {
-            de: '499€',
-            en: '499€'
+            de: 'ca. 289€',
+            en: 'approx. €289'
         },
         billingCycle: {
-            de: 'Einmalig',
-            en: 'One-time'
+            de: 'Umfassender Ersttermin',
+            en: 'Comprehensive initial appointment'
         },
         description: {
-            de: 'Ärztlich begleitetes Abnehmen mit der Abnehmspritze',
-            en: 'Medically supervised weight loss with weight loss injection'
+            de: 'Ausführliche medizinische Einschätzung und Therapieplanung in der Praxis',
+            en: 'Detailed medical assessment and therapy planning in the practice'
         },
         details: {
             de: [
-                'Erstgespräch (ca. 60 Min): Aufklärung zu Wirkung & Nebenwirkungen, Laborbesprechung, BIA-Messung, Analyse deines 3-Tage-Ernährungsprotokolls, individuelle Ernährungsempfehlungen, Rezeptausstellung',
-                '4 Ernährungsberatungen à 30 Min (alle 4 Wochen): Gewichtskontrolle, erneute Ernährungsanalyse, Zielanpassung & Begleitung bis zur Erhaltungsdosis',
-                'Medizinisches Monitoring: Blutkontrollen (nach 3 & 6 Monaten) und Ultraschall der Bauchorgane – eventuell Kassenleistung, je nach gewählten Laborparametern'
+                'Ausführliche medizinische Anamnese und Analyse bisheriger Abnehmversuche',
+                'Körperliche Untersuchung, Ultraschall und Beurteilung vorhandener Laborwerte',
+                'Prüfung, ob Wegovy® oder Mounjaro® medizinisch geeignet ist',
+                'Aufklärung, Therapieziele und Rezeptausstellung bei entsprechender medizinischer Indikation'
             ],
             en: [
-                'Initial consultation: Check for contraindications and detailed consultation on dietary changes',
-                'Consultation on lab values and interpretation of results',
-                'Prescription for weight loss injection',
-                'Check-ins every 4 weeks until maintenance dose (30 minutes)',
-                'Lab value consultation (lab values billed separately)'
+                'Detailed medical history and analysis of previous weight-loss attempts',
+                'Physical examination, ultrasound and assessment of existing laboratory values',
+                'Evaluation of whether Wegovy® or Mounjaro® is medically suitable',
+                'Information, therapy goals and prescription when medically indicated'
             ]
         },
         bottomText: {
-            de: 'Wichtig: Die Kosten für die Abnehmspritze sind nicht enthalten und werden nicht von der Krankenkasse übernommen.',
-            en: 'Important: The cost of the weight loss injection is not included and is not covered by the health insurance.'
+            de: 'Die Abrechnung erfolgt nach GOÄ entsprechend den tatsächlich erbrachten Leistungen. Medikamentenkosten sind nicht enthalten.',
+            en: 'Billing is according to GOÄ, based on the services actually provided. Medication costs are not included.'
         },
         buttonText: {
             de: 'Termin buchen',
@@ -346,34 +362,38 @@ export const ozempicPackages = [
     },
     {
         title: {
-            de: 'Abnehmspritze Rundum-Sorglos',
-            en: 'All-Inclusive Weight Loss Injection'
+            de: 'Velto DIGITAL',
+            en: 'Velto DIGITAL'
         },
         price: {
-            de: '1499€',
-            en: '1499€'
+            de: 'ca. 89€',
+            en: 'approx. €89'
         },
         billingCycle: {
-            de: 'Mindestlaufzeit: 3 Monate',
-            en: 'Minimum duration: 3 months'
+            de: 'Digitaler Ersttermin',
+            en: 'Digital initial appointment'
         },
         description: {
-            de: 'Alles in der Praxis - Ärztlich begleitetes Abnehmen mit Abnehmspritze',
-            en: 'Everything in-house - Medically supervised weight loss with weight loss injection'
+            de: 'Digitaler Behandlungsweg für Patientinnen und Patienten ohne umfassende Betreuung vor Ort',
+            en: 'Digital treatment pathway for patients who do not need comprehensive on-site care'
         },
         details: {
             de: [
-                'Inhalte des Silber-Pakets',
-                'Abnehmspritze inklusive',
-                'Wöchentliche Injektion durch medizinisches Fachpersonal',
-                'Körperzusammensetzungs-Messung mit Bioimpedanzwaage'
+                'Online-Anamnesebogen und ärztliche Videosprechstunde',
+                'Prüfung der medizinischen Eignung, Medikamentenauswahl und Aufklärung',
+                'Velto Premium optional: 20€ monatlich, monatlich kündbar',
+                'Ärztliche Videosprechstunde bei Bedarf: 69€ pro Termin nach GOÄ'
             ],
             en: [
-                'Contents of Silver package',
-                'Weight loss injection included',
-                'Weekly injection by medical professionals',
-                'Body composition measurement with bioimpedance scale'
+                'Online medical history form and physician video consultation',
+                'Medical suitability check, medication selection and information',
+                'Velto Premium optional: €20 monthly, cancellable monthly',
+                'Physician video consultation when needed: €69 per appointment according to GOÄ'
             ]
+        },
+        bottomText: {
+            de: 'Eine Verordnung erfolgt ausschließlich nach ärztlicher Prüfung und bei bestehender medizinischer Indikation. Medikamentenkosten sind nicht enthalten.',
+            en: 'A prescription is issued only after physician review and when there is an existing medical indication. Medication costs are not included.'
         },
         buttonText: {
             de: 'Termin buchen',

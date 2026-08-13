@@ -21,8 +21,8 @@ export const longevitySections = {
     en: "Vitamin Infusions & Infusion Therapy in Berlin-Mitte",
   },
   weightLoss: {
-    de: "Medizinische Gewichtsreduktion & GLP-1-Therapie (Abnehmspritze) in Berlin-Mitte",
-    en: "Medical Weight Loss & GLP-1 Therapy (Weight-Loss Injection) in Berlin-Mitte",
+    de: "Medizinische Gewichtsreduktion & GLP-1-Therapie",
+    en: "Medical Weight Loss & GLP-1 Therapy",
   },
 } as const;
 

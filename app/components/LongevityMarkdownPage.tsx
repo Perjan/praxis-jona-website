@@ -174,14 +174,14 @@ const detailConfig: Record<
     },
     facts: {
       de: [
-        { title: "Fokus", value: "Stoffwechsel, Essverhalten, Lebensstil", icon: ScaleIcon },
-        { title: "Therapie", value: "GLP-1 bei passender Indikation", icon: HeartIcon },
-        { title: "Begleitung", value: "quartalsweise oder monatlich", icon: CalendarDaysIcon },
+        { title: "Vor Ort", value: "Ersttermin ca. 289 €", icon: ScaleIcon },
+        { title: "Digital", value: "Ersttermin ca. 89 €", icon: HeartIcon },
+        { title: "Velto", value: "Premium 20 € monatlich", icon: CalendarDaysIcon },
       ],
       en: [
-        { title: "Focus", value: "metabolism, eating behavior, lifestyle", icon: ScaleIcon },
-        { title: "Therapy", value: "GLP-1 when indicated", icon: HeartIcon },
-        { title: "Follow-up", value: "quarterly or monthly", icon: CalendarDaysIcon },
+        { title: "In practice", value: "initial visit approx. €289", icon: ScaleIcon },
+        { title: "Digital", value: "initial visit approx. €89", icon: HeartIcon },
+        { title: "Velto", value: "Premium €20 monthly", icon: CalendarDaysIcon },
       ],
     },
   },

@@ -649,279 +649,136 @@ Infusionstherapien werden von gesetzlichen Krankenkassen meist nicht übernommen
 Private Krankenversicherungen oder Zusatzversicherungen können die Kosten je nach Tarif teilweise oder vollständig übernehmen.  
   
   
-# Medizinische Gewichtsreduktion & GLP-1-Therapie (Abnehmspritze) in Berlin-Mitte  
-  
-**Ärztlich begleitete Gewichtsreduktion mit individueller medizinischer Betreuung**  
-  
-In der Praxis Jona am Rosenthaler Platz bieten wir ärztlich geführte Konzepte zur medizinischen Gewichtsreduktion an.  
-  
-Im Mittelpunkt steht nicht nur kurzfristiger Gewichtsverlust, sondern eine langfristig sinnvolle und medizinisch begleitete Veränderung von:  
-  
-* Stoffwechsel,  
-* Essverhalten,  
-* Körperzusammensetzung,  
-* Lebensstil  
-* und gesundheitlichen Risikofaktoren.  
-  
-Je nach individueller Situation kann die Behandlung unter anderem eine GLP-1-Therapie („Abnehmspritze“) beinhalten.  
-  
-Unser Fokus liegt auf medizinisch fundierter Gewichtsreduktion statt kurzfristiger Crash-Diäten oder unrealistischer Versprechen.  
-  
-⸻  
-  
-**Was ist eine GLP-1-Therapie („Abnehmspritze“)?**  
-  
-GLP-1-Medikamente wurden ursprünglich zur Behandlung von Diabetes entwickelt und werden heute auch zur medizinischen Gewichtsreduktion eingesetzt.  
-  
-Die Therapie kann unter anderem unterstützen bei:  
-  
-* reduziertem Hungergefühl,  
-* schnellerem Sättigungsgefühl,  
-* besserer Kontrolle des Essverhaltens  
-* und langfristiger Gewichtsreduktion.  
-  
-Eine GLP-1-Therapie ist kein Ersatz für Ernährung oder Lebensstilveränderungen, sondern Teil eines strukturierten medizinischen Behandlungskonzepts.  
-  
-⸻  
-  
-**Für wen kann die Behandlung sinnvoll sein?**  
-  
-Eine ärztlich begleitete Gewichtsreduktion kann unter anderem sinnvoll sein bei:  
-  
-* Adipositas (BMI ≥ 30 kg/m²)  
-* Übergewicht (BMI ≥ 27 kg/m²) mit Begleiterkrankungen wie:  
-    * Bluthochdruck,  
-    * Typ-2-Diabetes,  
-    * Schlafapnoe,  
-    * Fettleber  
-    * oder metabolischem Syndrom  
-  
-Vor jeder Behandlung erfolgt eine ausführliche ärztliche Einschätzung.  
-  
-⸻  
-  
-**Wie läuft die Behandlung ab?**  
-  
-Zu Beginn erfolgt ein ausführliches ärztliches Erstgespräch mit:  
-  
-* Anamnese,  
-* Gewichtsanalyse,  
-* Besprechung von Beschwerden,  
-* Medikamentenanamnese,  
-* Ernährungsgewohnheiten  
-* und individueller Risikoeinschätzung.  
-  
-Je nach Situation können zusätzlich:  
-  
-* Blutuntersuchungen,  
-* Stoffwechselanalysen,  
-* Mikronährstoffanalysen  
-* oder weitere Diagnostik sinnvoll sein.  
-  
-⸻  
-  
-**Ernährungsberatung & medizinische Begleitung**  
-  
-Eine langfristig erfolgreiche Gewichtsreduktion basiert nicht nur auf Medikamenten, sondern auch auf:  
-  
-* Ernährung,  
-* Alltag,  
-* Bewegung,  
-* Muskelmasse,  
-* Regeneration  
-* und nachhaltigen Gewohnheiten.  
-  
-Deshalb kombinieren wir die Therapie auf Wunsch mit individueller Ernährungsberatung und medizinischer Verlaufskontrolle.  
-  
-⸻  
-  
-**Was kostet die Behandlung?**  
-Die medizinische Gewichtsreduktion erfolgt als ärztlich begleitete Privatleistung nach GOÄ.  
-  
-**Erstgespräch**  
-  
-*(einmalig)*  
-ca. 56 €*  
-  
-Das Erstgespräch umfasst unter anderem:  
-  
-* ausführliche ärztliche Beratung  
-* Gewichtskontrolle  
-* Blutdruckmessung  
-* Bauchumfang  
-* individuelle Einschätzung  
-* Therapieplanung  
-* Rezeptausstellung bei entsprechender Indikation  
-  
-⸻  
-  
-**Basis-Betreuung**  
-  
-*(vierteljährlich)*  
-ca. 40 €* pro Quartal  
-  
-Die Basisbetreuung beinhaltet:  
-  
-* ärztliche Verlaufskontrolle alle 3 Monate  
-* Gewichtskontrolle  
-* Blutdruckmessung & Bauchumfang  
-* Verlaufsgespräch  
-* individuelle Therapieanpassung bei Bedarf  
-  
-⸻  
-  
-**Intensive Betreuung**  
-  
-*(monatlich)*  
-ca. 20 €* pro Monat  
-  
-Die intensive Betreuung beinhaltet:  
-  
-* ärztliche Kontrolle einmal pro Monat  
-* Gewichtskontrolle  
-* Blutdruckmessung & Bauchumfang  
-* Verlaufsgespräch  
-* individuelle Dosisanpassung bei Bedarf  
-  
-Gerade in der Einstellungsphase kann eine engmaschigere medizinische Begleitung sinnvoll sein.  
-  
-**Ernährungsberatung**  
-  
-*(separat buchbar)*  
-89,17 €*  
-  
-Die Ernährungsberatung umfasst:  
-  
-* Analyse der Ernährungsgewohnheiten  
-* individuelle Ernährungsempfehlungen  
-* Unterstützung bei langfristiger Ernährungsumstellung  
-* Besprechung von Eiweißzufuhr, Sättigung, Essverhalten und Alltagstauglichkeit  
-  
-Eine nachhaltige Gewichtsreduktion basiert nicht nur auf Medikamenten, sondern auch auf langfristig umsetzbaren Ernährungsstrategien.  
-  
-⸻  
-  
-**Medikament**  
-  
-*(auf Rezept)*  
-  
-Zum Einsatz kommen je nach medizinischer Situation beispielsweise:  
-  
-* Mounjaro®  
-* Wegovy®  
-  
-Die Kosten der Medikamente hängen unter anderem ab von:  
-  
-* Präparat,  
-* Dosierung,  
-* Verfügbarkeit  
-* und Apotheke.  
-  
-Die Medikamente werden separat verordnet und abgerechnet.  
-  
-⸻  
-  
-**Zusätzliche Leistungen**  
-  
-Je nach Situation können zusätzlich sinnvoll sein:  
-  
-* Laboruntersuchungen  
-* Mikronährstoffanalysen  
-* Ernährungsberatung  
-* Infusionstherapien  
-* Körperzusammensetzungsanalysen  
-  
-Diese Leistungen werden individuell besprochen und separat berechnet.  
-  
-  
-Private Krankenversicherungen oder Zusatzversicherungen können bestimmte Leistungen je nach Tarif teilweise oder vollständig übernehmen.  
-  
-  
-  
-# Häufige Fragen zur medizinischen Gewichtsreduktion  
-  
-**Was ist der Unterschied zwischen einer Diät und einer medizinischen Gewichtsreduktion?**  
-  
-Bei einer medizinisch begleiteten Gewichtsreduktion werden:  
-  
-* Stoffwechsel,  
-* Vorerkrankungen,  
-* Laborwerte,  
-* Ernährung,  
-* Medikamente  
-* und individuelle Risikofaktoren  
-  
-berücksichtigt.  
-  
-Das Ziel ist eine langfristige und medizinisch sinnvolle Gewichtsreduktion.  
-  
-⸻  
-  
-**Ist die „Abnehmspritze“ für jede Person geeignet?**  
-  
-Nein. Ob eine GLP-1-Therapie sinnvoll ist, hängt unter anderem ab von:  
-  
-* Gewicht,  
-* Vorerkrankungen,  
-* Stoffwechsel,  
-* Medikamenten  
-* und individueller medizinischer Situation.  
-  
-Deshalb erfolgt vor jeder Behandlung eine ausführliche ärztliche Einschätzung.  
-  
-⸻  
-  
-**Muss ich meine Ernährung trotzdem umstellen?**  
-  
-Ja. Medikamente allein ersetzen keine langfristigen Veränderungen von Ernährung und Lebensstil.  
-  
-Eine nachhaltige Gewichtsreduktion entsteht meist durch die Kombination aus:  
-  
-* medizinischer Begleitung,  
-* Ernährungsanpassung,  
-* Bewegung  
-* und strukturierten Gewohnheiten.  
-  
-⸻  
-  
-**Können während der Gewichtsreduktion Mängel entstehen?**  
-  
-Ja. Gerade bei reduzierter Kalorienzufuhr oder verändertem Essverhalten können Mikronährstoffmängel entstehen.  
-  
-Deshalb kombinieren wir die Therapie auf Wunsch mit:  
-  
-* Mikronährstoffanalysen,  
-* Ernährungsberatung  
-* und individueller Supplementierung.  
-  
-⸻  
-  
-**Wie schnell nimmt man mit GLP-1-Therapie ab?**  
-  
-Die Gewichtsabnahme ist individuell unterschiedlich und hängt unter anderem ab von:  
-  
-* Ernährung,  
-* Bewegung,  
-* Stoffwechsel,  
-* Dosierung  
-* und Ausgangsgewicht.  
-  
-Das Ziel ist keine extreme kurzfristige Gewichtsreduktion, sondern ein langfristig stabiler und medizinisch sinnvoller Verlauf.  
-  
-⸻  
-  
-**Gibt es Nebenwirkungen?**  
-  
-Wie jedes Medikament können auch GLP-1-Medikamente Nebenwirkungen verursachen.  
-  
-Mögliche Beschwerden können unter anderem sein:  
-  
-* Übelkeit,  
-* Völlegefühl,  
-* Magen-Darm-Beschwerden  
-* oder Appetitveränderungen.  
-  
-Vor Beginn der Therapie erfolgt eine ausführliche ärztliche Aufklärung.  
-  
-  
-  
+# Medizinische Gewichtsreduktion & GLP-1-Therapie
+
+Eine erfolgreiche Gewichtsreduktion ist mehr als die Verordnung einer Abnehmspritze. Wir bieten Ihnen unterschiedliche Möglichkeiten der medizinischen Begleitung - von der umfassenden Betreuung in unserer Praxis bis zur digitalen GLP-1-Therapie.
+
+**Medizinische Gewichtssprechstunde**
+
+**Umfassender Ersttermin**
+
+Im Ersttermin nehmen wir uns ausführlich Zeit für Ihre medizinische Situation und prüfen gemeinsam, welche Therapie für Sie geeignet ist.
+
+Je nach individueller Situation beinhaltet der Termin:
+
+* ausführliche medizinische Anamnese
+* Analyse bisheriger Abnehmversuche und möglicher Ursachen der Gewichtszunahme
+* körperliche Untersuchung
+* Ultraschalluntersuchung
+* Beurteilung vorhandener Laborwerte
+* Prüfung, ob eine medikamentöse Gewichtsreduktion mit z. B. Wegovy® oder Mounjaro® medizinisch geeignet ist
+* Auswahl einer geeigneten Therapie
+* ausführliche Aufklärung über Anwendung, Wirkung, mögliche Nebenwirkungen und Kontraindikationen
+* Festlegung der individuellen Therapieziele
+* Rezeptausstellung bei entsprechender medizinischer Indikation
+
+Voraussichtliche Kosten: ca. 289 €
+
+Die Abrechnung erfolgt nach der Gebührenordnung für Ärzte (GOÄ) entsprechend den tatsächlich erbrachten Leistungen.
+
+⸻
+
+**Empfohlener Labor-Check**
+
+Vor Beginn einer medikamentösen Gewichtsreduktion empfehlen wir eine individuelle metabolische Ausgangsdiagnostik.
+
+Je nach medizinischer Situation können unter anderem folgende Werte bestimmt werden:
+
+Blutbild, Entzündungswerte, Schilddrüsenwerte, Nieren- und Leberwerte, Blutfette, Nüchternblutzucker, HbA1c sowie Nüchterninsulin zur Berechnung des HOMA-Index.
+
+Die Laboruntersuchungen werden individuell zusammengestellt und separat nach GOÄ berechnet.
+
+⸻
+
+**Folgegespräch**
+
+20 Minuten | für Bestandspatientinnen und Bestandspatienten
+
+Wir besprechen Ihren bisherigen Gewichtsverlauf, Verträglichkeit und mögliche Nebenwirkungen, Ihre persönlichen Ziele sowie die weitere Therapie und gegebenenfalls die Anpassung der Dosierung.
+
+Voraussichtliche Kosten: ca. 139 € nach GOÄ
+
+⸻
+
+**Kurzer Therapie-Check**
+
+Telefonisch | bis ca. 10 Minuten | 69 €
+
+Für kurze medizinische Rückfragen während einer bestehenden Therapie, insbesondere zur Verträglichkeit, zu Nebenwirkungen und zum weiteren Therapieverlauf.
+
+⸻
+
+**Ernährungsmedizinische Beratung**
+
+Die medikamentöse Therapie kann durch eine intensive ernährungsmedizinische Betreuung ergänzt werden.
+
+**Erstgespräch | 60 Minuten**
+
+Ausführliche Ernährungs- und Lebensstilintervention mit:
+
+* Analyse Ihres Ernährungstagebuchs
+* Ermittlung Ihres individuellen Kalorienbedarfs
+* Festlegung einer geeigneten Protein- und Nährstoffzufuhr
+* individuellen Ernährungsempfehlungen
+* Erstellung eines persönlichen Ernährungsplans
+* Definition realistischer Ziele für die kommenden Wochen
+
+Kosten: 240,26 € nach GOÄ
+
+**Folgegespräch | 30 Minuten**
+
+Wir analysieren gemeinsam Ihre vereinbarten Ziele:
+
+* Was konnten Sie bereits umsetzen?
+* Wo bestehen Schwierigkeiten?
+* Wie hat sich Ihr Ernährungsprotokoll entwickelt?
+* Welche Anpassungen sind sinnvoll?
+
+In der Regel sind mehrere Beratungen sinnvoll.
+
+Kosten: 120,65 € nach GOÄ
+
+Eine Erstattung der ernährungsmedizinischen Beratung durch gesetzliche oder private Krankenversicherungen ist abhängig von der jeweiligen Krankenkasse bzw. dem individuellen Versicherungstarif und kann nicht garantiert werden.
+
+⸻
+
+**Velto DIGITAL**
+
+**GLP-1-Therapie bequem digital begleiten**
+
+Für Patientinnen und Patienten, die keine umfassende Betreuung vor Ort benötigen, bieten wir einen digitalen Behandlungsweg an.
+
+**Digitaler Ersttermin**
+
+Sie füllen zunächst online einen ausführlichen medizinischen Anamnesebogen aus.
+
+Anschließend erfolgt eine ärztliche Videosprechstunde. Wir prüfen, ob eine medikamentöse Gewichtsreduktion für Sie medizinisch geeignet ist, welches Medikament infrage kommt und besprechen Anwendung, Dosierung, mögliche Nebenwirkungen und Kontraindikationen.
+
+Bei entsprechender medizinischer Indikation kann anschließend eine Verordnung erfolgen.
+
+Voraussichtliche Kosten: ca. 89 € nach GOÄ
+
+**Velto Premium | 20 € monatlich**
+
+Nach dem Ersttermin können Sie Ihre Therapie bequem über Velto begleiten lassen.
+
+Velto Premium beinhaltet:
+
+* digitale Begleitung Ihrer Therapie
+* Dokumentation Ihres Gewichtsverlaufs
+* übersichtliche Begleitung Ihrer Behandlung
+* monatlichen Rezeptservice nach ärztlicher Prüfung
+* Zusendung des Rezepts nach Hause
+* monatlich kündbar
+
+20 € pro Monat
+
+Die Kosten der Medikamente sind nicht enthalten.
+
+**Ärztliche Videosprechstunde bei Bedarf**
+
+Bei Nebenwirkungen, Fragen zur Therapie oder wenn eine ausführlichere ärztliche Beurteilung notwendig ist, können Sie jederzeit einen zusätzlichen Online-Termin buchen.
+
+69 € pro Termin nach GOÄ
+
+Eine Verordnung erfolgt ausschließlich nach ärztlicher Prüfung und bei bestehender medizinischer Indikation.
