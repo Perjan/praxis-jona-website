@@ -87,10 +87,10 @@ function HeroImage({ content }: { content: BotulinumtoxinPageContent }) {
         width={1774}
         height={887}
         priority
+        quality={90}
         sizes="(min-width: 1024px) 34vw, 92vw"
         className={`h-56 w-full object-cover sm:h-72 ${content.intro.image.objectPositionClass ?? "object-center"}`}
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/15 via-white/10 to-lightBeige/20" />
     </div>
   );
 }

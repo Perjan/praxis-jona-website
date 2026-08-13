@@ -57,7 +57,7 @@ export const botulinumtoxinIntro = {
   alternate: "/en/botox-treatment",
   image: {
     src: "/images/botulinumtoxin/botox-hero-founder.webp",
-    alt: "Zufriedene Frau in ihren Vierzigern mit natürlichem Ergebnis in minimalistisch-elegantem Look",
+    alt: "Blonde Frau Ende dreißig in elegantem Look in den Räumen der Praxis Jona",
     objectPositionClass: "object-[52%_38%]",
   },
 };
@@ -341,7 +341,7 @@ export const botulinumtoxinIntroEn = {
   alternate: "/botox-behandlung",
   image: {
     src: "/images/botulinumtoxin/botox-hero-founder.webp",
-    alt: "Satisfied woman in her forties with a natural result in a minimalist elegant look",
+    alt: "Blonde woman in her late thirties in an elegant look at Praxis Jona",
     objectPositionClass: "object-[52%_38%]",
   },
 };
