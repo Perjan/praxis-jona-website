@@ -124,7 +124,7 @@ export default function Page() {
   }
 
   return (
-    <footer className="bg-stone-100" aria-labelledby="footer-heading">
+    <footer className="relative z-10 bg-stone-100" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>

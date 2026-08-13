@@ -29,6 +29,7 @@
 - Wide-desktop copy refinement: centered the copy across the full viewport at 1280px and above. Tablet and mobile alignment remains unchanged.
 - Responsive audit refinement: removed the 1280px alignment jump, centered copy continuously from tablet upward, made the media layer fill the available viewport at every ratio, and moved the full navigation breakpoint to 1280px to prevent laptop-width crowding.
 - Phone asset refinement: replaced the portrait-specific source with the desktop hero asset and presents the full 16:9 frame above a centered dark-green copy surface at widths below 768px. Verified at 320px, 375px, 390px, 430px, and 767px in German and English.
+- Layer-stack refinement: isolated both homepage variants into an explicit stacking context with the fixed hero image at `0`, shade at `1`, hero UI at `2`, and opaque content/footer layers scrolling above. Verified at 1440 x 900 and 390 x 844 through initial, mid-scroll, and footer states.
 - Fixed-scroll evidence: after scrolling 520px, the image remains pinned at 68px while hero UI moves with the document and the quote section covers the image (`tmp/home-redesign/fixed-scroll.png`, `tmp/home-redesign/fixed-mobile-scroll.png`).
 
 **Focused Region Evidence**
