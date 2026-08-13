@@ -8,7 +8,8 @@ import { ReactToastWrapper } from './ToasterWrapper';
 import { Constants } from './Constants';
 import Script from 'next/script';
 import Authors from './blog/authors/AuthorsDataSource';
-import HtmlLangSync from './HtmlLangSync';
+import { headers } from 'next/headers';
+import { REQUEST_LOCALE_HEADER } from './lib/request-locale';
 
 
 export const metadata: Metadata = {
@@ -50,8 +51,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const locale = headers().get(REQUEST_LOCALE_HEADER) === 'en' ? 'en' : 'de';
+
   return (
-    <html lang='de'>
+    <html lang={locale}>
       <Script
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id={Constants.umamiId}
@@ -60,7 +63,6 @@ export default function RootLayout({
           />
       <body>
         <ReactToastWrapper>
-          <HtmlLangSync />
           <Header />
           <main id="main-content">{children}</main>
           <Footer />

@@ -2,7 +2,6 @@ import { Metadata } from "next";
 
 import ClinicSection from "app/ClinicSection";
 import HeroSection from "app/HeroSection";
-import ServiceCards from "app/components/ServiceCards";
 import QuoteSection from "app/QuoteSection";
 import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
@@ -85,24 +84,24 @@ export default function Features() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaEn) }}
             />
-            <HeroSection title={title} description="Holistic care for a healthy life - with us, you are more than just another patient" />
+            <HeroSection title="PRAXIS JONA" description="Holistic care for a healthy life - with us, you are more than just another patient" locale="en" />
 
-            <ServiceCards locale="en" />
+            <div className="home-content-over-hero">
+                <QuoteSection
+                    quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
+                    buttonLink="/en/team"
+                    buttonText="Meet the team"
+                    role="Specialist for Internal Medicine"
+                />
 
-            <QuoteSection
-                quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
-                buttonLink="/en/team"
-                buttonText="Meet the team"
-                role="Specialist for Internal Medicine"
-            />
+                {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}
 
-            {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}
-
-            <ClinicSection
-                title="Visit us in our Practice"
-                description1="Welcome to our general & internal medicine practice at Rosenthaler Platz in Berlin Mitte. We treat on the basis of modern diagnostics as well as many years of experience in Charitè in order to find the best way to maintain and restore health for each individual patient."
-                description2="Our practice focuses in particular on the treatment of thyroid disorders, high blood pressure, lipid metabolic disorders and nutritional medicine."
-                description3="We look forward to welcoming you personally to our practice in Berlin Mitte and to working with you on your health. " />
+                <ClinicSection
+                    title="Visit us in our Practice"
+                    description1="Welcome to our general & internal medicine practice at Rosenthaler Platz in Berlin Mitte. We treat on the basis of modern diagnostics as well as many years of experience in Charitè in order to find the best way to maintain and restore health for each individual patient."
+                    description2="Our practice focuses in particular on the treatment of thyroid disorders, high blood pressure, lipid metabolic disorders and nutritional medicine."
+                    description3="We look forward to welcoming you personally to our practice in Berlin Mitte and to working with you on your health. " />
+            </div>
         </>
         
     );

@@ -2,8 +2,6 @@ import { allPosts } from 'contentlayer/generated';
 import PaginatedPostsSection from 'app/PaginatedPostsSection';
 import { Metadata } from 'next';
 
-export const dynamic = "force-static";
-
 const title = 'Blog - Praxis Jona';
 const description = "English articles from Praxis Jona on internal medicine, prevention, nutrition and practice updates in Berlin-Mitte.";
 

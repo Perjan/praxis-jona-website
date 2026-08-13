@@ -151,19 +151,19 @@ export default function Header() {
         <header
             className={classNames(
                 scrollPosition > 0 ? 'shadow-lg' : 'shadow-none',
-                isHomepage ? 'bg-white/30' : 'border-b border-primary/10 bg-white/95',
+                isHomepage ? 'bg-white' : 'border-b border-primary/10 bg-white/95',
                 'sticky top-0 z-20 transition-shadow backdrop-blur-md',
             )}
         >
-            <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1 ml-0 cursor-pointer">
+            <nav className={cn("mx-auto flex items-center justify-between px-5 lg:px-8", isHomepage ? "max-w-[1440px] py-3 xl:py-2.5" : "max-w-7xl p-6 lg:px-8")} aria-label="Global">
+                <div className="flex xl:flex-1 ml-0 cursor-pointer">
                     <Link
                         href={locale === "de" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
                     >
                         <Image
                             priority={true}
-                            className="h-14 w-auto object-contain cursor-pointer"
+                            className={cn("w-auto object-contain cursor-pointer", isHomepage ? "h-11 xl:h-12" : "h-14")}
                             src={Logo}
                             alt="Praxis Jona Logo"
                             aria-hidden="true"
@@ -172,7 +172,7 @@ export default function Header() {
                     </Link>
                 </div>
 
-                <div className="flex lg:hidden">
+                <div className="flex xl:hidden">
                     <button
                         type="button"
                         className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -182,8 +182,8 @@ export default function Header() {
                         <CustomHamburgerIcon />
                     </button>
                 </div>
-                <div className="hidden lg:flex lg:flex-2 lg:justify-end">
-                    <Popover.Group className="hidden pr-10 lg:flex items-center lg:gap-x-8">
+                <div className="hidden xl:flex xl:flex-2 xl:justify-end">
+                    <Popover.Group className="hidden pr-10 xl:flex items-center xl:gap-x-8">
                         <Popover className="relative">
 
                             <Transition
@@ -213,7 +213,7 @@ export default function Header() {
                     </Popover.Group>
                     <DownloadButton url={downloadUrl} locale={locale} pathname={pathname} />
                 </div>
-                <div className="hidden mt-0 pl-4 space-x-1 md:order-1 lg:flex items-center">
+                <div className="hidden mt-0 pl-4 space-x-1 md:order-1 xl:flex items-center">
                     <LanguagePicker
                         locale={locale}
                         pathname={pathname}
