@@ -752,15 +752,17 @@ Expected costs: approx. €89 according to GOÄ
 
 **Velto Premium | €20 monthly**
 
-After the initial appointment, you can conveniently have your therapy supported through Velto.
+After the initial appointment, you can conveniently have your therapy supported through Velto. The key benefit: after physician review, your prescription is sent discreetly and comfortably to your home. When needed, an EU/EEA cross-border prescription can be issued if the medical and formal requirements are met.
 
 Velto Premium includes:
 
-* digital support for your therapy
+* access to the modern Velto GLP-1 app
+* digital support for your therapy in the app
 * documentation of your weight progress
 * clear support throughout your treatment
 * monthly prescription service after physician review
-* prescription sent to your home
+* discreet and comfortable prescription delivery to your home
+* EU/EEA cross-border prescription possible when requirements are met
 * cancellable monthly
 
 €20 per month

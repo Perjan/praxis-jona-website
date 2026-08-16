@@ -760,15 +760,17 @@ Voraussichtliche Kosten: ca. 89 € nach GOÄ
 
 **Velto Premium | 20 € monatlich**
 
-Nach dem Ersttermin können Sie Ihre Therapie bequem über Velto begleiten lassen.
+Nach dem Ersttermin können Sie Ihre Therapie bequem über Velto begleiten lassen. Der wichtigste Vorteil: Ihr Rezept wird nach ärztlicher Prüfung diskret und komfortabel zu Ihnen nach Hause geschickt. Bei Bedarf kann ein EU-/EWR-Auslandsrezept ausgestellt werden, sofern die medizinischen und formalen Voraussetzungen erfüllt sind.
 
 Velto Premium beinhaltet:
 
-* digitale Begleitung Ihrer Therapie
+* Zugang zur modernen GLP-1-App Velto
+* digitale Begleitung Ihrer Therapie in der App
 * Dokumentation Ihres Gewichtsverlaufs
 * übersichtliche Begleitung Ihrer Behandlung
 * monatlichen Rezeptservice nach ärztlicher Prüfung
-* Zusendung des Rezepts nach Hause
+* diskrete und komfortable Zusendung des Rezepts nach Hause
+* EU-/EWR-Auslandsrezept bei erfüllten Voraussetzungen möglich
 * monatlich kündbar
 
 20 € pro Monat

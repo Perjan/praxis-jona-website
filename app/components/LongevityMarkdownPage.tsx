@@ -10,6 +10,13 @@ import {
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 import { Constants, type AppointmentBookingUrls } from "app/Constants";
+import Glp1EligibilityCheck from "app/components/Glp1EligibilityCheck";
+import {
+  Glp1CarePath,
+  Glp1DigitalAndSuitability,
+  Glp1HeroAside,
+  Glp1PricingCta,
+} from "app/components/Glp1PageSections";
 import { MotionCard, MotionSection } from "app/components/Motion";
 import {
   getLongevitySectionMarkdown,
@@ -371,6 +378,14 @@ function FactStrip({ sectionKey, locale }: { sectionKey: LongevitySectionKey; lo
   );
 }
 
+function HeroVisual({ sectionKey, locale }: { sectionKey: LongevitySectionKey; locale: LongevityLocale }) {
+  if (sectionKey === "weightLoss") {
+    return <Glp1HeroAside locale={locale} />;
+  }
+
+  return <HeroImage sectionKey={sectionKey} locale={locale} />;
+}
+
 function renderCompactNodes(nodes: MarkdownNode[]) {
   return nodes.map((node, index) => {
     if (node.type === "p") {
@@ -416,6 +431,69 @@ function takeUntilHeading(nodes: MarkdownNode[], start: number) {
   return { children, cursor };
 }
 
+function WeightLossDetails({ nodes, locale }: { nodes: MarkdownNode[]; locale: LongevityLocale }) {
+  const copy = {
+    de: {
+      eyebrow: "Behandlungsdetails",
+      title: "Details zur Behandlung und Abrechnung",
+      intro:
+        "Hier finden Sie die medizinischen und organisatorischen Details zu Ersttermin, Labor, Verlaufskontrollen, Ernährungsberatung und digitaler Begleitung.",
+    },
+    en: {
+      eyebrow: "Treatment Details",
+      title: "Treatment and Billing Details",
+      intro:
+        "Here you will find the medical and organizational details for the initial appointment, lab work, follow-ups, nutritional counseling and digital support.",
+    },
+  }[locale];
+  const items: { title: string; body: MarkdownNode[] }[] = [];
+  let index = 0;
+
+  while (index < nodes.length) {
+    const node = nodes[index];
+
+    if (node.type === "h3" && node.text) {
+      const result = takeUntilHeading(nodes, index + 1);
+
+      if (result.children.length > 0) {
+        items.push({ title: node.text, body: result.children });
+      }
+
+      index = result.cursor;
+      continue;
+    }
+
+    index += 1;
+  }
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <MotionSection className="bg-white px-4 py-14 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">{copy.eyebrow}</p>
+        <h2 className="mt-3 font-serif text-3xl font-semibold text-primary sm:text-4xl">{copy.title}</h2>
+        <p className="mt-4 max-w-3xl text-lg leading-8 text-primaryLighter">{copy.intro}</p>
+        <div className="mt-8 divide-y divide-primary/10 rounded-2xl border border-primary/10 bg-lightBeige/35 shadow-sm">
+          {items.map((item, itemIndex) => (
+            <details key={item.title} className="group p-5 sm:p-6" open={itemIndex === 0}>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif text-xl font-semibold text-primary">
+                <span>{item.title}</span>
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-primary ring-1 ring-primary/10 transition group-open:rotate-45">
+                  +
+                </span>
+              </summary>
+              <div className="mt-5 space-y-4 text-base leading-7 text-primaryLighter">{renderCompactNodes(item.body)}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </MotionSection>
+  );
+}
+
 const sectionHeadingTitles: Partial<Record<LongevitySectionKey, Record<LongevityLocale, string[]>>> = {
   vitaminInfusion: {
     de: [
@@ -438,6 +516,10 @@ const sectionHeadingTitles: Partial<Record<LongevitySectionKey, Record<Longevity
 };
 
 function StructuredBody({ nodes, locale, sectionKey }: { nodes: MarkdownNode[]; locale: LongevityLocale; sectionKey: LongevitySectionKey }) {
+  if (sectionKey === "weightLoss") {
+    return <WeightLossDetails nodes={nodes} locale={locale} />;
+  }
+
   const sections: JSX.Element[] = [];
   const headingTitles = sectionHeadingTitles[sectionKey]?.[locale] ?? [];
   let index = 0;
@@ -673,16 +755,21 @@ export function LongevityMarkdownPage({ sectionKey, locale }: { sectionKey: Excl
             <h1 className="mt-4 break-words font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{title}</h1>
             <div className="mt-6 space-y-5">{renderCompactNodes(heroNodes)}</div>
             <div className="mt-8 lg:hidden">
-              <HeroImage sectionKey={sectionKey} locale={locale} />
+              <HeroVisual sectionKey={sectionKey} locale={locale} />
             </div>
             <CtaButtons locale={locale} secondaryCta={config.secondaryCta} secondaryHref={config.secondaryHref} bookingUrls={bookingUrlsBySection[sectionKey]} />
           </div>
           <div className="hidden lg:block">
-            <HeroImage sectionKey={sectionKey} locale={locale} />
+            <HeroVisual sectionKey={sectionKey} locale={locale} />
           </div>
         </MotionSection>
 
         <FactStrip sectionKey={sectionKey} locale={locale} />
+        {sectionKey === "weightLoss" && <Glp1EligibilityCheck locale={locale} />}
+        {sectionKey === "weightLoss" && <Glp1CarePath locale={locale} />}
+        {sectionKey === "weightLoss" && <Glp1DigitalAndSuitability locale={locale} />}
+        {sectionKey === "weightLoss" && <Glp1PricingCta locale={locale} />}
+        {sectionKey === "weightLoss" && <div id="details" className="scroll-mt-28" />}
         <StructuredBody nodes={bodyNodes} locale={locale} sectionKey={sectionKey} />
         <RelatedServices sectionKey={sectionKey} locale={locale} />
       </div>
