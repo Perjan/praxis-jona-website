@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import FormsEntryPage from "@/app/anamnese/page";
+import FormsEntryPage from "@/app/(de)/anamnese/page";
 
 describe("FormsEntryPage", () => {
   it("links to every available form", () => {

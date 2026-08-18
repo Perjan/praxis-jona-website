@@ -1,21 +1,20 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-import { requestLocaleHeaders } from "@/app/lib/request-locale";
+const deLayout = readFileSync("app/(de)/layout.tsx", "utf8");
+const enLayout = readFileSync("app/(en)/layout.tsx", "utf8");
 
-describe("request locale headers", () => {
-  it("marks English routes for server-rendered html lang", () => {
-    expect(requestLocaleHeaders(new Headers(), "/en").get("x-praxis-locale")).toBe("en");
-    expect(requestLocaleHeaders(new Headers(), "/en/botox-treatment").get("x-praxis-locale")).toBe("en");
+describe("html lang via root layouts", () => {
+  it("hardcodes the correct lang attribute per locale root layout", () => {
+    expect(deLayout).toContain('<html lang="de">');
+    expect(enLayout).toContain('<html lang="en">');
   });
 
-  it("marks canonical German routes for server-rendered html lang", () => {
-    expect(requestLocaleHeaders(new Headers(), "/").get("x-praxis-locale")).toBe("de");
-    expect(requestLocaleHeaders(new Headers(), "/botox-behandlung").get("x-praxis-locale")).toBe("de");
-  });
-
-  it("preserves existing request headers", () => {
-    const headers = new Headers({ accept: "text/html" });
-
-    expect(requestLocaleHeaders(headers, "/en/contact").get("accept")).toBe("text/html");
+  it("does not read request headers to pick the lang, which would force dynamic rendering", () => {
+    // Regression guard: app/layout.tsx used to call headers() to pick <html lang>,
+    // which opted the entire route tree into SSR and silently emptied prerender-manifest.json
+    // (and therefore the sitemap) down to just the force-static blog routes.
+    expect(deLayout).not.toMatch(/next\/headers|headers\(\)/);
+    expect(enLayout).not.toMatch(/next\/headers|headers\(\)/);
   });
 });

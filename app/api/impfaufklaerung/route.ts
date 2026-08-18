@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jsPDF } from "jspdf";
 
-import { createImpfaufklaerungSchema, impfaufklaerungCopy } from "@/app/anamnese/impfaufklaerung/form-definition";
+import { createImpfaufklaerungSchema, impfaufklaerungCopy } from "@/app/(de)/anamnese/impfaufklaerung/form-definition";
 
 const shouldMockDelivery = () =>
   process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";

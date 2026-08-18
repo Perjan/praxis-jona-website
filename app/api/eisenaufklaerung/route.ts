@@ -4,7 +4,7 @@ import { jsPDF } from "jspdf";
 import {
   createEisenaufklaerungSchema,
   eisenaufklaerungCopy,
-} from "@/app/anamnese/eiseninfusion/form-definition";
+} from "@/app/(de)/anamnese/eiseninfusion/form-definition";
 
 const shouldMockDelivery = () =>
   process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jsPDF } from "jspdf";
 
-import { ThyroidPayload, createThyroidSchema, thyroidCopy } from "@/app/anamnese/schilddruesen-diagnostik/form-definition";
+import { ThyroidPayload, createThyroidSchema, thyroidCopy } from "@/app/(de)/anamnese/schilddruesen-diagnostik/form-definition";
 
 const shouldMockDelivery = () =>
   process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";

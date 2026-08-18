@@ -3,13 +3,13 @@ import userEvent from "@testing-library/user-event";
 import { forwardRef, useImperativeHandle } from "react";
 import { describe, expect, it, vi } from "vitest";
 
-import ThyroidDiagnosticsPage from "@/app/anamnese/schilddruesen-diagnostik/page";
+import ThyroidDiagnosticsPage from "@/app/(de)/anamnese/schilddruesen-diagnostik/page";
 
 vi.mock("next/image", () => ({
   default: (props: any) => <img alt={props.alt} src={props.src?.src ?? props.src} />,
 }));
 
-vi.mock("@/app/anamnese/SignaturePad", () => ({
+vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
   default: forwardRef(({ clearLabel }: { clearLabel: string }, ref) => {
     useImperativeHandle(ref, () => ({ clear: vi.fn(), getSignature: vi.fn() }));
     return (

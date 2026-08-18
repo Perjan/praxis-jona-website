@@ -4,7 +4,7 @@ import {
   createDefaultThyroidValues,
   createThyroidSchema,
   thyroidCopy,
-} from "@/app/anamnese/schilddruesen-diagnostik/form-definition";
+} from "@/app/(de)/anamnese/schilddruesen-diagnostik/form-definition";
 
 describe("thyroid diagnostics form definition", () => {
   it("keeps German source document wording in one source of truth", () => {

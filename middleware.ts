@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { canonicalGermanPathname } from "./app/lib/i18n-routing";
-import { requestLocaleHeaders } from "./app/lib/request-locale";
 
 export function middleware(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
@@ -14,11 +13,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(redirectUrl, 308);
   }
 
-  return NextResponse.next({
-    request: {
-      headers: requestLocaleHeaders(request.headers, pathname),
-    },
-  });
+  return NextResponse.next();
 }
 
 export const config = {

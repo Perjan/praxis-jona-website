@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { POST } from "@/app/api/schilddruesen-diagnostik/route";
-import { createDefaultThyroidValues } from "@/app/anamnese/schilddruesen-diagnostik/form-definition";
+import { createDefaultThyroidValues } from "@/app/(de)/anamnese/schilddruesen-diagnostik/form-definition";
 
 const createRequest = (body: unknown) =>
   new Request("http://localhost/api/schilddruesen-diagnostik", {

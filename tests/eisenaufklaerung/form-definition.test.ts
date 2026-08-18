@@ -8,7 +8,7 @@ import {
   eisenaufklaerungFields,
   eisenaufklaerungInformationSections,
   eisenaufklaerungMonitoringWaiverText,
-} from "@/app/anamnese/eiseninfusion/form-definition";
+} from "@/app/(de)/anamnese/eiseninfusion/form-definition";
 
 describe("eisenaufklaerung form definition", () => {
   it("contains every visible field from the Pages document", () => {

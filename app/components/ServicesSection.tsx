@@ -4,8 +4,8 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image';
-import { Services } from 'app/leistungen/Services'; 
-import { ServicesEN } from 'app/leistungen/Services';
+import { Services } from 'app/(de)/leistungen/Services'; 
+import { ServicesEN } from 'app/(de)/leistungen/Services';
 import ReactMarkdown from 'react-markdown';
 
 const { Panel: DialogPanel, Title: DialogTitle } = Dialog;

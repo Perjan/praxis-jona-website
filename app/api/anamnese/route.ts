@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import { anamneseCopy, createAnamneseSchema } from "@/app/anamnese/form-definition";
+import { anamneseCopy, createAnamneseSchema } from "@/app/(de)/anamnese/form-definition";
 import {
   createAnamneseFilename,
   dataUrlToBlob,

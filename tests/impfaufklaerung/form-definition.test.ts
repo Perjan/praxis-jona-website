@@ -6,7 +6,7 @@ import {
   impfaufklaerungCopy,
   impfaufklaerungQuestions,
   impfaufklaerungTextFields,
-} from "@/app/anamnese/impfaufklaerung/form-definition";
+} from "@/app/(de)/anamnese/impfaufklaerung/form-definition";
 
 describe("impfaufklaerung form definition", () => {
   it("contains every patient field from the PDF", () => {
