@@ -5,14 +5,14 @@ import BotoxPriceTable from "app/components/BotoxPriceTable";
 import { pricingSections, type PricingPageConfig } from "app/components/pricing/pricingData";
 import { buildPricingJsonLd } from "app/components/pricing/pricingSchema";
 
-const title = 'Botulinum toxin prices in Berlin-Mitte'
-const description = "Current botulinum toxin prices in Berlin-Mitte: transparent costs by area, often searched for as Botox treatment, with information on frown lines, forehead lines, crow's feet, process and aftercare."
+const title = 'Botulinum Toxin (“Botox”) Prices Berlin-Mitte'
+const description = "Botulinum toxin (“Botox”) prices in Berlin-Mitte from €199 per area: frown lines, forehead lines and crow's feet – transparent costs, process and aftercare."
 const url = '/en/botox-prices'
 
 const faqs = [
     {
         question: "How much does Botox or botulinum toxin treatment cost in Berlin?",
-        answer: "Botulinum toxin treatment starts from €159 depending on treatment area and indication. Many patients search online for Botox prices; medically, this page uses the general term botulinum toxin."
+        answer: "Botulinum toxin treatment starts from €199 depending on treatment area and indication; a consultation costs €49. Many patients search online for Botox prices; medically, this page uses the general term botulinum toxin."
     },
     {
         question: "How much does one botulinum toxin injection cost?",

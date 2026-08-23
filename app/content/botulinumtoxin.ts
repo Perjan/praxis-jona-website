@@ -47,7 +47,7 @@ export type BotulinumtoxinPageContent = {
 };
 
 export const botulinumtoxinIntro = {
-  title: "Botulinumtoxin-Behandlung in Berlin-Mitte",
+  title: "Botulinumtoxin („Botox“) in Berlin-Mitte",
   subtitle: "Natürliche Ergebnisse durch präzise ästhetische Medizin",
   description:
     "In der Praxis Jona am Rosenthaler Platz setzen wir Botulinumtoxin („Botox“) individuell und medizinisch fundiert ein, mit dem Ziel, mimische Falten sanft zu entspannen und die natürliche Ausstrahlung zu erhalten.",
@@ -331,7 +331,7 @@ export function getBotulinumtoxinService(slug: string) {
 }
 
 export const botulinumtoxinIntroEn = {
-  title: "Botulinum toxin treatment in Berlin-Mitte",
+  title: "Botulinum Toxin (“Botox”) in Berlin-Mitte",
   subtitle: "Natural results through precise aesthetic medicine",
   description:
     "At Praxis Jona near Rosenthaler Platz, we use botulinum toxin (“Botox”) individually and with medical precision, aiming to gently relax expression lines while preserving natural radiance.",

@@ -474,7 +474,7 @@ const pageCopy: Record<PricingPageKey, {
   },
   aesthetics: {
     title: { de: "Ästhetik Preise in Berlin-Mitte", en: "Aesthetics prices in Berlin-Mitte" },
-    description: { de: "Preise für ästhetische Medizin in der Praxis Jona, inklusive Botulinumtoxin-Preisen und Links zu Detailseiten.", en: "Prices for aesthetic medicine at Praxis Jona, including botulinum toxin prices and links to detail pages." },
+    description: { de: "Preise für ästhetische Medizin in Berlin-Mitte: Botulinumtoxin („Botox“) ab 199 €, PRP, Microneedling und Polynukleotide – transparent pro Behandlung.", en: "Prices for aesthetic medicine in Berlin-Mitte: botulinum toxin (“Botox”) from €199, PRP, microneedling and polynucleotides – transparent per treatment." },
     eyebrow: { de: "Ästhetik Preise", en: "Aesthetics prices" },
     intro: { de: "Ästhetische Preise sollten Orientierung geben, aber nicht die ärztliche Planung ersetzen. Die genaue Behandlung wird nach Anatomie, Befund und Ziel besprochen.", en: "Aesthetic prices provide orientation, but do not replace medical planning. The exact treatment is discussed after assessing anatomy, findings and goals." },
     canonical: { de: "/aesthetik/preise", en: "/en/aesthetics/prices" },

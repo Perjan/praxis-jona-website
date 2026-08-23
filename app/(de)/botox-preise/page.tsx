@@ -5,14 +5,14 @@ import BotoxPriceTable from "app/components/BotoxPriceTable";
 import { pricingSections, type PricingPageConfig } from "app/components/pricing/pricingData";
 import { buildPricingJsonLd } from "app/components/pricing/pricingSchema";
 
-const title = 'Botulinumtoxin Preise in Berlin-Mitte'
-const description = "Aktuelle Botulinumtoxin Preise in Berlin-Mitte: transparente Kosten pro Zone, häufig als Botox-Behandlung gesucht, mit Informationen zu Zornesfalte, Stirnfalten, Krähenfüßen, Ablauf und Nachsorge."
+const title = 'Botulinumtoxin („Botox“) Preise Berlin-Mitte'
+const description = "Botulinumtoxin („Botox“) Preise in Berlin-Mitte ab 199 € pro Zone: Zornesfalte, Stirnfalten und Krähenfüße – transparente Kosten, Ablauf und Nachsorge."
 const url = '/botox-preise'
 
 const faqs = [
     {
         question: "Was kostet Botox bzw. eine Botulinumtoxin-Behandlung in Berlin?",
-        answer: "Die Kosten für eine Botulinumtoxin-Behandlung starten je nach Region und Indikation ab 159 €. Viele Patientinnen und Patienten suchen online nach Botox-Preisen; medizinisch sprechen wir hier allgemein von Botulinumtoxin."
+        answer: "Die Kosten für eine Botulinumtoxin-Behandlung starten je nach Region und Indikation ab 199 €; ein Beratungstermin kostet 49 €. Viele Patientinnen und Patienten suchen online nach Botox-Preisen; medizinisch sprechen wir hier allgemein von Botulinumtoxin."
     },
     {
         question: "Wie viel kostet eine Botulinumtoxin-Injektion?",
