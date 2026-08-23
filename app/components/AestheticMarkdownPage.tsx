@@ -195,7 +195,7 @@ const englishDetailPages: Partial<Record<AestheticSectionKey, AestheticDetailPag
       sectionKey: "prp",
       slug: "prp-face",
       deSlug: "prp-gesicht",
-      title: "PRP Face",
+      title: "PRP Face Treatment Cost",
       href: "/en/aesthetics/prp-treatment/prp-face",
       alternate: "/aesthetik/prp-behandlung/prp-gesicht",
       description: [
@@ -214,7 +214,7 @@ const englishDetailPages: Partial<Record<AestheticSectionKey, AestheticDetailPag
       sectionKey: "prp",
       slug: "prp-under-eye-area-dark-circles",
       deSlug: "prp-augenregion-bei-dunklen-augenringen",
-      title: "PRP Under-Eye Area for Dark Circles",
+      title: "PRP Under-Eye Treatment Cost",
       href: "/en/aesthetics/prp-treatment/prp-under-eye-area-dark-circles",
       alternate: "/aesthetik/prp-behandlung/prp-augenregion-bei-dunklen-augenringen",
       description: [
