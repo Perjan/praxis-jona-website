@@ -13,8 +13,8 @@ export const longevitySections = {
     en: "Micronutrient Analysis & Consultation in Berlin-Mitte",
   },
   ironInfusion: {
-    de: "Eiseninfusion bei Eisenmangel in Berlin-Mitte",
-    en: "Iron Infusion for Iron Deficiency in Berlin-Mitte",
+    de: "Eiseninfusion Kosten & Ablauf in Berlin-Mitte",
+    en: "Iron Infusion Cost & Treatment in Berlin-Mitte",
   },
   vitaminInfusion: {
     de: "Vitamininfusionen & Infusionstherapie in Berlin-Mitte",

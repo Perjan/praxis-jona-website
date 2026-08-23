@@ -265,9 +265,9 @@ Dazu gehören unter anderem:
   
 Bitte setzen Sie verschriebene Medikamente nicht eigenständig ab. Bei Unsicherheiten beraten wir Sie gerne individuell.  
   
-# Eiseninfusion bei Eisenmangel in Berlin-Mitte  
+# Eiseninfusion Kosten & Ablauf in Berlin-Mitte  
   
-**Ärztlich geführte Diagnostik und Infusionstherapie bei Eisenmangel**  
+**Eiseninfusion bei Eisenmangel – ärztlich geführt, ab 150,95 € nach GOÄ**  
   
 In der Praxis Jona am Rosenthaler Platz bieten wir medizinische Diagnostik und Eiseninfusionen bei nachgewiesenem Eisenmangel an.  
   

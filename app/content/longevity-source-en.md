@@ -262,9 +262,9 @@ This includes, among others:
 
 Please do not stop prescribed medication on your own. If you are unsure, we are happy to advise you individually.
 
-# Iron Infusion for Iron Deficiency in Berlin-Mitte
+# Iron Infusion Cost & Treatment in Berlin-Mitte
 
-**Physician-led diagnostics and infusion therapy for iron deficiency**
+**Iron infusion for iron deficiency – physician-led, from €150.95 under GOÄ**
 
 At Praxis Jona near Rosenthaler Platz, we offer medical diagnostics and iron infusions for documented iron deficiency.
 
