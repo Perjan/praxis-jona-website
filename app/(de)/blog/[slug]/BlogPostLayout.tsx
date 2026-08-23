@@ -141,6 +141,7 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
     author: {
       '@type': 'Person',
       name: author.name,
+      ...(author.role ? { jobTitle: author.role } : {}),
       url: `${Constants.baseUrl}${locale === "en" && author.url.startsWith("/blog/") ? author.url.replace("/blog/", "/en/blog/") : author.url}`,
     },
     publisher: post.structuredData?.publisher ?? {

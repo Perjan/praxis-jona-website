@@ -6,6 +6,14 @@ module.exports = {
     "/legal",
     "/legal/impressum-datenschutz",
     "/legal/imprint-privacy",
+    "/en/legal",
+    "/en/legal/*",
+    // Patient intake forms are noindex,nofollow — listing them here as well
+    // stops the sitemap contradicting that.
+    "/anamnese",
+    "/anamnese/*",
+    "/en/anamnese",
+    "/en/anamnese/*",
     "/tv",
     "/tv/*",
     "/en/tv",

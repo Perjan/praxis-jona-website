@@ -14,6 +14,7 @@ const navigationGerman = {
   imprintUrl: "/legal/impressum-datenschutz",
   company: [
     { name: 'Innere Medizin', href: '/hausaerztliche-leistungen' },
+    { name: 'Schwerpunkte', href: '/schwerpunkte' },
     { name: 'Ästhetik', href: '/aesthetik' },
     { name: 'Health / Longevity', href: '/praevention-longevity' },
     { name: 'Preise', href: '/preise' },
@@ -31,6 +32,7 @@ const navigationEnglish = {
   imprintUrl: "/en/legal/imprint-privacy",
   company: [
     { name: 'Internal Medicine', href: '/en/general-medicine' },
+    { name: 'Focus Areas', href: '/en/focus-areas' },
     { name: 'Aesthetics', href: '/en/aesthetics' },
     { name: 'Health / Longevity', href: '/en/prevention-longevity' },
     { name: 'Prices', href: '/en/prices' },

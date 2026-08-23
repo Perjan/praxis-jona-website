@@ -11,6 +11,7 @@ import {
   type BotulinumtoxinService,
 } from "app/content/botulinumtoxin";
 import { MotionCard, MotionSection } from "./Motion";
+import { buildClinicSchema, clinicReference } from "app/components/clinicSchema";
 
 const eyebrowClassName = "text-sm font-semibold uppercase tracking-[0.22em] text-primary/70";
 
@@ -384,17 +385,15 @@ export function BotulinumtoxinServicePage({ service, locale = "de" }: { service:
     name: service.title,
     description: service.paragraphs.join(" "),
     url: `${Constants.baseUrl}${content.intro.canonical}/${service.slug}`,
-    provider: {
-      "@type": "MedicalClinic",
-      "@id": `${Constants.baseUrl}/#organization`,
-      name: "Praxis Jona",
-    },
+    provider: clinicReference,
   };
 
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
+      {/* Declares the node that serviceSchema.provider references by @id. */}
+      <JsonLd data={{ "@context": "https://schema.org", ...buildClinicSchema() }} />
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8 lg:py-24">
           <div>

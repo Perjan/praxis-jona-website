@@ -12,10 +12,10 @@ import Authors from 'app/(de)/blog/authors/AuthorsDataSource';
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
   title: {
-    default: "Praxis Jona Berlin - Allgemeinmedizin & Innere Medizin",
+    default: "Praxis Jona Berlin - General & Internal Medicine",
     template: "%s | Praxis Jona",
   },
-  description: "Praxis Jona in Berlin-Mitte: Allgemeinmedizin, Innere Medizin, Prävention, Diagnostik und persönliche medizinische Betreuung.",
+  description: "English-speaking doctors in Berlin-Mitte. Praxis Jona offers general and internal medicine, prevention, diagnostics and personal medical care.",
   icons: {
     icon: [
       { url: "/favicon.ico" },

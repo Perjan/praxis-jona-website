@@ -781,7 +781,10 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
   const markdown = getLongevitySectionMarkdown("hub", locale);
   const nodes = parseMarkdown(markdown);
   const subpageIndex = nodes.findIndex((node) => (node.type === "h1" || node.type === "h2") && /^(Subpages|Unterseiten)/.test(node.text ?? ""));
-  const introNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  const allIntroNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  // renderCompactNodes downgrades markdown h1 to h2, so the leading heading is
+  // dropped here and rendered as a real <h1> below instead.
+  const introNodes = allIntroNodes[0]?.type === "h1" ? allIntroNodes.slice(1) : allIntroNodes;
   const mobileLeadNodes = introNodes.slice(0, 2);
   const mobileBodyNodes = introNodes.slice(2);
   const title = getLongevitySectionTitle("hub", locale);
@@ -805,6 +808,7 @@ export function LongevityMarkdownHub({ locale }: { locale: LongevityLocale }) {
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">
               {locale === "en" ? "Prevention, energy & healthy aging" : "Prävention, Energie & Healthy Aging"}
             </p>
+            <h1 className="mt-4 break-words font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{title}</h1>
             <div className="hidden space-y-5 lg:block">
               {renderCompactNodes(introNodes)}
             </div>

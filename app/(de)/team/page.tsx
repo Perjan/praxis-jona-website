@@ -52,7 +52,8 @@ export const metadata: Metadata = {
     canonical: url,
     languages: {
       de: url,
-      en: "en/team"
+      en: "/en/team",
+      "x-default": url
     }
   },
   twitter: {

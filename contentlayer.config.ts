@@ -4,6 +4,31 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
+const SITE_URL = 'https://praxisjona.de';
+
+// Mirrors app/(de)/blog/authors/AuthorsDataSource.jsx. Kept inline because this
+// config runs outside the Next.js path aliases and cannot import from app/.
+const AUTHORS = {
+  'jonida-gjolli': {
+    name: 'Dr. med. Jonida Gjolli',
+    jobTitle: 'Fachärztin für Innere Medizin',
+    url: `${SITE_URL}/blog/authors/jonida-gjolli`,
+  },
+};
+
+const DEFAULT_AUTHOR_ID = 'jonida-gjolli';
+
+function authorSchema(authorId?: string) {
+  const author = AUTHORS[authorId ?? DEFAULT_AUTHOR_ID] ?? AUTHORS[DEFAULT_AUTHOR_ID];
+
+  return {
+    '@type': 'Person',
+    name: author.name,
+    jobTitle: author.jobTitle,
+    url: author.url,
+  };
+}
+
 export const Post = defineDocumentType(() => ({
   name: 'Post',
   filePathPattern: `**/*.mdx`, // Type of file to parse (every mdx in all subfolders)
@@ -99,11 +124,7 @@ export const Post = defineDocumentType(() => ({
         description: doc.summaryOrExcerpt,
         image: `https://praxisjona.de/images/blog-images/${doc.coverImage}`,
         url: doc.url,
-        author: {
-          '@type': 'Person',
-          name: 'Perjan Duro',
-          url: 'https://twitter.com/perjanduro',
-        },
+        author: authorSchema(doc.author),
       }),
     },
   },

@@ -5,7 +5,7 @@ import PrimaryButton from "app/components/PrimaryButton";
 import PrivateCheckupPricingComponent from "app/components/PrivateCheckupPricingComponent";
 
 const title = 'Private Insurance Check-up'
-const description = "A private insurance check-up helps ensure your coverage still meets your current needs and lifestyle. It's a smart way to identify gaps, optimize benefits, and potentially save on premiums."
+const description = "Extended preventive check-up in Berlin-Mitte: cardiovascular assessment with ECG, vascular and stroke screening, plus internal cancer screening by ultrasound."
 const url = '/en/services/private-insurance-check-up'
 
 export const metadata: Metadata = {

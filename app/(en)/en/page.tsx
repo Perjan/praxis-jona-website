@@ -7,6 +7,7 @@ import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
 import { getPricingPageConfig } from "app/components/pricing/pricingData";
 import { buildClinicOfferCatalogJsonLd } from "app/components/pricing/pricingSchema";
+import { buildClinicSchema, physicianSchema } from "app/components/clinicSchema";
 
 const title = "Praxis Jona Berlin - Internal Medicine"
 const description = "Holistic medical care in Berlin-Mitte: internal medicine, preventive diagnostics, and personalized treatment at Praxis Jona."
@@ -51,30 +52,13 @@ export const metadata: Metadata = {
 
 const organizationSchemaEn = {
     "@context": "https://schema.org",
-    "@type": "MedicalClinic",
-    "@id": `${Constants.baseUrl}/#organization`,
-    name: "Praxis Jona",
-    url: `${Constants.baseUrl}/en`,
-    image: `${Constants.baseUrl}/images/og-image.png`,
-    telephone: "+49-30-40054273",
-    email: Constants.contact.email,
-    address: {
-        "@type": "PostalAddress",
-        streetAddress: "Torstraße 125",
-        postalCode: "10119",
-        addressLocality: "Berlin",
-        addressCountry: "DE",
-    },
-    medicalSpecialty: [
-        "Internal Medicine",
-        "General Practice",
+    "@graph": [
+        buildClinicSchema({
+            url: `${Constants.baseUrl}/en`,
+            hasOfferCatalog: buildClinicOfferCatalogJsonLd(getPricingPageConfig("global", "en")),
+        }),
+        physicianSchema,
     ],
-    sameAs: [
-        "https://www.instagram.com/doc.jona/",
-        "https://www.youtube.com/@doc.jonida",
-        "https://www.tiktok.com/@doc.jonida",
-    ],
-    hasOfferCatalog: buildClinicOfferCatalogJsonLd(getPricingPageConfig("global", "en")),
 };
 
 export default function Features() {

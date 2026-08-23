@@ -5,7 +5,7 @@ import PrimaryButton from "app/components/PrimaryButton";
 import PrivateCheckupPricingComponent from "app/components/PrivateCheckupPricingComponent";
 
 const title = 'Private Check-up'
-const description = "Ein privater Versicherungs-Check stellt sicher, dass dein aktueller Schutz noch zu deinem Leben passt. So kannst du Versorgungslücken erkennen, Leistungen optimieren und eventuell Beiträge sparen."
+const description = "Erweiterte Vorsorge in Berlin-Mitte: Herz-Kreislauf-Check mit EKG, Gefäß- und Schlaganfall-Check sowie internistische Krebsvorsorge per Ultraschall."
 const url = '/leistungen/private-check-up'
 
 export const metadata: Metadata = {

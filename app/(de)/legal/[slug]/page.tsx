@@ -57,9 +57,6 @@ export const LegalPostLayout = ({ params }: { params: { slug: string } }) => {
     <div className="mx-auto max-w-3xl text-base leading-7">
       <article className="prose prose-neutral prose-quoteless">
         <section>
-          <script type="application/ld+json">
-            {/* {JSON.stringify(post.structuredData)} */}
-          </script>
           { (post.coverImage !== undefined) &&
             <Image 
               className="rounded-lg shadow-lg" 

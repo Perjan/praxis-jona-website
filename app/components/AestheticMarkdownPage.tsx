@@ -1792,7 +1792,10 @@ export function AestheticMarkdownHub() {
   const markdown = getAestheticSectionMarkdown("hub");
   const nodes = parseMarkdown(markdown);
   const subpageIndex = nodes.findIndex((node) => node.type === "h2" && node.text === "Subpages");
-  const introNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  const allIntroNodes = subpageIndex >= 0 ? nodes.slice(0, subpageIndex) : nodes;
+  // RenderNodes downgrades markdown h1 to h2, so the leading heading is dropped
+  // here and rendered as a real <h1> below instead.
+  const introNodes = allIntroNodes[0]?.type === "h1" ? allIntroNodes.slice(1) : allIntroNodes;
   const mobileLeadNodes = introNodes.slice(0, 2);
   const mobileBodyNodes = introNodes.slice(2);
 
@@ -1801,6 +1804,7 @@ export function AestheticMarkdownHub() {
       <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-center lg:px-8 lg:py-24">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Haut, Mimik & Regeneration</p>
+          <h1 className="mt-4 break-words font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{getAestheticSectionTitle("hub")}</h1>
           <div className="hidden lg:block">
             <RenderNodes nodes={introNodes} />
           </div>

@@ -1,6 +1,7 @@
 import ContactSection from "app/Contact";
 import { Constants } from "app/Constants";
 import { Metadata } from "next";
+import { buildClinicSchema, clinicReference, physicianSchema } from "app/components/clinicSchema";
 
 const title = 'Service & Contact'
 const description = "Contact Praxis Jona in Berlin-Mitte for internal medicine, preventive care, and personalized treatment."
@@ -41,25 +42,18 @@ export const metadata: Metadata = {
 
 const contactPageSchemaEn = {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "@id": `${Constants.baseUrl}/en/contact#webpage`,
-  url: `${Constants.baseUrl}/en/contact`,
-  name: title,
-  inLanguage: "en",
-  mainEntity: {
-    "@type": "MedicalClinic",
-    "@id": `${Constants.baseUrl}/#organization`,
-    name: "Praxis Jona",
-    telephone: "+49-30-40054273",
-    email: Constants.contact.email,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Torstraße 125",
-      postalCode: "10119",
-      addressLocality: "Berlin",
-      addressCountry: "DE"
-    }
-  }
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": `${Constants.baseUrl}/en/contact#webpage`,
+      url: `${Constants.baseUrl}/en/contact`,
+      name: title,
+      inLanguage: "en",
+      mainEntity: clinicReference,
+    },
+    buildClinicSchema({ url: `${Constants.baseUrl}/en` }),
+    physicianSchema,
+  ],
 };
 
 export default function Page() {

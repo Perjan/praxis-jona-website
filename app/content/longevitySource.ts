@@ -73,6 +73,22 @@ export function getLongevitySectionDescription(key: LongevitySectionKey, locale:
     .map((line) => line.trim())
     .filter((line) => line && !line.startsWith("#") && line !== "⸻" && !line.startsWith("```"));
 
-  const firstText = lines.find((line) => !line.startsWith("- ") && !line.startsWith("* "));
-  return firstText?.replace(/^\*\*(.*)\*\*$/, "$1") ?? getLongevitySectionTitle(key, locale);
+  const textLines = lines
+    .filter((line) => !line.startsWith("- ") && !line.startsWith("* "))
+    .map((line) => line.replace(/^\*\*(.*)\*\*$/, "$1"));
+
+  if (!textLines.length) {
+    return getLongevitySectionTitle(key, locale);
+  }
+
+  // The opening line is usually a short bold lead-in, which makes a thin search
+  // snippet on its own. Pull in following sentences until it carries real detail.
+  let description = textLines[0];
+
+  for (let index = 1; index < textLines.length && description.length < 120; index += 1) {
+    const separator = /[.!?]$/.test(description) ? " " : ". ";
+    description = `${description}${separator}${textLines[index]}`;
+  }
+
+  return description;
 }
