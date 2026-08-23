@@ -369,9 +369,19 @@ Iron infusion is a private physician service according to GOÄ.
 
 Costs start from €150.95*, depending on the preparation used.
 
-Private health insurance or supplementary insurance may partially or fully cover the costs depending on the tariff.
-
 *Actual costs depend on preparation, dosage and treatment effort.
+
+**What determines the cost of an iron infusion?**
+
+Three factors set the price: the preparation used, the dose required and the treatment effort involved. Dose is determined from your ferritin level, body weight and the extent of the deficiency, established by laboratory testing beforehand.
+
+Depending on the baseline findings, a single infusion may be sufficient or a series may be appropriate. How many appointments are actually needed can only be judged reliably after diagnostics, and is discussed openly before treatment begins.
+
+**Iron infusion cost with private or statutory insurance**
+
+Iron infusion is a private service. Private health insurance or supplementary insurance may partially or fully cover the costs depending on the tariff.
+
+Patients with statutory insurance generally bear the cost themselves. The preceding laboratory diagnostics may be treated differently where there is a corresponding medical indication; we clarify that case by case.
 
 ⸻
 

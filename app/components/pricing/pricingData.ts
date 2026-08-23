@@ -524,7 +524,22 @@ const faqs: Record<PricingPageKey, Record<PricingLocale, PricingPageConfig["faqs
       { question: "Can I book online?", answer: "Yes. Appointments can be booked online via Doctolib." },
     ],
   },
-  aesthetics: { de: undefined, en: undefined },
+  aesthetics: {
+    de: [
+      { question: "Was kostet eine Botulinumtoxin-Behandlung pro Zone?", answer: "Eine einzelne Zone beginnt bei 199 €. Dazu zählen unter anderem Zornesfalte, Stirnfalten, Krähenfüße, Bunny Lines und Lip Flip. Die endgültige Empfehlung richtet sich nach Muskelaktivität und Befund." },
+      { question: "Was kostet die Kombination mehrerer Zonen?", answer: "Für mehrere Bereiche gilt ein Kombinationspreis statt der Summe der Einzelzonen: zwei Zonen ab 299 €, drei Zonen ab 349 €, vier Zonen ab 499 €." },
+      { question: "Was kosten PRP, Microneedling und Skinbooster?", answer: "PRP-Behandlungen beginnen bei 199 €, medizinisches Microneedling bei 249 € und Skinbooster wie NCTF oder PhilArt bei 249 €. Der Preis richtet sich nach behandelter Fläche und Anzahl der Sitzungen." },
+      { question: "Übernimmt die Krankenkasse ästhetische Behandlungen?", answer: "Ästhetische Behandlungen sind Privatleistungen und werden nach GOÄ abgerechnet. Bei medizinischer Indikation – etwa Hyperhidrose oder Bruxismus – kann die Einordnung abweichen; das klären wir im Einzelfall." },
+      { question: "Ist ein Beratungsgespräch kostenpflichtig?", answer: "Ein reines Beratungsgespräch ohne Behandlung kostet 49 €. Findet im selben Termin eine Behandlung statt, ist die ärztliche Beratung darin enthalten." },
+    ],
+    en: [
+      { question: "What does botulinum toxin cost per area?", answer: "A single area starts at €199. This includes frown lines, forehead lines, crow's feet, bunny lines and lip flip, among others. The final recommendation depends on muscle activity and findings." },
+      { question: "What does treating several areas cost?", answer: "Combinations are priced as a package rather than the sum of individual areas: two areas from €299, three from €349, four from €499." },
+      { question: "What do PRP, microneedling and skinboosters cost?", answer: "PRP treatments start at €199, medical microneedling at €249 and skinboosters such as NCTF or PhilArt at €249. Price depends on the area treated and the number of sessions." },
+      { question: "Does statutory insurance cover aesthetic treatments?", answer: "Aesthetic treatments are private services billed according to GOÄ. Where there is a medical indication — hyperhidrosis or bruxism, for example — the classification may differ; we clarify that case by case." },
+      { question: "Is there a charge for the consultation?", answer: "A consultation without treatment costs €49. If treatment takes place at the same appointment, the medical consultation is included." },
+    ],
+  },
   healthLongevity: { de: undefined, en: undefined },
   internalMedicine: { de: undefined, en: undefined },
 };

@@ -129,7 +129,7 @@ const detailPages: Partial<Record<AestheticSectionKey, AestheticDetailPage[]>> =
     {
       sectionKey: "skinbooster",
       slug: "nctf-ha-gesicht",
-      title: "NCTF HA Gesicht",
+      title: "NCTF HA Skinbooster Gesicht",
       href: "/aesthetik/polynukleotide/nctf-ha-gesicht",
       description: [
         "NCTF HA Gesicht ist eine regenerative Skinbooster-Behandlung für Hautfeuchtigkeit, Hautfrische und feinere Hautqualität im Gesicht.",

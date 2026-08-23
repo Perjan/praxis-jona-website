@@ -194,7 +194,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   {
     slug: "trapezmuskel-barbie-botox",
     pricingSlug: "trapezmuskel",
-    title: "Trapezmuskel-Behandlung mit Botulinumtoxin (“Barbie-Botox”)",
+    title: "Trapezmuskel („Barbie Botox“)",
     image: { src: botulinumtoxinImages.trapezmuskel, alt: "Modell mit Fokus auf Nacken, Schultern und Trapezmuskel" },
     paragraphs: [
       "Eine ausgeprägte Muskelspannung im Schulter- und Nackenbereich kann zu Beschwerden wie Verspannungen, Druckgefühl oder muskulärer Überaktivität führen. In manchen Fällen wirkt die Schulterpartie zusätzlich sehr breit oder dauerhaft angespannt.",
@@ -463,7 +463,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   {
     slug: "trapezius-barbie-botox",
     pricingSlug: "trapezmuskel",
-    title: "Trapezius treatment with botulinum toxin (“Barbie Botox”)",
+    title: "Trapezius (“Barbie Botox”)",
     image: { src: botulinumtoxinImages.trapezmuskel, alt: "Model with focus on neck, shoulders and trapezius muscle" },
     paragraphs: [
       "Pronounced muscle tension in the shoulder and neck area can lead to symptoms such as tightness, pressure or muscular overactivity. In some cases, the shoulder area also appears very broad or permanently tense.",

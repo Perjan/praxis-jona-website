@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
+import BotoxZoneCosts from "app/components/BotoxZoneCosts";
 import { pricingSections, type PricingPageConfig } from "app/components/pricing/pricingData";
 import { buildPricingJsonLd } from "app/components/pricing/pricingSchema";
 
@@ -123,6 +124,8 @@ export default function Page() {
                 </SectionWithColor>
 
                 <BotoxPriceTable isEnglish={false} />
+
+                <BotoxZoneCosts locale="de" />
 
                 <div className="max-w-4xl mx-auto px-4 pb-16 text-primaryLighter">
                     <h2 className="text-2xl font-serif text-primary">Kosten für Botulinumtoxin in Berlin: häufige Fragen</h2>

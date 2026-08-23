@@ -372,9 +372,19 @@ Die Eiseninfusion erfolgt als ärztliche Privatleistung nach GOÄ.
   
 Die Kosten beginnen ab 150,95 €*, abhängig vom verwendeten Präparat.  
   
-Private Krankenversicherungen oder Zusatzversicherungen können die Kosten je nach Tarif teilweise oder vollständig übernehmen.  
-  
 *Die tatsächlichen Kosten richten sich nach Präparat, Dosierung und Behandlungsaufwand.  
+  
+**Was beeinflusst die Kosten einer Eisen-Infusion?**  
+  
+Drei Faktoren bestimmen den Preis: das verwendete Präparat, die erforderliche Dosis und der Behandlungsaufwand. Die Dosis richtet sich nach Ferritinwert, Körpergewicht und Ausmaß des Mangels und wird vorab laborbasiert ermittelt.  
+  
+Je nach Ausgangsbefund kann eine einzelne Infusion ausreichen oder eine Serie sinnvoll sein. Wie viele Termine tatsächlich nötig sind, lässt sich erst nach der Diagnostik verlässlich sagen – und wird vor Behandlungsbeginn transparent besprochen.  
+  
+**Eiseninfusion Kosten privat oder gesetzlich versichert?**  
+  
+Die Eiseninfusion ist eine Privatleistung. Private Krankenversicherungen oder Zusatzversicherungen können die Kosten je nach Tarif teilweise oder vollständig übernehmen.  
+  
+Gesetzlich Versicherte tragen die Kosten in der Regel selbst. Die vorausgehende Labordiagnostik kann bei entsprechender medizinischer Indikation davon abweichen; das klären wir im Einzelfall.  
   
 ⸻  
   
