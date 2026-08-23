@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: url,
+        languages: {
+            de: "/praevention/basic",
+            en: "/en/prevention/basic",
+            "x-default": "/praevention/basic",
+        },
     }
 }
 
