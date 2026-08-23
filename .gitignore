@@ -47,6 +47,10 @@ next-env.d.ts
 !/data/gsc/
 !/data/gsc/.gitkeep
 !/data/gsc/implementation-history.jsonl
+# Baselines are small, deliberate snapshots kept so a later run can diff
+# against the state the work started from.
+!/data/gsc/baselines/
+!/data/gsc/baselines/*.json
 
 # design-sync: staged converter scripts, build output, machine state
 .ds-sync/
