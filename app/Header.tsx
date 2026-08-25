@@ -160,15 +160,14 @@ export default function Header() {
                     <Link
                         href={locale === "de" ? "/" : "/" + locale}
                         className="-m-1.5 p-1.5"
+                        aria-label={locale === "en" ? "Praxis Jona Home" : "Praxis Jona Startseite"}
                     >
                         <Image
                             priority={true}
                             className={cn("w-auto object-contain cursor-pointer", isHomepage ? "h-11 xl:h-12" : "h-14")}
                             src={Logo}
-                            alt="Praxis Jona Logo"
-                            aria-hidden="true"
+                            alt=""
                         />
-                        <span className="sr-only hidden">Praxis Jona</span>
                     </Link>
                 </div>
 

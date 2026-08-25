@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Constants } from "./Constants";
@@ -31,9 +32,15 @@ export default function HeroSection({
 
   return (
     <section className="home-hero" aria-labelledby="home-hero-title">
-      <picture className="home-hero__media" aria-hidden="true">
-        <img src="/images/clinic/home-hero-final.webp" alt="" fetchPriority="high" />
-      </picture>
+      <div className="home-hero__media" aria-hidden="true">
+        <Image
+          src="/images/clinic/home-hero-final.webp"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+        />
+      </div>
       <div className="home-hero__shade" aria-hidden="true" />
 
       <div className="home-hero__content">

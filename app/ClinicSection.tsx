@@ -25,15 +25,17 @@ export default function ClinicSection(params: { title: string, description1: str
                 src="/images/clinic/clinic-1.jpeg"
                 alt="Behandlungsraum der Praxis Jona in Berlin-Mitte"
                 className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
-                width={1432}
-                height={1442}
+                width={2016}
+                height={1512}
+                sizes="(min-width: 1024px) 48rem, (min-width: 672px) 42rem, calc(100vw - 3rem)"
               />
               <Image
                 src="/images/clinic/clinic-2.jpeg"
                 alt="Ruhige Praxisatmosphäre der Praxis Jona"
                 className="relative sm:w-[48rem] lg:max-w-none mb-8 lg:mb-16 rounded-xl shadow-xl"
-                width={1432}
-                height={1442}
+                width={2016}
+                height={1512}
+                sizes="(min-width: 1024px) 48rem, (min-width: 672px) 42rem, calc(100vw - 3rem)"
               />
             </div>
           </div>
