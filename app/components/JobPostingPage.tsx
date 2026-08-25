@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getJobApplicationMailTo } from "app/data/jobs";
+import { JobApplicationLink } from "app/components/JobApplicationLink";
 import type { JobDetailContent } from "app/data/jobs";
 
 type JobPostingPageProps = {
@@ -44,8 +44,6 @@ function Section({ icon, title, items, paragraphs }: JobDetailContent["sections"
 }
 
 export function JobPostingPage({ job, structuredData, breadcrumbStructuredData }: JobPostingPageProps) {
-    const applicationMailTo = getJobApplicationMailTo(job);
-
     return (
         <div className="bg-white mt-2 sm:mt-10">
             <JsonLdScript data={structuredData} />
@@ -109,22 +107,18 @@ export function JobPostingPage({ job, structuredData, breadcrumbStructuredData }
                                 {job.applicationEmail}
                             </a>
                         </p>
-                        <a
-                            href={applicationMailTo}
+                        <JobApplicationLink
+                            job={job}
                             className="mt-6 hidden lg:inline-flex rounded-xl bg-primary py-2.5 px-5 text-white font-serif hover:bg-primaryDarker"
-                        >
-                            {job.applyCta}
-                        </a>
+                        />
                     </section>
                 </article>
             </div>
             <div className="lg:hidden fixed bottom-0 left-0 right-0 p-4 bg-white border-t border-gray-200 z-50">
-                <a
-                    href={applicationMailTo}
+                <JobApplicationLink
+                    job={job}
                     className="block w-full bg-primaryLighter hover:bg-tealColorDark text-white text-center px-6 py-3 rounded-lg transition-colors duration-200 font-medium"
-                >
-                    {job.applyCta}
-                </a>
+                />
             </div>
         </div>
     );
