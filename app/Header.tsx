@@ -155,7 +155,10 @@ export default function Header() {
                 'sticky top-0 z-20 transition-shadow backdrop-blur-md',
             )}
         >
-            <nav className={cn("mx-auto flex items-center justify-between px-5 lg:px-8", isHomepage ? "max-w-[1440px] py-3 xl:py-2.5" : "max-w-7xl p-6 lg:px-8")} aria-label="Global">
+            <nav
+                className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-3 lg:px-8 xl:py-2.5"
+                aria-label="Global"
+            >
                 <div className="flex xl:flex-1 ml-0 cursor-pointer">
                     <Link
                         href={locale === "de" ? "/" : "/" + locale}
@@ -164,7 +167,7 @@ export default function Header() {
                     >
                         <Image
                             priority={true}
-                            className={cn("w-auto object-contain cursor-pointer", isHomepage ? "h-11 xl:h-12" : "h-14")}
+                            className="h-11 w-auto cursor-pointer object-contain xl:h-12"
                             src={Logo}
                             alt=""
                         />
