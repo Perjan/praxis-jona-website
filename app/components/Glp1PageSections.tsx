@@ -54,6 +54,7 @@ const content = {
     digitalText:
       "Der wichtigste Vorteil: Nach ärztlicher Prüfung erhalten Sie Ihr Rezept bequem und diskret nach Hause. Bei Bedarf kann es als EU-/EWR-Auslandsrezept ausgestellt werden, sofern die medizinischen und formalen Voraussetzungen erfüllt sind. Velto Premium verbindet diesen Rezeptservice mit einer modernen GLP-1-App zur digitalen Therapiebegleitung.",
     digitalItems: ["Rezept diskret nach Hause", "EU-/EWR-Auslandsrezept möglich", "moderne GLP-1-App Velto", "monatlich kündbar"],
+    digitalQuestionnaireCta: "Online-Fragebogen starten",
     suitabilityEyebrow: "Für wen geeignet",
     suitabilityTitle: "Für wen wir eine GLP-1-Therapie prüfen.",
     suitabilityText:
@@ -122,6 +123,7 @@ const content = {
     digitalText:
       "The key benefit: after physician review, your prescription is sent discreetly and conveniently to your home. When needed, it can be issued as an EU/EEA cross-border prescription if the medical and formal requirements are met. Velto Premium combines this prescription service with a modern GLP-1 app for digital therapy support.",
     digitalItems: ["prescription delivered discreetly", "EU/EEA cross-border prescription possible", "modern Velto GLP-1 app", "cancellable monthly"],
+    digitalQuestionnaireCta: "Start online questionnaire",
     suitabilityEyebrow: "Who It May Suit",
     suitabilityTitle: "Who we assess for GLP-1 therapy.",
     suitabilityText:
@@ -241,6 +243,12 @@ export function Glp1DigitalAndSuitability({ locale }: { locale: LongevityLocale 
               </div>
             ))}
           </div>
+          <Link
+            href={locale === "de" ? "/glp-1-check" : "/en/glp-1-check"}
+            className="mt-7 inline-flex justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:bg-lightBeige"
+          >
+            {localized.digitalQuestionnaireCta}
+          </Link>
         </article>
 
         <article className="rounded-xl border border-primary/10 bg-white p-6 shadow-sm sm:p-8">
