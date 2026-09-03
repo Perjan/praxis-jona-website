@@ -18,6 +18,7 @@ import {
 } from "@heroicons/react/24/outline";
 import type { ComponentType, SVGProps } from "react";
 import { Constants } from "app/Constants";
+import { buildClinicSchema } from "app/components/clinicSchema";
 import type { AppointmentBookingUrls } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
@@ -264,20 +265,13 @@ export function CategoryHub({ content, canonical, alternate }: { content: Catego
     })),
   };
 
+  // Uses the shared clinic node so #organization stays one consistent entity.
+  // This previously declared the same @id as MedicalBusiness while every other
+  // page declared MedicalClinic, and overwrote the organisation url with the
+  // current page's url.
   const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "@id": `${Constants.baseUrl}/#organization`,
-    name: "Praxis Jona",
-    url: `${Constants.baseUrl}${canonical}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "Torstraße 125",
-      postalCode: "10119",
-      addressLocality: "Berlin",
-      addressCountry: "DE",
-    },
-    telephone: Constants.contact.phone,
+    ...buildClinicSchema(),
   };
 
   return (

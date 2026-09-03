@@ -45,7 +45,7 @@ export const appsByLocale = {
         "Sehen die Bildschirmzeit Ihre Familie und Freunde (Einladung erforderlich)",
         "Personalisierte Einblicke in digitale Verhaltensmuster"
       ],
-      image: "https://appscreentime.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frtst-all-devices.5490a794.png&w=2048&q=100",
+      image: "/images/apps/sandflow-all-devices.webp",
       downloadLink: {
         website: "https://appscreentime.com",
         ios: "https://apps.apple.com/us/app/screen-time-realtime/id6452629146?pt=118449936&ct=praxisjona&mt=8"
@@ -96,7 +96,7 @@ export const appsByLocale = {
         "Personalized insights into digital behavior patterns",
         "Progress reports to support long-term behavioral changes"
       ],
-      image: "https://appscreentime.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Frtst-all-devices.5490a794.png&w=2048&q=100",
+      image: "/images/apps/sandflow-all-devices.webp",
       downloadLink: {
         website: "https://appscreentime.com",
         ios: "https://apps.apple.com/us/app/screen-time-realtime/id6452629146?pt=118449936&ct=praxisjona&mt=8"

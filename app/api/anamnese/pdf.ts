@@ -6,7 +6,7 @@ import {
   anamneseCopy,
   calculateAgeFromBirthdate,
   sanitizeFilenamePart,
-} from "@/app/anamnese/form-definition";
+} from "@/app/(de)/anamnese/form-definition";
 
 export const parseDataUrl = (dataUrl: string) => {
   const matches = dataUrl.match(/^data:(.+);base64,(.+)$/);

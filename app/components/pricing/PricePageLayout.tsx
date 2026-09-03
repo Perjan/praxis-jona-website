@@ -39,7 +39,7 @@ export default function PricePageLayout({ config }: { config: PricingPageConfig 
         </div>
       </section>
 
-      <section className="px-6 py-10 md:px-10">
+      <section className="px-4 py-10 sm:px-6 md:px-10">
         <div className="mx-auto max-w-7xl">
           <nav aria-label={allPricesLabel} className="flex flex-wrap gap-3">
             {config.sections.map((section) => (

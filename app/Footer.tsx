@@ -8,12 +8,15 @@ import { newJobOpeningCount } from "./data/jobs";
 
 const currentYear = new Date().getFullYear(); // Get the current year
 
+const footerLinkClassName = "font-semibold text-primary no-underline transition-colors hover:text-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+
 const navigationGerman = {
   copyright: `© ${currentYear} Praxis Jona. Alle Rechte vorbehalten.`,
   imprint: "Impressum und Datenschutz",
   imprintUrl: "/legal/impressum-datenschutz",
   company: [
     { name: 'Innere Medizin', href: '/hausaerztliche-leistungen' },
+    { name: 'Schwerpunkte', href: '/schwerpunkte' },
     { name: 'Ästhetik', href: '/aesthetik' },
     { name: 'Health / Longevity', href: '/praevention-longevity' },
     { name: 'Preise', href: '/preise' },
@@ -31,6 +34,7 @@ const navigationEnglish = {
   imprintUrl: "/en/legal/imprint-privacy",
   company: [
     { name: 'Internal Medicine', href: '/en/general-medicine' },
+    { name: 'Focus Areas', href: '/en/focus-areas' },
     { name: 'Aesthetics', href: '/en/aesthetics' },
     { name: 'Health / Longevity', href: '/en/prevention-longevity' },
     { name: 'Prices', href: '/en/prices' },
@@ -124,7 +128,7 @@ export default function Page() {
   }
 
   return (
-    <footer className="bg-stone-100" aria-labelledby="footer-heading">
+    <footer className="relative z-10 bg-stone-100" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -136,10 +140,10 @@ export default function Page() {
               <p dangerouslySetInnerHTML={{ __html: Constants.address.replace(/\n/g, '<br />') }} />
             </div>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              <a href={Constants.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="underline">{googleMapsLabel}</a>
+              <a href={Constants.contact.googleMapsUrl} target="_blank" rel="noopener noreferrer" className={footerLinkClassName}>{googleMapsLabel}</a>
             </p>
             <p className="text-sm leading-6 text-primaryLighter">
-              <a href={Constants.contact.appleMapsUrl} target="_blank" rel="noopener noreferrer" className="underline">{appleMapsLabel}</a>
+              <a href={Constants.contact.appleMapsUrl} target="_blank" rel="noopener noreferrer" className={footerLinkClassName}>{appleMapsLabel}</a>
             </p>
             <div className="mt-8">
               <h3 className="text-sm font-semibold font-serif leading-6 text-primary">
@@ -150,7 +154,7 @@ export default function Page() {
                   ? "We now accept card payments (EC/credit card) and mobile payments for private treatments." 
                   : "Wir akzeptieren jetzt Kartenzahlungen (EC/Kreditkarte) und mobile Zahlungen für private Leistungen."}
                 {" "}
-                <Link href="/blog/digitale-zahlungen" className="underline">
+                <Link href="/blog/digitale-zahlungen" className={footerLinkClassName}>
                   {locale === "en" ? "Read the full article on digital payments" : "Mehr über digitale Zahlungen lesen"}
                 </Link>
               </p>
@@ -159,13 +163,13 @@ export default function Page() {
           <div className="text-center sm:text-left">
             <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{contactLabel}</h3>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              Tel: <a href={contact.phoneUrl} className="underline">{contact.phone}</a>
+              Tel: <a href={contact.phoneUrl} className={footerLinkClassName}>{contact.phone}</a>
             </p>
             <p className="text-sm leading-6 text-primaryLighter">
               Fax: <span className="">{contact.fax}</span>
             </p>
             <p className="text-sm mt-2 leading-6 text-primaryLighter">
-              Email: <a href={contact.emailUrl} className="underline">{contact.email}</a>
+              Email: <a href={contact.emailUrl} className={footerLinkClassName}>{contact.email}</a>
             </p>
           </div>
           <div className="text-center sm:text-left">
@@ -192,8 +196,8 @@ export default function Page() {
             <ul role="list" className="mt-2 space-y-2">
               {navigation.company.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href} className="inline-flex items-center gap-1.5 text-sm leading-6 text-primaryLighter hover:text-primary">
-                    <span className="underline">{item.name}</span>
+                  <a href={item.href} className={`${footerLinkClassName} inline-flex items-center gap-1.5 text-sm leading-6`}>
+                    <span>{item.name}</span>
                     {item.badge ? (
                       <>
                         <span className="inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full bg-red-600 px-1.5 text-xs font-semibold leading-none text-white">
@@ -214,13 +218,19 @@ export default function Page() {
           <div className="text-center md:text-left">
             <div className="text-xs leading-5 text-primaryLighter">
               {navigation.copyright}
-              <Link href={navigation.imprintUrl} className="text-xs leading-6 text-primaryLighter hover:text-primary underline">
+              {" "}
+              <Link href={navigation.imprintUrl} className={`${footerLinkClassName} text-xs leading-6`}>
                 {navigation.imprint}
               </Link></div>
 
             <div className="mt-8 text-xs space-x-1 leading-5 md:order-1 md:mt-0">
-              <span className=" text-gray-500">{languageLabel}:</span>
-              <LanguagePicker locale={locale} pathname={pathname} />
+              <span className="text-primaryLighter">{languageLabel}:</span>
+              <LanguagePicker
+                locale={locale}
+                pathname={pathname}
+                linkClassName={footerLinkClassName}
+                separatorClassName="text-primaryLighter"
+              />
             </div>
           </div>
           <div className="flex mt-4 md:mt-0 space-x-6">

@@ -88,7 +88,11 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                             {isEnglish ? "Prices" : "Preise"}
                         </h2>
                         <div style={{ maxWidth: "auto", margin: "auto", padding: "0px" }} className="overflow-x-auto">
-                            <table className="w-full">
+                            <table className="w-full table-fixed">
+                                <colgroup>
+                                    <col className="w-[68%]" />
+                                    <col className="w-[32%]" />
+                                </colgroup>
                                 <thead>
                                     <tr>
                                         <th className="text-left border-b-2 border-[#0D322B]">
@@ -106,11 +110,11 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                                 <tbody>
                                     {treatments.map((treatment, index) => (
                                         <tr key={index}>
-                                            <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter pr-4" 
+                                            <td className="break-words py-4 pr-3 text-base text-primaryLighter lg:pr-4 lg:text-lg"
                                                 style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B" }}>
                                                 {isEnglish ? treatment.nameEN : treatment.nameDE}
                                             </td>
-                                            <td className="pt-4 pb-4 text-base lg:text-lg text-primaryLighter" 
+                                            <td className="whitespace-nowrap py-4 text-right text-base text-primaryLighter lg:text-lg"
                                                 style={{ borderBottom: index === treatments.length - 1 ? "none" : "1px solid #0D322B", textAlign: "right" }}>
                                                 {treatment.hasDiscount ? (
                                                     <div className="flex flex-col items-end gap-1">

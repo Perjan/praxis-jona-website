@@ -3,10 +3,10 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import AnamnesePage from "@/app/anamnese/medical-history/page";
+import AnamnesePage from "@/app/(de)/anamnese/medical-history/page";
 import { TEST_SIGNATURE } from "./fixtures";
 
-vi.mock("@/app/anamnese/SignaturePad", () => ({
+vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
   default: forwardRef(({ value, onChange, clearLabel }: any, ref) => {
     const valueRef = useRef(value);
     valueRef.current = value;

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { POST } from "@/app/api/eisenaufklaerung/route";
-import { createDefaultEisenaufklaerungValues } from "@/app/anamnese/eiseninfusion/form-definition";
+import { createDefaultEisenaufklaerungValues } from "@/app/(de)/anamnese/eiseninfusion/form-definition";
 
 const createRequest = (body: unknown) =>
   new Request("http://localhost/api/eisenaufklaerung", {

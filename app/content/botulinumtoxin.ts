@@ -47,7 +47,7 @@ export type BotulinumtoxinPageContent = {
 };
 
 export const botulinumtoxinIntro = {
-  title: "Botulinumtoxin-Behandlung in Berlin-Mitte",
+  title: "Botulinumtoxin („Botox“) in Berlin-Mitte",
   subtitle: "Natürliche Ergebnisse durch präzise ästhetische Medizin",
   description:
     "In der Praxis Jona am Rosenthaler Platz setzen wir Botulinumtoxin („Botox“) individuell und medizinisch fundiert ein, mit dem Ziel, mimische Falten sanft zu entspannen und die natürliche Ausstrahlung zu erhalten.",
@@ -172,12 +172,16 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   {
     slug: "hyperhidrose-starkes-schwitzen",
     pricingSlug: "hyperhidrose",
-    title: "Hyperhidrose (starkes Schwitzen)",
+    title: "Starkes Schwitzen (Hyperhidrose)",
     image: { src: botulinumtoxinImages.hyperhidrose, alt: "Modell mit Fokus auf Achselbereich bei Hyperhidrose" },
     paragraphs: [
+      "Übermäßiges Schwitzen (Hyperhidrose) geht über die normale Temperaturregulation hinaus und tritt oft unabhängig von Hitze, Jahreszeit oder körperlicher Anstrengung auf. Für Betroffene bedeutet das häufig eine deutliche Einschränkung im Alltag, bei der Kleidungswahl und im Berufsleben.",
       "Bei übermäßigem Schwitzen kann Botulinumtoxin eingesetzt werden, um die Aktivität der Schweißdrüsen gezielt zu reduzieren.",
+      "Das Präparat wird dabei oberflächlich in die betroffene Hautregion injiziert und hemmt dort die Signalübertragung an die Schweißdrüsen. Die Schweißproduktion lässt im behandelten Bereich nach, während die Temperaturregulation des übrigen Körpers unverändert bleibt.",
+      "Vor der Behandlung ordnen wir das Beschwerdebild ärztlich ein. Unterschieden wird die primäre Hyperhidrose, die ohne erkennbare Grunderkrankung auftritt, von der sekundären Form, die Folge einer anderen Erkrankung oder einer Medikation sein kann. Diese Abgrenzung ist wichtig, weil sie mitentscheidet, welche Behandlung sinnvoll ist.",
+      "Die Behandlung kann die Lebensqualität bei ausgeprägtem Schwitzen deutlich verbessern. Wie lange die Wirkung anhält, unterscheidet sich individuell und wird im Verlauf gemeinsam beurteilt.",
+      "Die Schweißdrüsenbehandlung beginnt ab 449 € und ist eine ärztliche Privatleistung nach GOÄ. Bei entsprechender medizinischer Indikation kann die versicherungsrechtliche Einordnung von einer rein ästhetischen Behandlung abweichen; das klären wir im Einzelfall.",
       "Häufig behandelte Regionen sind:",
-      "Die Behandlung kann die Lebensqualität bei ausgeprägtem Schwitzen deutlich verbessern.",
     ],
     bullets: ["Achseln", "Hände", "Stirn"],
   },
@@ -194,7 +198,7 @@ export const botulinumtoxinServices: BotulinumtoxinService[] = [
   {
     slug: "trapezmuskel-barbie-botox",
     pricingSlug: "trapezmuskel",
-    title: "Trapezmuskel-Behandlung mit Botulinumtoxin (“Barbie-Botox”)",
+    title: "Trapezmuskel („Barbie Botox“)",
     image: { src: botulinumtoxinImages.trapezmuskel, alt: "Modell mit Fokus auf Nacken, Schultern und Trapezmuskel" },
     paragraphs: [
       "Eine ausgeprägte Muskelspannung im Schulter- und Nackenbereich kann zu Beschwerden wie Verspannungen, Druckgefühl oder muskulärer Überaktivität führen. In manchen Fällen wirkt die Schulterpartie zusätzlich sehr breit oder dauerhaft angespannt.",
@@ -331,7 +335,7 @@ export function getBotulinumtoxinService(slug: string) {
 }
 
 export const botulinumtoxinIntroEn = {
-  title: "Botulinum toxin treatment in Berlin-Mitte",
+  title: "Botulinum Toxin (“Botox”) in Berlin-Mitte",
   subtitle: "Natural results through precise aesthetic medicine",
   description:
     "At Praxis Jona near Rosenthaler Platz, we use botulinum toxin (“Botox”) individually and with medical precision, aiming to gently relax expression lines while preserving natural radiance.",
@@ -444,9 +448,13 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
     title: "Hyperhidrosis (excessive sweating)",
     image: { src: botulinumtoxinImages.hyperhidrose, alt: "Model with focus on the underarm area for hyperhidrosis" },
     paragraphs: [
+      "Excessive sweating (hyperhidrosis) goes beyond normal temperature regulation and often occurs regardless of heat, season or physical exertion. For those affected it frequently means a marked restriction in daily life, in choosing clothing and at work.",
       "In cases of excessive sweating, botulinum toxin can be used to selectively reduce sweat gland activity.",
+      "The preparation is injected superficially into the affected area of skin, where it inhibits signal transmission to the sweat glands. Sweat production decreases in the treated area while temperature regulation across the rest of the body remains unchanged.",
+      "Before treatment we assess the presentation medically. A distinction is drawn between primary hyperhidrosis, which occurs without an identifiable underlying condition, and the secondary form, which can result from another condition or from medication. That distinction matters because it informs which treatment is appropriate.",
+      "Treatment can significantly improve quality of life in pronounced sweating. How long the effect lasts varies individually and is assessed together over time.",
+      "Sweat gland treatment starts from €449 and is a private physician service according to GOÄ. Where there is a corresponding medical indication, the insurance classification may differ from a purely aesthetic treatment; we clarify that case by case.",
       "Commonly treated areas are:",
-      "Treatment can significantly improve quality of life in pronounced sweating.",
     ],
     bullets: ["armpits", "hands", "forehead"],
   },
@@ -463,7 +471,7 @@ export const botulinumtoxinServicesEn: BotulinumtoxinService[] = [
   {
     slug: "trapezius-barbie-botox",
     pricingSlug: "trapezmuskel",
-    title: "Trapezius treatment with botulinum toxin (“Barbie Botox”)",
+    title: "Trapezius (“Barbie Botox”)",
     image: { src: botulinumtoxinImages.trapezmuskel, alt: "Model with focus on neck, shoulders and trapezius muscle" },
     paragraphs: [
       "Pronounced muscle tension in the shoulder and neck area can lead to symptoms such as tightness, pressure or muscular overactivity. In some cases, the shoulder area also appears very broad or permanently tense.",

@@ -1,21 +1,6 @@
-import { Constants } from "app/Constants";
 import type { PricingLocale, PricingPageConfig, PricingRow, PricingSection } from "./pricingData";
 import { absoluteUrl } from "./pricingData";
-
-const clinic = {
-  "@type": "MedicalClinic",
-  "@id": `${Constants.baseUrl}/#organization`,
-  name: Constants.appName,
-  url: Constants.baseUrl,
-  telephone: Constants.contact.phone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Torstrasse 125",
-    postalCode: "10119",
-    addressLocality: "Berlin",
-    addressCountry: "DE",
-  },
-};
+import { buildClinicSchema, clinicReference, physicianSchema } from "app/components/clinicSchema";
 
 function rowUrl(section: PricingSection, row: PricingRow, locale: PricingLocale): string {
   const href = row.detailHref?.[locale] ?? section.detailHref?.[locale] ?? "";
@@ -36,7 +21,7 @@ function buildOffers(section: PricingSection, row: PricingRow, locale: PricingLo
     priceCurrency: row.price.currency,
     availability: "https://schema.org/InStock",
     url: rowUrl(section, row, locale),
-    seller: clinic,
+    seller: clinicReference,
   };
 
   if (typeof row.packageOffer?.price.amount !== "number") {
@@ -52,7 +37,7 @@ function buildOffers(section: PricingSection, row: PricingRow, locale: PricingLo
       priceCurrency: row.packageOffer.price.currency,
       availability: "https://schema.org/InStock",
       url: rowUrl(section, row, locale),
-      seller: clinic,
+      seller: clinicReference,
       eligibleQuantity: {
         "@type": "QuantitativeValue",
         value: row.packageOffer.quantity,
@@ -71,7 +56,7 @@ function buildService(section: PricingSection, row: PricingRow, locale: PricingL
     name: serviceName,
     description: row.description?.[locale] ?? section.description[locale],
     url: rowUrl(section, row, locale),
-    provider: clinic,
+    provider: clinicReference,
     ...(offer ? { offers: offer } : {}),
   };
 }
@@ -83,7 +68,7 @@ function buildOfferCatalogItem(section: PricingSection, row: PricingRow, locale:
     "@type": "Offer",
     name: offerName,
     url: rowUrl(section, row, locale),
-    seller: clinic,
+    seller: clinicReference,
     itemOffered: service,
   };
 
@@ -134,8 +119,8 @@ export function buildPricingJsonLd(config: PricingPageConfig) {
       name: config.title,
       description: config.description,
       inLanguage: config.locale === "de" ? "de-DE" : "en-US",
-      about: clinic,
-      publisher: clinic,
+      about: clinicReference,
+      publisher: clinicReference,
     },
     {
       "@context": "https://schema.org",
@@ -156,14 +141,19 @@ export function buildPricingJsonLd(config: PricingPageConfig) {
     },
     {
       "@context": "https://schema.org",
-      ...clinic,
-      areaServed: {
-        "@type": "City",
-        name: "Berlin",
-      },
-      currenciesAccepted: "EUR",
-      priceRange: "€€",
-      hasOfferCatalog: buildClinicOfferCatalogJsonLd(config),
+      ...buildClinicSchema({
+        areaServed: {
+          "@type": "City",
+          name: "Berlin",
+        },
+        currenciesAccepted: "EUR",
+        priceRange: "€€",
+        hasOfferCatalog: buildClinicOfferCatalogJsonLd(config),
+      }),
+    },
+    {
+      "@context": "https://schema.org",
+      ...physicianSchema,
     },
   ];
 

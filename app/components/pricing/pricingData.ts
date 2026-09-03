@@ -65,6 +65,7 @@ export type PricingPageConfig = {
 };
 
 const fromPrefix: LocalizedText = { de: "ab", en: "from" };
+const approxPrefix: LocalizedText = { de: "ca.", en: "approx." };
 const goae: LocalizedText = { de: "nach GOÄ", en: "according to GOÄ" };
 const byConsultation: LocalizedText = {
   de: "wird individuell besprochen",
@@ -201,31 +202,32 @@ export const pricingSections = {
     pillar: "healthLongevity",
     title: { de: "Ernährungsmedizin", en: "Nutritional medicine" },
     description: {
-      de: "Medizinische Ernährungsberatung, Pakete und Verlaufstermine als Selbstzahlerleistung.",
-      en: "Medical nutrition consultation, packages and follow-up appointments as self-pay services.",
+      de: "Individuelle ernährungsmedizinische Beratung mit Ernährungsanalyse, Zielplanung und alltagstauglicher Strategie.",
+      en: "Individual nutritional medicine consultation with nutrition analysis, goal planning and an everyday strategy.",
     },
     detailHref: { de: "/leistungen/ernaehrungsmedizin", en: "/en/services/nutritional-medicine" },
     bookingHref: appointmentHref,
     bookingUrls: Constants.appointmentUrlsByService.nutrition,
     rows: [
       {
-        slug: "beratung",
-        label: { de: "Ernährungsberatung", en: "Nutrition consultation" },
-        description: { de: "ca. 30 Minuten", en: "approx. 30 minutes" },
-        price: { amount: 124, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        slug: "erstgespraech",
+        label: { de: "Erstgespräch", en: "Initial consultation" },
+        description: { de: "60 Minuten", en: "60 minutes" },
+        price: { amount: 240.26, currency: "EUR", billingNote: goae, goaeNote: true },
         bookingUrls: Constants.appointmentUrlsByService.nutrition30,
       },
       {
-        slug: "basis",
-        label: { de: "Paket BASIS", en: "BASIC package" },
-        description: { de: "3 Termine, jeweils 30 Minuten", en: "3 appointments of 30 minutes each" },
-        price: { amount: 249.51, currency: "EUR", billingNote: goae, goaeNote: true },
+        slug: "folgegespraech",
+        label: { de: "Folgegespräch", en: "Follow-up consultation" },
+        description: { de: "30 Minuten", en: "30 minutes" },
+        price: { amount: 120.65, currency: "EUR", billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.nutrition30,
       },
+    ],
+    notes: [
       {
-        slug: "intensiv",
-        label: { de: "Paket INTENSIV", en: "INTENSIVE package" },
-        description: { de: "5 Termine, jeweils 30 Minuten", en: "5 appointments of 30 minutes each" },
-        price: { amount: 415.85, currency: "EUR", billingNote: goae, goaeNote: true },
+        de: "Eine vollständige oder teilweise Erstattung durch gesetzliche oder private Krankenversicherungen ist abhängig von der jeweiligen Krankenkasse beziehungsweise Ihrem individuellen Versicherungstarif und kann nicht garantiert werden.",
+        en: "Full or partial reimbursement by statutory or private health insurance depends on the respective health insurer or your individual insurance tariff and cannot be guaranteed.",
       },
     ],
   },
@@ -255,29 +257,82 @@ export const pricingSections = {
     pillar: "healthLongevity",
     title: { de: "GLP-1 / Abnehmspritze", en: "GLP-1 / weight-loss injection" },
     description: {
-      de: "Ärztliche Begleitung bei medikamentöser Gewichtsreduktion. Medikamentenkosten sind nur im Rundum-Sorglos-Paket enthalten.",
-      en: "Medical support for medication-assisted weight management. Medication costs are only included in the all-inclusive package.",
+      de: "Medizinische Begleitung bei Gewichtsreduktion und GLP-1-Therapie, vor Ort oder digital. Medikamentenkosten sind nicht enthalten.",
+      en: "Medical support for weight loss and GLP-1 therapy, in practice or digitally. Medication costs are not included.",
     },
     detailHref: { de: "/leistungen/abnehmspritze", en: "/en/services/weight-loss-injection" },
     bookingHref: appointmentHref,
     bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
     rows: [
       {
-        slug: "beratung-start",
-        label: { de: "GLP-1 Beratung", en: "GLP-1 consultation" },
-        description: { de: "ca. 30 Minuten", en: "approx. 30 minutes" },
-        price: { amount: 124, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        slug: "umfassender-ersttermin",
+        label: { de: "Umfassender Ersttermin", en: "Comprehensive initial appointment" },
+        description: { de: "medizinische Gewichtssprechstunde", en: "medical weight consultation" },
+        price: { amount: 289, currency: "EUR", prefix: approxPrefix, billingNote: goae, goaeNote: true },
         bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       },
       {
-        slug: "erhaltungsphase",
-        label: { de: "Erhaltungsphase", en: "Maintenance phase" },
-        description: { de: "ca. 15 Minuten", en: "approx. 15 minutes" },
-        price: { amount: 50, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true },
+        slug: "folgegespraech",
+        label: { de: "Folgegespräch", en: "Follow-up consultation" },
+        description: { de: "20 Minuten, für Bestandspatientinnen und Bestandspatienten", en: "20 minutes, for existing patients" },
+        price: { amount: 139, currency: "EUR", prefix: approxPrefix, billingNote: goae, goaeNote: true },
         bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
       },
-      { slug: "abnehmspritze-paket", label: { de: "Abnehmspritze", en: "Weight-loss injection package" }, price: { amount: 499, currency: "EUR" }, bookingUrls: Constants.appointmentUrlsByService.weightLossInjection },
-      { slug: "rundum-sorglos", label: { de: "Abnehmspritze Rundum-Sorglos", en: "All-inclusive weight-loss injection" }, price: { amount: 1499, currency: "EUR" }, bookingUrls: Constants.appointmentUrlsByService.weightLossInjection },
+      {
+        slug: "kurzer-therapie-check",
+        label: { de: "Kurzer Therapie-Check", en: "Short therapy check" },
+        description: { de: "telefonisch, bis ca. 10 Minuten", en: "by telephone, up to approx. 10 minutes" },
+        price: { amount: 69, currency: "EUR" },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "ernaehrungsmedizin-erstgespraech",
+        label: { de: "Ernährungsmedizinisches Erstgespräch", en: "Nutritional medicine initial consultation" },
+        description: { de: "60 Minuten", en: "60 minutes" },
+        price: { amount: 240.26, currency: "EUR", billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "ernaehrungsmedizin-folgegespraech",
+        label: { de: "Ernährungsmedizinisches Folgegespräch", en: "Nutritional medicine follow-up consultation" },
+        description: { de: "30 Minuten", en: "30 minutes" },
+        price: { amount: 120.65, currency: "EUR", billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "digitaler-ersttermin",
+        label: { de: "Digitaler Ersttermin", en: "Digital initial appointment" },
+        description: { de: "ärztliche Videosprechstunde nach Online-Anamnese", en: "physician video consultation after online medical history" },
+        price: { amount: 89, currency: "EUR", prefix: approxPrefix, billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "velto-premium",
+        label: { de: "Velto Premium", en: "Velto Premium" },
+        description: { de: "digitale Begleitung, Rezeptservice nach ärztlicher Prüfung, monatlich kündbar", en: "digital support, prescription service after physician review, cancellable monthly" },
+        price: { amount: 20, currency: "EUR", billingNote: { de: "monatlich", en: "monthly" } },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "video-bedarf",
+        label: { de: "Ärztliche Videosprechstunde bei Bedarf", en: "Physician video consultation when needed" },
+        description: { de: "bei Nebenwirkungen, Therapiefragen oder ausführlicherer Beurteilung", en: "for side effects, therapy questions or a more detailed assessment" },
+        price: { amount: 69, currency: "EUR", billingNote: goae, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+      {
+        slug: "labor-check",
+        label: { de: "Empfohlener Labor-Check", en: "Recommended laboratory check" },
+        description: { de: "individuelle metabolische Ausgangsdiagnostik", en: "individual baseline metabolic diagnostics" },
+        price: { currency: "EUR", displayOverride: { de: "separat nach GOÄ", en: "billed separately according to GOÄ" }, goaeNote: true },
+        bookingUrls: Constants.appointmentUrlsByService.weightLossInjection,
+      },
+    ],
+    notes: [
+      {
+        de: "Die Kosten der Medikamente sind nicht enthalten. Eine Verordnung erfolgt ausschließlich nach ärztlicher Prüfung und bei bestehender medizinischer Indikation.",
+        en: "Medication costs are not included. A prescription is issued only after physician review and when there is an existing medical indication.",
+      },
     ],
   },
   privateCheckup: {
@@ -419,7 +474,7 @@ const pageCopy: Record<PricingPageKey, {
   },
   aesthetics: {
     title: { de: "Ästhetik Preise in Berlin-Mitte", en: "Aesthetics prices in Berlin-Mitte" },
-    description: { de: "Preise für ästhetische Medizin in der Praxis Jona, inklusive Botulinumtoxin-Preisen und Links zu Detailseiten.", en: "Prices for aesthetic medicine at Praxis Jona, including botulinum toxin prices and links to detail pages." },
+    description: { de: "Preise für ästhetische Medizin in Berlin-Mitte: Botulinumtoxin („Botox“) ab 199 €, PRP, Microneedling und Polynukleotide – transparent pro Behandlung.", en: "Prices for aesthetic medicine in Berlin-Mitte: botulinum toxin (“Botox”) from €199, PRP, microneedling and polynucleotides – transparent per treatment." },
     eyebrow: { de: "Ästhetik Preise", en: "Aesthetics prices" },
     intro: { de: "Ästhetische Preise sollten Orientierung geben, aber nicht die ärztliche Planung ersetzen. Die genaue Behandlung wird nach Anatomie, Befund und Ziel besprochen.", en: "Aesthetic prices provide orientation, but do not replace medical planning. The exact treatment is discussed after assessing anatomy, findings and goals." },
     canonical: { de: "/aesthetik/preise", en: "/en/aesthetics/prices" },
@@ -469,7 +524,22 @@ const faqs: Record<PricingPageKey, Record<PricingLocale, PricingPageConfig["faqs
       { question: "Can I book online?", answer: "Yes. Appointments can be booked online via Doctolib." },
     ],
   },
-  aesthetics: { de: undefined, en: undefined },
+  aesthetics: {
+    de: [
+      { question: "Was kostet eine Botulinumtoxin-Behandlung pro Zone?", answer: "Eine einzelne Zone beginnt bei 199 €. Dazu zählen unter anderem Zornesfalte, Stirnfalten, Krähenfüße, Bunny Lines und Lip Flip. Die endgültige Empfehlung richtet sich nach Muskelaktivität und Befund." },
+      { question: "Was kostet die Kombination mehrerer Zonen?", answer: "Für mehrere Bereiche gilt ein Kombinationspreis statt der Summe der Einzelzonen: zwei Zonen ab 299 €, drei Zonen ab 349 €, vier Zonen ab 499 €." },
+      { question: "Was kosten PRP, Microneedling und Skinbooster?", answer: "PRP-Behandlungen beginnen bei 199 €, medizinisches Microneedling bei 249 € und Skinbooster wie NCTF oder PhilArt bei 249 €. Der Preis richtet sich nach behandelter Fläche und Anzahl der Sitzungen." },
+      { question: "Übernimmt die Krankenkasse ästhetische Behandlungen?", answer: "Ästhetische Behandlungen sind Privatleistungen und werden nach GOÄ abgerechnet. Bei medizinischer Indikation – etwa Hyperhidrose oder Bruxismus – kann die Einordnung abweichen; das klären wir im Einzelfall." },
+      { question: "Ist ein Beratungsgespräch kostenpflichtig?", answer: "Ein reines Beratungsgespräch ohne Behandlung kostet 49 €. Findet im selben Termin eine Behandlung statt, ist die ärztliche Beratung darin enthalten." },
+    ],
+    en: [
+      { question: "What does botulinum toxin cost per area?", answer: "A single area starts at €199. This includes frown lines, forehead lines, crow's feet, bunny lines and lip flip, among others. The final recommendation depends on muscle activity and findings." },
+      { question: "What does treating several areas cost?", answer: "Combinations are priced as a package rather than the sum of individual areas: two areas from €299, three from €349, four from €499." },
+      { question: "What do PRP, microneedling and skinboosters cost?", answer: "PRP treatments start at €199, medical microneedling at €249 and skinboosters such as NCTF or PhilArt at €249. Price depends on the area treated and the number of sessions." },
+      { question: "Does statutory insurance cover aesthetic treatments?", answer: "Aesthetic treatments are private services billed according to GOÄ. Where there is a medical indication — hyperhidrosis or bruxism, for example — the classification may differ; we clarify that case by case." },
+      { question: "Is there a charge for the consultation?", answer: "A consultation without treatment costs €49. If treatment takes place at the same appointment, the medical consultation is included." },
+    ],
+  },
   healthLongevity: { de: undefined, en: undefined },
   internalMedicine: { de: undefined, en: undefined },
 };

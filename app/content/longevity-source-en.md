@@ -262,9 +262,9 @@ This includes, among others:
 
 Please do not stop prescribed medication on your own. If you are unsure, we are happy to advise you individually.
 
-# Iron Infusion for Iron Deficiency in Berlin-Mitte
+# Iron Infusion Cost & Treatment in Berlin-Mitte
 
-**Physician-led diagnostics and infusion therapy for iron deficiency**
+**Iron infusion for iron deficiency – physician-led, from €150.95 under GOÄ**
 
 At Praxis Jona near Rosenthaler Platz, we offer medical diagnostics and iron infusions for documented iron deficiency.
 
@@ -369,9 +369,19 @@ Iron infusion is a private physician service according to GOÄ.
 
 Costs start from €150.95*, depending on the preparation used.
 
-Private health insurance or supplementary insurance may partially or fully cover the costs depending on the tariff.
-
 *Actual costs depend on preparation, dosage and treatment effort.
+
+**What determines the cost of an iron infusion?**
+
+Three factors set the price: the preparation used, the dose required and the treatment effort involved. Dose is determined from your ferritin level, body weight and the extent of the deficiency, established by laboratory testing beforehand.
+
+Depending on the baseline findings, a single infusion may be sufficient or a series may be appropriate. How many appointments are actually needed can only be judged reliably after diagnostics, and is discussed openly before treatment begins.
+
+**Iron infusion cost with private or statutory insurance**
+
+Iron infusion is a private service. Private health insurance or supplementary insurance may partially or fully cover the costs depending on the tariff.
+
+Patients with statutory insurance generally bear the cost themselves. The preceding laboratory diagnostics may be treated differently where there is a corresponding medical indication; we clarify that case by case.
 
 ⸻
 
@@ -641,272 +651,138 @@ Infusion therapies are usually not covered by statutory health insurance.
 
 Private health insurance or supplementary insurance may partially or fully cover costs depending on the tariff.
 
-# Medical Weight Loss & GLP-1 Therapy (Weight-Loss Injection) in Berlin-Mitte
+# Medical Weight Loss & GLP-1 Therapy
 
-**Physician-supervised weight loss with individual medical support**
+Successful weight loss is more than prescribing a weight-loss injection. We offer different options for medical support - from comprehensive in-practice care to digital GLP-1 therapy.
 
-At Praxis Jona near Rosenthaler Platz, we offer physician-led concepts for medical weight loss.
+**Medical Weight Consultation**
 
-The focus is not only short-term weight loss, but a long-term meaningful and medically supervised change in:
+**Comprehensive Initial Appointment**
 
-* metabolism,
-* eating behavior,
-* body composition,
-* lifestyle
-* and health risk factors.
+During the initial appointment, we take detailed time for your medical situation and assess together which therapy is suitable for you.
 
-Depending on the individual situation, treatment may include GLP-1 therapy (“weight-loss injection”).
+Depending on your individual situation, the appointment includes:
 
-Our focus is medically grounded weight loss instead of short-term crash diets or unrealistic promises.
+* detailed medical history
+* analysis of previous weight-loss attempts and possible causes of weight gain
+* physical examination
+* ultrasound examination
+* assessment of existing laboratory values
+* evaluation of whether medication-assisted weight loss with, for example, Wegovy® or Mounjaro® is medically suitable
+* selection of an appropriate therapy
+* detailed explanation of use, effect, possible side effects and contraindications
+* definition of individual therapy goals
+* prescription when medically indicated
 
-⸻
+Expected costs: approx. €289
 
-**What is GLP-1 therapy (“weight-loss injection”)?**
-
-GLP-1 medications were originally developed for diabetes treatment and are now also used for medical weight loss.
-
-The therapy can support:
-
-* reduced hunger,
-* faster feeling of satiety,
-* better control of eating behavior
-* and long-term weight loss.
-
-GLP-1 therapy is not a replacement for nutrition or lifestyle changes, but part of a structured medical treatment concept.
+Billing is according to the German Medical Fee Schedule (GOÄ), based on the services actually provided.
 
 ⸻
 
-**Who can the treatment be useful for?**
+**Recommended Laboratory Check**
 
-Physician-supervised weight loss may be useful for:
+Before starting medication-assisted weight loss, we recommend individual baseline metabolic diagnostics.
 
-* obesity (BMI ≥ 30 kg/m²)
-* overweight (BMI ≥ 27 kg/m²) with accompanying conditions such as:
-* high blood pressure,
-* type 2 diabetes,
-* sleep apnea,
-* fatty liver
-* or metabolic syndrome
+Depending on the medical situation, the following values may be checked, among others:
 
-Before every treatment, there is a detailed physician assessment.
+Blood count, inflammation markers, thyroid values, kidney and liver values, blood lipids, fasting blood glucose, HbA1c and fasting insulin to calculate the HOMA index.
+
+Laboratory tests are compiled individually and billed separately according to GOÄ.
 
 ⸻
 
-**How does treatment work?**
+**Follow-up Consultation**
 
-At the beginning, there is a detailed physician initial consultation with:
+20 minutes | for existing patients
 
-* medical history,
-* weight analysis,
-* discussion of symptoms,
-* medication history,
-* eating habits
-* and individual risk assessment.
+We discuss your weight progress so far, tolerability and possible side effects, your personal goals, further therapy and, if needed, dose adjustment.
 
-Depending on the situation, additional diagnostics may be useful:
-
-* blood tests,
-* metabolic analyses,
-* micronutrient analyses
-* or further diagnostics.
+Expected costs: approx. €139 according to GOÄ
 
 ⸻
 
-**Nutrition counseling & medical support**
+**Short Therapy Check**
 
-Long-term successful weight loss is based not only on medication, but also on:
+By telephone | up to approx. 10 minutes | €69
 
-* nutrition,
-* everyday life,
-* movement,
-* muscle mass,
-* regeneration
-* and sustainable habits.
-
-That is why we can combine therapy with individual nutrition counseling and medical follow-up if desired.
+For short medical questions during an ongoing therapy, especially regarding tolerability, side effects and the further course of treatment.
 
 ⸻
 
-**What does treatment cost?**
+**Nutritional Medicine Consultation**
 
-Medical weight loss is a physician-supervised private service according to GOÄ.
+Medication therapy can be supplemented by intensive nutritional medicine support.
 
-**Initial consultation**
+**Initial Consultation | 60 minutes**
 
-*(one-time)*
-approx. €56*
+Detailed nutrition and lifestyle intervention with:
 
-The initial consultation includes:
-
-* detailed physician consultation
-* weight check
-* blood pressure measurement
-* abdominal circumference
-* individual assessment
-* therapy planning
-* prescription if indicated
-
-⸻
-
-**Basic support**
-
-*(quarterly)*
-approx. €40* per quarter
-
-Basic support includes:
-
-* physician follow-up every 3 months
-* weight check
-* blood pressure measurement & abdominal circumference
-* follow-up discussion
-* individual therapy adjustment if needed
-
-⸻
-
-**Intensive support**
-
-*(monthly)*
-approx. €20* per month
-
-Intensive support includes:
-
-* physician check once per month
-* weight check
-* blood pressure measurement & abdominal circumference
-* follow-up discussion
-* individual dose adjustment if needed
-
-Especially during the adjustment phase, closer medical support can be useful.
-
-**Nutrition counseling**
-
-*(bookable separately)*
-€89.17*
-
-Nutrition counseling includes:
-
-* analysis of eating habits
+* analysis of your nutrition diary
+* calculation of your individual calorie needs
+* definition of suitable protein and nutrient intake
 * individual nutrition recommendations
-* support for long-term dietary change
-* discussion of protein intake, satiety, eating behavior and everyday feasibility
+* creation of a personal nutrition plan
+* definition of realistic goals for the coming weeks
 
-Sustainable weight loss is based not only on medication, but also on long-term practical nutrition strategies.
+Cost: €240.26 according to GOÄ
 
-⸻
+**Follow-up Consultation | 30 minutes**
 
-**Medication**
+Together, we analyze the goals you agreed on:
 
-*(by prescription)*
+* What have you already been able to implement?
+* Where are there difficulties?
+* How has your nutrition log developed?
+* Which adjustments make sense?
 
-Depending on the medical situation, examples include:
+Several consultations are usually useful.
 
-* Mounjaro®
-* Wegovy®
+Cost: €120.65 according to GOÄ
 
-Medication costs depend on:
-
-* preparation,
-* dosage,
-* availability
-* and pharmacy.
-
-Medications are prescribed and billed separately.
+Reimbursement of nutritional medicine consultation by statutory or private health insurance depends on the respective health insurer or individual insurance tariff and cannot be guaranteed.
 
 ⸻
 
-**Additional services**
+**Velto DIGITAL**
 
-Depending on the situation, additional services may be useful:
+**Convenient Digital Support for GLP-1 Therapy**
 
-* laboratory testing
-* micronutrient analyses
-* nutrition counseling
-* infusion therapies
-* body composition analyses
+For patients who do not need comprehensive on-site care, we offer a digital treatment pathway.
 
-These services are discussed individually and billed separately.
+**Digital Initial Appointment**
 
-Private health insurance or supplementary insurance may partially or fully cover certain services depending on the tariff.
+First, you complete a detailed medical history form online.
 
-# Frequently Asked Questions About Medical Weight Loss
+This is followed by a physician video consultation. We assess whether medication-assisted weight loss is medically suitable for you, which medication may be appropriate, and discuss use, dosage, possible side effects and contraindications.
 
-**What is the difference between a diet and medical weight loss?**
+If medically indicated, a prescription can then be issued.
 
-Medical weight loss considers:
+Expected costs: approx. €89 according to GOÄ
 
-* metabolism,
-* pre-existing conditions,
-* lab values,
-* nutrition,
-* medication
-* and individual risk factors.
+**Velto Premium | €20 monthly**
 
-The goal is long-term and medically meaningful weight loss.
+After the initial appointment, you can conveniently have your therapy supported through Velto. The key benefit: after physician review, your prescription is sent discreetly and comfortably to your home. When needed, an EU/EEA cross-border prescription can be issued if the medical and formal requirements are met.
 
-⸻
+Velto Premium includes:
 
-**Is the “weight-loss injection” suitable for everyone?**
+* access to the modern Velto GLP-1 app
+* digital support for your therapy in the app
+* documentation of your weight progress
+* clear support throughout your treatment
+* monthly prescription service after physician review
+* discreet and comfortable prescription delivery to your home
+* EU/EEA cross-border prescription possible when requirements are met
+* cancellable monthly
 
-No. Whether GLP-1 therapy is useful depends on:
+€20 per month
 
-* weight,
-* pre-existing conditions,
-* metabolism,
-* medication
-* and individual medical situation.
+Medication costs are not included.
 
-That is why every treatment starts with a detailed physician assessment.
+**Physician Video Consultation When Needed**
 
-⸻
+If you have side effects, questions about therapy, or need a more detailed physician assessment, you can book an additional online appointment at any time.
 
-**Do I still have to change my nutrition?**
+€69 per appointment according to GOÄ
 
-Yes. Medication alone does not replace long-term changes in nutrition and lifestyle.
-
-Sustainable weight loss usually comes from the combination of:
-
-* medical support,
-* nutrition adjustment,
-* movement
-* and structured habits.
-
-⸻
-
-**Can deficiencies occur during weight loss?**
-
-Yes. Especially with reduced calorie intake or changed eating behavior, micronutrient deficiencies can occur.
-
-That is why we can combine therapy with:
-
-* micronutrient analyses,
-* nutrition counseling
-* and individual supplementation.
-
-⸻
-
-**How quickly do you lose weight with GLP-1 therapy?**
-
-Weight loss varies individually and depends on:
-
-* nutrition,
-* movement,
-* metabolism,
-* dosage
-* and starting weight.
-
-The goal is not extreme short-term weight loss, but a long-term stable and medically meaningful course.
-
-⸻
-
-**Are there side effects?**
-
-Like any medication, GLP-1 medications can cause side effects.
-
-Possible symptoms include:
-
-* nausea,
-* fullness,
-* gastrointestinal symptoms
-* or appetite changes.
-
-Before therapy begins, detailed medical information is provided.
+A prescription is issued only after physician review and when there is an existing medical indication.

@@ -13,16 +13,16 @@ export const longevitySections = {
     en: "Micronutrient Analysis & Consultation in Berlin-Mitte",
   },
   ironInfusion: {
-    de: "Eiseninfusion bei Eisenmangel in Berlin-Mitte",
-    en: "Iron Infusion for Iron Deficiency in Berlin-Mitte",
+    de: "Eiseninfusion Kosten & Ablauf in Berlin-Mitte",
+    en: "Iron Infusion Cost & Treatment in Berlin-Mitte",
   },
   vitaminInfusion: {
     de: "Vitamininfusionen & Infusionstherapie in Berlin-Mitte",
     en: "Vitamin Infusions & Infusion Therapy in Berlin-Mitte",
   },
   weightLoss: {
-    de: "Medizinische Gewichtsreduktion & GLP-1-Therapie (Abnehmspritze) in Berlin-Mitte",
-    en: "Medical Weight Loss & GLP-1 Therapy (Weight-Loss Injection) in Berlin-Mitte",
+    de: "Medizinische Gewichtsreduktion & GLP-1-Therapie",
+    en: "Medical Weight Loss & GLP-1 Therapy",
   },
 } as const;
 
@@ -73,6 +73,22 @@ export function getLongevitySectionDescription(key: LongevitySectionKey, locale:
     .map((line) => line.trim())
     .filter((line) => line && !line.startsWith("#") && line !== "⸻" && !line.startsWith("```"));
 
-  const firstText = lines.find((line) => !line.startsWith("- ") && !line.startsWith("* "));
-  return firstText?.replace(/^\*\*(.*)\*\*$/, "$1") ?? getLongevitySectionTitle(key, locale);
+  const textLines = lines
+    .filter((line) => !line.startsWith("- ") && !line.startsWith("* "))
+    .map((line) => line.replace(/^\*\*(.*)\*\*$/, "$1"));
+
+  if (!textLines.length) {
+    return getLongevitySectionTitle(key, locale);
+  }
+
+  // The opening line is usually a short bold lead-in, which makes a thin search
+  // snippet on its own. Pull in following sentences until it carries real detail.
+  let description = textLines[0];
+
+  for (let index = 1; index < textLines.length && description.length < 120; index += 1) {
+    const separator = /[.!?]$/.test(description) ? " " : ". ";
+    description = `${description}${separator}${textLines[index]}`;
+  }
+
+  return description;
 }

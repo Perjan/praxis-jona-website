@@ -2,7 +2,7 @@ import {
   AnamnesePayload,
   CONSENT_TEXT_VERSION,
   createDefaultAnamneseValues,
-} from "@/app/anamnese/form-definition";
+} from "@/app/(de)/anamnese/form-definition";
 
 export const TEST_SIGNATURE =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lY6N9wAAAABJRU5ErkJggg==";

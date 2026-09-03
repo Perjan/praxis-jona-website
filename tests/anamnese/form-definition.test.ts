@@ -9,7 +9,7 @@ import {
   getVisibleSexSpecificFields,
   parseBirthdateInput,
   sanitizeFilenamePart,
-} from "@/app/anamnese/form-definition";
+} from "@/app/(de)/anamnese/form-definition";
 import { createValidAnamnesePayload } from "./fixtures";
 
 describe("anamnese form definition", () => {

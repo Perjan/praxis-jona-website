@@ -21,7 +21,8 @@
     "gsc:snapshot": "node scripts/gsc/build-dashboard-snapshot.mjs",
     "gsc:weekly": "node scripts/gsc/run-weekly.mjs",
     "gsc:daily": "npm run gsc:weekly",
-    "gsc:record-implementation": "node scripts/gsc/record-implementation.mjs"
+    "gsc:record-implementation": "node scripts/gsc/record-implementation.mjs",
+    "gsc:compare": "node scripts/gsc/compare-baseline.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",

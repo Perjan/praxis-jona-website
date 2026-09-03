@@ -13,6 +13,9 @@ YYYY-MM-DD-short-description.md
 | Date | Target | Report |
 |---|---|---|
 | 2026-05-19 | `https://praxisjona.de` and `http://localhost:3001` | [Praxis Jona SEO/GEO Audit](./2026-05-19-praxis-jona-seo-geo-audit.md) |
+| 2026-08-13 | `https://praxisjona.de` crawler export and `http://localhost:3001` verification | [Hreflang And HTML Lang Mismatch](./2026-08-13-hreflang-html-lang-mismatch.md) |
+| 2026-08-13 | `https://praxisjona.de` crawler export and `http://localhost:3001` verification | [Broken Images](./2026-08-13-broken-images.md) |
+| 2026-08-24 | Search Console, `sc-domain:praxisjona.de` — scheduled follow-up | [28-Day Measurement Task](./2026-08-24-28-day-measurement-task.md) |
 
 ## Notes For Future Audits
 

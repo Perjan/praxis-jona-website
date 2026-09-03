@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { POST } from "@/app/api/impfaufklaerung/route";
-import { createDefaultImpfaufklaerungValues, impfaufklaerungQuestions } from "@/app/anamnese/impfaufklaerung/form-definition";
+import { createDefaultImpfaufklaerungValues, impfaufklaerungQuestions } from "@/app/(de)/anamnese/impfaufklaerung/form-definition";
 
 const createRequest = (body: unknown) =>
   new Request("http://localhost/api/impfaufklaerung", {

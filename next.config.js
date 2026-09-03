@@ -48,11 +48,6 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: "/faq",
-        destination: "/faqs",
-        permanent: true
-      },
-      {
         source: "/aesthetik/haarausfall",
         destination: "/leistungen/haarausfall-berlin-mitte",
         permanent: true

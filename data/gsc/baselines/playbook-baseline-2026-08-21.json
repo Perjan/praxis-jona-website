@@ -1,0 +1,141 @@
+{
+  "baselineRange": {
+    "start": "2026-07-25",
+    "end": "2026-08-21"
+  },
+  "capturedFor": "28-day playbook",
+  "queries": {
+    "eiseninfusion kosten": {
+      "impressions": 1587,
+      "clicks": 4,
+      "ctr": 0.00252,
+      "position": 10.5
+    },
+    "kosten eiseninfusion": {
+      "impressions": 140,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.6
+    },
+    "eisen infusion kosten": {
+      "impressions": 261,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 25.4
+    },
+    "eiseninfusion kosten privat": {
+      "impressions": 64,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.8
+    },
+    "was kostet eine eiseninfusion": {
+      "impressions": 48,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.3
+    },
+    "botox zornesfalte kosten": {
+      "impressions": 196,
+      "clicks": 1,
+      "ctr": 0.0051,
+      "position": 11.7
+    },
+    "zornesfalte botox kosten": {
+      "impressions": 133,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12.5
+    },
+    "botox stirn kosten": {
+      "impressions": 175,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.1
+    },
+    "was kostet botox stirn": {
+      "impressions": 134,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 16.7
+    },
+    "stirnfalten botox kosten": {
+      "impressions": 104,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 15.7
+    },
+    "botox stirn und zornesfalte kosten": {
+      "impressions": 103,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.8
+    },
+    "botox 3 zonen preis": {
+      "impressions": 146,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 25.3
+    },
+    "botox trapezmuskel": {
+      "impressions": 48,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3.2
+    },
+    "botox trapezmuskel kosten": {
+      "impressions": 153,
+      "clicks": 1,
+      "ctr": 0.00654,
+      "position": 26.6
+    },
+    "btx berlin preise": {
+      "impressions": 72,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 18
+    },
+    "botox berlin": {
+      "impressions": 91,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 17.5
+    },
+    "nctf": {
+      "impressions": 102,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.8
+    },
+    "abnehmspritze berlin": {
+      "impressions": 258,
+      "clicks": 3,
+      "ctr": 0.01163,
+      "position": 10.9
+    },
+    "mikronährstoffanalyse berlin": {
+      "impressions": 49,
+      "clicks": 3,
+      "ctr": 0.06122,
+      "position": 11
+    },
+    "wegovy berlin": {
+      "impressions": 174,
+      "clicks": 2,
+      "ctr": 0.01149,
+      "position": 5
+    },
+    "lip flip berlin": {
+      "impressions": 63,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 24.3
+    },
+    "botox stirn preise": {
+      "impressions": 64,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.9
+    }
+  }
+}
