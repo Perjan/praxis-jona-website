@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowLeftIcon, ArrowRightIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
-import { Constants } from "app/Constants";
 import type { LongevityLocale } from "app/content/longevitySource";
 
 type EligibilityAnswer = "yes" | "no";
@@ -21,7 +20,7 @@ const copy = {
     of: "von",
     unanswered: "Bitte wählen Sie eine Antwort aus.",
     restart: "Check neu starten",
-    cta: "Ersttermin buchen",
+    cta: "Online-Fragebogen starten",
     likelyTitle: "Eine ärztliche Abklärung kann sinnvoll sein.",
     likelyBody:
       "Ihre Antworten sprechen dafür, dass eine medizinische Gewichtssprechstunde grundsätzlich passend sein kann. Die endgültige Entscheidung erfolgt immer individuell im ärztlichen Gespräch.",
@@ -67,7 +66,7 @@ const copy = {
     of: "of",
     unanswered: "Please select an answer.",
     restart: "Restart check",
-    cta: "Book initial appointment",
+    cta: "Start online questionnaire",
     likelyTitle: "A medical assessment may be useful.",
     likelyBody:
       "Your answers suggest that a medical weight consultation may generally be appropriate. The final decision is always made individually in the physician consultation.",
@@ -167,9 +166,7 @@ export default function Glp1EligibilityCheck({ locale }: { locale: LongevityLoca
                 </div>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
-                    href={Constants.appointmentUrlsByService.weightLossInjection.private}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={locale === "de" ? "/glp-1-check" : "/en/glp-1-check"}
                     className="inline-flex justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primaryDarker"
                   >
                     {localized.cta}
