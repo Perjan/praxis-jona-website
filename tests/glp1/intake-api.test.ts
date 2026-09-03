@@ -95,18 +95,19 @@ function validFollowUpPayload() {
 
 describe("POST /api/glp1-intake", () => {
   beforeEach(() => {
-    process.env.GLP1_INTAKE_DELIVERY_MODE = "live";
+    process.env.ANAMNESE_DELIVERY_MODE = "live";
     process.env.N8N_WEBHOOK_URL = "https://n8n.example.test/webhook/glp1";
     vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response(null, { status: 200 })));
   });
 
   afterEach(() => {
-    delete process.env.GLP1_INTAKE_DELIVERY_MODE;
+    delete process.env.ANAMNESE_DELIVERY_MODE;
     delete process.env.N8N_WEBHOOK_URL;
     vi.unstubAllGlobals();
   });
 
   it("sends PDF, structured metadata, flags, and idempotency reference to n8n", async () => {
+    const infoSpy = vi.spyOn(console, "info").mockImplementation(() => undefined);
     const response = await POST(request(validPayload()) as any);
     const body = await response.json();
 
@@ -125,6 +126,10 @@ describe("POST /api/glp1-intake", () => {
     expect(metadata.bmi).toBe(29.3);
     expect(metadata.reviewFlags).toContain("pancreatitis_or_gallbladder_history");
     expect(metadata.signature).toBeUndefined();
+    const logged = JSON.stringify(infoSpy.mock.calls);
+    expect(logged).toContain(body.submissionId);
+    expect(logged).not.toContain("Max Mustermann");
+    expect(logged).not.toContain("Bluthochdruck");
   });
 
   it("returns no-store validation errors without calling n8n", async () => {

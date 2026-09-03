@@ -18,7 +18,7 @@ const json = (body: unknown, status = 200) => {
 };
 
 const shouldMockDelivery = () =>
-  process.env.NODE_ENV !== "production" && process.env.GLP1_INTAKE_DELIVERY_MODE !== "live";
+  process.env.NODE_ENV !== "production" && process.env.ANAMNESE_DELIVERY_MODE !== "live";
 
 export async function POST(request: NextRequest) {
   let locale: "de" | "en" = "de";
@@ -45,6 +45,11 @@ export async function POST(request: NextRequest) {
     const filename = createGlp1Filename(submission);
 
     if (shouldMockDelivery()) {
+      console.info("GLP-1 intake validated; skipping n8n delivery in local mock mode.", {
+        submissionId: submission.submissionId,
+        flow: submission.flow,
+        locale: submission.locale,
+      });
       return json({
         success: true,
         submissionId: submission.submissionId,
@@ -82,6 +87,12 @@ export async function POST(request: NextRequest) {
 
     const delivery = await fetch(webhookUrl, { method: "POST", body: formData });
     if (!delivery.ok) throw new Error("GLP-1 intake delivery failed");
+
+    console.info("GLP-1 intake delivered to n8n.", {
+      submissionId: submission.submissionId,
+      flow: submission.flow,
+      locale: submission.locale,
+    });
 
     return json({
       success: true,
