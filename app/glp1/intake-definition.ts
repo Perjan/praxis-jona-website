@@ -7,7 +7,7 @@ export type YesNoNotApplicableAnswer = YesNoAnswer | "not_applicable";
 export type DoseRequest = "maintain" | "increase" | "reduce";
 export type SideEffectSeverity = "none" | "mild" | "moderate" | "severe";
 
-export const GLP1_SCHEMA_VERSION = "praxis-jona-glp1-2026-09-02";
+export const GLP1_SCHEMA_VERSION = "praxis-jona-glp1-2026-09-03";
 export const GLP1_CONSENT_TEXT_VERSION = "praxis-jona-glp1-consent-2026-09-02";
 
 export const glp1StepFieldPaths = {
@@ -31,7 +31,7 @@ export const glp1StepFieldPaths = {
   ],
   "follow-up": [
     ["patient.name", "patient.birthdate", "patient.email", "patient.phone"],
-    ["answers.currentMedication", "answers.currentDose", "answers.frequency", "answers.treatmentStartDate", "answers.mostRecentDoseDate"],
+    ["answers.currentMedication", "answers.currentDose", "answers.treatmentStartDate", "answers.mostRecentDoseDate"],
     ["answers.doseRequest", "answers.desiredDose", "answers.doseRationale"],
     ["answers.currentWeightKg", "answers.startingWeightKg", "answers.progress", "answers.appetiteEffect", "answers.missedDoses", "answers.treatmentGoals"],
     ["answers.sideEffectSeverity", "answers.sideEffectSymptoms", "answers.newDiagnoses", "answers.newMedication", "answers.pregnancyStatus", "answers.otherChanges"],
@@ -69,7 +69,6 @@ export type NewPatientAnswers = {
 export type FollowUpAnswers = {
   currentMedication: string;
   currentDose: string;
-  frequency: string;
   treatmentStartDate: string;
   mostRecentDoseDate: string;
   doseRequest: DoseRequest | "";
@@ -268,7 +267,6 @@ export function createGlp1SubmissionSchema(locale: Glp1Locale) {
       answers: z.object({
         currentMedication: limitedString(160).refine((value) => value.length > 0, t.required),
         currentDose: limitedString(80).refine((value) => value.length > 0, t.required),
-        frequency: limitedString(80).refine((value) => value.length > 0, t.required),
         treatmentStartDate: z.string().refine((value) => parseIsoDate(value) !== null, t.required),
         mostRecentDoseDate: z.string().refine((value) => parseIsoDate(value) !== null, t.required),
         doseRequest: z.enum(["maintain", "increase", "reduce"], { message: t.required }),
@@ -354,7 +352,6 @@ export function createDefaultGlp1Submission(flow: Glp1Flow, locale: Glp1Locale):
     answers: {
       currentMedication: "",
       currentDose: "",
-      frequency: "",
       treatmentStartDate: "",
       mostRecentDoseDate: "",
       doseRequest: "",

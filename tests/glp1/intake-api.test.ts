@@ -70,7 +70,6 @@ function validFollowUpPayload() {
       ...defaults.answers,
       currentMedication: "Medicine as prescribed",
       currentDose: "current pen setting",
-      frequency: "once weekly",
       treatmentStartDate: "2026-01-10",
       mostRecentDoseDate: "2026-08-28",
       doseRequest: "increase",

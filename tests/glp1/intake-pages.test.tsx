@@ -65,5 +65,6 @@ describe("GLP-1 public pages", () => {
     expect(await screen.findByRole("heading", { name: "Current treatment" })).toBeVisible();
     expect(screen.getByLabelText("Current GLP-1 medication")).toHaveAttribute("type", "text");
     expect(screen.getByLabelText("Current dose")).toHaveAttribute("type", "text");
+    expect(screen.queryByLabelText("Frequency of use")).not.toBeInTheDocument();
   });
 });

@@ -169,15 +169,15 @@ const detailConfig: Record<
       canonical: "/leistungen/abnehmspritze",
       alternate: "/en/services/weight-loss-injection",
       eyebrow: "Medizinische Gewichtsreduktion",
-      secondaryCta: "Ernährungsberatung",
-      secondaryHref: "/leistungen/ernaehrungsmedizin",
+      secondaryCta: "Online-Fragebogen starten",
+      secondaryHref: "/glp-1-check",
     },
     en: {
       canonical: "/en/services/weight-loss-injection",
       alternate: "/leistungen/abnehmspritze",
       eyebrow: "Medical weight loss",
-      secondaryCta: "Nutrition counseling",
-      secondaryHref: "/en/services/nutritional-medicine",
+      secondaryCta: "Start online questionnaire",
+      secondaryHref: "/en/glp-1-check",
     },
     facts: {
       de: [

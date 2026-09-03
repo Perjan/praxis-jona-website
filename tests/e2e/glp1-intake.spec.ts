@@ -107,7 +107,6 @@ test.describe("GLP-1 intake", () => {
 
     await page.getByLabel("Current GLP-1 medication").fill("Medication as prescribed");
     await page.getByLabel("Current dose").fill("current pen setting");
-    await page.getByLabel("Frequency of use").fill("once weekly");
     await setDate(page, "answers.treatmentStartDate", "2026-01-10");
     await setDate(page, "answers.mostRecentDoseDate", "2026-08-28");
     await page.getByRole("button", { name: "Next" }).click();

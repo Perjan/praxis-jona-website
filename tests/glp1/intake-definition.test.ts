@@ -7,7 +7,9 @@ import {
   createDefaultGlp1Submission,
   createGlp1SubmissionSchema,
   deriveGlp1ReviewFlags,
+  glp1StepFieldPaths,
 } from "@/app/glp1/intake-definition";
+import { getGlp1Copy } from "@/app/glp1/intake-copy";
 
 const signature =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAFgwJ/lY6N9wAAAABJRU5ErkJggg==";
@@ -61,6 +63,17 @@ describe("GLP-1 intake definition", () => {
     expect(followUp.consent.textVersion).toBe(GLP1_CONSENT_TEXT_VERSION);
   });
 
+  it("omits application frequency and uses localized starting-weight labels", () => {
+    const followUp = createDefaultGlp1Submission("follow-up", "de");
+
+    expect(followUp.answers).not.toHaveProperty("frequency");
+    expect(glp1StepFieldPaths["follow-up"][1]).not.toContain("answers.frequency");
+    expect(getGlp1Copy("de").fields).not.toHaveProperty("frequency");
+    expect(getGlp1Copy("en").fields).not.toHaveProperty("frequency");
+    expect(getGlp1Copy("de").fields.startingWeightKg).toBe("Startgewicht (kg)");
+    expect(getGlp1Copy("en").fields.startingWeightKg).toBe("Starting weight (kg)");
+  });
+
   it("validates a complete new-patient submission and calculates BMI", () => {
     const parsed = createGlp1SubmissionSchema("de").parse(validNewSubmission());
 
@@ -98,7 +111,6 @@ describe("GLP-1 intake definition", () => {
         ...submission.answers,
         currentMedication: "Custom GLP-1 medicine",
         currentDose: "custom dose",
-        frequency: "weekly",
         treatmentStartDate: "2026-01-01",
         mostRecentDoseDate: "2026-08-30",
         doseRequest: "increase" as const,

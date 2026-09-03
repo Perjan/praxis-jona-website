@@ -384,7 +384,6 @@ export default function Glp1Questionnaire({ locale, flow }: { locale: Glp1Locale
                 <div className="grid gap-6 sm:grid-cols-2">
                   {field("answers.currentMedication", copy.fields.currentGlp1Medication, { required: true })}
                   {field("answers.currentDose", copy.fields.currentDose, { required: true })}
-                  {field("answers.frequency", copy.fields.frequency, { required: true })}
                   {field("answers.treatmentStartDate", copy.fields.treatmentStartDate, { type: "date", required: true })}
                   {field("answers.mostRecentDoseDate", copy.fields.mostRecentDoseDate, { type: "date", required: true })}
                 </div>
