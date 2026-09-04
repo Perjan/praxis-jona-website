@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Constants } from "./Constants";
+import BookingCtaLink from "./components/BookingCtaLink";
 
 type HeroLocale = "de" | "en";
 
@@ -47,15 +48,15 @@ export default function HeroSection({
         <div className="home-hero__copy">
           <h1 id="home-hero-title">{title}</h1>
           <p>{description}</p>
-          <Link
+          <BookingCtaLink
             href={Constants.appointmentUrl}
+            placement="home-hero"
             target="_blank"
             rel="noopener noreferrer"
             className="home-hero__booking"
-            data-umami-event="button-in-home-hero"
           >
             {bookingLabel}
-          </Link>
+          </BookingCtaLink>
         </div>
 
         <nav className="home-hero__services" aria-label={locale === "en" ? "Featured services" : "Ausgewählte Leistungen"}>

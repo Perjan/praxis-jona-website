@@ -31,7 +31,7 @@ Praxis Jona does not need 31 days of indiscriminate publishing. It needs two dif
 
 - **Iron is already the demand engine.** Protect the existing ranking, lift CTR, resolve intent overlap through careful internal linking, and convert more of the demand already being earned.
 - **PRP is an authority and intent-architecture problem.** The site has substantial commercial pages, but German PRP visibility remains weak and fragmented across skin, eyes, scars, microneedling, hair, and prices. Build a clinically credible cluster around the existing hubs rather than creating another generic `PRP Berlin` page.
-- **Bookings are partially measured, but not yet end to end.** Self-hosted Umami records pageviews plus generic header and homepage-hero booking events. Service CTA, insurance selection, Doctolib outbound, and completed booking are not distinguishable. The immediate north-star metric must become a qualified outbound booking event containing service, source page, language, insurance selection, and appointment motive.
+- **A booking CTA click is the agreed conversion.** The conversion occurs when someone first taps a “Termin buchen” or “Book appointment” control. What happens inside Doctolib is outside this measurement contract. All appointment entry points must emit one unified `booking-cta-click` event with page context and placement.
 - **Local prominence is a distribution problem as much as a website problem.** Directories occupy several top results. Google says local visibility is mainly shaped by relevance, distance, and prominence, including links and reviews. The website, Google Business Profile, Doctolib, Jameda, Doctify, and other accurate listings must reinforce one entity.
 
 The sprint should ship **six to eight excellent German medical assets or material refreshes**, not dozens of thin pages. Every asset must add something competitors do not: named physician review, transparent evidence, local logistics, prices or cost mechanics, candidacy limits, risks, and a clear next step.
@@ -42,7 +42,7 @@ These are ambitious operating targets, not guarantees.
 
 | Outcome | Baseline | Day-31 target | Why it matters |
 |---|---:|---:|---|
-| Qualified booking outbound events | Umami tracks two generic booking events, but not service outbound | 100% of service CTAs tracked; establish first clean outbound baseline; target +30% after instrumentation | Closest observable proxy for bookings |
+| Booking CTA clicks | Historical Umami data contains two fragmented booking event names | 100% of appointment CTAs emit `booking-cta-click`; establish the first clean baseline; target +30% after instrumentation | Agreed conversion and direct measure of booking intent |
 | Sitewide web impressions | 22,260 per latest 28 days | +20% versus comparable prior window | Measures exposure growth |
 | Sitewide web CTR | 2.13% | Recover to at least 2.4% | Rankings improved while CTR fell |
 | `eiseninfusion berlin` clicks | 76 / 762 impressions | +15–25% clicks while keeping top-eight visibility | Existing high-intent winner |
@@ -66,9 +66,7 @@ Do not combine search CTR with on-site conversion rates. They answer different q
 | Search-result CTR | Google organic clicks ÷ Google impressions | Google Search Console | Whether title, snippet and query/page fit earn the click |
 | CTA click rate | Tracked CTA clicks ÷ pageviews of the same page | Umami | Whether the page persuades visits to start booking |
 | Unique-visitor CTA rate | Unique visitors who clicked ÷ unique visitors who viewed the page | Umami | Reduces distortion from repeat pageviews/clicks |
-| Modal progression rate | Insurance selections ÷ booking modal opens | Umami after instrumentation | Whether the insurance choice creates friction |
-| Booking outbound rate | Doctolib outbound events ÷ pageviews or unique visitors | Umami after instrumentation | Best current proxy for qualified booking intent |
-| Booking completion rate | Confirmed Doctolib bookings ÷ outbound sessions | Doctolib/approved server-side import | True commercial conversion; not currently available |
+| Booking CTA conversion rate | `booking-cta-click` events ÷ pageviews for the same page | Umami | The agreed conversion metric; fires on the first appointment-button click |
 
 Search Console is the only source in this stack that can measure Google SERP CTR because only Google has organic impression counts. Umami can segment landing traffic and measure behavior after arrival, but referrer data must not be substituted for search impressions.
 
@@ -322,27 +320,27 @@ Required content blocks:
 
 ## Conversion And Attribution Specification
 
-Until Doctolib completion can be imported, the north-star event is `booking_outbound`.
+The north-star event is `booking-cta-click`. It fires on the first click of any appointment CTA, including controls that open the insurance dialog and links that open Doctolib directly. Insurance selection and activity inside Doctolib are explicitly outside the conversion definition.
 
-Current state: `button-in-header` and `button-in-home-hero` are the only custom events present in the latest 28-day Umami data. They provide a partial booking-intent signal, but they do not identify service, placement beyond those two labels, insurance path, appointment motive, or actual Doctolib outbound navigation.
-
-| Event | Fires when | Required properties |
+| Property | Value | Purpose |
 |---|---|---|
-| `booking_cta_click` | Any booking CTA is activated | `page_path`, `placement`, `service`, `language` |
-| `booking_modal_open` | Insurance/booking modal opens | `page_path`, `service`, `appointment_motive` |
-| `booking_insurance_selected` | User selects insurance path | `page_path`, `service`, `insurance_sector` |
-| `booking_outbound` | User leaves for Doctolib | All above plus `destination`, `cta_copy` |
-| `phone_click` | Mobile telephone link is used | `page_path`, `service`, `placement` |
-| `email_click` | Email link is used | `page_path`, `service`, `placement` |
+| `destination` | `insurance-dialog` or `doctolib` | Distinguishes the two UI paths without changing the conversion definition |
+| `element` | `button` or `a` | Detects implementation regressions |
+| `locale` | document language | German/English comparison |
+| `placement` | stable component placement | Header, hero, service, pricing, contact and package comparison |
+| page URL | supplied automatically by Umami | Landing-page and service attribution |
 
-Engineering requirements:
+### CTA rollout and regression-prevention plan
 
-- define event names and properties once, not separately in each button;
-- write focused tests before changing the mission-critical booking flow;
-- preserve UTM/service identifiers through every redirect where possible;
-- build a weekly funnel: landing page → CTA → modal → insurance → outbound;
-- report by organic, GBP, directory, social, and paid source;
-- never send health details or personally identifiable information into analytics.
+1. Route direct appointment links through the shared `BookingCtaLink`, which requires a `placement` prop.
+2. Route insurance-dialog CTAs through `AppointmentBookingButton`, which also requires `trackingPlacement`.
+3. Let `PrimaryButton` mark legacy Doctolib URLs automatically while older pricing cards migrate.
+4. Mount `BookingAttribution` once in both language layouts. It emits the unified event and provides a safety net for any raw Doctolib link introduced later.
+5. Retire the fragmented `button-in-header` and `button-in-home-hero` attributes for new traffic, while retaining them in historical reporting.
+6. Enforce source tests: every modal button must declare a placement, both layouts must mount the tracker, and legacy event attributes must not return.
+7. After deployment, make one controlled click from each CTA family and confirm `booking-cta-click` plus its placement in Umami. Do not click through or attempt to measure behavior inside Doctolib.
+
+No event may contain health details, form answers, email addresses, telephone numbers, insurance status or other personally identifiable information.
 
 ## Local Exposure Plan
 
@@ -365,7 +363,7 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 - exact and phrase match around `eiseninfusion berlin`, `eiseninfusion berlin kosten`, `prp behandlung berlin`, and `prp behandlung berlin preise`;
 - separate iron and PRP campaigns and landing pages;
 - negative keywords for jobs, DIY, wholesale, training, devices, and irrelevant orthopaedic PRP where not offered;
-- start at a capped €30–€60/day total, then move budget only on measured qualified booking outbound rate;
+- start at a capped €30–€60/day total, then move budget only on measured booking CTA rate;
 - no outcome guarantees or sensational health claims;
 - pause any ad group after sufficient clicks with zero qualified booking intent; do not optimize to raw traffic.
 
@@ -373,9 +371,9 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 
 | Day | Status | Hard deliverable | Owner | Success signal |
 |---:|---|---|---|---|
-| 1 | In progress | Freeze this baseline, keyword-to-URL map, targets and owners | Growth | One agreed scoreboard; no competing plans |
-| 2 | Not started | Write tests and implement booking funnel events across all service CTAs | Eng | Valid events include service, placement, language and insurance; no PII |
-| 3 | Not started | Build analytics funnel and source dashboard; verify outbound events in production | Eng/Growth | A test journey appears from CTA to Doctolib outbound |
+| 1 | Complete | Freeze this baseline, keyword-to-URL map and targets | Growth | One agreed scoreboard; no competing plans |
+| 2 | Complete locally | Implement one `booking-cta-click` event across every appointment CTA | Eng | Shared components, source audit, 154 tests and production build pass; no PII |
+| 3 | Not started | Deploy and verify every CTA family in production Umami | Eng/Growth | Header, hero, service, pricing, contact and package placements appear in Umami |
 | 4 | Not started | Fix duplicated PRP hub lead; add/validate visible FAQ schema and service schema | Eng/Clinical | One H1/lead, valid markup, unchanged visible truth |
 | 5 | Not started | Map query overlap between iron cost and infusion pages; rewrite internal anchors | SEO/Eng | Exact iron anchors favor cost page; generic infusion anchors favor hub |
 | 6 | Not started | Rewrite/test title and meta description for `eiseninfusion kosten`; retain price and Berlin | SEO/Clinical | Snippet directly answers price, location and medical qualification |
@@ -401,7 +399,7 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | 26 | Not started | Local proof day: new clinic photos, service descriptions, review request workflow | Local | Four photos live; ethical review flow active |
 | 27 | Not started | Authority outreach: 15 relevant Berlin/medical/referral prospects with tailored pitches | PR/Founder | 15 quality contacts; no bulk link spam |
 | 28 | Not started | Publish physician Q&A video/article addressing the top real iron or PRP objection | Clinical/Growth | One original expert asset embedded and repurposed |
-| 29 | Not started | Evaluate paid pilot and directories by qualified outbound rate, not clicks | Growth | Keep/kill/scale decision documented by service |
+| 29 | Not started | Evaluate paid pilot and directories by booking CTA rate, not traffic alone | Growth | Keep/kill/scale decision documented by service |
 | 30 | Not started | Run full 28-day GSC and analytics comparison; inspect cannibalization and indexing | SEO/Data | Query/page deltas and funnel rates captured |
 | 31 | Not started | Executive review and next 60-day backlog; refresh this artifact | Team | Honest verdict, lessons, next owners and dates recorded |
 
@@ -432,20 +430,20 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - [ ] Three or more contextual incoming internal links are planned.
 - [ ] Schema matches visible content and passes validation.
 - [ ] Images are original/licensed, compressed, descriptive and not misleading.
-- [ ] Booking, phone, email and outbound events pass focused tests.
+- [ ] Booking CTA attribution passes focused component and source-audit tests.
 - [ ] Canonical, hreflang, indexability, mobile layout and sitemap entry are correct.
 - [ ] Production URL is manually verified after deployment.
 
 ## Weekly KPI Scoreboard
 
-| Review date | Organic clicks | Impressions | CTR | Iron clicks / CTR | PRP clicks / CTR | Booking CTA | Insurance selected | Booking outbound | Calls | Notes / decision |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
-| 2026-09-04 baseline | 475 | 22,260 | 2.13% | 136 / 1.99% | 6 / 0.43% | 171 generic Umami events | N/A | N/A | N/A | 4,980 Umami pageviews; instrumentation first |
-| 2026-09-07 |  |  |  |  |  |  |  |  |  |  |
-| 2026-09-14 |  |  |  |  |  |  |  |  |  |  |
-| 2026-09-21 |  |  |  |  |  |  |  |  |  |  |
-| 2026-09-28 |  |  |  |  |  |  |  |  |  |  |
-| 2026-10-04 |  |  |  |  |  |  |  |  |  |  |
+| Review date | Organic clicks | Impressions | Search CTR | Iron clicks / CTR | PRP clicks / CTR | Booking CTA clicks | Booking CTA rate | Notes / decision |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| 2026-09-04 baseline | 475 | 22,260 | 2.13% | 136 / 1.99% | 6 / 0.43% | 171 fragmented legacy events | Not comparable | 4,980 Umami pageviews; unified instrumentation required |
+| 2026-09-07 |  |  |  |  |  |  |  |  |
+| 2026-09-14 |  |  |  |  |  |  |  |  |
+| 2026-09-21 |  |  |  |  |  |  |  |  |
+| 2026-09-28 |  |  |  |  |  |  |  |  |
+| 2026-10-04 |  |  |  |  |  |  |  |  |
 
 ## Decision Rules
 
@@ -454,12 +452,13 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - If a new page is not indexed after 10–14 days, inspect discovery, internal links, canonical, rendered content and duplication before publishing more.
 - If a page gains impressions but no qualified booking intent, inspect intent and CTA before celebrating traffic.
 - If PRP head-term movement is slow but long-tail impressions grow, keep the cluster strategy; authority compounds beyond 31 days.
-- If paid search produces clicks without qualified outbound events, stop or rewrite the ad/landing-page match.
+- If paid search produces visits without booking CTA clicks, stop or rewrite the ad/landing-page match.
 - If clinical review cannot keep pace, ship fewer pages. Never trade medical trust for publishing velocity.
 
 ## Execution Log
 
 - **2026-09-04 — Durable analytics + agent memory:** added the recurring growth-agent runbook, a tested aggregate-only Umami API collector (`npm run umami:fetch`), a combined GSC + Umami collection command (`npm run growth:collect`), and explicit separation between Google SERP CTR and on-site CTA conversion rates. Direct database access was retired; the collector authenticates through the self-hosted API using a Keychain credential and makes read-only requests.
+- **2026-09-04 — CTA attribution implementation:** defined conversion as the first appointment-CTA click, introduced shared `BookingCtaLink` and placement-aware `AppointmentBookingButton` contracts, added a global Doctolib safety net, migrated the identified CTA families, and added regression tests. All 154 repository tests and the 257-route production build pass. A rendered crawl of all 188 sitemap URLs found 180 tracked Doctolib anchors, 273 tracked insurance-dialog buttons and zero missing booking markers. Production Umami verification remains the Day-3 gate.
 
 | Date | Work item | Status | Production URL / PR | Reviewer | Measurement note |
 |---|---|---|---|---|---|

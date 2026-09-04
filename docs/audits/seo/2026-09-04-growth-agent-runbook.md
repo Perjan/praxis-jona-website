@@ -58,27 +58,15 @@ These metrics answer different questions and must never be merged into one “CT
 | Metric | Formula | Source | Decision it supports |
 |---|---|---|---|
 | Search CTR | Google organic clicks / Google impressions | Search Console | Titles, descriptions, rich results, and query fit |
-| CTA click rate per pageview | Tracked CTA events / pageviews | Umami | Page persuasion and CTA visibility |
-| CTA conversion rate per visitor | Unique visitors with tracked CTA / unique visitors | Umami | Session-level intent conversion |
-| Booking-provider outbound rate | Unique booking-provider clicks / unique service-page visitors | Umami | Handoff into booking flow |
-| Booking completion rate | Confirmed bookings / booking-provider outbound visitors | Booking system plus consent-safe attribution | Actual commercial outcome |
+| Booking CTA rate per pageview | `booking-cta-click` events / pageviews | Umami | Agreed conversion: first click on any appointment CTA |
 
 Umami referral traffic from Google is directional acquisition context. It is not search CTR because Umami does not know Google impressions.
 
 ## Required Event Taxonomy
 
-Keep event names stable and attach at least `page_path`, `language`, `service`, `placement`, and `provider` where relevant:
+The conversion event is `booking-cta-click`. It fires on the first click, before any insurance selection or Doctolib navigation. Required non-personal properties are `destination`, `element`, `locale`, and `placement`; Umami supplies the page URL. Do not measure or infer what happens inside Doctolib.
 
-- `cta_click`
-- `booking_modal_open`
-- `booking_provider_click`
-- `phone_click`
-- `email_click`
-- `form_start`
-- `form_submit_success`
-- `booking_complete` only when a consent-safe confirmed-booking signal exists
-
-Legacy events `button-in-header` and `button-in-home-hero` remain in the collector during migration. PRP and other service-page CTAs are not fully instrumented as of 2026-09-04; zero tracked events there must be labeled “unmeasured,” not “no demand.”
+Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic. Before the unified event reaches production, zero `booking-cta-click` events must be labeled “not deployed/unmeasured,” not “no demand.”
 
 ## Weekly Self-Improvement Loop
 
@@ -90,12 +78,13 @@ Legacy events `button-in-header` and `button-in-home-hero` remain in the collect
    - impressions low: coverage, indexation, authority, or internal links;
    - impressions healthy but search CTR low: title/description/query fit;
    - organic landings healthy but CTA rate low: offer, proof, friction, or CTA visibility;
-   - outbound booking clicks healthy but completions low: booking handoff or availability.
+   - visits healthy but booking CTA rate low: offer, proof, friction, or CTA visibility.
 6. Select one primary experiment with a measurable hypothesis and a baseline. Prefer changes that can produce a clean read over broad simultaneous rewrites.
 7. Implement only safe, reversible repository changes. Add focused tests first for mission-critical tracking, forms, and booking flows.
 8. Run the relevant tests, production build where proportionate, and a local/production verification appropriate to the change.
 9. Record the implementation date, pages, expected metric, observation window, and rollback trigger in the living plan and GSC implementation history.
-10. Summarize outcomes, uncertainty, and the next experiment in the thread. Do not claim causality from a single before/after movement.
+10. After opening or updating a PR, wait for its preview deployment. Update the Markdown PR description with the verified preview base URL and direct preview links for every materially changed public page or representative component family. State what changed, what to inspect, how to test it, and the expected analytics event and properties. If the preview is not ready, mark the section pending and update it before calling the PR review-ready.
+11. Summarize outcomes, uncertainty, and the next experiment in the thread. Do not claim causality from a single before/after movement.
 
 ## Decision Thresholds
 
@@ -116,6 +105,6 @@ Legacy events `button-in-header` and `button-in-home-hero` remain in the collect
 
 ## Recurring Agent Definition Of Done
 
-A scheduled run is complete only when it has collected available evidence, selected or advanced one bounded experiment, verified any code change, updated the living artifact, and reported the next observation date. A no-change run is valid when the evidence says to preserve the current experiment; it must still record why waiting is the correct action.
+A scheduled run is complete only when it has collected available evidence, selected or advanced one bounded experiment, verified any code change, updated the living artifact, added verified preview links and review instructions to the PR description when public pages changed, and reported the next observation date. A no-change run is valid when the evidence says to preserve the current experiment; it must still record why waiting is the correct action.
 
 Codex thread automations are appropriate because they return to the same durable conversation and preserve accumulated context; see OpenAI's [long-running work guidance](https://cdn.openai.com/pdf/8a9f00cf-d379-4e20-b06f-dd7ba5196a11/OAI_WhitePaper_Codex-maxxing26.pdf).

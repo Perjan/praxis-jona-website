@@ -21,6 +21,7 @@ import { Constants } from "app/Constants";
 import { buildClinicSchema } from "app/components/clinicSchema";
 import type { AppointmentBookingUrls } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
+import BookingCtaLink from "app/components/BookingCtaLink";
 import { CategoryVignetteBackground } from "./CategoryVignetteBackground";
 import { MotionCard, MotionSection } from "./Motion";
 import TreatmentPricingBlock from "./pricing/TreatmentPricingBlock";
@@ -108,19 +109,21 @@ function CtaButtons({
         <AppointmentBookingButton
           locale={locale}
           urls={bookingUrls}
+          trackingPlacement="service-hero"
           className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
         >
           {primary}
         </AppointmentBookingButton>
       ) : (
-        <Link
+        <BookingCtaLink
           href={primaryHref}
+          placement="service-hero"
           target={primaryHref.startsWith("http") ? "_blank" : undefined}
           rel={primaryHref.startsWith("http") ? "noopener noreferrer" : undefined}
           className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
         >
           {primary}
-        </Link>
+        </BookingCtaLink>
       )}
       {secondary && secondaryHref && (
         <Link

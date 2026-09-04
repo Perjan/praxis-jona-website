@@ -114,7 +114,7 @@ export default function ContactSection({ locale = "de" }: { locale?: "de" | "en"
                             <p>{copy.onlineBookingText}</p>
                           </address>
                           <div className='mt-8'>
-                            <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true}>{copy.onlineBookingButton}</PrimaryButton>
+                            <PrimaryButton href={Constants.appointmentUrl} target="_blank" fullWidth={true} bookingPlacement="contact">{copy.onlineBookingButton}</PrimaryButton>
                           </div>
                         </div>
                       </div>

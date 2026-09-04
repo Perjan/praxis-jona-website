@@ -125,6 +125,7 @@ function Ctas({ content }: { content: BotulinumtoxinPageContent }) {
       <AppointmentBookingButton
         locale={content.locale}
         urls={Constants.appointmentUrlsByService.botulinumtoxin}
+        trackingPlacement="service-hero"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         {content.labels.book}
