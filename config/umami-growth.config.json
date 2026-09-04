@@ -1,0 +1,41 @@
+{
+  "baseUrl": "https://analytics.moneycoach.ai",
+  "websiteId": "cc9a5b16-c893-492f-af55-e6b79a844358",
+  "websiteDomain": "praxisjona.de",
+  "timezone": "Europe/Berlin",
+  "defaultDays": 28,
+  "lagDays": 2,
+  "keychain": {
+    "service": "codex-umami-admin",
+    "account": "admin"
+  },
+  "conversionEvents": [
+    "button-in-header",
+    "button-in-home-hero",
+    "booking-modal-open",
+    "booking-provider-click",
+    "booking-complete"
+  ],
+  "clusters": [
+    {
+      "name": "iron_cost_de",
+      "label": "Eiseninfusion Kosten (DE)",
+      "prefixes": ["/leistungen/eiseninfusion-kosten"]
+    },
+    {
+      "name": "infusion_hub_de",
+      "label": "Infusionen (DE)",
+      "prefixes": ["/leistungen/infusionstherapie"]
+    },
+    {
+      "name": "iron_blog_de",
+      "label": "Eisen-Ratgeber (DE)",
+      "prefixes": ["/blog/eisen"]
+    },
+    {
+      "name": "prp_all",
+      "label": "PRP-Behandlung (all languages)",
+      "contains": ["prp"]
+    }
+  ]
+}
