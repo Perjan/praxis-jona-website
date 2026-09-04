@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
+import BookingCtaLink from "app/components/BookingCtaLink";
 import type { PricingLocale, PricingSection } from "./pricingData";
 import { formatPrice } from "./pricingData";
 
@@ -41,17 +42,19 @@ export default function PricingTableSection({
             <AppointmentBookingButton
               locale={locale}
               urls={section.bookingUrls}
+              trackingPlacement="pricing-section"
               className="inline-flex rounded-lg bg-primaryLighter px-4 py-2 text-sm font-semibold text-white transition hover:bg-tealColorDark"
             >
               {bookingLabel}
             </AppointmentBookingButton>
           ) : section.bookingHref?.[locale] ? (
-            <Link
+            <BookingCtaLink
               href={section.bookingHref[locale]}
+              placement="pricing-section"
               className="inline-flex rounded-lg bg-primaryLighter px-4 py-2 text-sm font-semibold text-white transition hover:bg-tealColorDark"
             >
               {bookingLabel}
-            </Link>
+            </BookingCtaLink>
           ) : null}
         </div>
       </div>

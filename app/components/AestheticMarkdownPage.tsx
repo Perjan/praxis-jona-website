@@ -679,6 +679,7 @@ function CtaButtons({ sectionKey, bookingUrls, locale = "de" }: { sectionKey: Ae
       <AppointmentBookingButton
         locale={locale}
         urls={bookingUrls ?? bookingUrlsBySection[sectionKey]}
+        trackingPlacement="service-hero"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         {locale === "en" ? "Book appointment" : "Termin buchen"}

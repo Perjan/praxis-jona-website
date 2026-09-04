@@ -10,11 +10,9 @@
     "account": "admin"
   },
   "conversionEvents": [
+    "booking-cta-click",
     "button-in-header",
-    "button-in-home-hero",
-    "booking-modal-open",
-    "booking-provider-click",
-    "booking-complete"
+    "button-in-home-hero"
   ],
   "clusters": [
     {

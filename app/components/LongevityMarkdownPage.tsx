@@ -10,6 +10,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 import { Constants, type AppointmentBookingUrls } from "app/Constants";
+import BookingCtaLink from "app/components/BookingCtaLink";
 import Glp1EligibilityCheck from "app/components/Glp1EligibilityCheck";
 import {
   Glp1CarePath,
@@ -307,14 +308,15 @@ function CtaButtons({
 
   return (
     <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-      <Link
+      <BookingCtaLink
         href={appointmentHref}
+        placement="longevity-section"
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
         {locale === "en" ? "Book appointment" : "Termin buchen"}
-      </Link>
+      </BookingCtaLink>
       {secondaryCta && secondaryHref && (
         <Link
           href={secondaryHref}
