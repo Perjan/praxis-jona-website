@@ -5,8 +5,11 @@ import {
   calculateRate,
   dateWindow,
   matchesClusterPath,
+  normalizePathMetricRows,
   periodToTimestamps,
+  readEventStats,
   readStatValue,
+  umamiApiShape,
 } from "../../scripts/umami/analytics-utils.mjs";
 
 describe("Umami analytics utilities", () => {
@@ -49,5 +52,45 @@ describe("Umami analytics utilities", () => {
     expect(readStatValue({ value: 42 })).toBe(42);
     expect(readStatValue(42)).toBe(42);
     expect(readStatValue(undefined)).toBe(0);
+  });
+
+  it("reads aggregate custom-event stats from the current Umami API", () => {
+    expect(readEventStats({ data: { events: 32, visitors: 25 } })).toEqual({
+      events: 32,
+      visitors: 25,
+    });
+    expect(readEventStats(undefined)).toEqual({ events: 0, visitors: null });
+  });
+
+  it("maps current Umami API paths and filters", () => {
+    expect(umamiApiShape("current")).toEqual({
+      pathMetricType: "path",
+      pathMetricsEndpoint: "metrics/expanded",
+      pathFilterKey: "path",
+      eventSeriesEndpoint: "events/series",
+    });
+  });
+
+  it("keeps the legacy Umami v2 contract available as a fallback", () => {
+    expect(umamiApiShape("legacy-v2")).toEqual({
+      pathMetricType: "url",
+      pathMetricsEndpoint: "metrics",
+      pathFilterKey: "url",
+      eventSeriesEndpoint: "events",
+    });
+  });
+
+  it("normalizes current expanded path metrics without losing pageviews", () => {
+    expect(
+      normalizePathMetricRows(
+        [{ name: "/kontakt", pageviews: 12, visitors: 8 }],
+        "current",
+      ),
+    ).toEqual([{ path: "/kontakt", pageviews: 12, visitors: 8 }]);
+  });
+
+  it("normalizes legacy URL metrics", () => {
+    expect(normalizePathMetricRows([{ x: "/kontakt", y: 12 }], "legacy-v2"))
+      .toEqual([{ path: "/kontakt", pageviews: 12, visitors: null }]);
   });
 });

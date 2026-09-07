@@ -7,8 +7,11 @@ import {
   calculateRate,
   dateWindow,
   matchesClusterPath,
+  normalizePathMetricRows,
   periodToTimestamps,
+  readEventStats,
   readStatValue,
+  umamiApiShape,
 } from "./analytics-utils.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
@@ -86,55 +89,117 @@ async function apiGet(config, token, endpoint, parameters = {}) {
   return responseJson(response, `Umami GET ${endpoint}`);
 }
 
-async function queryPeriod(config, token, period) {
+async function detectApiContract(config, token, period) {
+  try {
+    await apiGet(config, token, "metrics", {
+      ...periodToTimestamps(period),
+      type: "path",
+      limit: 1,
+    });
+    return "current";
+  } catch (error) {
+    if (!String(error.message).includes("HTTP 400")) throw error;
+    return "legacy-v2";
+  }
+}
+
+async function queryPeriod(config, token, period, contract) {
   const timestamps = periodToTimestamps(period);
-  const [websiteStatsResponse, eventMetrics, urlMetrics, referrerMetrics] = await Promise.all([
-    apiGet(config, token, "stats", timestamps),
-    apiGet(config, token, "metrics", { ...timestamps, type: "event", limit: 500 }),
-    apiGet(config, token, "metrics", { ...timestamps, type: "url", limit: 500 }),
-    apiGet(config, token, "metrics", { ...timestamps, type: "referrer", limit: 500 }),
-  ]);
+  const apiShape = umamiApiShape(contract);
+  const primaryConversionEvent = config.primaryConversionEvent;
+  const [
+    websiteStatsResponse,
+    eventMetrics,
+    pathMetricsResponse,
+    referrerMetrics,
+    primaryEventStatsResponse,
+  ] = await Promise.all([
+      apiGet(config, token, "stats", timestamps),
+      apiGet(config, token, "metrics", { ...timestamps, type: "event", limit: 500 }),
+      apiGet(config, token, apiShape.pathMetricsEndpoint, {
+        ...timestamps,
+        type: apiShape.pathMetricType,
+        limit: 500,
+      }),
+      apiGet(config, token, "metrics", { ...timestamps, type: "referrer", limit: 500 }),
+      contract === "current"
+        ? apiGet(config, token, "events/stats", {
+            ...timestamps,
+            event: primaryConversionEvent,
+          })
+        : Promise.resolve(null),
+    ]);
 
   const websiteStats = normalizedStats(websiteStatsResponse);
-  const conversionEventNames = new Set(config.conversionEvents);
+  const pathMetrics = normalizePathMetricRows(pathMetricsResponse, contract);
+  const primaryEventStats =
+    contract === "current"
+      ? readEventStats(primaryEventStatsResponse)
+      : {
+          events: number(
+            eventMetrics.find((row) => row.x === primaryConversionEvent)?.y,
+          ),
+          visitors: null,
+        };
   const clusters = await Promise.all(
     config.clusters.map(async (cluster) => {
-      const matchingPages = urlMetrics.filter((row) => matchesClusterPath(row.x, cluster));
+      const matchingPages = pathMetrics.filter((row) => matchesClusterPath(row.path, cluster));
       const pageDetails = await Promise.all(
         matchingPages.map(async (page) => {
-          const [statsResponse, eventSeries] = await Promise.all([
-            apiGet(config, token, "stats", { ...timestamps, url: page.x }),
-            apiGet(config, token, "events", {
+          const pathFilter = { [apiShape.pathFilterKey]: page.path };
+          const [statsResponse, eventSeries, eventStatsResponse] = await Promise.all([
+            contract === "current"
+              ? Promise.resolve(null)
+              : apiGet(config, token, "stats", { ...timestamps, ...pathFilter }),
+            apiGet(config, token, apiShape.eventSeriesEndpoint, {
               ...timestamps,
               unit: "day",
               timezone: config.timezone,
-              url: page.x,
+              ...pathFilter,
             }),
+            contract === "current"
+              ? apiGet(config, token, "events/stats", {
+                  ...timestamps,
+                  event: primaryConversionEvent,
+                  ...pathFilter,
+                })
+              : Promise.resolve(null),
           ]);
+          const pageEventStats = readEventStats(eventStatsResponse);
           return {
-            visitors: normalizedStats(statsResponse).visitors,
+            visitors:
+              contract === "current"
+                ? page.visitors
+                : normalizedStats(statsResponse).visitors,
             conversionEvents: sumMetricRows(
-              eventSeries.filter((row) => conversionEventNames.has(row.x)),
+              eventSeries.filter((row) => row.x === primaryConversionEvent),
             ),
+            convertingVisitors: pageEventStats.visitors,
           };
         }),
       );
       const metrics = {
-        pageviews: sumMetricRows(matchingPages),
+        pageviews: matchingPages.reduce((total, page) => total + page.pageviews, 0),
         visitors:
           pageDetails.length <= 1 ? number(pageDetails[0]?.visitors) : null,
         conversion_events: pageDetails.reduce(
           (total, page) => total + page.conversionEvents,
           0,
         ),
-        converting_visitors: null,
+        converting_visitors:
+          contract === "current" && pageDetails.length <= 1
+            ? pageDetails[0]?.convertingVisitors ?? 0
+            : null,
       };
       return {
         name: cluster.name,
         label: cluster.label,
         ...metrics,
         conversion_rate_per_pageview: calculateRate(metrics.conversion_events, metrics.pageviews),
-        conversion_rate_per_visitor: null,
+        conversion_rate_per_visitor:
+          metrics.converting_visitors === null || metrics.visitors === null
+            ? null
+            : calculateRate(metrics.converting_visitors, metrics.visitors),
         visitor_metric_note:
           pageDetails.length > 1
             ? "Unavailable across multiple URLs in the deployed Umami API"
@@ -152,13 +217,17 @@ async function queryPeriod(config, token, period) {
   const googleReferrers = referrerMetrics.filter((row) =>
     /(^|\.)google\./i.test(row.x),
   );
-  const topPageMetrics = urlMetrics.slice(0, 25);
+  const topPageMetrics = pathMetrics.slice(0, 25);
   const topPages = await Promise.all(
     topPageMetrics.map(async (row) => {
+      if (contract === "current") return row;
       const stats = normalizedStats(
-        await apiGet(config, token, "stats", { ...timestamps, url: row.x }),
+        await apiGet(config, token, "stats", {
+          ...timestamps,
+          [apiShape.pathFilterKey]: row.path,
+        }),
       );
-      return { path: row.x, pageviews: number(row.y), visitors: stats.visitors };
+      return { ...row, visitors: stats.visitors };
     }),
   );
   const google = { pageviews: sumMetricRows(googleReferrers), visitors: null };
@@ -166,8 +235,19 @@ async function queryPeriod(config, token, period) {
   return {
     period,
     summary,
-    conversion_rate_per_pageview: calculateRate(summary.custom_events, summary.pageviews),
-    conversion_rate_per_visitor: null,
+    primary_conversion: {
+      event: primaryConversionEvent,
+      events: primaryEventStats.events,
+      visitors: primaryEventStats.visitors,
+    },
+    conversion_rate_per_pageview: calculateRate(
+      primaryEventStats.events,
+      summary.pageviews,
+    ),
+    conversion_rate_per_visitor:
+      primaryEventStats.visitors === null
+        ? null
+        : calculateRate(primaryEventStats.visitors, summary.visitors),
     google_referrals: {
       ...google,
       share_of_pageviews: calculateRate(google.pageviews, summary.pageviews),
@@ -189,22 +269,26 @@ async function main() {
   const lagDays = Number(args["lag-days"] || config.lagDays);
   const windows = dateWindow(args["as-of"] || new Date().toISOString(), days, lagDays);
   const token = await authenticate(config);
+  const apiContract = await detectApiContract(config, token, windows.current);
 
   const [current, previous] = await Promise.all([
-    queryPeriod(config, token, windows.current),
-    queryPeriod(config, token, windows.previous),
+    queryPeriod(config, token, windows.current, apiContract),
+    queryPeriod(config, token, windows.previous, apiContract),
   ]);
   const report = {
     generated_at: new Date().toISOString(),
     source: "umami-api-read-only",
-    api_contract: "deployed-legacy-v2",
+    api_contract: apiContract,
     website: { id: config.websiteId, domain: config.websiteDomain },
     timezone: config.timezone,
     definitions: {
       search_ctr: "Google Search Console clicks / impressions; not available in Umami",
-      conversion_rate_per_pageview: "tracked conversion events / Umami pageviews",
+      conversion_rate_per_pageview:
+        `${config.primaryConversionEvent} events / Umami pageviews`,
       conversion_rate_per_visitor:
-        "unavailable: the deployed Umami API does not expose unique visitors per custom event",
+        apiContract === "current"
+          ? `unique visitors with ${config.primaryConversionEvent} / Umami visitors`
+          : "unavailable: the legacy Umami API does not expose unique visitors per custom event",
     },
     privacy:
       "Aggregate API output only; no bearer tokens, passwords, session IDs, IP addresses, or individual event rows are stored.",

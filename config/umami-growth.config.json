@@ -9,6 +9,7 @@
     "service": "codex-umami-admin",
     "account": "admin"
   },
+  "primaryConversionEvent": "booking-cta-click",
   "conversionEvents": [
     "booking-cta-click",
     "button-in-header",

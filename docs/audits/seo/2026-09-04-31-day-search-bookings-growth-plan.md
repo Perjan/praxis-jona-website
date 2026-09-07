@@ -17,8 +17,8 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-04
-Next operating review: 2026-09-07
+Last updated: 2026-09-07
+Next operating review: 2026-09-14
 Clinical reviewer: **TBD before publishing new medical claims**
 Growth owner: **TBD**
 Engineering owner: **TBD**
@@ -117,7 +117,7 @@ Current referrer snapshot: `google.com` and `google.de` contributed 1,221 pagevi
 - The official self-hosted API supports `POST /api/auth/login`, followed by bearer-token requests to website stats, pageviews, metrics and events endpoints. See [Umami authentication](https://docs.umami.is/docs/api/authentication), [website statistics](https://docs.umami.is/docs/api/website-stats), and [events](https://docs.umami.is/docs/api/events).
 - The admin login is stored outside the repository in macOS Keychain service `codex-umami-admin`, account `admin`. The weekly collector exchanges it for a temporary bearer token and keeps that token in memory only.
 - All recurring collection now uses read-only Umami HTTP API endpoints. Direct database access and database URL discovery are prohibited.
-- The deployed legacy v2 API does not expose unique visitors per custom event. Until the server API is upgraded, use exact event-per-pageview rates and label event-per-visitor rates unavailable rather than zero.
+- The deployed current Umami API exposes unique visitors for the primary custom event through event visitor statistics. The collector auto-detects this contract and retains a legacy-v2 fallback; on a legacy server, event-per-visitor rates must remain unavailable rather than zero.
 - Durable least-privilege target: move the workflow to a view-only reporting user once it can see every required website. Never commit a token or password.
 
 High-opportunity iron queries already receiving impressions include:
@@ -372,8 +372,8 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | Day | Status | Hard deliverable | Owner | Success signal |
 |---:|---|---|---|---|
 | 1 | Complete | Freeze this baseline, keyword-to-URL map and targets | Growth | One agreed scoreboard; no competing plans |
-| 2 | Complete locally | Implement one `booking-cta-click` event across every appointment CTA | Eng | Shared components, source audit, 154 tests and production build pass; no PII |
-| 3 | Not started | Deploy and verify every CTA family in production Umami | Eng/Growth | Header, hero, service, pricing, contact and package placements appear in Umami |
+| 2 | Shipped | Implement one `booking-cta-click` event across every appointment CTA | Eng | Shared components, source audit, 154 tests and production build pass; no PII |
+| 3 | Measured | Deploy and verify every CTA family in production Umami | Eng/Growth | All intended header, hero, service, pricing, contact and package placements appear in Umami |
 | 4 | Not started | Fix duplicated PRP hub lead; add/validate visible FAQ schema and service schema | Eng/Clinical | One H1/lead, valid markup, unchanged visible truth |
 | 5 | Not started | Map query overlap between iron cost and infusion pages; rewrite internal anchors | SEO/Eng | Exact iron anchors favor cost page; generic infusion anchors favor hub |
 | 6 | Not started | Rewrite/test title and meta description for `eiseninfusion kosten`; retain price and Berlin | SEO/Clinical | Snippet directly answers price, location and medical qualification |
@@ -439,7 +439,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | Review date | Organic clicks | Impressions | Search CTR | Iron clicks / CTR | PRP clicks / CTR | Booking CTA clicks | Booking CTA rate | Notes / decision |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
 | 2026-09-04 baseline | 475 | 22,260 | 2.13% | 136 / 1.99% | 6 / 0.43% | 171 fragmented legacy events | Not comparable | 4,980 Umami pageviews; unified instrumentation required |
-| 2026-09-07 |  |  |  |  |  |  |  |  |
+| 2026-09-07 | 520 | 24,743 | 2.10% | 164 / 1.96% | 6 / 0.34% | 32 | 0.61% per pageview; 1.33% per visitor | 25 unique CTA visitors; unified event was deployed during this window, so this is a partial-window baseline, not a prior-period comparison |
 | 2026-09-14 |  |  |  |  |  |  |  |  |
 | 2026-09-21 |  |  |  |  |  |  |  |  |
 | 2026-09-28 |  |  |  |  |  |  |  |  |
@@ -459,12 +459,14 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 
 - **2026-09-04 — Durable analytics + agent memory:** added the recurring growth-agent runbook, a tested aggregate-only Umami API collector (`npm run umami:fetch`), a combined GSC + Umami collection command (`npm run growth:collect`), and explicit separation between Google SERP CTR and on-site CTA conversion rates. Direct database access was retired; the collector authenticates through the self-hosted API using a Keychain credential and makes read-only requests.
 - **2026-09-04 — CTA attribution implementation:** defined conversion as the first appointment-CTA click, introduced shared `BookingCtaLink` and placement-aware `AppointmentBookingButton` contracts, added a global Doctolib safety net, migrated the identified CTA families, and added regression tests. All 154 repository tests and the 257-route production build pass. A rendered crawl of all 188 sitemap URLs found 180 tracked Doctolib anchors, 273 tracked insurance-dialog buttons and zero missing booking markers. Production Umami verification remains the Day-3 gate.
+- **2026-09-07 — Current Umami API compatibility and clean conversion baseline:** detected the self-hosted Umami upgrade, updated the collector to auto-detect current versus legacy-v2 reporting contracts, and made `booking-cta-click` the sole conversion numerator. The GSC-aligned 28-day window contains 5,278 pageviews, 1,874 visitors, 32 booking CTA clicks and 25 unique CTA visitors: 0.61% per pageview and 1.33% per visitor. The unified event was deployed partway through the window, so the previous window is unmeasured rather than a valid zero. All 159 repository tests pass. Controlled production clicks on contact and nutrition-package CTAs both returned HTTP 200; the aggregate API now contains every intended placement family.
 
 | Date | Work item | Status | Production URL / PR | Reviewer | Measurement note |
 |---|---|---|---|---|---|
 | 2026-09-04 | Competitor SERP, sitemap and content research | Complete | This document | Internal research | Brave snapshot; direct site verification |
 | 2026-09-04 | Fresh Search Console baseline | Complete | `data/gsc/raw/search-analytics-latest.json` | Internal data | 2026-08-06 through 2026-09-02 |
 | 2026-09-04 | Self-hosted Umami access and aggregate baseline | Complete | `analytics.moneycoach.ai` | Internal data | Historical baseline: 4,980 views, 1,755 visitors, 171 generic events; future collection is API-only |
+| 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | PR pending | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
 
 ## Decision Log
 
@@ -475,6 +477,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-04 | Measure qualified Doctolib outbound as the interim north star | Completed booking is not observable in current code | A reliable booking-completion import exists |
 | 2026-09-04 | Cap first sprint at 6–8 strong German assets/refreshes | Medical review and originality are the limiting resources | Clinical throughput supports more without quality loss |
 | 2026-09-04 | Require `research-backed-feature-article` workflow for cornerstone medical content | Ensures claim-level sources, calibrated wording, explicit limitations and reusable distribution angles | A stronger clinical editorial standard replaces it |
+| 2026-09-07 | Queue the iron-cost snippet as the next bounded experiment, pending clinician approval | `/leistungen/eiseninfusion-kosten` produced 5,296 impressions at position 8.65 but only 1.51% CTR; `eiseninfusion kosten` alone produced 2,548 impressions at position 7.16 and 0.55% CTR | Start after clinician approval; evaluate after 14 days or 500 impressions; target page CTR ≥1.8% and query CTR ≥0.8%; revise or roll back if CTR falls and average position worsens by more than two positions |
 
 ## Primary Sources And Reference Set
 

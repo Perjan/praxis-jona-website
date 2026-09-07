@@ -54,3 +54,45 @@ export function matchesClusterPath(urlPath, cluster) {
 export function readStatValue(value) {
   return Number(value && typeof value === "object" ? value.value : value || 0);
 }
+
+export function readEventStats(payload) {
+  if (!payload?.data) return { events: 0, visitors: null };
+  return {
+    events: Number(payload.data.events || 0),
+    visitors: Number(payload.data.visitors || 0),
+  };
+}
+
+export function umamiApiShape(contract) {
+  if (contract === "current") {
+    return {
+      pathMetricType: "path",
+      pathMetricsEndpoint: "metrics/expanded",
+      pathFilterKey: "path",
+      eventSeriesEndpoint: "events/series",
+    };
+  }
+
+  return {
+    pathMetricType: "url",
+    pathMetricsEndpoint: "metrics",
+    pathFilterKey: "url",
+    eventSeriesEndpoint: "events",
+  };
+}
+
+export function normalizePathMetricRows(rows, contract) {
+  if (contract === "current") {
+    return rows.map((row) => ({
+      path: row.name,
+      pageviews: Number(row.pageviews || 0),
+      visitors: Number(row.visitors || 0),
+    }));
+  }
+
+  return rows.map((row) => ({
+    path: row.x,
+    pageviews: Number(row.y || 0),
+    visitors: null,
+  }));
+}
