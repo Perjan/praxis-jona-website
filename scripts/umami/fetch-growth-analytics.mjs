@@ -27,19 +27,22 @@ function parseArgs(argv) {
   return result;
 }
 
-function number(value) {
-  return Number(value || 0);
+function metricCount(value) {
+  if (!Number.isFinite(value)) {
+    throw new TypeError("Current Umami metric row is missing a numeric count");
+  }
+  return Number(value);
 }
 
 function normalizedStats(payload) {
   return {
     pageviews: readStatValue(payload.pageviews),
-    visitors: readStatValue(payload.visitors ?? payload.uniques),
+    visitors: readStatValue(payload.visitors),
   };
 }
 
 function sumMetricRows(rows) {
-  return rows.reduce((total, row) => total + number(row.y), 0);
+  return rows.reduce((total, row) => total + metricCount(row.y), 0);
 }
 
 function getKeychainCredential(config) {
@@ -148,13 +151,17 @@ async function queryPeriod(config, token, period) {
       const metrics = {
         pageviews: matchingPages.reduce((total, page) => total + page.pageviews, 0),
         visitors:
-          pageDetails.length <= 1 ? number(pageDetails[0]?.visitors) : null,
+          pageDetails.length === 0
+            ? 0
+            : pageDetails.length === 1
+              ? pageDetails[0].visitors
+              : null,
         conversion_events: pageDetails.reduce(
           (total, page) => total + page.conversionEvents,
           0,
         ),
         converting_visitors:
-          pageDetails.length <= 1 ? pageDetails[0]?.convertingVisitors ?? 0 : null,
+          pageDetails.length <= 1 ? pageDetails[0]?.convertingVisitors ?? null : null,
       };
       return {
         name: cluster.name,
@@ -208,7 +215,7 @@ async function queryPeriod(config, token, period) {
     },
     events: eventMetrics.map((row) => ({
       name: row.x || "(unnamed)",
-      events: number(row.y),
+      events: metricCount(row.y),
       visitors: null,
     })),
     clusters,

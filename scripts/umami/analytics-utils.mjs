@@ -52,14 +52,29 @@ export function matchesClusterPath(urlPath, cluster) {
 }
 
 export function readStatValue(value) {
-  return Number(value && typeof value === "object" ? value.value : value || 0);
+  if (!Number.isFinite(value)) {
+    throw new TypeError("Current Umami stat is missing a numeric value");
+  }
+  return Number(value);
 }
 
 export function readEventStats(payload) {
-  if (!payload?.data) return { events: 0, visitors: null };
+  if (!payload?.data || typeof payload.data !== "object") {
+    throw new TypeError("Current Umami event stats are missing data");
+  }
+  if (!Number.isFinite(payload.data.events)) {
+    throw new TypeError("Current Umami event stats are missing an event count");
+  }
+  if (
+    payload.data.visitors !== undefined &&
+    !Number.isFinite(payload.data.visitors)
+  ) {
+    throw new TypeError("Current Umami event stats contain an invalid visitor count");
+  }
   return {
-    events: Number(payload.data.events || 0),
-    visitors: Number(payload.data.visitors || 0),
+    events: Number(payload.data.events),
+    visitors:
+      payload.data.visitors === undefined ? null : Number(payload.data.visitors),
   };
 }
 
@@ -75,10 +90,19 @@ export function normalizePathMetricRows(rows) {
     if (typeof row.name !== "string") {
       throw new TypeError("Current Umami path metric is missing a name");
     }
+    if (row.pageviews === undefined) {
+      throw new TypeError("Current Umami path metric is missing pageviews");
+    }
+    if (typeof row.pageviews !== "string" || !/^\d+$/.test(row.pageviews)) {
+      throw new TypeError("Current Umami path metric has invalid pageviews");
+    }
+    if (!Number.isFinite(row.visitors)) {
+      throw new TypeError("Current Umami path metric is missing visitors");
+    }
     return {
       path: row.name,
-      pageviews: Number(row.pageviews || 0),
-      visitors: Number(row.visitors || 0),
+      pageviews: Number(row.pageviews),
+      visitors: Number(row.visitors),
     };
   });
 }

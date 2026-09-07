@@ -49,9 +49,13 @@ describe("Umami analytics utilities", () => {
   });
 
   it("reads current Umami stat response values", () => {
-    expect(readStatValue({ value: 42 })).toBe(42);
     expect(readStatValue(42)).toBe(42);
-    expect(readStatValue(undefined)).toBe(0);
+    expect(() => readStatValue({ value: 42 })).toThrow(
+      "Current Umami stat is missing a numeric value",
+    );
+    expect(() => readStatValue(undefined)).toThrow(
+      "Current Umami stat is missing a numeric value",
+    );
   });
 
   it("reads aggregate custom-event stats from the current Umami API", () => {
@@ -59,7 +63,19 @@ describe("Umami analytics utilities", () => {
       events: 32,
       visitors: 25,
     });
-    expect(readEventStats(undefined)).toEqual({ events: 0, visitors: null });
+    expect(readEventStats({ data: { events: 0 } })).toEqual({
+      events: 0,
+      visitors: null,
+    });
+  });
+
+  it("rejects malformed current event-stat responses", () => {
+    expect(() => readEventStats(undefined)).toThrow(
+      "Current Umami event stats are missing data",
+    );
+    expect(() => readEventStats({ data: { visitors: 4 } })).toThrow(
+      "Current Umami event stats are missing an event count",
+    );
   });
 
   it("defines only the current Umami API paths and filters", () => {
@@ -77,7 +93,7 @@ describe("Umami analytics utilities", () => {
 
   it("normalizes current expanded path metrics without losing pageviews", () => {
     expect(
-      normalizePathMetricRows([{ name: "/kontakt", pageviews: 12, visitors: 8 }]),
+      normalizePathMetricRows([{ name: "/kontakt", pageviews: "12", visitors: 8 }]),
     ).toEqual([{ path: "/kontakt", pageviews: 12, visitors: 8 }]);
   });
 
@@ -85,5 +101,16 @@ describe("Umami analytics utilities", () => {
     expect(() => normalizePathMetricRows([{ x: "/kontakt", y: 12 }])).toThrow(
       "Current Umami path metric is missing a name",
     );
+    expect(() =>
+      normalizePathMetricRows([{ name: "/kontakt", visitors: 8 }]),
+    ).toThrow("Current Umami path metric is missing pageviews");
+    expect(() =>
+      normalizePathMetricRows([{ name: "/kontakt", pageviews: "12" }]),
+    ).toThrow("Current Umami path metric is missing visitors");
+    expect(() =>
+      normalizePathMetricRows([
+        { name: "/kontakt", pageviews: 12, visitors: 8 },
+      ]),
+    ).toThrow("Current Umami path metric has invalid pageviews");
   });
 });
