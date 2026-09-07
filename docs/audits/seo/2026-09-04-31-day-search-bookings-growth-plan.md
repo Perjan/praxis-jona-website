@@ -466,7 +466,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-04 | Competitor SERP, sitemap and content research | Complete | This document | Internal research | Brave snapshot; direct site verification |
 | 2026-09-04 | Fresh Search Console baseline | Complete | `data/gsc/raw/search-analytics-latest.json` | Internal data | 2026-08-06 through 2026-09-02 |
 | 2026-09-04 | Self-hosted Umami access and aggregate baseline | Complete | `analytics.moneycoach.ai` | Internal data | Historical baseline: 4,980 views, 1,755 visitors, 171 generic events; future collection is API-only |
-| 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | PR pending | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
+| 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | [PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
 
 ## Decision Log
 
