@@ -63,36 +63,22 @@ export function readEventStats(payload) {
   };
 }
 
-export function umamiApiShape(contract) {
-  if (contract === "current") {
+export const CURRENT_UMAMI_API = Object.freeze({
+  pathMetricType: "path",
+  pathMetricsEndpoint: "metrics/expanded",
+  pathFilterKey: "path",
+  eventSeriesEndpoint: "events/series",
+});
+
+export function normalizePathMetricRows(rows) {
+  return rows.map((row) => {
+    if (typeof row.name !== "string") {
+      throw new TypeError("Current Umami path metric is missing a name");
+    }
     return {
-      pathMetricType: "path",
-      pathMetricsEndpoint: "metrics/expanded",
-      pathFilterKey: "path",
-      eventSeriesEndpoint: "events/series",
-    };
-  }
-
-  return {
-    pathMetricType: "url",
-    pathMetricsEndpoint: "metrics",
-    pathFilterKey: "url",
-    eventSeriesEndpoint: "events",
-  };
-}
-
-export function normalizePathMetricRows(rows, contract) {
-  if (contract === "current") {
-    return rows.map((row) => ({
       path: row.name,
       pageviews: Number(row.pageviews || 0),
       visitors: Number(row.visitors || 0),
-    }));
-  }
-
-  return rows.map((row) => ({
-    path: row.x,
-    pageviews: Number(row.y || 0),
-    visitors: null,
-  }));
+    };
+  });
 }

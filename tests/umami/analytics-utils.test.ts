@@ -9,7 +9,7 @@ import {
   periodToTimestamps,
   readEventStats,
   readStatValue,
-  umamiApiShape,
+  CURRENT_UMAMI_API,
 } from "../../scripts/umami/analytics-utils.mjs";
 
 describe("Umami analytics utilities", () => {
@@ -41,14 +41,14 @@ describe("Umami analytics utilities", () => {
     ).toBe("re.(?:^/leistungen/eiseninfusion-kosten|prp\\+vampire)");
   });
 
-  it("matches legacy API URL metrics to configured clusters", () => {
+  it("matches current API path metrics to configured clusters", () => {
     const cluster = { prefixes: ["/blog/eisen"], contains: ["prp"] };
     expect(matchesClusterPath("/blog/eisen/mangel", cluster)).toBe(true);
     expect(matchesClusterPath("/aesthetik/prp-behandlung", cluster)).toBe(true);
     expect(matchesClusterPath("/leistungen/infusionstherapie", cluster)).toBe(false);
   });
 
-  it("reads both legacy and current Umami stat response values", () => {
+  it("reads current Umami stat response values", () => {
     expect(readStatValue({ value: 42 })).toBe(42);
     expect(readStatValue(42)).toBe(42);
     expect(readStatValue(undefined)).toBe(0);
@@ -62,8 +62,8 @@ describe("Umami analytics utilities", () => {
     expect(readEventStats(undefined)).toEqual({ events: 0, visitors: null });
   });
 
-  it("maps current Umami API paths and filters", () => {
-    expect(umamiApiShape("current")).toEqual({
+  it("defines only the current Umami API paths and filters", () => {
+    expect(CURRENT_UMAMI_API).toEqual({
       pathMetricType: "path",
       pathMetricsEndpoint: "metrics/expanded",
       pathFilterKey: "path",
@@ -71,26 +71,19 @@ describe("Umami analytics utilities", () => {
     });
   });
 
-  it("keeps the legacy Umami v2 contract available as a fallback", () => {
-    expect(umamiApiShape("legacy-v2")).toEqual({
-      pathMetricType: "url",
-      pathMetricsEndpoint: "metrics",
-      pathFilterKey: "url",
-      eventSeriesEndpoint: "events",
-    });
+  it("keeps the current API contract immutable", () => {
+    expect(Object.isFrozen(CURRENT_UMAMI_API)).toBe(true);
   });
 
   it("normalizes current expanded path metrics without losing pageviews", () => {
     expect(
-      normalizePathMetricRows(
-        [{ name: "/kontakt", pageviews: 12, visitors: 8 }],
-        "current",
-      ),
+      normalizePathMetricRows([{ name: "/kontakt", pageviews: 12, visitors: 8 }]),
     ).toEqual([{ path: "/kontakt", pageviews: 12, visitors: 8 }]);
   });
 
-  it("normalizes legacy URL metrics", () => {
-    expect(normalizePathMetricRows([{ x: "/kontakt", y: 12 }], "legacy-v2"))
-      .toEqual([{ path: "/kontakt", pageviews: 12, visitors: null }]);
+  it("rejects unsupported path-metric response shapes", () => {
+    expect(() => normalizePathMetricRows([{ x: "/kontakt", y: 12 }])).toThrow(
+      "Current Umami path metric is missing a name",
+    );
   });
 });
