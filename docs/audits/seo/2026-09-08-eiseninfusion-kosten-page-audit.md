@@ -89,9 +89,11 @@ References: [Google localized-version guidance](https://developers.google.com/se
 ## PR/local findings
 
 - Focused test was written first and failed on the old title/schema behavior.
-- The test now passes with the approved metadata and FAQ answer mapping.
+- The focused test now passes with the approved metadata and FAQ answer mapping; the full suite passes 162/162, lint is clean, and the production build succeeds.
 - The visible H1 and clinical body remain unchanged; the layout template appends `| Praxis Jona` once to the page-level title.
-- Preview verification and full-suite/build results must be added after deployment; production measurement does not begin from the preview.
+- Verified preview: `https://praxis-jona-website-git-codex-umami-v3-bd4414-perjans-projects.vercel.app/leistungen/eiseninfusion-kosten`.
+- The rendered preview has the exact approved title and description, production canonical and reciprocal alternates, one H1, and exactly five FAQ questions with distinct answers matching the visible copy.
+- Production measurement does not begin from the preview.
 
 ## Prioritized next actions
 
