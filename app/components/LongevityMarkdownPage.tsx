@@ -433,6 +433,67 @@ function takeUntilHeading(nodes: MarkdownNode[], start: number) {
   return { children, cursor };
 }
 
+function extractFaqs(nodes: MarkdownNode[]) {
+  const faqHeadingIndex = nodes.findIndex(
+    (node) =>
+      (node.type === "h1" || node.type === "h2") &&
+      typeof node.text === "string" &&
+      /^(Häufige Fragen|Frequently Asked Questions|Frequently asked questions)/.test(node.text),
+  );
+
+  if (faqHeadingIndex < 0) {
+    return [];
+  }
+
+  const faqs: { question: string; answer: MarkdownNode[] }[] = [];
+  let index = faqHeadingIndex + 1;
+
+  while (index < nodes.length) {
+    const node = nodes[index];
+
+    if (node.type === "h1" || node.type === "h2") {
+      break;
+    }
+
+    if (node.type === "h3" && node.text) {
+      const result = takeUntilHeading(nodes, index + 1);
+      faqs.push({ question: node.text, answer: result.children });
+      index = result.cursor;
+      continue;
+    }
+
+    index += 1;
+  }
+
+  return faqs;
+}
+
+function markdownNodesToPlainText(nodes: MarkdownNode[]) {
+  return nodes
+    .flatMap((node) => (node.type === "list" ? node.items : node.text ? [node.text] : []))
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function buildFaqSchema(nodes: MarkdownNode[]) {
+  const faqs = extractFaqs(nodes);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: markdownNodesToPlainText(item.answer) },
+    })),
+  };
+}
+
+export function getLongevityFaqSchema(sectionKey: Exclude<LongevitySectionKey, "hub">, locale: LongevityLocale) {
+  return buildFaqSchema(parseMarkdown(getLongevitySectionMarkdown(sectionKey, locale)));
+}
+
 function WeightLossDetails({ nodes, locale }: { nodes: MarkdownNode[]; locale: LongevityLocale }) {
   const copy = {
     de: {
@@ -535,25 +596,8 @@ function StructuredBody({ nodes, locale, sectionKey }: { nodes: MarkdownNode[]; 
     }
 
     if ((node.type === "h1" || node.type === "h2") && node.text && /^(Häufige Fragen|Frequently Asked Questions|Frequently asked questions)/.test(node.text)) {
-      const faqs: { question: string; answer: MarkdownNode[] }[] = [];
-      index += 1;
-
-      while (index < nodes.length) {
-        const question = nodes[index];
-
-        if (question.type === "h1" || question.type === "h2") {
-          break;
-        }
-
-        if (question.type === "h3" && question.text) {
-          const result = takeUntilHeading(nodes, index + 1);
-          faqs.push({ question: question.text, answer: result.children });
-          index = result.cursor;
-          continue;
-        }
-
-        index += 1;
-      }
+      const faqs = extractFaqs(nodes);
+      index = nodes.length;
 
       sections.push(
         <MotionSection key={`faq-${sections.length}`} className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
@@ -715,9 +759,7 @@ export function LongevityMarkdownPage({ sectionKey, locale }: { sectionKey: Excl
   const bodyNodes = contentNodes.slice(2);
   const descriptionNode = textNodes(nodes).find((node) => node.type === "h3" || node.type === "p");
   const description = descriptionNode?.text ?? title;
-  const faqNodes = nodes.flatMap((node) =>
-    node.type === "h3" && typeof node.text === "string" && node.text.endsWith("?") ? [{ text: node.text }] : [],
-  );
+  const faqs = extractFaqs(nodes);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -735,21 +777,13 @@ export function LongevityMarkdownPage({ sectionKey, locale }: { sectionKey: Excl
     provider: { "@id": `${Constants.baseUrl}/#organization`, name: "Praxis Jona" },
     areaServed: "Berlin-Mitte",
   };
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqNodes.map((item) => ({
-      "@type": "Question",
-      name: item.text,
-      acceptedAnswer: { "@type": "Answer", text: description },
-    })),
-  };
+  const faqSchema = buildFaqSchema(nodes);
 
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
-      {faqNodes.length > 0 && <JsonLd data={faqSchema} />}
+      {faqs.length > 0 && <JsonLd data={faqSchema} />}
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:items-center lg:px-8 lg:py-24">
           <div className="min-w-0">
