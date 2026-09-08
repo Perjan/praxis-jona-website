@@ -17,7 +17,7 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 Next operating review: 2026-09-14
 Clinical reviewer: **TBD before publishing new medical claims**
 Growth owner: **TBD**
@@ -460,6 +460,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - **2026-09-04 — Durable analytics + agent memory:** added the recurring growth-agent runbook, a tested aggregate-only Umami API collector (`npm run umami:fetch`), a combined GSC + Umami collection command (`npm run growth:collect`), and explicit separation between Google SERP CTR and on-site CTA conversion rates. Direct database access was retired; the collector authenticates through the self-hosted API using a Keychain credential and makes read-only requests.
 - **2026-09-04 — CTA attribution implementation:** defined conversion as the first appointment-CTA click, introduced shared `BookingCtaLink` and placement-aware `AppointmentBookingButton` contracts, added a global Doctolib safety net, migrated the identified CTA families, and added regression tests. All 154 repository tests and the 257-route production build pass. A rendered crawl of all 188 sitemap URLs found 180 tracked Doctolib anchors, 273 tracked insurance-dialog buttons and zero missing booking markers. Production Umami verification remains the Day-3 gate.
 - **2026-09-07 — Current Umami API integration and clean conversion baseline:** updated the collector for the self-hosted Umami current API only, made `booking-cta-click` the sole conversion numerator, and added strict response-shape validation so API mismatches fail visibly while an omitted event-visitor count remains unavailable. The GSC-aligned 28-day window contains 5,278 pageviews, 1,874 visitors, 32 booking CTA clicks and 25 unique CTA visitors: 0.61% per pageview and 1.33% per visitor. The unified event was deployed partway through the window, so the previous window is unmeasured rather than a valid zero. All 160 repository tests pass. Controlled production clicks on contact and nutrition-package CTAs both returned HTTP 200; the aggregate API now contains every intended placement family.
+- **2026-09-08 — Daily evidence and experiment hold:** the latest complete GSC window (2026-08-10 through 2026-09-06) contains 511 clicks, 24,143 impressions, 2.12% search CTR and average position 18.67, versus 490 clicks, 19,379 impressions, 2.53% CTR and position 24.36 in the preceding window. The aligned Umami window contains 5,337 pageviews, 1,922 visitors, 42 `booking-cta-click` events and 35 unique converting visitors: 0.79% per pageview and 1.82% per visitor. The apparent booking-rate lift versus September 7 is not causal evidence because the rolling window still contains days before unified instrumentation. Keep the iron-cost snippet test proposed but do not start it before clinician approval; next decision point remains 2026-09-14 or after approval, whichever is later.
 
 | Date | Work item | Status | Production URL / PR | Reviewer | Measurement note |
 |---|---|---|---|---|---|
@@ -467,6 +468,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-04 | Fresh Search Console baseline | Complete | `data/gsc/raw/search-analytics-latest.json` | Internal data | 2026-08-06 through 2026-09-02 |
 | 2026-09-04 | Self-hosted Umami access and aggregate baseline | Complete | `analytics.moneycoach.ai` | Internal data | Historical baseline: 4,980 views, 1,755 visitors, 171 generic events; future collection is API-only |
 | 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | [PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
+| 2026-09-08 | Daily GSC + Umami evidence; iron-cost snippet experiment gate | Measured | [PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | Clinician approval pending | 42 booking CTA clicks / 35 unique converters in the rolling window; no causal conclusion until a fully instrumented comparison exists |
 
 ## Decision Log
 
@@ -478,6 +480,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-04 | Cap first sprint at 6–8 strong German assets/refreshes | Medical review and originality are the limiting resources | Clinical throughput supports more without quality loss |
 | 2026-09-04 | Require `research-backed-feature-article` workflow for cornerstone medical content | Ensures claim-level sources, calibrated wording, explicit limitations and reusable distribution angles | A stronger clinical editorial standard replaces it |
 | 2026-09-07 | Queue the iron-cost snippet as the next bounded experiment, pending clinician approval | `/leistungen/eiseninfusion-kosten` produced 5,296 impressions at position 8.65 but only 1.51% CTR; `eiseninfusion kosten` alone produced 2,548 impressions at position 7.16 and 0.55% CTR | Start after clinician approval; evaluate after 14 days or 500 impressions; target page CTR ≥1.8% and query CTR ≥0.8%; revise or roll back if CTR falls and average position worsens by more than two positions |
+| 2026-09-08 | Hold the queued iron-cost snippet experiment rather than react to a one-day rolling-window change | Search CTR remains weak enough to justify the test, but the proposed medical wording still requires clinician approval and CTA instrumentation lacks a full clean comparison window | Clinician approves the proposed wording; then start the 14-day/500-impression observation window |
 
 ## Primary Sources And Reference Set
 
