@@ -50,12 +50,13 @@ Aggregate Umami for the aligned 28-day window: 313 pageviews, 233 visitors, 7 fi
 - **Measurement:** Begin only after production deployment. Evaluate after 14 days or 500 page impressions, whichever is later. Target page CTR at least 1.8% and `eiseninfusion kosten` CTR at least 0.8%; revise or roll back if CTR declines while average position worsens by more than two positions. Google may generate a different title or snippet and may need days to weeks to recrawl/process the change.
 - **References:** [Google title-link guidance](https://developers.google.com/search/docs/appearance/title-link) and [Google snippet guidance](https://developers.google.com/search/docs/appearance/snippet).
 
-### P1 — Medical trust signals are not visible on the service page
+### P1 — Confirmed medical authorship is not yet visible on the service page
 
 - **Issue:** The 718-word medical service page has no visible author/reviewer, review date, or cited clinical sources. Global metadata names authors, but visitors do not see an accountable clinical reviewer on this page.
 - **Impact:** This is health/YMYL content. Google says its systems give more weight to signals aligned with strong E-E-A-T for health topics and strongly encourages accurate authorship information where readers expect it.
 - **Evidence:** Rendered page and repository inspection on 2026-09-08.
-- **Recommended fix:** After clinician review, add a visible `Medizinisch geprüft von Dr. med. Jonida Gjolli` block with a real profile link and reviewed/updated date. Add claim-adjacent references for indications, oral-versus-IV decision factors, monitoring, expected timing, and adverse effects. Correct the incomplete sentence ending `sowie die Aufklärung`. Do not manufacture freshness by changing dates without a substantive review.
+- **Confirmed editorial fact:** Dr. med. Jonida Gjolli, owner of Praxis Jona and Fachärztin für Innere Medizin, wrote and medically reviewed this page. Her canonical German author profile is `/blog/authors/jonida-gjolli`.
+- **Recommended fix:** Add a visible author/reviewer block linking to that profile after the actual last-review date is supplied. Add claim-adjacent references for indications, oral-versus-IV decision factors, monitoring, expected timing, and adverse effects. Correct the incomplete sentence ending `sowie die Aufklärung`. Do not manufacture freshness by changing dates without a substantive review.
 - **Reference:** [Google's people-first content and E-E-A-T guidance](https://developers.google.com/search/docs/fundamentals/creating-helpful-content).
 
 ### P2 — The page does not link readers to the existing evidence article
