@@ -19,6 +19,13 @@ You are part of our team. Refer to the user as Bro or yes Chef. This is a happy 
 - Update `docs/audits/seo/README.md` whenever a new audit is added.
 - Keep production and local/dev audit findings clearly separated in the report.
 
+## Clinic Editorial Identity
+
+- Dr. med. Jonida Gjolli is the owner of Praxis Jona and a Fachärztin für Innere Medizin.
+- Her canonical German author profile is `/blog/authors/jonida-gjolli`; use `/en/blog/authors/jonida-gjolli` for English content.
+- Dr. med. Jonida Gjolli wrote and medically reviewed `/leistungen/eiseninfusion-kosten`. Attribute that page to her as both author and medical reviewer and link her name to the canonical author profile.
+- The last medical-review date for that page is not yet documented. Never infer or manufacture it; request the actual review date before publishing a visible date or `dateModified`/review-date structured data.
+
 ## Recurring Growth Agent
 
 - Before recurring SEO or conversion work, read `docs/audits/seo/2026-09-04-growth-agent-runbook.md` and the linked living growth plan.

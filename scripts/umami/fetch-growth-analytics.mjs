@@ -4,10 +4,13 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 import {
+  CURRENT_UMAMI_API,
   calculateRate,
   dateWindow,
   matchesClusterPath,
+  normalizePathMetricRows,
   periodToTimestamps,
+  readEventStats,
   readStatValue,
 } from "./analytics-utils.mjs";
 
@@ -24,19 +27,22 @@ function parseArgs(argv) {
   return result;
 }
 
-function number(value) {
-  return Number(value || 0);
+function metricCount(value) {
+  if (!Number.isFinite(value)) {
+    throw new TypeError("Current Umami metric row is missing a numeric count");
+  }
+  return Number(value);
 }
 
 function normalizedStats(payload) {
   return {
     pageviews: readStatValue(payload.pageviews),
-    visitors: readStatValue(payload.visitors ?? payload.uniques),
+    visitors: readStatValue(payload.visitors),
   };
 }
 
 function sumMetricRows(rows) {
-  return rows.reduce((total, row) => total + number(row.y), 0);
+  return rows.reduce((total, row) => total + metricCount(row.y), 0);
 }
 
 function getKeychainCredential(config) {
@@ -88,53 +94,84 @@ async function apiGet(config, token, endpoint, parameters = {}) {
 
 async function queryPeriod(config, token, period) {
   const timestamps = periodToTimestamps(period);
-  const [websiteStatsResponse, eventMetrics, urlMetrics, referrerMetrics] = await Promise.all([
-    apiGet(config, token, "stats", timestamps),
-    apiGet(config, token, "metrics", { ...timestamps, type: "event", limit: 500 }),
-    apiGet(config, token, "metrics", { ...timestamps, type: "url", limit: 500 }),
-    apiGet(config, token, "metrics", { ...timestamps, type: "referrer", limit: 500 }),
-  ]);
+  const primaryConversionEvent = config.primaryConversionEvent;
+  const [
+    websiteStatsResponse,
+    eventMetrics,
+    pathMetricsResponse,
+    referrerMetrics,
+    primaryEventStatsResponse,
+  ] = await Promise.all([
+      apiGet(config, token, "stats", timestamps),
+      apiGet(config, token, "metrics", { ...timestamps, type: "event", limit: 500 }),
+      apiGet(config, token, CURRENT_UMAMI_API.pathMetricsEndpoint, {
+        ...timestamps,
+        type: CURRENT_UMAMI_API.pathMetricType,
+        limit: 500,
+      }),
+      apiGet(config, token, "metrics", { ...timestamps, type: "referrer", limit: 500 }),
+      apiGet(config, token, "events/stats", {
+        ...timestamps,
+        event: primaryConversionEvent,
+      }),
+    ]);
 
   const websiteStats = normalizedStats(websiteStatsResponse);
-  const conversionEventNames = new Set(config.conversionEvents);
+  const pathMetrics = normalizePathMetricRows(pathMetricsResponse);
+  const primaryEventStats = readEventStats(primaryEventStatsResponse);
   const clusters = await Promise.all(
     config.clusters.map(async (cluster) => {
-      const matchingPages = urlMetrics.filter((row) => matchesClusterPath(row.x, cluster));
+      const matchingPages = pathMetrics.filter((row) => matchesClusterPath(row.path, cluster));
       const pageDetails = await Promise.all(
         matchingPages.map(async (page) => {
-          const [statsResponse, eventSeries] = await Promise.all([
-            apiGet(config, token, "stats", { ...timestamps, url: page.x }),
-            apiGet(config, token, "events", {
+          const pathFilter = { [CURRENT_UMAMI_API.pathFilterKey]: page.path };
+          const [eventSeries, eventStatsResponse] = await Promise.all([
+            apiGet(config, token, CURRENT_UMAMI_API.eventSeriesEndpoint, {
               ...timestamps,
               unit: "day",
               timezone: config.timezone,
-              url: page.x,
+              ...pathFilter,
+            }),
+            apiGet(config, token, "events/stats", {
+              ...timestamps,
+              event: primaryConversionEvent,
+              ...pathFilter,
             }),
           ]);
+          const pageEventStats = readEventStats(eventStatsResponse);
           return {
-            visitors: normalizedStats(statsResponse).visitors,
+            visitors: page.visitors,
             conversionEvents: sumMetricRows(
-              eventSeries.filter((row) => conversionEventNames.has(row.x)),
+              eventSeries.filter((row) => row.x === primaryConversionEvent),
             ),
+            convertingVisitors: pageEventStats.visitors,
           };
         }),
       );
       const metrics = {
-        pageviews: sumMetricRows(matchingPages),
+        pageviews: matchingPages.reduce((total, page) => total + page.pageviews, 0),
         visitors:
-          pageDetails.length <= 1 ? number(pageDetails[0]?.visitors) : null,
+          pageDetails.length === 0
+            ? 0
+            : pageDetails.length === 1
+              ? pageDetails[0].visitors
+              : null,
         conversion_events: pageDetails.reduce(
           (total, page) => total + page.conversionEvents,
           0,
         ),
-        converting_visitors: null,
+        converting_visitors:
+          pageDetails.length <= 1 ? pageDetails[0]?.convertingVisitors ?? null : null,
       };
       return {
         name: cluster.name,
         label: cluster.label,
         ...metrics,
         conversion_rate_per_pageview: calculateRate(metrics.conversion_events, metrics.pageviews),
-        conversion_rate_per_visitor: null,
+        conversion_rate_per_visitor:
+          metrics.converting_visitors === null || metrics.visitors === null
+            ? null
+            : calculateRate(metrics.converting_visitors, metrics.visitors),
         visitor_metric_note:
           pageDetails.length > 1
             ? "Unavailable across multiple URLs in the deployed Umami API"
@@ -152,29 +189,33 @@ async function queryPeriod(config, token, period) {
   const googleReferrers = referrerMetrics.filter((row) =>
     /(^|\.)google\./i.test(row.x),
   );
-  const topPageMetrics = urlMetrics.slice(0, 25);
-  const topPages = await Promise.all(
-    topPageMetrics.map(async (row) => {
-      const stats = normalizedStats(
-        await apiGet(config, token, "stats", { ...timestamps, url: row.x }),
-      );
-      return { path: row.x, pageviews: number(row.y), visitors: stats.visitors };
-    }),
-  );
+  const topPageMetrics = pathMetrics.slice(0, 25);
+  const topPages = topPageMetrics;
   const google = { pageviews: sumMetricRows(googleReferrers), visitors: null };
 
   return {
     period,
     summary,
-    conversion_rate_per_pageview: calculateRate(summary.custom_events, summary.pageviews),
-    conversion_rate_per_visitor: null,
+    primary_conversion: {
+      event: primaryConversionEvent,
+      events: primaryEventStats.events,
+      visitors: primaryEventStats.visitors,
+    },
+    conversion_rate_per_pageview: calculateRate(
+      primaryEventStats.events,
+      summary.pageviews,
+    ),
+    conversion_rate_per_visitor:
+      primaryEventStats.visitors === null
+        ? null
+        : calculateRate(primaryEventStats.visitors, summary.visitors),
     google_referrals: {
       ...google,
       share_of_pageviews: calculateRate(google.pageviews, summary.pageviews),
     },
     events: eventMetrics.map((row) => ({
       name: row.x || "(unnamed)",
-      events: number(row.y),
+      events: metricCount(row.y),
       visitors: null,
     })),
     clusters,
@@ -189,7 +230,6 @@ async function main() {
   const lagDays = Number(args["lag-days"] || config.lagDays);
   const windows = dateWindow(args["as-of"] || new Date().toISOString(), days, lagDays);
   const token = await authenticate(config);
-
   const [current, previous] = await Promise.all([
     queryPeriod(config, token, windows.current),
     queryPeriod(config, token, windows.previous),
@@ -197,14 +237,15 @@ async function main() {
   const report = {
     generated_at: new Date().toISOString(),
     source: "umami-api-read-only",
-    api_contract: "deployed-legacy-v2",
+    api_contract: "current",
     website: { id: config.websiteId, domain: config.websiteDomain },
     timezone: config.timezone,
     definitions: {
       search_ctr: "Google Search Console clicks / impressions; not available in Umami",
-      conversion_rate_per_pageview: "tracked conversion events / Umami pageviews",
+      conversion_rate_per_pageview:
+        `${config.primaryConversionEvent} events / Umami pageviews`,
       conversion_rate_per_visitor:
-        "unavailable: the deployed Umami API does not expose unique visitors per custom event",
+        `unique visitors with ${config.primaryConversionEvent} / Umami visitors`,
     },
     privacy:
       "Aggregate API output only; no bearer tokens, passwords, session IDs, IP addresses, or individual event rows are stored.",
