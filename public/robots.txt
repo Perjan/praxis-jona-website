@@ -7,3 +7,7 @@ Host: https://praxisjona.de
 
 # Sitemaps
 Sitemap: https://praxisjona.de/sitemap.xml
+
+# Agent guidance
+# See https://praxisjona.de/llms.txt for when to use this site and how to call it.
+LLM: https://praxisjona.de/llms.txt

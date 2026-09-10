@@ -6,7 +6,14 @@ import { buildPricingJsonLd } from "@/app/components/pricing/pricingSchema";
 describe("pricing JSON-LD", () => {
   it("publishes visible aesthetic services as a clinic offer catalog", () => {
     const schemas = buildPricingJsonLd(getPricingPageConfig("aesthetics", "de"));
-    const clinicSchema = schemas.find((schema) => (schema as { "@type"?: string })["@type"] === "MedicalClinic") as {
+    // The clinic node declares @type as ["MedicalClinic", "Organization"] so that
+    // agent crawlers matching on the literal string "Organization" find it too.
+    const isClinic = (schema: unknown) => {
+      const type = (schema as { "@type"?: string | string[] })["@type"];
+      return Array.isArray(type) ? type.includes("MedicalClinic") : type === "MedicalClinic";
+    };
+
+    const clinicSchema = schemas.find(isClinic) as {
       hasOfferCatalog?: {
         itemListElement?: Array<{
           name: string;

@@ -28,5 +28,12 @@ module.exports = {
     "/en/tv-legacy/*",
   ],
 
+  robotsTxtOptions: {
+    // next-sitemap regenerates public/robots.txt on every build, so the agent
+    // guidance pointer has to be appended here rather than edited in place.
+    transformRobotsTxt: async (_config, robotsTxt) =>
+      `${robotsTxt.trimEnd()}\n\n# Agent guidance\n# See https://praxisjona.de/llms.txt for when to use this site and how to call it.\nLLM: https://praxisjona.de/llms.txt\n`,
+  },
+
   // ...other options
 }

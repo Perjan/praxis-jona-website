@@ -31,6 +31,30 @@ export const openingHoursSpecification = [
   { dayOfWeek: "Friday", opens: "08:30", closes: "12:30" },
 ].map((slot) => ({ "@type": "OpeningHoursSpecification", ...slot }));
 
+/**
+ * Explicit contactPoint entries. MedicalClinic already carries telephone/email,
+ * but agent crawlers look for a typed ContactPoint with a contactType.
+ */
+export const contactPoints = [
+  {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    telephone: Constants.contact.phone,
+    email: Constants.contact.email,
+    areaServed: "DE",
+    availableLanguage: ["German", "English", "Albanian"],
+  },
+  {
+    "@type": "ContactPoint",
+    contactType: "appointment booking",
+    telephone: Constants.contact.phone,
+    email: Constants.contact.email,
+    url: `${Constants.baseUrl}/termin-buchen`,
+    areaServed: "DE",
+    availableLanguage: ["German", "English"],
+  },
+] as const;
+
 export const physicianSchema = {
   "@type": "Physician",
   "@id": PHYSICIAN_ID,
@@ -56,14 +80,19 @@ export const clinicReference = { "@id": CLINIC_ID };
  */
 export function buildClinicSchema(extra: Record<string, unknown> = {}) {
   return {
-    "@type": "MedicalClinic",
+    // MedicalClinic is a subtype of Organization, but many agent crawlers match
+    // on the literal @type string, so both are declared explicitly.
+    "@type": ["MedicalClinic", "Organization"],
     "@id": CLINIC_ID,
     name: Constants.appName,
     url: Constants.baseUrl,
     image: `${Constants.baseUrl}/images/og-image.png`,
+    description:
+      "Hausarzt- und internistische Praxis in Berlin-Mitte am Rosenthaler Platz: Allgemeinmedizin, Innere Medizin, Vorsorge, Diagnostik, Ernährungsmedizin und ästhetische Behandlungen.",
     telephone: Constants.contact.phone,
     email: Constants.contact.email,
     address: postalAddress,
+    contactPoint: contactPoints,
     geo: {
       "@type": "GeoCoordinates",
       latitude: GEO_LATITUDE,
