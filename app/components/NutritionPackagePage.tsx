@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import SectionWithColor from "app/SectionWithColor";
 import ConsultationPromise from "app/components/ConsultationPromise";
 import { Constants } from "app/Constants";
+import BookingCtaLink from "app/components/BookingCtaLink";
 
 type Locale = "de" | "en";
 type PackageKey = "bronze" | "silver" | "gold";
@@ -363,14 +364,15 @@ export default function NutritionPackagePage({
             </div>
           </div>
           <div className="mt-8">
-            <a
+            <BookingCtaLink
               href={appointmentHref}
+              placement="nutrition-package"
               target="_blank"
               rel="noopener noreferrer"
               className="block w-full rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-primaryDarker focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
             >
               {ctaLabel}
-            </a>
+            </BookingCtaLink>
           </div>
         </div>
       </div>

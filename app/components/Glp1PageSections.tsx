@@ -12,6 +12,7 @@ import {
   VideoCameraIcon,
 } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
+import BookingCtaLink from "app/components/BookingCtaLink";
 import type { LongevityLocale } from "app/content/longevitySource";
 
 const content = {
@@ -300,14 +301,15 @@ export function Glp1PricingCta({ locale }: { locale: LongevityLocale }) {
             <h2 className="mt-3 font-serif text-3xl font-semibold text-primary">{localized.pricingTitle}</h2>
             <p className="mt-4 text-base leading-7 text-primaryLighter">{localized.pricingNote}</p>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <Link
+              <BookingCtaLink
                 href={Constants.appointmentUrlsByService.weightLossInjection.private}
+                placement="glp1-pricing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex justify-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primaryDarker"
               >
                 {localized.cta}
-              </Link>
+              </BookingCtaLink>
               <a
                 href="#details"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-primary/20 bg-white px-5 py-3 text-sm font-semibold text-primary transition hover:border-primary/40 hover:bg-stone-50"

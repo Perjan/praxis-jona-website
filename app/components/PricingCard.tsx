@@ -128,6 +128,7 @@ export default function PricingCard({
                 <PrimaryButton
                     href={pkg.link[language]}
                     fullWidth={true}
+                    bookingPlacement="legacy-pricing-card"
                 >
                     {pkg.buttonText[language]}
                 </PrimaryButton>

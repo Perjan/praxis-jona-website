@@ -22,7 +22,9 @@
     "gsc:weekly": "node scripts/gsc/run-weekly.mjs",
     "gsc:daily": "npm run gsc:weekly",
     "gsc:record-implementation": "node scripts/gsc/record-implementation.mjs",
-    "gsc:compare": "node scripts/gsc/compare-baseline.mjs"
+    "gsc:compare": "node scripts/gsc/compare-baseline.mjs",
+    "umami:fetch": "node scripts/umami/fetch-growth-analytics.mjs",
+    "growth:collect": "npm run gsc:weekly && npm run umami:fetch"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",

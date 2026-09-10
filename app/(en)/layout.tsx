@@ -7,6 +7,7 @@ import { ReactToastWrapper } from '../ToasterWrapper';
 import { Constants } from '../Constants';
 import Script from 'next/script';
 import Authors from 'app/(de)/blog/authors/AuthorsDataSource';
+import BookingAttribution from '../components/BookingAttribution';
 
 export const metadata: Metadata = {
   metadataBase: new URL(Constants.baseUrl),
@@ -53,9 +54,10 @@ export default function RootLayout({
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id={Constants.umamiId}
             data-domains={Constants.dataDomain}
-            strategy="lazyOnload"
+            strategy="afterInteractive"
           />
       <body>
+        <BookingAttribution />
         <ReactToastWrapper>
           <Header />
           <main id="main-content">{children}</main>

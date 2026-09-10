@@ -7,6 +7,7 @@ interface PrimaryButtonProps {
   fullWidth?: boolean;
   target?: string;
   rel?: string;
+  bookingPlacement?: string;
 }
 
 export default function PrimaryButton({
@@ -16,14 +17,20 @@ export default function PrimaryButton({
   fullWidth = false,
   target,
   rel,
+  bookingPlacement,
 }: PrimaryButtonProps) {
   const resolvedRel = target === "_blank" ? (rel ?? "noopener noreferrer") : rel;
+  const isDoctolibBooking = href.includes("doctolib.de");
 
   return (
     <Link
       href={href}
       target={target}
       rel={resolvedRel}
+      data-booking-cta={isDoctolibBooking ? "doctolib" : undefined}
+      data-booking-placement={
+        isDoctolibBooking ? (bookingPlacement ?? "primary-button") : undefined
+      }
       className={`rounded-lg bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${fullWidth 
         ? 'w-full justify-center hover:bg-primaryLighter hover:shadow-md' 
         : 'inline-flex justify-center hover:bg-primaryLighter hover:shadow-md hover:scale-105'

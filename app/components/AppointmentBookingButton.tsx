@@ -46,6 +46,7 @@ export default function AppointmentBookingButton({
   urls = defaultAppointmentBookingUrls,
   copy,
   ariaLabel,
+  trackingPlacement,
 }: {
   children: ReactNode;
   className: string;
@@ -53,6 +54,7 @@ export default function AppointmentBookingButton({
   urls?: AppointmentBookingUrls;
   copy?: AppointmentBookingCopy;
   ariaLabel?: string;
+  trackingPlacement: string;
 }) {
   const [showInsuranceDialog, setShowInsuranceDialog] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -81,7 +83,14 @@ export default function AppointmentBookingButton({
 
   return (
     <>
-      <button type="button" onClick={handleBookingClick} className={className} aria-label={ariaLabel}>
+      <button
+        type="button"
+        onClick={handleBookingClick}
+        className={className}
+        aria-label={ariaLabel}
+        data-booking-cta="insurance-dialog"
+        data-booking-placement={trackingPlacement}
+      >
         {children}
       </button>
 

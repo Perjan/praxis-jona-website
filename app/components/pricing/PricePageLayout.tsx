@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Constants } from "app/Constants";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
+import BookingCtaLink from "app/components/BookingCtaLink";
 import PricingTableSection from "./PricingTableSection";
 import type { PricingPageConfig } from "./pricingData";
 import { buildPricingJsonLd } from "./pricingSchema";
@@ -94,17 +95,19 @@ export default function PricePageLayout({ config }: { config: PricingPageConfig 
             {config.key === "aesthetics" ? (
               <AppointmentBookingButton
                 locale={config.locale}
+                trackingPlacement="pricing-page-footer"
                 className="mt-6 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primaryLighter transition hover:bg-tealColor"
               >
                 {ctaButton}
               </AppointmentBookingButton>
             ) : (
-              <Link
+              <BookingCtaLink
                 href={Constants.appointmentUrl}
+                placement="pricing-page-footer"
                 className="mt-6 inline-flex rounded-lg bg-white px-5 py-3 text-sm font-semibold text-primaryLighter transition hover:bg-tealColor"
               >
                 {ctaButton}
-              </Link>
+              </BookingCtaLink>
             )}
           </section>
         </div>

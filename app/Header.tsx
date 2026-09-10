@@ -16,6 +16,7 @@ import Logo from "/public/images/praxis-jona-web-logo.png"
 import { Constants } from './Constants'
 import { LanguagePicker } from './LanguagePicker'
 import AppointmentBookingButton from './components/AppointmentBookingButton'
+import BookingCtaLink from './components/BookingCtaLink'
 
 const navigationItemsGerman = [
     { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
@@ -101,6 +102,7 @@ export function DownloadButton({ url, locale, pathname }) {
                 urls={bookingUrlsForPath(pathname)}
                 className={className}
                 ariaLabel={bookAppointmentTitle(locale)}
+                trackingPlacement="header"
             >
                 {bookAppointmentTitle(locale)}
             </AppointmentBookingButton>
@@ -108,14 +110,14 @@ export function DownloadButton({ url, locale, pathname }) {
     }
 
     return (
-        <Link
+        <BookingCtaLink
             href={Constants.appointmentUrl}
+            placement="header"
             target="_blank"
             rel="noopener noreferrer"
             className={className}
-            data-umami-event="button-in-header"
         >{bookAppointmentTitle(locale)}
-        </Link>
+        </BookingCtaLink>
     )
 }
 

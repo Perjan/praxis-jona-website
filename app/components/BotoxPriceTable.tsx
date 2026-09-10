@@ -71,6 +71,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                     <AppointmentBookingButton
                         locale={isEnglish ? "en" : "de"}
                         urls={Constants.appointmentUrlsByService.botulinumtoxin}
+                        trackingPlacement="botox-pricing"
                         copy={{
                             ...bookingCopy,
                             description: isEnglish
@@ -153,6 +154,7 @@ export default function BotoxPriceTable({ isEnglish = false }: BotoxPriceTablePr
                 <AppointmentBookingButton
                     locale={isEnglish ? "en" : "de"}
                     urls={Constants.appointmentUrlsByService.botulinumtoxin}
+                    trackingPlacement="botox-pricing-sticky"
                     copy={{
                         ...bookingCopy,
                         description: isEnglish
