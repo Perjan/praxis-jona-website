@@ -7,7 +7,7 @@ import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
 import { getPricingPageConfig } from "app/components/pricing/pricingData";
 import { buildClinicOfferCatalogJsonLd } from "app/components/pricing/pricingSchema";
-import { buildClinicSchema, physicianSchema } from "app/components/clinicSchema";
+import { buildClinicSchema, physicianSchema, websiteSchema } from "app/components/clinicSchema";
 
 const title = "Praxis Jona Berlin - Internal Medicine"
 const description = "Holistic medical care in Berlin-Mitte: internal medicine, preventive diagnostics, and personalized treatment at Praxis Jona."
@@ -58,6 +58,7 @@ const organizationSchemaEn = {
             hasOfferCatalog: buildClinicOfferCatalogJsonLd(getPricingPageConfig("global", "en")),
         }),
         physicianSchema,
+        websiteSchema,
     ],
 };
 

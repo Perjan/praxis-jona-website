@@ -1,5 +1,6 @@
 import { Constants } from "app/Constants";
 
+export const WEBSITE_ID = `${Constants.baseUrl}/#website`;
 export const CLINIC_ID = `${Constants.baseUrl}/#organization`;
 export const PHYSICIAN_ID = `${Constants.baseUrl}/#physician`;
 
@@ -102,11 +103,31 @@ export function buildClinicSchema(extra: Record<string, unknown> = {}) {
     openingHoursSpecification,
     medicalSpecialty: ["InternalMedicine", "PrimaryCare"],
     employee: { "@id": PHYSICIAN_ID },
+    // sameAs is how an agent disambiguates "Praxis Jona" from any other clinic:
+    // each entry is an independently verifiable profile for the same entity.
     sameAs: [
       "https://www.instagram.com/doc.jona/",
       "https://www.youtube.com/@doc.jonida",
       "https://www.tiktok.com/@doc.jonida",
+      "https://www.doctolib.de/internist/berlin/gjolli-jonida",
+      Constants.contact.googleMapsUrl,
+      Constants.contact.appleMapsUrl,
     ],
     ...extra,
   };
 }
+
+/**
+ * The site itself, as distinct from the clinic that publishes it. Declaring both
+ * lets an agent tell "the organization" apart from "the pages about it", and it
+ * is where the markdown representation of the site is advertised.
+ */
+export const websiteSchema = {
+  "@type": "WebSite",
+  "@id": WEBSITE_ID,
+  url: Constants.baseUrl,
+  name: Constants.appName,
+  inLanguage: ["de", "en"],
+  publisher: { "@id": CLINIC_ID },
+  license: `${Constants.baseUrl}/impressum-datenschutz`,
+};

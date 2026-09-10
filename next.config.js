@@ -77,6 +77,16 @@ const nextConfig = {
   headers: async () => {
     return [
       {
+        // The ARD / AI-catalog manifest is fetched cross-origin by discovery
+        // crawlers, so it needs CORS and an explicit JSON content type.
+        source: '/.well-known/:file(ard.json|ai-catalog.json)',
+        headers: [
+          { key: 'Content-Type', value: 'application/json; charset=utf-8' },
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Cache-Control', value: 'public, max-age=3600' }
+        ]
+      },
+      {
         source: '/:path*',
         headers: [
           {

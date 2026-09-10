@@ -1,6 +1,222 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# OAI-SearchBot
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Claude-User
+User-agent: Claude-User
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Claude-SearchBot
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# PerplexityBot
+User-agent: PerplexityBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Perplexity-User
+User-agent: Perplexity-User
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Gemini-Deep-Research
+User-agent: Gemini-Deep-Research
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Applebot-Extended
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Amazonbot
+User-agent: Amazonbot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Bytespider
+User-agent: Bytespider
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# ora-agent
+User-agent: ora-agent
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# GPTBot
+User-agent: GPTBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# anthropic-ai
+User-agent: anthropic-ai
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Google-Extended
+User-agent: Google-Extended
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# CCBot
+User-agent: CCBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# meta-externalagent
+User-agent: meta-externalagent
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# Diffbot
+User-agent: Diffbot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# cohere-ai
+User-agent: cohere-ai
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# DeepSeekBot
+User-agent: DeepSeekBot
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
+
+# MistralAI-User
+User-agent: MistralAI-User
+Allow: /
+Disallow: /anamnese
+Disallow: /en/anamnese
+Disallow: /glp-1-check/new
+Disallow: /glp-1-check/follow-up
+Disallow: /en/glp-1-check/new
+Disallow: /en/glp-1-check/follow-up
 
 # Host
 Host: https://praxisjona.de
@@ -9,5 +225,8 @@ Host: https://praxisjona.de
 Sitemap: https://praxisjona.de/sitemap.xml
 
 # Agent guidance
-# See https://praxisjona.de/llms.txt for when to use this site and how to call it.
+# Full when-to-use guidance and page index for AI agents:
 LLM: https://praxisjona.de/llms.txt
+# Agentic Resource Discovery catalog:
+# https://praxisjona.de/.well-known/ard.json
+# Every page is also available as markdown via Accept: text/markdown or a .md suffix.

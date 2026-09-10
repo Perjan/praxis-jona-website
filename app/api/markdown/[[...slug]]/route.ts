@@ -157,7 +157,28 @@ export async function GET(request: NextRequest, { params }: { params: { slug?: s
   const description = firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i);
   const body = htmlToMarkdown(html);
 
+  const lastModified = upstream.headers.get("last-modified");
+
+  // YAML frontmatter: agents that ingest the markdown keep the provenance and the
+  // canonical URL attached to the text instead of losing it at the fetch boundary.
+  const frontMatter = [
+    "---",
+    `title: ${JSON.stringify(title ?? Constants.appName)}`,
+    description ? `description: ${JSON.stringify(description)}` : null,
+    `source: ${canonicalUrl}`,
+    `canonical_url: ${canonicalUrl}`,
+    `site: ${JSON.stringify(Constants.appName)}`,
+    `language: ${pathname === "/en" || pathname.startsWith("/en/") ? "en" : "de"}`,
+    lastModified ? `last_modified: ${new Date(lastModified).toISOString()}` : null,
+    `retrieved_at: ${new Date().toISOString()}`,
+    "---",
+  ]
+    .filter((line) => line !== null)
+    .join("\n");
+
   const document = [
+    frontMatter,
+    "",
     title ? `# ${title}` : null,
     description ? `> ${description}` : null,
     `_Quelle / Source: ${canonicalUrl}_`,
