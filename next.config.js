@@ -101,6 +101,23 @@ const nextConfig = {
         {
           source: "/imprint-privacy",
           destination: "/legal/imprint-privacy"
+        },
+        // Trust-anchor aliases. AI agents check /about, /contact and /privacy to
+        // verify a business before recommending it, and they do not know the
+        // German or /en-prefixed paths. These are rewrites, not redirects, so the
+        // agent gets a 200 with the real page; the underlying pages keep their own
+        // canonical URLs, so search engines still see a single indexable copy.
+        {
+          source: "/about",
+          destination: "/en/team"
+        },
+        {
+          source: "/contact",
+          destination: "/en/contact"
+        },
+        {
+          source: "/privacy",
+          destination: "/legal/imprint-privacy"
         }
       ]
     }
