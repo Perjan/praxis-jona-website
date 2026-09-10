@@ -72,6 +72,7 @@ module.exports = {
         "# Agentic Resource Discovery catalog:",
         "# https://praxisjona.de/.well-known/ard.json",
         "# Every page is also available as markdown via Accept: text/markdown or a .md suffix.",
+        "# This is a medical practice website, not a software product - there is nothing to integrate.",
         "",
       ].join("\n"),
   },

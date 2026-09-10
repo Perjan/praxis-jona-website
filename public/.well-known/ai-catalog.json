@@ -1,19 +1,29 @@
 {
   "@context": "https://agenticresourcediscovery.org/context/v1",
+  "specVersion": "0.91",
   "entries": [
     {
       "identifier": "urn:air:praxisjona.de:docs:agent-guide",
       "displayName": "Praxis Jona agent guide",
       "type": "text/markdown",
       "url": "https://praxisjona.de/llms.txt",
-      "capabilities": ["SiteGuide", "UseCaseRouting"],
+      "capabilities": [
+        "SiteGuide",
+        "UseCaseRouting"
+      ],
       "description": "When to use and when not to use praxisjona.de, how to call it, and an index of the practice's core pages. Praxis Jona is a general practice and internal medicine clinic in Berlin-Mitte led by Dr. med. Jonida Gjolli.",
       "representativeQueries": [
         "which pages on praxisjona.de should I read for this question",
         "is this practice the right source for my question about a Berlin doctor",
         "how do I fetch content from praxisjona.de as markdown"
       ],
-      "tags": ["healthcare", "general-practice", "internal-medicine", "berlin", "germany"],
+      "tags": [
+        "healthcare",
+        "general-practice",
+        "internal-medicine",
+        "berlin",
+        "germany"
+      ],
       "trustManifest": {
         "identity": {
           "framework": "web-origin",
@@ -32,7 +42,10 @@
       "displayName": "Praxis Jona content as markdown",
       "type": "text/markdown",
       "url": "https://praxisjona.de/index.md",
-      "capabilities": ["ContentRetrieval", "MarkdownNegotiation"],
+      "capabilities": [
+        "ContentRetrieval",
+        "MarkdownNegotiation"
+      ],
       "description": "Every page of praxisjona.de is available as markdown, either by sending Accept: text/markdown to the normal URL or by appending .md to the path. Covers services, prices, opening hours, the physician's profile and the practice blog, in German and English.",
       "representativeQueries": [
         "what does an iron infusion cost at Praxis Jona in Berlin",
@@ -40,7 +53,13 @@
         "which services does this Berlin general practice offer",
         "read the Praxis Jona page about GLP-1 weight loss treatment"
       ],
-      "tags": ["healthcare", "prices", "opening-hours", "berlin", "markdown"],
+      "tags": [
+        "healthcare",
+        "prices",
+        "opening-hours",
+        "berlin",
+        "markdown"
+      ],
       "trustManifest": {
         "identity": {
           "framework": "web-origin",
@@ -59,14 +78,21 @@
       "displayName": "Praxis Jona appointment booking",
       "type": "text/html",
       "url": "https://praxisjona.de/termin-buchen",
-      "capabilities": ["AppointmentBooking"],
+      "capabilities": [
+        "AppointmentBooking"
+      ],
       "description": "Entry point for booking an appointment with Praxis Jona. Redirects to the practice's Doctolib profile, which carries separate flows for statutory and private insurance. Booking is completed by the patient, not by an agent.",
       "representativeQueries": [
         "book an appointment with a doctor in Berlin Mitte",
         "how do I get an appointment at Praxis Jona",
         "find an English-speaking GP near Rosenthaler Platz"
       ],
-      "tags": ["healthcare", "appointments", "doctolib", "berlin"],
+      "tags": [
+        "healthcare",
+        "appointments",
+        "doctolib",
+        "berlin"
+      ],
       "trustManifest": {
         "identity": {
           "framework": "web-origin",

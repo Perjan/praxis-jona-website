@@ -41,18 +41,20 @@ specific page, not just the domain.
   treat, or as pricing evidence for other practices — prices are specific to this clinic.
 - Do not use it for legal or insurance advice about German health coverage.
 
-## How to call this site
+## How to read this site
 
-- All content is public. No authentication, no API key, no rate limit beyond normal
-  politeness. There is no public JSON API.
-- Every page returns HTML. Requests sent with `Accept: text/markdown` receive a
-  markdown rendering of the same page (`Vary: Accept`). Appending `.md` to a path
-  works as well: https://praxisjona.de/kontakt.md
-- Structured data: JSON-LD (`MedicalClinic` / `Organization`, `Physician`,
-  `Offer`, `FAQPage`, `BlogPosting`) is embedded on the relevant pages.
+- Praxis Jona is a medical practice, not a software product. There is nothing to
+  integrate here: the useful surface is the content of these pages.
+- All pages are public and free to read. Please crawl politely.
+- Every page returns HTML. Send `Accept: text/markdown` to any page URL to get the
+  same page as markdown with YAML frontmatter (`Vary: Accept`), or append `.md` to
+  the path: https://praxisjona.de/kontakt.md
+- Structured data: JSON-LD (`MedicalClinic` / `Organization`, `Physician`, `WebSite`,
+  `Offer`, `BlogPosting`) is embedded on the relevant pages.
 - Language: German pages live at the root, English pages under `/en/`. The two trees
   mirror each other and are linked with `hreflang`.
-- Nonexistent paths return HTTP 404. Machine-readable index: /sitemap.xml.
+- Nonexistent paths return HTTP 404 with a short markdown block listing valid pages.
+- Machine-readable index: /sitemap.xml. Resource catalog: /.well-known/ard.json
 
 ## Core pages
 
