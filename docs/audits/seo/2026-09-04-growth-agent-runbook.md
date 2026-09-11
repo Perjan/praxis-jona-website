@@ -68,11 +68,22 @@ The conversion event is `booking-cta-click`. It fires on the first click, before
 
 Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic. Before the unified event reaches production, zero `booking-cta-click` events must be labeled “not deployed/unmeasured,” not “no demand.”
 
+## Operating Cadence And User Preference
+
+The operator runs on weekdays, but measurement and reporting are not daily deliverables.
+
+- **Every weekday:** advance the highest-impact bounded backlog item through implementation, focused testing, technical SEO, internal-link architecture, competitor research, a research dossier, or clinician-review preparation. Prefer a substantive reviewable outcome over activity logs.
+- **Every Monday:** run the full Search Console and Umami collection, update the KPI scoreboard, and choose or confirm the week's primary experiment.
+- **At experiment checkpoints:** collect and evaluate when the predeclared threshold arrives, such as 500 post-launch impressions or a 7/14/28-day review. A material regression may trigger an earlier diagnostic collection.
+- **Between checkpoints:** use the latest frozen baseline and spend the run producing work. Do not create a branch, commit, PR, or user notification merely to say that data is still accumulating.
+- **PR cadence:** open a PR only when a cohesive growth increment is complete and review-ready. Related work may accumulate safely on the active growth branch across runs.
+- **Notification cadence:** notify for a substantive review-ready PR, a meaningful measured result, a material incident, or a blocker requiring user action—not for routine collection or inconclusive movement.
+
 ## Weekly Self-Improvement Loop
 
 1. Read `AGENTS.md`, this runbook, and the living 31-day plan.
-2. Run `npm run growth:collect`. If one source fails, continue with the other and record the limitation.
-3. Compare the latest complete 28 days with the immediately preceding 28 days. Use GSC's two-day lag consistently.
+2. On Mondays and explicit experiment checkpoints, run `npm run growth:collect`. If one source fails, continue with the other and record the limitation. On other weekdays, use the latest collected baseline unless diagnosing a suspected incident.
+3. At due measurement reviews, compare the latest complete 28 days with the immediately preceding 28 days. Use GSC's two-day lag consistently.
 4. Segment by query cluster, landing page, language, device, and tracked conversion event. Do not optimize from site-wide averages alone.
 5. Diagnose the largest evidence-backed bottleneck:
    - impressions low: coverage, indexation, authority, or internal links;
@@ -82,7 +93,7 @@ Legacy events `button-in-header` and `button-in-home-hero` remain in historical 
 6. Select one primary experiment with a measurable hypothesis and a baseline. Prefer changes that can produce a clean read over broad simultaneous rewrites.
 7. Implement only safe, reversible repository changes. Add focused tests first for mission-critical tracking, forms, and booking flows.
 8. Run the relevant tests, production build where proportionate, and a local/production verification appropriate to the change.
-9. Record the implementation date, pages, expected metric, observation window, and rollback trigger in the living plan and GSC implementation history.
+9. Record material implementations, pages, expected metrics, observation windows, rollback triggers, weekly/checkpoint results, and reusable learnings in the living plan and GSC implementation history. Skip routine daily no-change entries.
 10. After opening or updating a PR, wait for its preview deployment. Update the Markdown PR description with the verified preview base URL and direct preview links for every materially changed public page or representative component family. State what changed, what to inspect, how to test it, and the expected analytics event and properties. If the preview is not ready, mark the section pending and update it before calling the PR review-ready.
 11. Summarize outcomes, uncertainty, and the next experiment in the thread. Do not claim causality from a single before/after movement.
 
@@ -105,6 +116,6 @@ Legacy events `button-in-header` and `button-in-home-hero` remain in historical 
 
 ## Recurring Agent Definition Of Done
 
-A scheduled run is complete only when it has collected available evidence, selected or advanced one bounded experiment, verified any code change, updated the living artifact, added verified preview links and review instructions to the PR description when public pages changed, and reported the next observation date. A no-change run is valid when the evidence says to preserve the current experiment; it must still record why waiting is the correct action.
+A scheduled weekday run is complete when it has materially advanced a bounded growth item or, on a due measurement day, completed the defined evidence review. Not every run needs a commit or PR. Update the living artifact only for a material implementation, decision, weekly review, experiment checkpoint, result, or reusable learning. Never create a documentation-only PR solely to record that an experiment is still waiting. When a cohesive repository increment is ready, verify it, add the required preview links and review instructions, and open one review-ready PR.
 
 Codex thread automations are appropriate because they return to the same durable conversation and preserve accumulated context; see OpenAI's [long-running work guidance](https://cdn.openai.com/pdf/8a9f00cf-d379-4e20-b06f-dd7ba5196a11/OAI_WhitePaper_Codex-maxxing26.pdf).

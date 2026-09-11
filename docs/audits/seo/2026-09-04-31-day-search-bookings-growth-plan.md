@@ -5,19 +5,19 @@ Sprint window: 2026-09-04 through 2026-10-04
 Primary market: Berlin, especially Berlin-Mitte / Rosenthaler Platz
 Primary demand clusters: `eiseninfusion berlin`, `prp behandlung berlin`
 Primary business outcome: more qualified appointment starts and attributable outbound bookings
-Status: **Living operating document — update every working day**
+Status: **Living operating document — update for material work and scheduled measurement checkpoints**
 
 ## How To Use This Living Artifact
 
 This is the sprint's source of truth. Do not make a second plan.
 
-1. Update the daily row's status: `Not started`, `In progress`, `Blocked`, `Shipped`, or `Measured`.
+1. Update a work item's status when it materially changes: `Not started`, `In progress`, `Blocked`, `Shipped`, or `Measured`.
 2. Add the production URL, pull request, reviewer, and measurement note to the execution log.
 3. Update the KPI scoreboard every Monday from Search Console and analytics.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-09
+Last updated: 2026-09-11
 Next operating review: 2026-09-14
 Clinical reviewer: **TBD before publishing new medical claims**
 Growth owner: **TBD**
@@ -485,6 +485,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-08 | Implement the bounded iron-cost snippet in PR #9 | The user approved wording that consolidates existing visible location, price, diagnostic review and booking information; no new efficacy or safety claim was introduced. The page has 5,238 impressions, 1.53% CTR and average position 8.59 | After production deployment and at least 14 days or 500 page impressions; target page CTR ≥1.8% and `eiseninfusion kosten` CTR ≥0.8% |
 | 2026-09-08 | Correct the longevity FAQ schema generator | Rendered production JSON-LD mislabeled ordinary question headings as FAQs and repeated one unrelated answer for every question, contrary to Google's structured-data quality guidance | Verify the five visible FAQs and their real answers in the PR preview, then production |
 | 2026-09-09 | Hold the live iron-cost snippet constant; do not layer on another page experiment | Search Console's latest complete date is September 7, before launch. Changing the same page again would contaminate the observation window and prevent an evidence-backed CTR verdict | September 22 or once 500 post-launch page impressions are available; target page CTR ≥1.8% and query CTR ≥0.8%; revise or roll back if CTR falls and position worsens by more than two positions |
+| 2026-09-11 | Use weekday runs for substantive growth execution and measure on Mondays or explicit checkpoints | Daily measurement-only PRs create review noise without improving decisions. The operator should produce meaningful implementation, research, testing, or review preparation each weekday while preserving clean experiment windows | Revisit if weekly measurement misses a material regression or the team asks for a different reporting cadence |
 
 ## Primary Sources And Reference Set
 

@@ -29,12 +29,14 @@ You are part of our team. Refer to the user as Bro or yes Chef. This is a happy 
 ## Recurring Growth Agent
 
 - Before recurring SEO or conversion work, read `docs/audits/seo/2026-09-04-growth-agent-runbook.md` and the linked living growth plan.
-- Run `npm run growth:collect` for the current Search Console and Umami evidence when credentials are available.
+- Use weekday runs for meaningful execution: implement, test, research, or prepare the highest-impact reviewable growth asset. Do not create daily measurement-only commits, branches, pull requests, or notifications.
+- Run `npm run growth:collect` on Mondays and at explicit experiment checkpoints such as 500 post-launch impressions or scheduled 7/14/28-day reviews. On other days, use the latest collected baseline unless a suspected incident requires fresh evidence.
 - Use Search Console for Google impressions, clicks, rankings, and SERP CTR. Use Umami for on-site pageviews, tracked CTA events, and conversion rates. Never describe an Umami click rate as Google search CTR.
 - Define a booking conversion as the first `booking-cta-click` on any “Termin buchen” or “Book appointment” control. Do not measure or infer behavior inside Doctolib.
 - Access self-hosted Umami only through its HTTP API. Read the login from macOS Keychain service `codex-umami-admin`, account `admin`; exchange it at `POST /api/auth/login`, keep the bearer token in memory, and use read-only `GET` endpoints. Never query the Umami database or read its database URL.
 - Treat missing conversion instrumentation as “unmeasured,” not as zero demand.
 - Keep credentials and raw visitor/session data out of Git, reports, prompts, and logs. Persist only aggregate analytics outputs locally.
-- Record every material experiment, implementation date, metric, observation window, result, and learning in the living artifact so later runs improve from prior evidence.
+- Record material experiments, implementation dates, weekly/checkpoint metrics, observation windows, results, and reusable learnings in the living artifact. Do not add routine daily no-change observations.
+- Open a PR only when the increment is cohesive and review-ready; accumulate related work on the active growth branch when a useful slice needs more than one run.
 - For repository changes, update the Markdown PR description with verified preview links and a focused review checklist before reporting the run complete.
 - Require clinician review before publishing new or materially changed medical claims.
