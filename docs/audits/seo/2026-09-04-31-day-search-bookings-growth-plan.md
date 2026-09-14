@@ -472,7 +472,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | [PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
 | 2026-09-08 | Iron-cost snippet experiment + rendered FAQ-schema correction | In progress | [Production page](https://praxisjona.de/leistungen/eiseninfusion-kosten) · [merged PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | User approved snippet; clinical body unchanged | Launched September 8. Baseline: 80 clicks / 5,238 impressions / 1.53% page CTR; observation is active |
 | 2026-09-09 | Verify production snippet, author attribution and FAQ schema; preserve the experiment | Measured | [Production page](https://praxisjona.de/leistungen/eiseninfusion-kosten) | Automated production HTML verification | GSC ends before launch; no post-launch verdict is possible. Next decision: September 22 or 500 post-launch impressions |
-| 2026-09-14 | PRP hub and shared German aesthetic-template technical SEO | In progress | PR pending | No medical copy changed | Remove responsive duplicate hero copy; generate FAQ schema from visible source copy; focused regression tests added first |
+| 2026-09-14 | PRP hub and shared German aesthetic-template technical SEO | In review | [PR #13](https://github.com/Perjan/praxis-jona-website/pull/13) | No medical copy changed | Remove responsive duplicate hero copy; generate FAQ schema from visible source copy; focused regression tests added first |
 
 ## Decision Log
 
