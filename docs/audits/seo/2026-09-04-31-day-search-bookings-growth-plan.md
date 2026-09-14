@@ -17,8 +17,8 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-11
-Next operating review: 2026-09-14
+Last updated: 2026-09-14
+Next operating review: 2026-09-21
 Clinical reviewer: **TBD before publishing new medical claims**
 Growth owner: **TBD**
 Engineering owner: **TBD**
@@ -374,9 +374,9 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | 1 | Complete | Freeze this baseline, keyword-to-URL map and targets | Growth | One agreed scoreboard; no competing plans |
 | 2 | Shipped | Implement one `booking-cta-click` event across every appointment CTA | Eng | Shared components, source audit, 154 tests and production build pass; no PII |
 | 3 | Measured | Deploy and verify every CTA family in production Umami | Eng/Growth | All intended header, hero, service, pricing, contact and package placements appear in Umami |
-| 4 | Not started | Fix duplicated PRP hub lead; add/validate visible FAQ schema and service schema | Eng/Clinical | One H1/lead, valid markup, unchanged visible truth |
+| 4 | In progress | Fix duplicated PRP hub lead; add/validate visible FAQ schema and service schema | Eng/Clinical | One H1/lead, valid markup generated from visible FAQs, unchanged medical copy |
 | 5 | Not started | Map query overlap between iron cost and infusion pages; rewrite internal anchors | SEO/Eng | Exact iron anchors favor cost page; generic infusion anchors favor hub |
-| 6 | In progress (live; observing) | Rewrite/test title and meta description for `eiseninfusion kosten`; retain price and Berlin | SEO/Clinical | Production snippet directly answers price, location and medical qualification; evaluate after 14 days or 500 post-launch impressions |
+| 6 | Measured (directional; keep) | Rewrite/test title and meta description for `eiseninfusion kosten`; retain price and Berlin | SEO/Clinical | First 1,041 post-launch impressions: 2.02% page CTR versus 1.53% baseline; keep through the 14-day review |
 | 7 | Not started | Audit GBP, Doctolib, Jameda, Doctify and top directories; fix NAP discrepancy | Local | Priority profiles consistent and claimed |
 | 8 | Not started | Clinical research/brief for iron effect/timing article | Clinical/Content | Approved sources, claims, outline and red flags |
 | 9 | Not started | Publish iron effect/timing article and contextual links | Content/Eng | Live, reviewed, indexable, linked from both iron pages |
@@ -440,7 +440,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 |---|---:|---:|---:|---:|---:|---:|---:|---|
 | 2026-09-04 baseline | 475 | 22,260 | 2.13% | 136 / 1.99% | 6 / 0.43% | 171 fragmented legacy events | Not comparable | 4,980 Umami pageviews; unified instrumentation required |
 | 2026-09-07 | 520 | 24,743 | 2.10% | 164 / 1.96% | 6 / 0.34% | 32 | 0.61% per pageview; 1.33% per visitor | 25 unique CTA visitors; unified event was deployed during this window, so this is a partial-window baseline, not a prior-period comparison |
-| 2026-09-14 |  |  |  |  |  |  |  |  |
+| 2026-09-14 | 566 | 30,775 | 1.84% | 166 / 1.91% | 6 / 0.31% | 202 | 3.52% per pageview; 7.29% per visitor | 152 unique CTA visitors; unified event covers only part of the rolling window. Iron snippet passed the 500-impression directional gate; retain through day 14 |
 | 2026-09-21 |  |  |  |  |  |  |  |  |
 | 2026-09-28 |  |  |  |  |  |  |  |  |
 | 2026-10-04 |  |  |  |  |  |  |  |  |
@@ -462,6 +462,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - **2026-09-07 — Current Umami API integration and clean conversion baseline:** updated the collector for the self-hosted Umami current API only, made `booking-cta-click` the sole conversion numerator, and added strict response-shape validation so API mismatches fail visibly while an omitted event-visitor count remains unavailable. The GSC-aligned 28-day window contains 5,278 pageviews, 1,874 visitors, 32 booking CTA clicks and 25 unique CTA visitors: 0.61% per pageview and 1.33% per visitor. The unified event was deployed partway through the window, so the previous window is unmeasured rather than a valid zero. All 160 repository tests pass. Controlled production clicks on contact and nutrition-package CTAs both returned HTTP 200; the aggregate API now contains every intended placement family.
 - **2026-09-08 — Daily evidence and bounded snippet implementation:** the latest complete GSC window (2026-08-10 through 2026-09-06) contains 511 clicks, 24,143 impressions, 2.12% search CTR and average position 18.67, versus 490 clicks, 19,379 impressions, 2.53% CTR and position 24.36 in the preceding window. The aligned Umami window contains 5,337 pageviews, 1,922 visitors, 42 `booking-cta-click` events and 35 unique converting visitors: 0.79% per pageview and 1.82% per visitor. The apparent booking-rate lift versus September 7 is not causal evidence because the rolling window still contains days before unified instrumentation. The user approved the iron-cost snippet, which repeats existing visible price, location and process facts and adds no new efficacy or safety claim. PR #9 implements it with a focused test and corrects inaccurate FAQ schema discovered in the rendered audit. The observation window starts only after production deployment.
 - **2026-09-09 — Production verification and observation hold:** PR #9 is merged and production renders the approved title, meta description, five visible FAQ questions with their matching structured-data answers, and linked Dr. med. Jonida Gjolli author/reviewer attribution. The implementation was added to the local GSC history. The latest complete GSC window ends September 7, before the September 8 launch, so it cannot measure the new snippet: the page has 80 clicks from 5,329 impressions (1.50% CTR, position 8.47), while `eiseninfusion kosten` has 14 clicks from 2,549 impressions (0.55% CTR, position 7.01). The aligned Umami window has 5,398 pageviews, 1,949 visitors, 74 booking CTA clicks and 57 unique converting visitors (1.37% per pageview; 2.92% per visitor); the iron-cost page has 326 pageviews, 238 visitors and nine bookings (2.76% per pageview; 3.78% per visitor). These rolling conversion rates still mix pre-instrumentation days and are not causal evidence. Hold the snippet constant and do not start a second page experiment until September 22 or 500 post-launch page impressions.
+- **2026-09-14 — Weekly measurement and PRP technical SEO increment:** the latest complete GSC detail date is September 11. Across September 8–11, the iron-cost page earned 21 clicks from 1,041 impressions (2.02% CTR, position 7.00), versus the 1.53% page baseline; `eiseninfusion kosten` earned three clicks from 392 impressions (0.77% CTR, position 6.71), versus the 0.57% query baseline. This clears the 500-impression directional gate and supports keeping the snippet, but the 14-day checkpoint remains necessary. The aligned rolling Umami window contains 5,741 pageviews, 2,086 visitors, 202 booking CTA clicks and 152 unique converting visitors (3.52% per pageview; 7.29% per visitor); only part of the window has unified instrumentation, so this is not a like-for-like lift claim. The next substantive increment removes duplicate responsive hero copy from the shared German aesthetic template and generates FAQ structured data directly from the visible FAQ copy on the PRP, microneedling and hair-loss hubs. It changes no medical wording.
 
 | Date | Work item | Status | Production URL / PR | Reviewer | Measurement note |
 |---|---|---|---|---|---|
@@ -471,6 +472,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-07 | Current Umami API collector + production CTA family proof | Complete | [PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | Internal data | 49 production events since deployment; controlled contact/package events included; aggregate data only |
 | 2026-09-08 | Iron-cost snippet experiment + rendered FAQ-schema correction | In progress | [Production page](https://praxisjona.de/leistungen/eiseninfusion-kosten) · [merged PR #9](https://github.com/Perjan/praxis-jona-website/pull/9) | User approved snippet; clinical body unchanged | Launched September 8. Baseline: 80 clicks / 5,238 impressions / 1.53% page CTR; observation is active |
 | 2026-09-09 | Verify production snippet, author attribution and FAQ schema; preserve the experiment | Measured | [Production page](https://praxisjona.de/leistungen/eiseninfusion-kosten) | Automated production HTML verification | GSC ends before launch; no post-launch verdict is possible. Next decision: September 22 or 500 post-launch impressions |
+| 2026-09-14 | PRP hub and shared German aesthetic-template technical SEO | In progress | PR pending | No medical copy changed | Remove responsive duplicate hero copy; generate FAQ schema from visible source copy; focused regression tests added first |
 
 ## Decision Log
 
@@ -486,6 +488,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-08 | Correct the longevity FAQ schema generator | Rendered production JSON-LD mislabeled ordinary question headings as FAQs and repeated one unrelated answer for every question, contrary to Google's structured-data quality guidance | Verify the five visible FAQs and their real answers in the PR preview, then production |
 | 2026-09-09 | Hold the live iron-cost snippet constant; do not layer on another page experiment | Search Console's latest complete date is September 7, before launch. Changing the same page again would contaminate the observation window and prevent an evidence-backed CTR verdict | September 22 or once 500 post-launch page impressions are available; target page CTR ≥1.8% and query CTR ≥0.8%; revise or roll back if CTR falls and position worsens by more than two positions |
 | 2026-09-11 | Use weekday runs for substantive growth execution and measure on Mondays or explicit checkpoints | Daily measurement-only PRs create review noise without improving decisions. The operator should produce meaningful implementation, research, testing, or review preparation each weekday while preserving clean experiment windows | Revisit if weekly measurement misses a material regression or the team asks for a different reporting cadence |
+| 2026-09-14 | Keep the iron-cost snippet through the 14-day checkpoint | Directional post-launch page CTR is 2.02% across 1,041 impressions versus the 1.53% baseline; the cost query is 0.77% versus 0.57%, with average position improving rather than triggering rollback | 2026-09-22; retain if the page remains at or above 1.8% CTR and the query approaches or exceeds 0.8%; revise only if CTR and position materially deteriorate |
 
 ## Primary Sources And Reference Set
 
