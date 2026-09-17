@@ -650,6 +650,58 @@ function parseMarkdown(markdown: string): MarkdownNode[] {
   return nodes;
 }
 
+type AestheticFaqSchema = {
+  "@context": "https://schema.org";
+  "@type": "FAQPage";
+  mainEntity: Array<{
+    "@type": "Question";
+    name: string;
+    acceptedAnswer: { "@type": "Answer"; text: string };
+  }>;
+};
+
+export function getAestheticFaqSchema(sectionKey: AestheticSectionKey): AestheticFaqSchema | null {
+  const nodes = parseMarkdown(getAestheticSectionMarkdown(sectionKey));
+  const faqStart = nodes.findIndex(
+    (node) => node.type === "h2" && node.text?.startsWith("Häufige Fragen"),
+  );
+
+  if (faqStart < 0) return null;
+
+  const mainEntity: AestheticFaqSchema["mainEntity"] = [];
+  let index = faqStart + 1;
+
+  while (index < nodes.length) {
+    const node = nodes[index];
+
+    if (node.type !== "h3" || !node.text) {
+      index += 1;
+      continue;
+    }
+
+    const answerParts: string[] = [];
+    index += 1;
+
+    while (index < nodes.length && nodes[index].type !== "h2" && nodes[index].type !== "h3") {
+      const answerNode = nodes[index];
+
+      if (answerNode.type === "p" && answerNode.text) answerParts.push(answerNode.text);
+      if (answerNode.type === "list") answerParts.push(answerNode.items.join(" "));
+      index += 1;
+    }
+
+    if (answerParts.length > 0) {
+      mainEntity.push({
+        "@type": "Question",
+        name: node.text,
+        acceptedAnswer: { "@type": "Answer", text: answerParts.join(" ") },
+      });
+    }
+  }
+
+  return mainEntity.length > 0 ? { "@context": "https://schema.org", "@type": "FAQPage", mainEntity } : null;
+}
+
 function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
 }
@@ -1607,29 +1659,27 @@ export function AestheticMarkdownPage({ sectionKey, canonical }: { sectionKey: A
     provider: { "@id": `${Constants.baseUrl}/#organization`, name: "Praxis Jona" },
     areaServed: "Berlin-Mitte",
   };
+  const faqSchema = getAestheticFaqSchema(sectionKey);
 
   return (
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
+      {faqSchema ? <JsonLd data={faqSchema} /> : null}
       <div className="overflow-hidden bg-white">
-        <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-center lg:px-8 lg:py-24">
-          <div>
+        <MotionSection className="mx-auto grid max-w-7xl gap-x-10 gap-y-8 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:items-center lg:gap-y-0 lg:px-8 lg:py-24">
+          <div className="lg:col-start-1 lg:row-start-1">
             <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">Ästhetik</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{title}</h1>
-            <div className="mt-6 hidden lg:block">
-              <RenderNodes nodes={heroNodes} />
-            </div>
-            <div className="mt-6 lg:hidden">
+            <div className="mt-6">
               <RenderNodes nodes={mobileHeroLeadNodes} />
-              <HeroImage sectionKey={sectionKey} className="mt-8" />
-              <div className="mt-8">
-                <RenderNodes nodes={mobileHeroBodyNodes} />
-              </div>
             </div>
+          </div>
+          <HeroImage sectionKey={sectionKey} className="lg:col-start-2 lg:row-span-2 lg:row-start-1" />
+          <div className="lg:col-start-1 lg:row-start-2">
+            <RenderNodes nodes={mobileHeroBodyNodes} />
             <CtaButtons sectionKey={sectionKey} />
           </div>
-          <HeroImage sectionKey={sectionKey} className="hidden lg:block" />
         </MotionSection>
 
         <FactStrip sectionKey={sectionKey} />

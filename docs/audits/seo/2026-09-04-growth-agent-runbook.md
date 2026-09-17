@@ -45,6 +45,16 @@ Umami API authentication and reporting endpoints are documented in the official 
 - Treat rankings as observations, not permanent truth.
 - Never copy competitor prose. Extract topic coverage, information architecture, proof patterns, and search intent.
 
+### OpenSEO Local Research
+
+- Project: `Praxis Jona Growth`.
+- Project ID: `46eeecae-5f54-4af6-87d4-5fd86277360e` (not a credential).
+- Use the shared project context before paid local research and check its research log before repeating a query or grid.
+- Canonical Google business identity: CID `17835413718789694147`, place ID `ChIJJ_OAJXRRqEcRw6KW-kcehPc`, storefront coordinate `52.5298407, 13.4005963`.
+- Keep Maps observations distinct from organic Search Console rankings. A local rank grid is a point-in-time diagnostic, not a city-wide organic ranking.
+- Store aggregate review/ranking findings only. Do not persist reviewer names, review text, patient details or raw provider responses.
+- Baseline local audit: [2026-09-15 Praxis Jona Local SEO And Citation Audit](./2026-09-15-praxis-jona-local-seo-audit.md).
+
 ### Research-Backed Medical Articles
 
 - For cornerstone research articles, use `/Users/perjanduro/.agents/skills/research-backed-feature-article/SKILL.md`.
