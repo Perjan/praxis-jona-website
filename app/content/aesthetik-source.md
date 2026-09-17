@@ -1238,7 +1238,7 @@ Bei nachgewiesenen Mängeln kann ergänzend eine gezielte Supplementierung oder 
   
 Je nach Befund erstellen wir individuelle Therapiekonzepte, zum Beispiel bei:  
   
-* Eisenmangel  
+* [Eisenmangel](/leistungen/eiseninfusion-kosten)  
 * Vitamin-B12-Mangel  
 * Zinkmangel  
 * oder anderen Mikronährstoffdefiziten  
