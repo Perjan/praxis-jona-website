@@ -44,12 +44,30 @@ using `.design-sync/tailwind.ds.js`, and `cfg.cssEntry` points at the compiled o
 
 ## Playwright / chromium
 
-The repo pins `@playwright/test@1.48.2` (chromium build 1140), which is **not** in
-the local cache. The cache (`~/Library/Caches/ms-playwright`) has chromium 1112,
-1208, 1228. `playwright@1.61.0` pins chromium 1228 → installed into `.ds-sync/`,
-launches from cache, no ~200MB download. If the render check dies with
-`browserType.launch: Executable doesn't exist`, re-derive the match: read
-`https://raw.githubusercontent.com/microsoft/playwright/v<X.Y.Z>/packages/playwright-core/browsers.json`.
+The chromium build in `~/Library/Caches/ms-playwright` decides which `playwright`
+version to install into `.ds-sync/` — **check the cache first, every time**, the
+cache and the repo pin drift independently. History: Aug 2026 the cache had 1112/
+1208/1228 → `playwright@1.61.0` (pins 1228). Sep 2026 the cache had 1140 → the repo's
+own `@playwright/test@1.48.2` pin (chromium 1140) matched, so `playwright@1.48.2`.
+If the render check dies with `browserType.launch: Executable doesn't exist`,
+re-derive the match: read `.ds-sync/node_modules/playwright-core/browsers.json` as
+a file, or `https://raw.githubusercontent.com/microsoft/playwright/v<X.Y.Z>/packages/playwright-core/browsers.json`.
+
+## `guidelinesGlob` is pinned to `[]` — `docs/` is NOT design guidance
+
+The converter's default `guidelinesGlob` includes `docs/*.md`. This repo's `docs/`
+holds clinical/release material (`glp1-clinical-release-review.md`, `audits/`),
+which the Sep 2026 re-sync silently copied into `guidelines/` — i.e. into the design
+agent's context as "design guidelines". `cfg.guidelinesGlob: []` disables the copy.
+If real design guidance is ever written, point the glob at that file explicitly;
+never widen it back to `docs/*.md`.
+
+## Re-validate only through the driver
+
+`package-validate.mjs --no-render-check` **deletes `.render-check.json`** (it does
+not preserve the previous full run's receipt). Running it after the driver wipes
+the counts `report_validate` needs and forces another driver run. On a re-sync,
+the driver is the only validate you need — don't re-run validate by hand.
 
 ## TypeScript: validate's `.d.ts` check needs TS >= 5.5-ish, and lies when it doesn't
 
