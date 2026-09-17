@@ -388,10 +388,40 @@ function HeroVisual({ sectionKey, locale }: { sectionKey: LongevitySectionKey; l
   return <HeroImage sectionKey={sectionKey} locale={locale} />;
 }
 
+const inlineLinkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+
+function renderInlineText(text: string) {
+  const parts: (string | JSX.Element)[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+
+  inlineLinkPattern.lastIndex = 0;
+  while ((match = inlineLinkPattern.exec(text))) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    parts.push(
+      <Link key={`link-${key++}`} href={match[2]} className="underline decoration-primary/40 underline-offset-2 hover:decoration-primary">
+        {match[1]}
+      </Link>,
+    );
+
+    lastIndex = inlineLinkPattern.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 function renderCompactNodes(nodes: MarkdownNode[]) {
   return nodes.map((node, index) => {
     if (node.type === "p") {
-      return <p key={index} className="leading-7 text-primaryLighter">{node.text}</p>;
+      return <p key={index} className="leading-7 text-primaryLighter">{renderInlineText(node.text ?? "")}</p>;
     }
 
     if (node.type === "list") {
@@ -400,7 +430,7 @@ function renderCompactNodes(nodes: MarkdownNode[]) {
           {node.items.map((item) => (
             <li key={item} className="flex gap-3 leading-7">
               <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60" aria-hidden="true" />
-              <span>{item}</span>
+              <span>{renderInlineText(item)}</span>
             </li>
           ))}
         </ul>

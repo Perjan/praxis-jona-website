@@ -477,7 +477,7 @@ Eine individuell abgestimmte Infusionstherapie kann unter anderem sinnvoll sein 
 * Regenerationsbedarf  
 * funktionellen Mikronährstoffmängeln  
 * erhöhtem oxidativem Stress  
-* Eisenmangel  
+* [Eisenmangel](/leistungen/eiseninfusion-kosten)  
 * Vitamin-B12-Mangel  
 * intensiver körperlicher Belastung  
 * eingeschränkter Aufnahme über den Darm  
