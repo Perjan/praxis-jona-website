@@ -282,7 +282,7 @@ Die Behandlung kann unter anderem zur Verbesserung von:
 * Operationsnarben,  
 * Hautelastizität,  
 * fahler Haut,  
-* und dunklen Augenringen  
+* und [dunklen Augenringen](/aesthetik/prp-behandlung/prp-augenregion-bei-dunklen-augenringen)  
   
 eingesetzt werden.  
   
