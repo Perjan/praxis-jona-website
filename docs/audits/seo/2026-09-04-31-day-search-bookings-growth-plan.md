@@ -17,8 +17,8 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-17
-Next operating review: 2026-09-21
+Last updated: 2026-09-21
+Next operating review: 2026-09-22 (check available experiment dates; defer full 14-day verdict until September 21 data is complete)
 Clinical reviewer: **Dr. med. Jonida Gjolli for iron content; approval remains required for each new medical asset**
 Growth owner: **TBD**
 Engineering owner: **TBD**
@@ -385,7 +385,7 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | 12 | Not started | Refresh existing women/iron article; cover periods and pregnancy boundaries carefully | Clinical/Content | Existing URL improved without overlap/new duplicate |
 | 13 | Not started | Create downloadable one-page “Questions for your iron consultation” PDF | Design/Clinical | Useful, non-diagnostic, linkable PDF with source date |
 | 14 | Not started | Launch paid search pilot if approved; otherwise build campaign ready for approval | Growth | Separate campaigns, negatives, UTMs and conversion events |
-| 15 | Not started | Week-2 measurement review; inspect pages/queries, CTR and booking funnel | Growth | Decisions recorded; no reaction to one-day rank noise |
+| 15 | Measured | Week-2 measurement review; inspect pages/queries, CTR and booking funnel | Growth | September 21 review complete; retain snippet, exact cost-query target still unmet; full 14-day verdict awaits data through September 21 |
 | 16 | Not started | Clinical research/brief for PRP evidence article | Clinical/Content | Evidence certainty and limitations approved |
 | 17 | Not started | Publish PRP evidence article; link from skin and hair hubs | Content/Eng | One neutral authority asset supports both intents |
 | 18 | Not started | Deepen PRP hair page: diagnostics, alternatives, cost inclusions, evidence and ferritin link | Clinical/Eng | Page clearly owns hair intent and cross-links iron diagnostics |
@@ -441,7 +441,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-04 baseline | 475 | 22,260 | 2.13% | 136 / 1.99% | 6 / 0.43% | 171 fragmented legacy events | Not comparable | 4,980 Umami pageviews; unified instrumentation required |
 | 2026-09-07 | 520 | 24,743 | 2.10% | 164 / 1.96% | 6 / 0.34% | 32 | 0.61% per pageview; 1.33% per visitor | 25 unique CTA visitors; unified event was deployed during this window, so this is a partial-window baseline, not a prior-period comparison |
 | 2026-09-14 | 566 | 30,775 | 1.84% | 166 / 1.91% | 6 / 0.31% | 202 | 3.52% per pageview; 7.29% per visitor | 152 unique CTA visitors; unified event covers only part of the rolling window. Iron snippet passed the 500-impression directional gate; retain through day 14 |
-| 2026-09-21 |  |  |  |  |  |  |  |  |
+| 2026-09-21 | 613 | 31,422 | 1.95% | 188 / 1.85% | 11 / 0.48% | 364 | 6.10% per pageview; 12.61% per visitor | Aug 23–Sep 19; 5,967 pageviews, 2,180 visitors, 275 unique CTA visitors. Partial instrumentation window; no conversion-lift claim. Post-launch iron page CTR 2.25%; exact cost query 0.55% remains below target |
 | 2026-09-28 |  |  |  |  |  |  |  |  |
 | 2026-10-04 |  |  |  |  |  |  |  |  |
 
@@ -456,6 +456,9 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - If clinical review cannot keep pace, ship fewer pages. Never trade medical trust for publishing velocity.
 
 ## Execution Log
+
+- **2026-09-21 — Weekly evidence review:** ran `npm run growth:collect` successfully using the existing GSC workflow and current read-only Umami API. The latest detail date is September 19. Web detail rows total 613 clicks / 31,422 impressions (1.95% CTR, position 16.67); iron/ferritin query rows within that detail set total 188 / 10,144 (1.85%), and PRP/Eigenblut total 11 / 2,276 (0.48%). These cluster definitions are case-insensitive query matches for `eisen|ferritin` and `prp|eigenblut`. For a like-for-like prior-window comparison, use the separate query-level aggregates: 593 / 25,944 (2.29%, position 18.08) versus 440 / 20,701 (2.13%, position 21.19). Query aggregates and detail aggregates have different coverage; never compare one to the other. Umami records 364 booking CTA clicks from 275 unique converting visitors across 5,967 pageviews and 2,180 visitors. The iron-cost page has 61 CTA clicks / 511 views (11.94%); the PRP URL cluster has five / 109 (4.59%, too few conversions for a stable verdict). Both rolling windows straddle the tracking rollout differently, so prior zero unified events mean unmeasured, and increasing rolling CTA rates cannot establish a causal lift. Aggregate collection artifacts remain ignored locally.
+- **2026-09-21 — Snippet decision and next work:** September 8–19 iron-cost page performance is 65 clicks / 2,888 impressions (2.25% CTR, position 6.80), above the 1.8% page target and 1.53% launch baseline. The exact `eiseninfusion kosten` query across pages is six / 1,085 (0.55%, position 5.56); restricted to the cost page it is six / 1,079 (0.56%, position 5.55). Its 0.8% target is unmet despite better position. Retain the snippet because the page target is met and the joint CTR/position rollback condition is absent. This is a mixed directional result, not proof of snippet causality; ranking, query mix and the September 17 internal-link changes are confounders. Only 12 post-launch calendar days are present. At the September 22 checkpoint verify data completeness; issue the full 14-day verdict once data through September 21 is available, expected around September 24, then resume the weekly cadence September 28. Keep the next execution item on day-24 production indexability verification while clinician review of day 8 remains pending. Weekly updates are staged locally for the next substantive increment; no measurement-only PR was opened.
 
 - **2026-09-04 — Durable analytics + agent memory:** added the recurring growth-agent runbook, a tested aggregate-only Umami API collector (`npm run umami:fetch`), a combined GSC + Umami collection command (`npm run growth:collect`), and explicit separation between Google SERP CTR and on-site CTA conversion rates. Direct database access was retired; the collector authenticates through the self-hosted API using a Keychain credential and makes read-only requests.
 - **2026-09-04 — CTA attribution implementation:** defined conversion as the first appointment-CTA click, introduced shared `BookingCtaLink` and placement-aware `AppointmentBookingButton` contracts, added a global Doctolib safety net, migrated the identified CTA families, and added regression tests. All 154 repository tests and the 257-route production build pass. A rendered crawl of all 188 sitemap URLs found 180 tracked Doctolib anchors, 273 tracked insurance-dialog buttons and zero missing booking markers. Production verification was completed on September 7.
@@ -490,6 +493,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 
 | Date | Decision | Rationale | Revisit when |
 |---|---|---|---|
+| 2026-09-21 | Retain the iron snippet; distinguish page success from the unmet exact-query target | Post-launch page CTR is 2.25% over 2,888 impressions, while exact cost-query CTR remains 0.55%. Neither position result triggers rollback. The 12-day evidence cannot yet support the scheduled full 14-day verdict | At the September 22 availability check, then when September 21 data is complete (expected September 24); next weekly collection September 28 |
 | 2026-09-04 | Keep `/leistungen/eiseninfusion-kosten` as the main exact iron local/cost owner | It already earns high-intent visibility and clicks | Query/page data shows sustained displacement |
 | 2026-09-04 | Keep `/aesthetik/prp-behandlung` as the main skin/aesthetic PRP Berlin owner | Avoid a new generic duplicate | A materially different intent is proven |
 | 2026-09-04 | Measure qualified Doctolib outbound as the interim north star | Completed booking is not observable in current code | A reliable booking-completion import exists |
