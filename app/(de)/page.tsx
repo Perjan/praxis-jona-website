@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import HeroSection from '../HeroSection'
 import QuoteSection from "../QuoteSection";
 import ClinicSection from '../ClinicSection'
+import HomeHighlights from '../HomeHighlights'
 import Warning from "app/components/Warning";
 import { Constants } from "../Constants";
 import { getPricingPageConfig } from "app/components/pricing/pricingData";
@@ -69,11 +70,13 @@ export default function Features() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
             />
             <div className="home-page-stack">
-                <HeroSection title="PRAXIS JONA" description="Ganzheitliche Betreuung für ein gesundes Leben - Bei uns bist Du mehr als nur ein weiterer Patient" />
+                <HeroSection title="PRAXIS JONA" description="Ganzheitliche Betreuung für ein gesundes Leben – bei uns sind Sie mehr als nur ein weiterer Patient." />
 
                 <div className="home-content-over-hero">
+                    <HomeHighlights />
+
                     <QuoteSection
-                        quote='"Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern."'
+                        quote='„Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen. Gemeinsam mit meinen Patienten möchte ich individuelle Wege entwickeln, die ihre Bedürfnisse und Ziele berücksichtigen. Dabei steht im Mittelpunkt, die Gesundheit und Lebensqualität nachhaltig zu verbessern.“'
                         buttonLink="/team"
                         buttonText="Team ansehen"
                     />

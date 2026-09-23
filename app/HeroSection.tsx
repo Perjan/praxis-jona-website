@@ -11,12 +11,12 @@ const serviceLinks = {
   de: [
     { label: "Innere Medizin", href: "/hausaerztliche-leistungen" },
     { label: "Ästhetik", href: "/aesthetik" },
-    { label: "Health & Longevity", href: "/praevention-longevity" },
+    { label: "Prävention & Longevity", href: "/praevention-longevity" },
   ],
   en: [
     { label: "Internal Medicine", href: "/en/general-medicine" },
     { label: "Aesthetics", href: "/en/aesthetics" },
-    { label: "Health & Longevity", href: "/en/prevention-longevity" },
+    { label: "Prevention & Longevity", href: "/en/prevention-longevity" },
   ],
 } satisfies Record<HeroLocale, Array<{ label: string; href: string }>>;
 

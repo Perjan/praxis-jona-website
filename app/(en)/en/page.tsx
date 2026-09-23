@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 
 import ClinicSection from "app/ClinicSection";
+import HomeHighlights from "app/HomeHighlights";
 import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSection";
 import Warning from "app/components/Warning";
@@ -70,9 +71,11 @@ export default function Features() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchemaEn) }}
             />
             <div className="home-page-stack">
-                <HeroSection title="PRAXIS JONA" description="Holistic care for a healthy life - with us, you are more than just another patient" locale="en" />
+                <HeroSection title="PRAXIS JONA" description="Holistic care for a healthy life – with us, you are more than just another patient." locale="en" />
 
                 <div className="home-content-over-hero">
+                    <HomeHighlights locale="en" />
+
                     <QuoteSection
                         quote='"My aim is not only to alleviate symptoms, but also to specifically address the underlying causes of health problems. Together with my patients, I strive to develop individualized approaches that take their needs and goals into account. The focus is on sustainably improving health and quality of life."'
                         buttonLink="/en/team"
