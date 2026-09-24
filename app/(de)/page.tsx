@@ -4,7 +4,6 @@ import HeroSection from '../HeroSection'
 import QuoteSection from "../QuoteSection";
 import HomeVisitSection from '../HomeVisitSection'
 import HomeHighlights from '../HomeHighlights'
-import Warning from "app/components/Warning";
 import { Constants } from "../Constants";
 import { getPricingPageConfig } from "app/components/pricing/pricingData";
 import { buildClinicOfferCatalogJsonLd } from "app/components/pricing/pricingSchema";
@@ -80,8 +79,6 @@ export default function Features() {
                         buttonLink="/team"
                         buttonText="Team ansehen"
                     />
-
-                    {/* <Warning message="Bitte haben Sie dafür Verständnis, dass wir aktuell keine gesetzl. versicherten Neupatienten mehr aufnehmen." /> */}
 
                     <HomeVisitSection />
                 </div>

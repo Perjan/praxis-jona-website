@@ -4,7 +4,6 @@ import HomeVisitSection from "app/HomeVisitSection";
 import HomeHighlights from "app/HomeHighlights";
 import HeroSection from "app/HeroSection";
 import QuoteSection from "app/QuoteSection";
-import Warning from "app/components/Warning";
 import { Constants } from "app/Constants";
 import { getPricingPageConfig } from "app/components/pricing/pricingData";
 import { buildClinicOfferCatalogJsonLd } from "app/components/pricing/pricingSchema";
@@ -82,8 +81,6 @@ export default function Features() {
                         buttonText="Meet the team"
                         role="Specialist for Internal Medicine"
                     />
-
-                    {/* <Warning message="Please note that we currently do not accept new public insured patients." /> */}
 
                     <HomeVisitSection locale="en" />
                 </div>
