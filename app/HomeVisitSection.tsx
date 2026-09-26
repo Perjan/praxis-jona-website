@@ -15,7 +15,7 @@ const homeVisitContent = {
     phoneLabel: "Telefon",
     bookingLabel: "Termin buchen",
     callLabel: "Anrufen",
-    imageAlt: "Helles Sprechzimmer der Praxis Jona in Berlin-Mitte",
+    imageAlt: "Heller Behandlungsraum der Praxis Jona in Berlin-Mitte",
   },
   en: {
     heading: "Visit us at Rosenthaler Platz",
@@ -26,7 +26,7 @@ const homeVisitContent = {
     phoneLabel: "Phone",
     bookingLabel: "Book appointment",
     callLabel: "Call us",
-    imageAlt: "Bright consultation room at Praxis Jona in Berlin-Mitte",
+    imageAlt: "Bright treatment room at Praxis Jona in Berlin-Mitte",
   },
 } satisfies Record<HomeVisitLocale, Record<string, string>>;
 
@@ -41,11 +41,11 @@ export default function HomeVisitSection({ locale = "de" }: { locale?: HomeVisit
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
         <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgba(13,50,43,0.55)] lg:col-span-7">
           <Image
-            src="/images/clinic/clinic-newB.jpeg"
+            src="/images/clinic/clinic-newA-new2.jpg"
             alt={content.imageAlt}
             fill
             sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover"
+            className="object-cover object-right"
           />
         </div>
 
