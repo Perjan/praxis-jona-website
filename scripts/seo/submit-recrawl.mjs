@@ -108,13 +108,13 @@ async function main() {
   console.log("[seo:submit-recrawl] google:", google);
   console.log("[seo:submit-recrawl] indexnow:", indexNow);
 
+  // Recrawl pings are best-effort: never fail the production build over them.
   if (!google.ok || !indexNow.ok) {
-    process.exitCode = 1;
+    console.warn("[seo:submit-recrawl] some submissions failed; continuing build");
   }
 }
 
 main().catch((error) => {
   appendLog(`error — ${error.message}`);
-  console.error("[seo:submit-recrawl] failed:", error);
-  process.exitCode = 1;
+  console.warn("[seo:submit-recrawl] failed; continuing build:", error);
 });
