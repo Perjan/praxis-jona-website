@@ -1,4 +1,5 @@
 import '../globals.css'
+import { fontVariables } from '../fonts'
 import Header from '../Header'
 import { Analytics } from '@vercel/analytics/react';
 import Footer from '../Footer';
@@ -49,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de">
+    <html lang="de" className={fontVariables}>
       <Script
             src="https://analytics.moneycoach.ai/script.js"
             data-website-id={Constants.umamiId}
