@@ -6,6 +6,9 @@ export const serifFont = Newsreader({
   display: "swap",
   variable: "--font-serif",
   style: ["normal", "italic"],
+  // Next 13.5 ships no fallback metrics for Newsreader, so use Georgia directly.
+  adjustFontFallback: false,
+  fallback: ["Georgia", "serif"],
 });
 
 export const sansFont = Outfit({
