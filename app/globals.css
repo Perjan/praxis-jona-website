@@ -20,6 +20,12 @@
     --input: 160 15% 84%;
     --ring: 160 65% 10%;
   }
+
+  /* The site is light-only: paint the canvas so dark-mode browsers don't show black gaps between sections. */
+  html {
+    background-color: #fff;
+    color-scheme: light;
+  }
 }
 
 .home-page-stack {
