@@ -482,6 +482,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 
 | Date | Work item | Status | Production URL / PR | Reviewer | Measurement note |
 |---|---|---|---|---|---|
+| 2026-09-29 | Priority technical eligibility audit and regression tooling | Review-ready; not yet merged | [PR #15](https://github.com/Perjan/praxis-jona-website/pull/15) · [Audit report](./2026-09-29-priority-indexability-audit.md) | Technical review; no new medical claims | 18 URLs / 54 snapshots pass; 20 new + 149 existing tests pass. No public pages changed; preview links not applicable |
 | 2026-09-04 | Competitor SERP, sitemap and content research | Complete | This document | Internal research | Brave snapshot; direct site verification |
 | 2026-09-04 | Fresh Search Console baseline | Complete | `data/gsc/raw/search-analytics-latest.json` | Internal data | 2026-08-06 through 2026-09-02 |
 | 2026-09-04 | Self-hosted Umami access and aggregate baseline | Complete | `analytics.moneycoach.ai` | Internal data | Historical baseline: 4,980 views, 1,755 visitors, 171 generic events; future collection is API-only |
