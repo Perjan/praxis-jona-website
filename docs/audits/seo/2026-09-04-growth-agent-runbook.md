@@ -61,6 +61,14 @@ Umami API authentication and reporting endpoints are documented in the official 
 - Maintain a claim dossier and a “what we must not claim” section.
 - Prefer current guidelines, systematic reviews, and primary research. Medical copy needs clinician review before publication when claims, indications, contraindications, or outcomes change.
 
+### Priority Technical Eligibility Audit
+
+- `npm run seo:audit-priority` checks nine DE/EN iron/PRP pairs against the production sitemap, raw SSR and rendered desktop/mobile DOM. It exits nonzero for canonical, hreflang, indexability-directive, metadata, schema-text or overflow findings.
+- `npm run seo:test-priority` runs the offline validator tests; `npm test` includes them. The live audit requires installed Playwright Chromium and is separate from normal tests/builds.
+- The browser blocks telemetry and all non-GET requests before navigation; do not weaken those safeguards or click booking CTAs during this audit.
+- Run after route/metadata/template changes or a suspected incident, not daily. No analytics refresh is needed for the audit. Actual Google index status/selected canonicals require URL Inspection; full rich-result validation requires Google's test. Manual robots-rule review remains separate.
+- Baseline: [2026-09-29 Priority Indexability Audit](./2026-09-29-priority-indexability-audit.md).
+
 ## Measurement Contract
 
 These metrics answer different questions and must never be merged into one “CTR” number:
