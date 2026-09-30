@@ -17,7 +17,7 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-29
+Last updated: 2026-09-30
 Next operating review: 2026-10-05 (weekly GSC and Umami collection; complete 28-day snippet data expected around October 8)
 Clinical reviewer: **Dr. med. Jonida Gjolli for iron content; approval remains required for each new medical asset**
 Growth owner: **TBD**
@@ -394,7 +394,7 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | 21 | Not started | Publish PRP preparation/aftercare guide | Clinical/Content | Checklist answers downtime and red flags without promises |
 | 22 | Not started | PRP distribution burst: GBP, directory updates, short video, carousel and email | Growth | Every asset uses tracked URL and reviewed claims |
 | 23 | Partially shipped; rest blocked on days 9–21 | Add contextual cluster links and breadcrumbs across all iron/PRP pages | SEO/Eng | Every new asset has 3+ relevant incoming internal links |
-| 24 | In progress (technical audit passes) | Validate sitemap, canonicals, hreflang, schema, mobile render and indexability | Eng/SEO | 18 DE/EN priority URLs pass SSR/desktop/mobile checks; reusable audit + 20 tests added. Google-selected canonicals/index status and full rich-result validation still to verify |
+| 24 | Measured (priority scope verified) | Validate sitemap, canonicals, hreflang, schema, mobile render and indexability | Eng/SEO | 18 DE/EN priority URLs pass SSR/desktop/mobile checks and Google indexed-version inspection; four representative templates pass live Rich Results Test. Pricing Physician entity has two optional warnings; no blocking issue |
 | 25 | Shipped | Submit new/updated URLs for recrawl; update Bing/IndexNow if configured | SEO | Submission log complete; sitemap has accurate dates |
 | 26 | Not started | Local proof day: new clinic photos, service descriptions, review request workflow | Local | Four photos live; ethical review flow active |
 | 27 | Not started | Authority outreach: 15 relevant Berlin/medical/referral prospects with tailored pitches | PR/Founder | 15 quality contacts; no bulk link spam |
@@ -456,6 +456,8 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - If clinical review cannot keep pace, ship fewer pages. Never trade medical trust for publishing velocity.
 
 ## Execution Log
+
+- **2026-09-30 — Day-24 Google index and live rich-result verification:** using the Search Console URL Inspection API (indexed version, not live test), all 18 priority DE/EN URLs are `PASS`/“Submitted and indexed,” robots-allowed and indexing-allowed; Google-selected canonicals match the self-canonicals. Last-crawl times vary, so this does not imply an instant recrawl of the current page. Google's live smartphone Rich Results Test found valid markup on the iron-cost, PRP hub, women/iron article and aesthetic-prices templates. Pricing has five valid items with two non-critical optional Physician-field warnings (`priceRange`, `telephone`); no public schema was changed merely to clear them. The [updated audit report](./2026-09-29-priority-indexability-audit.md) distinguishes indexed-copy versus live testing and records the residual limits. Day 24's priority-scope success signal is met; future route/schema changes require proportionate retesting. No new full analytics collection, public content change or snippet alteration.
 
 - **2026-09-29 — Day-24 technical eligibility and durable regression checks:** completed a production audit of nine DE/EN pairs (18 URLs), with 54 SSR/desktop/mobile snapshots and zero final automated findings. All checked pages are 200/self-canonical, sitemap-listed, free of noindex, and reciprocal in hreflang; rendered schema parses and FAQ text matches page content. Both mobile hub screenshots were visually inspected; no horizontal overflow at 390px. Added `npm run seo:audit-priority` and 20 offline tests included in `npm test`, with telemetry blocked before browser navigation and no CTA interaction. Existing eight SEO tests pass. The [audit report](./2026-09-29-priority-indexability-audit.md) distinguishes technical eligibility from actual Google indexing and full rich-result validation; those remaining checks keep day 24 in progress. No public content, medical claims, conversion flow or experiment changed. Use this audit after metadata/route/template changes, not as daily measurement churn. Next safe work is finishing the indexing/markup checks or advancing unpublished editorial preparation while clinical review is pending.
 
