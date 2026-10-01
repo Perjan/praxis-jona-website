@@ -21,6 +21,7 @@ YYYY-MM-DD-short-description.md
 | 2026-09-08 | `https://praxisjona.de/leistungen/eiseninfusion-kosten`: rendered technical, on-page, structured-data and evidence audit | [Eiseninfusion-Kosten Page SEO Audit](./2026-09-08-eiseninfusion-kosten-page-audit.md) |
 | 2026-09-15 | Google Business Profile, mobile Maps visibility, Doctolib, Jameda, Arzt-Auskunft, Das Örtliche and Doctify | [Praxis Jona Local SEO And Citation Audit](./2026-09-15-praxis-jona-local-seo-audit.md) |
 | 2026-09-16 | `eiseninfusion wirkung` / `eiseninfusion wann wirkung`: source review, claim boundaries and clinician handoff | [Eiseninfusion Wirkung Clinical Research Dossier](./2026-09-16-eiseninfusion-wirkung-research-dossier.md) |
+| 2026-10-01 | PRP for androgenetic alopecia versus facial skin: source-to-claim evidence, contrary trials and clinician handoff | [PRP Evidence Research Dossier](./2026-10-01-prp-evidence-research-dossier.md) |
 
 ## Notes For Future Audits
 
