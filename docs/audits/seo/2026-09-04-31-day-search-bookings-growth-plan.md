@@ -17,9 +17,9 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-09-17
-Next operating review: 2026-09-21
-Clinical reviewer: **Dr. med. Jonida Gjolli for iron content; approval remains required for each new medical asset**
+Last updated: 2026-10-01
+Next operating review: 2026-10-05
+Clinical reviewer: **Dr. med. Jonida Gjolli for iron content; her review is requested for the PRP dossier, and approval remains required for each new medical asset**
 Growth owner: **TBD**
 Engineering owner: **TBD**
 
@@ -386,7 +386,7 @@ Organic authority will not fully mature in 31 days. If budget and legal review a
 | 13 | Not started | Create downloadable one-page “Questions for your iron consultation” PDF | Design/Clinical | Useful, non-diagnostic, linkable PDF with source date |
 | 14 | Not started | Launch paid search pilot if approved; otherwise build campaign ready for approval | Growth | Separate campaigns, negatives, UTMs and conversion events |
 | 15 | Not started | Week-2 measurement review; inspect pages/queries, CTR and booking funnel | Growth | Decisions recorded; no reaction to one-day rank noise |
-| 16 | Not started | Clinical research/brief for PRP evidence article | Clinical/Content | Evidence certainty and limitations approved |
+| 16 | In progress (dossier ready; clinical review pending) | Clinical research/brief for PRP evidence article | Clinical/Content | Evidence certainty and limitations approved |
 | 17 | Not started | Publish PRP evidence article; link from skin and hair hubs | Content/Eng | One neutral authority asset supports both intents |
 | 18 | Not started | Deepen PRP hair page: diagnostics, alternatives, cost inclusions, evidence and ferritin link | Clinical/Eng | Page clearly owns hair intent and cross-links iron diagnostics |
 | 19 | Not started | Publish PRP cost guide; link all price cards and relevant pages | Content/Eng | Cost intent has one canonical editorial owner |
@@ -457,6 +457,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 
 ## Execution Log
 
+- **2026-10-01 — Day-16 PRP evidence dossier prepared:** created a [claim-to-source clinician brief](./2026-10-01-prp-evidence-research-dossier.md) for `/blog/prp-behandlung-evidenz`. It separates androgenetic-alopecia hair-density evidence from facial-skin outcomes, includes both positive syntheses and null controlled facial trials, prohibits guaranteed/risk-free claims, and defines author/protocol/review-date questions and a publication gate. No public medical claim or live experiment changed. Day 16 remains in progress until Dr. Gjolli approves the claims; Day 17 publication remains on hold.
 - **2026-09-04 — Durable analytics + agent memory:** added the recurring growth-agent runbook, a tested aggregate-only Umami API collector (`npm run umami:fetch`), a combined GSC + Umami collection command (`npm run growth:collect`), and explicit separation between Google SERP CTR and on-site CTA conversion rates. Direct database access was retired; the collector authenticates through the self-hosted API using a Keychain credential and makes read-only requests.
 - **2026-09-04 — CTA attribution implementation:** defined conversion as the first appointment-CTA click, introduced shared `BookingCtaLink` and placement-aware `AppointmentBookingButton` contracts, added a global Doctolib safety net, migrated the identified CTA families, and added regression tests. All 154 repository tests and the 257-route production build pass. A rendered crawl of all 188 sitemap URLs found 180 tracked Doctolib anchors, 273 tracked insurance-dialog buttons and zero missing booking markers. Production verification was completed on September 7.
 - **2026-09-07 — Current Umami API integration and clean conversion baseline:** updated the collector for the self-hosted Umami current API only, made `booking-cta-click` the sole conversion numerator, and added strict response-shape validation so API mismatches fail visibly while an omitted event-visitor count remains unavailable. The GSC-aligned 28-day window contains 5,278 pageviews, 1,874 visitors, 32 booking CTA clicks and 25 unique CTA visitors: 0.61% per pageview and 1.33% per visitor. The unified event was deployed partway through the window, so the previous window is unmeasured rather than a valid zero. All 160 repository tests pass. Controlled production clicks on contact and nutrition-package CTAs both returned HTTP 200; the aggregate API now contains every intended placement family.
@@ -485,6 +486,7 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-09-17 | Iron/infusion internal-anchor overlap fix | Shipped | `app/content/longevity-source.md`, `app/components/LongevityMarkdownPage.tsx` | No medical copy changed | Hub's "Eisenmangel" bullet now links to the iron cost page |
 | 2026-09-17 | PRP cluster internal-anchor overlap fix | Shipped | `app/content/aesthetik-source.md`, `app/components/AestheticMarkdownPage.tsx` | No medical copy changed | PRP hub's "dunklen Augenringen" bullet now links to the eye sub-page; price-link gap already covered by existing "Preise ansehen" CTAs, no new link added |
 | 2026-09-17 | PRP hair cluster internal-anchor overlap fix | Shipped | `app/content/aesthetik-source.md` | No medical copy changed | Hair page's "Eisenmangel" bullet (infusion-therapy subsection) now links to the iron cost page; two other exact-match "Eisenmangel" mentions and a "Ferritin," bullet left unlinked to avoid over-optimization |
+| 2026-10-01 | PRP evidence cornerstone research | In review | [PRP evidence research dossier](./2026-10-01-prp-evidence-research-dossier.md) | Dr. med. Jonida Gjolli approval pending | Hair and facial evidence separated; no public claim changed; publication and measurement begin only after clinical sign-off |
 
 ## Decision Log
 
