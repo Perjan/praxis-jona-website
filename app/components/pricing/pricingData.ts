@@ -456,6 +456,10 @@ const pageSections: Record<PricingPageKey, PricingSection[]> = {
   internalMedicine: [pricingSections.statutoryCare, pricingSections.ultrasound],
 };
 
+const prpFacePrice = pricingSections.prp.rows.find((row) => row.slug === "prp-gesicht")?.price;
+const prpHairPrice = pricingSections.hairTherapy.rows.find((row) => row.slug === "prp-haare")?.price;
+const prpPricingDescriptionDe = `PRP Gesicht ${formatPrice(prpFacePrice, "de")}, PRP Haare ${formatPrice(prpHairPrice, "de")}. Weitere Preise für Botulinumtoxin, Microneedling und Skinbooster in Berlin-Mitte.`;
+
 const pageCopy: Record<PricingPageKey, {
   title: LocalizedText;
   description: LocalizedText;
@@ -473,8 +477,8 @@ const pageCopy: Record<PricingPageKey, {
     alternate: { de: "/en/prices", en: "/preise" },
   },
   aesthetics: {
-    title: { de: "Ästhetik Preise in Berlin-Mitte", en: "Aesthetics prices in Berlin-Mitte" },
-    description: { de: "Preise für ästhetische Medizin in Berlin-Mitte: Botulinumtoxin („Botox“) ab 199 €, PRP, Microneedling und Polynukleotide – transparent pro Behandlung.", en: "Prices for aesthetic medicine in Berlin-Mitte: botulinum toxin (“Botox”) from €199, PRP, microneedling and polynucleotides – transparent per treatment." },
+    title: { de: "PRP-Preise & Ästhetik in Berlin-Mitte", en: "Aesthetics prices in Berlin-Mitte" },
+    description: { de: prpPricingDescriptionDe, en: "Prices for aesthetic medicine in Berlin-Mitte: botulinum toxin (“Botox”) from €199, PRP, microneedling and polynucleotides – transparent per treatment." },
     eyebrow: { de: "Ästhetik Preise", en: "Aesthetics prices" },
     intro: { de: "Ästhetische Preise sollten Orientierung geben, aber nicht die ärztliche Planung ersetzen. Die genaue Behandlung wird nach Anatomie, Befund und Ziel besprochen.", en: "Aesthetic prices provide orientation, but do not replace medical planning. The exact treatment is discussed after assessing anatomy, findings and goals." },
     canonical: { de: "/aesthetik/preise", en: "/en/aesthetics/prices" },
