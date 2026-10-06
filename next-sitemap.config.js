@@ -37,6 +37,10 @@ function gitLastModified(relativeFile) {
 // Ordered prefix rules for pages whose visible content lives in a shared
 // markdown/data file rather than their own route file. First match wins.
 const CONTENT_SOURCE_RULES = [
+  // Pricing copy lives in shared data, not the aesthetic markdown renderer.
+  // Match these routes exactly so other aesthetic pages keep their own source.
+  { prefix: "/aesthetik/preise", exact: true, file: "app/components/pricing/pricingData.ts" },
+  { prefix: "/en/aesthetics/prices", exact: true, file: "app/components/pricing/pricingData.ts" },
   { prefix: "/en/services/prp-hair-loss", file: "app/components/pageContent.ts" },
   { prefix: "/leistungen/prp-haarausfall", file: "app/components/pageContent.ts" },
   { prefix: "/en/services", file: "app/content/longevity-source-en.md" },
@@ -90,7 +94,9 @@ function resolveLastmod(urlPath) {
     return gitLastModified(postFileByUrl.get(urlPath));
   }
 
-  const rule = CONTENT_SOURCE_RULES.find((r) => urlPath.startsWith(r.prefix));
+  const rule = CONTENT_SOURCE_RULES.find((r) =>
+    r.exact ? urlPath === r.prefix : urlPath.startsWith(r.prefix)
+  );
   if (rule) {
     return gitLastModified(rule.file);
   }
