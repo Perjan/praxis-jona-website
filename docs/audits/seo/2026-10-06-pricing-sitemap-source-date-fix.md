@@ -1,7 +1,7 @@
 # Aesthetic pricing sitemap source dates
 
 Date: 2026-10-06
-Status: implemented locally; preview verification pending
+Status: preview verified; [PR #18](https://github.com/Perjan/praxis-jona-website/pull/18) awaits review
 Scope: `/aesthetik/preise` and `/en/aesthetics/prices`
 
 ## Production finding
@@ -42,6 +42,12 @@ Do not describe it as medical-review freshness.
 Broader pricing routes and template dependencies remain outside this bounded fix.
 
 ## Review and rollback
+
+The [preview sitemap](https://praxis-jona-website-git-codex-pricing-s-e1de39-perjans-projects.vercel.app/sitemap-0.xml) returns HTTP 200.
+Both pricing entries use `2026-10-05T07:54:36+02:00`.
+The PRP hub keeps its production date, `2026-09-17T08:48:01+02:00`.
+Both preview pricing pages match production titles, descriptions, canonicals and footer booking markers.
+The Vercel deployment passed. These checks did not trigger a CTA event.
 
 Check both pricing entries in the preview sitemap after deployment.
 Check the two public pricing pages for unchanged titles, descriptions, canonicals and CTA markers.
