@@ -132,6 +132,9 @@ After launch, measure weekly but do not make a publishing decision from daily ra
 
 ## Questions For Dr. Gjolli
 
+Record decisions in the [clinician review sheet](./2026-10-07-clinician-review-decision-sheet.md#a-iron-effect-and-timing).
+This dossier remains the source of truth for claim wording and evidence limits.
+
 1. Do you approve the proposed answer-first passage and all eight claim candidates? Please revise any sentence that is too broad for your clinical practice.
 2. Which IV iron preparation(s) does Praxis Jona currently use? The hypophosphataemia wording must be product-specific.
 3. What follow-up interval and laboratory markers do you use for typical patients, and which factors change that plan?

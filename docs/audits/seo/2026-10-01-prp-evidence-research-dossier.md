@@ -55,6 +55,9 @@ Planned incoming links after approval: contextual evidence/limitations sections 
 
 ## Clinical review questions and publication gate
 
+Record decisions in the [clinician review sheet](./2026-10-07-clinician-review-decision-sheet.md#b-prp-evidence-for-hair-and-face).
+This dossier remains the source of truth for claim wording and evidence limits.
+
 For Dr. Gjolli, obtain an **approve / revise / reject** decision on each wording candidate above, especially the balance of positive versus null facial trials. Also confirm:
 
 1. Which indications does the clinic actually offer (scalp androgenetic alopecia, other hair-loss diagnoses, facial skin, under-eye, scars), and which should the article explicitly exclude?
