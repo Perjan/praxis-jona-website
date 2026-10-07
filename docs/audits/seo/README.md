@@ -22,6 +22,7 @@ YYYY-MM-DD-short-description.md
 | 2026-09-15 | Google Business Profile, mobile Maps visibility, Doctolib, Jameda, Arzt-Auskunft, Das Örtliche and Doctify | [Praxis Jona Local SEO And Citation Audit](./2026-09-15-praxis-jona-local-seo-audit.md) |
 | 2026-09-16 | `eiseninfusion wirkung` / `eiseninfusion wann wirkung`: source review, claim boundaries and clinician handoff | [Eiseninfusion Wirkung Clinical Research Dossier](./2026-09-16-eiseninfusion-wirkung-research-dossier.md) |
 | 2026-10-01 | PRP for androgenetic alopecia versus facial skin: source-to-claim evidence, contrary trials and clinician handoff | [PRP Evidence Research Dossier](./2026-10-01-prp-evidence-research-dossier.md) |
+| 2026-09-29, updated 2026-09-30 | 18 German/English iron/PRP priority URLs: production SSR, desktop/mobile rendering, canonicals, hreflang, sitemap, Search Console indexed-version status and live rich-result samples | [Priority Indexability Audit](./2026-09-29-priority-indexability-audit.md) |
 
 ## Notes For Future Audits
 
