@@ -1,6 +1,6 @@
 'use client';
 
-import { CSSProperties, useEffect, useMemo, useState } from 'react';
+import { CSSProperties, memo, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TV_NEW_SLIDES, type TVSlide } from './content';
 import {
@@ -39,7 +39,7 @@ function useTVScale() {
   return scale;
 }
 
-function RenderSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' }) {
+const RenderSlide = memo(function RenderSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' }) {
   switch (slide.kind) {
     case 'hero':
       return <OverviewNavigationTemplate slide={slide} />;
@@ -57,7 +57,7 @@ function RenderSlide({ slide, locale }: { slide: TVSlide; locale: 'de' | 'en' })
     default:
       return <OverviewNavigationTemplate slide={slide} />;
   }
-}
+});
 
 export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES, locale = 'de' }: TVNewPageClientProps) {
   const searchParams = useSearchParams();
@@ -85,15 +85,10 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
   const goToSlide = (index: number) => {
     if (index === currentSlideIndex) return;
 
-    const outgoingSlideIndex = currentSlideIndex;
-    setPreviousSlideIndex(outgoingSlideIndex);
+    setPreviousSlideIndex(currentSlideIndex);
     setCurrentSlideIndex(index);
     setProgress(forcedSlideIndex !== null ? 100 : 0);
     window.history.replaceState(null, '', `${locale === 'en' ? '/en/tv' : '/tv'}?slide=${index + 1}`);
-
-    window.setTimeout(() => {
-      setPreviousSlideIndex((previousIndex) => (previousIndex === outgoingSlideIndex ? null : previousIndex));
-    }, ANIMATION_DURATION);
   };
 
   const toggleFullscreen = async () => {
@@ -111,6 +106,12 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
   };
 
   useEffect(() => {
+    if (previousSlideIndex === null) return;
+    const timer = window.setTimeout(() => setPreviousSlideIndex(null), ANIMATION_DURATION);
+    return () => window.clearTimeout(timer);
+  }, [previousSlideIndex, currentSlideIndex]);
+
+  useEffect(() => {
     if (forcedSlideIndex !== null) {
       setCurrentSlideIndex(forcedSlideIndex);
       setPreviousSlideIndex(null);
@@ -121,8 +122,6 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
     const timer = setTimeout(() => {
       setPreviousSlideIndex(currentSlideIndex);
       setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
-      const fadeTimer = setTimeout(() => setPreviousSlideIndex(null), ANIMATION_DURATION);
-      return () => clearTimeout(fadeTimer);
     }, SLIDE_DURATION);
 
     return () => clearTimeout(timer);
@@ -157,6 +156,7 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
         {slides.map((slide, index) => {
           const isActive = index === currentSlideIndex;
           const isExiting = index === previousSlideIndex;
+          if (!isActive && !isExiting) return null;
 
           return (
             <div
@@ -186,8 +186,8 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
           </div>
         )}
 
-        <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2">
-          <div className="flex gap-1">
+        <div className="absolute bottom-4 left-4 right-4 z-20 flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap gap-1">
             {slides.map((slide, index) => (
               <button
                 key={slide.id}
@@ -229,11 +229,9 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
 
           @keyframes tvContentEnter {
             from {
-              opacity: 0;
               transform: translate3d(0, 18px, 0);
             }
             to {
-              opacity: 1;
               transform: translate3d(0, 0, 0);
             }
           }

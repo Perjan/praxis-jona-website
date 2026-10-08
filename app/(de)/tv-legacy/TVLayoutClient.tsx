@@ -8,6 +8,9 @@ export default function TVLayoutClient({
   return (
     <div className="fixed inset-0 w-screen h-screen overflow-hidden bg-black">
       <style jsx global>{`
+        html {
+          color-scheme: only light;
+        }
         body {
           margin: 0;
           padding: 0;
