@@ -26,7 +26,7 @@ export function OverviewNavigationTemplate({ slide }: { slide: TVSlide }) {
           ))}
         </div>
       ) : (
-        <GlassPanel className="mt-10 max-w-[860px] p-7">
+        <GlassPanel className="mt-10 max-w-[860px] p-7 shadow-none">
           <ul className="space-y-5">
             {slide.bullets?.slice(0, 3).map((bullet) => (
               <Bullet key={bullet}>{bullet}</Bullet>

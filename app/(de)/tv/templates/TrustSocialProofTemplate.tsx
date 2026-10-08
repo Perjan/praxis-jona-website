@@ -75,7 +75,7 @@ function AppTrustSlide({ slide }: { slide: TVSlide }) {
             <div className="tv-enter tv-enter-1">
               <Headline slide={slide} compact />
             </div>
-            <GlassPanel className="tv-enter tv-enter-2 mt-9 max-w-[930px] p-7">
+            <GlassPanel className="tv-enter tv-enter-2 mt-9 max-w-[930px] p-7 shadow-none">
               <ul className="space-y-5">
                 {slide.bullets?.slice(0, 4).map((bullet) => (
                   <Bullet key={bullet}>{bullet}</Bullet>

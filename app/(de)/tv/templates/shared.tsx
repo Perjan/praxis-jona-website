@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { ReactNode } from 'react';
+import { cn } from '@/lib/utils';
 import { FaCheckCircle } from 'react-icons/fa';
 import type { TVSlide } from '../content';
 import { QRCodeCard } from './QRCodeCard';
@@ -62,7 +63,7 @@ export function Headline({ slide, compact = false }: { slide: TVSlide; compact?:
 
 export function GlassPanel({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`rounded-[8px] border border-[#0D322B]/14 bg-[#FFF8EF]/88 shadow-[0_26px_80px_-44px_rgba(13,50,43,0.44)] backdrop-blur-sm ${className}`}>
+    <div className={cn('rounded-[8px] border border-[#0D322B]/14 bg-[#FFF8EF]/88 shadow-[0_26px_80px_-44px_rgba(13,50,43,0.44)] backdrop-blur-sm', className)}>
       {children}
     </div>
   );
