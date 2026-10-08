@@ -14,7 +14,7 @@ export function ServiceTreatmentTemplate({ slide }: { slide: TVSlide }) {
             <Headline slide={slide} compact />
           </div>
 
-          <div className="tv-enter tv-enter-2 mt-10 grid w-full grid-cols-3 gap-5">
+          <div className="tv-enter tv-enter-2 mt-10 grid w-full grid-cols-2 gap-5">
             {slide.features?.slice(0, 3).map((feature) => (
               <GlassPanel key={feature.title} className="min-h-[170px] bg-[#FFFDF8] p-6 shadow-[0_18px_45px_-34px_rgba(13,50,43,0.42)] backdrop-blur-0">
                 <div className="flex h-[58px] w-[58px] items-center justify-center rounded-full bg-[#DDE4DF] text-[#59766E]">
