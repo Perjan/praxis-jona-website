@@ -203,6 +203,17 @@ export const Constants = {
         googleMapsUrl: "https://maps.app.goo.gl/2gL1xkWUpRKRcajK8",
         appleMapsUrl: "https://maps.apple.com/?address=Torstra%C3%9Fe%20125,%20Mitte,%2010119%20Berlin,%20Germany&auid=5736151680530482814&ll=52.529748,13.400656&lsp=9902&q=Praxis%20Jona"
     },
+    appointmentHoursNote: {
+        de: "Termine nach Vereinbarung: Spezielle Leistungen wie Eiseninfusionen, ästhetische Behandlungen und individuelle Beratungstermine bieten wir nach vorheriger Terminvereinbarung auch außerhalb unserer regulären Öffnungszeiten an.",
+        en: "Appointments by arrangement: Special services such as iron infusions, aesthetic treatments, and individual consultations are also available outside our regular opening hours by prior appointment.",
+    },
+    upcomingOpeningHours: [
+        { day: "Montag", dayEn: "Monday", periods: [{ opens: "08:00", closes: "12:30" }, { opens: "15:00", closes: "18:00" }] },
+        { day: "Dienstag", dayEn: "Tuesday", periods: [{ opens: "08:00", closes: "14:30" }] },
+        { day: "Mittwoch", dayEn: "Wednesday", periods: [{ opens: "12:00", closes: "18:00" }] },
+        { day: "Donnerstag", dayEn: "Thursday", periods: [{ opens: "08:00", closes: "12:30" }] },
+        { day: "Freitag", dayEn: "Friday", periods: [{ opens: "08:00", closes: "12:30" }] },
+    ],
     openingHours: [
         { day: 'Montag', dayEn: "Monday", hours: '08:30 - 12:30 <br> 15:00 - 18:00' },
         { day: 'Dienstag', dayEn: "Tuesday", hours: '08:30 - 14:30' },
@@ -214,9 +225,67 @@ export const Constants = {
     ]
 }
 
+export function upcomingOpeningHoursText(locale: "de" | "en", separator = "\n") {
+    return Constants.upcomingOpeningHours.map((item) =>
+        `${locale === "de" ? item.day : item.dayEn}: ${item.periods.map((period) => `${period.opens}–${period.closes}`).join(locale === "de" ? " und " : " and ")}`
+    ).join(separator);
+}
+
 export const NewsMessages = {
     de: [
+        {
+            title: "Aktuelles aus unserer Praxis",
+            message: `Liebe Patientinnen und Patienten,
+zum Jahreswechsel stehen einige Veränderungen in unserer Praxis an, über die wir Sie gerne informieren möchten.
+
+<strong>Abschied und Neuzugang in unserem Ärzteteam</strong>
+Zum 31. Dezember 2026 verabschieden wir unsere geschätzte Kollegin Frau Constanze Buhrmann in den wohlverdienten Ruhestand.
+Wir bedanken uns herzlich für die gemeinsame Zeit, ihr Engagement und die liebevolle Betreuung unserer Patientinnen und Patienten. Für ihren neuen Lebensabschnitt wünschen wir ihr von Herzen alles Gute!
+
+Gleichzeitig freuen wir uns, ab Januar 2027 Frau Dr. Daria Shabas, Fachärztin für Innere Medizin, als neue Kollegin in unserem Praxisteam begrüßen zu dürfen.
+Wir heißen sie herzlich willkommen und freuen uns auf die gemeinsame Zusammenarbeit!
+
+<strong>Geänderte Sprechzeiten ab Januar 2027</strong>
+Ab dem 4. Januar 2027 passen wir unsere Sprechzeiten an.
+${upcomingOpeningHoursText("de")}
+
+${Constants.appointmentHoursNote.de}
+Unsere Akutsprechstunde findet weiterhin in den ersten 90 Minuten nach Praxisöffnung statt. Hier können Sie sich bei akuten Beschwerden ohne vorherige Terminvereinbarung vorstellen.
+Alle weiteren Abläufe bleiben unverändert.
+
+<strong>Weihnachtsschließzeit</strong>
+Unsere Praxis bleibt vom 21. Dezember 2026 bis einschließlich 3. Januar 2027 geschlossen.
+Ab Montag, dem 4. Januar 2027, sind wir wieder wie gewohnt für Sie da.
+Wir wünschen Ihnen und Ihren Familien eine schöne Weihnachtszeit, erholsame Feiertage und einen gesunden Start ins neue Jahr!
+Ihr Praxisteam der Praxis Jona`,
+        },
     ],
     en: [
+        {
+            title: "News from our practice",
+            message: `Dear patients,
+As the year draws to a close, we would like to inform you about some upcoming changes at our practice.
+
+<strong>Farewell and a new addition to our medical team</strong>
+On 31 December 2026, our valued colleague Ms Constanze Buhrmann will begin her well-deserved retirement.
+We warmly thank her for our time together, her dedication, and the care she has given our patients. We wish her all the best for this new chapter!
+
+We are also delighted to welcome Dr Daria Shabas, a specialist in internal medicine, to our practice team in January 2027.
+We extend a warm welcome and look forward to working together!
+
+<strong>New consultation hours from January 2027</strong>
+Our consultation hours will change from 4 January 2027.
+${upcomingOpeningHoursText("en")}
+
+${Constants.appointmentHoursNote.en}
+Our acute consultation continues to take place during the first 90 minutes after the practice opens. Patients with acute symptoms can attend without a prior appointment.
+All other procedures remain unchanged.
+
+<strong>Christmas closure</strong>
+Our practice will be closed from 21 December 2026 through 3 January 2027 inclusive.
+We will be back for you on Monday, 4 January 2027.
+We wish you and your families a wonderful Christmas, restful holidays, and a healthy start to the new year!
+Your Praxis Jona team`,
+        },
     ]
 }

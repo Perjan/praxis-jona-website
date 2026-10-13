@@ -1,4 +1,6 @@
 "use client"
+
+import { UpcomingOpeningHours } from "app/components/UpcomingOpeningHours";
 import Link from "next/link"
 import { Constants } from "./Constants"
 import { usePathname } from "next/navigation";
@@ -174,6 +176,7 @@ export default function Page() {
           </div>
           <div className="text-center sm:text-left">
             <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{openingHoursLabel}</h3>
+            <p className="mt-2 text-sm text-primaryLighter">{locale === "en" ? "Until 20 December 2026" : "Bis 20. Dezember 2026"}</p>
             <div className="grid text-sm grid-cols-1 text-primaryLighter grid-flow-col space-y-2">
               <div className='col-span-1'>
                 {openingHours.map((item) => (
@@ -190,6 +193,8 @@ export default function Page() {
                 ))}
               </div>
             </div>
+            <div className="text-sm leading-6"><UpcomingOpeningHours locale={locale === "en" ? "en" : "de"} /></div>
+            <p className="mt-4 text-sm leading-6 text-primaryLighter">{Constants.appointmentHoursNote[locale === "en" ? "en" : "de"]}</p>
           </div>
           <div className="text-center sm:text-left">
             <h3 className="text-sm font-semibold font-serif leading-6 text-primary">{praxisLabel}</h3>

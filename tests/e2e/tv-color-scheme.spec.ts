@@ -1,9 +1,10 @@
 import { expect, test } from '@playwright/test';
 
-test.use({ colorScheme: 'dark', reducedMotion: 'reduce' });
+test.use({ colorScheme: 'dark' });
 
 test('TV colors and QR remain unchanged under automatic dark mode', async ({ page, browserName }) => {
   test.skip(browserName !== 'chromium', 'Automatic dark mode uses the Chromium DevTools protocol.');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/tv/velto');
   const qr = page.getByRole('img', { name: /QR Code:/ });
   await expect(qr).toBeVisible();

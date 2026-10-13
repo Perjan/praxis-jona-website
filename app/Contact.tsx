@@ -1,3 +1,4 @@
+import { UpcomingOpeningHours } from "app/components/UpcomingOpeningHours";
 import PrimaryButton from './components/PrimaryButton';
 import Link from "next/link";
 
@@ -143,6 +144,7 @@ export default function ContactSection({ locale = "de" }: { locale?: "de" | "en"
                     <ClockIcon className="h-8 w-8 mr-2" aria-hidden="true" /> {copy.hoursTitle}
                   </h3>
 
+                  <p className="mt-3 text-md text-primaryLighter">{locale === "en" ? "Until 20 December 2026" : "Bis 20. Dezember 2026"}</p>
                   <div className="mt-3 space-y-1 text-md leading-6 text-gray-600">
                     <div className="grid grid-cols-1 text-primaryLighter grid-flow-col">
                       <div className='col-span-1'>
@@ -163,6 +165,8 @@ export default function ContactSection({ locale = "de" }: { locale?: "de" | "en"
                       </div>
                     </div>
                   </div>
+                  <UpcomingOpeningHours locale={locale} />
+                  <p className="mt-4 text-md leading-6 text-primaryLighter">{Constants.appointmentHoursNote[locale]}</p>
                 </div>
 
                 <div className="rounded-2xl bg-lightBeige bg-opacity-40 p-10 col-span-3">

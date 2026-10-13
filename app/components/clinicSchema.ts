@@ -23,14 +23,24 @@ export const postalAddress = {
 // Constants.openingHours carries display markup ("08:30 - 12:30 <br> 15:00 - 18:00"),
 // so the machine-readable pairs are declared separately here. Monday has two
 // blocks; Saturday and Sunday are closed and are therefore simply absent.
-export const openingHoursSpecification = [
+const currentOpeningHoursSpecification = [
   { dayOfWeek: "Monday", opens: "08:30", closes: "12:30" },
   { dayOfWeek: "Monday", opens: "15:00", closes: "18:00" },
   { dayOfWeek: "Tuesday", opens: "08:30", closes: "14:30" },
   { dayOfWeek: "Wednesday", opens: "08:30", closes: "12:30" },
   { dayOfWeek: "Thursday", opens: "12:00", closes: "17:00" },
   { dayOfWeek: "Friday", opens: "08:30", closes: "12:30" },
-].map((slot) => ({ "@type": "OpeningHoursSpecification", ...slot }));
+].map((slot) => ({ "@type": "OpeningHoursSpecification", ...slot, validThrough: "2026-12-20" }));
+
+export const openingHoursSpecification = [
+  ...currentOpeningHoursSpecification,
+  ...Constants.upcomingOpeningHours.flatMap((day) => day.periods.map((period) => ({
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: day.dayEn,
+    ...period,
+    validFrom: "2027-01-04",
+  }))),
+];
 
 /**
  * Explicit contactPoint entries. MedicalClinic already carries telephone/email,
