@@ -274,7 +274,7 @@ const CustomCloseIcon = () => (
 function MobileMenuDialog({ mobileMenuOpen, setMobileMenuOpen, navigationItemsMobile, pathname, locale, languageLabel }) {
     return (
         <Transition show={mobileMenuOpen} as={Fragment}>
-            <Dialog as="div" className="lg:hidden" static open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
+            <Dialog as="div" className="xl:hidden" static open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)}>
                 <Transition.Child
                     as={Fragment}
                     enter="transition-opacity ease-out duration-300"
