@@ -21,7 +21,7 @@ const homeHighlightsContent = {
     focusTitle: "Am häufigsten gebucht",
     focus: [
       { title: "Eiseninfusion", text: "Bei Eisenmangel: Diagnostik, ärztliche Prüfung und Infusion in der Praxis.", href: "/leistungen/eiseninfusion-kosten" },
-      { title: "Abnehmspritze", text: "Ärztlich begleitete GLP-1-Therapie zur Gewichtsreduktion.", href: "/leistungen/abnehmspritze" },
+      { title: "Microneedling", text: "Microneedling-Behandlungen in unserer Praxis.", href: "/aesthetik/microneedling" },
       { title: "PRP-Behandlung", text: "Eigenbluttherapie für Haut und Haare.", href: "/aesthetik/prp-behandlung" },
       { title: "Botulinumtoxin", text: "Behandlung mimischer Falten, dezent und natürlich.", href: "/botox-behandlung" },
     ],
@@ -47,7 +47,7 @@ const homeHighlightsContent = {
     focusTitle: "Most requested",
     focus: [
       { title: "Iron infusion", text: "For iron deficiency: diagnostics, physician review and infusion at the practice.", href: "/en/services/iron-infusion-costs" },
-      { title: "Weight-loss injection", text: "Physician-supervised GLP-1 therapy for weight loss.", href: "/en/services/weight-loss-injection" },
+      { title: "Microneedling", text: "Microneedling treatments at our practice.", href: "/en/aesthetics/microneedling" },
       { title: "PRP treatment", text: "Platelet-rich plasma for skin and hair.", href: "/en/aesthetics/prp-treatment" },
       { title: "Botulinum toxin", text: "Treatment of expression lines, subtle and natural.", href: "/en/botox-treatment" },
     ],
