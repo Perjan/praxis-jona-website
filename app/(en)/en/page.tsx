@@ -81,7 +81,7 @@ export default function Features() {
                         buttonLink="/en/team"
                         buttonText="Meet the team"
                         role="Specialist for Internal Medicine"
-                        specialty={doctorNutritionFocus.en}
+                        specialty={doctorNutritionFocus.en.label}
                     />
 
                     <HomeVisitSection locale="en" />

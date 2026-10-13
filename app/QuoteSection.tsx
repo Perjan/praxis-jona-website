@@ -1,5 +1,4 @@
 import Image from "next/image"
-import Link from "next/link"
 import PrimaryButton from "./components/PrimaryButton"
 
 interface QuoteSectionParams {
@@ -7,7 +6,7 @@ interface QuoteSectionParams {
   buttonLink?: string;
   buttonText?: string;
   role?: string;
-  specialty?: { label: string; href: string };
+  specialty?: string;
 }
 
 export default function QuoteSection(params: QuoteSectionParams) {
@@ -29,9 +28,7 @@ export default function QuoteSection(params: QuoteSectionParams) {
             <div className="font-serif text-lg font-medium text-primary">Dr. med. Jonida Gjolli</div>
             <div className="text-sm text-primaryLighter">{params.role ?? "Fachärztin für Innere Medizin"}</div>
             {params.specialty && (
-              <Link href={params.specialty.href} className="mt-1 inline-block text-sm text-primary underline underline-offset-4 hover:text-primaryLighter focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary">
-                {params.specialty.label}
-              </Link>
+              <p className="mt-1 text-sm text-primaryLighter">{params.specialty}</p>
             )}
           </div>
         </figcaption>

@@ -79,7 +79,7 @@ export default function Features() {
                         quote='„Mein Ziel ist es, nicht nur Symptome zu lindern, sondern auch die zugrundeliegenden Ursachen von Gesundheitsproblemen gezielt anzugehen.“'
                         buttonLink="/team"
                         buttonText="Team ansehen"
-                        specialty={doctorNutritionFocus.de}
+                        specialty={doctorNutritionFocus.de.label}
                     />
 
                     <HomeVisitSection />
