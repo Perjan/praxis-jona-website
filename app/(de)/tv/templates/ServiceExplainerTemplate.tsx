@@ -19,7 +19,7 @@ export function ServiceExplainerTemplate({ slide, locale }: { slide: TVSlide; lo
             ))}
           </div>
         </GlassPanel>
-        <GlassPanel className="p-6">
+        <GlassPanel className="p-6 shadow-none">
           <p className="text-[29px] font-bold uppercase leading-none tracking-[0.09em] text-[#144D42]">{locale === 'en' ? 'Suitable for' : 'Geeignet für'}</p>
           <ul className="mt-4 space-y-5">
             {slide.bullets?.slice(0, 4).map((bullet) => (

@@ -21,7 +21,7 @@ import BookingCtaLink from './components/BookingCtaLink'
 const navigationItemsGerman = [
     { title: "Innere Medizin", href: "/hausaerztliche-leistungen" },
     { title: "Ästhetik", href: "/aesthetik" },
-    { title: "Prävention / Longevity", href: "/praevention-longevity" },
+    { title: "Prävention & Longevity", href: "/praevention-longevity" },
     { title: "Team", href: "/team" },
     { title: "Kontakt", href: "/kontakt" }
 ]
@@ -29,7 +29,7 @@ const navigationItemsGerman = [
 const navigationItemsEnglish = [
     { title: "Internal Medicine", href: "/en/general-medicine" },
     { title: "Aesthetics", href: "/en/aesthetics" },
-    { title: "Prevention / Longevity", href: "/en/prevention-longevity" },
+    { title: "Prevention & Longevity", href: "/en/prevention-longevity" },
     { title: "Team", href: "/en/team" },
     { title: "Contact", href: "/en/contact" }
 ]

@@ -10,38 +10,32 @@ interface QuoteSectionParams {
 
 export default function QuoteSection(params: QuoteSectionParams) {
   return (
-    <section className="relative isolate overflow-hidden bg-white px-6 pb-16 pt-16 sm:pt-24 lg:px-8">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
-      <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-      <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <figure className="mt-2">
-          <blockquote className="text-center text-xl font-medium leading-8 text-primary sm:text-2xl sm:leading-9">
-            <p>
-              {params.quote}
-            </p>
-          </blockquote>
-          <figcaption className="mt-10">
-            <Image
-              className="mx-auto h-28 w-28 rounded-full"
-              src="/images/team/jonida-image.jpeg"
-              alt="Dr. med. Jonida Gjolli"
-              width={100}
-              height={100}
-            />
-            <div className="mt-4 flex items-center justify-center space-x-3 text-base">
-              <div className="font-semibold text-xl font-serif text-primary">Dr. med. Jonida Gjolli</div>
-            </div>
-            <div className="flex items-center justify-center space-x-3 text-base">
-              <div className="font-regular text-primaryLighter">{params.role ?? "Fachärztin für Innere Medizin"}</div>
-            </div>
-          </figcaption>
-        </figure>
-        <div className="mt-4 flex justify-center">
+    <section className="bg-white px-6 py-20 sm:py-28 lg:px-8">
+      <figure className="mx-auto max-w-4xl text-center">
+        <blockquote className="font-serif text-3xl leading-snug tracking-tight text-primary [text-wrap:balance] sm:text-4xl">
+          <p>{params.quote}</p>
+        </blockquote>
+        <figcaption className="mt-10 flex items-center justify-center gap-4 text-left">
+          <Image
+            className="h-14 w-14 rounded-full object-cover"
+            src="/images/team/jonida-image.jpeg"
+            alt=""
+            width={112}
+            height={112}
+          />
+          <div>
+            <div className="font-serif text-lg font-medium text-primary">Dr. med. Jonida Gjolli</div>
+            <div className="text-sm text-primaryLighter">{params.role ?? "Fachärztin für Innere Medizin"}</div>
+          </div>
+        </figcaption>
+      </figure>
+      {params.buttonLink && (
+        <div className="mt-10 flex justify-center">
           <PrimaryButton href={params.buttonLink}>
             {params.buttonText}
           </PrimaryButton>
         </div>
-      </div>
+      )}
     </section>
   )
 }

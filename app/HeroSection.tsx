@@ -11,20 +11,22 @@ const serviceLinks = {
   de: [
     { label: "Innere Medizin", href: "/hausaerztliche-leistungen" },
     { label: "Ästhetik", href: "/aesthetik" },
-    { label: "Health & Longevity", href: "/praevention-longevity" },
+    { label: "Prävention & Longevity", href: "/praevention-longevity" },
   ],
   en: [
     { label: "Internal Medicine", href: "/en/general-medicine" },
     { label: "Aesthetics", href: "/en/aesthetics" },
-    { label: "Health & Longevity", href: "/en/prevention-longevity" },
+    { label: "Prevention & Longevity", href: "/en/prevention-longevity" },
   ],
 } satisfies Record<HeroLocale, Array<{ label: string; href: string }>>;
 
 export default function HeroSection({
+  eyebrow,
   title,
   description,
   locale = "de",
 }: {
+  eyebrow?: string;
   title: string;
   description: string;
   locale?: HeroLocale;
@@ -46,6 +48,7 @@ export default function HeroSection({
 
       <div className="home-hero__content">
         <div className="home-hero__copy">
+          {eyebrow && <p className="home-hero__eyebrow">{eyebrow}</p>}
           <h1 id="home-hero-title">{title}</h1>
           <p>{description}</p>
           <BookingCtaLink

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import TVLayoutClient from '../tv-legacy/TVLayoutClient';
 
 export const metadata: Metadata = {
+  colorScheme: 'only light',
   alternates: {
     canonical: '/tv',
   },

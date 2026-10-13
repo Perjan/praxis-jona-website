@@ -15,8 +15,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Arial', 'sans-serif'],
-      serif: ['ui-serif', 'Georgia'],
+      sans: ['var(--font-sans)', 'Arial', 'sans-serif'],
+      serif: ['var(--font-serif)', 'Georgia', 'serif'],
       display: ["Open Sans", "sans-serif"],
     },
     extend: {

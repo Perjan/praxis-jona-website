@@ -26,7 +26,7 @@ const serviceCardsContent = {
                 href: "/aesthetik",
             },
             {
-                title: "HEALTH & LONGEVITY",
+                title: "PRÄVENTION & LONGEVITY",
                 paragraphs: [
                     "Prävention beginnt, bevor Beschwerden entstehen.",
                     "Wir verbinden moderne Diagnostik, Laborwerte und persönliche Ziele zu einem klaren Plan für Energie, Stoffwechsel und langfristige Gesundheit."
@@ -55,7 +55,7 @@ const serviceCardsContent = {
                 href: "/en/aesthetics",
             },
             {
-                title: "HEALTH & LONGEVITY",
+                title: "PREVENTION & LONGEVITY",
                 paragraphs: [
                     "Prevention starts before symptoms appear.",
                     "We connect modern diagnostics, lab values, and personal goals into a clear plan for energy, metabolism, and long-term health."

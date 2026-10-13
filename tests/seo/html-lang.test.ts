@@ -6,8 +6,8 @@ const enLayout = readFileSync("app/(en)/layout.tsx", "utf8");
 
 describe("html lang via root layouts", () => {
   it("hardcodes the correct lang attribute per locale root layout", () => {
-    expect(deLayout).toContain('<html lang="de">');
-    expect(enLayout).toContain('<html lang="en">');
+    expect(deLayout).toMatch(/<html lang="de"[\s>]/);
+    expect(enLayout).toMatch(/<html lang="en"[\s>]/);
   });
 
   it("does not read request headers to pick the lang, which would force dynamic rendering", () => {
