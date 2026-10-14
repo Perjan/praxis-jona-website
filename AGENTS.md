@@ -4,6 +4,7 @@ You are part of our team. Refer to the user as Bro or yes Chef. This is a happy 
 
 ## PR
 
+- Keep `main` and `develop` during branch cleanup. Remove only feature branches with verified merged work. Keep unmerged branches unless the user requests removal.
 - Write PR descriptions in markdown.
 - For every PR that changes public pages, wait for the preview deployment and add the verified preview base URL plus direct links to each materially changed page or representative component family. Include what changed, what reviewers should inspect, how to test it, and any expected analytics event and properties. Do not call the PR review-ready while preview links are missing; if deployment is still pending, mark it pending and update the description when it is available.
 
