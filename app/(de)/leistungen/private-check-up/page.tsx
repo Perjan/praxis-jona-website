@@ -4,8 +4,8 @@ import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
 import PrivateCheckupPricingComponent from "app/components/PrivateCheckupPricingComponent";
 
-const title = 'Private Check-up'
-const description = "Erweiterte Vorsorge in Berlin-Mitte: Herz-Kreislauf-Check mit EKG, Gefäß- und Schlaganfall-Check sowie internistische Krebsvorsorge per Ultraschall."
+const title = 'Privater Check-up'
+const description = "Privater Check-up in Berlin-Mitte: zusätzliche Untersuchungen nach persönlichem Bedarf, mit ärztlicher Beratung zu Nutzen, Grenzen und Kosten."
 const url = '/leistungen/private-check-up'
 
 export const metadata: Metadata = {
@@ -55,13 +55,13 @@ export default function Page() {
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
                         <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Umfassende Vorsorge für Ihre Gesundheit</h2>
                     
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten Ihnen zwei maßgeschneiderte Check-up-Pakete, die optimal auf Ihre individuellen Bedürfnisse abgestimmt sind.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir bieten Ihnen zwei Check-up-Pakete. Gemeinsam besprechen wir, welche Untersuchungen zu Ihrer persönlichen Situation passen.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die gesetzliche Gesundheitsuntersuchung, die ab dem 35. Lebensjahr alle drei Jahre erstattet wird, deckt nur grundlegende Tests wie die Bestimmung von Blutzucker, Cholesterin und eine Urinuntersuchung ab. Aus unserer fachärztlichen Sicht reicht dies nicht aus, um alle relevanten Gesundheitsrisiken rechtzeitig zu erkennen.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Die gesetzliche Gesundheitsuntersuchung dient der Früherkennung und der Beratung zu persönlichen Gesundheitsrisiken. Welche zusätzlichen Untersuchungen sinnvoll sein können, besprechen wir anhand Ihrer Beschwerden, Vorgeschichte und persönlichen Risiken.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Unsere erweiterten Vorsorgeuntersuchungen ergänzen diese Basisleistungen sinnvoll. Sie umfassen unter anderem eine detaillierte Untersuchung Ihres Herz-Kreislauf-Systems (z. B. Ruhe- und Belastungs-EKG), Gefäßuntersuchungen wie Schlaganfall-Checks und eine internistische Krebsvorsorge durch Ultraschalluntersuchungen der Bauchorgane und der Schilddrüse.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Je nach Fragestellung kommen zum Beispiel ein Ruhe- oder Belastungs-EKG sowie Ultraschalluntersuchungen der Gefäße, Bauchorgane oder Schilddrüse infrage. Vorab erklären wir Ihnen den möglichen Nutzen und die Grenzen der jeweiligen Untersuchung.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Ein Teil der Leistungen wird von Ihrer gesetzlichen Krankenkasse übernommen, für die Zusatzuntersuchungen beraten wir Sie gerne individuell. Sprechen Sie unser Praxis-Team an – gemeinsam finden wir das passende Vorsorgepaket für Sie.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Wir unterscheiden zwischen Kassenleistungen und zusätzlichen Selbstzahlerleistungen. Vor einer zusätzlichen Untersuchung besprechen wir die Kosten mit Ihnen. Sprechen Sie unser Praxis-Team an, wenn Sie Fragen zu den Paketen haben.</p>
                         
                     </SectionWithColor>
                  </div>
@@ -71,7 +71,7 @@ export default function Page() {
                     <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mt-8 sm:mt-0 mb-12">
                         <SectionWithColor backgroundClassName='bg-tealColor rounded-xl lg:rounded-2xl overflow-hidden'>
                         <div className="flex flex-col items-center justify-center">
-                            <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Mehr über den öffentlichen Gesetzlichen Check-up erfahren</h2>
+                            <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Mehr über den gesetzlichen Check-up erfahren</h2>
                             <PrimaryButton
                                 href="/leistungen/gesetzliche-check-up"
                             >

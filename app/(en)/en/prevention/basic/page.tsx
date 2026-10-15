@@ -85,7 +85,7 @@ export default function BasicPage() {
                             <li>Anamnesis, posture, mobility, strength, endurance</li>
                             <li>Identification of central physical risk areas (lack of movement, imbalances, load tolerance)</li>
                             <li>Introduction of basic movement, breathing, and stabilization principles</li>
-                            <li>Implementation of 1 individually adapted personal training session of 60 minutes</li>
+                            <li>One individually tailored 60-minute personal training session</li>
                             <li>Development of a 4-week basic training & recovery plan</li>
                         </ul>
 

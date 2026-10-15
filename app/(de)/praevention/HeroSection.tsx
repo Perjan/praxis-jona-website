@@ -11,7 +11,7 @@ export default function HeroSection({ locale = 'de' }: HeroSectionProps) {
 
     const description = isGerman
         ? 'Wir machen Prävention planbar. Mit ärztlicher Diagnostik, interdisziplinärer Expertise und individueller Begleitung.'
-        : 'We make prevention plannable. With medical diagnostics, interdisciplinary expertise and individual support.';
+        : 'We make preventive care easier to plan, with medical diagnostics, interdisciplinary expertise and individual support.';
 
     const ctaText = isGerman
         ? 'Unverbindliches Erstgespräch anfragen'

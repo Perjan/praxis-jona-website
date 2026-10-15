@@ -108,7 +108,8 @@ export default function Page() {
                                                 <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                                                     <div className="flex flex-col justify-center h-full">
                                                         <address className="mt-4 justify-center text-left space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p className="text-md">Liebe Patientin, lieber Patient,<br></br>wenn bei Ihnen Krankheitszeichen wie Husten, Schnupfen, Halskratzen oder Fieber auftreten sollten, können Sie mit einem tagesaktuellen negativen Covid-Selbsttest und FFP2-Maske in unsere Sprechstunde kommen nach vorheriger telefonischer Absprache.</p>
+                                                            <p className="text-md">Bitte klären Sie die Hinweise zu Tests und Masken vor Ihrem Besuch telefonisch mit uns ab. Sie erreichen uns unter <a href={Constants.contact.phoneUrl} className="text-primary font-semibold">{Constants.contact.phone}</a>.</p>
+                                                            <p className="text-md pt-4">Liebe Patientin, lieber Patient,<br></br>wenn bei Ihnen Krankheitszeichen wie Husten, Schnupfen, Halskratzen oder Fieber auftreten sollten, können Sie mit einem tagesaktuellen negativen Covid-Selbsttest und FFP2-Maske in unsere Sprechstunde kommen nach vorheriger telefonischer Absprache.</p>
 
                                                             <p className="text-md pt-4">
                                                                 Sollten Sie einen positiven Covid-Selbsttest haben, senden Sie uns bitte folgende Informationen per E-Mail zu:<br></br>

@@ -108,7 +108,8 @@ export default function Page() {
                                                 <div className="mt-3 space-y-1 text-md leading-6 text-primaryLighter">
                                                     <div className="flex flex-col justify-center h-full">
                                                         <address className="mt-4 justify-center text-left space-y-1 text-md not-italic leading-6 text-primaryLighter">
-                                                            <p className="text-md">Dear patient,<br></br>If you show signs of illness such as a cough, cold, scratchy throat or fever, you can come to our consultation with a daily negative Covid self-test and FFP2 mask by prior arrangement by telephone.</p>
+                                                            <p className="text-md">Please call us before your visit to confirm the testing and mask guidance. You can reach us at <a href={Constants.contact.phoneUrl} className="text-primary font-semibold">{Constants.contact.phone}</a>.</p>
+                                                            <p className="text-md pt-4">Dear patient,<br></br>If you show signs of illness such as a cough, cold, scratchy throat or fever, you can come to our consultation with a negative Covid self-test taken on the same day and FFP2 mask by prior arrangement by telephone.</p>
 
                                                             <p className="text-md pt-4">
                                                             If you have a positive Covid self-test, please send us the following information by e-mail:<br></br>

@@ -3,7 +3,7 @@ import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
 
-const title = 'Public Insurance Check-up'
+const title = 'Statutory Health Check-up'
 const description = "From the age of 35, it is possible to have a check-up every 3 years. In addition, there is now the option for insured persons to have a check-up once between their 18th and 35th birthday."
 const url = '/en/services/public-insurance-check-up'
 
@@ -52,7 +52,7 @@ export default function Page() {
                 </SectionWithColor>
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
-                        <h2 className="text-2xl mt-4 max-w-5xl font-serif font-medium leading-8 text-primaryLighter">The public insurance check-up includes:</h2>
+                        <h2 className="text-2xl mt-4 max-w-5xl font-serif font-medium leading-8 text-primaryLighter">The statutory health check-up includes:</h2>
                         <ul className="list-disc pl-5">
                             <li>
                                 <p className="mt-2 text-lg leading-8 text-primaryLighter">Medical history</p>
@@ -63,11 +63,11 @@ export default function Page() {
                             </li>
 
                             <li>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Consultation 15 minutes</p>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">15-minute consultation</p>
                             </li>
 
                             <li>
-                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Laboratory (cholesterol level, fasting blood sugar, urine stix)</p>
+                                <p className="mt-2 text-lg leading-8 text-primaryLighter">Laboratory tests (cholesterol, fasting blood sugar, urine dipstick)</p>
                             </li>
 
                             <li>

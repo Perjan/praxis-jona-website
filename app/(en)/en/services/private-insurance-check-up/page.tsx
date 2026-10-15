@@ -4,8 +4,8 @@ import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
 import PrivateCheckupPricingComponent from "app/components/PrivateCheckupPricingComponent";
 
-const title = 'Private Insurance Check-up'
-const description = "Extended preventive check-up in Berlin-Mitte: cardiovascular assessment with ECG, vascular and stroke screening, plus internal cancer screening by ultrasound."
+const title = 'Private Check-up'
+const description = "Private check-up in Berlin-Mitte: additional examinations based on your needs, with medical advice about benefits, limitations, and costs."
 const url = '/en/services/private-insurance-check-up'
 
 export const metadata: Metadata = {
@@ -53,15 +53,15 @@ export default function Page() {
                 </SectionWithColor>
                 <div className="px-4 lg:px-0 max-w-7xl mx-auto">
                     <SectionWithColor backgroundClassName='bg-lightBeige rounded-xl lg:rounded-2xl overflow-hidden'>
-                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">Comprehensive healthcare for your wellbeing</h2>
+                        <h2 className="text-2xl mt-4 font-serif font-medium leading-8 text-primaryLighter">A check-up based on your needs</h2>
                     
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">We offer two tailored check-up packages optimally designed to meet your individual needs.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">We offer two check-up packages. Together, we discuss which examinations suit your personal situation.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">The standard public health examination, which is covered every three years from the age of 35, only includes basic tests such as blood glucose, cholesterol, and urine analysis. From our medical perspective, this is not sufficient to identify all relevant health risks in a timely manner.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">The statutory health check-up supports early detection and advice about personal health risks. We discuss whether additional examinations may be useful based on your symptoms, medical history, and personal risks.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Our enhanced preventive examinations meaningfully supplement these basic services. They include, among other things, a detailed examination of your cardiovascular system (e.g., resting and stress ECG), vascular examinations such as stroke checks, and internal cancer screening through ultrasound examinations of the abdominal organs and thyroid.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Depending on the clinical question, additional examinations may include a resting or exercise ECG and ultrasound of the blood vessels, abdominal organs, or thyroid. We explain the possible benefits and limitations of each examination beforehand.</p>
 
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">Some services are covered by your public health insurance, and we're happy to provide individual advice about the additional examinations. Please speak to our practice team – together we'll find the right preventive package for you.</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">We distinguish between services covered by statutory health insurance and additional self-pay services. We discuss the costs before any additional examination. Please contact our practice team if you have questions about the packages.</p>
                         
                     </SectionWithColor>
                  </div>
@@ -71,11 +71,11 @@ export default function Page() {
                     <div className="px-4 lg:px-0 max-w-7xl mx-auto sm:mb-16 mt-8 sm:mt-0 mb-12">
                         <SectionWithColor backgroundClassName='bg-tealColor rounded-xl lg:rounded-2xl overflow-hidden'>
                         <div className="flex flex-col items-center justify-center">
-                            <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Find out more about the public insurance check-up</h2>
+                            <h2 className="text-2xl mt-4 mb-8 font-serif font-medium text-center leading-8 text-primaryLighter">Find out more about the statutory health check-up</h2>
                             <PrimaryButton
                                 href="/en/services/public-insurance-check-up"
                             >
-                                View Public Insurance Check-up Details
+                                View statutory check-up details
                             </PrimaryButton>
                         </div>
                         </SectionWithColor>

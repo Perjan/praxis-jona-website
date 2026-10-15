@@ -95,7 +95,7 @@ export default function PremiumPage() {
                             <li>Work on fundamental movement and strength patterns</li>
                             <li>Analysis of training load, recovery ability, and adaptation reactions</li>
                             <li>Periodized training control on a behavioral and sports science basis</li>
-                            <li>Implementation of 4 individually planned personal training sessions of 60 minutes each</li>
+                            <li>Four individually planned 60-minute personal training sessions</li>
                             <li>Development of a long-term physical health & training plan (6–12 months)</li>
                         </ul>
 

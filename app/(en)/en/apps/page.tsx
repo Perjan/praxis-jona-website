@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { appsByLocale } from 'app/data/apps';
 import AppsPageBody from 'app/components/AppsPageComponents';
 const title = "Our Apps"
-const description = "Discover our curated health and wellness apps designed to support your journey to better health with practical daily guidance."
+const description = "Explore apps for medication logs, laboratory results, and screen time. Find an overview of their features and download links."
 const url = "/en/apps"
 
 export const metadata: Metadata = {
