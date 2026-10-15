@@ -6,6 +6,7 @@ interface QuoteSectionParams {
   buttonLink?: string;
   buttonText?: string;
   role?: string;
+  specialty?: string;
 }
 
 export default function QuoteSection(params: QuoteSectionParams) {
@@ -26,6 +27,9 @@ export default function QuoteSection(params: QuoteSectionParams) {
           <div>
             <div className="font-serif text-lg font-medium text-primary">Dr. med. Jonida Gjolli</div>
             <div className="text-sm text-primaryLighter">{params.role ?? "Fachärztin für Innere Medizin"}</div>
+            {params.specialty && (
+              <p className="mt-1 text-sm text-primaryLighter">{params.specialty}</p>
+            )}
           </div>
         </figcaption>
       </figure>

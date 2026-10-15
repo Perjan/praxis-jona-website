@@ -7,5 +7,6 @@
   "tsconfig": "tsconfig.json",
   "cssEntry": ".design-sync/.cache/ds.css",
   "readmeHeader": ".design-sync/conventions.md",
-  "buildCmd": "npx tailwindcss -c .design-sync/tailwind.ds.js -i .design-sync/ds-tailwind.css -o .design-sync/.cache/ds.css --minify"
+  "buildCmd": "npx tailwindcss -c .design-sync/tailwind.ds.js -i .design-sync/ds-tailwind.css -o .design-sync/.cache/ds.css --minify",
+  "guidelinesGlob": []
 }

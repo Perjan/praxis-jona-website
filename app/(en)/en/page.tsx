@@ -1,3 +1,4 @@
+import { doctorNutritionFocus } from "app/data/doctor-profile";
 import { Metadata } from "next";
 
 import HomeVisitSection from "app/HomeVisitSection";
@@ -80,6 +81,7 @@ export default function Features() {
                         buttonLink="/en/team"
                         buttonText="Meet the team"
                         role="Specialist for Internal Medicine"
+                        specialty={doctorNutritionFocus.en.label}
                     />
 
                     <HomeVisitSection locale="en" />

@@ -15,7 +15,7 @@ export const TeamMembersDE: TeamMember[] = [
         role: 'Ärztliche Leitung und moderne Präventionsmedizin',
         quote: 'Prävention liegt mir am Herzen, weil Gesundheit mehr ist als das Behandeln von Symptomen. Ich möchte frühzeitig, individuell und ganzheitlich begleiten – damit Krankheit idealerweise gar nicht erst entsteht.',
         description: 'Jonida arbeitete mehrere Jahre an der Charité Berlin in der nephrologischen Abteilung, wo sie auch Fachärztin für Innere Medizin wurde und ihre Promotion erfolgreich abschloss.',
-        extendedDescription: 'Zudem ist sie zertifizierte Lipidologin, Hypertensiologin und bald auch Ernährungsmedizinerin. Zu ihren Schwerpunkten zählen Schilddrüsenerkrankungen, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Vor ihrer Tätigkeit an der Charité arbeitete Jonida in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Das Studium absolvierte sie in Tirana, Albanien.',
+        extendedDescription: 'Zudem ist sie zertifizierte Lipidologin und Hypertensiologin. Zu ihren Schwerpunkten zählen Schilddrüsenerkrankungen, Hypertonie, Fettstoffwechselstörungen und Ernährungsmedizin. Vor ihrer Tätigkeit an der Charité arbeitete Jonida in der Medizinischen Klinik III des Waldkrankenhauses St. Marien in Erlangen. Sie ist Mitglied der Deutschen Gesellschaft für Innere Medizin (DGIM) und der DGFF (Lipid-Liga) e. V. Das Studium absolvierte sie in Tirana, Albanien.',
         image: '/images/team/jona-clinic.jpg'
     },
     {

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { doctorNutritionFocus } from "app/data/doctor-profile";
 import Authors from "../AuthorsDataSource"
 import { notFound } from 'next/navigation'
 import Image from "next/image";
@@ -76,6 +78,11 @@ export default function AuthorPage({ params }: { params: { slug: string } }) {
             <div className="max-w-xl flex-auto">
               <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{author.name}</h3>
               <p className="text-base leading-7 text-gray-600">{author.role}</p>
+              {author.id === "jonida-gjolli" && (
+                <Link href={doctorNutritionFocus.de.href} className="mt-2 inline-block text-base text-primary underline underline-offset-4 hover:text-primaryLighter">
+                  {doctorNutritionFocus.de.label}
+                </Link>
+              )}
               <p className="mt-6 text-base leading-7 text-gray-600">{author.bio}</p>
               {author.linkedInUrl && (
                 <ul role="list" className="mt-6 flex gap-x-6">

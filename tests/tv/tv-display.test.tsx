@@ -22,7 +22,9 @@ const slides: TVSlide[] = Array.from({ length: 4 }, (_, index) => ({
   qrUrl: 'https://praxis-jona.de', qrLabel: 'Website',
 }));
 
-afterEach(() => vi.useRealTimers());
+afterEach(() => {
+  vi.useRealTimers();
+});
 
 describe('TV display', () => {
   it('renders the real QR immediately with black modules and a four-module quiet zone', () => {
