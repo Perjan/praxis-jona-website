@@ -371,14 +371,14 @@ export const pricingSections = {
     pillar: "healthLongevity",
     title: { de: "Eiseninfusion", en: "Iron infusion" },
     description: {
-      de: "Festpreis für eine Eiseninfusion bei nachgewiesenem Eisenmangel und passender Indikation.",
-      en: "Fixed price for iron infusion when iron deficiency is documented and the indication is suitable.",
+      de: "Eiseninfusion ab 150,95 € bei nachgewiesenem Eisenmangel und passender Indikation.",
+      en: "Iron infusion from €150.95 when iron deficiency is documented and the indication is suitable.",
     },
     detailHref: { de: "/leistungen/eiseninfusion-kosten", en: "/en/services/iron-infusion-costs" },
     bookingHref: appointmentHref,
     bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
     rows: [
-      { slug: "eiseninfusion", label: { de: "Eiseninfusion", en: "Iron infusion" }, price: { amount: 150.95, currency: "EUR" } },
+      { slug: "eiseninfusion", label: { de: "Eiseninfusion", en: "Iron infusion" }, price: { amount: 150.95, currency: "EUR", prefix: fromPrefix } },
     ],
   },
   ultrasound: {

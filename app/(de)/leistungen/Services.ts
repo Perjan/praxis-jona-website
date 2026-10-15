@@ -40,7 +40,7 @@ export const Services = [{
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
       bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
-      description: "Unsere Infusionstherapie umfasst Eisen-, Vitamin-B12-, Folsäure- und ausgewählte Vitamininfusionen nach ärztlicher Einschätzung. Grundlage sind Beschwerden, Vorgeschichte und relevante Laborwerte. Die Eiseninfusion kostet als Festpreis 150,95 €."
+      description: "Unsere Infusionstherapie umfasst Eisen-, Vitamin-B12-, Folsäure- und ausgewählte Vitamininfusionen nach ärztlicher Einschätzung. Grundlage sind Beschwerden, Vorgeschichte und relevante Laborwerte. Die Eiseninfusion kostet ab 150,95 €."
     },
     {
       id: 13,
@@ -171,7 +171,7 @@ export const Services = [{
       imageSrc: '/images/leistungen/infusionTherapy.png',
       type: 'private',
       bookingUrls: Constants.appointmentUrlsByService.ironInfusion,
-      description: "Our infusion therapy includes iron, vitamin B12, folic acid and selected vitamin infusions after medical assessment. The iron infusion has a fixed price of €150.95."
+      description: "Our infusion therapy includes iron, vitamin B12, folic acid and selected vitamin infusions after medical assessment. The iron infusion costs from €150.95."
     },
     {
       id: 13,
