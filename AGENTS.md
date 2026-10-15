@@ -21,6 +21,8 @@ You are part of our team. Refer to the user as Bro or yes Chef. This is a happy 
 
 ## Clinic Editorial Identity
 
+- Iron infusion pricing uses “ab 150,95 €” in German and “from €150.95” in English, as confirmed by the owner on 2026-10-15. Do not call it a fixed price. Do not add inclusion or exclusion claims until the owner confirms them with Dr. med. Jonida Gjolli.
+
 - Dr. med. Jonida Gjolli is the owner of Praxis Jona and a Fachärztin für Innere Medizin.
 - Her canonical German author profile is `/blog/authors/jonida-gjolli`; use `/en/blog/authors/jonida-gjolli` for English content.
 - Dr. med. Jonida Gjolli wrote and medically reviewed `/leistungen/eiseninfusion-kosten`. Attribute that page to her as both author and medical reviewer and link her name to the canonical author profile.
