@@ -133,7 +133,7 @@ export default function Page() {
 
 
                         <h2 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Diagnosis</h2>
-                        <p className="mt-2 text-lg leading-8 text-primaryLighter">The diagnosis of lipometabolic disorders is mainly carried out using blood tests, which provide information about the various fat levels in the blood. Our services:</p>
+                        <p className="mt-2 text-lg leading-8 text-primaryLighter">We primarily use blood tests to diagnose lipid disorders and measure blood lipid levels. Our services include:</p>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li className="mt-4">
                                 <p className="text-xl font-serif font-semibold">Lipid Profile</p>
@@ -145,11 +145,11 @@ export default function Page() {
                             </li>
                         </ul>
 
-                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">The Therapy consists of 3 Stages</h3>
+                        <h3 className="text-2xl mt-6 font-serif font-medium leading-8 text-primaryLighter">Treatment has three stages</h3>
                         <ul className="px-8 list-disc text-lg leading-8 text-primaryLighter">
                             <li>Lifestyle changes: healthy diet, regular physical activity, weight management, alcohol reduction and smoking cessation</li>
                             <li>Medication Therapy</li>
-                            <li>Technical Procedures (Lipid Apheresis)</li>
+                            <li>Lipid apheresis</li>
                         </ul>
                         <div className="mt-10 text-center">
                             <p className="text-base text-primaryLighter">More focus areas:</p>

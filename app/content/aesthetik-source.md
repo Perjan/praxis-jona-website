@@ -1015,17 +1015,6 @@ Regenerative Prozesse wie Kollagenaufbau und Hautumbau benötigen Zeit.
   
 Eine einzelne Behandlung kann die Haut kurzfristig frischer wirken lassen, während strukturelle Verbesserungen der Hautqualität meist erst durch wiederholte Sitzungen entstehen.  
   
-Das ist übrigens SEO-technisch genau richtig für euch:  
-  
-* Microneedling Berlin  
-* Aknenarben  
-* Dermapen  
-* Rosacea  
-* Melasma  
-* Hautverjüngung  
-* Narbenbehandlung  
-  
-  
 # Haartherapie bei Haarausfall in Berlin-Mitte  
   
 **Regenerative Haartherapien kombiniert mit medizinischer Diagnostik**  

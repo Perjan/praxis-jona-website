@@ -26,7 +26,7 @@ const homeHighlightsContent = {
       { title: "Botulinumtoxin", text: "Behandlung mimischer Falten, dezent und natürlich.", href: "/botox-behandlung" },
     ],
     more: [
-      { title: "Private Check-up", text: "Erweiterte Vorsorge mit EKG und Ultraschall.", href: "/leistungen/private-check-up" },
+      { title: "Privater Check-up", text: "Erweiterte Vorsorge mit EKG und Ultraschall.", href: "/leistungen/private-check-up" },
       { title: "Mikronährstoffanalyse", text: "Vitamine und Mineralstoffe gezielt bestimmen.", href: "/leistungen/mikronahrstoffanalyse" },
       { title: "Innere Medizin", text: "Schilddrüse, Bluthochdruck und Fettstoffwechsel.", href: "/schwerpunkte" },
     ],

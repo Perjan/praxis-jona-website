@@ -3,8 +3,8 @@ import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import PrimaryButton from "app/components/PrimaryButton";
 
-const title = 'Gesetzliche Check-up'
-const description = "Ab 35 Jahre besteht die Möglichkeit alle 3 Jahre eine Vorsorgeuntersuchung durchführen zu lassen. Zusätzlich gibt es jetzt die Möglichkeit, dass Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen können."
+const title = 'Gesetzlicher Check-up'
+const description = "Ab dem 35. Lebensjahr können Versicherte alle 3 Jahre eine Vorsorgeuntersuchung durchführen lassen. Zusätzlich können Versicherte einmalig zwischen ihrem 18. und 35. Geburtstag einen Check-up in Anspruch nehmen."
 const url = '/leistungen/gesetzliche-check-up'
 
 export const metadata: Metadata = {

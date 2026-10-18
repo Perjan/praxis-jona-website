@@ -5,7 +5,7 @@ import WhyItMattersSection from "app/(de)/praevention/WhyItMattersSection"
 import { Metadata } from "next"
 
 const title = "Prevention"
-const description = "Health is not a coincidence. It's a decision. We make prevention plannable. With medical diagnostics, interdisciplinary expertise and individual support."
+const description = "Health is not a coincidence. It's a decision. We make preventive care easier to plan, with medical diagnostics, interdisciplinary expertise and individual support."
 const url = "/en/prevention"
 
 export const metadata: Metadata = {

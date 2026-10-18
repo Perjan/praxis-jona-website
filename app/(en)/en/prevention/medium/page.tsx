@@ -94,7 +94,7 @@ export default function MediumPage() {
                             <li>Analysis of everyday and training loads</li>
                             <li>Structured work on strength, mobility, stability and coordination</li>
                             <li>Introduction of individually suitable training micro-interventions for everyday life & work</li>
-                            <li>Implementation of 2 personalized personal training sessions of 60 minutes</li>
+                            <li>Two individually tailored 60-minute personal training sessions</li>
                             <li>Creation of a personal training and load framework (4–6 weeks)</li>
                         </ul>
 
