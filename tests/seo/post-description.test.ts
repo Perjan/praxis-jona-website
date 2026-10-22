@@ -32,12 +32,35 @@ describe("seoDescriptionForPost", () => {
     ).toBe("Imprint. More legal information from Praxis Jona in Berlin.");
   });
 
-  it("keeps a long summary unchanged and truncates above 160 characters", () => {
+  it("keeps text of exactly 160 characters without an ellipsis", () => {
+    const exact = `${"word ".repeat(31)}wordy`.slice(0, 160).padEnd(160, "x");
+    expect(exact).toHaveLength(160);
+    expect(seoDescriptionForPost(post({ summaryOrExcerpt: exact, language: "en" }))).toBe(exact);
+  });
+
+  it("keeps a summary of 110 to 160 characters unchanged", () => {
     const ok = "x".repeat(120);
     expect(seoDescriptionForPost(post({ summaryOrExcerpt: ok, language: "en" }))).toBe(ok);
-    const long = "word ".repeat(60);
-    const result = seoDescriptionForPost(post({ summaryOrExcerpt: long, language: "de" }));
+  });
+
+  it("cuts inside a word at the previous word boundary", () => {
+    const text = `${"alpha ".repeat(25)}Praxisjona in Berlin`;
+    const result = seoDescriptionForPost(post({ summaryOrExcerpt: text, language: "de" }));
     expect(result.length).toBeLessThanOrEqual(160);
-    expect(result.endsWith("...")).toBe(true);
+    expect(result.endsWith("alpha...")).toBe(true);
+    expect(result).not.toMatch(/\s\.\.\.$/);
+  });
+
+  it("strips trailing punctuation before the ellipsis", () => {
+    const text = `${"alpha ".repeat(24)}beta, gamma delta epsilon zeta`;
+    const result = seoDescriptionForPost(post({ summaryOrExcerpt: text, language: "en" }));
+    expect(result).toMatch(/[a-z]\.\.\.$/);
+    expect(result).not.toMatch(/,\.\.\.$/);
+    expect(result.length).toBeLessThanOrEqual(160);
+  });
+
+  it("hard-cuts a single overlong word", () => {
+    const result = seoDescriptionForPost(post({ summaryOrExcerpt: "x".repeat(300), language: "en" }));
+    expect(result).toBe(`${"x".repeat(157)}...`);
   });
 });

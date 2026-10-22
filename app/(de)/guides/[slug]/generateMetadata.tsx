@@ -64,9 +64,22 @@ export function seoDescriptionForPost(post: Post) {
   const withMinLength = rawDescription.length < 110
     ? `${rawDescription} ${post.categories?.includes("legal") ? suffixes.legal : suffixes.default}`.trim()
     : rawDescription;
-  return withMinLength.length > 160
-    ? `${withMinLength.slice(0, 157).trimEnd()}...`
-    : withMinLength;
+  return truncateAtWordBoundary(withMinLength, DESCRIPTION_MAX_LENGTH);
+}
+
+const DESCRIPTION_MAX_LENGTH = 160;
+const ELLIPSIS = "...";
+
+function truncateAtWordBoundary(text: string, maxLength: number) {
+  if (text.length <= maxLength) {
+    return text;
+  }
+  const limit = maxLength - ELLIPSIS.length;
+  const head = text.slice(0, limit + 1);
+  const lastSpace = head.search(/\s\S*$/);
+  // A single overlong word has no space to cut at, so cut it hard.
+  const cut = lastSpace > 0 ? head.slice(0, lastSpace) : text.slice(0, limit);
+  return `${cut.replace(/[\s,;:.!?\-–—]+$/, "")}${ELLIPSIS}`;
 }
 
 export function englishAuthorUrl(url: string) {
