@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { MDXContent } from 'app/components/MDXContent';
+import { MDXContent } from '@content-collections/mdx/react';
 import { compareDesc, format, parseISO } from 'date-fns';
-import { allPosts } from 'contentlayer/generated';
+import { allPosts } from 'content-collections';
 import YoutubeEmbeddedVideo from 'app/YoutubeEmbeddedVideo';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 import { notFound } from 'next/navigation';

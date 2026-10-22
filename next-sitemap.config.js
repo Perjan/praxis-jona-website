@@ -54,8 +54,10 @@ const CONTENT_SOURCE_RULES = [
 function loadPostFileMap() {
   const map = new Map();
   try {
-    const indexPath = path.join(process.cwd(), ".contentlayer/generated/Post/_index.json");
-    const posts = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+    // content-collections writes the posts as `export default [...JSON...];`.
+    const postsPath = path.join(process.cwd(), ".content-collections/generated/allPosts.js");
+    const source = fs.readFileSync(postsPath, "utf8");
+    const posts = JSON.parse(source.replace(/^\s*export default\s*/, "").replace(/;\s*$/, ""));
     for (const post of posts) {
       const sourceFile = post._raw && post._raw.sourceFileName ? path.join("posts", post._raw.sourceFileName) : null;
       if (!sourceFile) continue;
@@ -63,7 +65,7 @@ function loadPostFileMap() {
       if (post.guideUrl) map.set(post.guideUrl, sourceFile);
     }
   } catch {
-    // Contentlayer output isn't present (e.g. sitemap regenerated without a
+    // content-collections output isn't present (e.g. sitemap regenerated without a
     // fresh build) — blog posts fall through to the generic page.tsx fallback.
   }
   return map;

@@ -1,4 +1,4 @@
-import { Post, allPosts } from 'contentlayer/generated'
+import { Post, allPosts } from 'content-collections'
 import Link from 'next/link'
 import { Metadata } from 'next'
 

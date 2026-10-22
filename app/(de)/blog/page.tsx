@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 import PaginatedPostsSection from 'app/PaginatedPostsSection'
 import { Metadata } from 'next'
 

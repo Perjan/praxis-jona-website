@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { MDXContent } from 'app/components/MDXContent'
+import { MDXContent } from '@content-collections/mdx/react'
 import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/(de)/guides/[slug]/generateMetadata";

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { allPosts } from 'contentlayer/generated';
+import { allPosts } from 'content-collections';
 import { generateMetadataForPost } from 'app/(de)/guides/[slug]/generateMetadata';
 import { BlogPostLayout } from 'app/(de)/blog/[slug]/BlogPostLayout';
 
