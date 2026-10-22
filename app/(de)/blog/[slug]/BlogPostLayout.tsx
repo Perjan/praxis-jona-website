@@ -11,6 +11,7 @@ import { Authors } from '../authors/AuthorsDataSource';
 import { DashboardTableOfContents } from 'app/toc';
 import { getTableOfContents } from 'app/lib/toc';
 import { Constants } from 'app/Constants';
+import { canonicalUrlForPost, seoDescriptionForPost } from 'app/(de)/guides/[slug]/generateMetadata';
 import {
   ArticleImage,
   ComparisonTable,
@@ -137,6 +138,8 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
 
   const structuredData = {
     ...post.structuredData,
+    description: seoDescriptionForPost(post),
+    url: canonicalUrlForPost(post),
     author: {
       '@type': 'Person',
       name: author.name,

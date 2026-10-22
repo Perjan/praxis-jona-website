@@ -47,30 +47,38 @@ function generateAlternatesIfNeeded(post: Post) {
   return alternates;
 }
 
-export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
-  
-  const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
-  const author = Authors.find((author) => author.id === (post.author ?? "jonida-gjolli"));
-
-  if (!post) {
-    return;
-  }
-
-  const {
-    title, 
-    date: publishedTime, 
-    summaryOrExcerpt: description, 
-    coverImageUrl: image
-  } = post;
-  const rawDescription = (description ?? "").replace(/\s+/g, " ").trim();
+export function seoDescriptionForPost(post: Post) {
+  const rawDescription = (post.summaryOrExcerpt ?? "").replace(/\s+/g, " ").trim();
   const withMinLength = rawDescription.length < 110
     ? `${rawDescription} ${post.categories?.includes("legal")
       ? "Weitere rechtliche Informationen der Praxis Jona in Berlin."
       : "Mehr medizinische Informationen und praktische Hinweise der Praxis Jona in Berlin."}`.trim()
     : rawDescription;
-  const seoDescription = withMinLength.length > 160
+  return withMinLength.length > 160
     ? `${withMinLength.slice(0, 157).trimEnd()}...`
     : withMinLength;
+}
+
+export function canonicalUrlForPost(post: Post) {
+  return postUrl(post, metadataLanguageForPost(post));
+}
+
+export async function generateMetadataForPost(postSlug): Promise<Metadata | undefined> {
+  
+  const post = allPosts.find((post) => post._raw.flattenedPath === postSlug);
+
+  if (!post) {
+    return;
+  }
+
+  const author = Authors.find((author) => author.id === (post.author ?? "jonida-gjolli"));
+
+  const {
+    title, 
+    date: publishedTime, 
+    coverImageUrl: image
+  } = post;
+  const seoDescription = seoDescriptionForPost(post);
   const seoTitle = title.length > 62
     ? `${title.slice(0, 59).trimEnd()}...`
     : title;

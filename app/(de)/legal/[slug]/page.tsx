@@ -4,6 +4,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'content-collections'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { generateMetadataForPost } from "app/(de)/guides/[slug]/generateMetadata";
 
 
@@ -49,6 +50,10 @@ const components = {
 const LegalPostLayout = async (props: { params: Promise<{ slug: string }> }) => {
   const params = await props.params;
   const post = legalPosts.find((post) => post._raw.flattenedPath === params.slug)
+
+  if (post == null) {
+    notFound()
+  }
 
   return (
     <div className="py-32 px-6 lg:px-8">
