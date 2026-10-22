@@ -127,8 +127,8 @@ const posts = defineCollection({
       ],
     });
 
-    // Contentlayer computed fields could not read other computed fields, so the
-    // published schema has no `description` or `url`. Keep that output unchanged.
+    // `description` and `url` are added at render time in BlogPostLayout, from the same
+    // helpers as the page metadata, because they depend on other computed fields.
     const structuredData: BlogPostingSchema = {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
