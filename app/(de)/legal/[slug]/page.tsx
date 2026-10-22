@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { getMDXComponent } from 'next-contentlayer/hooks'
+import { MDXContent } from '@content-collections/mdx/react'
 import { compareDesc, format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
+import { allPosts } from 'content-collections'
 import YoutubeEmbeddedVideo from "app/YoutubeEmbeddedVideo";
 import { Metadata } from "next";
 import { generateMetadataForPost } from "app/(de)/guides/[slug]/generateMetadata";
@@ -50,8 +50,6 @@ const LegalPostLayout = async (props: { params: Promise<{ slug: string }> }) => 
   const params = await props.params;
   const post = legalPosts.find((post) => post._raw.flattenedPath === params.slug)
 
-  const Content = getMDXComponent(post.body.code)
-
   return (
     <div className="py-32 px-6 lg:px-8">
     <div className="mx-auto max-w-3xl text-base leading-7">
@@ -73,7 +71,7 @@ const LegalPostLayout = async (props: { params: Promise<{ slug: string }> }) => 
           <h1 className="mt-2 mb-0 text-3xl font-bold tracking-tight sm:text-4xl">
             {post.title}
           </h1>
-          <Content components={{...components}} />
+          <MDXContent code={post.body.code} components={{...components}} />
         </section>
       </article>
     </div>

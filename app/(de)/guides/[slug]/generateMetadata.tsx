@@ -1,6 +1,6 @@
 import { Constants } from 'app/Constants';
 import Authors from 'app/(de)/blog/authors/AuthorsDataSource';
-import { Post, allPosts } from 'contentlayer/generated';
+import { Post, allPosts } from 'content-collections';
 import { Metadata } from "next";
 
 const baseUrl = Constants.baseUrl;

@@ -1,4 +1,4 @@
-import { allPosts } from "contentlayer/generated"
+import { allPosts } from "content-collections"
 import { Metadata } from "next"
 import { generateMetadataForPost } from "app/(de)/guides/[slug]/generateMetadata"
 import LegalPostLayout from "app/(de)/legal/[slug]/page"

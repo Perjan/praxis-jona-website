@@ -9,5 +9,5 @@ export default defineConfig([
       "react/no-unescaped-entities": 0,
     },
   },
-  globalIgnores([".next/**", ".contentlayer/**", "out/**", "build/**", "next-env.d.ts"]),
+  globalIgnores([".next/**", ".content-collections/**", "out/**", "build/**", "next-env.d.ts"]),
 ]);

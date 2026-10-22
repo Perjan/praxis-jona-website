@@ -35,9 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# contentlayer
-.contentlayer
-/.contentlayer
+# content-collections
+.content-collections
+/.content-collections
 /public/sitemap-0.xml
 .env
 /.playwright-mcp
