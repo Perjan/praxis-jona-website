@@ -14,12 +14,12 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
   return generateMetadataForPost(`en/${params.slug}`);
 }
 
-export default async function PostLayout({ params }: { params: { slug: string } }) {
+export default async function PostLayout(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   return BlogPostLayout({ flattenedPath: `en/${params.slug}`, locale: "en" });
 }

@@ -124,7 +124,8 @@ function notFoundMarkdown(canonicalUrl: string): string {
   ].join("\n");
 }
 
-export async function GET(request: NextRequest, { params }: { params: { slug?: string[] } }) {
+export async function GET(request: NextRequest, props: { params: Promise<{ slug?: string[] }> }) {
+  const params = await props.params;
   const segments = params.slug ?? [];
   // middleware maps "/" to the handler root, and the /index.md alternate URL to
   // ["index"]; both mean the home page.

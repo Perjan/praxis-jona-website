@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 
 const legalPosts = allPosts.filter((post) => post.categories?.includes('legal'))
 
-export function getLegalPosts(locale: Locale = "de") {
+function getLegalPosts(locale: Locale = "de") {
   const slug = locale === "en" ? "imprint-privacy" : "impressum-datenschutz"
   return legalPosts.filter((post) => post._raw.flattenedPath === slug)
 }
@@ -85,7 +85,7 @@ function PostSection({ posts, locale }: { posts: Post[]; locale: Locale }) {
   )
 }
 
-export function LegalIndexPage({ locale = "de" }: { locale?: Locale } = {}) {
+function LegalIndexPage({ locale = "de" }: { locale?: Locale } = {}) {
   const posts = getLegalPosts(locale)
 
   return (

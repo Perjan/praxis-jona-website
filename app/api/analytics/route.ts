@@ -1,7 +1,7 @@
 import { Constants } from "app/Constants";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextRequest) {
 
   const { searchParams } = new URL(req.url)
   const eventName = searchParams.get('event-name')

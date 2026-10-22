@@ -9,11 +9,12 @@ export function generateStaticParams() {
   }));
 }
 
-export default function TVNewSingleSlidePage({
-  params,
-}: {
-  params: { slideId: string };
-}) {
+export default async function TVNewSingleSlidePage(
+  props: {
+    params: Promise<{ slideId: string }>;
+  }
+) {
+  const params = await props.params;
   const slide = getTVSlideByIdEn(params.slideId);
 
   if (!slide) {

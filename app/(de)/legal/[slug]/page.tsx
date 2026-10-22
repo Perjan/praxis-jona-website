@@ -15,9 +15,8 @@ export async function generateStaticParams() {
     .map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
   return generateMetadataForPost(params.slug);
 }
 
@@ -47,7 +46,8 @@ const components = {
 };
 
 // https://www.sandromaglione.com/techblog/contentlayer-blog-template-with-nextjs
-export const LegalPostLayout = ({ params }: { params: { slug: string } }) => {
+const LegalPostLayout = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const post = legalPosts.find((post) => post._raw.flattenedPath === params.slug)
 
   const Content = getMDXComponent(post.body.code)

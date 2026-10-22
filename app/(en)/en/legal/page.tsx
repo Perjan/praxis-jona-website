@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { LegalIndexPage } from "app/(de)/legal/page"
+import LegalIndexPage from "app/(de)/legal/page"
 
 export const metadata: Metadata = {
   title: "Imprint, Privacy & Legal",

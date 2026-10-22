@@ -8,9 +8,8 @@ import { Metadata } from "next";
 const title = "About the Author";
 const description = "Author profile for Praxis Jona articles, including medical expertise, professional experience and background.";
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
   const author = Authors.find((author) => author.id === params.slug);
 
   if (!author) {
@@ -56,7 +55,8 @@ export async function generateMetadata({
   };
 }
 
-export default function AuthorPage({ params }: { params: { slug: string } }) {
+export default async function AuthorPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const author = Authors.find((author) => author.id === params.slug);
 
   if (author == null) {
