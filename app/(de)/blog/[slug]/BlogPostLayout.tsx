@@ -11,7 +11,7 @@ import { Authors } from '../authors/AuthorsDataSource';
 import { DashboardTableOfContents } from 'app/toc';
 import { getTableOfContents } from 'app/lib/toc';
 import { Constants } from 'app/Constants';
-import { canonicalUrlForPost, seoDescriptionForPost } from 'app/(de)/guides/[slug]/generateMetadata';
+import { canonicalUrlForPost, englishAuthorUrl, seoDescriptionForPost } from 'app/(de)/guides/[slug]/generateMetadata';
 import {
   ArticleImage,
   ComparisonTable,
@@ -143,8 +143,8 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
     author: {
       '@type': 'Person',
       name: author.name,
-      ...(author.role ? { jobTitle: author.role } : {}),
-      url: `${Constants.baseUrl}${locale === "en" && author.url.startsWith("/blog/") ? author.url.replace("/blog/", "/en/blog/") : author.url}`,
+      ...(author.role ? { jobTitle: locale === "en" ? author.roleEn ?? author.role : author.role } : {}),
+      url: `${Constants.baseUrl}${locale === "en" ? englishAuthorUrl(author.url) : author.url}`,
     },
     publisher: post.structuredData?.publisher ?? {
       '@type': 'Organization',
