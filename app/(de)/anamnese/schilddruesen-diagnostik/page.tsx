@@ -338,7 +338,7 @@ export default function ThyroidDiagnosticsPage({ locale = "de" }: { locale?: Loc
         </header>
 
         <div ref={scrollContainerRef} className="relative flex-1 overflow-y-auto px-4 py-5 pb-28">
-          <form id="thyroid-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-7" noValidate>
+          <form id="thyroid-form" onSubmit={(event) => handleSubmit(onSubmit)(event)} className="flex flex-col gap-7" noValidate>
             {currentStep === "base" && <FieldGroup>
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold leading-tight">{copy.title}</h2>

@@ -4,17 +4,20 @@ import { forwardRef, useImperativeHandle } from "react";
 import { describe, expect, it, vi } from "vitest";
 
 import ThyroidDiagnosticsPage from "@/app/(de)/anamnese/schilddruesen-diagnostik/page";
-
-vi.mock("next/image", () => ({
-  default: (props: any) => <img alt={props.alt} src={props.src?.src ?? props.src} />,
-}));
+import { TEST_SIGNATURE } from "../anamnese/fixtures";
 
 vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
-  default: forwardRef(({ clearLabel }: { clearLabel: string }, ref) => {
-    useImperativeHandle(ref, () => ({ clear: vi.fn(), getSignature: vi.fn() }));
+  default: forwardRef(function MockSignaturePad(
+    { value, onChange, clearLabel }: { value: string; onChange: (value: string) => void; clearLabel: string },
+    ref
+  ) {
+    useImperativeHandle(ref, () => ({ clear: vi.fn(), getSignature: () => value }));
     return (
       <div>
         <canvas aria-label="signature-pad" />
+        <button type="button" onClick={() => onChange(TEST_SIGNATURE)}>
+          Mock signature
+        </button>
         <button type="button">{clearLabel}</button>
       </div>
     );
@@ -58,5 +61,38 @@ describe("ThyroidDiagnosticsPage", () => {
     expect(screen.getByLabelText(/Reason for thyroid examination/)).toBeVisible();
     expect(screen.getByRole("button", { name: /Next/ })).toBeVisible();
     expect(screen.queryByRole("button", { name: "Submit" })).not.toBeInTheDocument();
+  });
+
+  it("submits the completed form with the signature to the API", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ success: true }) });
+    vi.stubGlobal("fetch", fetchMock);
+    const user = userEvent.setup();
+    render(<ThyroidDiagnosticsPage />);
+
+    for (let step = 0; step < 4; step += 1) {
+      await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    }
+    await user.type(screen.getByLabelText(/Name/), "Max Mustermann");
+    await user.type(screen.getByLabelText(/Geboren am/), "01.01.1980");
+    await user.type(screen.getByLabelText(/Adresse/), "Torstr. 125");
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Hiermit willige ich ein/));
+    await user.type(screen.getByLabelText(/Ort und Datum/), "Berlin, 22.10.2026");
+    await user.click(screen.getByRole("button", { name: "Mock signature" }));
+    await user.click(screen.getByRole("button", { name: "Absenden" }));
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe("/api/schilddruesen-diagnostik");
+    expect(JSON.parse(String(init?.body))).toMatchObject({
+      privacy: {
+        patientName: "Max Mustermann",
+        birthdate: "01.01.1980",
+        address: "Torstr. 125",
+        consentAccepted: true,
+        placeDate: "Berlin, 22.10.2026",
+      },
+      signature: TEST_SIGNATURE,
+    });
   });
 });

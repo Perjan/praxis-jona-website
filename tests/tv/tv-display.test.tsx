@@ -52,4 +52,43 @@ describe('TV display', () => {
     act(() => vi.advanceTimersByTime(900));
     expect(container.querySelectorAll('section')).toHaveLength(1);
   });
+
+  it('keeps a route-forced slide visible with a full progress bar', () => {
+    vi.useFakeTimers();
+    const { container } = render(<TVNewPageClient slides={slides} forcedSlideId="slide-2" />);
+    const progressBar = () => container.querySelector<HTMLElement>('[style*="width"]');
+    expect(container.querySelectorAll('section')).toHaveLength(1);
+    expect(screen.getByText('Title 2')).toBeVisible();
+    expect(progressBar()).toHaveStyle({ width: '100%' });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Slide 1: Title 0' }));
+    expect(container.querySelectorAll('section')).toHaveLength(1);
+    expect(screen.getByText('Title 2')).toBeVisible();
+    expect(progressBar()).toHaveStyle({ width: '100%' });
+
+    act(() => vi.advanceTimersByTime(60000));
+    expect(container.querySelectorAll('section')).toHaveLength(1);
+    expect(screen.getByText('Title 2')).toBeVisible();
+    expect(progressBar()).toHaveStyle({ width: '100%' });
+  });
+
+  it('restarts the progress bar when the slide changes', () => {
+    vi.useFakeTimers();
+    const { container } = render(<TVNewPageClient slides={slides} />);
+    const progressBar = () => container.querySelector<HTMLElement>('[style*="width"]');
+    expect(progressBar()).toHaveStyle({ width: '0%' });
+
+    act(() => vi.advanceTimersByTime(15000));
+    expect(progressBar()).toHaveStyle({ width: '50%' });
+
+    fireEvent.click(screen.getByRole('button', { name: 'Slide 3: Title 2' }));
+    expect(progressBar()).toHaveStyle({ width: '0%' });
+
+    act(() => vi.advanceTimersByTime(15000));
+    expect(progressBar()).toHaveStyle({ width: '50%' });
+
+    act(() => vi.advanceTimersByTime(15000));
+    expect(screen.getByText('Title 3')).toBeVisible();
+    expect(progressBar()).toHaveStyle({ width: '0%' });
+  });
 });

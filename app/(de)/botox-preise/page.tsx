@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
@@ -115,7 +116,7 @@ export default function Page() {
                         <p className="mt-4 text-base leading-7 text-primaryLighter">
                             Alle Preise verstehen sich als Richtwerte und werden vor der Behandlung transparent besprochen.
                             Für medizinische Fragestellungen oder individuelle Empfehlungen vereinbaren Sie bitte ein Beratungsgespräch.
-                            Weitere ästhetische Preise finden Sie in der <a href="/aesthetik/preise" className="font-semibold underline underline-offset-4">Ästhetik-Preisübersicht</a>.
+                            Weitere ästhetische Preise finden Sie in der <Link href="/aesthetik/preise" className="font-semibold underline underline-offset-4">Ästhetik-Preisübersicht</Link>.
                         </p>
                         <p className="mt-4 rounded-lg border border-primary/10 bg-white p-4 text-sm leading-6 text-primaryLighter">
                             Botox® ist eine eingetragene Marke. Medizinisch sprechen wir auf dieser Seite allgemein von Botulinumtoxin. Die konkrete Präparation wird im ärztlichen Gespräch besprochen.

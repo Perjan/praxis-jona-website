@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import SectionWithColor from "app/SectionWithColor";
 import React from "react";
 import BotoxPriceTable from "app/components/BotoxPriceTable";
@@ -114,7 +115,7 @@ export default function Page() {
                         <p className="mt-4 text-base leading-7 text-primaryLighter">
                             Prices are guideline values and are discussed transparently before treatment.
                             For suitability and personal recommendations, please book a consultation.
-                            More aesthetic prices are available in the <a href="/en/aesthetics/prices" className="font-semibold underline underline-offset-4">aesthetics price overview</a>.
+                            More aesthetic prices are available in the <Link href="/en/aesthetics/prices" className="font-semibold underline underline-offset-4">aesthetics price overview</Link>.
                         </p>
                         <p className="mt-4 rounded-lg border border-primary/10 bg-white p-4 text-sm leading-6 text-primaryLighter">
                             Botox® is a registered trademark. On this page, we use the medical term botulinum toxin. The specific preparation is discussed during medical consultation.

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -103,7 +104,7 @@ describe("booking CTA attribution", () => {
     render(
       <>
         <BookingAttribution />
-        <a href="/team">Meet the team</a>
+        <Link href="/team">Meet the team</Link>
         <button type="button">Close</button>
       </>,
     );

@@ -7,7 +7,7 @@ import EiseninfusionPage from "@/app/(de)/anamnese/eiseninfusion/page";
 import { TEST_SIGNATURE } from "../anamnese/fixtures";
 
 vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
-  default: forwardRef(({ value, onChange, clearLabel }: any, ref) => {
+  default: forwardRef(function MockSignaturePad({ value, onChange, clearLabel }: any, ref) {
     const valueRef = useRef(value);
     valueRef.current = value;
     useImperativeHandle(ref, () => ({
@@ -88,5 +88,33 @@ describe("EiseninfusionPage", () => {
 
     expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
     expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("submits the completed form with the signature to the API", async () => {
+    const user = userEvent.setup();
+    render(<EiseninfusionPage />);
+
+    await user.type(screen.getByLabelText(/Patientenname/), "Max Mustermann");
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Patienteneigene Verantwortung/));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Einverständniserklärung/));
+    await user.type(screen.getByLabelText(/Kürzel Arzt/), "JG");
+    await user.type(screen.getByLabelText(/Datum/), "22.10.2026");
+    await user.click(screen.getByRole("button", { name: "Mock signature" }));
+    await user.click(screen.getByRole("button", { name: "Absenden" }));
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+    const [url, init] = vi.mocked(fetch).mock.calls[0];
+    expect(url).toBe("/api/eisenaufklaerung");
+    expect(JSON.parse(String(init?.body))).toMatchObject({
+      patientName: "Max Mustermann",
+      monitoringWaiverAccepted: true,
+      consentAccepted: true,
+      doctorInitials: "JG",
+      date: "22.10.2026",
+      signature: TEST_SIGNATURE,
+    });
   });
 });

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { getMDXComponent } from 'next-contentlayer/hooks';
+import { MDXContent } from 'app/components/MDXContent';
 import { compareDesc, format, parseISO } from 'date-fns';
 import { allPosts } from 'contentlayer/generated';
 import YoutubeEmbeddedVideo from 'app/YoutubeEmbeddedVideo';
@@ -135,7 +135,6 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
   const previousPost = posts[postIndex + 1];
   const relatedArticles = posts.slice(postIndex + 1, postIndex + 6);
 
-  const Content = getMDXComponent(post.body.code);
   const structuredData = {
     ...post.structuredData,
     author: {
@@ -193,7 +192,7 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
                   />
                 )}
 
-                <Content components={{ ...components }} />
+                <MDXContent code={post.body.code} components={{ ...components }} />
               </section>
             </article>
 

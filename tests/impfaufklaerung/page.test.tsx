@@ -7,7 +7,7 @@ import ImpfaufklaerungPage from "@/app/(de)/anamnese/impfaufklaerung/page";
 import { TEST_SIGNATURE } from "../anamnese/fixtures";
 
 vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
-  default: forwardRef(({ value, onChange, clearLabel }: any, ref) => {
+  default: forwardRef(function MockSignaturePad({ value, onChange, clearLabel }: any, ref) {
     const valueRef = useRef(value);
     valueRef.current = value;
     useImperativeHandle(ref, () => ({
@@ -105,5 +105,42 @@ describe("ImpfaufklaerungPage", () => {
 
     expect(await screen.findAllByText("This field is required")).not.toHaveLength(0);
     expect(fetch).not.toHaveBeenCalled();
+  });
+
+  it("submits the completed form with the signature to the API", async () => {
+    const user = userEvent.setup();
+    render(<ImpfaufklaerungPage />);
+
+    await user.type(screen.getByLabelText(/Name der Schutzimpfung/), "FSME");
+    await user.type(screen.getByLabelText(/Familienname, Vorname/), "Max Mustermann");
+    await user.type(screen.getByLabelText(/Geburtsdatum/), "01.01.1980");
+    await user.click(screen.getByLabelText("männlich"));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    for (const label of screen.getAllByLabelText("Nein")) {
+      await user.click(label);
+    }
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    for (const label of screen.getAllByLabelText("Nein")) {
+      await user.click(label);
+    }
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Impfkomplikationen und Risikoaufklärung/));
+    await user.click(screen.getByRole("button", { name: /Weiter/ }));
+    await user.click(screen.getByLabelText(/Ich bin mit der Impfung einverstanden/));
+    await user.type(screen.getByLabelText(/Ort, Datum/), "Berlin, 22.10.2026");
+    await user.click(screen.getByRole("button", { name: "Mock signature" }));
+    await user.click(screen.getByRole("button", { name: "Absenden" }));
+
+    expect(fetch).toHaveBeenCalledTimes(1);
+    const [url, init] = vi.mocked(fetch).mock.calls[0];
+    expect(url).toBe("/api/impfaufklaerung");
+    expect(JSON.parse(String(init?.body))).toMatchObject({
+      vaccineName: "FSME",
+      patientName: "Max Mustermann",
+      birthdate: "01.01.1980",
+      consentAccepted: true,
+      placeDate: "Berlin, 22.10.2026",
+      signature: TEST_SIGNATURE,
+    });
   });
 });
