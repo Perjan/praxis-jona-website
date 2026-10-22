@@ -47,16 +47,30 @@ function generateAlternatesIfNeeded(post: Post) {
   return alternates;
 }
 
+const DESCRIPTION_SUFFIXES = {
+  de: {
+    legal: "Weitere rechtliche Informationen der Praxis Jona in Berlin.",
+    default: "Mehr medizinische Informationen und praktische Hinweise der Praxis Jona in Berlin.",
+  },
+  en: {
+    legal: "More legal information from Praxis Jona in Berlin.",
+    default: "More medical information and practical advice from Praxis Jona in Berlin.",
+  },
+};
+
 export function seoDescriptionForPost(post: Post) {
   const rawDescription = (post.summaryOrExcerpt ?? "").replace(/\s+/g, " ").trim();
+  const suffixes = DESCRIPTION_SUFFIXES[metadataLanguageForPost(post) === "en" ? "en" : "de"];
   const withMinLength = rawDescription.length < 110
-    ? `${rawDescription} ${post.categories?.includes("legal")
-      ? "Weitere rechtliche Informationen der Praxis Jona in Berlin."
-      : "Mehr medizinische Informationen und praktische Hinweise der Praxis Jona in Berlin."}`.trim()
+    ? `${rawDescription} ${post.categories?.includes("legal") ? suffixes.legal : suffixes.default}`.trim()
     : rawDescription;
   return withMinLength.length > 160
     ? `${withMinLength.slice(0, 157).trimEnd()}...`
     : withMinLength;
+}
+
+export function englishAuthorUrl(url: string) {
+  return url.startsWith("/blog/") ? url.replace("/blog/", "/en/blog/") : url;
 }
 
 export function canonicalUrlForPost(post: Post) {
@@ -92,7 +106,7 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     authors: [
       {
         name: author.name,
-        url: author.url
+        url: metadataLanguage === "en" ? englishAuthorUrl(author.url) : author.url
       }
     ],
     openGraph: {
