@@ -3,7 +3,12 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { HTMLAttributes, ReactNode } from "react";
 
-type MotionProps = HTMLAttributes<HTMLElement> & {
+// React 19 DOM event types clash with framer-motion's own drag/animation
+// handler types, so leave those handlers out of the pass-through props.
+type MotionProps = Omit<
+  HTMLAttributes<HTMLElement>,
+  "onDrag" | "onDragStart" | "onDragEnd" | "onAnimationStart"
+> & {
   children: ReactNode;
   delay?: number;
 };

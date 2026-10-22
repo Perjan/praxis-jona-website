@@ -10,9 +10,8 @@ import { Constants } from "app/Constants";
 const title = "Über den Autor"
 const description = "Dies ist die Seite des Autors. Sie zeigt das Fachwissen des Autors, seine Berufserfahrung und seine Persönlichkeit."
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
 
   const author = Authors.find((author) => author.id === params.slug)
 
@@ -51,7 +50,8 @@ export async function generateMetadata({
   }
 }
 
-export default function AuthorPage({ params }: { params: { slug: string } }) {
+export default async function AuthorPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
 
   const author = Authors.find((author) => author.id === params.slug)
 

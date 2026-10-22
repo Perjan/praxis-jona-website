@@ -1,8 +1,11 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import TVLayoutClient from '../tv-legacy/TVLayoutClient';
 
-export const metadata: Metadata = {
+export const viewport: Viewport = {
   colorScheme: 'only light',
+};
+
+export const metadata: Metadata = {
   alternates: {
     canonical: '/tv',
   },

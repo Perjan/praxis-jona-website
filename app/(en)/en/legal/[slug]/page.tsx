@@ -1,7 +1,7 @@
 import { allPosts } from "contentlayer/generated"
 import { Metadata } from "next"
 import { generateMetadataForPost } from "app/(de)/guides/[slug]/generateMetadata"
-import { LegalPostLayout } from "app/(de)/legal/[slug]/page"
+import LegalPostLayout from "app/(de)/legal/[slug]/page"
 
 const legalPosts = allPosts.filter((post) => post.categories?.includes("legal"))
 
@@ -11,9 +11,8 @@ export async function generateStaticParams() {
     .map((post) => ({ slug: post.slug }))
 }
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
   return generateMetadataForPost(params.slug)
 }
 

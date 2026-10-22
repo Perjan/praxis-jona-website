@@ -10,16 +10,17 @@ import {
 } from "app/content/botulinumtoxin";
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export function generateStaticParams() {
   return botulinumtoxinServices.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const params = await props.params;
   const service = getBotulinumtoxinService(params.slug);
 
   if (!service) {
@@ -35,7 +36,8 @@ export function generateMetadata({ params }: PageProps): Metadata {
   });
 }
 
-export default function Page({ params }: PageProps) {
+export default async function Page(props: PageProps) {
+  const params = await props.params;
   const service = getBotulinumtoxinService(params.slug);
 
   if (!service) {

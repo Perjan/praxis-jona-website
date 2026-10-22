@@ -8,7 +8,7 @@ function isNegotiable(request: NextRequest): boolean {
   return request.method === "GET" || request.method === "HEAD";
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
   if (pathname === "/de" || pathname.startsWith("/de/")) {

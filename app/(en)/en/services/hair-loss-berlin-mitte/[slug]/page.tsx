@@ -15,7 +15,8 @@ export function generateStaticParams() {
   return getAestheticDetailPages(sectionKey, "en").map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const params = await props.params;
   const page = getAestheticDetailPage(sectionKey, params.slug, "en");
 
   if (!page) {
@@ -31,7 +32,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   });
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const page = getAestheticDetailPage(sectionKey, params.slug, "en");
 
   if (!page) {
