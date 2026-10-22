@@ -282,7 +282,7 @@ export default function ImpfaufklaerungPage({ locale = "de" }: { locale?: Locale
         </header>
 
         <div ref={scrollContainerRef} className="relative flex-1 overflow-y-auto px-4 py-5 pb-28">
-          <form id="impfaufklaerung-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-7" noValidate>
+          <form id="impfaufklaerung-form" onSubmit={(event) => handleSubmit(onSubmit)(event)} className="flex flex-col gap-7" noValidate>
             {currentStep === "personal" && <FieldGroup>
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold leading-tight">{copy.personalHeading}</h2>

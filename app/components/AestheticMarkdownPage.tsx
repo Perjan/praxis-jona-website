@@ -828,13 +828,12 @@ function renderInlineText(text: string) {
 }
 
 function RenderNodes({ nodes, skipFirstHeading = false }: { nodes: MarkdownNode[]; skipFirstHeading?: boolean }) {
-  let firstHeadingSkipped = false;
+  const skippedHeadingIndex = skipFirstHeading ? nodes.findIndex((node) => node.type === "h1") : -1;
 
   return (
     <div className="space-y-7">
       {nodes.map((node, index) => {
-        if (skipFirstHeading && node.type === "h1" && !firstHeadingSkipped) {
-          firstHeadingSkipped = true;
+        if (index === skippedHeadingIndex) {
           return null;
         }
 

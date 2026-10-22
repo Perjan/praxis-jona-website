@@ -78,6 +78,7 @@ export default function TVPageClient({ baseImages }: TVPageClientProps) {
     const timer = setTimeout(() => {
       setPreviousImageIndex(currentImageIndex);
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % baseImages.length);
+      setProgress(0);
       setCacheBuster(null);
 
       // Clear previous index after fade is complete
@@ -91,9 +92,8 @@ export default function TVPageClient({ baseImages }: TVPageClientProps) {
     return () => clearTimeout(timer);
   }, [currentImageIndex, baseImages.length]);
 
-  // Handle progress bar update
+  // Handle progress bar update. The slide timer resets progress to 0 when it changes the slide.
   useEffect(() => {
-    setProgress(0);
     const startTime = Date.now();
 
     const updateProgress = () => {

@@ -7,7 +7,7 @@ import AnamnesePage from "@/app/(de)/anamnese/medical-history/page";
 import { TEST_SIGNATURE } from "./fixtures";
 
 vi.mock("@/app/(de)/anamnese/SignaturePad", () => ({
-  default: forwardRef(({ value, onChange, clearLabel }: any, ref) => {
+  default: forwardRef(function MockSignaturePad({ value, onChange, clearLabel }: any, ref) {
     const valueRef = useRef(value);
     valueRef.current = value;
     useImperativeHandle(ref, () => ({

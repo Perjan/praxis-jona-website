@@ -77,17 +77,24 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
   }, [searchParams, slides.length]);
 
   const forcedSlideIndex = routeForcedSlideIndex;
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(routeForcedSlideIndex ?? queryForcedSlideIndex ?? 0);
-  const [previousSlideIndex, setPreviousSlideIndex] = useState<number | null>(null);
-  const [progress, setProgress] = useState(0);
+  const [selectedSlideIndex, setSelectedSlideIndex] = useState(routeForcedSlideIndex ?? queryForcedSlideIndex ?? 0);
+  const [exitingSlideIndex, setExitingSlideIndex] = useState<number | null>(null);
+  // Progress belongs to one slide, so a late tick from the previous slide cannot show on the next slide.
+  const [timerProgress, setTimerProgress] = useState({ slideIndex: selectedSlideIndex, value: 0 });
+  // A route-forced slide always stays visible, without a fade and with a full progress bar.
+  const currentSlideIndex = forcedSlideIndex ?? selectedSlideIndex;
+  const previousSlideIndex = forcedSlideIndex !== null ? null : exitingSlideIndex;
+  const progress = forcedSlideIndex !== null
+    ? 100
+    : timerProgress.slideIndex === selectedSlideIndex ? timerProgress.value : 0;
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const goToSlide = (index: number) => {
     if (index === currentSlideIndex) return;
 
-    setPreviousSlideIndex(currentSlideIndex);
-    setCurrentSlideIndex(index);
-    setProgress(forcedSlideIndex !== null ? 100 : 0);
+    setExitingSlideIndex(currentSlideIndex);
+    setSelectedSlideIndex(index);
+    setTimerProgress({ slideIndex: index, value: 0 });
     window.history.replaceState(null, '', `${locale === 'en' ? '/en/tv' : '/tv'}?slide=${index + 1}`);
   };
 
@@ -106,43 +113,36 @@ export default function TVNewPageClient({ forcedSlideId, slides = TV_NEW_SLIDES,
   };
 
   useEffect(() => {
-    if (previousSlideIndex === null) return;
-    const timer = window.setTimeout(() => setPreviousSlideIndex(null), ANIMATION_DURATION);
+    if (exitingSlideIndex === null) return;
+    const timer = window.setTimeout(() => setExitingSlideIndex(null), ANIMATION_DURATION);
     return () => window.clearTimeout(timer);
-  }, [previousSlideIndex, currentSlideIndex]);
+  }, [exitingSlideIndex, selectedSlideIndex]);
 
   useEffect(() => {
-    if (forcedSlideIndex !== null) {
-      setCurrentSlideIndex(forcedSlideIndex);
-      setPreviousSlideIndex(null);
-      setProgress(100);
-      return;
-    }
+    if (forcedSlideIndex !== null) return;
 
     const timer = setTimeout(() => {
-      setPreviousSlideIndex(currentSlideIndex);
-      setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+      const nextSlideIndex = (selectedSlideIndex + 1) % slides.length;
+      setExitingSlideIndex(selectedSlideIndex);
+      setSelectedSlideIndex(nextSlideIndex);
+      setTimerProgress({ slideIndex: nextSlideIndex, value: 0 });
     }, SLIDE_DURATION);
 
     return () => clearTimeout(timer);
-  }, [currentSlideIndex, forcedSlideIndex, slides.length]);
+  }, [selectedSlideIndex, forcedSlideIndex, slides.length]);
 
   useEffect(() => {
-    if (forcedSlideIndex !== null) {
-      setProgress(100);
-      return;
-    }
+    if (forcedSlideIndex !== null) return;
 
-    setProgress(0);
     const start = Date.now();
     const interval = setInterval(() => {
       const elapsed = Date.now() - start;
-      setProgress(Math.min(100, (elapsed / SLIDE_DURATION) * 100));
+      setTimerProgress({ slideIndex: selectedSlideIndex, value: Math.min(100, (elapsed / SLIDE_DURATION) * 100) });
       if (elapsed >= SLIDE_DURATION) clearInterval(interval);
     }, 50);
 
     return () => clearInterval(interval);
-  }, [currentSlideIndex, forcedSlideIndex]);
+  }, [selectedSlideIndex, forcedSlideIndex]);
 
   useEffect(() => {
     const onFullscreen = () => setIsFullscreen(Boolean(document.fullscreenElement));
