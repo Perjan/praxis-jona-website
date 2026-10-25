@@ -128,9 +128,9 @@ function EditorialTable({
       <table className="w-full table-fixed border-collapse text-left text-sm sm:text-base">
         <caption className="sr-only">{caption}</caption>
         <colgroup>
-          <col className="w-[48%]" />
-          <col className="w-[26%]" />
-          <col className="w-[26%]" />
+          <col className="w-[40%] sm:w-[48%]" />
+          <col className="w-[30%] sm:w-[26%]" />
+          <col className="w-[30%] sm:w-[26%]" />
         </colgroup>
         <thead>
           <tr className="border-b border-primary/25 text-xs uppercase tracking-wide text-primary/70">

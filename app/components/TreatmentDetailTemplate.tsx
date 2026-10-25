@@ -73,10 +73,10 @@ export function TreatmentFactStrip({
                     />
                   </div>
                   <div className="min-w-0">
-                    <h2 className="font-sans text-xl font-semibold leading-tight text-white sm:text-2xl">
+                    <h2 className="break-words hyphens-auto font-sans text-xl font-semibold leading-tight text-white sm:text-2xl">
                       {fact.title}
                     </h2>
-                    <p className="mt-2 text-base leading-7 text-white/70 sm:text-lg [&_strong]:font-semibold [&_strong]:text-white/70">
+                    <p className="mt-2 break-words hyphens-auto text-base leading-7 text-white/70 sm:text-lg [&_strong]:font-semibold [&_strong]:text-white/70">
                       {fact.body}
                     </p>
                   </div>
@@ -113,7 +113,7 @@ export function TreatmentDetailHero({
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-primary/70">
             {eyebrow}
           </p>
-          <h1 className="mt-4 break-words font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">
+          <h1 className="mt-4 break-words hyphens-auto font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">
             {title}
           </h1>
           {paragraphs.length > 0 && (
@@ -194,7 +194,7 @@ export function TreatmentRelatedCards({
                 delay={Math.min(index * 0.04, 0.2)}
                 className="h-full"
               >
-                <h3 className="font-serif text-xl font-semibold text-primary">
+                <h3 className="break-words hyphens-auto font-serif text-xl font-semibold text-primary">
                   {item.title}
                 </h3>
                 <p className="mt-3 text-sm leading-6 text-primaryLighter">
