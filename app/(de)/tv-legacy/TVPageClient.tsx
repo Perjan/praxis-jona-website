@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import ImageDisclosure from 'app/components/ImageDisclosure';
 
 const SLIDE_DURATION = 30000; // 30 seconds
 const ANIMATION_DURATION = 4000; // 4 seconds
 
 interface TVPageClientProps {
   baseImages: string[];
+  locale?: "de" | "en";
 }
 
-export default function TVPageClient({ baseImages }: TVPageClientProps) {
+export default function TVPageClient({ baseImages, locale = "de" }: TVPageClientProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [previousImageIndex, setPreviousImageIndex] = useState<number | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -158,6 +160,7 @@ export default function TVPageClient({ baseImages }: TVPageClientProps) {
                   sizes="100vw"
                   onError={() => console.error('Error loading image:', imgSrc)}
                 />
+                <ImageDisclosure src={imgSrc} locale={locale} placement="top-left" />
               </div>
             </div>
           );
