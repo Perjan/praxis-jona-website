@@ -133,7 +133,7 @@ function EditorialTable({
           <col className="w-[30%] sm:w-[26%]" />
         </colgroup>
         <thead>
-          <tr className="border-b border-primary/25 text-xs uppercase tracking-wide text-primary/70">
+          <tr className="border-b border-primary/25 text-[11px] uppercase tracking-normal text-primary/70 sm:text-xs sm:tracking-wide">
             {block.headers!.map((header) => (
               <th
                 key={header}
