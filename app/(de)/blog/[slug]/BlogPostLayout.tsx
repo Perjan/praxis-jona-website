@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AppointmentBookingButton from 'app/components/AppointmentBookingButton';
 import Image from 'next/image';
 import { MDXContent } from '@content-collections/mdx/react';
 import { compareDesc, format, parseISO } from 'date-fns';
@@ -118,6 +119,7 @@ const components = {
   MetricCards,
   ProcessSteps,
   SimpleBarChart,
+  AppointmentBookingButton,
 };
 
 export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flattenedPath: string; locale?: "de" | "en" }) => {
