@@ -21,9 +21,10 @@ Record the basis in its evidence group. Keep real staff portraits and documentar
 ## Edit the badge
 
 Keep the label visible without hovering, clicking, or opening another page.
-The current compact treatment uses normal 12px text, 16px line height, small padding, and a near-opaque white background.
-Use at least 4.5:1 contrast for small text. Do not shrink or fade the label to make it less noticeable.
-These dimensions are a project choice, not a statutory minimum.
+The current treatment uses a 12px base font, 16px base line height, small padding, and a white background.
+The owner requested a 70% badge scale and 50% whole-badge opacity on 2026-10-25. Preserve this explicit preference.
+Use the shared component for further changes. Treat readability and contrast as review points.
+These settings are a project choice, not a statutory minimum or a compliance guarantee.
 
 Use the existing localized wording: `KI-generiert` / `AI-generated` or `Symbolbild` / `Illustrative image`.
 The component compensates for the TV canvas scale. Preserve this when editing its text sizing.
