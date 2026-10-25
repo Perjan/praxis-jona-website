@@ -89,7 +89,7 @@ export default function PricingTableSection({
             )}
           </colgroup>
           <thead>
-            <tr className="border-b border-primaryLighter/25 text-xs uppercase tracking-[0.04em] text-primaryLighter/70 sm:text-sm sm:tracking-[0.08em]">
+            <tr className="border-b border-primaryLighter/25 text-xs uppercase tracking-[0.04em] text-primaryLighter/80 sm:text-sm sm:tracking-[0.08em]">
               <th className="py-3 pr-2 font-semibold sm:pr-5">{treatmentLabel}</th>
               <th className="py-3 px-1 text-right font-semibold sm:pr-5">{priceLabel}</th>
               {hasPackageOffers && (
