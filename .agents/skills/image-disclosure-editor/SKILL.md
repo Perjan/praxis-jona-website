@@ -26,6 +26,7 @@ Use at least 4.5:1 contrast for small text. Do not shrink or fade the label to m
 These dimensions are a project choice, not a statutory minimum.
 
 Use the existing localized wording: `KI-generiert` / `AI-generated` or `Symbolbild` / `Illustrative image`.
+The component compensates for the TV canvas scale. Preserve this when editing its text sizing.
 Keep one label per displayed image. Place it inside a positioned image container, after decorative overlays.
 Do not put it inside a fading layer, an `aria-hidden` container, or a crop that hides the text.
 An immediately adjacent readable caption is also possible when an overlay would obscure important content.
