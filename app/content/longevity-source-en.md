@@ -19,7 +19,6 @@ Long-term health does not come from short-term optimization, but from a structur
 - Nutrition counseling
 * **Extended check-ups & prevention**
 - Travel vaccinations
-* **HER – prevention & longevity for women**
 
 # Micronutrient Analysis & Consultation in Berlin-Mitte
 
