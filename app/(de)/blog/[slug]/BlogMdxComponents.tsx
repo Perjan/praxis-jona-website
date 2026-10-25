@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageDisclosure from "app/components/ImageDisclosure";
 import React from "react";
 
 type MedicalCalloutVariant = "note" | "indication" | "safety" | "evidence";
@@ -220,21 +221,26 @@ export function ArticleImage({
   src,
   alt,
   caption,
+  locale = "de",
 }: {
   src: string;
   alt: string;
   caption?: string;
+  locale?: "de" | "en";
 }) {
   return (
     <figure className="not-prose my-10">
-      <Image
-        src={src}
-        alt={alt}
-        width={1600}
-        height={900}
-        className="w-full rounded-lg border border-stone-200 bg-stone-50 shadow-sm"
-        unoptimized={src.endsWith(".svg")}
-      />
+      <div className="relative">
+        <Image
+          src={src}
+          alt={alt}
+          width={1600}
+          height={900}
+          className="w-full rounded-lg border border-stone-200 bg-stone-50 shadow-sm"
+          unoptimized={src.endsWith(".svg")}
+        />
+        <ImageDisclosure src={src} locale={locale} />
+      </div>
       {caption && <figcaption className="mt-3 text-sm leading-6 text-slate-600">{caption}</figcaption>}
     </figure>
   );

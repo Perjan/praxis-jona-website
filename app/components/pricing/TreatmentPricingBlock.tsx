@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageDisclosure from "app/components/ImageDisclosure";
 import Link from "next/link";
 import { ArrowRightIcon, ClockIcon } from "@heroicons/react/24/outline";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
@@ -295,6 +296,7 @@ function TreatmentPricingCard({
             className={`h-[180px] w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${image.objectPositionClass ?? "object-center"}`}
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/20 via-white/10 to-lightBeige/25" />
+          <ImageDisclosure src={image.src} locale={locale} />
         </div>
       )}
 

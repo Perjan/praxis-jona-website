@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ImageDisclosure from "app/components/ImageDisclosure";
 import Link from "next/link";
 import { ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
@@ -62,7 +63,7 @@ function Paragraphs({ paragraphs }: { paragraphs: string[] }) {
   );
 }
 
-function ServiceImage({ service, priority = false, compact = false }: { service: BotulinumtoxinService; priority?: boolean; compact?: boolean }) {
+function ServiceImage({ service, priority = false, compact = false, locale = "de" }: { service: BotulinumtoxinService; priority?: boolean; compact?: boolean; locale?: PricingLocale }) {
   return (
     <div className="relative overflow-hidden rounded-lg bg-lightBeige shadow-sm ring-1 ring-primary/10">
       <Image
@@ -75,6 +76,7 @@ function ServiceImage({ service, priority = false, compact = false }: { service:
         className={`${compact ? "h-[180px]" : "h-56 sm:h-72"} w-full object-cover transition-transform duration-500 group-hover:scale-[1.03] ${service.image.objectPositionClass ?? "object-center"}`}
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-primary/25 via-white/10 to-lightBeige/30" />
+      <ImageDisclosure src={service.image.src} locale={locale} />
     </div>
   );
 }
@@ -92,6 +94,7 @@ function HeroImage({ content }: { content: BotulinumtoxinPageContent }) {
         sizes="(min-width: 1024px) 34vw, 92vw"
         className={`h-56 w-full object-cover sm:h-72 ${content.intro.image.objectPositionClass ?? "object-center"}`}
       />
+      <ImageDisclosure src={content.intro.image.src} locale={content.locale} />
     </div>
   );
 }
@@ -336,7 +339,7 @@ export function BotulinumtoxinMainPage({ locale = "de" }: { locale?: "de" | "en"
                     delay={Math.min(index * 0.03, 0.24)}
                     className="group flex h-full flex-col overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-primary/10 transition duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:ring-primary/20"
                   >
-                    <ServiceImage service={service} compact />
+                    <ServiceImage locale={content.locale} service={service} compact />
                     <div className="flex flex-1 flex-col p-5 sm:p-4">
                       <h3 className="font-serif text-[1.45rem] font-semibold leading-[1.08] text-primary sm:text-xl md:min-h-[4.5rem] md:text-[1.05rem] lg:min-h-[4rem] lg:text-lg xl:text-xl">
                         {service.title}
@@ -401,7 +404,7 @@ export function BotulinumtoxinServicePage({ service, locale = "de" }: { service:
             <p className={eyebrowClassName}>{content.labels.treatmentEyebrow}</p>
             <h1 className="mt-4 font-serif text-4xl font-semibold tracking-tight text-primary sm:text-5xl">{service.title}</h1>
             <div className="mt-8 lg:hidden">
-              <ServiceImage service={service} priority />
+              <ServiceImage locale={content.locale} service={service} priority />
             </div>
             <div className="mt-6">
               <ServiceBody service={service} />
@@ -409,7 +412,7 @@ export function BotulinumtoxinServicePage({ service, locale = "de" }: { service:
             <Ctas content={content} />
           </div>
           <div className="hidden lg:block">
-            <ServiceImage service={service} priority />
+            <ServiceImage locale={content.locale} service={service} priority />
           </div>
         </MotionSection>
 
