@@ -27,17 +27,17 @@ afterEach(cleanup);
 describe("AI blog cover disclosure", () => {
   it("labels the cover before a reader opens the article from the blog index", () => {
     render(<PaginatedPostsSection posts={[post]} />);
-    expect(screen.getByText("KI-generiertes Bild")).toBeVisible();
+    expect(screen.getByText("KI-generiert")).toBeVisible();
     expect(screen.getByAltText(post.coverImageAlt!)).toBeVisible();
   });
 
   it("keeps the disclosure when the cover appears in a related article card", () => {
     render(<PostCard post={post} />);
-    expect(screen.getByText("KI-generiertes Bild")).toBeVisible();
+    expect(screen.getByText("KI-generiert")).toBeVisible();
   });
 
   it("does not label images whose origin has not been identified as AI-generated", () => {
-    render(<PostCard post={{ ...post, coverImageIsAiGenerated: undefined }} />);
-    expect(screen.queryByText("KI-generiertes Bild")).toBeNull();
+    render(<PostCard post={{ ...post, coverImageUrl: "/images/team/jonaClinic.jpeg", coverImageIsAiGenerated: undefined }} />);
+    expect(screen.queryByText("KI-generiert")).toBeNull();
   });
 });
