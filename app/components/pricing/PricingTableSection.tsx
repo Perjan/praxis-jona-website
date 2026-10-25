@@ -13,7 +13,11 @@ export default function PricingTableSection({
 }) {
   const treatmentLabel = locale === "de" ? "Leistung" : "Service";
   const priceLabel = locale === "de" ? "Preis" : "Price";
-  const packageLabel = locale === "de" ? "3er Paket" : "3-treatment package";
+  const quantities = new Set(section.rows.flatMap(row => row.packageOffer ? [row.packageOffer.quantity] : []));
+  const mixedPackages = quantities.size > 1;
+  const quantity = Array.from(quantities)[0];
+  const packageLabel = mixedPackages ? (locale === "de" ? "Paket" : "Package")
+    : locale === "de" ? `${quantity} Sitzungen` : `${quantity} sessions`;
   const detailsLabel = locale === "de" ? "Details" : "Details";
   const bookingLabel = locale === "de" ? "Termin buchen" : "Book appointment";
   const hasPackageOffers = section.rows.some((row) => row.packageOffer);
@@ -81,8 +85,7 @@ export default function PricingTableSection({
               <th className="py-3 px-1 text-right font-semibold sm:pr-5">{priceLabel}</th>
               {hasPackageOffers && (
                 <th className="py-3 pl-1 text-right font-semibold">
-                  <span className="sm:hidden">{locale === "de" ? "3er Paket" : "3-pack"}</span>
-                  <span className="hidden sm:inline">{packageLabel}</span>
+                  {packageLabel}
                 </th>
               )}
             </tr>
@@ -101,7 +104,10 @@ export default function PricingTableSection({
                 </td>
                 {hasPackageOffers && (
                   <td className="break-words py-4 pl-1 text-right align-top text-sm font-semibold text-primaryLighter sm:whitespace-nowrap sm:text-base">
-                    {row.packageOffer ? formatPrice(row.packageOffer.price, locale) : "-"}
+                    {row.packageOffer ? <>
+                      {mixedPackages && <span className="mb-1 block text-xs font-normal">{row.packageOffer.label[locale]}</span>}
+                      {formatPrice(row.packageOffer.price, locale)}
+                    </> : "-"}
                   </td>
                 )}
               </tr>

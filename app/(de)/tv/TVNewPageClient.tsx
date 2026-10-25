@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { TV_NEW_SLIDES, type TVSlide } from './content';
 import {
   OverviewNavigationTemplate,
+  NewsTemplate,
   ServiceExplainerTemplate,
   ServiceTreatmentTemplate,
   TrustSocialProofTemplate,
@@ -47,6 +48,8 @@ const RenderSlide = memo(function RenderSlide({ slide, locale }: { slide: TVSlid
       return <ServiceExplainerTemplate slide={slide} locale={locale} />;
     case 'service-treatment':
       return <ServiceTreatmentTemplate slide={slide} locale={locale} />;
+    case 'news':
+      return <NewsTemplate slide={slide} />;
     case 'feature-grid':
       return <OverviewNavigationTemplate slide={slide} />;
     case 'app':

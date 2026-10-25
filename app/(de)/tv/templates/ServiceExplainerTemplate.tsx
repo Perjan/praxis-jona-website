@@ -13,8 +13,14 @@ export function ServiceExplainerTemplate({ slide, locale }: { slide: TVSlide; lo
             {slide.prices?.map((item) => (
               <div key={`${item.label}-${item.price}`} className="min-h-[150px] rounded-[8px] border border-[#0D322B]/10 bg-white/72 p-5">
                 <p className="hyphens-auto break-words text-[27px] font-semibold leading-[1.05] text-[#0D322B]">{item.label}</p>
-                <p className="mt-3 font-serif text-[52px] leading-none text-[#144D42]">{item.price}</p>
+                <p className="mt-3 font-serif text-[52px] leading-none text-[#144D42]">
+                  {/^(approx\.|voraussichtlich|expected)\s/.test(item.price) ? <>
+                    <span className="mb-1 block font-sans text-[24px] font-medium">{item.price.slice(0, item.price.indexOf(' '))} </span>
+                    <span className="whitespace-nowrap">{item.price.slice(item.price.indexOf(' ') + 1)}</span>
+                  </> : item.price}
+                </p>
                 {item.note && <p className="mt-3 text-[24px] font-medium leading-[1.08] text-[#5D6F66]">{item.note}</p>}
+                {item.packageOffer && <p className="mt-3 text-[22px] font-semibold leading-tight text-[#144D42]">{item.packageOffer.label}: {item.packageOffer.price}</p>}
               </div>
             ))}
           </div>

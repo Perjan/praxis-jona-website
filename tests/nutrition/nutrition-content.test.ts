@@ -23,7 +23,7 @@ describe("nutritional medicine content", () => {
     const rowSlugs = pricingSections.nutrition.rows.map((row) => row.slug);
 
     expect(rowSlugs).toEqual(["erstgespraech", "folgegespraech"]);
-    expect(normalizedPrice("erstgespraech", "de")).toBe("240,26 €");
-    expect(normalizedPrice("folgegespraech", "de")).toBe("120,65 €");
+    expect(normalizedPrice("erstgespraech", "de")).toBe("voraussichtlich 140 €");
+    expect(normalizedPrice("folgegespraech", "de")).toBe("voraussichtlich 70 €");
   });
 });

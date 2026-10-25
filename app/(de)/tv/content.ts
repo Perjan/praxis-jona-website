@@ -1,4 +1,4 @@
-import { Constants } from "app/Constants";
+import { Constants, NewsMessages } from "app/Constants";
 import { appsByLocale } from "app/data/apps";
 import { categoryContent } from "app/components/pageContent";
 import { absoluteUrl, formatPrice, pricingSections, type PricingRow } from "app/components/pricing/pricingData";
@@ -8,12 +8,13 @@ import {
   type BotulinumtoxinService,
 } from "app/content/botulinumtoxin";
 
-type SlideKind = "hero" | "service-price" | "service-treatment" | "feature-grid" | "app" | "social" | "review" | "team";
+type SlideKind = "hero" | "service-price" | "service-treatment" | "feature-grid" | "app" | "social" | "review" | "team" | "news";
 
 type PriceHighlight = {
   label: string;
   price: string;
   note?: string;
+  packageOffer?: { label: string; price: string };
 };
 
 type FeatureItem = {
@@ -51,6 +52,7 @@ export type TVSlide = {
   handle?: string;
   reviewStars?: number;
   backgroundIcon?: BackgroundIcon;
+  newsItems?: string[];
 };
 
 const locale = "de" as const;
@@ -74,6 +76,12 @@ function rowPrice(row: PricingRow, priceLocale: "de" | "en" = locale): PriceHigh
     label: row.label[priceLocale],
     price: formatPrice(row.price, priceLocale),
     note: row.description?.[priceLocale],
+    ...(row.packageOffer ? {
+      packageOffer: {
+        label: row.packageOffer.label[priceLocale],
+        price: formatPrice(row.packageOffer.price, priceLocale),
+      },
+    } : {}),
   };
 }
 
@@ -91,6 +99,8 @@ function findRow(rows: PricingRow[], slug: string): PricingRow {
 
 const botoxRows = pricingSections.botox.rows;
 const glp1Rows = pricingSections.glp1.rows;
+const nutritionRows = pricingSections.nutrition.rows;
+const skinboosterRows = pricingSections.skinbooster.rows;
 const ultrasoundRows = pricingSections.ultrasound.rows;
 const ironInfusionRow = pricingSections.ironInfusion.rows[0];
 const micronutrientRow = pricingSections.micronutrients.rows[0];
@@ -100,6 +110,19 @@ const backgrounds = {
   diagnostics: "/tv/backgrounds/bg-diagnostics.svg",
   social: "/tv/backgrounds/bg-social.svg",
 } as const;
+
+function announcementParagraphs(language: "de" | "en", includes: string[]) {
+  const message = NewsMessages[language].find(item => includes.some(phrase => item.message.includes(phrase)))?.message ?? "";
+  return message.split("\n")
+    .map((line) => line.replace(/<[^>]+>/g, "").trim())
+    .filter((line) => line && includes.some((phrase) => line.includes(phrase)));
+}
+
+function upcomingHours(language: "de" | "en") {
+  return Constants.upcomingOpeningHours.map((item) =>
+    `${language === "de" ? item.day : item.dayEn}: ${item.periods.map((period) => `${period.opens}–${period.closes}`).join(language === "de" ? " und " : " and ")}`
+  );
+}
 
 const internalMedicineDiagnosticsFeatures: FeatureItem[] = [
   { title: "Schilddrüse", text: "Labor, Ultraschall und medizinische Einordnung" },
@@ -191,6 +214,32 @@ const botoxTreatmentSlidesEn: TVSlide[] = topBotoxTreatmentSlugs.map((slug) => {
 
 export const TV_NEW_SLIDES: TVSlide[] = [
   {
+    id: "clinic-team-update",
+    kind: "news",
+    image: backgrounds.brand,
+    overlay: "bg-[#FBF6EE]/74",
+    kicker: "Aktuelles",
+    title: "Veränderungen im Ärzteteam",
+    subtitle: "Zum Jahreswechsel 2026/2027",
+    qrUrl: localUrl("/aktuelles"),
+    qrLabel: "Aktuelles ansehen",
+    displayUrl: displayUrl(localUrl("/aktuelles")),
+    newsItems: announcementParagraphs("de", ["Constanze Buhrmann", "Frau Dr. Daria Shabas"]),
+  },
+  {
+    id: "clinic-opening-hours",
+    kind: "news",
+    image: backgrounds.brand,
+    overlay: "bg-[#FBF6EE]/74",
+    kicker: "Ab 4. Januar 2027",
+    title: "Neue Sprechzeiten",
+    subtitle: announcementParagraphs("de", ["Ab dem 4. Januar 2027"])[0],
+    qrUrl: localUrl("/aktuelles"),
+    qrLabel: "Aktuelles ansehen",
+    displayUrl: displayUrl(localUrl("/aktuelles")),
+    newsItems: upcomingHours("de"),
+  },
+  {
     id: "welcome",
     kind: "hero",
     image: backgrounds.brand,
@@ -271,18 +320,75 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     image: backgrounds.clinical,
     overlay: "bg-[#FBF6EE]/70",
     kicker: pricingSections.glp1.title.de,
-    eyebrow: "Gewicht und Stoffwechsel",
+    eyebrow: "Zwei ärztliche Betreuungspfade · vor Ort",
     title: "Ärztlich begleitet abnehmen",
-    subtitle: pricingSections.glp1.description.de,
+    subtitle: "Dr. Gjolli mit Ernährungsberatung · Dr. Shabas ohne Ernährungsberatung ab Januar 2027.",
     qrUrl: localUrl(pricingSections.glp1.detailHref!.de),
     qrLabel: "Mehr erfahren",
     displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.de)),
     prices: [
       rowPrice(findRow(glp1Rows, "umfassender-ersttermin")),
-      rowPrice(findRow(glp1Rows, "digitaler-ersttermin")),
-      rowPrice(findRow(glp1Rows, "velto-premium")),
+      rowPrice(findRow(glp1Rows, "folgegespraech")),
+      rowPrice(findRow(glp1Rows, "shabas-ersttermin")),
+      rowPrice(findRow(glp1Rows, "shabas-folgegespraech")),
     ],
-    bullets: ["Vor-Ort-Betreuung oder digital", "Rezept nur nach ärztlicher Prüfung", "Medikamentenkosten nicht enthalten"],
+    bullets: ["Zwei ärztliche Betreuungspfade", "Vor Ort in der Praxis", "Medikamentenkosten nicht enthalten"],
+  },
+  {
+    id: "glp1-digital",
+    kind: "service-price",
+    image: backgrounds.clinical,
+    overlay: "bg-[#FBF6EE]/70",
+    kicker: pricingSections.glp1.title.de,
+    eyebrow: "Digitale Betreuung",
+    title: "Begleitung per Video und Online-Formular",
+    subtitle: "Verordnung nur nach ärztlicher Prüfung und bei entsprechender Indikation.",
+    qrUrl: localUrl(pricingSections.glp1.detailHref!.de),
+    qrLabel: "Mehr erfahren",
+    displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.de)),
+    prices: [
+      rowPrice(findRow(glp1Rows, "digitaler-ersttermin")),
+      rowPrice(findRow(glp1Rows, "online-folgeformular")),
+      rowPrice(findRow(glp1Rows, "video-bedarf")),
+    ],
+    bullets: ["Ärztliche Prüfung", "Online-Folgeformular mit ärztlicher Prüfung", "Medikamentenkosten nicht enthalten"],
+  },
+  {
+    id: "nutrition",
+    kind: "service-price",
+    image: backgrounds.diagnostics,
+    overlay: "bg-[#FBF6EE]/72",
+    kicker: pricingSections.nutrition.title.de,
+    eyebrow: "Individuelle Beratung",
+    title: "Ernährung medizinisch begleiten",
+    subtitle: pricingSections.nutrition.description.de,
+    qrUrl: localUrl(pricingSections.nutrition.detailHref!.de),
+    qrLabel: "Beratung öffnen",
+    displayUrl: displayUrl(localUrl(pricingSections.nutrition.detailHref!.de)),
+    prices: [
+      rowPrice(findRow(nutritionRows, "erstgespraech")),
+      rowPrice(findRow(nutritionRows, "folgegespraech")),
+    ],
+    bullets: ["Ernährungsanalyse", "Zielplanung", "Alltagstaugliche Strategie"],
+  },
+  {
+    id: "profhilo-prices",
+    kind: "service-price",
+    image: backgrounds.clinical,
+    overlay: "bg-[#FBF6EE]/70",
+    kicker: pricingSections.skinbooster.title.de,
+    eyebrow: "Preis pro Sitzung · 2er-Paket verfügbar",
+    title: "Profhilo Gesicht, Structura und Body",
+    subtitle: "Profhilo ist kein klassischer Filler.",
+    qrUrl: localUrl(pricingSections.skinbooster.detailHref!.de),
+    qrLabel: "Behandlungen öffnen",
+    displayUrl: displayUrl(localUrl(pricingSections.skinbooster.detailHref!.de)),
+    prices: [
+      rowPrice(findRow(skinboosterRows, "profhilo")),
+      rowPrice(findRow(skinboosterRows, "profhilo-structura")),
+      rowPrice(findRow(skinboosterRows, "profhilo-body")),
+    ],
+    bullets: ["Gesicht und vereinbarte Areale", "2-Sitzungen-Pakete", "Planung nach ärztlicher Beratung"],
   },
   {
     id: "micronutrients",
@@ -404,6 +510,28 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
   }
 
   switch (slide.id) {
+    case "clinic-team-update":
+      return {
+        ...slide,
+        kicker: "Latest news",
+        title: "Changes to our medical team",
+        subtitle: "At the turn of the year 2026/2027",
+        qrUrl: localUrl("/en/latest-news"),
+        qrLabel: "Read latest news",
+        displayUrl: displayUrl(localUrl("/en/latest-news")),
+        newsItems: announcementParagraphs("en", ["Constanze Buhrmann", "Dr Daria Shabas"]),
+      };
+    case "clinic-opening-hours":
+      return {
+        ...slide,
+        kicker: "From 4 January 2027",
+        title: "New consultation hours",
+        subtitle: announcementParagraphs("en", ["Our consultation hours will change"])[0],
+        qrUrl: localUrl("/en/latest-news"),
+        qrLabel: "Read latest news",
+        displayUrl: displayUrl(localUrl("/en/latest-news")),
+        newsItems: upcomingHours("en"),
+      };
     case "welcome":
       return {
         ...slide,
@@ -471,18 +599,66 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
       return {
         ...slide,
         kicker: pricingSections.glp1.title.en,
-        eyebrow: "Weight and metabolism",
+        eyebrow: "Two in-practice care paths",
         title: "Medical support for weight loss",
-        subtitle: pricingSections.glp1.description.en,
+        subtitle: "Medical weight consultations with or without nutrition counseling.",
         qrUrl: localUrl(pricingSections.glp1.detailHref!.en),
         qrLabel: "Learn more",
         displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.en)),
         prices: [
           rowPriceEn(findRow(glp1Rows, "umfassender-ersttermin")),
-          rowPriceEn(findRow(glp1Rows, "digitaler-ersttermin")),
-          rowPriceEn(findRow(glp1Rows, "velto-premium")),
+          rowPriceEn(findRow(glp1Rows, "folgegespraech")),
+          rowPriceEn(findRow(glp1Rows, "shabas-ersttermin")),
+          rowPriceEn(findRow(glp1Rows, "shabas-folgegespraech")),
         ],
-        bullets: ["In-practice or digital care", "Prescription only after physician review", "Medication costs not included"],
+        bullets: ["Two physician-led care paths", "Appointments at the practice", "Medication costs not included"],
+      };
+    case "glp1-digital":
+      return {
+        ...slide,
+        kicker: pricingSections.glp1.title.en,
+        eyebrow: "Digital care",
+        title: "Support by video and online form",
+        subtitle: "Prescriptions require a medical assessment and indication.",
+        qrUrl: localUrl(pricingSections.glp1.detailHref!.en),
+        qrLabel: "Learn more",
+        displayUrl: displayUrl(localUrl(pricingSections.glp1.detailHref!.en)),
+        prices: [
+          rowPriceEn(findRow(glp1Rows, "digitaler-ersttermin")),
+          rowPriceEn(findRow(glp1Rows, "online-folgeformular")),
+          rowPriceEn(findRow(glp1Rows, "video-bedarf")),
+        ],
+        bullets: ["Physician review", "Monthly digital support", "Medication costs not included"],
+      };
+    case "nutrition":
+      return {
+        ...slide,
+        kicker: pricingSections.nutrition.title.en,
+        eyebrow: "Individual consultation",
+        title: "Medical support for nutrition",
+        subtitle: pricingSections.nutrition.description.en,
+        qrUrl: localUrl(pricingSections.nutrition.detailHref!.en),
+        qrLabel: "Open consultations",
+        displayUrl: displayUrl(localUrl(pricingSections.nutrition.detailHref!.en)),
+        prices: [rowPriceEn(findRow(nutritionRows, "erstgespraech")), rowPriceEn(findRow(nutritionRows, "folgegespraech"))],
+        bullets: ["Nutrition analysis", "Goal planning", "A practical everyday strategy"],
+      };
+    case "profhilo-prices":
+      return {
+        ...slide,
+        kicker: pricingSections.skinbooster.title.en,
+        eyebrow: "Price per session · 2-session packages available",
+        title: "Profhilo Face, Structura and Body",
+        subtitle: "Profhilo is not a conventional filler.",
+        qrUrl: localUrl(pricingSections.skinbooster.detailHref!.en),
+        qrLabel: "View treatments",
+        displayUrl: displayUrl(localUrl(pricingSections.skinbooster.detailHref!.en)),
+        prices: [
+          rowPriceEn(findRow(skinboosterRows, "profhilo")),
+          rowPriceEn(findRow(skinboosterRows, "profhilo-structura")),
+          rowPriceEn(findRow(skinboosterRows, "profhilo-body")),
+        ],
+        bullets: ["Face and agreed treatment areas", "2-session packages", "Planning after medical consultation"],
       };
     case "micronutrients":
       return {
