@@ -1,4 +1,6 @@
 import Image from "next/image";
+import approvedGerman from "app/content/clinic-treatment-updates.json";
+import approvedEnglish from "app/content/clinic-treatment-updates-en.json";
 import Link from "next/link";
 import { CalendarDaysIcon, ClockIcon, CreditCardIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import { Constants } from "app/Constants";
@@ -11,7 +13,9 @@ import { getAestheticSectionMarkdown, getAestheticSectionTitle, type AestheticSe
 
 type MarkdownNode =
   | { type: "h1" | "h2" | "h3" | "p" | "rule"; text?: string }
-  | { type: "list"; items: string[] };
+  | { type: "list"; items: string[] }
+  | { type: "table"; text?: string; headers: string[]; rows: string[][] }
+  | { type: "booking"; text: string; locale: PricingLocale };
 
 type AestheticDetailPage = {
   sectionKey: AestheticSectionKey;
@@ -566,8 +570,39 @@ function sectionId(text: string | undefined) {
     .replace(/^-|-$/g, "");
 }
 
+// Keep supplied copy in its original source while using the shared aesthetics layout.
+function approvedDetailContent(sectionKey: AestheticSectionKey, slug: string, locale: PricingLocale) {
+  if (sectionKey !== "skinbooster" || slug !== "profhilo") return null;
+  const page = (locale === "de" ? approvedGerman : approvedEnglish).profhilo;
+  const blocks = page.blocks as { type: string; text?: string; headers?: string[]; rows?: string[][] }[];
+  const bookingIndex = blocks.findIndex(block => block.type === "booking");
+  let inFaq = false;
+  const nodes: MarkdownNode[] = blocks.slice(bookingIndex + 1).map((block, index) => {
+    if (block.type === "h2") {
+      const isQuestion = block.text!.endsWith("?");
+      if (!isQuestion) inFaq = /^(Häufige Fragen|Frequently asked questions)/i.test(block.text!);
+      return { type: inFaq && isQuestion ? "h3" : "h2", text: block.text };
+    }
+    if (block.type === "p") return { type: "p", text: block.text };
+    if (block.type === "booking") return { type: "booking", text: block.text!, locale };
+    if (block.type === "table") return { type: "table", text: blocks[bookingIndex + index]?.text, headers: block.headers!, rows: block.rows! };
+    throw new Error(`Unsupported approved aesthetics content block: ${block.type}`);
+  });
+  const table = nodes.find((node): node is Extract<MarkdownNode, { type: "table" }> => node.type === "table")!;
+  return {
+    title: blocks[0].text!,
+    description: blocks.slice(1, bookingIndex).filter(block => block.type === "p").map(block => block.text!),
+    bookingLabel: blocks[bookingIndex].text!,
+    nodes,
+    table,
+  };
+}
+
 export function getAestheticDetailPages(sectionKey: AestheticSectionKey, locale: PricingLocale = "de") {
-  return (locale === "en" ? englishDetailPages : detailPages)[sectionKey] ?? [];
+  return ((locale === "en" ? englishDetailPages : detailPages)[sectionKey] ?? []).map(page => {
+    const approved = approvedDetailContent(sectionKey, page.deSlug ?? page.slug, locale);
+    return approved ? { ...page, title: approved.title, description: approved.description } : page;
+  });
 }
 
 export function getAestheticDetailPage(sectionKey: AestheticSectionKey, slug: string, locale: PricingLocale = "de") {
@@ -714,7 +749,7 @@ const priceAnchorBySection: Partial<Record<AestheticSectionKey, string>> = {
   skinbooster: "skinbooster",
 };
 
-function CtaButtons({ sectionKey, bookingUrls, locale = "de" }: { sectionKey: AestheticSectionKey; bookingUrls?: AppointmentBookingUrls; locale?: PricingLocale }) {
+function CtaButtons({ sectionKey, bookingUrls, locale = "de", bookingLabel }: { sectionKey: AestheticSectionKey; bookingUrls?: AppointmentBookingUrls; locale?: PricingLocale; bookingLabel?: string }) {
   const priceAnchor = priceAnchorBySection[sectionKey];
   const priceBaseHref = locale === "en" ? "/en/aesthetics/prices" : "/aesthetik/preise";
   const priceHref = priceAnchor ? `${priceBaseHref}#${priceAnchor}` : priceBaseHref;
@@ -734,7 +769,7 @@ function CtaButtons({ sectionKey, bookingUrls, locale = "de" }: { sectionKey: Ae
         trackingPlacement="service-hero"
         className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker"
       >
-        {locale === "en" ? "Book appointment" : "Termin buchen"}
+        {bookingLabel ?? (locale === "en" ? "Book appointment" : "Termin buchen")}
       </AppointmentBookingButton>
       <Link
         href={priceHref}
@@ -872,8 +907,29 @@ function RenderNodes({ nodes, skipFirstHeading = false }: { nodes: MarkdownNode[
   );
 }
 
+function AestheticContentTable({ node }: { node: Extract<MarkdownNode, { type: "table" }> }) {
+  return (
+    <div className="rounded-lg border border-primary/10 bg-white p-4 shadow-sm sm:p-6">
+      <table className="w-full table-fixed border-collapse text-left text-sm sm:text-base">
+        <caption className="sr-only">{node.text}</caption>
+        <colgroup><col className="w-[48%]" /><col className="w-[26%]" /><col className="w-[26%]" /></colgroup>
+        <thead><tr className="border-b border-primary/25 text-xs uppercase tracking-wide text-primary/70">
+          {node.headers.map(header => <th key={header} scope="col" className="break-words px-1 py-3 first:pl-0 [&:not(:first-child)]:text-right">{header}</th>)}
+        </tr></thead>
+        <tbody>{node.rows.map(row => <tr key={row[0]} className="border-b border-primary/10 last:border-0">
+          {row.map((cell, index) => index === 0
+            ? <th key={index} scope="row" className="break-words py-4 pr-2 align-top font-semibold text-primary">{cell}</th>
+            : <td key={index} className="px-1 py-4 text-right align-top font-semibold text-primary sm:whitespace-nowrap">{cell}</td>)}
+        </tr>)}</tbody>
+      </table>
+    </div>
+  );
+}
+
 function renderCompactNodes(nodes: MarkdownNode[]) {
   return nodes.map((node, index) => {
+    if (node.type === "table") return <AestheticContentTable key={index} node={node} />;
+    if (node.type === "booking") return <div key={index} className="pt-3"><AppointmentBookingButton locale={node.locale} urls={Constants.appointmentUrlsByService.skinboosterProfhilo} trackingPlacement="aesthetic-detail-content" className="inline-flex justify-center rounded-xl bg-primary px-6 py-3 text-base font-serif font-medium text-white shadow-sm transition hover:bg-primaryDarker">{node.text}</AppointmentBookingButton></div>;
     if (node.type === "p") {
       return <p key={index} className="leading-7 text-primaryLighter">{renderInlineText(node.text ?? "")}</p>;
     }
@@ -1268,7 +1324,7 @@ function detailSummary(sectionKey: AestheticSectionKey, nodes: MarkdownNode[], d
 }
 
 function extractFaqs(nodes: MarkdownNode[]) {
-  const faqIndex = nodes.findIndex((node) => node.type === "h2" && node.text && /^Häufige Fragen/.test(node.text));
+  const faqIndex = nodes.findIndex((node) => node.type === "h2" && node.text && /^(Häufige Fragen|Frequently asked questions)/i.test(node.text));
 
   if (faqIndex < 0) {
     return { title: "Häufige Fragen", items: [] as { question: string; answer: MarkdownNode[] }[] };
@@ -1319,7 +1375,12 @@ function formatDetailPrice(sectionKey: AestheticSectionKey, detailPage: Aestheti
 
 function AestheticDetailFacts({ sectionKey, detailPage, className = "", overlapHero = true, locale = "de" }: { sectionKey: AestheticSectionKey; detailPage: AestheticDetailPage; className?: string; overlapHero?: boolean; locale?: PricingLocale }) {
   const slug = detailPage.deSlug ?? detailPage.slug;
-  const facts =
+  const approved = approvedDetailContent(sectionKey, slug, locale);
+  const facts = approved ? approved.table.rows.map(row => ({
+    title: row[0],
+    icon: CreditCardIcon,
+    body: <>{approved.table.headers[1]}: <strong>{row[1]}</strong><br />{approved.table.headers[2]}: <strong>{row[2]}</strong></>,
+  })) :
     sectionKey === "microneedling" || sectionKey === "hair"
       ? [
           {
@@ -1479,6 +1540,17 @@ function AestheticFaqSection({ nodes }: { nodes: MarkdownNode[] }) {
       </div>
     </MotionSection>
   );
+}
+
+function ApprovedAestheticDetailBody({ nodes }: { nodes: MarkdownNode[] }) {
+  const faqIndex = nodes.findIndex(node => node.type === "h2" && /^(Häufige Fragen|Frequently asked questions)/i.test(node.text ?? ""));
+  if (faqIndex < 0) return <AestheticDetailContentSection nodes={nodes} />;
+  const nextHeading = nodes.findIndex((node, index) => index > faqIndex && node.type === "h2");
+  return <>
+    <AestheticDetailContentSection nodes={nodes.slice(0, faqIndex)} />
+    <AestheticFaqSection nodes={nodes} />
+    {nextHeading >= 0 && <AestheticDetailContentSection nodes={nodes.slice(nextHeading)} />}
+  </>;
 }
 
 function AestheticDetailContentSection({ nodes }: { nodes: MarkdownNode[] }) {
@@ -1755,10 +1827,12 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical,
     return null;
   }
 
+  const approved = approvedDetailContent(sectionKey, detailPage.deSlug ?? slug, locale);
   const markdown = getAestheticSectionMarkdown(sectionKey);
   const nodes = parseMarkdown(markdown);
   const parentTitle = locale === "en" ? pricingSections[sectionKey === "hair" ? "hairTherapy" : sectionKey].title.en : getAestheticSectionTitle(sectionKey);
-  const detailNodes = locale === "en" ? detailPage.content ?? [] : getDetailNodes(sectionKey, nodes, detailPage);
+  const detailNodes = approved?.nodes ?? (locale === "en" ? detailPage.content ?? [] : getDetailNodes(sectionKey, nodes, detailPage));
+  const approvedFaq = approved ? extractFaqs(detailNodes) : null;
   const descriptionNode = detailNodes.find(hasText);
   const leadDescription = detailPage.description ?? [];
   const [mobileLeadDescription, ...mobileFollowupDescription] = leadDescription;
@@ -1803,6 +1877,14 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical,
     <>
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={serviceSchema} />
+      {approvedFaq && <JsonLd data={{
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: approvedFaq.items.map(item => ({
+          "@type": "Question", name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer.filter(hasText).map(node => node.text).join(" ") },
+        })),
+      }} />}
       <div className="overflow-hidden bg-white">
         <MotionSection className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_0.72fr] lg:px-8 lg:py-24">
           <div>
@@ -1828,10 +1910,10 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical,
                 </div>
               )}
               <AestheticDetailFacts sectionKey={sectionKey} detailPage={detailPage} locale={locale} className="mt-8 !px-0 pb-8 sm:!px-0 md:!px-0 lg:hidden" overlapHero={false} />
-              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} bookingLabel={approved?.bookingLabel} />
             </div>
             <div className="mt-6 hidden lg:block">
-              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} />
+              <CtaButtons sectionKey={sectionKey} bookingUrls={bookingUrls} locale={locale} bookingLabel={approved?.bookingLabel} />
             </div>
           </div>
           <div className="hidden lg:block">
@@ -1841,9 +1923,11 @@ export function AestheticMarkdownDetailPage({ sectionKey, slug, parentCanonical,
 
         <AestheticDetailFacts sectionKey={sectionKey} detailPage={detailPage} locale={locale} className="hidden lg:block" />
         {locale === "de" && sectionKey === "microneedling" && <MicroneedlingIntroBlock nodes={nodes} />}
-        <AestheticDetailContentSection nodes={detailNodes} />
-        {locale === "de" && <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />}
-        {locale === "de" && <AestheticFaqSection nodes={nodes} />}
+        {approved ? <ApprovedAestheticDetailBody nodes={detailNodes} /> : <>
+          <AestheticDetailContentSection nodes={detailNodes} />
+          {locale === "de" && <AestheticCommonSections sectionKey={sectionKey} nodes={nodes} />}
+          {locale === "de" && <AestheticFaqSection nodes={nodes} />}
+        </>}
 
         <MotionSection className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-lg bg-lightBeige p-8">
