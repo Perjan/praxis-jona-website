@@ -58,7 +58,7 @@ describe("model image disclosure coverage", () => {
   });
 
   it("labels legacy model slides and leaves team composites unlabelled", () => {
-    const markup = renderToStaticMarkup(<TVLegacyClient baseImages={["/tv-legacy/slide2.jpg", "/tv-legacy/slide6.jpg", "/tv-legacy/slide13.jpg"]} locale="en" />);
+    const markup = renderToStaticMarkup(<TVLegacyClient baseImages={["/tv-legacy/slide2.jpg", "/tv-legacy/slide6.jpg", "/images/team/jonaClinic.jpeg"]} locale="en" />);
     expect(disclosures(markup)).toEqual(["ai-generated", "ai-generated"]);
     expect(markup).toContain("AI-generated");
     expect(markup).toContain("top-2 left-2");

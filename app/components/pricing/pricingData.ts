@@ -350,22 +350,6 @@ export const pricingSections = {
       { slug: "gold", label: { de: "Gold", en: "Gold" }, price: { amount: 392.91, currency: "EUR", prefix: fromPrefix, billingNote: goae, goaeNote: true } },
     ],
   },
-  prevention: {
-    slug: "praevention",
-    pillar: "healthLongevity",
-    title: { de: "Prävention / Longevity Pakete", en: "Prevention / longevity packages" },
-    description: {
-      de: "Strukturierte Präventionspakete für Patientinnen und Patienten, die Gesundheit messbarer machen möchten.",
-      en: "Structured prevention packages for patients who want to make health more measurable.",
-    },
-    detailHref: { de: "/praevention", en: "/en/prevention" },
-    bookingHref: appointmentHref,
-    rows: [
-      { slug: "basic", label: { de: "BASIC", en: "BASIC" }, description: { de: "Fundament medizinischer Prävention", en: "Foundation of medical prevention" }, price: { amount: 1200, currency: "EUR", prefix: fromPrefix }, detailHref: { de: "/praevention/basic", en: "/en/prevention/basic" } },
-      { slug: "medium", label: { de: "MEDIUM", en: "MEDIUM" }, description: { de: "Erweiterte Diagnostik und Stoffwechselparameter", en: "Extended diagnostics and metabolic parameters" }, price: { amount: 2400, currency: "EUR", prefix: fromPrefix }, detailHref: { de: "/praevention/medium", en: "/en/prevention/medium" } },
-      { slug: "premium", label: { de: "PREMIUM", en: "PREMIUM" }, description: { de: "Erweiterte Bildgebung, Zellbiologie und tiefe Analyse", en: "Extended imaging, cell biology and deeper analysis" }, price: { amount: 4000, currency: "EUR", prefix: fromPrefix }, detailHref: { de: "/praevention/premium", en: "/en/prevention/premium" } },
-    ],
-  },
   ironInfusion: {
     slug: "eiseninfusion",
     pillar: "healthLongevity",
@@ -433,7 +417,6 @@ const pageSections: Record<PricingPageKey, PricingSection[]> = {
     pricingSections.micronutrients,
     pricingSections.glp1,
     pricingSections.privateCheckup,
-    pricingSections.prevention,
     pricingSections.ironInfusion,
     pricingSections.ultrasound,
     pricingSections.statutoryCare,
@@ -450,7 +433,6 @@ const pageSections: Record<PricingPageKey, PricingSection[]> = {
     pricingSections.micronutrients,
     pricingSections.glp1,
     pricingSections.privateCheckup,
-    pricingSections.prevention,
     pricingSections.ironInfusion,
   ],
   internalMedicine: [pricingSections.statutoryCare, pricingSections.ultrasound],
