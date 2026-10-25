@@ -1,8 +1,23 @@
 import { Constants } from "app/Constants";
+import { formatPrice, pricingSections, type PricingRow } from "app/components/pricing/pricingData";
 
 const nutritionBookingLink = Constants.appointmentUrlsByService.nutrition30.private;
 const micronutrientsBookingLink = Constants.appointmentUrlsByService.micronutrients.private;
 const weightLossBookingLink = Constants.appointmentUrlsByService.weightLossInjection.private;
+const localizePrice = (section: "nutrition" | "glp1", slug: string) => {
+    const rows = pricingSections[section].rows as PricingRow[];
+    const price = rows.find((item) => item.slug === slug)?.price;
+    return { de: formatPrice(price, "de"), en: formatPrice(price, "en") };
+};
+const nutritionInitialPrice = localizePrice("nutrition", "erstgespraech");
+const nutritionFollowUpPrice = localizePrice("nutrition", "folgegespraech");
+const gjolliInitialPrice = localizePrice("glp1", "umfassender-ersttermin");
+const gjolliFollowUpPrice = localizePrice("glp1", "folgegespraech");
+const shabasInitialPrice = localizePrice("glp1", "shabas-ersttermin");
+const shabasFollowUpPrice = localizePrice("glp1", "shabas-folgegespraech");
+const digitalInitialPrice = localizePrice("glp1", "digitaler-ersttermin");
+const digitalMonthlyPrice = localizePrice("glp1", "online-folgeformular");
+const videoPrice = localizePrice("glp1", "video-bedarf");
 
 export const nutritionConsultationPackage = {
     title: {
@@ -10,20 +25,16 @@ export const nutritionConsultationPackage = {
         en: 'Nutritional Medicine Consultation'
     },
     price: {
-        de: '240,26€',
-        en: '€240.26'
-    },
-    priceAppend: {
-        de: '(nach GOÄ)',
-        en: '(according to GOÄ)'
+        de: nutritionInitialPrice.de,
+        en: nutritionInitialPrice.en
     },
     firstPriceLabel: {
         de: '60-minütiges Erstgespräch',
         en: '60-minute initial consultation'
     },
     secondPrice: {
-        de: '120,65€',
-        en: '€120.65'
+        de: nutritionFollowUpPrice.de,
+        en: nutritionFollowUpPrice.en
     },
     secondPriceLabel: {
         de: '30-minütiges Folgegespräch',
@@ -75,12 +86,8 @@ export const nutritionPricingPlans = [
             en: 'Initial Consultation'
         },
         price: {
-            de: '240,26€',
-            en: '€240.26'
-        },
-        priceAppend: {
-            de: '(nach GOÄ)',
-            en: '(according to GOÄ)'
+            de: nutritionInitialPrice.de,
+            en: nutritionInitialPrice.en
         },
         billingCycle: {
             de: '60 Minuten',
@@ -124,12 +131,8 @@ export const nutritionPricingPlans = [
             en: 'Follow-up Consultation'
         },
         price: {
-            de: '120,65€',
-            en: '€120.65'
-        },
-        priceAppend: {
-            de: '(nach GOÄ)',
-            en: '(according to GOÄ)'
+            de: nutritionFollowUpPrice.de,
+            en: nutritionFollowUpPrice.en
         },
         billingCycle: {
             de: '30 Minuten',
@@ -258,8 +261,8 @@ export const glp1TherapyPackage = {
         en: 'Medical Weight Loss & GLP-1 Therapy'
     },
     price: {
-        de: 'ca. 289€',
-        en: 'approx. €289'
+        de: gjolliInitialPrice.de,
+        en: gjolliInitialPrice.en
     },
     priceAppend: {
         de: '(nach GOÄ)',
@@ -270,12 +273,12 @@ export const glp1TherapyPackage = {
         en: 'Comprehensive in-practice initial appointment'
     },
     secondPrice: {
-        de: 'ca. 89€',
-        en: 'approx. €89'
+        de: gjolliFollowUpPrice.de,
+        en: gjolliFollowUpPrice.en
     },
     secondPriceLabel: {
-        de: 'Digitaler Ersttermin',
-        en: 'Digital initial appointment'
+        de: '30-minütiges Folgegespräch mit Ernährungsberatung',
+        en: '30-minute follow-up with nutrition counseling'
     },
     billingCycle: {
         de: 'Vor Ort oder digital',
@@ -287,16 +290,16 @@ export const glp1TherapyPackage = {
     },
     details: {
         de: [
-            'Umfassender Ersttermin mit Anamnese, Untersuchung, Ultraschall, Laborbeurteilung und Therapieauswahl',
-            'Folgegespräch: 20 Minuten, ca. 139€ nach GOÄ',
-            'Kurzer Therapie-Check telefonisch: bis ca. 10 Minuten, 69€',
-            'Velto Premium: digitale Begleitung und monatlicher Rezeptservice nach ärztlicher Prüfung, 20€ monatlich'
+            `Dr. Gjolli: 60-minütiger Ersttermin mit Ernährungsberatung, ${gjolliInitialPrice.de}`,
+            `Dr. Gjolli: 30-minütiges Folgegespräch mit Ernährungsberatung, ${gjolliFollowUpPrice.de}`,
+            `Dr. Shabas: Ersttermin ohne Ernährungsberatung ab Januar 2027, ${shabasInitialPrice.de}; Folgegespräch ${shabasFollowUpPrice.de}`,
+            `Digitaler Ersttermin: 20-minütiges Videogespräch, ${digitalInitialPrice.de}; Online-Folgeformular ${digitalMonthlyPrice.de} monatlich; zusätzliches Videogespräch ${videoPrice.de}`
         ],
         en: [
-            'Comprehensive initial appointment with history, examination, ultrasound, lab review and therapy selection',
-            'Follow-up consultation: 20 minutes, approx. €139 according to GOÄ',
-            'Short therapy check by telephone: up to approx. 10 minutes, €69',
-            'Velto Premium: digital support and monthly prescription service after physician review, €20 monthly'
+            `Dr. Gjolli: 60-minute initial appointment with nutrition counseling, ${gjolliInitialPrice.en}`,
+            `Dr. Gjolli: 30-minute follow-up with nutrition counseling, ${gjolliFollowUpPrice.en}`,
+            `Dr. Shabas: initial appointment without nutrition counseling from January 2027, ${shabasInitialPrice.en}; follow-up ${shabasFollowUpPrice.en}`,
+            `Digital initial appointment: 20-minute video consultation, ${digitalInitialPrice.en}; online follow-up form ${digitalMonthlyPrice.en} monthly; additional video consultation ${videoPrice.en}`
         ]
     },
     bottomText: {
@@ -317,16 +320,16 @@ export const glp1TherapyPackage = {
 export const ozempicPackages = [
     {
         title: {
-            de: 'Medizinische Gewichtssprechstunde',
-            en: 'Medical Weight Consultation'
+            de: 'Dr. Gjolli: Ersttermin mit Ernährungsberatung',
+            en: 'Dr. Gjolli: initial appointment with nutrition counseling'
         },
         price: {
-            de: 'ca. 289€',
-            en: 'approx. €289'
+            de: gjolliInitialPrice.de,
+            en: gjolliInitialPrice.en
         },
         billingCycle: {
-            de: 'Umfassender Ersttermin',
-            en: 'Comprehensive initial appointment'
+            de: '60 Minuten · vor Ort',
+            en: '60 minutes · in practice'
         },
         description: {
             de: 'Ausführliche medizinische Einschätzung und Therapieplanung in der Praxis',
@@ -362,33 +365,33 @@ export const ozempicPackages = [
     },
     {
         title: {
-            de: 'Velto DIGITAL',
-            en: 'Velto DIGITAL'
+            de: 'Digitale Betreuung',
+            en: 'Digital care'
         },
         price: {
-            de: 'ca. 89€',
-            en: 'approx. €89'
+            de: digitalInitialPrice.de,
+            en: digitalInitialPrice.en
         },
         billingCycle: {
             de: 'Digitaler Ersttermin',
             en: 'Digital initial appointment'
         },
         description: {
-            de: 'Digitaler Behandlungsweg für Patientinnen und Patienten ohne umfassende Betreuung vor Ort',
-            en: 'Digital treatment pathway for patients who do not need comprehensive on-site care'
+            de: 'Digitaler Behandlungsweg mit ärztlicher Prüfung',
+            en: 'Digital care pathway with physician review'
         },
         details: {
             de: [
                 'Online-Anamnesebogen und ärztliche Videosprechstunde',
                 'Prüfung der medizinischen Eignung, Medikamentenauswahl und Aufklärung',
-                'Velto Premium optional: 20€ monatlich, monatlich kündbar',
-                'Ärztliche Videosprechstunde bei Bedarf: 69€ pro Termin nach GOÄ'
+                `Online-Folgeformular: ${digitalMonthlyPrice.de} monatlich`,
+                `Ärztliche Videosprechstunde bei Bedarf: ${videoPrice.de}`
             ],
             en: [
                 'Online medical history form and physician video consultation',
                 'Medical suitability check, medication selection and information',
-                'Velto Premium optional: €20 monthly, cancellable monthly',
-                'Physician video consultation when needed: €69 per appointment according to GOÄ'
+                `Online follow-up form: ${digitalMonthlyPrice.en} monthly`,
+                `Physician video consultation when needed: ${videoPrice.en}`
             ]
         },
         bottomText: {

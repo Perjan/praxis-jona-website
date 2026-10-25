@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ClinicTreatmentPage, clinicTreatmentMetadata } from "app/components/ClinicTreatmentPage";
 import { notFound } from "next/navigation";
 import {
   AestheticMarkdownDetailPage,
@@ -17,6 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const params = await props.params;
+  if (params.slug === "profhilo") return clinicTreatmentMetadata("profhilo", "en");
   const page = getAestheticDetailPage(sectionKey, params.slug, "en");
 
   if (!page) {
@@ -34,6 +36,7 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function Page(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
+  if (params.slug === "profhilo") return <ClinicTreatmentPage pageKey="profhilo" locale="en" />;
   const page = getAestheticDetailPage(sectionKey, params.slug, "en");
 
   if (!page) {

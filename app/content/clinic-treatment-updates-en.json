@@ -1,0 +1,553 @@
+{
+  "profhilo": {
+    "blocks": [
+      {
+        "type": "h1",
+        "text": "Profhilo in Berlin-Mitte"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo is not a classic filler. With Profhilo Face, the focus is on improving skin quality, not on filling individual wrinkles or shaping facial contours. Treatment with hyaluronic acid is intended to support the skin's hydration and elasticity. This approach is known as bio-remodelling."
+      },
+      {
+        "type": "p",
+        "text": "The Profhilo range includes different products for different treatment goals. At Praxis Jona, we discuss Profhilo Face, Profhilo Structura and Profhilo Body. We decide which option may be suitable after an individual medical consultation and examination."
+      },
+      {
+        "type": "booking",
+        "text": "Book a Profhilo consultation"
+      },
+      {
+        "type": "h2",
+        "text": "Profhilo Face: skin quality and hydration"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Face may be an option if the skin has lost hydration and elasticity. The product is injected at specific points and then spreads through the tissue."
+      },
+      {
+        "type": "p",
+        "text": "Unlike a classic hyaluronic acid filler, Profhilo Face is not used to selectively fill areas such as the cheeks or to shape the jawline. The focus is on skin quality, hydration and elasticity."
+      },
+      {
+        "type": "p",
+        "text": "Usually, two treatments are initially planned about four weeks apart. We discuss whether this approach is right for you based on the findings from your skin assessment."
+      },
+      {
+        "type": "h2",
+        "text": "Profhilo Structura: support for facial structure"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Structura is a distinct product within the Profhilo range. It was developed for changes to the superficial tissue structure of the face, especially in the cheek area."
+      },
+      {
+        "type": "p",
+        "text": "Structura is also not a classic filler for precise contouring. However, its treatment goal differs from that of Profhilo Face: the focus there is mainly on skin quality, while Structura targets the underlying tissue structure. We therefore choose between the two products based on your individual findings."
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Structura usually involves two sessions about one month apart."
+      },
+      {
+        "type": "h2",
+        "text": "Profhilo Body: treatment of selected body areas"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Body is intended for suitable areas of the body. These may include the upper arms, abdomen, knees, décolletage or hands, for example."
+      },
+      {
+        "type": "p",
+        "text": "Before treatment, we assess the requested area and discuss whether Profhilo Body is suitable for it. We also determine the required amount of product and number of sessions individually. One session for an agreed area is calculated at 3 ml in the price overview below."
+      },
+      {
+        "type": "h2",
+        "text": "How does it differ from a classic filler?"
+      },
+      {
+        "type": "p",
+        "text": "A classic hyaluronic acid filler is injected specifically to build volume in a particular area or change a contour."
+      },
+      {
+        "type": "p",
+        "text": "With Profhilo Face, the focus is mainly on skin quality. Profhilo Structura focuses on facial structure. Both products therefore follow a different treatment approach from a classic filler. We discuss which method suits your goals during your consultation."
+      },
+      {
+        "type": "h2",
+        "text": "Your treatment at Praxis Jona"
+      },
+      {
+        "type": "p",
+        "text": "Before every treatment, we discuss your goals, your medical history and any previous aesthetic treatments. We then assess the skin and tissue in the requested area."
+      },
+      {
+        "type": "p",
+        "text": "We explain which Profhilo product may be suitable, how many sessions are likely to be appropriate, what the costs are and what risks exist. You decide whether to proceed only after this discussion."
+      },
+      {
+        "type": "p",
+        "text": "Temporary redness, swelling or small bruises may occur after the injection. You will receive individual aftercare instructions at your appointment."
+      },
+      {
+        "type": "h2",
+        "text": "Profhilo prices"
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Treatment",
+          "One session",
+          "Two sessions"
+        ],
+        "rows": [
+          [
+            "Profhilo Face, 2 ml per session",
+            "349 €",
+            "679 €"
+          ],
+          [
+            "Profhilo Structura Face, 2 ml per session",
+            "449 €",
+            "849 €"
+          ],
+          [
+            "Profhilo Body, 3 ml per session for an agreed area",
+            "499 €",
+            "949 €"
+          ]
+        ]
+      },
+      {
+        "type": "booking",
+        "text": "Book an appointment for a Profhilo consultation"
+      },
+      {
+        "type": "h2",
+        "text": "Frequently asked questions about Profhilo"
+      },
+      {
+        "type": "h2",
+        "text": "Is Profhilo a filler?"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Face is not a classic filler. It is not used to shape individual areas of the face. The focus is on skin quality, hydration and elasticity. Profhilo Structura has a different goal within the product range and targets the tissue structure of the face."
+      },
+      {
+        "type": "h2",
+        "text": "Is Profhilo a biostimulator?"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo is described in connection with bio-remodelling and stimulating effects on tissue. For deciding about treatment, however, it is more important to know which product is suitable for which findings. We explain this during your consultation in clear terms."
+      },
+      {
+        "type": "h2",
+        "text": "What is the difference between Profhilo Face and Profhilo Structura?"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Face is used when the main focus is skin quality. Profhilo Structura was developed for suitable changes to the tissue structure of the face. The products are different and are not simply interchangeable."
+      },
+      {
+        "type": "h2",
+        "text": "How many treatments will I need?"
+      },
+      {
+        "type": "p",
+        "text": "For Profhilo Face and Profhilo Structura, two sessions about four weeks apart are usually planned initially. Whether further treatments are appropriate depends on your individual findings and progress."
+      },
+      {
+        "type": "h2",
+        "text": "Can I combine Profhilo and Profhilo Structura?"
+      },
+      {
+        "type": "p",
+        "text": "Whether a combination is appropriate depends on your skin and tissue as well as your treatment goal. We do not use a standard treatment plan; we discuss the options after an examination."
+      },
+      {
+        "type": "h2",
+        "text": "Which areas are suitable for Profhilo Body?"
+      },
+      {
+        "type": "p",
+        "text": "Profhilo Body may be an option for selected body areas such as the upper arms, abdomen or knees. We discuss in person whether the area you have in mind is suitable."
+      },
+      {
+        "type": "h2",
+        "text": "When will I see a result?"
+      },
+      {
+        "type": "p",
+        "text": "Changes develop individually and do not happen at the same speed for everyone. We discuss what you can realistically expect before treatment."
+      },
+      {
+        "type": "h2",
+        "text": "Personal consultation in Berlin-Mitte"
+      },
+      {
+        "type": "p",
+        "text": "Praxis Jona is at Torstraße 125, 10119 Berlin, near Rosenthaler Platz. If you are unsure which Profhilo option suits your needs, book a consultation. Together, we will discuss which treatment goal is appropriate and what the costs are."
+      },
+      {
+        "type": "booking",
+        "text": "Book a consultation"
+      }
+    ],
+    "title": "Profhilo, Structura & Body in Berlin-Mitte | Praxis Jona",
+    "description": "Profhilo is not a classic filler. Learn about Profhilo Face, Profhilo Structura and Profhilo Body at Praxis Jona in Berlin-Mitte.",
+    "canonical": "/en/aesthetics/polynucleotides/profhilo",
+    "alternate": "/aesthetik/polynukleotide/profhilo",
+    "service": "skinboosterProfhilo"
+  },
+  "weightLoss": {
+    "blocks": [
+      {
+        "type": "h1",
+        "text": "Weight loss injection in Berlin-Mitte: choose your care"
+      },
+      {
+        "type": "p",
+        "text": "Would you like medical support with weight loss and want to know whether a weight loss injection may be an option for you? At Praxis Jona, you can choose between three care options from the start. The main difference: Dr. med. Jonida Gjolli includes nutrition counselling as an integral part of care. Dr. Daria Shabas provides in-person medical care without nutrition counselling. We also offer digital care for suitable cases."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Your option",
+          "Initial appointment",
+          "Follow-up appointment"
+        ],
+        "rows": [
+          [
+            "In person with Dr. Gjolli – with nutrition counselling",
+            "60 minutes · approx. 289 €",
+            "30 minutes · approx. 119 €"
+          ],
+          [
+            "In person with Dr. Shabas – without nutrition counselling",
+            "From January 2027: 45 minutes · approx. 149 €",
+            "20 minutes · approx. 69 €"
+          ],
+          [
+            "Digital – without an in-person examination",
+            "20-minute video consultation · approx. 69 €",
+            "Online follow-up form with medical review or, if needed, 20-minute video consultation · approx. 69 €"
+          ]
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A prescription is not guaranteed with any of these options. We prescribe a weight loss injection only after a medical assessment and when there is an appropriate medical indication. Medication and any necessary laboratory tests are not included in the appointment prices listed."
+      },
+      {
+        "type": "h2",
+        "text": "1. With nutrition counselling: Dr. med. Jonida Gjolli"
+      },
+      {
+        "type": "h2",
+        "text": "Initial in-person appointment: 60 minutes · approx. 289 €"
+      },
+      {
+        "type": "p",
+        "text": "This option is for people who want not only advice about a weight loss injection, but also targeted support to change their diet from the outset. We discuss your medical history, previous attempts to lose weight and the three-day food diary you bring with you. Based on this, we develop individual recommendations that suit your health and daily life."
+      },
+      {
+        "type": "p",
+        "text": "The appointment also includes a medical assessment of your suitability for medication-based weight loss, an abdominal ultrasound, weighing and an analysis of your body composition. We discuss how to use the medication, possible side effects and the next steps in your care."
+      },
+      {
+        "type": "p",
+        "text": "Please prepare the food diary: During the two weeks before your appointment, record what you eat on two weekdays and one weekend day. Record meals, snacks and drinks as completely as possible. Bring any recent laboratory results you have."
+      },
+      {
+        "type": "h2",
+        "text": "Follow-up appointments with nutrition counselling: 30 minutes · approx. 119 €"
+      },
+      {
+        "type": "p",
+        "text": "We discuss how you were able to follow the nutrition recommendations, what was difficult and which adjustments may be useful. We monitor your weight and body composition. If you use a weight loss injection, we also include tolerability and the course of treatment in the medical assessment."
+      },
+      {
+        "type": "p",
+        "text": "After a total of three nutrition counselling appointments, we review together whether further care can be provided digitally and whether this is medically appropriate for you. A change to digital care is not automatic."
+      },
+      {
+        "type": "h2",
+        "text": "Possible contribution from your health insurer"
+      },
+      {
+        "type": "p",
+        "text": "Of the planned initial appointment fee, €140 is allocated to nutrition counselling; €70 of the follow-up appointment fee is allocated to nutrition counselling. Your health insurer may contribute to some of these costs. The insurer decides whether it recognises our counselling and, if so, how much it will contribute."
+      },
+      {
+        "type": "p",
+        "text": "Ask your health insurer before your first appointment. You will usually need a medical certificate confirming that the counselling is medically necessary. We can provide a cost estimate and proof of our nutrition medicine qualifications. Submit these documents in advance and, if possible, ask for written confirmation of the terms."
+      },
+      {
+        "type": "p",
+        "text": "Reimbursement is not guaranteed. A contribution towards nutrition counselling does not automatically cover ultrasound, body composition analysis, other medical services, laboratory tests or medication."
+      },
+      {
+        "type": "link",
+        "text": "More about nutrition counselling and health insurer contributions",
+        "href": "/en/services/nutritional-medicine"
+      },
+      {
+        "type": "h2",
+        "text": "2. Without nutrition counselling: Dr. Daria Shabas"
+      },
+      {
+        "type": "h2",
+        "text": "From January 2027 · Initial in-person appointment: 45 minutes · approx. 149 €"
+      },
+      {
+        "type": "p",
+        "text": "Would you like in-person medical care for a weight loss injection, but do not want nutrition counselling? This option is for you."
+      },
+      {
+        "type": "p",
+        "text": "Dr. Shabas discusses your health, previous attempts to lose weight and possible contraindications. The initial appointment includes a medical consultation and suitability assessment, an abdominal ultrasound, weighing and body composition analysis. Together, you discuss whether medication-based treatment is suitable and what further care could look like."
+      },
+      {
+        "type": "h2",
+        "text": "Follow-up appointments: 20 minutes · approx. 69 €"
+      },
+      {
+        "type": "p",
+        "text": "At the follow-up appointment, you discuss your weight progress, tolerability, possible side effects and further treatment. Nutrition counselling and a repeat body composition analysis are not included. You can arrange a body composition analysis separately if needed; it is charged according to the service provided."
+      },
+      {
+        "type": "h2",
+        "text": "3. Digital: medical support from home"
+      },
+      {
+        "type": "h2",
+        "text": "Initial digital appointment: 20 minutes · approx. 69 €"
+      },
+      {
+        "type": "p",
+        "text": "Before your first video appointment, you complete a medical questionnaire. During the consultation, we assess your health, possible contraindications and whether treatment with a weight loss injection may be an option for you. A prescription is issued only after a medical assessment and when there is an appropriate indication."
+      },
+      {
+        "type": "h2",
+        "text": "Further care using an online follow-up form: €20.11 per month"
+      },
+      {
+        "type": "p",
+        "text": "If you are already receiving care from us, you can complete an online follow-up form for continued care. Among other things, you provide information about your weight progress, tolerability and possible side effects. We review your information medically and assess whether treatment can continue."
+      },
+      {
+        "type": "p",
+        "text": "If continuing treatment is medically appropriate, we send the prescription to your home by post. Submitting the form does not automatically result in a prescription. If questions or symptoms require a more detailed assessment, we arrange a consultation or an in-person appointment with you instead."
+      },
+      {
+        "type": "p",
+        "text": "Each additional medical video consultation arranged lasts 20 minutes and costs approx. 69 €. Video consultations are not automatically required every month."
+      },
+      {
+        "type": "p",
+        "text": "Digital care does not include an abdominal ultrasound, weighing or body composition analysis at the practice. If an in-person examination is necessary, we recommend an in-person appointment."
+      },
+      {
+        "type": "h2",
+        "text": "Frequently asked questions about weight loss injections"
+      },
+      {
+        "type": "h2",
+        "text": "Why does an appointment with Dr. Gjolli cost more?"
+      },
+      {
+        "type": "p",
+        "text": "With Dr. Gjolli, nutrition counselling, including review of your food diary, is an integral part of the initial appointment and the follow-up appointments planned initially. The initial appointment lasts 60 minutes. Dr. Shabas provides 45 minutes of in-person medical care without nutrition counselling."
+      },
+      {
+        "type": "h2",
+        "text": "Will I definitely get a prescription after the initial appointment?"
+      },
+      {
+        "type": "p",
+        "text": "No. We first assess whether the treatment is medically suitable. A prescription is issued only when there is an appropriate indication."
+      },
+      {
+        "type": "h2",
+        "text": "Can my health insurer cover the costs?"
+      },
+      {
+        "type": "p",
+        "text": "A partial contribution towards nutrition counselling may be possible under certain conditions. Check this with your health insurer before your first appointment. A contribution towards nutrition counselling does not mean that the weight loss injection or other services will also be covered."
+      },
+      {
+        "type": "h2",
+        "text": "How are the services billed?"
+      },
+      {
+        "type": "p",
+        "text": "Medical services are billed under the German Medical Fee Schedule (GOÄ), according to the services actually provided. The prices listed are estimates. We discuss any additional examinations with you in advance."
+      },
+      {
+        "type": "booking",
+        "text": "Request an appointment at Praxis Jona"
+      }
+    ],
+    "title": "Weight Loss Injection in Berlin-Mitte | In Person & Digital | Praxis Jona",
+    "description": "Medically supervised weight loss injections in Berlin-Mitte: with nutrition counselling from Dr. Gjolli, without nutrition counselling from Dr. Shabas, or digitally. Compare options and prices.",
+    "canonical": "/en/services/weight-loss-injection",
+    "alternate": "/leistungen/abnehmspritze",
+    "service": "weightLossInjection"
+  },
+  "nutrition": {
+    "blocks": [
+      {
+        "type": "h1",
+        "text": "Medical nutrition counselling in Berlin-Mitte"
+      },
+      {
+        "type": "p",
+        "text": "Nutrition recommendations need to suit your health and daily life. At Praxis Jona, Dr. med. Jonida Gjolli provides individual medical nutrition counselling. We discuss your goals, eating habits and available medical findings, then work together on practical steps."
+      },
+      {
+        "type": "p",
+        "text": "You can book nutrition counselling on its own, without starting treatment with a weight loss injection."
+      },
+      {
+        "type": "p",
+        "text": "Initial consultation: 60 minutes · estimated €140"
+      },
+      {
+        "type": "p",
+        "text": "Follow-up consultation: 30 minutes · estimated €70"
+      },
+      {
+        "type": "p",
+        "text": "Under certain conditions, your health insurer may contribute to part of the counselling costs. Please check this with your health insurer before your first appointment."
+      },
+      {
+        "type": "h2",
+        "text": "When may nutrition counselling be useful?"
+      },
+      {
+        "type": "p",
+        "text": "Individual nutrition counselling may support you, for example, with overweight or obesity, prediabetes, type 2 diabetes, high blood pressure, elevated blood lipid levels or fatty liver disease. We also consider your individual situation if you have other nutrition-related concerns or questions."
+      },
+      {
+        "type": "p",
+        "text": "You will not receive a general diet plan that is the same for everyone. We review together which changes are medically appropriate and can fit into your daily life."
+      },
+      {
+        "type": "h2",
+        "text": "The initial consultation: 60 minutes"
+      },
+      {
+        "type": "p",
+        "text": "Before your first appointment, keep a three-day food diary. During the consultation, we discuss your health, your current diet, your eating habits and your goals. We consider any available laboratory results and medical findings where they are relevant to your counselling."
+      },
+      {
+        "type": "p",
+        "text": "Based on this, we develop individual recommendations, for example about meal structure, protein and nutrient intake, and practical changes in daily life. Together, we decide where you would like to start and how you can recognise your progress."
+      },
+      {
+        "type": "p",
+        "text": "Cost: estimated €140 for 60 minutes."
+      },
+      {
+        "type": "h2",
+        "text": "How to prepare"
+      },
+      {
+        "type": "h2",
+        "text": "During the two weeks before your initial appointment, record your diet on three days:"
+      },
+      {
+        "type": "list",
+        "items": [
+          "two weekdays;",
+          "one weekend day."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Record meals, snacks and drinks as completely as possible. Also bring any recent laboratory results and relevant medical documents you have."
+      },
+      {
+        "type": "h2",
+        "text": "The follow-up consultation: 30 minutes"
+      },
+      {
+        "type": "p",
+        "text": "Changing your diet is an ongoing process in daily life. At the follow-up appointment, we discuss which recommendations worked, what difficulties came up and what we should adjust. The number of follow-up appointments depends on your individual needs."
+      },
+      {
+        "type": "p",
+        "text": "Cost: estimated €70 for 30 minutes."
+      },
+      {
+        "type": "h2",
+        "text": "How to ask about a contribution from your health insurer"
+      },
+      {
+        "type": "p",
+        "text": "Health insurers do not automatically cover the cost of individual nutrition counselling. Some insurers contribute under certain conditions. The amount and number of appointments eligible for a contribution can vary."
+      },
+      {
+        "type": "h2",
+        "text": "Please check cost coverage before starting counselling:"
+      },
+      {
+        "type": "p",
+        "text": "1. Ask your treating doctor to issue a certificate confirming that nutrition counselling is medically necessary."
+      },
+      {
+        "type": "p",
+        "text": "2. Request a cost estimate and proof of nutrition medicine qualifications from us."
+      },
+      {
+        "type": "p",
+        "text": "3. Submit the documents to your health insurer. Ask whether it recognises our counselling, which appointments are eligible for a contribution and how much it will contribute."
+      },
+      {
+        "type": "p",
+        "text": "4. After your appointments, submit your invoice and any other required documents according to your health insurer's instructions."
+      },
+      {
+        "type": "p",
+        "text": "You may still have to pay part of the cost even if your health insurer agrees to contribute. We cannot guarantee reimbursement. Examinations, body composition analyses, medication and treatment with a weight loss injection are not automatically included in a possible contribution towards nutrition counselling."
+      },
+      {
+        "type": "h2",
+        "text": "Combining nutrition counselling with a weight loss injection"
+      },
+      {
+        "type": "p",
+        "text": "If you would also like an assessment of whether a weight loss injection is suitable for you, Dr. Gjolli offers a different initial appointment: 60 minutes for an estimated €289. It includes nutrition counselling with review of your three-day food diary, a medical suitability assessment, an abdominal ultrasound, weighing and body composition analysis."
+      },
+      {
+        "type": "p",
+        "text": "Of this planned total, €140 is allocated to nutrition counselling. Check before your appointment whether your health insurer may contribute to this part of the cost. The contribution does not automatically cover the other services."
+      },
+      {
+        "type": "link",
+        "text": "Compare the three options for weight loss injections",
+        "href": "/en/services/weight-loss-injection"
+      },
+      {
+        "type": "h2",
+        "text": "Request an appointment and cost estimate"
+      },
+      {
+        "type": "p",
+        "text": "Would you like to book nutrition counselling or request a cost estimate for your health insurer in advance? Contact Praxis Jona at Torstraße 125, 10119 Berlin-Mitte."
+      },
+      {
+        "type": "link",
+        "text": "Contact Praxis Jona",
+        "href": "/en/contact"
+      }
+    ],
+    "title": "Medical Nutrition Counselling in Berlin-Mitte",
+    "description": "Nutrition recommendations need to suit your health and daily life. At Praxis Jona, Dr. med. Jonida Gjolli provides individual medical nutrition counselling. We discuss your goals, eating habits and available medical findings, then work together on practical steps.",
+    "canonical": "/en/services/nutritional-medicine",
+    "alternate": "/leistungen/ernaehrungsmedizin",
+    "service": "nutrition"
+  }
+}
