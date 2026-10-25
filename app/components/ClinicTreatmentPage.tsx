@@ -156,7 +156,7 @@ export function ClinicTreatmentPage({
                         fill
                         priority
                         sizes="(max-width: 896px) 100vw, 832px"
-                        className="object-cover object-center"
+                        className={pageKey === "profhilo" ? "object-cover object-center" : "object-contain object-center"}
                       />
                     </div>
                   )}
