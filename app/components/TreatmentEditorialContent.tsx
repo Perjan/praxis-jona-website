@@ -117,11 +117,13 @@ function ReferenceText({
 function EditorialTable({
   block,
   caption,
+  comparison = false,
 }: {
   block: EditorialBlock;
   caption: string;
+  comparison?: boolean;
 }) {
-  return (
+  const table = (
     <div className="rounded-lg border border-primary/10 bg-white p-4 shadow-sm sm:p-6">
       <table className="w-full table-fixed border-collapse text-left text-sm sm:text-base">
         <caption className="sr-only">{caption}</caption>
@@ -173,6 +175,40 @@ function EditorialTable({
       </table>
     </div>
   );
+  if (!comparison) return table;
+  return (
+    <>
+      <div
+        className="space-y-4 sm:hidden"
+        data-comparison-cards
+        aria-label={caption}
+      >
+        {block.rows!.map((row) => (
+          <section
+            key={row[0]}
+            className="rounded-lg border border-primary/10 bg-white p-5 shadow-sm"
+          >
+            <h3 className="font-serif text-xl font-semibold leading-7 text-primary">
+              {row[0]}
+            </h3>
+            <dl className="mt-5 space-y-5">
+              {row.slice(1).map((value, index) => (
+                <div key={index}>
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-primary/70">
+                    {block.headers![index + 1]}
+                  </dt>
+                  <dd className="mt-1 text-base leading-7 text-primaryLighter">
+                    {value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ))}
+      </div>
+      <div className="hidden sm:block">{table}</div>
+    </>
+  );
 }
 
 function EditorialBlocks({
@@ -214,6 +250,7 @@ function EditorialBlocks({
               <EditorialTable
                 key={index}
                 block={block}
+                comparison={pageKey === "weightLoss"}
                 caption={
                   blocks[index - 1]?.type === "h2"
                     ? blocks[index - 1].text!
