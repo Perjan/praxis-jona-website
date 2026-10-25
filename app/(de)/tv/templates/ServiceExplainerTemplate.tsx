@@ -15,6 +15,7 @@ export function ServiceExplainerTemplate({ slide, locale }: { slide: TVSlide; lo
                 <p className="hyphens-auto break-words text-[27px] font-semibold leading-[1.05] text-[#0D322B]">{item.label}</p>
                 <p className="mt-3 font-serif text-[52px] leading-none text-[#144D42]">{item.price}</p>
                 {item.note && <p className="mt-3 text-[24px] font-medium leading-[1.08] text-[#5D6F66]">{item.note}</p>}
+                {item.packageOffer && <p className="mt-3 text-[22px] font-semibold leading-tight text-[#144D42]">{item.packageOffer.label}: {item.packageOffer.price}</p>}
               </div>
             ))}
           </div>

@@ -44,9 +44,9 @@ describe("GLP-1 weight-loss content", () => {
     const rowBySlug = new Set(pricingSections.glp1.rows.map((row) => row.slug));
 
     expect(normalizedPrice("umfassender-ersttermin", "de")).toBe("ca. 289 €");
-    expect(normalizedPrice("digitaler-ersttermin", "de")).toBe("ca. 89 €");
-    expect(normalizedPrice("velto-premium", "de")).toBe("20 €");
-    expect(normalizedPrice("video-bedarf", "de")).toBe("69 €");
+    expect(normalizedPrice("digitaler-ersttermin", "de")).toBe("ca. 69 €");
+    expect(normalizedPrice("online-folgeformular", "de")).toBe("20,11 €");
+    expect(normalizedPrice("video-bedarf", "de")).toBe("ca. 69 €");
 
     for (const oldSlug of ["beratung-start", "erhaltungsphase", "abnehmspritze-paket", "rundum-sorglos"]) {
       expect(rowBySlug.has(oldSlug)).toBe(false);
