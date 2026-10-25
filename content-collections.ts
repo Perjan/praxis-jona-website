@@ -82,6 +82,9 @@ const posts = defineCollection({
     slugDe: z.string().optional(),
     // The summary of the post
     summary: z.string().optional(),
+    // Preserve author-supplied metadata without automatic shortening.
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
   }),

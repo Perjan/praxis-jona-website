@@ -59,6 +59,7 @@ const DESCRIPTION_SUFFIXES = {
 };
 
 export function seoDescriptionForPost(post: Post) {
+  if (post.seoDescription) return post.seoDescription;
   const rawDescription = (post.summaryOrExcerpt ?? "").replace(/\s+/g, " ").trim();
   const suffixes = DESCRIPTION_SUFFIXES[metadataLanguageForPost(post) === "en" ? "en" : "de"];
   const withMinLength = rawDescription.length < 110
@@ -106,14 +107,14 @@ export async function generateMetadataForPost(postSlug): Promise<Metadata | unde
     coverImageUrl: image
   } = post;
   const seoDescription = seoDescriptionForPost(post);
-  const seoTitle = title.length > 62
+  const seoTitle = post.seoTitle ?? (title.length > 62
     ? `${title.slice(0, 59).trimEnd()}...`
-    : title;
+    : title);
   const ogImage = image ?? baseUrl + '/images/og-image.png';
   const metadataLanguage = metadataLanguageForPost(post);
 
   return {
-    title: seoTitle,
+    title: post.seoTitle ? { absolute: seoTitle } : seoTitle,
     description: seoDescription,
     alternates: generateAlternatesIfNeeded(post),
     authors: [
