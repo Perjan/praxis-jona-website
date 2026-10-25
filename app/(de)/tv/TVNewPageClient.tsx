@@ -46,7 +46,7 @@ const RenderSlide = memo(function RenderSlide({ slide, locale }: { slide: TVSlid
     case 'service-price':
       return <ServiceExplainerTemplate slide={slide} locale={locale} />;
     case 'service-treatment':
-      return <ServiceTreatmentTemplate slide={slide} />;
+      return <ServiceTreatmentTemplate slide={slide} locale={locale} />;
     case 'feature-grid':
       return <OverviewNavigationTemplate slide={slide} />;
     case 'app':

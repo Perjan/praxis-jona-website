@@ -1,0 +1,81 @@
+{
+  "sources": {
+    "prp-2026-10-25": {
+      "kind": "ai-generated",
+      "evidence": "Generated in this session on 2026-10-25; original PNG contains OpenAI C2PA trainedAlgorithmicMedia provenance."
+    },
+    "iron-infusion-c2pa": {
+      "kind": "ai-generated",
+      "evidence": "Original PNGs contain OpenAI C2PA trainedAlgorithmicMedia provenance; checked 2026-10-25."
+    },
+    "aesthetic-models": {
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
+    },
+    "botulinumtoxin-models": {
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
+    },
+    "botulinumtoxin-blog": {
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
+    },
+    "legacy-slideshow-models": {
+      "kind": "ai-generated",
+      "evidence": "Model imagery visually identified in legacy slides 2 and 6. Owner requested AI badges for every reviewed model image on 2026-10-25; original generation metadata is not retained."
+    }
+  },
+  "images": {
+    "/images/blog-images/prp-haarausfall-models-ai.png": "prp-2026-10-25",
+    "/images/aesthetik/hair-microneedling-male-model.jpg": "aesthetic-models",
+    "/images/aesthetik/hair-polynucleotides-male-model.jpg": "aesthetic-models",
+    "/images/aesthetik/hair-prp-male-model.jpg": "aesthetic-models",
+    "/images/aesthetik/hair-therapy-male-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-exosome-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-face-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-face-neck-decollete-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-face-neck-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-nctf-model.jpg": "aesthetic-models",
+    "/images/aesthetik/microneedling-vampirelift-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-face-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-face-neck-decollete-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-face-neck-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-under-eye-model.jpg": "aesthetic-models",
+    "/images/aesthetik/prp-vampire-lifting-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-nctf-face-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-nctf-face-neck-decollete-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-nctf-face-neck-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-philart-eye-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-philart-face-model.jpg": "aesthetic-models",
+    "/images/aesthetik/skinbooster-profhilo-model.jpg": "aesthetic-models",
+    "/images/botulinumtoxin/botox-hero-founder.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/brow-lift-augenbrauenlifting.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/bunny-lines.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/chronische-migraene.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/gummy-smile.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/hyperhidrose-starkes-schwitzen.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/kraehenfuesse.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/lip-flip.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/masseter-bruxismus.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/mundwinkel-anheben.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/stirnfalten.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/trapezmuskel-barbie-botox.webp": "botulinumtoxin-models",
+    "/images/botulinumtoxin/zornesfalte-glabella.webp": "botulinumtoxin-models",
+    "/images/blog-images/iron-infusion-women/ferritin-stores.png": "iron-infusion-c2pa",
+    "/images/blog-images/iron-infusion-women/hero.png": "iron-infusion-c2pa",
+    "/images/blog-images/iron-infusion-women/oral-vs-iv.png": "iron-infusion-c2pa",
+    "/images/blog-images/iron-infusion-women/treatment-journey.png": "iron-infusion-c2pa",
+    "/images/blog-images/iron-infusion-women/womens-iron-loss.png": "iron-infusion-c2pa",
+    "/images/blog-images/botulinumtoxin-medical/bruxism.webp": "botulinumtoxin-blog",
+    "/images/blog-images/botulinumtoxin-medical/chronic-migraine.webp": "botulinumtoxin-blog",
+    "/images/blog-images/botulinumtoxin-medical/hero.webp": "botulinumtoxin-blog",
+    "/images/blog-images/botulinumtoxin-medical/hyperhidrosis.webp": "botulinumtoxin-blog",
+    "/images/blog-images/botulinumtoxin-medical/trapezius.webp": "botulinumtoxin-blog",
+    "/images/blog-images/prp-haarausfall.jpg": "aesthetic-models",
+    "/tv-legacy/slide2.jpg": "legacy-slideshow-models",
+    "/tv-legacy/slide6.jpg": "legacy-slideshow-models"
+  }
+}

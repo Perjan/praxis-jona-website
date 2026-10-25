@@ -69,20 +69,16 @@ function displayUrl(pathOrUrl: string): string {
   return pathOrUrl.replace(/^https?:\/\//, "").replace(/^www\./, "");
 }
 
-function rowPrice(row: PricingRow, note?: string): PriceHighlight {
+function rowPrice(row: PricingRow, priceLocale: "de" | "en" = locale): PriceHighlight {
   return {
-    label: row.label[locale],
-    price: formatPrice(row.price, locale),
-    note: note ?? row.description?.[locale],
+    label: row.label[priceLocale],
+    price: formatPrice(row.price, priceLocale),
+    note: row.description?.[priceLocale],
   };
 }
 
-function rowPriceEn(row: PricingRow, note?: string): PriceHighlight {
-  return {
-    label: row.label.en,
-    price: formatPrice(row.price, "en"),
-    note: note ?? row.description?.en,
-  };
+function rowPriceEn(row: PricingRow): PriceHighlight {
+  return rowPrice(row, "en");
 }
 
 function findRow(rows: PricingRow[], slug: string): PricingRow {
@@ -95,7 +91,6 @@ function findRow(rows: PricingRow[], slug: string): PricingRow {
 
 const botoxRows = pricingSections.botox.rows;
 const glp1Rows = pricingSections.glp1.rows;
-const preventionRows = pricingSections.prevention.rows;
 const ultrasoundRows = pricingSections.ultrasound.rows;
 const ironInfusionRow = pricingSections.ironInfusion.rows[0];
 const micronutrientRow = pricingSections.micronutrients.rows[0];
@@ -249,7 +244,7 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     features: [
       { title: "Planung", text: "nach Anatomie und Mimik" },
       { title: "Ergebnis", text: "frischer, nicht anders" },
-      { title: "Preis", text: "ab 199 €" },
+      { title: "Preis", text: formatPrice(findRow(botoxRows, "zornesfalte").price, "de") },
       { title: "Termin", text: "Beratung und Behandlung möglich" },
     ],
   },
@@ -316,23 +311,8 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     qrUrl: localUrl(pricingSections.ironInfusion.detailHref!.de),
     qrLabel: "Kosten ansehen",
     displayUrl: displayUrl(localUrl(pricingSections.ironInfusion.detailHref!.de)),
-    prices: [rowPrice(ironInfusionRow, "Festpreis bei passender Indikation")],
+    prices: [rowPrice(ironInfusionRow)],
     bullets: ["Bei relevantem Mangel", "Medizinisch überwacht", "Individuell geplant"],
-  },
-  {
-    id: "prevention",
-    kind: "service-price",
-    image: backgrounds.brand,
-    overlay: "bg-[#FBF6EE]/74",
-    kicker: pricingSections.prevention.title.de,
-    eyebrow: "Gesundheit ist kein Zufall",
-    title: "Prävention messbar machen",
-    subtitle: pricingSections.prevention.description.de,
-    qrUrl: localUrl(pricingSections.prevention.detailHref!.de),
-    qrLabel: "Pakete öffnen",
-    displayUrl: displayUrl(localUrl(pricingSections.prevention.detailHref!.de)),
-    prices: preventionRows.map((row) => rowPrice(row)),
-    bullets: ["Diagnostik", "Auswertung", "Konkreter Plan"],
   },
   {
     id: "ultrasound",
@@ -447,7 +427,7 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
         features: [
           { title: "Planning", text: "based on anatomy and expression" },
           { title: "Result", text: "fresher, not different" },
-          { title: "Price", text: "from €199" },
+          { title: "Price", text: formatPrice(findRow(botoxRows, "zornesfalte").price, "en") },
           { title: "Visit", text: "consultation and treatment possible" },
         ],
       };
@@ -527,21 +507,8 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
         qrUrl: localUrl(pricingSections.ironInfusion.detailHref!.en),
         qrLabel: "View costs",
         displayUrl: displayUrl(localUrl(pricingSections.ironInfusion.detailHref!.en)),
-        prices: [rowPriceEn(ironInfusionRow, "Fixed price with suitable indication")],
+        prices: [rowPriceEn(ironInfusionRow)],
         bullets: ["For relevant deficiency", "Medically supervised", "Individually planned"],
-      };
-    case "prevention":
-      return {
-        ...slide,
-        kicker: pricingSections.prevention.title.en,
-        eyebrow: "Health is not accidental",
-        title: "Make prevention measurable",
-        subtitle: pricingSections.prevention.description.en,
-        qrUrl: localUrl(pricingSections.prevention.detailHref!.en),
-        qrLabel: "Open packages",
-        displayUrl: displayUrl(localUrl(pricingSections.prevention.detailHref!.en)),
-        prices: preventionRows.map((row) => rowPriceEn(row)),
-        bullets: ["Diagnostics", "Interpretation", "Concrete plan"],
       };
     case "ultrasound":
       return {

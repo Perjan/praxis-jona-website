@@ -1,12 +1,12 @@
 import { Suspense } from "react"
 import TVPageClient from "app/(de)/tv-legacy/TVPageClient"
 
-const legacyImages = Array.from({ length: 13 }, (_, index) => `/tv-legacy/slide${index + 1}.jpg`)
+import { legacyImages } from "app/(de)/tv-legacy/slides"
 
 export default function TVPage() {
   return (
     <Suspense fallback={null}>
-      <TVPageClient baseImages={legacyImages} />
+      <TVPageClient baseImages={legacyImages} locale="en" />
     </Suspense>
   )
 }

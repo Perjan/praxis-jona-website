@@ -19,7 +19,6 @@ Langfristige Gesundheit entsteht nicht durch kurzfristige Optimierung, sondern d
 - Ernährungsberatung  
 * **Erweiterte Check-ups & Prävention**  
 - Reiseimpfungen  
-* **HER – Prävention & Longevity für Frauen**  
   
 # Mikronährstoffanalyse & Beratung in Berlin-Mitte  
   

@@ -68,6 +68,8 @@ const posts = defineCollection({
     date: z.union([z.string(), z.date()]),
     // The filename of the cover image
     coverImage: z.string().optional(),
+    coverImageAlt: z.string().optional(),
+    coverImageIsAiGenerated: z.boolean().optional(),
     // The id of the author. Should match an Author's id in AuthorsDataSource.jsx
     author: z.string().optional(),
     // Whether the post should be hidden from the blog index
@@ -82,6 +84,9 @@ const posts = defineCollection({
     slugDe: z.string().optional(),
     // The summary of the post
     summary: z.string().optional(),
+    // Preserve author-supplied metadata without automatic shortening.
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
   }),

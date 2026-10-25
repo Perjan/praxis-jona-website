@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import ImageDisclosure from 'app/components/ImageDisclosure';
+import AppointmentBookingButton from 'app/components/AppointmentBookingButton';
 import Image from 'next/image';
 import { MDXContent } from '@content-collections/mdx/react';
 import { compareDesc, format, parseISO } from 'date-fns';
@@ -118,6 +120,7 @@ const components = {
   MetricCards,
   ProcessSteps,
   SimpleBarChart,
+  AppointmentBookingButton,
 };
 
 export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flattenedPath: string; locale?: "de" | "en" }) => {
@@ -184,18 +187,21 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
                   }}
                 ></script>
                 {post.coverImage !== undefined && (
-                  <Image
-                    className='rounded-lg shadow-lg'
-                    src={post.coverImageUrl}
-                    width={1368}
-                    height={760}
-                    alt={post.title}
-                    priority={true}
-                    unoptimized={post.coverImageUrl?.endsWith(".svg")}
-                  />
+                  <div className="relative">
+                    <Image
+                      className='rounded-lg shadow-lg'
+                      src={post.coverImageUrl}
+                      width={1368}
+                      height={760}
+                      alt={post.coverImageAlt ?? post.title}
+                      priority={true}
+                      unoptimized={post.coverImageIsAiGenerated || post.coverImageUrl?.endsWith(".svg")}
+                    />
+                    <ImageDisclosure src={post.coverImageUrl} isAiGenerated={post.coverImageIsAiGenerated} locale={post.language === "en" ? "en" : "de"} />
+                  </div>
                 )}
 
-                <MDXContent code={post.body.code} components={{ ...components }} />
+                <MDXContent code={post.body.code} components={{ ...components, ArticleImage: (props) => <ArticleImage {...props} locale={locale} /> }} />
               </section>
             </article>
 

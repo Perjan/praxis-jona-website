@@ -210,7 +210,6 @@ const hubSubpages: Record<LongevityLocale, { title: string; href?: string; eyebr
     { title: "Ernährungsberatung", href: "/leistungen/ernaehrungsmedizin", eyebrow: "Ernährung", description: "Medizinische Ernährungsempfehlungen für Alltag, Stoffwechsel und Gewicht." },
     { title: "Erweiterte Check-ups & Prävention", href: "/leistungen/private-check-up", eyebrow: "Check-up", description: "Erweiterte Vorsorge und Prävention über Standardleistungen hinaus." },
     { title: "Reiseimpfungen", href: "/leistungen/reiseimpfungen", eyebrow: "Reisemedizin", description: "Reiseimpfberatung und Impfungen nach Ziel, Risiko und Impfstatus." },
-    { title: "HER – Prävention & Longevity für Frauen", href: "/praevention", eyebrow: "Frauen", description: "Ein geplanter Schwerpunkt für weibliche Prävention und Longevity." },
   ],
   en: [
     { title: "Micronutrient consultation", href: "/en/services/micronutrient-analysis", eyebrow: "Lab-based", description: "Physician-led micronutrient analysis and consultation." },
@@ -220,7 +219,6 @@ const hubSubpages: Record<LongevityLocale, { title: string; href?: string; eyebr
     { title: "Nutrition counseling", href: "/en/services/nutritional-medicine", eyebrow: "Nutrition", description: "Medical nutrition recommendations for everyday life, metabolism and weight." },
     { title: "Extended check-ups & prevention", href: "/en/services/private-insurance-check-up", eyebrow: "Check-up", description: "Extended prevention beyond standard services." },
     { title: "Travel vaccinations", href: "/en/services/travel-vaccinations", eyebrow: "Travel medicine", description: "Travel vaccination counseling and vaccinations by destination, risk and records." },
-    { title: "HER – prevention & longevity for women", href: "/en/prevention", eyebrow: "Women", description: "A planned focus area for female prevention and longevity." },
   ],
 };
 

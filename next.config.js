@@ -12,6 +12,18 @@ const nextConfig = {
   },
   redirects: async () => {
     return [
+      ...[
+        { base: "/praevention", destination: "/praevention-longevity" },
+        { base: "/en/prevention", destination: "/en/prevention-longevity" },
+      ].flatMap(({ base, destination }) =>
+        ["", "/basic", "/medium", "/premium"].map((suffix) => ({
+          source: `${base}${suffix}`,
+          destination,
+          permanent: true,
+        })),
+      ),
+      { source: "/tv/prevention", destination: "/tv", permanent: true },
+      { source: "/en/tv/prevention", destination: "/en/tv", permanent: true },
       {
         source: '/termin-buchen',
         destination: 'https://www.doctolib.de/internist/berlin/gjolli-jonida?utm_campaign=website-button&utm_source=gjolli-jonida-website-button&utm_medium=referral&utm_content=option-8&utm_term=gjolli-jonida',

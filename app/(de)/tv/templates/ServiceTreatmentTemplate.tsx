@@ -1,11 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import ImageDisclosure from 'app/components/ImageDisclosure';
 import { FaCheckCircle } from 'react-icons/fa';
 import type { TVSlide } from '../content';
 import { BackgroundSlide, GlassPanel, Headline, QrBlock } from './shared';
 
-export function ServiceTreatmentTemplate({ slide }: { slide: TVSlide }) {
+export function ServiceTreatmentTemplate({ slide, locale = "de" }: { slide: TVSlide; locale?: "de" | "en" }) {
   return (
     <BackgroundSlide slide={slide}>
       <div className="grid h-full grid-cols-[minmax(0,1fr)_660px] gap-12 px-16 py-14">
@@ -39,6 +40,7 @@ export function ServiceTreatmentTemplate({ slide }: { slide: TVSlide }) {
                 priority
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-[#0D322B]/20 via-white/0 to-[#FBF6EE]/20" />
+              <ImageDisclosure src={slide.visualImage} locale={locale} />
             </div>
           )}
           <div className="tv-enter tv-enter-3 flex justify-end pb-7">
