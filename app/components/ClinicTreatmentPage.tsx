@@ -37,9 +37,11 @@ export function clinicTreatmentMetadata(
       description: page.description,
       url: page.canonical,
       type: "website",
+      images: [{ url: "/images/og-image.png", width: 1200, height: 600, alt: "Praxis Jona" }],
     },
     twitter: {
       card: "summary_large_image",
+      images: ["/images/og-image.png"],
       title: page.title,
       description: page.description,
     },
