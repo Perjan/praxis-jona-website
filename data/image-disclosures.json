@@ -9,16 +9,20 @@
       "evidence": "Original PNGs contain OpenAI C2PA trainedAlgorithmicMedia provenance; checked 2026-10-25."
     },
     "aesthetic-models": {
-      "kind": "model",
-      "evidence": "Treatment model portraits added in 8dc1e3c and 53d4454 on 2026-05-28. AI origin is not documented; use an illustrative-image label until confirmed."
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
     },
     "botulinumtoxin-models": {
-      "kind": "model",
-      "evidence": "Illustrative model portraits mapped in app/content/botulinumtoxin.ts; inspected 2026-10-25. AI origin is not documented."
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
     },
     "botulinumtoxin-blog": {
-      "kind": "model",
-      "evidence": "Illustrative model portraits and reused treatment photos in the medical botulinumtoxin article; inspected 2026-10-25. AI origin is not documented."
+      "kind": "ai-generated",
+      "evidence": "Owner explicitly requested AI badges for all reviewed model imagery on 2026-10-25. Original generation metadata is not retained for this asset group; classification follows the owner’s labelling instruction."
+    },
+    "legacy-slideshow-models": {
+      "kind": "ai-generated",
+      "evidence": "Model imagery visually identified in legacy slides 2 and 6. Owner requested AI badges for every reviewed model image on 2026-10-25; original generation metadata is not retained."
     }
   },
   "images": {
@@ -70,6 +74,8 @@
     "/images/blog-images/botulinumtoxin-medical/hero.webp": "botulinumtoxin-blog",
     "/images/blog-images/botulinumtoxin-medical/hyperhidrosis.webp": "botulinumtoxin-blog",
     "/images/blog-images/botulinumtoxin-medical/trapezius.webp": "botulinumtoxin-blog",
-    "/images/blog-images/prp-haarausfall.jpg": "aesthetic-models"
+    "/images/blog-images/prp-haarausfall.jpg": "aesthetic-models",
+    "/tv-legacy/slide2.jpg": "legacy-slideshow-models",
+    "/tv-legacy/slide6.jpg": "legacy-slideshow-models"
   }
 }

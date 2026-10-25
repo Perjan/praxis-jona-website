@@ -11,7 +11,7 @@ def audit(root):
     missing = []
     invalid = []
     for src, source_id in images.items():
-        if not src.startswith("/images/") or ".." in Path(src).parts:
+        if not src.startswith(("/images/", "/tv-legacy/")) or ".." in Path(src).parts:
             invalid.append(src)
             continue
         if not (root / "public" / src.lstrip("/")).is_file():
@@ -38,8 +38,8 @@ def audit(root):
 
     return {
         "registered_images": len(images),
-        "ai_generated_images": sum(sources.get(group, {}).get("kind") == "ai-generated" for group in images.values()),
-        "model_images_unconfirmed_ai_origin": sum(sources.get(group, {}).get("kind") == "model" for group in images.values()),
+        "ai_badge_images": sum(sources.get(group, {}).get("kind") == "ai-generated" for group in images.values()),
+        "illustrative_image_labels": sum(sources.get(group, {}).get("kind") == "model" for group in images.values()),
         "missing_assets": missing,
         "invalid_registry_entries": sorted(set(invalid)),
         "unregistered_model_filenames": unregistered_models,

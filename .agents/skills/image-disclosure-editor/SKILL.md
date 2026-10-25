@@ -15,8 +15,11 @@ Use a small, readable disclosure at the first image exposure. Keep the clinic's 
 - Blog front matter can explicitly identify a new AI cover through `coverImageIsAiGenerated`. Prefer the registry for reused assets.
 
 Add new image classifications to the registry. Do not infer AI origin from a model's appearance, filename, directory, or missing metadata.
-Use `ai-generated` for confirmed AI content. Use `model` for an illustrative model photo whose AI origin is unconfirmed.
-Record the basis in its evidence group. Keep real staff portraits and documentary clinic photos unlabelled unless evidence supports another classification.
+Use `ai-generated` for confirmed AI content or reviewed assets covered by the owner’s explicit AI-labelling instruction.
+Use `model` for other illustrative model photos whose AI origin is unconfirmed.
+Record the basis in its evidence group. The owner explicitly requested AI badges for all reviewed model assets on 2026-10-25.
+The registry records this instruction for legacy model groups without retained generation metadata. Do not describe that instruction as metadata verification.
+Keep real staff portraits and documentary clinic photos unlabelled unless evidence supports another classification.
 
 ## Edit the badge
 
@@ -28,6 +31,7 @@ These settings are a project choice, not a statutory minimum or a compliance gua
 
 Use the existing localized wording: `KI-generiert` / `AI-generated` or `Symbolbild` / `Illustrative image`.
 The component compensates for the TV canvas scale. Preserve this when editing its text sizing.
+Legacy slideshow composites use `align="left"` to keep the badge away from QR codes.
 Keep one label per displayed image. Place it inside a positioned image container, after decorative overlays.
 Do not put it inside a fading layer, an `aria-hidden` container, or a crop that hides the text.
 An immediately adjacent readable caption is also possible when an overlay would obscure important content.
@@ -35,7 +39,7 @@ An immediately adjacent readable caption is also possible when an overlay would 
 ## Cover all reuses
 
 Search for the asset path and its mapping keys. Check shared renderers, both languages, and responsive duplicates.
-Current renderers include treatment pricing cards, Botox hero/detail cards, blog covers/listings/related cards, `ArticleImage`, and TV treatment slides.
+Current renderers include treatment pricing cards, Botox hero/detail cards, blog covers/listings/related cards, `ArticleImage`, TV treatment slides, and legacy slideshow composites.
 For an added renderer, pass the exact source and locale to `ImageDisclosure`. Keep the image's dimensions, crop, links, and alt text intact.
 Preserve original files and available provenance metadata. Do not regenerate or edit an image merely to change its HTML badge.
 For exported graphics and social preview assets, assess the exported image separately: an HTML overlay does not travel with the file.

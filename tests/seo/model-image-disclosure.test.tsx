@@ -7,6 +7,7 @@ import { getImageDisclosure } from "app/components/imageDisclosureRegistry";
 import { BotulinumtoxinMainPage } from "app/components/BotulinumtoxinPage";
 import TreatmentPricingBlock from "app/components/pricing/TreatmentPricingBlock";
 import { ArticleImage } from "app/(de)/blog/[slug]/BlogMdxComponents";
+import TVLegacyClient from "app/(de)/tv-legacy/TVPageClient";
 import { ServiceTreatmentTemplate } from "app/(de)/tv/templates/ServiceTreatmentTemplate";
 
 function disclosures(markup: string) {
@@ -26,7 +27,7 @@ describe("model image disclosure coverage", () => {
     for (const [src, sourceId] of Object.entries(registry.images)) {
       expect(existsSync(`public${src}`), src).toBe(true);
       expect(registry.sources[sourceId]?.evidence, src).toBeTruthy();
-      expect(["model", "ai-generated"]).toContain(registry.sources[sourceId]?.kind);
+      expect(registry.sources[sourceId]?.kind, src).toBe("ai-generated");
     }
   });
 
@@ -39,14 +40,14 @@ describe("model image disclosure coverage", () => {
     const markup = renderToStaticMarkup(<TreatmentPricingBlock canonical={canonical} locale="de" />);
     const imageCount = Array.from(markup.matchAll(/<img\b/g)).length;
     expect(imageCount).toBeGreaterThan(0);
-    expect(disclosures(markup)).toHaveLength(imageCount);
+    expect(disclosures(markup)).toEqual(Array(imageCount).fill("ai-generated"));
   });
 
   it.each(["de", "en"] as const)("labels the Botox hero and all model service cards in %s", (locale) => {
     const markup = renderToStaticMarkup(<BotulinumtoxinMainPage locale={locale} />);
     const imageCount = Array.from(markup.matchAll(/<img\b/g)).length;
-    expect(disclosures(markup)).toHaveLength(imageCount);
-    expect(markup).toContain(locale === "en" ? "Illustrative image" : "Symbolbild");
+    expect(disclosures(markup)).toEqual(Array(imageCount).fill("ai-generated"));
+    expect(markup).toContain(locale === "en" ? "AI-generated" : "KI-generiert");
   });
 
   it("labels inline AI blog images without changing their captions", () => {
@@ -56,13 +57,20 @@ describe("model image disclosure coverage", () => {
     expect(markup).toContain("Original caption");
   });
 
+  it("labels legacy model slides and leaves team composites unlabelled", () => {
+    const markup = renderToStaticMarkup(<TVLegacyClient baseImages={["/tv-legacy/slide2.jpg", "/tv-legacy/slide6.jpg", "/tv-legacy/slide13.jpg"]} locale="en" />);
+    expect(disclosures(markup)).toEqual(["ai-generated", "ai-generated"]);
+    expect(markup).toContain("AI-generated");
+    expect(markup).toContain("left-2");
+  });
+
   it("keeps the disclosure when model imagery is reused on the waiting-room display", () => {
     const markup = renderToStaticMarkup(<ServiceTreatmentTemplate locale="en" slide={{
       id: "botulinumtoxin-zornesfalte", kind: "service-treatment", title: "Frown lines",
       image: "/tv/backgrounds/bg-clinical.svg", visualImage: "/images/botulinumtoxin/zornesfalte-glabella.webp",
       qrUrl: "https://praxisjona.de/en/botox-treatment/zornesfalte", qrLabel: "Open treatment",
     }} />);
-    expect(disclosures(markup)).toEqual(["model"]);
-    expect(markup).toContain("Illustrative image");
+    expect(disclosures(markup)).toEqual(["ai-generated"]);
+    expect(markup).toContain("AI-generated");
   });
 });
