@@ -61,7 +61,7 @@ describe("model image disclosure coverage", () => {
     const markup = renderToStaticMarkup(<TVLegacyClient baseImages={["/tv-legacy/slide2.jpg", "/tv-legacy/slide6.jpg", "/tv-legacy/slide13.jpg"]} locale="en" />);
     expect(disclosures(markup)).toEqual(["ai-generated", "ai-generated"]);
     expect(markup).toContain("AI-generated");
-    expect(markup).toContain("left-2");
+    expect(markup).toContain("top-2 left-2");
   });
 
   it("keeps the disclosure when model imagery is reused on the waiting-room display", () => {

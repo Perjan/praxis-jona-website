@@ -160,7 +160,7 @@ export default function TVPageClient({ baseImages, locale = "de" }: TVPageClient
                   sizes="100vw"
                   onError={() => console.error('Error loading image:', imgSrc)}
                 />
-                <ImageDisclosure src={imgSrc} locale={locale} align="left" />
+                <ImageDisclosure src={imgSrc} locale={locale} placement="top-left" />
               </div>
             </div>
           );

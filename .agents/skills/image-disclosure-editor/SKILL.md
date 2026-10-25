@@ -31,7 +31,7 @@ These settings are a project choice, not a statutory minimum or a compliance gua
 
 Use the existing localized wording: `KI-generiert` / `AI-generated` or `Symbolbild` / `Illustrative image`.
 The component compensates for the TV canvas scale. Preserve this when editing its text sizing.
-Legacy slideshow composites use `align="left"` to keep the badge away from QR codes.
+Legacy slideshow composites use `placement="top-left"` to keep the badge away from QR codes and slideshow controls.
 Keep one label per displayed image. Place it inside a positioned image container, after decorative overlays.
 Do not put it inside a fading layer, an `aria-hidden` container, or a crop that hides the text.
 An immediately adjacent readable caption is also possible when an overlay would obscure important content.
