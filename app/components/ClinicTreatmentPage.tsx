@@ -213,7 +213,7 @@ export function ClinicTreatmentPage({
           __html: JSON.stringify(schema).replace(/</g, "\\u003c"),
         }}
       />
-      <div className="overflow-hidden bg-white">
+      <article className="overflow-hidden bg-white">
         <TreatmentDetailHero
           title={title}
           eyebrow={
@@ -248,7 +248,7 @@ export function ClinicTreatmentPage({
               description: item.description ?? "",
             }))}
         />
-      </div>
+      </article>
     </>
   );
 }
