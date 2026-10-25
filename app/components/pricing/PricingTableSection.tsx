@@ -1,8 +1,17 @@
 import Link from "next/link";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
 import BookingCtaLink from "app/components/BookingCtaLink";
-import type { PricingLocale, PricingSection } from "./pricingData";
+import type { PricingLocale, PricingSection, PriceValue } from "./pricingData";
 import { formatPrice } from "./pricingData";
+
+function TablePrice({ price, locale }: { price: PriceValue | undefined; locale: PricingLocale }) {
+  const prefix = price?.prefix?.[locale];
+  if (!price || !prefix || prefix.length < 7 || price.displayOverride) return <>{formatPrice(price, locale)}</>;
+  return <>
+    <span className="mb-1 block text-xs font-normal leading-5">{prefix}{" "}</span>
+    <span className="whitespace-nowrap">{formatPrice({ ...price, prefix: undefined }, locale)}</span>
+  </>;
+}
 
 export default function PricingTableSection({
   section,
@@ -25,8 +34,8 @@ export default function PricingTableSection({
   return (
     <section id={section.slug} className="scroll-mt-28 rounded-xl border border-[#d8e0df] bg-white/95 p-4 shadow-sm sm:p-6 md:p-8">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div>
-          <h2 className="break-words font-serif text-3xl font-semibold text-primaryLighter md:text-4xl">
+        <div className="min-w-0">
+          <h2 className="break-words hyphens-auto font-serif text-3xl font-semibold text-primaryLighter md:text-4xl">
             {section.title[locale]}
           </h2>
           <p className="mt-3 max-w-3xl text-base leading-7 text-primaryLighter/80">
@@ -80,7 +89,7 @@ export default function PricingTableSection({
             )}
           </colgroup>
           <thead>
-            <tr className="border-b border-primaryLighter/25 text-xs uppercase tracking-[0.04em] text-primaryLighter/70 sm:text-sm sm:tracking-[0.08em]">
+            <tr className="border-b border-primaryLighter/25 text-xs uppercase tracking-[0.04em] text-primaryLighter/80 sm:text-sm sm:tracking-[0.08em]">
               <th className="py-3 pr-2 font-semibold sm:pr-5">{treatmentLabel}</th>
               <th className="py-3 px-1 text-right font-semibold sm:pr-5">{priceLabel}</th>
               {hasPackageOffers && (
@@ -93,20 +102,20 @@ export default function PricingTableSection({
           <tbody>
             {section.rows.map((row) => (
               <tr key={row.slug} className="border-b border-primaryLighter/10 last:border-b-0">
-                <td className="break-words py-4 pr-2 align-top sm:pr-5">
+                <td className="break-words hyphens-auto py-4 pr-2 align-top sm:pr-5">
                   <div className="font-semibold text-primaryLighter">{row.label[locale]}</div>
                   {row.description?.[locale] && (
                     <div className="mt-1 text-sm leading-6 text-primaryLighter/70">{row.description[locale]}</div>
                   )}
                 </td>
-                <td className="break-words py-4 px-1 text-right align-top text-sm font-semibold text-primaryLighter sm:whitespace-nowrap sm:pr-5 sm:text-base">
-                  {formatPrice(row.price, locale)}
+                <td className="break-words py-4 px-1 text-right align-top text-sm font-semibold tabular-nums text-primaryLighter sm:whitespace-nowrap sm:pr-5 sm:text-base">
+                  <TablePrice price={row.price} locale={locale} />
                 </td>
                 {hasPackageOffers && (
-                  <td className="break-words py-4 pl-1 text-right align-top text-sm font-semibold text-primaryLighter sm:whitespace-nowrap sm:text-base">
+                  <td className="break-words py-4 pl-1 text-right align-top text-sm font-semibold tabular-nums text-primaryLighter sm:whitespace-nowrap sm:text-base">
                     {row.packageOffer ? <>
                       {mixedPackages && <span className="mb-1 block text-xs font-normal">{row.packageOffer.label[locale]}</span>}
-                      {formatPrice(row.packageOffer.price, locale)}
+                      <TablePrice price={row.packageOffer.price} locale={locale} />
                     </> : "-"}
                   </td>
                 )}

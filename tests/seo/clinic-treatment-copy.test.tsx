@@ -75,7 +75,7 @@ for (const key of ["profhilo", "weightLoss", "nutrition"] as const) {
       }
       expect(html.match(/<h1\b/g)).toHaveLength(1);
       if (key !== "nutrition")
-        expect(html).toContain('data-booking-cta="doctolib"');
+        expect(html).toContain('data-booking-cta="insurance-dialog"');
       else expect(html).toContain('href="/kontakt"');
       expect(html).not.toContain("Button:");
       for (const block of data[key].blocks) {
