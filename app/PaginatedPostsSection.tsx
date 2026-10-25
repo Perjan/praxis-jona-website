@@ -4,6 +4,7 @@ import { Post } from 'content-collections'
 import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import Image from 'next/image'
+import BlogImageDisclosure from 'app/components/BlogImageDisclosure'
 
 import { useSearchParams } from 'next/navigation';
 
@@ -115,12 +116,14 @@ function postCard(post: Post) {
             <Link href={post.url} >
                 <Image
                     src={post.coverImageUrl}
-                    alt={post.summaryOrExcerpt}
+                    alt={post.coverImageAlt ?? post.summaryOrExcerpt}
+                    unoptimized={post.coverImageIsAiGenerated}
                     height={300}
                     width={500}
                     className="aspect-[16/9] w-full rounded-2xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[16/9]"
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+                <BlogImageDisclosure isAiGenerated={post.coverImageIsAiGenerated} />
             </Link>
         </div>
         <div className="flex items-center gap-x-4 text-xs">
