@@ -3,6 +3,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import Image from 'next/image'
 import { Authors } from '../authors/AuthorsDataSource'
 import Link from 'next/link';
+import BlogImageDisclosure from 'app/components/BlogImageDisclosure';
 
 export function PostCard({ post }: { post: Post }) {
   
@@ -15,10 +16,12 @@ export function PostCard({ post }: { post: Post }) {
           src={post.coverImageUrl}
           width={1368}
           height={760}
-          alt={post.title}
+          alt={post.coverImageAlt ?? post.title}
+          unoptimized={post.coverImageIsAiGenerated}
           className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
         />
         <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+        <BlogImageDisclosure isAiGenerated={post.coverImageIsAiGenerated} />
       </div>
       <div>
         <div className="flex items-center gap-x-1 text-xs">

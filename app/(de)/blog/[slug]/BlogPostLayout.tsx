@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BlogImageDisclosure from 'app/components/BlogImageDisclosure';
 import AppointmentBookingButton from 'app/components/AppointmentBookingButton';
 import Image from 'next/image';
 import { MDXContent } from '@content-collections/mdx/react';
@@ -186,15 +187,18 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
                   }}
                 ></script>
                 {post.coverImage !== undefined && (
-                  <Image
-                    className='rounded-lg shadow-lg'
-                    src={post.coverImageUrl}
-                    width={1368}
-                    height={760}
-                    alt={post.title}
-                    priority={true}
-                    unoptimized={post.coverImageUrl?.endsWith(".svg")}
-                  />
+                  <div className="relative">
+                    <Image
+                      className='rounded-lg shadow-lg'
+                      src={post.coverImageUrl}
+                      width={1368}
+                      height={760}
+                      alt={post.coverImageAlt ?? post.title}
+                      priority={true}
+                      unoptimized={post.coverImageIsAiGenerated || post.coverImageUrl?.endsWith(".svg")}
+                    />
+                    <BlogImageDisclosure isAiGenerated={post.coverImageIsAiGenerated} />
+                  </div>
                 )}
 
                 <MDXContent code={post.body.code} components={{ ...components }} />
