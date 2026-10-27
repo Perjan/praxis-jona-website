@@ -47,10 +47,12 @@ export function TreatmentFactStrip({
   facts,
   className = "",
   overlapHero = true,
+  columns = 3,
 }: {
   facts: TreatmentFact[];
   className?: string;
   overlapHero?: boolean;
+  columns?: 2 | 3;
 }) {
   return (
     <MotionSection
@@ -58,13 +60,13 @@ export function TreatmentFactStrip({
     >
       <div className="mx-auto max-w-7xl">
         <div className="overflow-hidden rounded-[2rem] bg-primary shadow-2xl shadow-primary/20 ring-1 ring-white/10">
-          <div className="grid grid-cols-1 divide-y divide-white/15 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-            {facts.map((fact) => {
+          <div className={`grid grid-cols-1 ${columns === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
+            {facts.map((fact, index) => {
               const Icon = fact.icon;
               return (
                 <div
                   key={fact.title}
-                  className="flex min-h-[112px] items-start gap-4 p-5 sm:p-6 lg:min-h-[132px] lg:p-7"
+                  className={`flex min-h-[112px] items-start gap-4 border-white/15 p-5 sm:p-6 lg:min-h-[132px] lg:p-7 ${index > 0 ? "border-t" : ""} ${index < columns ? "lg:border-t-0" : ""} ${index % columns !== 0 ? "lg:border-l" : ""} ${columns === 2 && facts.length % 2 === 1 && index === facts.length - 1 ? "lg:col-span-2" : ""}`}
                 >
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/20 sm:h-16 sm:w-16">
                     <Icon
@@ -97,6 +99,7 @@ export function TreatmentDetailHero({
   image,
   actions,
   facts,
+  factColumns = 3,
 }: {
   title: string;
   eyebrow: string;
@@ -104,6 +107,7 @@ export function TreatmentDetailHero({
   image: TreatmentImage;
   actions: ReactNode;
   facts: TreatmentFact[];
+  factColumns?: 2 | 3;
 }) {
   const [lead, ...following] = paragraphs;
   return (
@@ -141,6 +145,7 @@ export function TreatmentDetailHero({
             )}
             <TreatmentFactStrip
               facts={facts}
+              columns={factColumns}
               className="mt-8 !px-0 pb-8 sm:!px-0 md:!px-0 lg:hidden"
               overlapHero={false}
             />
@@ -152,7 +157,7 @@ export function TreatmentDetailHero({
           <TreatmentHeroImage image={image} />
         </div>
       </MotionSection>
-      <TreatmentFactStrip facts={facts} className="hidden lg:block" />
+      <TreatmentFactStrip facts={facts} columns={factColumns} className="hidden lg:block" />
     </>
   );
 }
