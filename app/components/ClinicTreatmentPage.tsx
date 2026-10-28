@@ -3,6 +3,8 @@ import Link from "next/link";
 import {
   CalendarDaysIcon,
   CreditCardIcon,
+  MapPinIcon,
+  DevicePhoneMobileIcon,
   UserIcon,
 } from "@heroicons/react/24/outline";
 import AppointmentBookingButton from "app/components/AppointmentBookingButton";
@@ -81,12 +83,32 @@ export function ClinicTreatmentPage({
       : categoryContent.longevityEn;
   const priceHref = `${locale === "en" ? (isAesthetic ? "/en/aesthetics/prices" : "/en/prevention-longevity/prices") : isAesthetic ? "/aesthetik/preise" : "/praevention-longevity/preise"}#${pageKey === "nutrition" ? "ernaehrungsmedizin" : isAesthetic ? "skinbooster" : "abnehmspritze"}`;
   const facts: TreatmentFact[] = content.table
-    ? content.table.rows!.map((row) => ({
+    ? content.table.rows!.map((row, index) => ({
         title: row[0],
-        icon: CreditCardIcon,
+        icon: pageKey === "weightLoss" ? (index < 2 ? MapPinIcon : DevicePhoneMobileIcon) : CreditCardIcon,
         body: (
           <>
-            {content.table!.headers![1]}: <strong>{row[1]}</strong>
+            {content.table!.headers![1]}:{" "}
+            <strong>
+              {pageKey === "weightLoss" && index === 1 && row[1].includes(": ") ? (
+                <>
+                  {row[1].split(": ")[0]}:
+                  <br />
+                  {row[1].split(": ").slice(1).join(": ")}
+                </>
+              ) : row[1]}
+            </strong>
+            {pageKey === "weightLoss" && index === 2 && (
+              <>
+                <br />
+                {locale === "de" ? "Betreuung per Online-Folgeformular" : "Care using an online follow-up form"}:{" "}
+                <strong>
+                  {(locale === "de" ? source : englishSource).weightLoss.blocks
+                    .find((block) => block.text?.includes(locale === "de" ? "20,11 € monatlich" : "20.11 € per month"))
+                    ?.text?.split(": ")[1]}
+                </strong>
+              </>
+            )}
             {isAesthetic && (
               <>
                 <br />
@@ -229,6 +251,7 @@ export function ClinicTreatmentPage({
           image={image}
           actions={actions}
           facts={facts}
+          factColumns={pageKey === "weightLoss" ? 2 : 3}
         />
         <TreatmentEditorialBody
           blocks={body}
