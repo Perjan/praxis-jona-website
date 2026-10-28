@@ -98,6 +98,17 @@ export function ClinicTreatmentPage({
                 </>
               ) : row[1]}
             </strong>
+            {pageKey === "weightLoss" && index === 2 && (
+              <>
+                <br />
+                {locale === "de" ? "Betreuung per Online-Folgeformular" : "Care using an online follow-up form"}:{" "}
+                <strong>
+                  {(locale === "de" ? source : englishSource).weightLoss.blocks
+                    .find((block) => block.text?.includes(locale === "de" ? "20,11 € monatlich" : "20.11 € per month"))
+                    ?.text?.split(": ")[1]}
+                </strong>
+              </>
+            )}
             {isAesthetic && (
               <>
                 <br />
