@@ -17,8 +17,8 @@ This is the sprint's source of truth. Do not make a second plan.
 4. Record meaningful scope changes in the decision log; do not silently change the keyword-to-URL map.
 5. A page is not `Shipped` until it is live, indexable, internally linked, medically reviewed, measured, and submitted for recrawl.
 
-Last updated: 2026-10-15
-Next operating review: 2026-10-19 weekly collection; PRP pricing review after October 19 and 500 post-launch impressions
+Last updated: 2026-11-02
+Next operating review: 2026-11-09 weekly collection; article/tool checkpoints start after production launch
 Clinical reviewer: **Dr. med. Jonida Gjolli for iron content; approval remains required for each new medical asset**
 Growth owner: **TBD**
 Engineering owner: **TBD**
@@ -446,6 +446,8 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 | 2026-10-05 |  |  |  |  |  |  |  |  |
 | 2026-10-12 | 646 | 31,378 | 2.06% | 186 / 1.61% | 16 / 0.70% | 672 | 8.63% per pageview; 18.68% per visitor | GSC requested Sep 13–Oct 10; detail ends Oct 9. Umami covers Sep 13–Oct 10: 7,783 pageviews, 2,741 visitors, 512 converting visitors. Prior tracking window is not comparable |
 
+| 2026-11-02 | 1,576 | 49,937 | 3.16% | Not recomputed | Not recomputed | 722 | 8.73% per pageview; 18.31% per visitor | Oct 4–31; direct property aggregate includes queries missing from detail rows. See the article/tool report. No new-page outcome yet. |
+
 ## Decision Rules
 
 - If an existing page is already positions 4–10 with impressions but weak CTR, improve the page/snippet before creating another URL.
@@ -457,6 +459,8 @@ The goal is not identical cross-posting. The website carries the full evidence; 
 - If clinical review cannot keep pace, ship fewer pages. Never trade medical trust for publishing velocity.
 
 ## Execution Log
+
+- **2026-11-02 — Approved article/tool discovery increment:** prepared tag-based related links, Health taxonomy, targeted indication metadata and accurate page/schema attribution in [PR #37](https://github.com/Perjan/praxis-jona-website/pull/37). The [evidence report](./2026-11-02-approved-articles-tools-seo-geo.md) separates production baselines from branch changes. OpenSEO discovery returned no plugin. Authenticated GSC property totals record 1,576 clicks / 49,937 impressions; query-visible dashboard totals are incomplete. Umami records 722 booking CTA events / 8,273 pageviews (8.73%). New routes have no production baseline. Record the launch date, then inspect discovery at seven days and results at 14/28 days. Require 500 page impressions before a directional title verdict. No clinical meaning or tracking changed.
 
 - **2026-10-15 — Apply owner-confirmed starting-price wording locally:** the owner approved “ab 150,95 €” / “from €150.95” and deferred inclusion details to Dr. Gjolli. Removed fixed-price wording from shared pricing descriptions, category cards, FAQs and service listings in both languages. The shared iron price now uses the existing localized starting-price prefix. Existing service-page copy and the live snippet wording already use starting prices and remain unchanged. Added regression tests before implementation and saved the editorial rule in AGENTS.md. No new inclusion, exclusion, insurance or medical claim was added. These edits are local, not deployed; observation of any resulting public change starts only after deployment.
 

@@ -50,7 +50,7 @@ type BlogPostingSchema = {
   '@type': string;
   headline: string;
   datePublished: string;
-  dateModified: string;
+  dateModified?: string;
   image: string;
   author: PersonSchema;
   publisher?: OrganizationSchema;
@@ -72,6 +72,7 @@ const posts = defineCollection({
     coverImageIsAiGenerated: z.boolean().optional(),
     // The id of the author. Should match an Author's id in AuthorsDataSource.jsx
     author: z.string().optional(),
+    medicalReviewer: z.string().optional(),
     // Whether the post should be hidden from the blog index
     isHidden: z.boolean().optional(),
     // The language of the post
@@ -139,7 +140,8 @@ const posts = defineCollection({
       '@type': 'BlogPosting',
       headline: fields.title,
       datePublished: date,
-      dateModified: date,
+      // A clinical review confirmation does not supply a modification date.
+      ...(fields.medicalReviewer ? {} : { dateModified: date }),
       image: `${SITE_URL}/images/blog-images/${fields.coverImage}`,
       author: authorSchema(fields.author),
     };

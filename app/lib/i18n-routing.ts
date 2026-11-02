@@ -1,3 +1,5 @@
+import approvedArticlePairs from "app/free-tools/article-pairs.json";
+import { tools } from "app/free-tools/catalog";
 export type Locale = "de" | "en";
 
 type LocalizedSlugPair = { de: string; en: string };
@@ -18,6 +20,7 @@ const botulinumtoxinSlugPairs = [
 ];
 
 const blogSlugPairs = [
+  ...approvedArticlePairs,
   { de: "diabetes-mellitus", en: "diabetes-mellitus" },
   { de: "digitale-zahlungen", en: "digital-payments" },
   { de: "ernahrungsempfehlungen-bei-fettstoffwechselstorungen", en: "nutrition-recommendations-for-lipid-disorders" },
@@ -97,6 +100,8 @@ function localizedAestheticDetailPath(pathname: string, targetLocale: Locale) {
 const deToEnRouteMap: Record<string, string> = {
   "/": "/en",
   "/apps": "/en/apps",
+  "/free-tools": "/en/free-tools",
+  ...Object.fromEntries(tools.map(tool => [`/free-tools/${tool.de}`, `/en/free-tools/${tool.en}`])),
   "/team": "/en/team",
   "/kontakt": "/en/contact",
   "/aktuelles": "/en/latest-news",

@@ -28,8 +28,8 @@ export function PostCard({ post }: { post: Post }) {
           <time dateTime={post.date} className="text-gray-500">
             {format(parseISO(post.date), 'dd.MM.yyyy')}
           </time>
-          <span className="text-gray-500"> • written by </span>
-          {author && <Link href={author.url} className='hover:text-teal-400'>{author.name}</Link>}
+          <span className="text-gray-500"> {post.language === 'en' ? '• written by ' : '• geschrieben von '}</span>
+          {author && <Link href={post.language === 'en' ? author.url.replace('/blog/', '/en/blog/') : author.url} className='hover:text-teal-400'>{author.name}</Link>}
         </div>
         <div className="group relative max-w-xl">
           <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-teal-400">
@@ -46,12 +46,12 @@ export function PostCard({ post }: { post: Post }) {
   )
 }
 
-export default function BlogArticleFooter({ posts }: { posts: Post[] }) {
+export default function BlogArticleFooter({ posts, locale = 'de' }: { posts: Post[]; locale?: 'de' | 'en' }) {
   return (
     <div className="border-b pb-16">
       <div className="mx-auto">
         <div className="mx-auto">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">Articles you might like</h2>
+          <h2 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">{locale === 'en' ? 'Related articles' : 'Passende Beiträge'}</h2>
           <div className="mt-16 space-y-20 lg:mt-10 lg:space-y-20">
             {posts.map((post) => (
               <PostCard post={post} key={post._id} />
