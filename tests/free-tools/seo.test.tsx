@@ -14,6 +14,10 @@ describe('public tool search metadata', () => {
       const metadata = toolsMetadata(locale, tool[locale]);
       expect(schema.url).toBe(`https://praxisjona.de${toolPath(tool.kind, locale)}`);
       expect(metadata.alternates?.canonical).toBe(toolPath(tool.kind, locale));
+      const openGraph = metadata.openGraph as { images: { url: string; alt: string }[] };
+      const imageNames = { status: 'iron-status', intake: 'iron-tablets', perimenopause: 'perimenopause' };
+      expect(openGraph.images[0].url).toBe(`/images/blog-images/og-${imageNames[tool.kind]}.webp`);
+      expect(openGraph.images[0].alt).toContain(locale === 'de' ? 'KI-generierte' : 'AI-generated');
       expect(schema.name).toBe(container.querySelector('h1')!.textContent);
       expect(schema.inLanguage).toBe(locale);
       expect(schema.reviewedBy.url).toBe(`https://praxisjona.de${locale === 'en' ? '/en' : ''}/blog/authors/jonida-gjolli`);
