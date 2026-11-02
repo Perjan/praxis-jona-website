@@ -5,6 +5,7 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import Link from 'next/link'
 import Image from 'next/image'
 import ImageDisclosure from 'app/components/ImageDisclosure'
+import { isPostInLocale } from 'app/lib/blog-locale'
 
 import { useSearchParams } from 'next/navigation';
 
@@ -69,7 +70,8 @@ export default function PaginatedPostsSection({ posts, locale = "de" }: { posts:
     const searchParams = useSearchParams()
     const selectedCategoryType = searchParams.get('category')
 
-    const filteredPosts = ((activePill === Category.all || activePill === undefined) ? posts : posts
+    const localizedPosts = posts.filter((post) => isPostInLocale(post, locale))
+    const filteredPosts = ((activePill === Category.all || activePill === undefined) ? localizedPosts : localizedPosts
         .filter((post) => post.categories?.includes(raw(activePill))))
 
 
@@ -131,14 +133,9 @@ function postCard(post: Post) {
                 {format(parseISO(post.date), 'LLLL d, yyyy')}
             </time>
 
-            {emojiFlag(post.language)}
-
             {post.categories?.map((item) => (
                 makePill(item, () => { })
             ))}
-
-            {makePill(post.language ?? "en", () => { })}
-
         </div>
         <div className="group relative">
             <h2 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
@@ -178,17 +175,4 @@ function makeSelectionPill(item: string, isSelected: Boolean, onClick): JSX.Elem
     >
         {item}
     </button>
-}
-
-function emojiFlag(language: string | undefined) {
-    switch (language) {
-        case "en":
-            return "EN"
-        case "it":
-            return "🇮🇹"
-        case "de":
-            return "DE"
-        default:
-            return ""
-    }
 }
