@@ -24,7 +24,7 @@ for (const locale of ["de", "en"] as const) {
       expect(within(section).getByRole("link", {
         name: locale === "de" ? "Folge-Fragebogen starten" : "Start follow-up questionnaire",
       })).toHaveAttribute("href", `${prefix}/glp-1-check/follow-up`);
-      expect(screen.getAllByRole("link", { name: title })[0]).toHaveAttribute("href", "#glp-1-forms");
+      expect(screen.queryByRole("link", { name: title })).not.toBeInTheDocument();
       const bodyLink = screen.getByRole("link", {
         name: locale === "de" ? "medizinischen Fragebogen" : "medical questionnaire",
       });

@@ -23,7 +23,6 @@ import { Constants } from "app/Constants";
 import source from "app/content/clinic-treatment-updates.json";
 import englishSource from "app/content/clinic-treatment-updates-en.json";
 import Glp1TreatmentForms from "app/glp1/Glp1TreatmentForms";
-import { getGlp1Copy } from "app/glp1/intake-copy";
 
 export type ClinicTreatmentKey = keyof typeof source;
 export function clinicTreatmentMetadata(
@@ -175,11 +174,6 @@ export function ClinicTreatmentPage({
         >
           {content.heroLabel}
         </AppointmentBookingButton>
-      )}
-      {pageKey === "weightLoss" && (
-        <Link href="#glp-1-forms" className={`${primaryClass} focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary`}>
-          {getGlp1Copy(locale).landing.formsTitle}
-        </Link>
       )}
       <Link
         href={priceHref}
