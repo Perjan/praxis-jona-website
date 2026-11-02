@@ -1,0 +1,157 @@
+[
+  {
+    "name": "age",
+    "title": "Wie alt sind Sie?",
+    "hint": "",
+    "type": "radio",
+    "options": [
+      {
+        "value": "under40",
+        "label": "Unter 40"
+      },
+      {
+        "value": "40to44",
+        "label": "40–44"
+      },
+      {
+        "value": "45to54",
+        "label": "45–54"
+      },
+      {
+        "value": "55plus",
+        "label": "55 oder älter"
+      }
+    ]
+  },
+  {
+    "name": "context",
+    "title": "Gibt es einen dieser besonderen Umstände?",
+    "hint": "Falls mehrere zutreffen, wählen Sie den ersten passenden Punkt. Dann erfolgt bewusst keine Zuordnung allein anhand der Blutung.",
+    "type": "radio",
+    "options": [
+      {
+        "value": "pregnancy",
+        "label": "Schwangerschaft möglich, Schwangerschaft, kürzliche Geburt oder Stillzeit"
+      },
+      {
+        "value": "surgery",
+        "label": "Beide Eierstöcke wurden entfernt"
+      },
+      {
+        "value": "hormones",
+        "label": "Hormonelle Verhütung oder Hormontherapie, auch Hormonspirale"
+      },
+      {
+        "value": "uterus",
+        "label": "Gebärmutter entfernt oder keine beurteilbaren natürlichen Blutungen"
+      },
+      {
+        "value": "other",
+        "label": "Schon lange unregelmäßige Zyklen (z. B. PCOS), eine die Eierstockfunktion beeinflussende Behandlung oder Unsicherheit"
+      },
+      {
+        "value": "none",
+        "label": "Nichts davon – mein natürlicher Zyklus ist beurteilbar"
+      }
+    ]
+  },
+  {
+    "name": "period",
+    "title": "Wann war Ihre letzte natürliche Periode?",
+    "hint": "",
+    "type": "radio",
+    "options": [
+      {
+        "value": "recent",
+        "label": "Vor weniger als 60 Tagen"
+      },
+      {
+        "value": "gap",
+        "label": "Vor mindestens 60 Tagen, aber weniger als 12 Monaten"
+      },
+      {
+        "value": "year",
+        "label": "Vor mindestens 12 Monaten"
+      },
+      {
+        "value": "unknown",
+        "label": "Unklar oder wegen Verhütung, Behandlung oder Operation nicht beurteilbar"
+      }
+    ]
+  },
+  {
+    "name": "change",
+    "title": "Hat sich Ihr Zyklus neu und wiederholt verändert?",
+    "hint": "Zum Beispiel deutlich kürzer oder länger als früher. Eine einzelne verspätete Periode ist damit nicht gemeint.",
+    "type": "radio",
+    "options": [
+      {
+        "value": "yes",
+        "label": "Ja"
+      },
+      {
+        "value": "no",
+        "label": "Nein"
+      },
+      {
+        "value": "unknown",
+        "label": "Unklar / nicht beurteilbar"
+      }
+    ]
+  },
+  {
+    "name": "symptoms",
+    "title": "Was beschäftigt Sie aktuell?",
+    "hint": "Mehrere Antworten sind möglich. Wenn nichts zutrifft, lassen Sie die Auswahl leer.",
+    "type": "checkbox",
+    "options": []
+  },
+  {
+    "name": "burden",
+    "title": "Wie sehr beeinträchtigt Sie das im Alltag?",
+    "hint": "",
+    "type": "radio",
+    "options": [
+      {
+        "value": "none",
+        "label": "Gar nicht"
+      },
+      {
+        "value": "mild",
+        "label": "Leicht"
+      },
+      {
+        "value": "moderate",
+        "label": "Mittel"
+      },
+      {
+        "value": "strong",
+        "label": "Stark"
+      }
+    ]
+  },
+  {
+    "name": "warning",
+    "title": "Gibt es auffällige Blutungen oder akute Beschwerden?",
+    "hint": "",
+    "type": "radio",
+    "options": [
+      {
+        "value": "emergency",
+        "label": "Sehr starke Blutung mit Kreislaufproblemen, Ohnmacht, akute Atemnot oder Brustschmerz"
+      },
+      {
+        "value": "postbleeding",
+        "label": "Neue Blutung nach mindestens zwölf Monaten ohne natürliche Periode"
+      },
+      {
+        "value": "abnormal",
+        "label": "Starke / lange Blutungen, Zwischenblutungen oder Blutungen nach dem Sex"
+      },
+      {
+        "value": "none",
+        "label": "Nichts davon"
+      }
+    ]
+  }
+]

@@ -135,14 +135,29 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
     (author) => author.id === (post.author ?? 'jonida-gjolli')
   );
 
-  const postIndex = posts.findIndex((post) => post._raw.flattenedPath === flattenedPath);
-  const previousPost = posts[postIndex + 1];
-  const relatedArticles = posts.slice(postIndex + 1, postIndex + 6);
+  const relatedArticles = posts
+    .filter(item => item._id !== post._id && !item.isHidden)
+    .map(item => ({ item, overlap: item.tags?.filter(tag => post.tags?.includes(tag)).length ?? 0 }))
+    .filter(({ overlap }) => overlap > 0)
+    .sort((a, b) => b.overlap - a.overlap)
+    .slice(0, 3)
+    .map(({ item }) => item);
 
   const structuredData = {
     ...post.structuredData,
     description: seoDescriptionForPost(post),
     url: canonicalUrlForPost(post),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrlForPost(post),
+      ...(post.medicalReviewer ? { reviewedBy: {
+        '@type': 'Person',
+        name: Authors.find(item => item.id === post.medicalReviewer)?.name,
+        url: `${Constants.baseUrl}${locale === 'en' ? '/en' : ''}/blog/authors/${post.medicalReviewer}`,
+      } } : {}),
+    },
+    inLanguage: locale,
+    ...(post.tags?.length ? { keywords: post.tags.join(', ') } : {}),
     author: {
       '@type': 'Person',
       name: author.name,
@@ -177,6 +192,12 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
               <Link href={locale === "en" ? "/en/blog/authors/jonida-gjolli" : author.url} className='hover:text-teal-500'>
                 {author.name}
               </Link>
+              {post.medicalReviewer && <p className="mt-2 text-sm text-gray-600">
+                {locale === 'en' ? 'Medically reviewed by ' : 'Medizinisch geprüft von '}
+                <Link className="underline" href={`${locale === 'en' ? '/en' : ''}/blog/authors/${post.medicalReviewer}`}>
+                  {Authors.find(item => item.id === post.medicalReviewer)?.name}
+                </Link>
+              </p>}
             </div>
             <article className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-7xl">
               <section>
@@ -205,7 +226,7 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
               </section>
             </article>
 
-            {previousPost && (
+            {relatedArticles.length > 0 && (
               <div className='border-t'>
                 <div className='pt-10 mt-2 mx-auto max-w-2xl lg:mx-0 space-x-6'>
                   <div className='mb-10 text-slate-700 font-semibold flex items-center'>
@@ -225,7 +246,7 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
                   </div>
                 </div>
 
-                <BlogArticleFooter posts={relatedArticles} />
+                <BlogArticleFooter posts={relatedArticles} locale={locale} />
               </div>
             )}
           </div>

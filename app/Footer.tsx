@@ -26,6 +26,7 @@ const navigationGerman = {
     { name: 'Team', href: '/team' },
     { name: 'Aktuelles', href: '/aktuelles' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Kostenlose Checks', href: '/free-tools' },
     { name: 'Karriere', href: '/jobs', badge: newJobOpeningCount, badgeLabel: 'neue Stelle' },
   ],
 }
@@ -44,6 +45,7 @@ const navigationEnglish = {
     { name: 'Team', href: '/en/team' },
     { name: 'Latest News', href: '/en/latest-news' },
     { name: 'Blog', href: '/en/blog' },
+    { name: 'Free health checks', href: '/en/free-tools' },
     { name: 'Jobs', href: '/en/jobs', badge: newJobOpeningCount, badgeLabel: 'new opening' },
   ],
 }

@@ -22,6 +22,7 @@ import { categoryContent } from "app/components/pageContent";
 import { Constants } from "app/Constants";
 import source from "app/content/clinic-treatment-updates.json";
 import englishSource from "app/content/clinic-treatment-updates-en.json";
+import Glp1TreatmentForms from "app/glp1/Glp1TreatmentForms";
 
 export type ClinicTreatmentKey = keyof typeof source;
 export function clinicTreatmentMetadata(
@@ -253,6 +254,7 @@ export function ClinicTreatmentPage({
           facts={facts}
           factColumns={pageKey === "weightLoss" ? 2 : 3}
         />
+        {pageKey === "weightLoss" && <Glp1TreatmentForms locale={locale} />}
         <TreatmentEditorialBody
           blocks={body}
           pageKey={pageKey}

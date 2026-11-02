@@ -1,0 +1,46 @@
+export const copy = {
+  de: {
+    hub: 'Kostenlose Gesundheits-Checks', eyebrow: 'Wissen, was Sie besprechen möchten',
+    intro: 'Nehmen Sie sich einen Moment für Ihre Gesundheit. Unsere Checks helfen Ihnen, Befunde und Beschwerden zu sortieren und sich auf ein ärztliches Gespräch vorzubereiten.',
+    start: 'Check öffnen', back: 'Alle kostenlosen Checks', submit: 'Meine Orientierung ansehen',
+    privacy: 'Ihre Antworten bleiben während des Checks in dieser Seite. Sie werden nicht an die Praxis gesendet und nicht dauerhaft gespeichert.',
+    notice: 'Diese Checks geben Orientierung. Sie ersetzen keine ärztliche Diagnose und legen keine Behandlung, Dosierung oder Infusion fest.',
+    summary: 'Ihre Angaben für das Gespräch', result: 'Ihre Orientierung', sources: 'Fachliche Grundlage',
+    limitation: 'Was das nicht bedeutet', observe: 'Hilfreich für Ihr Gespräch', print: 'Übersicht drucken', edit: 'Antworten bearbeiten', reset: 'Alles zurücksetzen', contact: 'Beschwerden mit der Praxis besprechen',
+    required: 'Bitte beantworten Sie die markierten Fragen. Wenn Sie unsicher sind, wählen Sie „unklar“, sofern verfügbar.',
+    numberError: 'Bitte geben Sie einen gültigen Wert ohne Tausendertrennzeichen ein. Ferritin: 0–10000 ng/ml, TSAT: 0–100 %.',
+    unknown: 'Nicht angegeben', none: 'Keine Auswahl', related: 'Mehr zum Thema', author: 'Medizinisch geprüft von',
+    hormoneTitle: 'Und welches Hormon ist es?', hormone: 'Das lässt sich aus diesen Antworten nicht feststellen. „Östrogendominanz“ ist keine standardisierte Diagnose für einen Symptomtest. Auch „Progesterondominanz“ ist keine eigene Wechseljahresphase. Der Check empfiehlt keine Hormone, Dosierungen oder Supplemente.',
+    faq: 'Häufige Fragen',
+  },
+  en: {
+    hub: 'Free health checks', eyebrow: 'Know what you want to discuss',
+    intro: 'Take a moment for your health. Our checks help you organise results and symptoms, and prepare for a medical consultation.',
+    start: 'Open check', back: 'All free checks', submit: 'View my guidance',
+    privacy: 'Your answers remain on this page during the check. They are not sent to the practice and are not stored permanently.',
+    notice: 'These checks provide guidance. They do not replace a medical diagnosis or determine treatment, doses or a need for an infusion.',
+    summary: 'Your notes for the consultation', result: 'Your guidance', sources: 'Clinical sources',
+    limitation: 'What this does not mean', observe: 'Useful for your consultation', print: 'Print summary', edit: 'Edit answers', reset: 'Reset everything', contact: 'Discuss symptoms with the practice',
+    required: 'Please answer the highlighted questions. If unsure, select “unclear” where available.',
+    numberError: 'Please enter a valid value without thousands separators. Ferritin: 0–10000 ng/ml, TSAT: 0–100%.',
+    unknown: 'Not provided', none: 'None selected', related: 'Read more', author: 'Medically reviewed by',
+    hormoneTitle: 'So which hormone is it?', hormone: 'These answers cannot establish that. “Oestrogen dominance” is not a standardised diagnosis for a symptom test. “Progesterone dominance” is not a separate menopausal stage either. This check does not recommend hormones, doses or supplements.',
+    faq: 'Frequently asked questions',
+  },
+};
+export const menopauseFaq = {
+  de: [
+    ['Kann der Check eine Perimenopause feststellen?', 'Nein. Er hilft Ihnen, Beobachtungen zu sortieren und zu verstehen, welche Informationen beim ärztlichen Gespräch wichtig sind.'],
+    ['Kann ich damit eine Östrogendominanz oder einen Progesteronmangel erkennen?', 'Nein. Viele Symptome überlappen. Aus einer Kombination von Beschwerden lässt sich kein zuverlässiges persönliches Hormonprofil ableiten.'],
+    ['Muss ich meine Hormone testen lassen?', 'Nicht automatisch. Alter, Beschwerden, Zyklusverlauf und Vorgeschichte bestimmen, ob Laborwerte sinnvoll sind. Vor 45 kann eine gezielte Abklärung eine andere Rolle spielen als bei typischen Beschwerden mit Ende 40.'],
+    ['Kann ich trotz Periode Beschwerden haben?', 'Ja. Die Periode kann noch auftreten, während bereits Veränderungen bestehen. Welche Ursache dahintersteckt und welche Hilfe passt, wird individuell geklärt.'],
+    ['Ersetzt der Check die Verhütung?', 'Nein. Er kann nicht feststellen, ob Sie sicher unfruchtbar sind. Eine Hormontherapie ist außerdem nicht automatisch ein Verhütungsmittel.'],
+  ],
+  en: [
+    ['Can this check diagnose perimenopause?', 'No. It helps you organise observations and understand which information matters for a medical consultation.'],
+    ['Can it identify oestrogen dominance or progesterone deficiency?', 'No. Many symptoms overlap. A combination of symptoms cannot establish a reliable personal hormone profile.'],
+    ['Do I need hormone tests?', 'Not automatically. Age, symptoms, cycle patterns and medical history determine whether laboratory tests are useful. Targeted investigation before 45 can play a different role from assessment of typical symptoms in the late forties.'],
+    ['Can I have symptoms while still having periods?', 'Yes. Periods can continue while changes are already occurring. The cause and suitable help are assessed individually.'],
+    ['Does this check replace contraception?', 'No. It cannot establish that you are definitely infertile. Hormone therapy is also not automatically a contraceptive.'],
+  ],
+};
