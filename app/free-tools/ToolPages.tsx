@@ -6,6 +6,7 @@ import { copy, menopauseFaq } from './copy';
 import { toolPath, tools, type ToolKind } from './definition';
 import HealthCheck from './HealthCheck';
 import articlePairs from './article-pairs.json';
+import { Constants } from 'app/Constants';
 import './tools.css';
 
 export function toolsMetadata(locale: Locale, slug?: string) {
@@ -33,7 +34,30 @@ export function ToolPage({ locale, slug }: { locale: Locale; slug: string }) {
   if (!tool) notFound();
   const c = copy[locale];
   const related = articlePairs.filter(pair => pair.topic === (tool.kind === 'perimenopause' ? 'perimenopause' : 'eisen'));
+  const url = `${Constants.baseUrl}${toolPath(tool.kind, locale)}`;
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': url,
+    url,
+    name: tool.heading[locale],
+    description: tool.description[locale],
+    inLanguage: locale,
+    reviewedBy: {
+      '@type': 'Person',
+      name: 'Dr. med. Jonida Gjolli',
+      url: `${Constants.baseUrl}${locale === 'en' ? '/en' : ''}/blog/authors/jonida-gjolli`,
+    },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: c.hub, item: `${Constants.baseUrl}${locale === 'en' ? '/en' : ''}/free-tools` },
+        { '@type': 'ListItem', position: 2, name: tool.title[locale], item: url },
+      ],
+    },
+  };
   return <div className="free-tool-page mx-auto max-w-3xl px-5 py-10 sm:py-16">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }} />
     <div className="free-tool-intro">
       <nav aria-label={locale === 'en' ? 'Breadcrumb' : 'Brotkrumennavigation'}><Link href={`${locale === 'en' ? '/en' : ''}/free-tools`} className="text-sm font-semibold text-primary underline">← {c.back}</Link></nav>
       <h1 className="mt-8 font-serif text-4xl font-semibold text-primary sm:text-5xl">{tool.heading[locale]}</h1>

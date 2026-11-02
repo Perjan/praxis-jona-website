@@ -1,0 +1,112 @@
+{
+  "current": [
+    {
+      "clicks": 1576,
+      "impressions": 49937,
+      "ctr": 0.031559765304283394,
+      "position": 11.134689709033381
+    }
+  ],
+  "previous": [
+    {
+      "clicks": 1495,
+      "impressions": 47161,
+      "ctr": 0.03169992154534467,
+      "position": 11.372426369245774
+    }
+  ],
+  "pages": [
+    {
+      "keys": [
+        "https://praxisjona.de/leistungen/eiseninfusion-kosten"
+      ],
+      "clicks": 366,
+      "impressions": 13162,
+      "ctr": 0.02780732411487616,
+      "position": 5.1442030086612975
+    },
+    {
+      "keys": [
+        "https://praxisjona.de/en/services/iron-infusion-costs"
+      ],
+      "clicks": 70,
+      "impressions": 1978,
+      "ctr": 0.03538928210313448,
+      "position": 4.031850353892821
+    },
+    {
+      "keys": [
+        "https://praxisjona.de/blog/eiseninfusion-frauen-eisenmangel-vorteile"
+      ],
+      "clicks": 50,
+      "impressions": 6743,
+      "ctr": 0.007415097137772505,
+      "position": 10.28518463591873
+    },
+    {
+      "keys": [
+        "https://praxisjona.de/en/blog/iron-infusion-women-iron-deficiency-benefits"
+      ],
+      "clicks": 0,
+      "impressions": 259,
+      "ctr": 0,
+      "position": 12.042471042471043
+    }
+  ],
+  "property": "sc-domain:praxisjona.de",
+  "startDate": "2026-10-04",
+  "endDate": "2026-10-31",
+  "previousStartDate": "2026-09-06",
+  "previousEndDate": "2026-10-03",
+  "source": "Authenticated GSC searchAnalytics/query; web; final data; property and page aggregates fetched separately from query-visible detail",
+  "queries": [
+    {
+      "searchType": "web",
+      "clicks": 111,
+      "impressions": 783,
+      "ctr": 0.1417624521072797,
+      "position": 2.4636015325670497,
+      "query": "eiseninfusion berlin"
+    },
+    {
+      "searchType": "web",
+      "clicks": 24,
+      "impressions": 3222,
+      "ctr": 0.0074487895716946,
+      "position": 3.8590937306021105,
+      "query": "eiseninfusion kosten"
+    },
+    {
+      "searchType": "web",
+      "clicks": 12,
+      "impressions": 83,
+      "ctr": 0.14457831325301204,
+      "position": 3.0120481927710845,
+      "query": "iron infusion berlin"
+    },
+    {
+      "searchType": "web",
+      "clicks": 4,
+      "impressions": 230,
+      "ctr": 0.017391304347826087,
+      "position": 5.908695652173913,
+      "query": "iron infusion"
+    },
+    {
+      "searchType": "web",
+      "clicks": 2,
+      "impressions": 145,
+      "ctr": 0.013793103448275862,
+      "position": 6.358620689655172,
+      "query": "ab wann eiseninfusion"
+    },
+    {
+      "searchType": "web",
+      "clicks": 0,
+      "impressions": 51,
+      "ctr": 0,
+      "position": 32.78431372549019,
+      "query": "iron infusion for women"
+    }
+  ]
+}

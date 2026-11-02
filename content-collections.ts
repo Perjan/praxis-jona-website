@@ -50,7 +50,7 @@ type BlogPostingSchema = {
   '@type': string;
   headline: string;
   datePublished: string;
-  dateModified: string;
+  dateModified?: string;
   image: string;
   author: PersonSchema;
   publisher?: OrganizationSchema;
@@ -140,7 +140,8 @@ const posts = defineCollection({
       '@type': 'BlogPosting',
       headline: fields.title,
       datePublished: date,
-      dateModified: date,
+      // A clinical review confirmation does not supply a modification date.
+      ...(fields.medicalReviewer ? {} : { dateModified: date }),
       image: `${SITE_URL}/images/blog-images/${fields.coverImage}`,
       author: authorSchema(fields.author),
     };
