@@ -1,0 +1,514 @@
+{
+  "status": [
+    {
+      "name": "group",
+      "title": "Für wen nutzen Sie den Check?",
+      "options": [
+        {
+          "value": "adult",
+          "label": "Für mich als erwachsene Person, nicht schwanger und nicht im Wochenbett"
+        },
+        {
+          "value": "special",
+          "label": "Für ein Kind / eine jugendliche Person oder während Schwangerschaft / Wochenbett"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "warning",
+      "title": "Bestehen akute Beschwerden oder auffällige Blutungen?",
+      "options": [
+        {
+          "value": "acute",
+          "label": "Akute Atemnot, Brustschmerz, Ohnmacht oder starke Blutung mit Kreislaufproblemen"
+        },
+        {
+          "value": "bleeding",
+          "label": "Auffällige Blutungen, teerartiger klebriger Stuhl oder ungewöhnlich starke Beschwerden"
+        },
+        {
+          "value": "none",
+          "label": "Nichts davon"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "ferritin",
+      "type": "number",
+      "title": "Wie hoch ist Ihr Ferritin?",
+      "hint": "Falls bekannt: ng/ml oder µg/l. Diese Einheiten sind zahlenmäßig gleich. Ohne Tausendertrennzeichen eingeben, z. B. 28,5. Sonst leer lassen."
+    },
+    {
+      "name": "tsat",
+      "type": "number",
+      "title": "Wie hoch ist die Transferrinsättigung (TSAT)?",
+      "hint": "Falls bekannt: Prozentwert, z. B. 18. Sonst leer lassen. Nutzen Sie möglichst zeitlich zusammengehörige Befunde."
+    },
+    {
+      "name": "hb",
+      "title": "Wie wurde Ihr Hämoglobin (Hb) beurteilt?",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Im passenden Referenzbereich"
+        },
+        {
+          "value": "low",
+          "label": "Erniedrigt / Anämie bekannt"
+        },
+        {
+          "value": "unknown",
+          "label": "Unbekannt"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "crp",
+      "title": "Gibt es einen Hinweis auf Entzündung?",
+      "options": [
+        {
+          "value": "high",
+          "label": "CRP erhöht oder eine aktuelle Entzündung bekannt"
+        },
+        {
+          "value": "normal",
+          "label": "CRP unauffällig; keine Entzündung bekannt"
+        },
+        {
+          "value": "unknown",
+          "label": "Nicht bestimmt oder unklar"
+        }
+      ],
+      "hint": "Eine bekannte entzündliche Erkrankung geben Sie bitte zusätzlich bei den Risikofaktoren an.",
+      "type": "radio"
+    },
+    {
+      "name": "symptoms",
+      "title": "Welche Beschwerden bestehen?",
+      "options": [
+        {
+          "value": "fatigue",
+          "label": "Müdigkeit oder Erschöpfung"
+        },
+        {
+          "value": "concentration",
+          "label": "Konzentrationsprobleme"
+        },
+        {
+          "value": "hair",
+          "label": "Haarausfall"
+        },
+        {
+          "value": "performance",
+          "label": "Verminderte Belastbarkeit"
+        },
+        {
+          "value": "dizziness",
+          "label": "Schwindel"
+        },
+        {
+          "value": "other",
+          "label": "Andere Beschwerden, die Sie mit Eisen besprechen möchten"
+        }
+      ],
+      "hint": "Mehrere Antworten möglich. Wenn nichts zutrifft, lassen Sie die Auswahl leer.",
+      "type": "checkbox"
+    },
+    {
+      "name": "risks",
+      "title": "Welche Risiken oder besonderen Umstände bestehen?",
+      "options": [
+        {
+          "value": "heavy",
+          "label": "Starke oder lange Menstruationsblutungen"
+        },
+        {
+          "value": "donation",
+          "label": "Häufige Blutspenden oder sonstiger Blutverlust"
+        },
+        {
+          "value": "diet",
+          "label": "Möglicherweise geringe Eisenzufuhr"
+        },
+        {
+          "value": "malabsorption",
+          "label": "Zöliakie, Resorptionsstörung oder Magen-Darm-Operation"
+        },
+        {
+          "value": "inflammation",
+          "label": "Entzündliche Erkrankung, z. B. aktive CED, chronische Nierenkrankheit, Herzinsuffizienz oder Krebs"
+        },
+        {
+          "value": "overload",
+          "label": "Bekannte Hämochromatose / Eisenüberladung"
+        }
+      ],
+      "hint": "Mehrere Antworten möglich. Wenn nichts zutrifft, lassen Sie die Auswahl leer.",
+      "type": "checkbox"
+    },
+    {
+      "name": "recent",
+      "title": "Gab es in letzter Zeit eine Eiseninfusion oder Bluttransfusion?",
+      "options": [
+        {
+          "value": "no",
+          "label": "Nein"
+        },
+        {
+          "value": "yes",
+          "label": "Ja oder Zeitpunkt unklar"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "rls",
+      "title": "Wurde bei Ihnen Restless Legs ärztlich diagnostiziert?",
+      "options": [
+        {
+          "value": "no",
+          "label": "Nein oder nicht sicher"
+        },
+        {
+          "value": "yes",
+          "label": "Ja, klinisch relevantes RLS ist bekannt"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    }
+  ],
+  "intake": [
+    {
+      "name": "group",
+      "title": "Für wen nutzen Sie den Check?",
+      "options": [
+        {
+          "value": "adult",
+          "label": "Für mich als erwachsene Person, nicht schwanger und nicht im Wochenbett"
+        },
+        {
+          "value": "special",
+          "label": "Für ein Kind / eine jugendliche Person oder während Schwangerschaft / Wochenbett"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "warning",
+      "title": "Bestehen akute Beschwerden oder auffällige Blutungen?",
+      "options": [
+        {
+          "value": "acute",
+          "label": "Akute Atemnot, Brustschmerz, Ohnmacht oder starke Blutung mit Kreislaufproblemen"
+        },
+        {
+          "value": "bleeding",
+          "label": "Auffällige Blutungen, teerartiger klebriger Stuhl oder ungewöhnlich starke Beschwerden"
+        },
+        {
+          "value": "none",
+          "label": "Nichts davon"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "taking",
+      "title": "Nehmen Sie bereits Eisen zum Einnehmen?",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Ja"
+        },
+        {
+          "value": "no",
+          "label": "Nein"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "confirmed",
+      "title": "Wurde ein Eisenmangel ärztlich bestätigt?",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Ja"
+        },
+        {
+          "value": "unknown",
+          "label": "Nein oder nicht sicher"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "type",
+      "title": "Welches Präparat nehmen Sie?",
+      "options": [
+        {
+          "value": "salt",
+          "label": "Klassisches zweiwertiges Eisensalz, z. B. Ferrosulfat / Ferrofumarat"
+        },
+        {
+          "value": "bisglycinate",
+          "label": "Eisenbisglycinat"
+        },
+        {
+          "value": "liposomal",
+          "label": "Liposomales oder sucrosomiales Eisen"
+        },
+        {
+          "value": "other",
+          "label": "Anderes Präparat oder unklar"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "dose",
+      "title": "Wie viel elementares Eisen nehmen Sie pro Einnahme?",
+      "options": [
+        {
+          "value": "under60",
+          "label": "Weniger als 60 mg"
+        },
+        {
+          "value": "60plus",
+          "label": "60 mg oder mehr"
+        },
+        {
+          "value": "unknown",
+          "label": "Nicht bekannt; ich kenne nur die Packungsangabe"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "schedule",
+      "title": "Wie oft nehmen Sie Eisen?",
+      "options": [
+        {
+          "value": "alternate",
+          "label": "Jeden zweiten Tag"
+        },
+        {
+          "value": "daily",
+          "label": "Einmal täglich"
+        },
+        {
+          "value": "multiple",
+          "label": "Mehrmals täglich"
+        },
+        {
+          "value": "other",
+          "label": "Anderer Rhythmus / nicht sicher"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "food",
+      "title": "Wie liegt die Einnahme zu Mahlzeiten?",
+      "options": [
+        {
+          "value": "morning",
+          "label": "Morgens mindestens 30 Minuten vor dem Frühstück"
+        },
+        {
+          "value": "evening",
+          "label": "Abends mindestens 2–3 Stunden nach der letzten Mahlzeit"
+        },
+        {
+          "value": "fasting",
+          "label": "Anderer Zeitpunkt, mindestens 2 Stunden nach Essen und mindestens 30 Minuten vor dem nächsten Essen"
+        },
+        {
+          "value": "under30",
+          "label": "Weniger als 30 Minuten vor dem Essen oder weniger als 2 Stunden danach"
+        },
+        {
+          "value": "with",
+          "label": "Mit einer Mahlzeit / direkt danach"
+        },
+        {
+          "value": "unknown",
+          "label": "Wechselnd oder unklar"
+        }
+      ],
+      "hint": "Diese Orientierung betrifft vor allem klassische Eisensalze. Präparatehinweise und Verträglichkeit berücksichtigen.",
+      "type": "radio"
+    },
+    {
+      "name": "blockers",
+      "title": "Was liegt zeitlich nah an Ihrer Eiseneinnahme?",
+      "options": [
+        {
+          "value": "coffee",
+          "label": "Kaffee oder Tee innerhalb von etwa 2 Stunden"
+        },
+        {
+          "value": "calcium",
+          "label": "Milchprodukte oder Calciumpräparate innerhalb von etwa 2 Stunden"
+        },
+        {
+          "value": "minerals",
+          "label": "Magnesium-, Zinkpräparate oder Antazida innerhalb von etwa 2 Stunden"
+        },
+        {
+          "value": "medication",
+          "label": "Levothyroxin oder bestimmte Antibiotika ohne geklärten Abstandsplan"
+        },
+        {
+          "value": "ppi",
+          "label": "Ich nehme einen Säureblocker / Protonenpumpenhemmer"
+        }
+      ],
+      "hint": "Mehrere Antworten möglich. Wenn nichts zutrifft, lassen Sie die Auswahl leer.",
+      "type": "checkbox"
+    },
+    {
+      "name": "vitamin",
+      "title": "Nehmen Sie Vitamin C dazu?",
+      "options": [
+        {
+          "value": "yes",
+          "label": "Ja, z. B. Vitamin-C-haltiges Getränk oder Präparat"
+        },
+        {
+          "value": "no",
+          "label": "Nein"
+        },
+        {
+          "value": "unknown",
+          "label": "Nicht sicher"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "adherence",
+      "title": "Wie regelmäßig gelingt die Einnahme?",
+      "options": [
+        {
+          "value": "regular",
+          "label": "Wie vereinbart, fast ohne Auslassen"
+        },
+        {
+          "value": "missed",
+          "label": "Ich vergesse öfter Dosen oder mache Pausen"
+        },
+        {
+          "value": "stopped",
+          "label": "Ich habe wegen Beschwerden unterbrochen"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "tolerance",
+      "title": "Wie vertragen Sie die Tabletten?",
+      "options": [
+        {
+          "value": "good",
+          "label": "Gut oder nur leichte, gut handhabbare Beschwerden"
+        },
+        {
+          "value": "poor",
+          "label": "Übelkeit, Bauchschmerzen, Verstopfung oder Durchfall stören"
+        },
+        {
+          "value": "unknown",
+          "label": "Unklar"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "duration",
+      "title": "Seit wann läuft die Behandlung?",
+      "options": [
+        {
+          "value": "early",
+          "label": "Weniger als 4 Wochen"
+        },
+        {
+          "value": "weeks",
+          "label": "Seit 4 bis 8 Wochen"
+        },
+        {
+          "value": "long",
+          "label": "Länger als 8 Wochen"
+        },
+        {
+          "value": "unknown",
+          "label": "Unklar"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "response",
+      "title": "Wie haben sich die Werte entwickelt?",
+      "options": [
+        {
+          "value": "flat",
+          "label": "Ferritin steigt nach meiner Verlaufskontrolle nicht"
+        },
+        {
+          "value": "better",
+          "label": "Ferritin oder Hb verbessern sich"
+        },
+        {
+          "value": "unknown",
+          "label": "Noch keine vergleichbare Kontrolle / nicht bekannt"
+        }
+      ],
+      "hint": "",
+      "type": "radio"
+    },
+    {
+      "name": "conditions",
+      "title": "Gibt es zusätzliche Ursachen, die eine Rolle spielen könnten?",
+      "options": [
+        {
+          "value": "bleeding",
+          "label": "Fortbestehende starke Blutungen"
+        },
+        {
+          "value": "inflammation",
+          "label": "Chronische Entzündung / relevante Grunderkrankung"
+        },
+        {
+          "value": "gut",
+          "label": "Zöliakie oder andere Resorptionsstörung"
+        },
+        {
+          "value": "surgery",
+          "label": "Magen-Darm-Operation / bariatrische Operation"
+        }
+      ],
+      "hint": "Mehrere Antworten möglich. Wenn nichts zutrifft, lassen Sie die Auswahl leer.",
+      "type": "checkbox"
+    }
+  ]
+}

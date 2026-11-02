@@ -12,7 +12,7 @@
     "gen-sitemap": "next-sitemap",
     "start": "next start",
     "lint": "eslint .",
-    "test": "npm run seo:test-priority && vitest run",
+    "test": "npm run seo:test-priority && node --test tests/free-tools/*.node-test.mjs && vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "test:all": "npm run build && npm run test && npm run test:e2e",

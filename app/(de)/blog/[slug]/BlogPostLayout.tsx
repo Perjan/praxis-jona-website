@@ -149,6 +149,11 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
       ...(author.role ? { jobTitle: locale === "en" ? author.roleEn ?? author.role : author.role } : {}),
       url: `${Constants.baseUrl}${locale === "en" ? englishAuthorUrl(author.url) : author.url}`,
     },
+    ...(post.medicalReviewer ? { reviewedBy: {
+      '@type': 'Person',
+      name: Authors.find(item => item.id === post.medicalReviewer)?.name,
+      url: `${Constants.baseUrl}${locale === 'en' ? '/en' : ''}/blog/authors/${post.medicalReviewer}`,
+    } } : {}),
     publisher: post.structuredData?.publisher ?? {
       '@type': 'Organization',
       name: Constants.appName,
@@ -177,6 +182,12 @@ export const BlogPostLayout = async ({ flattenedPath, locale = "de" }: { flatten
               <Link href={locale === "en" ? "/en/blog/authors/jonida-gjolli" : author.url} className='hover:text-teal-500'>
                 {author.name}
               </Link>
+              {post.medicalReviewer && <p className="mt-2 text-sm text-gray-600">
+                {locale === 'en' ? 'Medically reviewed by ' : 'Medizinisch geprüft von '}
+                <Link className="underline" href={`${locale === 'en' ? '/en' : ''}/blog/authors/${post.medicalReviewer}`}>
+                  {Authors.find(item => item.id === post.medicalReviewer)?.name}
+                </Link>
+              </p>}
             </div>
             <article className="prose prose-p:text-base sm:prose-p:text-lg mx-auto sm:max-w-2xl md:max-w-7xl">
               <section>

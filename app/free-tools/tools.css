@@ -1,0 +1,18 @@
+.health-check fieldset[aria-invalid="true"] { border-color: #b91c1c; }
+body:has(.health-check[data-tool-urgent="true"]) header,
+body:has(.health-check[data-tool-urgent="true"]) footer,
+body:has(.health-check[data-tool-urgent="true"]) .free-tools-support { display: none; }
+@media print {
+  body:has(.health-check-result) header,
+  body:has(.health-check-result) footer,
+  body:has(.health-check-result) .free-tool-intro,
+  body:has(.health-check-result) .free-tools-support,
+  body:has(.health-check-result) .health-check > p,
+  body:has(.health-check-result) .health-check form,
+  .health-check-result .tool-actions,
+  .health-check-result > a { display: none !important; }
+  .free-tool-page, .health-check-result { max-width: none; margin: 0; padding: 0; border: 0; }
+  .health-check-result { color: #000; }
+  .health-check-result details > * { display: block; }
+  .health-check-result h3 { break-after: avoid; }
+}

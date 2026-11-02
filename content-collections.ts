@@ -72,6 +72,7 @@ const posts = defineCollection({
     coverImageIsAiGenerated: z.boolean().optional(),
     // The id of the author. Should match an Author's id in AuthorsDataSource.jsx
     author: z.string().optional(),
+    medicalReviewer: z.string().optional(),
     // Whether the post should be hidden from the blog index
     isHidden: z.boolean().optional(),
     // The language of the post
