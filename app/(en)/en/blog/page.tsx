@@ -1,3 +1,4 @@
+import { isPostInLocale } from 'app/lib/blog-locale';
 import { allPosts } from 'content-collections';
 import PaginatedPostsSection from 'app/PaginatedPostsSection';
 import { Metadata } from 'next';
@@ -47,7 +48,7 @@ tomorrow.setDate(tomorrow.getDate() + 1);
 
 const filteredBlogPosts = allPosts
   .filter((post) => !post.categories?.includes("legal") ?? false)
-  .filter((post) => post.language === "en")
+  .filter((post) => isPostInLocale(post, "en"))
   .filter((post) => post.date <= tomorrow.toISOString().split('T')[0] && !post.isHidden);
 
 export default async function Page() {

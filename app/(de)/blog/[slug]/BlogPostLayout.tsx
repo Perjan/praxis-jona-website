@@ -1,3 +1,4 @@
+import { isPostInLocale } from 'app/lib/blog-locale';
 import Link from 'next/link';
 import ImageDisclosure from 'app/components/ImageDisclosure';
 import AppointmentBookingButton from 'app/components/AppointmentBookingButton';
@@ -27,13 +28,13 @@ import {
 const filteredBlogPosts =
   allPosts
     .filter((post) => !post.categories?.includes('legal') ?? false)
-    .filter((post) => post.language !== "en")
+    .filter((post) => isPostInLocale(post, "de"))
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? [];
 
 const englishBlogPosts =
   allPosts
     .filter((post) => !post.categories?.includes('legal') ?? false)
-    .filter((post) => post.language === "en")
+    .filter((post) => isPostInLocale(post, "en"))
     .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))) ?? [];
 
 const CustomLink = (props) => {
