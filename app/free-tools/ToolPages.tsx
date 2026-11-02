@@ -12,7 +12,15 @@ import './tools.css';
 export function toolsMetadata(locale: Locale, slug?: string) {
   const tool = slug ? tools.find(item => item[locale] === slug) : undefined;
   if (slug && !tool) notFound();
-  return buildMetadata({ title: `${tool ? tool.title[locale] : copy[locale].hub} | Praxis Jona`, description: tool ? tool.description[locale] : copy[locale].intro, canonical: tool ? toolPath(tool.kind, locale) : `${locale === 'en' ? '/en' : ''}/free-tools`, alternate: tool ? toolPath(tool.kind, locale === 'en' ? 'de' : 'en') : `${locale === 'en' ? '' : '/en'}/free-tools`, locale });
+  const metadata = buildMetadata({ title: `${tool ? tool.title[locale] : copy[locale].hub} | Praxis Jona`, description: tool ? tool.description[locale] : copy[locale].intro, canonical: tool ? toolPath(tool.kind, locale) : `${locale === 'en' ? '/en' : ''}/free-tools`, alternate: tool ? toolPath(tool.kind, locale === 'en' ? 'de' : 'en') : `${locale === 'en' ? '' : '/en'}/free-tools`, locale });
+  const imageNames = { status: 'iron-status', intake: 'iron-tablets', perimenopause: 'perimenopause' } as const;
+  const image = `/images/blog-images/og-${tool ? imageNames[tool.kind] : 'hub'}.webp`;
+  const alt = locale === 'de' ? `KI-generierte Illustration: ${tool ? tool.title.de : copy.de.hub}` : `AI-generated illustration: ${tool ? tool.title.en : copy.en.hub}`;
+  return {
+    ...metadata,
+    openGraph: { ...metadata.openGraph, images: [{ url: image, width: 1200, height: 630, alt }] },
+    twitter: { ...metadata.twitter, card: 'summary_large_image' as const, images: [{ url: image, alt }] },
+  };
 }
 export function ToolsHub({ locale }: { locale: Locale }) {
   const c = copy[locale];
