@@ -23,6 +23,10 @@
     "legacy-slideshow-models": {
       "kind": "ai-generated",
       "evidence": "Model imagery visually identified in legacy slides 2 and 6. Owner requested AI badges for every reviewed model image on 2026-10-25; original generation metadata is not retained."
+    },
+    "iron-women-2026-11-03": {
+      "kind": "ai-generated",
+      "evidence": "Generated with the built-in image_gen tool on 2026-11-03 to replace male patient subjects with women. The source PNGs are retained in the generation task. No real person is depicted."
     }
   },
   "images": {
@@ -76,6 +80,10 @@
     "/images/blog-images/botulinumtoxin-medical/trapezius.webp": "botulinumtoxin-blog",
     "/images/blog-images/prp-haarausfall.jpg": "aesthetic-models",
     "/tv-legacy/slide2.jpg": "legacy-slideshow-models",
-    "/tv-legacy/slide6.jpg": "legacy-slideshow-models"
+    "/tv-legacy/slide6.jpg": "legacy-slideshow-models",
+    "/images/blog-images/hero-eiseninfusion-wann-sinnvoll-phosphat-women.webp": "iron-women-2026-11-03",
+    "/images/blog-images/hero-eisenmangel-ohne-anaemie-hb-normal-women.webp": "iron-women-2026-11-03",
+    "/images/blog-images/hero-ferritin-steigt-nicht-trotz-eisentabletten-women.webp": "iron-women-2026-11-03",
+    "/images/blog-images/hero-restless-legs-haarausfall-ferritin-women.webp": "iron-women-2026-11-03"
   }
 }
