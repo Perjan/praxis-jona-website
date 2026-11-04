@@ -75,7 +75,7 @@ Google explicitly says complete, accurate information helps local visibility; lo
 - Primary local KPI: PRP grid points found in the top 20 (baseline 1/9) and top-ten coverage (baseline 1/9).
 - Guardrail: `eiseninfusion berlin` remains strong near the storefront (baseline Maps rank #1).
 - Supporting KPI: review count, recent-review cadence and owner-response coverage.
-- Recheck: 2026-10-13, after citation changes have had time to propagate.
+- Recheck: 28 days after the listing corrections are done and confirmed. On 2026-11-04 the owner confirmed that they are not done, so no rerun date exists yet. This replaces the earlier date of 2026-10-13.
 - Rollback: restore the existing Google category configuration if a category edit causes iron/local discovery to deteriorate; the audit does **not** recommend changing the primary category now.
 
 ## Production Versus Repository Findings
