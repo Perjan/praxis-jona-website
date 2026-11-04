@@ -1,5 +1,6 @@
 import { createElement } from 'react';
 import { fireEvent, render, screen, within } from '@testing-library/react';
+import { renderToString } from 'react-dom/server';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Post } from 'content-collections';
 import PaginatedPostsSection from 'app/PaginatedPostsSection';
@@ -41,5 +42,11 @@ describe('blog listing language', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Load more' }));
     expect(screen.getAllByRole('article')).toHaveLength(12);
     expect(screen.queryByRole('heading', { name: /^German / })).toBeNull();
+  });
+  it('links every article of the language in server HTML, including those behind load more', () => {
+    const mixed = Array.from({ length: 12 }, (_, i) => [post(`English ${i}`, 'en'), post(`German ${i}`, 'de')]).flat();
+    const html = renderToString(<PaginatedPostsSection posts={mixed} locale="en" />);
+    for (let i = 0; i < 12; i++) expect(html).toContain(`href="/blog/English ${i}"`);
+    expect(html).not.toContain('href="/blog/German');
   });
 });
