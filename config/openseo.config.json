@@ -1,0 +1,22 @@
+{
+  "projectId": "46eeecae-5f54-4af6-87d4-5fd86277360e",
+  "projectName": "Praxis Jona",
+  "searchConsoleSite": "sc-domain:praxisjona.de",
+  "inspection": {
+    "maxUrlsPerCall": 10,
+    "recentChangeDays": 45
+  },
+  "business": {
+    "cid": "17835413718789694147",
+    "placeId": "ChIJJ_OAJXRRqEcRw6KW-kcehPc",
+    "latitude": 52.5298407,
+    "longitude": 13.4005963
+  },
+  "localGridBaseline": {
+    "date": "2026-09-15",
+    "keyword": "prp behandlung berlin",
+    "gridSize": 3,
+    "spacingKm": 1,
+    "device": "mobile"
+  }
+}
