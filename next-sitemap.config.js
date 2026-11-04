@@ -11,6 +11,24 @@ const { execSync } = require("child_process");
 // still an honest signal, unlike a blanket "now".
 const gitDateCache = new Map();
 
+// Vercel builds from a shallow clone. There, git attributes every older file to
+// the clone's boundary commit, so that commit's date says nothing about the file.
+function loadShallowBoundaryCommits() {
+  try {
+    const shallowFile = execSync("git rev-parse --git-path shallow", {
+      cwd: process.cwd(),
+      stdio: ["ignore", "pipe", "ignore"],
+    })
+      .toString()
+      .trim();
+    return new Set(fs.readFileSync(path.resolve(process.cwd(), shallowFile), "utf8").split("\n").filter(Boolean));
+  } catch {
+    return new Set();
+  }
+}
+
+const shallowBoundaryCommits = loadShallowBoundaryCommits();
+
 function gitLastModified(relativeFile) {
   if (gitDateCache.has(relativeFile)) return gitDateCache.get(relativeFile);
 
@@ -18,13 +36,14 @@ function gitLastModified(relativeFile) {
   try {
     const absolutePath = path.join(process.cwd(), relativeFile);
     if (fs.existsSync(absolutePath)) {
-      const out = execSync(`git log -1 --format=%aI -- "${relativeFile}"`, {
+      const out = execSync(`git log -1 --format="%H %aI" -- "${relativeFile}"`, {
         cwd: process.cwd(),
         stdio: ["ignore", "pipe", "ignore"],
       })
         .toString()
         .trim();
-      result = out || null;
+      const [commit, date] = out.split(" ");
+      result = date && !shallowBoundaryCommits.has(commit) ? date : null;
     }
   } catch {
     result = null;
@@ -59,10 +78,11 @@ function loadPostFileMap() {
     const source = fs.readFileSync(postsPath, "utf8");
     const posts = JSON.parse(source.replace(/^\s*export default\s*/, "").replace(/;\s*$/, ""));
     for (const post of posts) {
-      const sourceFile = post._raw && post._raw.sourceFileName ? path.join("posts", post._raw.sourceFileName) : null;
+      const sourceFile = post._raw && post._raw.sourceFilePath ? path.join("posts", post._raw.sourceFilePath) : null;
       if (!sourceFile) continue;
-      if (post.url) map.set(post.url, sourceFile);
-      if (post.guideUrl) map.set(post.guideUrl, sourceFile);
+      const source = { file: sourceFile, date: post.date };
+      if (post.url) map.set(post.url, source);
+      if (post.guideUrl) map.set(post.guideUrl, source);
     }
   } catch {
     // content-collections output isn't present (e.g. sitemap regenerated without a
@@ -89,7 +109,9 @@ function fallbackFileForPath(urlPath) {
 
 function resolveLastmod(urlPath) {
   if (postFileByUrl.has(urlPath)) {
-    return gitLastModified(postFileByUrl.get(urlPath));
+    // A post older than the shallow clone falls back to its publication date.
+    const { file, date } = postFileByUrl.get(urlPath);
+    return gitLastModified(file) || date;
   }
 
   const rule = CONTENT_SOURCE_RULES.find((r) => urlPath.startsWith(r.prefix));

@@ -96,9 +96,10 @@ export default function PaginatedPostsSection({ posts, locale = "de" }: { posts:
                 {
                     filteredPosts
                         .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
-                        .slice(0, (pageIndex + 1) * pageItems)
-                        .map((post) => (
-                            postCard(post)
+                        // Render every post, so its link is in the server HTML for crawlers.
+                        // "Load more" only reveals the cards that are already there.
+                        .map((post, index) => (
+                            postCard(post, index >= (pageIndex + 1) * pageItems)
                         ))
 
                 }
@@ -112,8 +113,9 @@ export default function PaginatedPostsSection({ posts, locale = "de" }: { posts:
     )
 }
 
-function postCard(post: Post) {
-    return <article key={post.slug} className="flex max-w-xl flex-col items-start justify-normal content-start">
+function postCard(post: Post, isCollapsed: boolean) {
+    // The flex utility would override the hidden attribute, so it applies only to visible cards.
+    return <article key={post.slug} hidden={isCollapsed} className={`${isCollapsed ? "" : "flex "}max-w-xl flex-col items-start justify-normal content-start`}>
         <div className="relative w-full mb-4">
             <Link href={post.url} >
                 <Image
