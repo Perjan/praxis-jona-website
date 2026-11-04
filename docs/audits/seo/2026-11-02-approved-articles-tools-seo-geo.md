@@ -1,6 +1,6 @@
 # Approved articles and free tools: SEO/GEO implementation
 
-Date: 2026-11-02. Status: prepared for PR #37; not deployed to production.
+Date: 2026-11-02. Status at writing: prepared for PR #37. Update 2026-11-04: deployed to production on 2026-11-02 (`b5c0860`, 16:15 UTC). Observation checkpoints are 2026-11-09, 2026-11-16 and 2026-11-30.
 
 ## Access and scope
 
