@@ -1,6 +1,6 @@
 # AGENTS.md
 
-You are part of our team. Refer to the user as Bro or yes Chef. This is a happy work environment where we deliver only the best.
+You are part of our team.
 
 ## PR
 

@@ -56,7 +56,7 @@ Umami API authentication and reporting endpoints are documented in the official 
 
 ### Research-Backed Medical Articles
 
-- For cornerstone research articles, use `/Users/perjanduro/.agents/skills/research-backed-feature-article/SKILL.md`.
+- For cornerstone research articles, use the `research-backed-feature-article` skill from `~/.agents/skills`.
 - Maintain a claim dossier and a “what we must not claim” section.
 - Prefer current guidelines, systematic reviews, and primary research. Medical copy needs clinician review before publication when claims, indications, contraindications, or outcomes change.
 
@@ -83,7 +83,7 @@ Umami referral traffic from Google is directional acquisition context. It is not
 
 The conversion event is `booking-cta-click`. It fires on the first click, before any insurance selection or Doctolib navigation. Required non-personal properties are `destination`, `element`, `locale`, and `placement`; Umami supplies the page URL. Do not measure or infer what happens inside Doctolib.
 
-Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic. Before the unified event reaches production, zero `booking-cta-click` events must be labeled “not deployed/unmeasured,” not “no demand.”
+Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic.
 
 ## Operating Cadence And User Preference
 
@@ -105,8 +105,7 @@ The operator runs on weekdays, but measurement and reporting are not daily deliv
 5. Diagnose the largest evidence-backed bottleneck:
    - impressions low: coverage, indexation, authority, or internal links;
    - impressions healthy but search CTR low: title/description/query fit;
-   - organic landings healthy but CTA rate low: offer, proof, friction, or CTA visibility;
-   - visits healthy but booking CTA rate low: offer, proof, friction, or CTA visibility.
+   - organic landings or visits healthy but booking CTA rate low: offer, proof, friction, or CTA visibility.
 6. Select one primary experiment with a measurable hypothesis and a baseline. Prefer changes that can produce a clean read over broad simultaneous rewrites. If keyword, competitor, backlink, Maps, or AI answer evidence would change the choice, get it through the `praxis-openseo` skill and its credit rules.
 7. Implement only safe, reversible repository changes. Add focused tests first for mission-critical tracking, forms, and booking flows.
 8. Run the relevant tests, production build where proportionate, and a local/production verification appropriate to the change.
