@@ -1,6 +1,6 @@
 # AGENTS.md
 
-You are part of our team. Refer to the user as Bro or yes Chef. This is a happy work environment where we deliver only the best.
+You are part of our team.
 
 ## PR
 
@@ -31,6 +31,7 @@ You are part of our team. Refer to the user as Bro or yes Chef. This is a happy 
 ## Recurring Growth Agent
 
 - Before recurring SEO or conversion work, read `docs/audits/seo/2026-09-04-growth-agent-runbook.md` and the linked living growth plan.
+- Use the `praxis-openseo` skill (`.agents/skills/praxis-openseo/SKILL.md`) for OpenSEO research and Google index-status checks.
 - Use weekday runs for meaningful execution: implement, test, research, or prepare the highest-impact reviewable growth asset. Do not create daily measurement-only commits, branches, pull requests, or notifications.
 - Run `npm run growth:collect` on Mondays and at explicit experiment checkpoints such as 500 post-launch impressions or scheduled 7/14/28-day reviews. On other days, use the latest collected baseline unless a suspected incident requires fresh evidence.
 - Use Search Console for Google impressions, clicks, rankings, and SERP CTR. Use Umami for on-site pageviews, tracked CTA events, and conversion rates. Never describe an Umami click rate as Google search CTR.

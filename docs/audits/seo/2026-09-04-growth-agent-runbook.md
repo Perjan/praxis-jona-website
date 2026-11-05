@@ -45,19 +45,18 @@ Umami API authentication and reporting endpoints are documented in the official 
 - Treat rankings as observations, not permanent truth.
 - Never copy competitor prose. Extract topic coverage, information architecture, proof patterns, and search intent.
 
-### OpenSEO Local Research
+### OpenSEO
 
-- Project: `Praxis Jona Growth`.
-- Project ID: `46eeecae-5f54-4af6-87d4-5fd86277360e` (not a credential).
-- Use the shared project context before paid local research and check its research log before repeating a query or grid.
-- Canonical Google business identity: CID `17835413718789694147`, place ID `ChIJJ_OAJXRRqEcRw6KW-kcehPc`, storefront coordinate `52.5298407, 13.4005963`.
+- Workflow: follow the [`praxis-openseo` skill](../../../.agents/skills/praxis-openseo/SKILL.md) for tool choice, credit rules, and write-back.
+- Project: `Praxis Jona`. The project ID, canonical Google business identity, and local grid baseline are in `config/openseo.config.json` (none is a credential).
+- Use the shared project context before paid research and check its research log before repeating a query or grid.
 - Keep Maps observations distinct from organic Search Console rankings. A local rank grid is a point-in-time diagnostic, not a city-wide organic ranking.
 - Store aggregate review/ranking findings only. Do not persist reviewer names, review text, patient details or raw provider responses.
 - Baseline local audit: [2026-09-15 Praxis Jona Local SEO And Citation Audit](./2026-09-15-praxis-jona-local-seo-audit.md).
 
 ### Research-Backed Medical Articles
 
-- For cornerstone research articles, use `/Users/perjanduro/.agents/skills/research-backed-feature-article/SKILL.md`.
+- For cornerstone research articles, use the `research-backed-feature-article` skill from `~/.agents/skills`.
 - Maintain a claim dossier and a “what we must not claim” section.
 - Prefer current guidelines, systematic reviews, and primary research. Medical copy needs clinician review before publication when claims, indications, contraindications, or outcomes change.
 
@@ -66,7 +65,7 @@ Umami API authentication and reporting endpoints are documented in the official 
 - `npm run seo:audit-priority` checks nine DE/EN iron/PRP pairs against the production sitemap, raw SSR and rendered desktop/mobile DOM. It exits nonzero for canonical, hreflang, indexability-directive, metadata, schema-text or overflow findings.
 - `npm run seo:test-priority` runs the offline validator tests; `npm test` includes them. The live audit requires installed Playwright Chromium and is separate from normal tests/builds.
 - The browser blocks telemetry and all non-GET requests before navigation; do not weaken those safeguards or click booking CTAs during this audit.
-- Run after route/metadata/template changes or a suspected incident, not daily. No analytics refresh is needed for the audit. Actual Google index status/selected canonicals require Search Console's read-only indexed-version URL Inspection API (`POST https://searchconsole.googleapis.com/v1/urlInspection/index:inspect`, `inspectionUrl` plus property `siteUrl`); authenticate with the existing in-memory GSC credential, never log or commit tokens or raw responses. This API does not run a live URL test. Validate changed schema templates separately with Google's live Rich Results Test; valid markup does not guarantee display. Manual robots-rule review remains separate.
+- Run after route/metadata/template changes or a suspected incident, not daily. No analytics refresh is needed for the audit. Actual Google index status/selected canonicals come from Search Console's read-only indexed-version URL Inspection data: run `npm run seo:openseo-plan` and pass each batch to OpenSEO `inspect_urls`, which needs no local token. Never log or commit raw responses. This check does not run a live URL test. Validate changed schema templates separately with Google's live Rich Results Test; valid markup does not guarantee display. Manual robots-rule review remains separate.
 - Baseline: [2026-09-29 Priority Indexability Audit](./2026-09-29-priority-indexability-audit.md).
 
 ## Measurement Contract
@@ -84,7 +83,7 @@ Umami referral traffic from Google is directional acquisition context. It is not
 
 The conversion event is `booking-cta-click`. It fires on the first click, before any insurance selection or Doctolib navigation. Required non-personal properties are `destination`, `element`, `locale`, and `placement`; Umami supplies the page URL. Do not measure or infer what happens inside Doctolib.
 
-Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic. Before the unified event reaches production, zero `booking-cta-click` events must be labeled “not deployed/unmeasured,” not “no demand.”
+Legacy events `button-in-header` and `button-in-home-hero` remain in historical reports but are retired for new traffic.
 
 ## Operating Cadence And User Preference
 
@@ -100,15 +99,14 @@ The operator runs on weekdays, but measurement and reporting are not daily deliv
 ## Weekly Self-Improvement Loop
 
 1. Read `AGENTS.md`, this runbook, and the living 31-day plan.
-2. On Mondays and explicit experiment checkpoints, run `npm run growth:collect`. If one source fails, continue with the other and record the limitation. On other weekdays, use the latest collected baseline unless diagnosing a suspected incident.
+2. On Mondays and explicit experiment checkpoints, run `npm run growth:collect`. If one source fails, continue with the other and record the limitation. On other weekdays, use the latest collected baseline unless diagnosing a suspected incident. After a collection, check index status for the batches from `npm run seo:openseo-plan`, which `growth:collect` prints. Use only the repository pipeline for baselines.
 3. At due measurement reviews, compare the latest complete 28 days with the immediately preceding 28 days. Use GSC's two-day lag consistently.
 4. Segment by query cluster, landing page, language, device, and tracked conversion event. Do not optimize from site-wide averages alone.
 5. Diagnose the largest evidence-backed bottleneck:
    - impressions low: coverage, indexation, authority, or internal links;
    - impressions healthy but search CTR low: title/description/query fit;
-   - organic landings healthy but CTA rate low: offer, proof, friction, or CTA visibility;
-   - visits healthy but booking CTA rate low: offer, proof, friction, or CTA visibility.
-6. Select one primary experiment with a measurable hypothesis and a baseline. Prefer changes that can produce a clean read over broad simultaneous rewrites.
+   - organic landings or visits healthy but booking CTA rate low: offer, proof, friction, or CTA visibility.
+6. Select one primary experiment with a measurable hypothesis and a baseline. Prefer changes that can produce a clean read over broad simultaneous rewrites. If keyword, competitor, backlink, Maps, or AI answer evidence would change the choice, get it through the `praxis-openseo` skill and its credit rules.
 7. Implement only safe, reversible repository changes. Add focused tests first for mission-critical tracking, forms, and booking flows.
 8. Run the relevant tests, production build where proportionate, and a local/production verification appropriate to the change.
 9. Record material implementations, pages, expected metrics, observation windows, rollback triggers, weekly/checkpoint results, and reusable learnings in the living plan and GSC implementation history. Skip routine daily no-change entries.
