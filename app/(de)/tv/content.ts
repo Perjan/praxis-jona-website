@@ -8,7 +8,7 @@ import {
   type BotulinumtoxinService,
 } from "app/content/botulinumtoxin";
 
-type SlideKind = "hero" | "service-price" | "service-treatment" | "feature-grid" | "app" | "social" | "review" | "team" | "news";
+type SlideKind = "hero" | "service-price" | "service-treatment" | "feature-grid" | "app" | "social" | "review" | "team" | "news" | "coupon";
 
 type PriceHighlight = {
   label: string;
@@ -53,6 +53,10 @@ export type TVSlide = {
   reviewStars?: number;
   backgroundIcon?: BackgroundIcon;
   newsItems?: string[];
+  couponCode?: string;
+  steps?: string[];
+  note?: string;
+  disclosure?: string;
 };
 
 const locale = "de" as const;
@@ -455,6 +459,22 @@ export const TV_NEW_SLIDES: TVSlide[] = [
     badgeImage: "/tv/assets/appstore-badge.png",
   },
   {
+    id: "sunday-natural",
+    kind: "coupon",
+    image: backgrounds.brand,
+    overlay: "bg-[#FBF6EE]/72",
+    kicker: "Ihr Praxisvorteil",
+    title: "10 % Rabatt bei Sunday Natural",
+    subtitle: "Für Patienten der Praxis Jona: Der Code gilt bei jeder Bestellung.",
+    qrUrl: "https://www.sunday.de/",
+    qrLabel: "Zu Sunday Natural",
+    displayUrl: "sunday.de",
+    couponCode: "TAN47861",
+    steps: ["QR-Code scannen", "Produkte auswählen", "Code an der Kasse eingeben"],
+    note: "Nahrungsergänzungsmittel ersetzen keine ärztliche Behandlung. Fragen Sie uns, was für Sie sinnvoll ist.",
+    disclosure: "Werbung: Die Praxis erhält für Bestellungen mit diesem Code eine kleine Provision.",
+  },
+  {
     id: "instagram",
     kind: "social",
     image: backgrounds.brand,
@@ -712,6 +732,19 @@ export const TV_NEW_SLIDES_EN: TVSlide[] = TV_NEW_SLIDES.map((slide) => {
         qrLabel: "Download app",
         displayUrl: displayUrl(veltoAppEn.downloadLink.website!),
         bullets: veltoAppEn.benefits.slice(0, 4),
+      };
+    case "sunday-natural":
+      return {
+        ...slide,
+        kicker: "Your practice benefit",
+        title: "10% off at Sunday Natural",
+        subtitle: "For Praxis Jona patients: this code works on every order.",
+        qrUrl: "https://www.sunday.de/en/",
+        qrLabel: "Go to Sunday Natural",
+        displayUrl: "sunday.de/en",
+        steps: ["Scan the QR code", "Choose your products", "Enter the code at checkout"],
+        note: "Supplements do not replace medical treatment. Ask us what is right for you.",
+        disclosure: "Advertising: the practice receives a small commission on orders with this code.",
       };
     case "instagram":
       return {
