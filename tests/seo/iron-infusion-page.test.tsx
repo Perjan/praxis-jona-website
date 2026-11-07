@@ -4,7 +4,7 @@ import { getLongevityFaqSchema } from "@/app/components/LongevityMarkdownPage";
 
 describe("German iron infusion search page", () => {
   it("uses the approved cost-intent snippet", () => {
-    expect(metadata.title).toBe("Eiseninfusion Berlin: Kosten ab 150,95 €");
+    expect(metadata.title).toBe("Was kostet eine Eiseninfusion in Berlin? Ab 150,95 €");
     expect(metadata.description).toBe(
       "Eiseninfusion in Berlin-Mitte ab 150,95 € nach GOÄ. Erfahren Sie mehr über Diagnostik, ärztliche Prüfung, Ablauf und Terminbuchung bei Praxis Jona.",
     );
