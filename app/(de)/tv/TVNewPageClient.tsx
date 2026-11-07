@@ -4,6 +4,7 @@ import { CSSProperties, memo, useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TV_NEW_SLIDES, type TVSlide } from './content';
 import {
+  CouponTemplate,
   OverviewNavigationTemplate,
   NewsTemplate,
   ServiceExplainerTemplate,
@@ -50,6 +51,8 @@ const RenderSlide = memo(function RenderSlide({ slide, locale }: { slide: TVSlid
       return <ServiceTreatmentTemplate slide={slide} locale={locale} />;
     case 'news':
       return <NewsTemplate slide={slide} />;
+    case 'coupon':
+      return <CouponTemplate slide={slide} />;
     case 'feature-grid':
       return <OverviewNavigationTemplate slide={slide} />;
     case 'app':
