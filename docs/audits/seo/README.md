@@ -12,6 +12,7 @@ YYYY-MM-DD-short-description.md
 
 | Date | Target | Report |
 |---|---|---|
+| 2026-11-07 | Live third-party sites: 27 German doctor, aesthetic and local directories; no profile was changed | [Directory Listing Plan](./2026-11-07-german-directory-listing-plan.md) |
 | 2026-11-02 | Real GSC/Umami evidence and branch changes for 34 approved articles and six checks | [Articles and Tools SEO/GEO](./2026-11-02-approved-articles-tools-seo-geo.md) |
 | 2026-10-15, recheck | Fresh production crawl and 18 deployed-preview URLs; completed fixes separated from production-release status | [SEO Recheck](./2026-10-15-praxis-jona-seo-recheck.md) · [Coverage CSV](./2026-10-15-praxis-jona-seo-recheck-coverage.csv) |
 | 2026-10-15 | Production: 188 sitemap URLs, eight additional targets, 54 priority snapshots and 11 additional mobile samples; preview changes reported separately | [Full-site SEO Audit](./2026-10-15-praxis-jona-full-site-seo-audit.md) · [Coverage CSV](./2026-10-15-praxis-jona-full-site-seo-audit-coverage.csv) |
